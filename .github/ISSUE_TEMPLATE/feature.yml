@@ -1,0 +1,9 @@
+name: Capability proposal
+description: A bounded improvement to the Grok ecosystem
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Problem, proposed behaviour, acceptance criteria, and dependencies
+    validations:
+      required: true

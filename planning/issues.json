@@ -1,0 +1,274 @@
+[
+  {
+    "id": "HUB-001",
+    "repository": "grok-gadgets",
+    "problem": "Foundation and architecture",
+    "intended_behaviour": "Foundation and architecture",
+    "acceptance": [
+      "Documented commands reproduce observed behaviour",
+      "Evidence identifies actual verification level"
+    ],
+    "dependencies": [],
+    "labels": [
+      "feature",
+      "protocol",
+      "P1"
+    ],
+    "milestone": "M0",
+    "stage": "in progress",
+    "commits": [],
+    "evidence": [],
+    "blocker": null
+  },
+  {
+    "id": "GW-001",
+    "repository": "grok-gadgets-gateway",
+    "problem": "Protocol, gateway, simulator and MCP acceptance",
+    "intended_behaviour": "Protocol, gateway, simulator and MCP acceptance",
+    "acceptance": [
+      "Documented commands reproduce observed behaviour",
+      "Evidence identifies actual verification level"
+    ],
+    "dependencies": [],
+    "labels": [
+      "feature",
+      "gateway",
+      "P1"
+    ],
+    "milestone": "M2",
+    "stage": "in progress",
+    "commits": [],
+    "evidence": [],
+    "blocker": null
+  },
+  {
+    "id": "LIN-001",
+    "repository": "grok-gadgets-linux-sdk",
+    "problem": "Reusable Linux SDK and gateway contract",
+    "intended_behaviour": "Reusable Linux SDK and gateway contract",
+    "acceptance": [
+      "Documented commands reproduce observed behaviour",
+      "Evidence identifies actual verification level"
+    ],
+    "dependencies": [
+      "GW-001"
+    ],
+    "labels": [
+      "feature",
+      "linux",
+      "P1"
+    ],
+    "milestone": "M3",
+    "stage": "in progress",
+    "commits": [],
+    "evidence": [],
+    "blocker": null
+  },
+  {
+    "id": "ESP-001",
+    "repository": "grok-gadgets-esp32-sdk",
+    "problem": "Reusable C124 USB firmware and compilation",
+    "intended_behaviour": "Reusable C124 USB firmware and compilation",
+    "acceptance": [
+      "Documented commands reproduce observed behaviour",
+      "Evidence identifies actual verification level"
+    ],
+    "dependencies": [
+      "GW-001"
+    ],
+    "labels": [
+      "feature",
+      "esp32",
+      "P1"
+    ],
+    "milestone": "M4",
+    "stage": "in progress",
+    "commits": [],
+    "evidence": [],
+    "blocker": null
+  },
+  {
+    "id": "HA-001",
+    "repository": "grok-gadgets-home-assistant",
+    "problem": "Upstream MCP integration and fixtures",
+    "intended_behaviour": "Upstream MCP integration and fixtures",
+    "acceptance": [
+      "Documented commands reproduce observed behaviour",
+      "Evidence identifies actual verification level"
+    ],
+    "dependencies": [],
+    "labels": [
+      "feature",
+      "home-assistant",
+      "P1"
+    ],
+    "milestone": "M6",
+    "stage": "in progress",
+    "commits": [],
+    "evidence": [],
+    "blocker": null
+  },
+  {
+    "id": "WEB-001",
+    "repository": "grok-gadgets",
+    "problem": "Source-driven website and local visual verification",
+    "intended_behaviour": "Source-driven website and local visual verification",
+    "acceptance": [
+      "Documented commands reproduce observed behaviour",
+      "Evidence identifies actual verification level"
+    ],
+    "dependencies": [
+      "HUB-001"
+    ],
+    "labels": [
+      "feature",
+      "website",
+      "P1"
+    ],
+    "milestone": "M7",
+    "stage": "in progress",
+    "commits": [],
+    "evidence": [],
+    "blocker": null
+  },
+  {
+    "id": "COM-001",
+    "repository": "grok-gadgets",
+    "problem": "Community package and tested dry-run recognition",
+    "intended_behaviour": "Community package and tested dry-run recognition",
+    "acceptance": [
+      "Documented commands reproduce observed behaviour",
+      "Evidence identifies actual verification level"
+    ],
+    "dependencies": [],
+    "labels": [
+      "feature",
+      "community",
+      "P1"
+    ],
+    "milestone": "M7",
+    "stage": "in progress",
+    "commits": [],
+    "evidence": [],
+    "blocker": null
+  },
+  {
+    "id": "GROK-001",
+    "repository": "grok-gadgets",
+    "problem": "Actual existing Grok Bot tool execution",
+    "intended_behaviour": "Actual existing Grok Bot tool execution",
+    "acceptance": [
+      "Documented commands reproduce observed behaviour",
+      "Evidence identifies actual verification level"
+    ],
+    "dependencies": [
+      "GW-001"
+    ],
+    "labels": [
+      "feature",
+      "gateway",
+      "P1"
+    ],
+    "milestone": "M5",
+    "stage": "blocked",
+    "commits": [],
+    "evidence": [],
+    "blocker": "Grok account access and approved reachable authenticated route"
+  },
+  {
+    "id": "HW-001",
+    "repository": "grok-gadgets-esp32-sdk",
+    "problem": "Physical LED/button/recovery verification",
+    "intended_behaviour": "Physical LED/button/recovery verification",
+    "acceptance": [
+      "Documented commands reproduce observed behaviour",
+      "Evidence identifies actual verification level"
+    ],
+    "dependencies": [
+      "ESP-001"
+    ],
+    "labels": [
+      "feature",
+      "esp32",
+      "P1",
+      "needs hardware"
+    ],
+    "milestone": "M8",
+    "stage": "blocked",
+    "commits": [],
+    "evidence": [],
+    "blocker": "C124 hardware unavailable"
+  },
+  {
+    "id": "LIN-002",
+    "repository": "grok-gadgets-linux-sdk",
+    "problem": "Real Linux execution",
+    "intended_behaviour": "Real Linux execution",
+    "acceptance": [
+      "Documented commands reproduce observed behaviour",
+      "Evidence identifies actual verification level"
+    ],
+    "dependencies": [
+      "LIN-001"
+    ],
+    "labels": [
+      "feature",
+      "linux",
+      "P1"
+    ],
+    "milestone": "M3",
+    "stage": "blocked",
+    "commits": [],
+    "evidence": [],
+    "blocker": "Linux runtime not yet available"
+  },
+  {
+    "id": "PUB-001",
+    "repository": "grok-gadgets",
+    "problem": "Publication package and external activation",
+    "intended_behaviour": "Publication package and external activation",
+    "acceptance": [
+      "Documented commands reproduce observed behaviour",
+      "Evidence identifies actual verification level"
+    ],
+    "dependencies": [
+      "WEB-001",
+      "COM-001"
+    ],
+    "labels": [
+      "feature",
+      "docs",
+      "P1"
+    ],
+    "milestone": "M9",
+    "stage": "in progress",
+    "commits": [],
+    "evidence": [],
+    "blocker": null
+  },
+  {
+    "id": "REP-001",
+    "repository": "grok-gadgets",
+    "problem": "Independent installation by second tester",
+    "intended_behaviour": "Independent installation by second tester",
+    "acceptance": [
+      "Documented commands reproduce observed behaviour",
+      "Evidence identifies actual verification level"
+    ],
+    "dependencies": [
+      "GW-001",
+      "LIN-001",
+      "ESP-001"
+    ],
+    "labels": [
+      "feature",
+      "docs",
+      "P1"
+    ],
+    "milestone": "M8",
+    "stage": "blocked",
+    "commits": [],
+    "evidence": [],
+    "blocker": "Second tester unavailable"
+  }
+]

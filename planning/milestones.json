@@ -1,0 +1,52 @@
+[
+  {
+    "id": "M0",
+    "title": "Foundations",
+    "stage": "in progress"
+  },
+  {
+    "id": "M1",
+    "title": "Feasibility and protocol",
+    "stage": "in progress"
+  },
+  {
+    "id": "M2",
+    "title": "Gateway and simulator",
+    "stage": "in progress"
+  },
+  {
+    "id": "M3",
+    "title": "Linux SDK",
+    "stage": "in progress"
+  },
+  {
+    "id": "M4",
+    "title": "ESP32 SDK",
+    "stage": "in progress"
+  },
+  {
+    "id": "M5",
+    "title": "Actual Grok",
+    "stage": "blocked"
+  },
+  {
+    "id": "M6",
+    "title": "Home Assistant",
+    "stage": "in progress"
+  },
+  {
+    "id": "M7",
+    "title": "Website and community",
+    "stage": "in progress"
+  },
+  {
+    "id": "M8",
+    "title": "Physical and independent verification",
+    "stage": "blocked"
+  },
+  {
+    "id": "M9",
+    "title": "Publication preparation",
+    "stage": "in progress"
+  }
+]
