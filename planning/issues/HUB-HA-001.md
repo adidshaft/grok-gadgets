@@ -1,0 +1,24 @@
+# HUB-HA-001 — Upstream MCP integration and fixtures
+
+Owner: grok-gadgets
+
+Stage: done · M6
+
+Labels: feature, home-assistant, P1
+
+Intended behaviour: Upstream MCP integration and fixtures
+
+Acceptance:
+
+- Documented commands reproduce observed behaviour
+- Evidence identifies actual verification level
+
+Dependencies: None
+
+Commits: a8b2370
+
+Evidence:
+
+- 13 tests and clean wheel; upstream reuse; actual HA/Grok pending
+
+Blocker: None

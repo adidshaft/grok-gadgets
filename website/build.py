@@ -1,14 +1,33 @@
 """Static, escaped, source-driven documentation and roadmap builder."""
 from pathlib import Path
 from html import escape as e
-import json, shutil, re
+import json, shutil, re, os
 R=Path(__file__).resolve().parents[1]
 OUT=R/'website/dist'
 OUT.mkdir(parents=True,exist_ok=True)
 issues=json.loads((R/'planning/issues.json').read_text())
+# Input path is a build-time option, never a browser token or runtime fetch.
+activity_path=os.environ.get('GROK_ACTIVITY_FILE')
+activity=json.loads(Path(activity_path).read_text()) if activity_path else {'state':'unavailable','reason':'Public repositories have not been created'}
+if activity.get('state') not in ['fixture','unavailable','cached','live']:raise ValueError('Unknown activity state')
+def activity_html(record):
+    state=record['state']
+    body='<p class="status">'+e(state.upper())+' — '+e(record.get('reason','GitHub project activity'))+'</p>'
+    if state=='unavailable':return body
+    body+='<p>Last successful refresh: '+e(record.get('last_successful_refresh','Not a live refresh; fixture'))+'</p>'
+    data=record.get('data',{})
+    for key,label in [('aggregate_stars','Aggregate stars (sum, not unique people)'),('open_issues','Open issues, excluding PRs'),('contributors','Deduplicated contributors'),('active_contributors','Active contributors, eligible merged PR in last 90 days')]:
+        value=data.get(key)
+        if not isinstance(value,int) or isinstance(value,bool) or value<0:raise ValueError('Invalid activity count')
+        body+='<p>'+label+': '+str(value)+'</p>'
+    for release in data.get('releases',[]):
+        body+='<p>'+e(release['repository'])+' · '+e(release['name'])+' · '+e(release['date'])+'</p>'
+    if state=='fixture':body+='<p>Synthetic development fixture. These numbers are not real project activity.</p>'
+    if state=='cached':body+='<p>Refresh failed. Timestamped cached result; not current live activity.</p>'
+    return body
 nav='<a href="index.html">Grok Gadgets</a><nav><a href="start.html">Start here</a><a href="architecture.html">Architecture</a><a href="roadmap.html">Roadmap</a><a href="community.html">Community</a><a href="docs.html">Docs</a></nav>'
 def page(name,title,body):
-    (OUT/name).write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Independent open source gadgets exclusively for Grok. Honest local alpha documentation."><title>'+e(title)+' · Grok Gadgets</title><link rel="stylesheet" href="style.css"></head><body><a class="skip" href="#main">Skip to content</a><header>'+nav+'</header><main id="main">'+body+'</main><footer><span>Independent. Open source. Exclusively Grok.</span><a href="releases.html">Local release candidate</a><span>Apache-2.0 · 2026</span></footer><script src="motion.js" defer></script></body></html>')
+    (OUT/name).write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Independent open source gadgets exclusively for Grok. Honest local alpha documentation."><title>'+e(title)+' · Grok Gadgets</title><link rel="stylesheet" href="style.css"></head><body><a class="skip" href="#main">Skip to content</a><header>'+nav+'</header><main id="main">'+body+'</main><footer><span>Independent. Open source. Exclusively Grok.</span><a href="releases.html">Local release candidate</a><span>Apache-2.0 · 2026</span><button id="motion-toggle" aria-pressed="false">Reduce motion</button></footer><script src="motion.js" defer></script></body></html>')
 def intro(k,title,desc):return '<p class="eyebrow">'+k+'</p><h1>'+title+'</h1><p class="lede">'+desc+'</p>'
 board='''<div class="apparatus" aria-label="Diagram of the target AtomS3 Lite, simulation only"><div class="orbit"></div><div class="wire wire-a"></div><div class="wire wire-b"></div><div class="board"><span class="led"></span><span class="chip">C124<br>ESP32-S3</span><span class="button"></span><span class="usb">USB</span></div><span class="callout top">01 / RGB output</span><span class="callout bottom">02 / Button input</span><p class="diagram-label">ATOM S3 LITE · TARGET HARDWARE<br>SOFTWARE SIMULATION FIRST</p></div>'''
 page('index.html','Home','''<section class="hero"><div>'''+intro('LOCAL ALPHA / 0.1','Give Grok<br>a physical world.','An open source toolkit for connecting devices, reading their state, and operating their capabilities through your existing Grok Bot.')+'''<a class="cta" href="start.html">Explore the local alpha <span>↗</span></a><p class="fine">Simulation available as local components complete.<br>Real Grok connectivity and physical hardware tests remain pending.</p></div>'''+board+'''</section><section class="statement"><p class="eyebrow">ONE ECOSYSTEM. FIVE REPOSITORIES.</p><h2>Build small.<br>Connect thoughtfully.</h2><p>For makers with an ESP32, developers on Linux, and homes already running Home Assistant. Self-hosted software with a clear boundary between a requested action and an observed result.</p></section><section class="paths"><a href="esp32.html"><span>01 / Makers</span><h3>ESP32</h3><p>AtomS3 Lite C124. USB first, LED and button. Compilation evidence stays separate from hardware verification.</p><b>Firmware & hardware ↗</b></a><a href="linux.html"><span>02 / Developers</span><h3>Linux</h3><p>Declare capabilities, handle commands, report state. A separately installable SDK for your own device application.</p><b>SDK & examples ↗</b></a><a href="home-assistant.html"><span>03 / Existing homes</span><h3>Home Assistant</h3><p>Reuse upstream MCP and exposed Assist entities. Preserve the controls your household already uses.</p><b>Integration recipe ↗</b></a></section><section>'''+intro('EVIDENCE, NOT PROMISES','Know what passed.','Simulated · Build verified · Grok verified · Hardware verified · Independently reproduced. Each describes a different observation.').replace('<h1>','<h2>').replace('</h1>','</h2>')+'''<a href="roadmap.html">See the current roadmap ↗</a></section>''')
@@ -20,7 +39,7 @@ page('architecture.html','Architecture',intro('SYSTEM / PROTOCOL 0.1.0','A comma
 rows=''.join('<article class="issue"><span>'+e(i['id'])+' / '+e(i['milestone'])+'</span><h3>'+e(i['problem'])+'</h3><p class="status">'+e(i['stage'])+'</p><p>'+e(i.get('blocker') or ' · '.join(i['labels']))+'</p></article>' for i in issues)
 page('roadmap.html','Roadmap',intro('SOURCE-DRIVEN / LOCAL ISSUE LEDGER','Work in the open.<br>Publish when ready.','Rendered from planning/issues.json. Local records become GitHub issues only after publication approval.')+'<div class="issue-list">'+rows+'</div>')
 page('community.html','Community',intro('COMMUNITY / PREPARATION','Make room<br>for the next maker.','Technical records belong in GitHub once published. Community conversation can point to those canonical sources.')+'''<p><a href="https://www.reddit.com/r/GrokGadgets/">r/GrokGadgets ↗</a> is the intended community. No live settings or posts have been changed.</p><h2>Contribution recognition</h2><p>Opt in, prove ownership of both accounts, and verify an eligible merged contribution. Documentation and tests count. Matching usernames never establish identity. Local dry-run decisions do not award live flair.</p><h2>Community standards</h2><p>Be respectful, label verification honestly, protect household privacy, and share reproducible steps. Private reporting contacts and public repository destinations remain publication gates.</p>''')
-page('releases.html','Releases',intro('RELEASE / LOCAL CANDIDATE','0.1.0-alpha.1','An unpublished local alpha candidate. Component versions and exact commits are recorded in compatibility/tested-components.json.')+'''<p>Gateway simulation, SDK contracts, firmware compilation, Home Assistant fixture compatibility, and community dry-run logic have separate evidence records. Consult the final local handoff before relying on any component.</p><p>Public release assets, repository owner, GitHub protections, website deployment, and Reddit changes require separate approval. Physical support and Grok desktop/mobile support remain unverified.</p><h2>Project activity</h2><p class="status">Unavailable — public repositories have not been created.</p><p>No fabricated stars, contributors, or issue counts are displayed as live activity. A bounded server-side data refresh adapter is prepared for later approved publication.</p>''')
+page('releases.html','Releases',intro('RELEASE / LOCAL CANDIDATE','0.1.0-alpha.1','An unpublished local alpha candidate. Component versions and exact commits are recorded in compatibility/tested-components.json.')+'''<p>Gateway simulation, SDK contracts, firmware compilation, Home Assistant fixture compatibility, and community dry-run logic have separate evidence records. Consult the final local handoff before relying on any component.</p><p>Public release assets, repository owner, GitHub protections, website deployment, and Reddit changes require separate approval. Physical support and Grok desktop/mobile support remain unverified.</p><h2>Project activity</h2><p><a href="activity.html">View activity data state ↗</a></p><p class="status">Unavailable — public repositories have not been created.</p><p>No fabricated stars, contributors, or issue counts are displayed as live activity. A bounded server-side data refresh adapter is prepared for later approved publication.</p>''')
 # Canonical documents become safely escaped text pages, with preserved headings/content.
 for src in [R/'CONTRIBUTING.md',R/'CODE_OF_CONDUCT.md',R/'SECURITY.md',*sorted((R/'docs').rglob('*.md')),*sorted((R/'community').rglob('*.md'))]:
     name='doc-'+str(src.relative_to(R)).replace('/','-').replace('.md','.html')
@@ -28,6 +47,9 @@ for src in [R/'CONTRIBUTING.md',R/'CODE_OF_CONDUCT.md',R/'SECURITY.md',*sorted((
 links=''.join('<li><a href="'+f.name+'">'+e(f.stem.removeprefix('doc-'))+'</a></li>' for f in sorted(OUT.glob('doc-*.html')))
 page('docs.html','Documentation',intro('REFERENCE / LOCAL SOURCES','Read the source.','Documentation is generated from canonical hub files, with component instructions remaining in their own repositories.')+'<ul>'+links+'</ul>')
 for f in ['style.css','motion.js']:shutil.copy(R/'website'/f,OUT/f)
+
+page('activity.html','Project activity',intro('PROJECT / DATA STATE','Activity with context.','Source records are fetched only by a separately approved server-side job; frontend assets never contain access tokens.')+activity_html(activity))
+
 # Validate local links and ensure generated assets are static.
 from html.parser import HTMLParser
 class Links(HTMLParser):
