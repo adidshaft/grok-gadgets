@@ -15,14 +15,18 @@
       "P1"
     ],
     "milestone": "M0",
-    "stage": "in progress",
-    "commits": [],
-    "evidence": [],
+    "stage": "done",
+    "commits": [
+      "9c6d5c0"
+    ],
+    "evidence": [
+      "Foundation check and architecture documents"
+    ],
     "blocker": null
   },
   {
-    "id": "GW-001",
-    "repository": "grok-gadgets-gateway",
+    "id": "HUB-GW-001",
+    "repository": "grok-gadgets",
     "problem": "Protocol, gateway, simulator and MCP acceptance",
     "intended_behaviour": "Protocol, gateway, simulator and MCP acceptance",
     "acceptance": [
@@ -36,14 +40,19 @@
       "P1"
     ],
     "milestone": "M2",
-    "stage": "in progress",
-    "commits": [],
-    "evidence": [],
-    "blocker": null
+    "stage": "done",
+    "commits": [
+      "4cf42ff"
+    ],
+    "evidence": [
+      "13 tests, official MCP subprocess/demo, TCP and PTY tests; actual Grok/hardware pending"
+    ],
+    "blocker": null,
+    "component_repository": "grok-gadgets-gateway"
   },
   {
-    "id": "LIN-001",
-    "repository": "grok-gadgets-linux-sdk",
+    "id": "HUB-LIN-001",
+    "repository": "grok-gadgets",
     "problem": "Reusable Linux SDK and gateway contract",
     "intended_behaviour": "Reusable Linux SDK and gateway contract",
     "acceptance": [
@@ -51,7 +60,7 @@
       "Evidence identifies actual verification level"
     ],
     "dependencies": [
-      "GW-001"
+      "HUB-GW-001"
     ],
     "labels": [
       "feature",
@@ -59,14 +68,19 @@
       "P1"
     ],
     "milestone": "M3",
-    "stage": "in progress",
-    "commits": [],
-    "evidence": [],
-    "blocker": null
+    "stage": "done",
+    "commits": [
+      "256a07e"
+    ],
+    "evidence": [
+      "15 tests including gateway TCP, installed CLI and Linux container"
+    ],
+    "blocker": null,
+    "component_repository": "grok-gadgets-linux-sdk"
   },
   {
-    "id": "ESP-001",
-    "repository": "grok-gadgets-esp32-sdk",
+    "id": "HUB-ESP-001",
+    "repository": "grok-gadgets",
     "problem": "Reusable C124 USB firmware and compilation",
     "intended_behaviour": "Reusable C124 USB firmware and compilation",
     "acceptance": [
@@ -74,7 +88,7 @@
       "Evidence identifies actual verification level"
     ],
     "dependencies": [
-      "GW-001"
+      "HUB-GW-001"
     ],
     "labels": [
       "feature",
@@ -82,14 +96,19 @@
       "P1"
     ],
     "milestone": "M4",
-    "stage": "in progress",
-    "commits": [],
-    "evidence": [],
-    "blocker": null
+    "stage": "review",
+    "commits": [
+      "fadcf25"
+    ],
+    "evidence": [
+      "Firmware compiled,3 CTest checks, actual consumer PTY; independent review overflow fix underway"
+    ],
+    "blocker": null,
+    "component_repository": "grok-gadgets-esp32-sdk"
   },
   {
-    "id": "HA-001",
-    "repository": "grok-gadgets-home-assistant",
+    "id": "HUB-HA-001",
+    "repository": "grok-gadgets",
     "problem": "Upstream MCP integration and fixtures",
     "intended_behaviour": "Upstream MCP integration and fixtures",
     "acceptance": [
@@ -103,13 +122,18 @@
       "P1"
     ],
     "milestone": "M6",
-    "stage": "in progress",
-    "commits": [],
-    "evidence": [],
-    "blocker": null
+    "stage": "done",
+    "commits": [
+      "a8b2370"
+    ],
+    "evidence": [
+      "13 tests and clean wheel; upstream reuse; actual HA/Grok pending"
+    ],
+    "blocker": null,
+    "component_repository": "grok-gadgets-home-assistant"
   },
   {
-    "id": "WEB-001",
+    "id": "HUB-WEB-001",
     "repository": "grok-gadgets",
     "problem": "Source-driven website and local visual verification",
     "intended_behaviour": "Source-driven website and local visual verification",
@@ -126,13 +150,19 @@
       "P1"
     ],
     "milestone": "M7",
-    "stage": "in progress",
-    "commits": [],
-    "evidence": [],
+    "stage": "done",
+    "commits": [
+      "7c76969",
+      "48cadc5"
+    ],
+    "evidence": [
+      "27-page static build/link checks",
+      "3 activity tests, fixture escape check, desktop/mobile visual check, keyboard/reduced-motion browser checks"
+    ],
     "blocker": null
   },
   {
-    "id": "COM-001",
+    "id": "HUB-COM-001",
     "repository": "grok-gadgets",
     "problem": "Community package and tested dry-run recognition",
     "intended_behaviour": "Community package and tested dry-run recognition",
@@ -147,13 +177,17 @@
       "P1"
     ],
     "milestone": "M7",
-    "stage": "in progress",
-    "commits": [],
-    "evidence": [],
+    "stage": "done",
+    "commits": [
+      "9d9b75c"
+    ],
+    "evidence": [
+      "6 offline recognition tests; source policies/drafts; no live API"
+    ],
     "blocker": null
   },
   {
-    "id": "GROK-001",
+    "id": "HUB-GROK-001",
     "repository": "grok-gadgets",
     "problem": "Actual existing Grok Bot tool execution",
     "intended_behaviour": "Actual existing Grok Bot tool execution",
@@ -162,7 +196,7 @@
       "Evidence identifies actual verification level"
     ],
     "dependencies": [
-      "GW-001"
+      "HUB-GW-001"
     ],
     "labels": [
       "feature",
@@ -176,8 +210,8 @@
     "blocker": "Grok account access and approved reachable authenticated route"
   },
   {
-    "id": "HW-001",
-    "repository": "grok-gadgets-esp32-sdk",
+    "id": "HUB-HW-001",
+    "repository": "grok-gadgets",
     "problem": "Physical LED/button/recovery verification",
     "intended_behaviour": "Physical LED/button/recovery verification",
     "acceptance": [
@@ -185,7 +219,7 @@
       "Evidence identifies actual verification level"
     ],
     "dependencies": [
-      "ESP-001"
+      "HUB-ESP-001"
     ],
     "labels": [
       "feature",
@@ -197,11 +231,12 @@
     "stage": "blocked",
     "commits": [],
     "evidence": [],
-    "blocker": "C124 hardware unavailable"
+    "blocker": "C124 hardware unavailable",
+    "component_repository": "grok-gadgets-esp32-sdk"
   },
   {
-    "id": "LIN-002",
-    "repository": "grok-gadgets-linux-sdk",
+    "id": "HUB-LIN-002",
+    "repository": "grok-gadgets",
     "problem": "Real Linux execution",
     "intended_behaviour": "Real Linux execution",
     "acceptance": [
@@ -209,7 +244,7 @@
       "Evidence identifies actual verification level"
     ],
     "dependencies": [
-      "LIN-001"
+      "HUB-LIN-001"
     ],
     "labels": [
       "feature",
@@ -217,13 +252,18 @@
       "P1"
     ],
     "milestone": "M3",
-    "stage": "blocked",
-    "commits": [],
-    "evidence": [],
-    "blocker": "Linux runtime not yet available"
+    "stage": "done",
+    "commits": [
+      "256a07e"
+    ],
+    "evidence": [
+      "Linux aarch64 Docker kernel6.10.14 CPython3.11.17 pinned image; systemd/physical pending"
+    ],
+    "blocker": null,
+    "component_repository": "grok-gadgets-linux-sdk"
   },
   {
-    "id": "PUB-001",
+    "id": "HUB-PUB-001",
     "repository": "grok-gadgets",
     "problem": "Publication package and external activation",
     "intended_behaviour": "Publication package and external activation",
@@ -232,8 +272,8 @@
       "Evidence identifies actual verification level"
     ],
     "dependencies": [
-      "WEB-001",
-      "COM-001"
+      "HUB-WEB-001",
+      "HUB-COM-001"
     ],
     "labels": [
       "feature",
@@ -247,7 +287,7 @@
     "blocker": null
   },
   {
-    "id": "REP-001",
+    "id": "HUB-REP-001",
     "repository": "grok-gadgets",
     "problem": "Independent installation by second tester",
     "intended_behaviour": "Independent installation by second tester",
@@ -256,9 +296,9 @@
       "Evidence identifies actual verification level"
     ],
     "dependencies": [
-      "GW-001",
-      "LIN-001",
-      "ESP-001"
+      "HUB-GW-001",
+      "HUB-LIN-001",
+      "HUB-ESP-001"
     ],
     "labels": [
       "feature",
@@ -270,5 +310,51 @@
     "commits": [],
     "evidence": [],
     "blocker": "Second tester unavailable"
+  },
+  {
+    "id": "HUB-SERVICE-001",
+    "repository": "grok-gadgets",
+    "problem": "Verify systemd service lifecycle on real Linux host",
+    "intended_behaviour": "Start/stop/restart service reliably",
+    "acceptance": [
+      "Real systemd host installation/lifecycle observed"
+    ],
+    "dependencies": [
+      "HUB-LIN-001"
+    ],
+    "labels": [
+      "linux",
+      "P2",
+      "help wanted"
+    ],
+    "milestone": "M3",
+    "stage": "blocked",
+    "commits": [],
+    "evidence": [],
+    "blocker": "Container is not a systemd target host",
+    "component_repository": "grok-gadgets-linux-sdk"
+  },
+  {
+    "id": "HUB-PUBLISH-001",
+    "repository": "grok-gadgets",
+    "problem": "Activate approved public repositories/releases/site",
+    "intended_behaviour": "Publish exact reviewed snapshots after authorization",
+    "acceptance": [
+      "Explicit approval and owner",
+      "Post-publication remotes/checks/links verified"
+    ],
+    "dependencies": [
+      "HUB-PUB-001"
+    ],
+    "labels": [
+      "maintenance",
+      "website",
+      "P1"
+    ],
+    "milestone": "M9",
+    "stage": "blocked",
+    "commits": [],
+    "evidence": [],
+    "blocker": "Separate public creation/push/deployment/release approval required"
   }
 ]

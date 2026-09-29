@@ -1,0 +1,17 @@
+{
+  "state": "fixture",
+  "reason": "Synthetic local fixture",
+  "data": {
+    "aggregate_stars": 7,
+    "open_issues": 4,
+    "contributors": 2,
+    "active_contributors": 1,
+    "releases": [
+      {
+        "repository": "fixture-repo",
+        "name": "<script>alert(1)</script>",
+        "date": "synthetic date"
+      }
+    ]
+  }
+}
