@@ -2,7 +2,7 @@
 
 Owner: grok-gadgets
 
-Stage: in progress · M9
+Stage: done · M9
 
 Labels: feature, docs, P1
 
@@ -19,5 +19,8 @@ Commits: Pending
 
 Evidence:
 
+- Inactive protection/labels/issue migration/releases/deployment package
+- License notices and redacted tracked-files secret heuristic scan
+- Final compatibility/evidence manifest; live publication separately blocked
 
 Blocker: None

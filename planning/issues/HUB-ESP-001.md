@@ -2,7 +2,7 @@
 
 Owner: grok-gadgets
 
-Stage: review · M4
+Stage: done · M4
 
 Labels: feature, esp32, P1
 
@@ -15,10 +15,12 @@ Acceptance:
 
 Dependencies: HUB-GW-001
 
-Commits: fadcf25
+Commits: 585adda, 74085a9
 
 Evidence:
 
-- Firmware compiled,3 CTest checks, actual consumer PTY; independent review overflow fix underway
+- 3 CTest and canonical frame tests
+- Firmware compiled RAM54628 flash276113; binary276480 bytes
+- Actual consumer PTY overflow/restart/revocation tests; independent review regression rerun passed
 
 Blocker: None
