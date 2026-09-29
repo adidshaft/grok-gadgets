@@ -1,0 +1,13 @@
+name: Bug report
+description: Reproducible failure without private data
+body:
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Versions, expected behaviour, observed result, and reproduction
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Redacted evidence and verification level
