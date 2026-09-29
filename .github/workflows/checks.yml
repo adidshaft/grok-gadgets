@@ -14,3 +14,6 @@ jobs:
       - run: python -m unittest discover -s community/tests
       - run: python -m unittest discover -s website -p 'test_*.py'
       - run: python website/build.py
+      - run: pip install ruff==0.14.14
+      - run: ruff check scripts website community
+      - run: ruff format --check scripts website community
