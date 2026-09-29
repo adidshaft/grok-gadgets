@@ -1,0 +1,74 @@
+[
+  {
+    "name": "bug",
+    "color": "537A5A"
+  },
+  {
+    "name": "feature",
+    "color": "537A5A"
+  },
+  {
+    "name": "docs",
+    "color": "537A5A"
+  },
+  {
+    "name": "research",
+    "color": "537A5A"
+  },
+  {
+    "name": "maintenance",
+    "color": "537A5A"
+  },
+  {
+    "name": "protocol",
+    "color": "7B8CDE"
+  },
+  {
+    "name": "gateway",
+    "color": "7B8CDE"
+  },
+  {
+    "name": "linux",
+    "color": "7B8CDE"
+  },
+  {
+    "name": "esp32",
+    "color": "7B8CDE"
+  },
+  {
+    "name": "home-assistant",
+    "color": "7B8CDE"
+  },
+  {
+    "name": "website",
+    "color": "7B8CDE"
+  },
+  {
+    "name": "community",
+    "color": "7B8CDE"
+  },
+  {
+    "name": "P0",
+    "color": "B86E56"
+  },
+  {
+    "name": "P1",
+    "color": "B86E56"
+  },
+  {
+    "name": "P2",
+    "color": "B86E56"
+  },
+  {
+    "name": "good first issue",
+    "color": "C6AC45"
+  },
+  {
+    "name": "help wanted",
+    "color": "C6AC45"
+  },
+  {
+    "name": "needs hardware",
+    "color": "C6AC45"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "active": false,
+  "branch": "main",
+  "pull_requests": true,
+  "required_checks": [
+    "checks"
+  ],
+  "strict_checks": true,
+  "resolve_conversations": true,
+  "allow_force_push": false,
+  "allow_deletion": false,
+  "required_approvals": 0,
+  "reason": "Sole-maintainer launch; increase human approvals when an actual second maintainer exists"
+}

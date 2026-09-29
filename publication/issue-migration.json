@@ -1,0 +1,708 @@
+{
+  "activated": false,
+  "owner": null,
+  "records": [
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-001",
+      "github_number": null,
+      "stage": "in progress",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-001",
+        "repository": "grok-gadgets",
+        "problem": "Foundation and architecture",
+        "intended_behaviour": "Foundation and architecture",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [],
+        "labels": [
+          "feature",
+          "protocol",
+          "P1"
+        ],
+        "milestone": "M0",
+        "stage": "in progress",
+        "commits": [],
+        "evidence": [],
+        "blocker": null
+      }
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "GW-001",
+      "github_number": null,
+      "stage": "in progress",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "GW-001",
+        "repository": "grok-gadgets-gateway",
+        "problem": "Protocol, gateway, simulator and MCP acceptance",
+        "intended_behaviour": "Protocol, gateway, simulator and MCP acceptance",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [],
+        "labels": [
+          "feature",
+          "gateway",
+          "P1"
+        ],
+        "milestone": "M2",
+        "stage": "in progress",
+        "commits": [],
+        "evidence": [],
+        "blocker": null
+      }
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "LIN-001",
+      "github_number": null,
+      "stage": "in progress",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "LIN-001",
+        "repository": "grok-gadgets-linux-sdk",
+        "problem": "Reusable Linux SDK and gateway contract",
+        "intended_behaviour": "Reusable Linux SDK and gateway contract",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [
+          "GW-001"
+        ],
+        "labels": [
+          "feature",
+          "linux",
+          "P1"
+        ],
+        "milestone": "M3",
+        "stage": "in progress",
+        "commits": [],
+        "evidence": [],
+        "blocker": null
+      }
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "ESP-001",
+      "github_number": null,
+      "stage": "in progress",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "ESP-001",
+        "repository": "grok-gadgets-esp32-sdk",
+        "problem": "Reusable C124 USB firmware and compilation",
+        "intended_behaviour": "Reusable C124 USB firmware and compilation",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [
+          "GW-001"
+        ],
+        "labels": [
+          "feature",
+          "esp32",
+          "P1"
+        ],
+        "milestone": "M4",
+        "stage": "in progress",
+        "commits": [],
+        "evidence": [],
+        "blocker": null
+      }
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HA-001",
+      "github_number": null,
+      "stage": "in progress",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HA-001",
+        "repository": "grok-gadgets-home-assistant",
+        "problem": "Upstream MCP integration and fixtures",
+        "intended_behaviour": "Upstream MCP integration and fixtures",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [],
+        "labels": [
+          "feature",
+          "home-assistant",
+          "P1"
+        ],
+        "milestone": "M6",
+        "stage": "in progress",
+        "commits": [],
+        "evidence": [],
+        "blocker": null
+      }
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "WEB-001",
+      "github_number": null,
+      "stage": "in progress",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "WEB-001",
+        "repository": "grok-gadgets",
+        "problem": "Source-driven website and local visual verification",
+        "intended_behaviour": "Source-driven website and local visual verification",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [
+          "HUB-001"
+        ],
+        "labels": [
+          "feature",
+          "website",
+          "P1"
+        ],
+        "milestone": "M7",
+        "stage": "in progress",
+        "commits": [],
+        "evidence": [],
+        "blocker": null
+      }
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "COM-001",
+      "github_number": null,
+      "stage": "in progress",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "COM-001",
+        "repository": "grok-gadgets",
+        "problem": "Community package and tested dry-run recognition",
+        "intended_behaviour": "Community package and tested dry-run recognition",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [],
+        "labels": [
+          "feature",
+          "community",
+          "P1"
+        ],
+        "milestone": "M7",
+        "stage": "in progress",
+        "commits": [],
+        "evidence": [],
+        "blocker": null
+      }
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "GROK-001",
+      "github_number": null,
+      "stage": "blocked",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "GROK-001",
+        "repository": "grok-gadgets",
+        "problem": "Actual existing Grok Bot tool execution",
+        "intended_behaviour": "Actual existing Grok Bot tool execution",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [
+          "GW-001"
+        ],
+        "labels": [
+          "feature",
+          "gateway",
+          "P1"
+        ],
+        "milestone": "M5",
+        "stage": "blocked",
+        "commits": [],
+        "evidence": [],
+        "blocker": "Grok account access and approved reachable authenticated route"
+      }
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HW-001",
+      "github_number": null,
+      "stage": "blocked",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HW-001",
+        "repository": "grok-gadgets-esp32-sdk",
+        "problem": "Physical LED/button/recovery verification",
+        "intended_behaviour": "Physical LED/button/recovery verification",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [
+          "ESP-001"
+        ],
+        "labels": [
+          "feature",
+          "esp32",
+          "P1",
+          "needs hardware"
+        ],
+        "milestone": "M8",
+        "stage": "blocked",
+        "commits": [],
+        "evidence": [],
+        "blocker": "C124 hardware unavailable"
+      }
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "LIN-002",
+      "github_number": null,
+      "stage": "blocked",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "LIN-002",
+        "repository": "grok-gadgets-linux-sdk",
+        "problem": "Real Linux execution",
+        "intended_behaviour": "Real Linux execution",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [
+          "LIN-001"
+        ],
+        "labels": [
+          "feature",
+          "linux",
+          "P1"
+        ],
+        "milestone": "M3",
+        "stage": "blocked",
+        "commits": [],
+        "evidence": [],
+        "blocker": "Linux runtime not yet available"
+      }
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "PUB-001",
+      "github_number": null,
+      "stage": "in progress",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "PUB-001",
+        "repository": "grok-gadgets",
+        "problem": "Publication package and external activation",
+        "intended_behaviour": "Publication package and external activation",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [
+          "WEB-001",
+          "COM-001"
+        ],
+        "labels": [
+          "feature",
+          "docs",
+          "P1"
+        ],
+        "milestone": "M9",
+        "stage": "in progress",
+        "commits": [],
+        "evidence": [],
+        "blocker": null
+      }
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "REP-001",
+      "github_number": null,
+      "stage": "blocked",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "REP-001",
+        "repository": "grok-gadgets",
+        "problem": "Independent installation by second tester",
+        "intended_behaviour": "Independent installation by second tester",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [
+          "GW-001",
+          "LIN-001",
+          "ESP-001"
+        ],
+        "labels": [
+          "feature",
+          "docs",
+          "P1"
+        ],
+        "milestone": "M8",
+        "stage": "blocked",
+        "commits": [],
+        "evidence": [],
+        "blocker": "Second tester unavailable"
+      }
+    },
+    {
+      "repository": "grok-gadgets-gateway",
+      "local_id": "GW-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-gateway/planning/issues.json",
+      "record": {
+        "id": "GW-001",
+        "owner": "grok-gadgets-gateway",
+        "problem": "Contribution-ready local foundation",
+        "acceptance": [
+          "Locked dependencies install",
+          "initial checks pass"
+        ],
+        "dependencies": [],
+        "labels": [
+          "maintenance",
+          "gateway",
+          "P0"
+        ],
+        "milestone": "M0",
+        "stage": "done",
+        "commits": [
+          "9bab82b"
+        ],
+        "evidence": "uv sync --locked and initial pytest smoke check"
+      }
+    },
+    {
+      "repository": "grok-gadgets-gateway",
+      "local_id": "GW-002",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-gateway/planning/issues.json",
+      "record": {
+        "id": "GW-002",
+        "owner": "grok-gadgets-gateway",
+        "problem": "Canonical versioned device protocol and lifecycle",
+        "acceptance": [
+          "schemas and fixtures validate",
+          "bounded history and command semantics tested"
+        ],
+        "dependencies": [
+          "GW-001"
+        ],
+        "labels": [
+          "feature",
+          "protocol",
+          "P0"
+        ],
+        "milestone": "M1",
+        "stage": "done",
+        "commits": [
+          "17d3168"
+        ],
+        "evidence": "7 pytest tests pass: schemas/fixtures, RGB bounds, custom capability discovery, ACK isolation, offline/timeouts/reconnect, bounded cursor history and restart"
+      }
+    },
+    {
+      "repository": "grok-gadgets-gateway",
+      "local_id": "GW-003",
+      "github_number": null,
+      "stage": "review",
+      "source": "grok-gadgets-gateway/planning/issues.json",
+      "record": {
+        "id": "GW-003",
+        "owner": "grok-gadgets-gateway",
+        "problem": "Usable simulator MCP and authenticated transports",
+        "acceptance": [
+          "real MCP stdio client tests",
+          "revocation and device isolation tests",
+          "USB bridge transcript acceptance"
+        ],
+        "dependencies": [
+          "GW-002"
+        ],
+        "labels": [
+          "feature",
+          "gateway",
+          "P0"
+        ],
+        "milestone": "M2",
+        "stage": "review",
+        "commits": [],
+        "evidence": "13 passing pytest tests, official MCP stdio acceptance, TCP credential revocation/isolation/reconnect, USB pseudo-terminal command and event transcript; physical/Grok pending"
+      }
+    },
+    {
+      "repository": "grok-gadgets-gateway",
+      "local_id": "GW-004",
+      "github_number": null,
+      "stage": "blocked",
+      "source": "grok-gadgets-gateway/planning/issues.json",
+      "record": {
+        "id": "GW-004",
+        "owner": "grok-gadgets-gateway",
+        "problem": "Real Grok Bot and physical C124 acceptance",
+        "acceptance": [
+          "real Bot tool call",
+          "physical LED and button observations"
+        ],
+        "dependencies": [
+          "GW-003"
+        ],
+        "labels": [
+          "research",
+          "gateway",
+          "P1",
+          "needs hardware"
+        ],
+        "milestone": "M5/M8",
+        "stage": "blocked",
+        "commits": [],
+        "blocker": "Grok account route and physical C124 unavailable"
+      }
+    },
+    {
+      "repository": "grok-gadgets-home-assistant",
+      "local_id": "HA-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-home-assistant/planning/issues.json",
+      "record": {
+        "id": "HA-001",
+        "owner": "grok-gadgets-home-assistant",
+        "problem": "Establish contribution foundation",
+        "acceptance": [
+          "Apache-2.0 and contribution/setup commands"
+        ],
+        "dependencies": [],
+        "labels": [
+          "maintenance",
+          "home-assistant",
+          "P1"
+        ],
+        "milestone": "M0",
+        "stage": "done",
+        "commits": [
+          "46b63cd"
+        ],
+        "evidence": "Foundation files reviewed; publication inactive"
+      }
+    },
+    {
+      "repository": "grok-gadgets-home-assistant",
+      "local_id": "HA-002",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-home-assistant/planning/issues.json",
+      "record": {
+        "id": "HA-002",
+        "owner": "grok-gadgets-home-assistant",
+        "problem": "Choose upstream reuse and investigate Grok route",
+        "acceptance": [
+          "Official source/date/route/auth/hosting/mobile/events recorded"
+        ],
+        "dependencies": [],
+        "labels": [
+          "research",
+          "home-assistant",
+          "P0"
+        ],
+        "milestone": "M1",
+        "stage": "done",
+        "commits": [
+          "7f175c0"
+        ],
+        "evidence": "Official sources/date reviewed; all account/runtime gates explicitly open"
+      }
+    },
+    {
+      "repository": "grok-gadgets-home-assistant",
+      "local_id": "HA-003",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-home-assistant/planning/issues.json",
+      "record": {
+        "id": "HA-003",
+        "owner": "grok-gadgets-home-assistant",
+        "problem": "Provide read-only compatibility diagnostics",
+        "acceptance": [
+          "Fixture and mock endpoint tests",
+          "No tool execution",
+          "Redacted output"
+        ],
+        "dependencies": [
+          "HA-002"
+        ],
+        "labels": [
+          "feature",
+          "home-assistant",
+          "P1"
+        ],
+        "milestone": "M6",
+        "stage": "done",
+        "commits": [],
+        "evidence": "13 unittest checks, including official SDK against loopback HTTP fixture endpoint; lint/format/package and clean wheel installation passed 2026-10-04. No real HA/Grok."
+      }
+    },
+    {
+      "repository": "grok-gadgets-home-assistant",
+      "local_id": "HA-004",
+      "github_number": null,
+      "stage": "blocked",
+      "source": "grok-gadgets-home-assistant/planning/issues.json",
+      "record": {
+        "id": "HA-004",
+        "owner": "grok-gadgets-home-assistant",
+        "problem": "Verify actual Grok and selected home entities",
+        "acceptance": [
+          "Actual Bot discovery and safe light/state checks",
+          "Desktop/mobile versions and physical observations recorded"
+        ],
+        "dependencies": [
+          "HA-003",
+          "Grok account access",
+          "authorized reachable endpoint",
+          "real Home Assistant"
+        ],
+        "labels": [
+          "home-assistant",
+          "P1",
+          "help wanted",
+          "needs hardware"
+        ],
+        "milestone": "M6",
+        "stage": "blocked",
+        "commits": [],
+        "evidence": "No account/home/hardware access"
+      }
+    },
+    {
+      "repository": "grok-gadgets-linux-sdk",
+      "local_id": "LIN-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-linux-sdk/planning/issues.json",
+      "record": {
+        "id": "LIN-001",
+        "owner": "grok-gadgets-linux-sdk",
+        "problem": "Independent contribution foundation",
+        "acceptance": [
+          "License and developer instructions"
+        ],
+        "dependencies": [],
+        "labels": [
+          "maintenance",
+          "linux",
+          "P1"
+        ],
+        "milestone": "M0",
+        "stage": "done",
+        "commits": [
+          "ec228ec"
+        ],
+        "evidence": "Foundation review"
+      }
+    },
+    {
+      "repository": "grok-gadgets-linux-sdk",
+      "local_id": "LIN-002",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-linux-sdk/planning/issues.json",
+      "record": {
+        "id": "LIN-002",
+        "owner": "grok-gadgets-linux-sdk",
+        "problem": "Reusable capability registry and pinned contracts",
+        "acceptance": [
+          "Custom handlers/state/events without gateway edits",
+          "Strict validation and boot-local dedup"
+        ],
+        "dependencies": [
+          "gateway protocol 0.1.0"
+        ],
+        "labels": [
+          "feature",
+          "linux",
+          "protocol",
+          "P1"
+        ],
+        "milestone": "M3",
+        "stage": "done",
+        "commits": [],
+        "evidence": "8 macOS unit tests plus pinned SHA256 contract loading; actual Linux pending"
+      }
+    },
+    {
+      "repository": "grok-gadgets-linux-sdk",
+      "local_id": "LIN-003",
+      "github_number": null,
+      "stage": "ready",
+      "source": "grok-gadgets-linux-sdk/planning/issues.json",
+      "record": {
+        "id": "LIN-003",
+        "owner": "grok-gadgets-linux-sdk",
+        "problem": "Agent and real gateway transport integration",
+        "acceptance": [
+          "Authenticated loopback registration/poll/ack/events",
+          "Capped reconnect and safe retry"
+        ],
+        "dependencies": [
+          "LIN-002",
+          "gateway TCP service"
+        ],
+        "labels": [
+          "feature",
+          "linux",
+          "P1"
+        ],
+        "milestone": "M3",
+        "stage": "ready",
+        "commits": [],
+        "evidence": "Pending"
+      }
+    },
+    {
+      "repository": "grok-gadgets-linux-sdk",
+      "local_id": "LIN-004",
+      "github_number": null,
+      "stage": "blocked",
+      "source": "grok-gadgets-linux-sdk/planning/issues.json",
+      "record": {
+        "id": "LIN-004",
+        "owner": "grok-gadgets-linux-sdk",
+        "problem": "Linux runtime and physical peripheral evidence",
+        "acceptance": [
+          "Example run on real Linux",
+          "Observed peripheral behavior"
+        ],
+        "dependencies": [
+          "Linux runtime",
+          "selected authorized peripheral"
+        ],
+        "labels": [
+          "linux",
+          "help wanted",
+          "needs hardware",
+          "P1"
+        ],
+        "milestone": "M8",
+        "stage": "blocked",
+        "commits": [],
+        "evidence": "Docker daemon unavailable; qemu/limactl/podman absent; macOS tests are not Linux verification"
+      }
+    }
+  ]
+}
