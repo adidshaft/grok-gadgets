@@ -4,6 +4,7 @@ const systemReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 let reduced = systemReduced;
 function updateMotion() {
   document.body.toggleAttribute('data-reduced-motion', reduced);
+  document.documentElement.toggleAttribute('data-reduced-motion', reduced);
   toggle.setAttribute('aria-pressed', String(reduced));
   document.querySelector('main').classList.toggle('reveal', !reduced);
 }

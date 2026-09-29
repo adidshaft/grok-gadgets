@@ -2,51 +2,61 @@
   {
     "id": "M0",
     "title": "Foundations",
-    "stage": "in progress"
+    "stage": "done",
+    "scope": "Local deliverables only; external activation and physical/account gates remain separate"
   },
   {
     "id": "M1",
     "title": "Feasibility and protocol",
-    "stage": "in progress"
+    "stage": "done",
+    "scope": "Local deliverables only; external activation and physical/account gates remain separate"
   },
   {
     "id": "M2",
     "title": "Gateway and simulator",
-    "stage": "in progress"
+    "stage": "done",
+    "scope": "Local deliverables only; external activation and physical/account gates remain separate"
   },
   {
     "id": "M3",
     "title": "Linux SDK",
-    "stage": "in progress"
+    "stage": "done",
+    "scope": "Local deliverables only; external activation and physical/account gates remain separate"
   },
   {
     "id": "M4",
     "title": "ESP32 SDK",
-    "stage": "in progress"
+    "stage": "done",
+    "scope": "Local deliverables only; external activation and physical/account gates remain separate"
   },
   {
     "id": "M5",
     "title": "Actual Grok",
-    "stage": "blocked"
+    "stage": "blocked",
+    "scope": "Local deliverables only; external activation and physical/account gates remain separate"
   },
   {
     "id": "M6",
     "title": "Home Assistant",
-    "stage": "in progress"
+    "stage": "done",
+    "scope": "Local deliverables only; external activation and physical/account gates remain separate"
   },
   {
     "id": "M7",
     "title": "Website and community",
-    "stage": "in progress"
+    "stage": "done",
+    "scope": "Local deliverables only; external activation and physical/account gates remain separate"
   },
   {
     "id": "M8",
     "title": "Physical and independent verification",
-    "stage": "blocked"
+    "stage": "blocked",
+    "scope": "Local deliverables only; external activation and physical/account gates remain separate"
   },
   {
     "id": "M9",
     "title": "Publication preparation",
-    "stage": "in progress"
+    "stage": "done",
+    "scope": "Local deliverables only; external activation and physical/account gates remain separate"
   }
 ]

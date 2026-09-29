@@ -96,12 +96,15 @@
       "P1"
     ],
     "milestone": "M4",
-    "stage": "review",
+    "stage": "done",
     "commits": [
-      "fadcf25"
+      "585adda",
+      "74085a9"
     ],
     "evidence": [
-      "Firmware compiled,3 CTest checks, actual consumer PTY; independent review overflow fix underway"
+      "3 CTest and canonical frame tests",
+      "Firmware compiled RAM54628 flash276113; binary276480 bytes",
+      "Actual consumer PTY overflow/restart/revocation tests; independent review regression rerun passed"
     ],
     "blocker": null,
     "component_repository": "grok-gadgets-esp32-sdk"
@@ -281,9 +284,13 @@
       "P1"
     ],
     "milestone": "M9",
-    "stage": "in progress",
+    "stage": "done",
     "commits": [],
-    "evidence": [],
+    "evidence": [
+      "Inactive protection/labels/issue migration/releases/deployment package",
+      "License notices and redacted tracked-files secret heuristic scan",
+      "Final compatibility/evidence manifest; live publication separately blocked"
+    ],
     "blocker": null
   },
   {
