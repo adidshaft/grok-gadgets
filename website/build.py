@@ -105,7 +105,7 @@ def page(name, title, body):
         + ('<link rel="stylesheet" href="scene.css">' if home else "")
         + '</head><body class="'
         + ("home-page" if home else "content-page")
-        + '"><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="identity" href="index.html" aria-label="Grok Gadgets home"><img src="media/grok-gadgets-icon.png" width="36" height="36" alt=""><span>Grok Gadgets</span></a><button id="menu-open" aria-haspopup="dialog" aria-controls="site-menu">Menu <span>[M]</span></button></header>'
+        + '"><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="identity" href="index.html" aria-label="Grok Gadgets home"><img src="media/grok-gadgets-icon.png" width="36" height="36" alt=""><span>Grok Gadgets</span></a><button id="menu-open" aria-haspopup="dialog" aria-controls="site-menu">Menu <span>[+]</span></button></header>'
         + menu
         + '<main id="main">'
         + body

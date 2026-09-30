@@ -27,9 +27,5 @@
     const bounds = menu.getBoundingClientRect();
     if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeMenu();
   });
-  document.addEventListener('keydown', (event) => {
-    if (event.altKey || event.ctrlKey || event.metaKey || /input|textarea|select/i.test(event.target.tagName) || event.target.isContentEditable) return;
-    if (event.key.toLowerCase() === 'm') { event.preventDefault(); menu.open ? closeMenu() : openMenu(); }
-  });
   update();
 })();

@@ -1,6 +1,6 @@
 # Third-party notices
 
-This hub uses Python standard-library build/orchestration code. No third-party logos, avatars, or visual assets are copied. Apache license text is from https://www.apache.org/licenses/LICENSE-2.0.txt. Component dependencies and licenses are recorded in their repositories.
+This hub uses Python standard-library build/orchestration code. Website reference marks and supplied community artwork are attributed below. Apache license text is from https://www.apache.org/licenses/LICENSE-2.0.txt. Component dependencies and licenses are recorded in their repositories.
 
 Official Grok and SpaceXAI marks in website/media are third-party trademarks, not Apache-2.0 project code. Downloaded 4 October 2026 from the logo package linked at https://x.ai/legal/brand-guidelines; SVG bytes are unchanged. Used only as references to those products/company, separately from the community identity, with no affiliation or endorsement claim. Permission is subject to the owner’s guidelines and may be withdrawn. These files must retain this notice and their provenance; Apache-2.0 does not grant trademark rights or rights to relicense the official marks.
 
