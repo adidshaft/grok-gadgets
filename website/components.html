@@ -1,0 +1,58 @@
+<section class="component-directory" id="components" aria-labelledby="components-heading">
+  <div class="component-intro">
+    <p class="eyebrow">FIVE REPOSITORIES / ONE PROJECT</p>
+    <h2 id="components-heading">The whole <br>toolkit.</h2>
+    <p>SDKs, connections and tools.<br>Pick a part to explore.</p>
+    <a href="architecture.html">See how they connect ↗</a>
+  </div>
+  <div class="component-list">
+    <details class="component" open>
+      <summary><span class="component-number">01</span><span>Gateway</span><span class="component-type">MCP + transports</span><span class="component-toggle" aria-hidden="true">+</span></summary>
+      <div class="component-body"><p>Connect Grok tools to registered devices. Discover capabilities, route commands and read execution reports.</p><p class="component-evidence">Local MCP verified · Grok connection pending</p><div class="component-links"><a href="doc-docs-components-grok-gadgets-gateway-README.html">Setup ↗</a><a href="doc-docs-components-grok-gadgets-gateway-architecture.html">Protocol &amp; transport ↗</a></div></div>
+    </details>
+    <details class="component">
+      <summary><span class="component-number">02</span><span>Simulator</span><span class="component-type">No hardware needed</span><span class="component-toggle" aria-hidden="true">+</span></summary>
+      <div class="component-body"><p>Run a local virtual device through the real gateway. Test LED commands, button events and disconnect recovery.</p><p class="component-evidence">Simulated · explicit opt-in · part of the gateway</p><pre><code>cd ../grok-gadgets-gateway
+uv sync --locked
+uv run python -m grok_gadgets_gateway.demo</code></pre><div class="component-links"><a href="doc-docs-components-grok-gadgets-gateway-local-operation.html">Run locally ↗</a><a href="#scene-heading">Try the illustration ↑</a></div></div>
+    </details>
+    <details class="component">
+      <summary><span class="component-number">03</span><span>USB bridge</span><span class="component-type">Serial → gateway</span><span class="component-toggle" aria-hidden="true">+</span></summary>
+      <div class="component-body"><p>Forward bounded USB serial frames to the authenticated loopback gateway. Credentials stay on the host, outside firmware.</p><p class="component-evidence">Pseudo-terminal integration tested · physical USB pending</p><div class="component-links"><a href="doc-docs-components-grok-gadgets-gateway-local-operation.html">Bridge setup &amp; recovery ↗</a><a href="doc-docs-components-grok-gadgets-esp32-sdk-build-flash.html">C124 connection guide ↗</a></div></div>
+    </details>
+    <details class="component">
+      <summary><span class="component-number">04</span><span>Linux SDK</span><span class="component-type">Library + device agent</span><span class="component-toggle" aria-hidden="true">+</span></summary>
+      <div class="component-body"><p>Declare your application's capabilities and connect it to the gateway. Includes the grok-linux-agent CLI and service setup.</p><p class="component-evidence">Linux container verified · physical peripherals and systemd pending</p><div class="component-links"><a href="linux.html">Explore SDK ↗</a><a href="doc-docs-components-grok-gadgets-linux-sdk-operation.html">Run the agent ↗</a><a href="doc-docs-components-grok-gadgets-linux-sdk-development.html">Development ↗</a></div></div>
+    </details>
+    <details class="component">
+      <summary><span class="component-number">05</span><span>ESP32 SDK</span><span class="component-type">C124 firmware</span><span class="component-toggle" aria-hidden="true">+</span></summary>
+      <div class="component-body"><p>A reusable capability SDK with USB-first firmware for AtomS3 Lite C124. Start with its RGB LED and button.</p><p class="component-evidence">Compiled + host-simulated · physical board pending</p><div class="component-links"><a href="esp32.html">Explore SDK ↗</a><a href="doc-docs-components-grok-gadgets-esp32-sdk-sdk.html">SDK reference ↗</a><a href="doc-docs-components-grok-gadgets-esp32-sdk-build-flash.html">Build &amp; flash guide ↗</a></div></div>
+    </details>
+    <details class="component">
+      <summary><span class="component-number">06</span><span>Home Assistant</span><span class="component-type">Integration diagnostics</span><span class="component-toggle" aria-hidden="true">+</span></summary>
+      <div class="component-body"><p>Use Home Assistant's upstream MCP route for exposed entities. The read-only ha-probe tool checks the connection.</p><p class="component-evidence">Fixture + loopback transport verified · live home and Grok pending</p><div class="component-links"><a href="home-assistant.html">Explore integration ↗</a><a href="doc-docs-components-grok-gadgets-home-assistant-setup.html">Setup &amp; probe ↗</a><a href="doc-docs-components-grok-gadgets-home-assistant-feasibility.html">Connection gates ↗</a></div></div>
+    </details>
+    <details class="component">
+      <summary><span class="component-number">07</span><span>Protocol contracts</span><span class="component-type">Shared device language</span><span class="component-toggle" aria-hidden="true">+</span></summary>
+      <div class="component-body"><p>Versioned capability, command, state and event frames. Bounded queues and restart cursors make recovery explicit.</p><p class="component-evidence">Protocol 0.1.0 · gateway owns the contracts</p><div class="component-links"><a href="doc-docs-components-grok-gadgets-gateway-architecture.html">Read the contracts ↗</a><a href="doc-docs-components-grok-gadgets-esp32-sdk-protocol-recovery.html">Recovery behavior ↗</a></div></div>
+    </details>
+    <details class="component">
+      <summary><span class="component-number">08</span><span>Developer &amp; release tools</span><span class="component-type">Verify + prepare</span><span class="component-toggle" aria-hidden="true">+</span></summary>
+      <div class="component-body"><p>Run acceptance checks, audit source history, export labeled issues and assemble unpublished release artifacts.</p><p class="component-evidence">Local tooling · publication requires separate approval</p><pre><code>python3 scripts/check-all.py
+python3 scripts/audit.py
+python3 scripts/export-roadmap.py
+python3 scripts/prepare-issue-migration.py
+python3 scripts/import-component-docs.py
+python3 scripts/package-local.py</code></pre><div class="component-links"><a href="doc-docs-verification-local-handoff.html">Verification &amp; publication package ↗</a><a href="roadmap.html">Issues &amp; roadmap ↗</a></div></div>
+    </details>
+    <details class="component">
+      <summary><span class="component-number">09</span><span>Website &amp; docs</span><span class="component-type">Project hub</span><span class="component-toggle" aria-hidden="true">+</span></summary>
+      <div class="component-body"><p>Build this static site from canonical component documentation and the issue ledger. Activity refresh stays inactive until approval.</p><p class="component-evidence">Local build verified · public activity unavailable</p><pre><code>python3 website/build.py
+python3 -m http.server 4173 --bind 127.0.0.1 --directory website/dist</code></pre><div class="component-links"><a href="docs.html">Documentation ↗</a><a href="activity.html">Activity status ↗</a><a href="releases.html">Release preparation ↗</a></div></div>
+    </details>
+    <details class="component">
+      <summary><span class="component-number">10</span><span>Community</span><span class="component-type">Policies + recognition</span><span class="component-toggle" aria-hidden="true">+</span></summary>
+      <div class="component-body"><p>Contribution guides, moderation plans, post drafts and an offline consent-based recognition evaluator for project contributors.</p><p class="component-evidence">Offline recognition tested · community activation pending</p><div class="component-links"><a href="community.html">Explore community ↗</a><a href="doc-community-contribution-recognition.html">Recognition ↗</a><a href="doc-community-guidelines.html">Guidelines ↗</a></div></div>
+    </details>
+  </div>
+</section>
