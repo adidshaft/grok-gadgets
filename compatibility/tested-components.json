@@ -1,0 +1,92 @@
+{
+  "status": "unpublished local candidate",
+  "protocol": "0.1.0",
+  "components": [
+    {
+      "repository": "grok-gadgets",
+      "path": "/path/to/grok-gadgets",
+      "version": "0.1.0-alpha.1",
+      "commit": "72c9d6eddff7fe1a17fe1ea3dbcd84d49bc74084",
+      "evidence_level": "Website/build/community verified",
+      "checks": "Hub checks,48-page link build,3activity tests,6recognition tests,desktop/narrow/keyboard/motion review",
+      "grok_verified": false,
+      "hardware_verified": false,
+      "independently_reproduced": false
+    },
+    {
+      "repository": "grok-gadgets-gateway",
+      "path": "/path/to/grok-gadgets-gateway",
+      "version": "0.1.0a1",
+      "commit": "4cf42fffa32afa2e5ad022e3fa4797f474ba10a9",
+      "evidence_level": "Simulated; MCP client verified",
+      "checks": "13 tests; official stdio MCP demo; authenticated TCP/USB PTY",
+      "grok_verified": false,
+      "hardware_verified": false,
+      "independently_reproduced": false
+    },
+    {
+      "repository": "grok-gadgets-linux-sdk",
+      "path": "/path/to/grok-gadgets-linux-sdk",
+      "version": "0.1.0a1",
+      "commit": "256a07e23ac4a4393066e0492847276849ac3348",
+      "evidence_level": "Simulated; package and Linux runtime verified",
+      "checks": "15 tests macOS and Linux installed wheel/CLI; actual gateway TCP",
+      "grok_verified": false,
+      "hardware_verified": false,
+      "independently_reproduced": false
+    },
+    {
+      "repository": "grok-gadgets-esp32-sdk",
+      "path": "/path/to/grok-gadgets-esp32-sdk",
+      "version": "0.1.0",
+      "commit": "585adda7f854fd33f2d17261d2b1cfa7ec3b1179",
+      "evidence_level": "Build verified; host simulated",
+      "checks": "3 CTest suites; canonical frames; actual consumer PTY incl overflow/restart/revocation; ESP32-S3 compile",
+      "grok_verified": false,
+      "hardware_verified": false,
+      "independently_reproduced": false
+    },
+    {
+      "repository": "grok-gadgets-home-assistant",
+      "path": "/path/to/grok-gadgets-home-assistant",
+      "version": "0.1.0a1",
+      "commit": "a8b2370b7e82e136511b6299e1317eb80915d012",
+      "evidence_level": "Fixture/transport and package verified",
+      "checks": "13tests incl loopback HTTP official MCP client; clean wheel; no actions",
+      "grok_verified": false,
+      "hardware_verified": false,
+      "independently_reproduced": false
+    }
+  ],
+  "linux_environment": {
+    "image": "python@sha256:bab1b7ef4b450c81002278d035eff85ebe394ae94df904f7a3ba14f7e16e487b",
+    "kernel": "6.10.14-linuxkit",
+    "python": "3.11.17",
+    "architecture": "aarch64",
+    "network": "none during acceptance"
+  },
+  "firmware": {
+    "status": "build verified; hardware and Grok pending; unpublished",
+    "source_commit": "585adda7f854fd33f2d17261d2b1cfa7ec3b1179",
+    "source_tree_clean": true,
+    "files": {
+      "firmware.bin": {
+        "bytes": 276480,
+        "sha256": "de12327c4fdc7ef6a728c5841a81d844257012d558c71ecd4fe331c6708af709"
+      },
+      "firmware.elf": {
+        "bytes": 7582696,
+        "sha256": "09e4c6e3ba19cc3322ad14628a2c9ee644e80f29625b68944cdf9abf5e3ead45"
+      },
+      "bootloader.bin": {
+        "bytes": 15104,
+        "sha256": "1776e4dd896a69d0a5c2e79957b0e2a88aa4129b1381d6478683515a1f6af343"
+      },
+      "partitions.bin": {
+        "bytes": 3072,
+        "sha256": "1d9cca96de0fe07ad7fc0648b9878ddecd9ce565e38b589ad20fea698ed4c80c"
+      }
+    }
+  },
+  "note": "Hub commit identifies tested implementation snapshot; final handoff/evidence-only commit may follow. Publication archive manifest identifies exact archived HEADs."
+}

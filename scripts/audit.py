@@ -36,6 +36,41 @@ for repo in repos:
                 findings.append({"file": f, "kind": kind})
         if Path(f).name in [".env", "credentials.json"]:
             findings.append({"file": f, "kind": "credential_filename"})
+    # Scan every reachable Git object as well, so removed secrets cannot hide in history.
+    objects = git("rev-list", "--objects", "--all").splitlines()
+    history_matches = []
+    object_ids = [line.split(" ", 1)[0] for line in objects]
+    proc = subprocess.run(
+        ["git", "-C", str(repo), "cat-file", "--batch"],
+        input=("\n".join(object_ids) + "\n").encode(),
+        stdout=subprocess.PIPE,
+        check=True,
+    )
+    buffer = proc.stdout
+    cursor = 0
+    for listing in objects:
+        end = buffer.index(b"\n", cursor)
+        header = buffer[cursor:end].decode().split()
+        cursor = end + 1
+        size = int(header[2])
+        payload = buffer[cursor : cursor + size]
+        cursor += size + 1
+        if header[1] != "blob":
+            continue
+        try:
+            source = payload.decode()
+        except UnicodeDecodeError:
+            continue
+        for kind, pattern in patterns:
+            if re.search(pattern, source):
+                history_matches.append(
+                    {
+                        "object": header[0],
+                        "file": listing.split(" ", 1)[1] if " " in listing else None,
+                        "kind": kind,
+                    }
+                )
+    findings.extend(history_matches)
     result.append(
         dict(
             repository=repo.name,
@@ -54,7 +89,7 @@ out.parent.mkdir(exist_ok=True)
 out.write_text(
     json.dumps(
         dict(
-            scope="Tracked working-tree heuristic scan, not an exhaustive secret guarantee; license/dependency review required",
+            scope="Tracked working-tree and all reachable Git blob heuristic scan, not an exhaustive secret guarantee; dependency redistribution review required",
             repositories=result,
         ),
         indent=2,
