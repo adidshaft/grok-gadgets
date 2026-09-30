@@ -149,7 +149,7 @@ scene_source = R / "website/home-scene.html"
 page(
     "index.html",
     "Home",
-    scene_source.read_text()
+    (scene_source.read_text() + (R / "website/components.html").read_text())
     if scene_source.is_file()
     else "<h1>Grok, meet the real world.</h1><p>Interactive architecture is being assembled locally.</p>",
 )
