@@ -1,0 +1,27 @@
+{
+  "retrieved": "2026-10-04",
+  "official_source": "https://data.x.ai/logos/SpaceXAI_Grok_Assets.zip",
+  "usage_terms": "https://x.ai/legal/brand-guidelines",
+  "files": [
+    {
+      "file": "grok-gadgets-icon.png",
+      "sha256": "6d0b4c7cd981d7895bc1763fc55d1c9dae13ad27dbd9c9398ead8a8690b8f56f",
+      "origin": "User-supplied AI-generated original community artwork"
+    },
+    {
+      "file": "grok-gadgets-logo.png",
+      "sha256": "e984b8c1dcffeb9517b9e4d34effcb5178a95352f249765aca6d64fe1f2000b3",
+      "origin": "User-supplied AI-generated original community artwork"
+    },
+    {
+      "file": "grok-mark.svg",
+      "sha256": "a127a7cd42b0450f7d3827a331b0730aab49fd99c3fe920d172475b9ffc83992",
+      "origin": "Official downloadable SpaceXAI_Grok_Assets.zip; bytes unchanged"
+    },
+    {
+      "file": "spacexai-mark.svg",
+      "sha256": "435f412250a243399c6af46c83dbbc720d55e29dc4570fc046d9bec254d998a2",
+      "origin": "Official downloadable SpaceXAI_Grok_Assets.zip; bytes unchanged"
+    }
+  ]
+}
