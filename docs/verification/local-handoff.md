@@ -48,7 +48,7 @@ Gateway emitted one known third-party annotation warning on stderr; assertions p
 
 ## Backlog, community and publication
 
-Main coordination ledger planning/issues.json, exported issue files, milestones and component ledgers remain labeled. Publication/issue-migration.json prepares33records without contacting GitHub. Local-to-public numbers are null pending owner/approval. M0–M4, M6–M7 and M9 preparation are complete at their stated local evidence levels; M5/M8 and external activation remain open.
+Main coordination ledger planning/issues.json, exported issue files, milestones and component ledgers remain labeled. Publication/issue-migration.json prepares34records without contacting GitHub. Local-to-public numbers are null pending owner/approval. M0–M4, M6–M7 and M9 preparation are complete at their stated local evidence levels; M5/M8 and external activation remain open.
 
 Community package includes guidelines, recognition/moderation policies, Reddit audit/before-after procedure, proposed flairs/menu/pins, and four unpublished post drafts. Six tests cover offline recognition, consent/ownership/merged contribution checks, higher role preservation, account changes, redacted dry-run logs and bounded idempotent retries. It is no live identity verifier/backend or activated award service.
 
@@ -64,4 +64,4 @@ Publication/README.md, desired-protections.json, labels.json, issue-migration.js
 6. GitHub owner and separate repo creation/push/package/prerelease/site approval; private security contact and actual maintainers; hosted CI/protections then need verification. Binary redistribution needs LGPL dependency source/license/relinking review (Arduino/NeoPixel) before uploading firmware.
 7. Logged-in Reddit moderator audit, approved exact changes/posts, developer access/scopes/external-domain approvals, and separately reviewed private identity/runtime/deletion operations before live recognition.
 
-Untracked assets/grok-gadgets-brand-v1 and its zip appeared during development and were preserved untouched. Their provenance/license/design review is pending; they are excluded from git source archives and the website. Committed build source is distinct from those local inputs.
+The source assets/grok-gadgets-brand-v1 folder and zip remain preserved and untracked. The user subsequently approved website use; selected original icon/logo copies and unchanged official reference marks now live in website/media with provenance and third-party notices. See website-redesign.md for the additional UI verification. The entire source brand archive remains excluded from Git source archives; public naming/press-brand review remains a publication gate.

@@ -5,6 +5,11 @@ No history squashing or public push occurred. Exact source archive HEADs are add
 ## grok-gadgets
 
 ```
+2f9c30b fix: avoid accidental menu shortcuts and clarify asset attribution [HUB-WEB-002]
+d212592 feat: build continuous interactive architecture and selective navigation [HUB-WEB-002]
+0266f55 feat: adopt approved community identity and sourced reference marks [HUB-WEB-002]
+06a617e fix: bound Git history auditing and avoid blocked batch pipes [HUB-PUB-001]
+4006c25 docs: deliver verified local alpha and concrete publication handoff [HUB-PUB-001]
 72c9d6e chore: format hub code and enforce reproducible developer checks [HUB-001]
 7ba2437 fix: integrate review results and pinned component documentation [HUB-ESP-001]
 85e46f8 test: record coordinator checks and maintained publication gates [HUB-001]
