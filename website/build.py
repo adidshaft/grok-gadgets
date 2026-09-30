@@ -69,25 +69,58 @@ def activity_html(record):
     return body
 
 
-nav = '<a href="index.html">Grok Gadgets</a><nav><a href="start.html">Start here</a><a href="architecture.html">Architecture</a><a href="roadmap.html">Roadmap</a><a href="community.html">Community</a><a href="docs.html">Docs</a></nav>'
+NAVIGATION = [
+    ("start.html", "Get started"),
+    ("docs.html", "Documentation"),
+    ("roadmap.html", "Roadmap"),
+    ("community.html", "Community"),
+]
 
 
 def page(name, title, body):
+    home = name == "index.html"
+    active_links = "".join(
+        '<a href="'
+        + path
+        + '"'
+        + (' aria-current="page"' if path == name else "")
+        + ">"
+        + label
+        + "<span>↗</span></a>"
+        for path, label in NAVIGATION
+    )
+    menu = (
+        '<dialog id="site-menu" aria-labelledby="menu-title"><div class="menu-top"><p id="menu-title">Explore</p><button id="menu-close" aria-label="Close menu">Close <span>[esc]</span></button></div><nav aria-label="Main navigation">'
+        + active_links
+        + '</nav><div class="menu-components"><a href="esp32.html">ESP32</a><a href="linux.html">Linux</a><a href="home-assistant.html">Home Assistant</a><a href="architecture.html">Architecture</a><a href="releases.html">Releases</a></div><div class="product-reference"><img src="media/spacexai-mark.svg" width="28" height="28" alt="SpaceXAI"><p>Grok is made by SpaceXAI.<br>Grok Gadgets is an independent project.</p><a href="https://x.ai/legal/brand-guidelines" aria-label="Official brand guidelines">↗</a></div></dialog>'
+    )
+    footer = '<footer class="site-footer"><a href="start.html">Start building ↗</a><span class="independent-note">Independent. Open source.</span><button id="motion-toggle" aria-pressed="false">Pause motion <span>[Ⅱ]</span></button></footer>'
+    scripts = '<script src="motion.js" defer></script>' + (
+        '<script src="scene.js" defer></script>' if home else ""
+    )
     (OUT / name).write_text(
-        '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Independent open source gadgets exclusively for Grok. Honest local alpha documentation."><title>'
+        '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Open source devices for Grok. Explore the local alpha."><title>'
         + e(title)
-        + ' · Grok Gadgets</title><link rel="stylesheet" href="style.css"></head><body><a class="skip" href="#main">Skip to content</a><header>'
-        + nav
-        + '</header><main id="main">'
+        + ' · Grok Gadgets</title><link rel="icon" type="image/png" href="media/grok-gadgets-icon.png"><link rel="stylesheet" href="style.css">'
+        + ('<link rel="stylesheet" href="scene.css">' if home else "")
+        + '</head><body class="'
+        + ("home-page" if home else "content-page")
+        + '"><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="identity" href="index.html" aria-label="Grok Gadgets home"><img src="media/grok-gadgets-icon.png" width="36" height="36" alt=""><span>Grok Gadgets</span></a><button id="menu-open" aria-haspopup="dialog" aria-controls="site-menu">Menu <span>[M]</span></button></header>'
+        + menu
+        + '<main id="main">'
         + body
-        + '</main><footer><span>Independent. Open source. Exclusively Grok.</span><a href="releases.html">Local release candidate</a><span>Apache-2.0 · 2026</span><button id="motion-toggle" aria-pressed="false">Reduce motion</button></footer><script src="motion.js" defer></script></body></html>'
+        + "</main>"
+        + footer
+        + '<noscript><nav class="fallback-navigation" aria-label="Navigation without JavaScript"><a href="start.html">Get started</a> · <a href="docs.html">Docs</a> · <a href="roadmap.html">Roadmap</a> · <a href="community.html">Community</a></nav></noscript>'
+        + scripts
+        + "</body></html>"
     )
 
 
 def intro(k, title, desc):
     return (
         '<p class="eyebrow">'
-        + k
+        + e(k)
         + "</p><h1>"
         + title
         + '</h1><p class="lede">'
@@ -96,77 +129,144 @@ def intro(k, title, desc):
     )
 
 
-board = """<div class="apparatus" aria-label="Diagram of the target AtomS3 Lite, simulation only"><div class="orbit"></div><div class="wire wire-a"></div><div class="wire wire-b"></div><div class="board"><span class="led"></span><span class="chip">C124<br>ESP32-S3</span><span class="button"></span><span class="usb">USB</span></div><span class="callout top">01 / RGB output</span><span class="callout bottom">02 / Button input</span><p class="diagram-label">ATOM S3 LITE · TARGET HARDWARE<br>SOFTWARE SIMULATION FIRST</p></div>"""
+def path_row(number, title, description, url, link_text):
+    return (
+        '<article class="path-row"><span class="path-number">'
+        + number
+        + "</span><div><h2>"
+        + title
+        + "</h2><p>"
+        + description
+        + '</p></div><a href="'
+        + url
+        + '">'
+        + link_text
+        + " ↗</a></article>"
+    )
+
+
+scene_source = R / "website/home-scene.html"
 page(
     "index.html",
     "Home",
-    """<section class="hero"><div>"""
-    + intro(
-        "LOCAL ALPHA / 0.1",
-        "Give Grok<br>a physical world.",
-        "An open source toolkit for connecting devices, reading their state, and operating their capabilities through your existing Grok Bot.",
-    )
-    + """<a class="cta" href="start.html">Explore the local alpha <span>↗</span></a><p class="fine">Local simulation and MCP client acceptance passed.<br>Real Grok connectivity and physical hardware tests remain pending.</p></div>"""
-    + board
-    + """</section><section class="statement"><p class="eyebrow">ONE ECOSYSTEM. FIVE REPOSITORIES.</p><h2>Build small.<br>Connect thoughtfully.</h2><p>For makers with an ESP32, developers on Linux, and homes already running Home Assistant. Self-hosted software with a clear boundary between a requested action and an observed result.</p></section><section class="paths"><a href="esp32.html"><span>01 / Makers</span><h3>ESP32</h3><p>AtomS3 Lite C124. USB first, LED and button. Compilation evidence stays separate from hardware verification.</p><b>Firmware & hardware ↗</b></a><a href="linux.html"><span>02 / Developers</span><h3>Linux</h3><p>Declare capabilities, handle commands, report state. A separately installable SDK for your own device application.</p><b>SDK & examples ↗</b></a><a href="home-assistant.html"><span>03 / Existing homes</span><h3>Home Assistant</h3><p>Reuse upstream MCP and exposed Assist entities. Preserve the controls your household already uses.</p><b>Integration recipe ↗</b></a></section><section>"""
-    + intro(
-        "EVIDENCE, NOT PROMISES",
-        "Know what passed.",
-        "Simulated · Build verified · Grok verified · Hardware verified · Independently reproduced. Each describes a different observation.",
-    )
-    .replace("<h1>", "<h2>")
-    .replace("</h1>", "</h2>")
-    + """<a href="roadmap.html">See the current roadmap ↗</a></section>""",
+    scene_source.read_text()
+    if scene_source.is_file()
+    else "<h1>Grok, meet the real world.</h1><p>Interactive architecture is being assembled locally.</p>",
 )
 page(
     "start.html",
-    "Start here",
+    "Get started",
     intro(
-        "GETTING STARTED",
-        "Choose your first path.",
-        "Begin locally. No cloud account, payment, public endpoint, or physical board is required for the simulator.",
+        "Choose a path", "Start small.", "A simulated device is all you need to begin."
     )
-    + """<ol class="steps"><li><h2>Run the simulator</h2><p>Open the sibling gateway repository. Follow the <a href="doc-docs-components-grok-gadgets-gateway-README.html">pinned gateway guide</a> to install the pinned environment and run its MCP acceptance demo. Test controls are explicitly separated from ordinary gadget tools.</p></li><li><h2>Build your own gadget</h2><p>Use the Linux capability API or compile the C124 firmware. Both consume protocol 0.1.0 from the gateway. <a href="linux.html">Linux guide</a> · <a href="esp32.html">ESP32 guide</a></p></li><li><h2>Connect your existing Grok Bot</h2><p>This gate remains open. Grok's cloud computer cannot launch a path on your Mac. Account testing and an approved authenticated reachable connection are prerequisites. No API conversation substitutes for the existing Bot.</p></li></ol>""",
+    + '<div class="path-list">'
+    + path_row(
+        "01",
+        "Try the simulator",
+        "Discover a device. Change its LED. Read button events.",
+        "doc-docs-components-grok-gadgets-gateway-README.html",
+        "Run the demo",
+    )
+    + path_row(
+        "02",
+        "Build a gadget",
+        "A reusable SDK for ESP32 or a Linux application.",
+        "esp32.html",
+        "ESP32",
+    )
+    + path_row(
+        "03",
+        "Connect your home",
+        "Reuse Home Assistant’s exposed Assist entities.",
+        "home-assistant.html",
+        "Home Assistant",
+    )
+    + '</div><p class="quiet-note">Local alpha. Actual Grok connectivity and physical verification are pending.</p>',
 )
 page(
     "esp32.html",
     "ESP32",
     intro(
-        "HARDWARE / C124",
-        "A small board.<br>A precise contract.",
-        "Target: M5Stack AtomS3 Lite C124, built-in RGB LED and button, USB-C data cable.",
+        "Hardware / C124",
+        "One board.<br>Two possibilities.",
+        "An RGB LED. A button. AtomS3 Lite C124.",
     )
-    + """<p class="status">Build verified · firmware compilation passed · physical hardware pending</p><h2>Build before you flash</h2><p>The separate ESP32 repository owns reusable firmware, board definitions, USB framing, toolchain pins, host tests, and recovery instructions. Read the <a href="doc-docs-components-grok-gadgets-esp32-sdk-README.html">pinned firmware guide</a> and its exact build/flash commands.</p><h2>Physical acceptance</h2><p>Observe green, another colour, and off; inspect real button press and release; unplug, reconnect, reboot, and check stale state. Firmware acknowledgement alone is not evidence that the LED illuminated.</p>""",
+    + '<p class="status">Firmware compiled · hardware pending</p>'
+    + path_row(
+        "01",
+        "Build over USB",
+        "Pinned firmware, SDK and recovery instructions.",
+        "doc-docs-components-grok-gadgets-esp32-sdk-build-flash.html",
+        "Build guide",
+    )
+    + path_row(
+        "02",
+        "Make it yours",
+        "Declare capabilities and handle commands.",
+        "doc-docs-components-grok-gadgets-esp32-sdk-sdk.html",
+        "SDK reference",
+    )
+    + '<p class="quiet-note">Target: M5Stack AtomS3 Lite C124 + USB-C data cable. <a href="doc-docs-components-grok-gadgets-esp32-sdk-verification.html">Verification record ↗</a></p>',
 )
 page(
     "linux.html",
     "Linux SDK",
     intro(
-        "SDK / LINUX",
-        "Your application.<br>Your capabilities.",
-        "Register a device, declare capabilities, handle commands, and report state and events without changing the gateway.",
+        "SDK / Linux",
+        "Your code.<br>Connected.",
+        "Declare a capability. Handle a command. Report state.",
     )
-    + """<p class="status">15 tests passed on macOS and Linux aarch64 Docker. Physical peripherals and systemd remain pending.</p><p>Read the <a href="doc-docs-components-grok-gadgets-linux-sdk-README.html">pinned Linux guide</a> for installation, the example device agent, reconnect behaviour, and systemd setup. The SDK owns application code; the gateway owns routing and canonical protocol.</p>""",
+    + '<p class="status">15 tests passed on macOS and Linux Docker</p>'
+    + path_row(
+        "01",
+        "Run the agent",
+        "Independently installable Python SDK.",
+        "doc-docs-components-grok-gadgets-linux-sdk-README.html",
+        "Install",
+    )
+    + path_row(
+        "02",
+        "Add a capability",
+        "Handlers, events and reconnect semantics.",
+        "doc-docs-components-grok-gadgets-linux-sdk-development.html",
+        "Developer guide",
+    )
+    + '<p class="quiet-note">Physical peripherals and systemd lifecycle remain pending.</p>',
 )
 page(
     "home-assistant.html",
     "Home Assistant",
     intro(
-        "INTEGRATION / EXISTING HOMES",
-        "Start with what<br>your home already knows.",
-        "Reuse Home Assistant’s upstream MCP server and deliberately expose a small set of Assist entities.",
+        "Existing homes",
+        "Use what<br>you already have.",
+        "An integration recipe for Home Assistant’s own MCP server.",
     )
-    + """<p class="status">Fixture compatibility only until a real installation and Grok account are tested.</p><p>The <a href="doc-docs-components-grok-gadgets-home-assistant-setup.html">pinned Home Assistant setup recipe</a> and <a href="doc-docs-components-grok-gadgets-home-assistant-README.html">probe guide</a> describe fixtures and limitations. Upstream endpoint <code>/api/mcp</code> uses Streamable HTTP and OAuth or bearer authentication. Event notifications are not currently supported by that integration.</p><p>Do not assume all entities or vendor functions are exposed. Existing local controls should continue working independently of a Grok conversation.</p>""",
+    + '<p class="status">Fixture tested · actual home and Grok pending</p>'
+    + path_row(
+        "01",
+        "Expose a few entities",
+        "Start with the devices Assist can operate.",
+        "doc-docs-components-grok-gadgets-home-assistant-setup.html",
+        "Setup recipe",
+    )
+    + path_row(
+        "02",
+        "Check compatibility",
+        "Read-only discovery. No device actions.",
+        "doc-docs-components-grok-gadgets-home-assistant-README.html",
+        "Run the probe",
+    )
+    + '<p class="quiet-note">Upstream MCP notifications are unsupported. Entity coverage varies.</p>',
 )
 page(
     "architecture.html",
     "Architecture",
     intro(
-        "SYSTEM / PROTOCOL 0.1.0",
-        "A command is<br>not an observation.",
-        "Keep assistant tools, routing, and device applications separate.",
+        "How it works",
+        "An action.<br>An observation.",
+        "The assistant, connection point and device have separate jobs.",
     )
-    + """<div class="flow"><span>Existing Grok Bot<br><small>Actual connection pending</small></span><b>↕ MCP</b><span>Gateway<br><small>Discovery · commands · state · events</small></span><b>↕ NDJSON</b><span>ESP32 / Linux<br><small>Execution reports</small></span></div><h2>Four distinct steps</h2><p><code>requested → accepted → device reports execution → physical effect observed</code></p><p>Device boot identity, bounded event history, cursor reset errors, timeouts, revocation, and explicit simulation status belong to the contract. The canonical schemas are owned by the gateway. Home Assistant may connect directly through upstream MCP.</p>""",
+    + '<div class="flow"><a href="https://x.ai/bot"><img src="media/grok-mark.svg" width="40" height="40" alt="Grok"><span>Grok Bot</span><small>Account route pending</small></a><b>↕ MCP</b><span>Gateway<small>Route and report</small></span><b>↕ USB / local TCP</b><span>Your device<small>Execute and observe</small></span></div><p class="status">Requested → accepted → execution reported → physically observed</p><p><a href="doc-docs-architecture-overview.html">Architecture reference ↗</a></p><p class="quiet-note">Home Assistant can use its upstream MCP route directly. Local MCP success is separate from actual Grok or hardware verification.</p>',
 )
 rows = "".join(
     '<article class="issue"><span>'
@@ -186,9 +286,9 @@ page(
     "roadmap.html",
     "Roadmap",
     intro(
-        "SOURCE-DRIVEN / LOCAL ISSUE LEDGER",
-        "Work in the open.<br>Publish when ready.",
-        "Rendered from planning/issues.json. Local records become GitHub issues only after publication approval.",
+        "Source-driven / local issues",
+        "What’s next.",
+        "Tested local work. Clear external gates.",
     )
     + '<div class="issue-list">'
     + rows
@@ -198,23 +298,52 @@ page(
     "community.html",
     "Community",
     intro(
-        "COMMUNITY / PREPARATION",
-        "Make room<br>for the next maker.",
-        "Technical records belong in GitHub once published. Community conversation can point to those canonical sources.",
+        "Build together",
+        "Makers welcome.",
+        "Share a build. Ask a question. Improve the tools.",
     )
-    + """<p><a href="https://www.reddit.com/r/GrokGadgets/">r/GrokGadgets ↗</a> is the intended community. No live settings or posts have been changed.</p><h2>Contribution recognition</h2><p>Opt in, prove ownership of both accounts, and verify an eligible merged contribution. Documentation and tests count. Matching usernames never establish identity. Local dry-run decisions do not award live flair.</p><h2>Community standards</h2><p>Be respectful, label verification honestly, protect household privacy, and share reproducible steps. Private reporting contacts and public repository destinations remain publication gates.</p>""",
+    + '<p><a class="text-cta" href="https://www.reddit.com/r/GrokGadgets/">r/GrokGadgets ↗</a></p>'
+    + path_row(
+        "01",
+        "Contribute",
+        "Code, tests and documentation all count.",
+        "doc-CONTRIBUTING.html",
+        "Contribution guide",
+    )
+    + path_row(
+        "02",
+        "Recognition",
+        "Opt in. Verify ownership. Merge a contribution.",
+        "doc-community-contribution-recognition.html",
+        "Recognition policy",
+    )
+    + '<p class="quiet-note">Community policies and live changes remain subject to publication approval.</p>',
 )
 page(
     "releases.html",
     "Releases",
     intro(
-        "RELEASE / LOCAL CANDIDATE",
+        "Unpublished local candidate",
         "0.1.0-alpha.1",
-        "An unpublished local alpha candidate. Component versions and exact commits are recorded in compatibility/tested-components.json.",
+        "Simulation, separate SDKs, firmware builds and integration recipes.",
     )
-    + """<p>Gateway simulation, SDK contracts, firmware compilation, Home Assistant fixture compatibility, and community dry-run logic have separate evidence records. Consult the final local handoff before relying on any component.</p><p>Public release assets, repository owner, GitHub protections, website deployment, and Reddit changes require separate approval. Physical support and Grok desktop/mobile support remain unverified.</p><h2>Project activity</h2><p><a href="activity.html">View activity data state ↗</a></p><p class="status">Unavailable — public repositories have not been created.</p><p>No fabricated stars, contributors, or issue counts are displayed as live activity. A bounded server-side data refresh adapter is prepared for later approved publication.</p>""",
+    + '<p class="status">Actual Grok · physical hardware · independent reproduction pending</p>'
+    + path_row(
+        "01",
+        "What passed",
+        "Exact commits, environments and remaining gates.",
+        "doc-docs-verification-local-handoff.html",
+        "Local handoff",
+    )
+    + path_row(
+        "02",
+        "Project activity",
+        "Unavailable until public repositories exist.",
+        "activity.html",
+        "Data state",
+    ),
 )
-# Canonical documents become safely escaped text pages, with preserved headings/content.
+# Technical content remains complete on dedicated reference pages.
 for src in [
     R / "CONTRIBUTING.md",
     R / "CODE_OF_CONDUCT.md",
@@ -226,43 +355,43 @@ for src in [
     page(
         name,
         src.stem,
-        '<p class="eyebrow">CANONICAL SOURCE / '
+        '<p class="eyebrow">Reference / '
         + e(str(src.relative_to(R)))
         + '</p><pre class="document">'
         + e(src.read_text())
         + "</pre>",
     )
 links = "".join(
-    '<li><a href="' + f.name + '">' + e(f.stem.removeprefix("doc-")) + "</a></li>"
+    '<li><a href="'
+    + f.name
+    + '">'
+    + e(f.stem.removeprefix("doc-").replace("-", " "))
+    + "<span>↗</span></a></li>"
     for f in sorted(OUT.glob("doc-*.html"))
 )
 page(
     "docs.html",
     "Documentation",
-    intro(
-        "REFERENCE / LOCAL SOURCES",
-        "Read the source.",
-        "Documentation is generated from canonical hub files, with component instructions remaining in their own repositories.",
-    )
-    + "<ul>"
+    intro("Reference", "Go deeper.", "Setup, SDKs, architecture and verification.")
+    + '<ul class="documentation-index">'
     + links
     + "</ul>",
 )
-for f in ["style.css", "motion.js"]:
-    shutil.copy(R / "website" / f, OUT / f)
-
 page(
     "activity.html",
     "Project activity",
     intro(
-        "PROJECT / DATA STATE",
-        "Activity with context.",
-        "Source records are fetched only by a separately approved server-side job; frontend assets never contain access tokens.",
+        "Source records",
+        "Activity.",
+        "Always labeled: live, cached, fixture or unavailable.",
     )
     + activity_html(activity),
 )
-
-# Validate local links and ensure generated assets are static.
+for f in ["style.css", "motion.js", "scene.css", "scene.js"]:
+    source = R / "website" / f
+    if source.is_file():
+        shutil.copy(source, OUT / f)
+shutil.copytree(R / "website/media", OUT / "media", dirs_exist_ok=True)
 
 
 class Links(HTMLParser):
