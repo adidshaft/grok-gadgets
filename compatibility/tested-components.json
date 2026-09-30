@@ -6,9 +6,9 @@
       "repository": "grok-gadgets",
       "path": "/path/to/grok-gadgets",
       "version": "0.1.0-alpha.1",
-      "commit": "72c9d6eddff7fe1a17fe1ea3dbcd84d49bc74084",
+      "commit": "2f9c30bb6db0d6ca6496344275138731a69e64b2",
       "evidence_level": "Website/build/community verified",
-      "checks": "Hub checks,48-page link build,3activity tests,6recognition tests,desktop/narrow/keyboard/motion review",
+      "checks": "Hub checks;51-page link build;3 activity tests;6 recognition tests;desktop/mobile animation,keyboard,LED/button/offline/menu/pause verification",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false

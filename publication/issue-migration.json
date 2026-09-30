@@ -466,6 +466,46 @@
       }
     },
     {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-WEB-002",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-WEB-002",
+        "repository": "grok-gadgets",
+        "problem": "Use approved identity and create selective interactive homepage",
+        "intended_behaviour": "Full-screen architecture motion, touch interactions and minimal copy; docs behind menu",
+        "acceptance": [
+          "User-supplied brand icon rendered and official reference marks retain provenance",
+          "Large-region continuous motion visibly changes, with keyboard/touch selection",
+          "LED/button/offline illustration honest about simulation",
+          "Navigation,desktop/mobile layout,reduced-motion and link/build checks pass"
+        ],
+        "dependencies": [
+          "HUB-WEB-001"
+        ],
+        "labels": [
+          "feature",
+          "website",
+          "P1"
+        ],
+        "milestone": "M7",
+        "stage": "done",
+        "commits": [
+          "0266f55",
+          "d212592",
+          "2f9c30b"
+        ],
+        "evidence": [
+          "docs/verification/website-redesign.md",
+          "docs/decisions/002-website-direction.md",
+          "website/media/provenance.json"
+        ],
+        "blocker": null
+      }
+    },
+    {
       "repository": "grok-gadgets-esp32-sdk",
       "local_id": "ESP-001",
       "github_number": null,

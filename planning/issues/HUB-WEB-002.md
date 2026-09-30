@@ -2,7 +2,7 @@
 
 Owner: grok-gadgets
 
-Stage: in progress · M7
+Stage: done · M7
 
 Labels: feature, website, P1
 
@@ -17,9 +17,12 @@ Acceptance:
 
 Dependencies: HUB-WEB-001
 
-Commits: Pending
+Commits: 0266f55, d212592, 2f9c30b
 
 Evidence:
 
+- docs/verification/website-redesign.md
+- docs/decisions/002-website-direction.md
+- website/media/provenance.json
 
 Blocker: None
