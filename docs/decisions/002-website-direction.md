@@ -1,0 +1,9 @@
+# ADR 002 — interactive, selective website
+
+User-directed revision,4 October2026: use supplied monochrome bot/orbit branding; reduce homepage copy and move detailed technical content into documentation; make the central architecture a large, continuously animated, touch/keyboard interactive scene; separate navigation into a corner menu. Preserve the static build and canonical docs/data.
+
+Current Paradigm reference inspected in the in-app browser: full white viewport; centered sparse wordmark/corner menu; large wireframe visual; numbered scene selector and small contextual annotations. Original geometry and code implement Grok→gateway→ESP32/Linux and direct Home Assistant routing. Local LED/button/offline interactions are illustrations, not calls to the gateway, real Grok or physical hardware. Evidence labeling remains visible but concise.
+
+Official marks are available under https://x.ai/legal/brand-guidelines, allowing accurate references and requiring unchanged assets with no implied endorsement or blended mark. Browser download from the page succeeded after command-line CDN download returned403. Selected official SVG bytes remain identical to the package. Grok is a labeled architecture node; SpaceXAI is a company reference in the menu. Community artwork is the user-supplied generated original bot/orbit PNG. See website/media/provenance.json and THIRD_PARTY_NOTICES.md; project naming/public press brand review remains a publication item. No public action taken.
+
+Animation respects OS reduced motion plus explicit user control, stops when hidden/offscreen, and uses transform/projection updates without a heavy renderer dependency. Visual interactions expose real selection and simulation state. Full documentation, roadmap and evidence remain accessible through navigation and contextual links.
