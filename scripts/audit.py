@@ -40,22 +40,30 @@ for repo in repos:
     objects = git("rev-list", "--objects", "--all").splitlines()
     history_matches = []
     object_ids = [line.split(" ", 1)[0] for line in objects]
-    proc = subprocess.run(
-        ["git", "-C", str(repo), "cat-file", "--batch"],
-        input=("\n".join(object_ids) + "\n").encode(),
-        stdout=subprocess.PIPE,
-        check=True,
-    )
-    buffer = proc.stdout
+    import tempfile
+
+    with tempfile.TemporaryFile() as output:
+        subprocess.run(
+            ["git", "-C", str(repo), "cat-file", "--batch", "--batch-all-objects"],
+            stdout=output,
+            check=True,
+            timeout=30,
+        )
+        output.seek(0)
+        buffer = output.read()
     cursor = 0
-    for listing in objects:
+    object_paths = {
+        line.split(" ", 1)[0]: line.split(" ", 1)[1] if " " in line else None
+        for line in objects
+    }
+    while cursor < len(buffer):
         end = buffer.index(b"\n", cursor)
         header = buffer[cursor:end].decode().split()
         cursor = end + 1
         size = int(header[2])
         payload = buffer[cursor : cursor + size]
         cursor += size + 1
-        if header[1] != "blob":
+        if header[1] != "blob" or header[0] not in object_ids:
             continue
         try:
             source = payload.decode()
@@ -66,7 +74,7 @@ for repo in repos:
                 history_matches.append(
                     {
                         "object": header[0],
-                        "file": listing.split(" ", 1)[1] if " " in listing else None,
+                        "file": object_paths.get(header[0]),
                         "kind": kind,
                     }
                 )
