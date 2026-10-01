@@ -543,6 +543,104 @@
       }
     },
     {
+      "repository": "grok-gadgets",
+      "local_id": "HARD-001",
+      "github_number": null,
+      "stage": "ready",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HARD-001",
+        "repository": "grok-gadgets",
+        "owner": "grok-gadgets",
+        "problem": "Complete six audit corrections and release acceptance",
+        "intended_behaviour": "Complete six audit corrections and release acceptance",
+        "acceptance": [
+          "H0\u2013H7 evidence",
+          "Six regressions and independent review",
+          "Fresh artifacts and real-Grok test plan"
+        ],
+        "dependencies": [],
+        "labels": [
+          "maintenance",
+          "integration",
+          "P1",
+          "help wanted"
+        ],
+        "milestone": "MH",
+        "stage": "ready",
+        "commits": [],
+        "evidence": [],
+        "blocker": null
+      }
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HARD-WEB-001",
+      "github_number": null,
+      "stage": "ready",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HARD-WEB-001",
+        "repository": "grok-gadgets",
+        "owner": "grok-gadgets",
+        "problem": "Persist honest activity failure states",
+        "intended_behaviour": "Persist honest activity failure states",
+        "acceptance": [
+          "Atomic validated refresh result persisted",
+          "File-to-build cached timestamp and owner isolation regression",
+          "Corrupt/missing cache fallback safe"
+        ],
+        "dependencies": [
+          "HARD-001"
+        ],
+        "labels": [
+          "bug",
+          "website",
+          "P2",
+          "help wanted"
+        ],
+        "milestone": "MH",
+        "stage": "ready",
+        "commits": [],
+        "evidence": [],
+        "blocker": null
+      }
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HARD-WEB-002",
+      "github_number": null,
+      "stage": "ready",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HARD-WEB-002",
+        "repository": "grok-gadgets",
+        "owner": "grok-gadgets",
+        "problem": "Render safe usable source-relative documentation",
+        "intended_behaviour": "Render safe usable source-relative documentation",
+        "acceptance": [
+          "Headings,tables,links,anchors,code and diagrams usable",
+          "Safe URLs/HTML/diagram regression",
+          "Source-relative links and fragments checked;stale outputs cleaned",
+          "Explicit sanitized public document policy;desktop/mobile review"
+        ],
+        "dependencies": [
+          "HARD-001"
+        ],
+        "labels": [
+          "bug",
+          "website",
+          "P2",
+          "help wanted"
+        ],
+        "milestone": "MH",
+        "stage": "ready",
+        "commits": [],
+        "evidence": [],
+        "blocker": null
+      }
+    },
+    {
       "repository": "grok-gadgets-esp32-sdk",
       "local_id": "ESP-001",
       "github_number": null,
@@ -762,6 +860,39 @@
       }
     },
     {
+      "repository": "grok-gadgets-esp32-sdk",
+      "local_id": "HARD-ESP-001",
+      "github_number": null,
+      "stage": "ready",
+      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
+      "record": {
+        "id": "HARD-ESP-001",
+        "repository": "grok-gadgets-esp32-sdk",
+        "owner": "grok-gadgets-esp32-sdk",
+        "problem": "Preserve ACKs across repeated retries",
+        "intended_behaviour": "Preserve ACKs across repeated retries",
+        "acceptance": [
+          "Repeated valid success/failure ACKs with one execution",
+          "Interleaved and changed argument IDs covered",
+          "Actual consumer retry, contract and C124 compile pass"
+        ],
+        "dependencies": [
+          "HARD-001"
+        ],
+        "labels": [
+          "bug",
+          "esp32",
+          "P1",
+          "help wanted"
+        ],
+        "milestone": "MH",
+        "stage": "ready",
+        "commits": [],
+        "evidence": [],
+        "blocker": null
+      }
+    },
+    {
       "repository": "grok-gadgets-gateway",
       "local_id": "GW-001",
       "github_number": null,
@@ -878,6 +1009,72 @@
         "stage": "blocked",
         "commits": [],
         "blocker": "Grok account route and physical C124 unavailable"
+      }
+    },
+    {
+      "repository": "grok-gadgets-gateway",
+      "local_id": "HARD-GW-001",
+      "github_number": null,
+      "stage": "ready",
+      "source": "grok-gadgets-gateway/planning/issues.json",
+      "record": {
+        "id": "HARD-GW-001",
+        "repository": "grok-gadgets-gateway",
+        "owner": "grok-gadgets-gateway",
+        "problem": "Route simulator commands by command capability",
+        "intended_behaviour": "Route simulator commands by command capability",
+        "acceptance": [
+          "Invalid capability and RGB requests cannot mutate LED",
+          "Negative actual MCP coverage",
+          "Custom SDK capabilities remain valid"
+        ],
+        "dependencies": [
+          "HARD-001"
+        ],
+        "labels": [
+          "bug",
+          "gateway",
+          "P1",
+          "help wanted"
+        ],
+        "milestone": "MH",
+        "stage": "ready",
+        "commits": [],
+        "evidence": [],
+        "blocker": null
+      }
+    },
+    {
+      "repository": "grok-gadgets-gateway",
+      "local_id": "HARD-GW-002",
+      "github_number": null,
+      "stage": "ready",
+      "source": "grok-gadgets-gateway/planning/issues.json",
+      "record": {
+        "id": "HARD-GW-002",
+        "repository": "grok-gadgets-gateway",
+        "owner": "grok-gadgets-gateway",
+        "problem": "Isolate bounded event duplicate windows per device and boot",
+        "intended_behaviour": "Isolate bounded event duplicate windows per device and boot",
+        "acceptance": [
+          "Busy device cannot evict another window",
+          "256-boundary,content conflicts,lifecycle and stale sessions covered",
+          "Device/boot/history bookkeeping bounded"
+        ],
+        "dependencies": [
+          "HARD-001"
+        ],
+        "labels": [
+          "bug",
+          "protocol",
+          "P2",
+          "help wanted"
+        ],
+        "milestone": "MH",
+        "stage": "ready",
+        "commits": [],
+        "evidence": [],
+        "blocker": null
       }
     },
     {
@@ -1115,6 +1312,39 @@
         "stage": "blocked",
         "commits": [],
         "evidence": "Linux aarch64 Docker kernel6.10.14-linuxkit CPython3.11.17 wheel acceptance passed; physical peripherals and systemd remain pending"
+      }
+    },
+    {
+      "repository": "grok-gadgets-linux-sdk",
+      "local_id": "HARD-LIN-001",
+      "github_number": null,
+      "stage": "ready",
+      "source": "grok-gadgets-linux-sdk/planning/issues.json",
+      "record": {
+        "id": "HARD-LIN-001",
+        "repository": "grok-gadgets-linux-sdk",
+        "owner": "grok-gadgets-linux-sdk",
+        "problem": "Make documented custom gadget installation work",
+        "intended_behaviour": "Make documented custom gadget installation work",
+        "acceptance": [
+          "Clean installed wheel custom factory registers,executes,reports state",
+          "No implicit PYTHONPATH or editable import",
+          "macOS and actual Linux acceptance and safe errors"
+        ],
+        "dependencies": [
+          "HARD-001"
+        ],
+        "labels": [
+          "bug",
+          "linux",
+          "P1",
+          "help wanted"
+        ],
+        "milestone": "MH",
+        "stage": "ready",
+        "commits": [],
+        "evidence": [],
+        "blocker": null
       }
     }
   ]

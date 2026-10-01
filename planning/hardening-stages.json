@@ -1,0 +1,137 @@
+[
+  {
+    "id": "H0",
+    "title": "Baseline and tracking",
+    "stage": "review",
+    "owner": "coordinator",
+    "dependencies": [],
+    "issues": [
+      "HARD-001"
+    ],
+    "checks": [
+      "Baseline 11/11 groups passed"
+    ],
+    "commits": [],
+    "evidence": [
+      "artifacts/verification/hardening-baseline/results.json"
+    ],
+    "blockers": []
+  },
+  {
+    "id": "H1",
+    "title": "Behavioral corrections",
+    "stage": "ready",
+    "owner": "coordinator",
+    "dependencies": [
+      "H0"
+    ],
+    "issues": [
+      "HARD-ESP-001",
+      "HARD-GW-001",
+      "HARD-GW-002"
+    ],
+    "checks": [],
+    "commits": [],
+    "evidence": [],
+    "blockers": []
+  },
+  {
+    "id": "H2",
+    "title": "Linux onboarding",
+    "stage": "ready",
+    "owner": "coordinator",
+    "dependencies": [
+      "H0"
+    ],
+    "issues": [
+      "HARD-LIN-001"
+    ],
+    "checks": [],
+    "commits": [],
+    "evidence": [],
+    "blockers": []
+  },
+  {
+    "id": "H3",
+    "title": "Website corrections",
+    "stage": "ready",
+    "owner": "coordinator",
+    "dependencies": [
+      "H0"
+    ],
+    "issues": [
+      "HARD-WEB-001",
+      "HARD-WEB-002"
+    ],
+    "checks": [],
+    "commits": [],
+    "evidence": [],
+    "blockers": []
+  },
+  {
+    "id": "H4",
+    "title": "Cross-repository acceptance",
+    "stage": "ready",
+    "owner": "coordinator",
+    "dependencies": [
+      "H1",
+      "H2",
+      "H3"
+    ],
+    "issues": [
+      "HARD-001"
+    ],
+    "checks": [],
+    "commits": [],
+    "evidence": [],
+    "blockers": []
+  },
+  {
+    "id": "H5",
+    "title": "Independent review and closure",
+    "stage": "ready",
+    "owner": "coordinator",
+    "dependencies": [
+      "H4"
+    ],
+    "issues": [
+      "HARD-001"
+    ],
+    "checks": [],
+    "commits": [],
+    "evidence": [],
+    "blockers": []
+  },
+  {
+    "id": "H6",
+    "title": "Candidate and next validation",
+    "stage": "ready",
+    "owner": "coordinator",
+    "dependencies": [
+      "H5"
+    ],
+    "issues": [
+      "HARD-001"
+    ],
+    "checks": [],
+    "commits": [],
+    "evidence": [],
+    "blockers": []
+  },
+  {
+    "id": "H7",
+    "title": "Completion audit",
+    "stage": "ready",
+    "owner": "coordinator",
+    "dependencies": [
+      "H6"
+    ],
+    "issues": [
+      "HARD-001"
+    ],
+    "checks": [],
+    "commits": [],
+    "evidence": [],
+    "blockers": []
+  }
+]
