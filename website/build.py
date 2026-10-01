@@ -6,6 +6,7 @@ from html import escape as e
 import json
 import shutil
 import os
+from activity import load_activity
 
 R = Path(__file__).resolve().parents[1]
 OUT = R / "website/dist"
@@ -14,7 +15,7 @@ issues = json.loads((R / "planning/issues.json").read_text())
 # Input path is a build-time option, never a browser token or runtime fetch.
 activity_path = os.environ.get("GROK_ACTIVITY_FILE")
 activity = (
-    json.loads(Path(activity_path).read_text())
+    load_activity(Path(activity_path), allow_fixture=True)
     if activity_path
     else {"state": "unavailable", "reason": "Public repositories have not been created"}
 )

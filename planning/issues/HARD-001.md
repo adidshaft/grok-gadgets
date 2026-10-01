@@ -2,7 +2,7 @@
 
 Owner: grok-gadgets
 
-Stage: ready · MH
+Stage: in progress · MH
 
 Labels: maintenance, integration, P1, help wanted
 

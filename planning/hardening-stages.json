@@ -2,7 +2,7 @@
   {
     "id": "H0",
     "title": "Baseline and tracking",
-    "stage": "review",
+    "stage": "done",
     "owner": "coordinator",
     "dependencies": [],
     "issues": [
@@ -11,7 +11,9 @@
     "checks": [
       "Baseline 11/11 groups passed"
     ],
-    "commits": [],
+    "commits": [
+      "c91a06b"
+    ],
     "evidence": [
       "artifacts/verification/hardening-baseline/results.json"
     ],
@@ -20,7 +22,7 @@
   {
     "id": "H1",
     "title": "Behavioral corrections",
-    "stage": "ready",
+    "stage": "in progress",
     "owner": "coordinator",
     "dependencies": [
       "H0"
@@ -54,7 +56,7 @@
   {
     "id": "H3",
     "title": "Website corrections",
-    "stage": "ready",
+    "stage": "in progress",
     "owner": "coordinator",
     "dependencies": [
       "H0"
