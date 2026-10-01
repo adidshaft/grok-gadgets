@@ -22,7 +22,12 @@ with tempfile.TemporaryDirectory(prefix="grok-installed-") as directory:
         capture_output=True,
     )
     python = envdir / "bin/python"
-    wheels = [next(repo.glob("dist/*.whl")) for repo in [SDK, GATEWAY]]
+    wheels = []
+    for repo in [SDK, GATEWAY]:
+        matches = list(repo.glob("dist/*.whl"))
+        if len(matches) != 1:
+            raise RuntimeError(f"Expected exactly one current wheel in {repo.name}")
+        wheels.append(matches[0])
     subprocess.run(
         [
             "uv",
@@ -37,21 +42,23 @@ with tempfile.TemporaryDirectory(prefix="grok-installed-") as directory:
         env=command_env,
         capture_output=True,
     )
-    result = subprocess.run(
-        [
-            str(python),
-            "-I",
-            str(SDK / "scripts/check_onboarding.py"),
-            str(SDK / "docs/development.md"),
-        ],
-        check=True,
-        env=command_env,
-        cwd=directory,
-        capture_output=True,
-        text=True,
-        timeout=30,
-    )
-    print(result.stdout)
+    for variant in [[], ["--dataclass"]]:
+        result = subprocess.run(
+            [
+                str(python),
+                "-I",
+                str(SDK / "scripts/check_onboarding.py"),
+                str(SDK / "docs/development.md"),
+                *variant,
+            ],
+            check=True,
+            env=command_env,
+            cwd=directory,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        print(result.stdout)
     print(
         json.dumps(
             {

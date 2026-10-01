@@ -107,28 +107,28 @@
   {
     "repository": "grok-gadgets-linux-sdk",
     "source": "README.md",
-    "commit": "04b5ac35101f4713a7822f671593c751536fc39f",
+    "commit": "ce897eee8f259a2ba82afad37e7a607c56f2f6e1",
     "sha256": "84606306915fcb99837e79c6dca3f507ff6e9ab30d0fd12347af42b5dfda48cb",
     "snapshot": "docs/components/grok-gadgets-linux-sdk-README.md"
   },
   {
     "repository": "grok-gadgets-linux-sdk",
     "source": "docs/development.md",
-    "commit": "04b5ac35101f4713a7822f671593c751536fc39f",
+    "commit": "ce897eee8f259a2ba82afad37e7a607c56f2f6e1",
     "sha256": "fcfa925f1d5a49b6d33ddeb44b6399825eb6b567fccacb390dcea784bdaf5068",
     "snapshot": "docs/components/grok-gadgets-linux-sdk-development.md"
   },
   {
     "repository": "grok-gadgets-linux-sdk",
     "source": "docs/operation.md",
-    "commit": "04b5ac35101f4713a7822f671593c751536fc39f",
+    "commit": "ce897eee8f259a2ba82afad37e7a607c56f2f6e1",
     "sha256": "1a3964cb9317a83b0ccc4eada2dfff4a13323c4a323feb58cf83f6122385ef42",
     "snapshot": "docs/components/grok-gadgets-linux-sdk-operation.md"
   },
   {
     "repository": "grok-gadgets-linux-sdk",
     "source": "docs/verification.md",
-    "commit": "04b5ac35101f4713a7822f671593c751536fc39f",
+    "commit": "ce897eee8f259a2ba82afad37e7a607c56f2f6e1",
     "sha256": "58c2f16afced6f0c0d2430e62f9f1d040ef06056f01c789d3356404412099a48",
     "snapshot": "docs/components/grok-gadgets-linux-sdk-verification.md"
   }

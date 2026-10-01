@@ -38,7 +38,7 @@ uv run python -m grok_gadgets_gateway.demo</code></pre><div class="component-lin
     </details>
     <details class="component">
       <summary><span class="component-number">08</span><span>Developer &amp; release tools</span><span class="component-type">Verify + prepare</span><span class="component-toggle" aria-hidden="true">+</span></summary>
-      <div class="component-body"><p>Run acceptance checks, audit source history, export labeled issues and assemble unpublished release artifacts.</p><p class="component-evidence">Local tooling · publication requires separate approval</p><pre><code>python3 scripts/check-all.py
+      <div class="component-body"><p>Run acceptance checks, audit source history, export labeled issues and assemble unpublished release artifacts.</p><p class="component-evidence">Local tooling · publication requires separate approval</p><pre><code>.venv/bin/python scripts/check-all.py
 python3 scripts/audit.py
 python3 scripts/export-roadmap.py
 python3 scripts/prepare-issue-migration.py
@@ -47,7 +47,9 @@ python3 scripts/package-local.py</code></pre><div class="component-links"><a hre
     </details>
     <details class="component">
       <summary><span class="component-number">09</span><span>Website &amp; docs</span><span class="component-type">Project hub</span><span class="component-toggle" aria-hidden="true">+</span></summary>
-      <div class="component-body"><p>Build this static site from canonical component documentation and the issue ledger. Activity refresh stays inactive until approval.</p><p class="component-evidence">Local build verified · public activity unavailable</p><pre><code>python3 website/build.py
+      <div class="component-body"><p>Build this static site from canonical component documentation and the issue ledger. Activity refresh stays inactive until approval.</p><p class="component-evidence">Local build verified · public activity unavailable</p><pre><code>uv venv .venv --python 3.13
+uv pip install --python .venv/bin/python -r website/requirements.txt
+.venv/bin/python website/build.py
 python3 -m http.server 4173 --bind 127.0.0.1 --directory website/dist</code></pre><div class="component-links"><a href="docs.html">Documentation ↗</a><a href="activity.html">Activity status ↗</a><a href="releases.html">Release preparation ↗</a></div></div>
     </details>
     <details class="component">
