@@ -20,7 +20,7 @@ issues = json.loads((R / "planning/issues.json").read_text())
 # Input path is a build-time option, never a browser token or runtime fetch.
 activity_path = os.environ.get("GROK_ACTIVITY_FILE")
 activity = (
-    load_activity(Path(activity_path), allow_fixture=True)
+    load_activity(Path(activity_path), allow_fixture=True, classify_stale=True)
     if activity_path
     else {"state": "unavailable", "reason": "Public repositories have not been created"}
 )
@@ -71,7 +71,7 @@ def activity_html(record):
     if state == "fixture":
         body += "<p>Synthetic development fixture. These numbers are not real project activity.</p>"
     if state == "cached":
-        body += "<p>Refresh failed. Timestamped cached result; not current live activity.</p>"
+        body += "<p>Cached result: refresh failed or overdue. Last successful timestamp shown; not current live activity.</p>"
     return body
 
 

@@ -62,12 +62,14 @@
       "HARD-LIN-001"
     ],
     "checks": [
-      "18 source tests",
-      "fresh installed custom factory macOS and actual Linux"
+      "20 source tests",
+      "fresh installed documented and annotated-dataclass factories on macOS and actual offline Linux"
     ],
     "commits": [
       "beb69c1",
-      "04b5ac3"
+      "04b5ac3",
+      "89478e5",
+      "ce897ee"
     ],
     "evidence": [
       "../grok-gadgets-linux-sdk/docs/verification/hardening.md"
@@ -87,11 +89,12 @@
       "HARD-WEB-002"
     ],
     "checks": [
-      "11 activity and rendering tests",
-      "1280/390px browser guides;HA overflow corrected"
+      "12 activity/rendering tests including stale file-to-build classification",
+      "1280/390px browser guides; HA overflow corrected"
     ],
     "commits": [
-      "0078a5a"
+      "0078a5a",
+      "a9550ab"
     ],
     "evidence": [
       "website/test_activity.py",
@@ -103,7 +106,7 @@
   {
     "id": "H4",
     "title": "Cross-repository acceptance",
-    "stage": "ready",
+    "stage": "in progress",
     "owner": "coordinator",
     "dependencies": [
       "H1",
@@ -113,15 +116,21 @@
     "issues": [
       "HARD-001"
     ],
-    "checks": [],
-    "commits": [],
-    "evidence": [],
+    "checks": [
+      "12/12 clean committed initial integration passed; final review corrections require rerun"
+    ],
+    "commits": [
+      "affb69b"
+    ],
+    "evidence": [
+      "artifacts/verification/latest.json"
+    ],
     "blockers": []
   },
   {
     "id": "H5",
     "title": "Independent review and closure",
-    "stage": "ready",
+    "stage": "review",
     "owner": "coordinator",
     "dependencies": [
       "H4"
@@ -129,7 +138,9 @@
     "issues": [
       "HARD-001"
     ],
-    "checks": [],
+    "checks": [
+      "Two independent P2 findings corrected; reviewer rerun pending"
+    ],
     "commits": [],
     "evidence": [],
     "blockers": []
@@ -137,7 +148,7 @@
   {
     "id": "H6",
     "title": "Candidate and next validation",
-    "stage": "ready",
+    "stage": "in progress",
     "owner": "coordinator",
     "dependencies": [
       "H5"

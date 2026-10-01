@@ -170,6 +170,78 @@ class ActivityTests(unittest.TestCase):
             self.assertEqual(refresh("owner", cache, success, now)["state"], "live")
             self.assertEqual(len(calls), 2)
 
+    def test_build_stale_live_fixture_and_corrupt_input(self):
+        root = Path(__file__).resolve().parents[1]
+        with tempfile.TemporaryDirectory() as d:
+            cache = Path(d) / "cache.json"
+            data = dict(
+                aggregate_stars=41,
+                open_issues=2,
+                contributors=3,
+                active_contributors=1,
+                releases=[
+                    dict(
+                        repository="fixture",
+                        name="<script>fixture</script>",
+                        date="synthetic",
+                    )
+                ],
+            )
+            cases = [
+                (
+                    dict(
+                        state="live",
+                        owner="old",
+                        last_successful_refresh="2020-01-01T00:00:00+00:00",
+                        data=data,
+                    ),
+                    "CACHED",
+                ),
+                (dict(state="fixture", data=data), "FIXTURE"),
+                (
+                    dict(
+                        state="live",
+                        owner="old",
+                        last_successful_refresh="2999-01-01T00:00:00+00:00",
+                        data=data,
+                    ),
+                    "UNAVAILABLE",
+                ),
+                (None, "UNAVAILABLE"),
+            ]
+            try:
+                for record, state in cases:
+                    cache.write_text(
+                        json.dumps(record) if record is not None else "{broken"
+                    )
+                    subprocess.run(
+                        [sys.executable, "website/build.py"],
+                        cwd=root,
+                        env={**os.environ, "GROK_ACTIVITY_FILE": str(cache)},
+                        check=True,
+                        capture_output=True,
+                    )
+                    html = (root / "website/dist/activity.html").read_text()
+                    self.assertIn(state, html)
+                    self.assertNotIn("LIVE —", html)
+                    self.assertNotIn("<script>fixture", html)
+                    if state == "CACHED":
+                        self.assertIn("2020-01-01", html)
+                    if state == "UNAVAILABLE":
+                        self.assertNotIn(
+                            "Aggregate stars (sum, not unique people): 41", html
+                        )
+            finally:
+                env = dict(os.environ)
+                env.pop("GROK_ACTIVITY_FILE", None)
+                subprocess.run(
+                    [sys.executable, "website/build.py"],
+                    cwd=root,
+                    env=env,
+                    check=True,
+                    capture_output=True,
+                )
+
     def test_invalid_owner(self):
         with self.assertRaises(ValueError):
             refresh("../private", Path("/tmp/unused"))
