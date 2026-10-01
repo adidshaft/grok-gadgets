@@ -6,22 +6,36 @@ import subprocess
 import json
 import time
 import sys
+import hashlib
+from datetime import datetime, timezone
 
 root = Path(__file__).resolve().parents[1]
-out = root / "artifacts/verification"
+run_id = (
+    datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S") + "-" + str(time.time_ns())
+)
+out = root / "artifacts/verification" / run_id
 out.mkdir(parents=True, exist_ok=True)
 jobs = [
-    ("hub", root, ["python3", "scripts/check.py"]),
-    ("website", root, ["python3", "website/build.py"]),
+    ("hub", root, [sys.executable, "scripts/check.py"]),
+    ("website", root, [sys.executable, "website/build.py"]),
     (
         "activity",
         root,
-        ["python3", "-m", "unittest", "discover", "-s", "website", "-p", "test_*.py"],
+        [
+            sys.executable,
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "website",
+            "-p",
+            "test_*.py",
+        ],
     ),
     (
         "community",
         root,
-        ["python3", "-m", "unittest", "discover", "-s", "community/tests"],
+        [sys.executable, "-m", "unittest", "discover", "-s", "community/tests"],
     ),
     ("gateway", root.parent / "grok-gadgets-gateway", ["uv", "run", "pytest"]),
     (
@@ -38,6 +52,11 @@ jobs = [
         "home-assistant",
         root.parent / "grok-gadgets-home-assistant",
         ["uv", "run", "python", "-m", "unittest", "discover", "-s", "tests", "-v"],
+    ),
+    (
+        "installed-custom-onboarding",
+        root,
+        [sys.executable, "scripts/check-installed-onboarding.py"],
     ),
     ("esp32-host", root.parent / "grok-gadgets-esp32-sdk", ["sh", "tools/check.sh"]),
     (
@@ -56,6 +75,13 @@ results = []
 for name, cwd, command in jobs:
     env = os.environ.copy()
     env["GROK_GATEWAY_SOURCE"] = str(root.parent / "grok-gadgets-gateway/src")
+    started_at = datetime.now(timezone.utc).isoformat()
+    status_before = subprocess.check_output(
+        ["git", "-C", str(cwd), "status", "--porcelain"], text=True
+    ).splitlines()
+    tracked_diff = subprocess.check_output(
+        ["git", "-C", str(cwd), "diff", "HEAD", "--binary"]
+    )
     start = time.monotonic()
     r = subprocess.run(
         command,
@@ -76,6 +102,14 @@ for name, cwd, command in jobs:
             repository=cwd.name,
             commit=commit,
             command=command,
+            started_at_utc=started_at,
+            python=sys.version.split()[0],
+            status_before=status_before,
+            tracked_clean=not any(not line.startswith("??") for line in status_before),
+            tracked_diff_sha256=hashlib.sha256(tracked_diff).hexdigest(),
+            status_after=subprocess.check_output(
+                ["git", "-C", str(cwd), "status", "--porcelain"], text=True
+            ).splitlines(),
             exit_code=r.returncode,
             seconds=round(time.monotonic() - start, 2),
             log=str((out / (name + ".log")).relative_to(root)),
@@ -85,4 +119,11 @@ for name, cwd, command in jobs:
     if r.returncode:
         print(r.stdout)
 (out / "results.json").write_text(json.dumps(results, indent=2) + "\n")
+(root / "artifacts/verification/latest.json").write_text(
+    json.dumps(
+        {"run_id": run_id, "results": str((out / "results.json").relative_to(root))},
+        indent=2,
+    )
+    + "\n"
+)
 sys.exit(any(x["exit_code"] for x in results))

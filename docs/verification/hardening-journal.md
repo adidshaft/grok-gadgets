@@ -29,3 +29,7 @@ Initial renderer build failed on excluded old ESPverification navigation; added 
 Repeatable installed onboarding wrapper initially tried hub CPython3.13 offline dependency cache and failed installing dependencies; corrected to the SDK's pinned CPython3.11 environment in a new venv. Offline installed-wheel custom registration/command/state now passes with PYTHONPATH removed and -I driver. This is an environment choice, not source-path injection.
 
 HARD-WEB-001 commit0078a5a, H3 renderer/runner integration pendingcommit. `.venv/bin/python -m unittest discover -s website -p 'test_*.py'`:11 pass including activity+rendering/security/fragment/stale-output tests. Hubcheck/Ruff passed. Source snapshots imported from current clean component HEADs; final integrated suite still pending.
+
+## H4 initial integration — 2026-10-04T16:36:44.896885+00:00
+
+H3 semantic renderer committeda9550ab. New12-group `.venv/bin/python scripts/check-all.py` run20261004T163448-1791131688804964000 passed all groups, including fresh installed custom onboarding. Reports now include UTC start, source HEAD, tracked-diff hash, before/after dirty paths, command/interpreter and distinct logs rather than overwriting baseline. This first expanded run used intentionally uncommitted runner/helper and is not claimed as clean-source proof. Next commit records orchestration, followed by another run on committed integrated inputs.
