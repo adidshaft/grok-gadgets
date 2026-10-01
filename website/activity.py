@@ -158,10 +158,25 @@ def valid_activity(record, now=None, allow_fixture=False):
     )
 
 
-def load_activity(path, now=None, allow_fixture=False):
+def load_activity(path, now=None, allow_fixture=False, classify_stale=False):
+    if classify_stale:
+        now = now or datetime.now(timezone.utc)
     try:
         record = json.loads(path.read_text())
         if valid_activity(record, now, allow_fixture):
+            if (
+                classify_stale
+                and record.get("state") == "live"
+                and (
+                    now - datetime.fromisoformat(record["last_successful_refresh"])
+                ).total_seconds()
+                >= 3600
+            ):
+                return {
+                    **record,
+                    "state": "cached",
+                    "refresh_error": "Successful refresh overdue; timestamped cached data",
+                }
             return record
     except (OSError, ValueError, TypeError):
         pass
