@@ -48,7 +48,7 @@ Gateway emitted one known third-party annotation warning on stderr; assertions p
 
 ## Backlog, community and publication
 
-Main coordination ledger planning/issues.json, exported issue files, milestones and component ledgers remain labeled. Publication/issue-migration.json prepares34records without contacting GitHub. Local-to-public numbers are null pending owner/approval. M0–M4, M6–M7 and M9 preparation are complete at their stated local evidence levels; M5/M8 and external activation remain open.
+Main coordination ledger planning/issues.json, exported issue files, milestones and component ledgers remain labeled. Publication/issue-migration.json prepares35records without contacting GitHub. Local-to-public numbers are null pending owner/approval. M0–M4, M6–M7 and M9 preparation are complete at their stated local evidence levels; M5/M8 and external activation remain open.
 
 Community package includes guidelines, recognition/moderation policies, Reddit audit/before-after procedure, proposed flairs/menu/pins, and four unpublished post drafts. Six tests cover offline recognition, consent/ownership/merged contribution checks, higher role preservation, account changes, redacted dry-run logs and bounded idempotent retries. It is no live identity verifier/backend or activated award service.
 

@@ -417,9 +417,14 @@
       "P1"
     ],
     "milestone": "M7",
-    "stage": "in progress",
-    "commits": [],
-    "evidence": [],
+    "stage": "done",
+    "commits": [
+      "c7d9707",
+      "f44c2a3"
+    ],
+    "evidence": [
+      "docs/verification/home-components.md"
+    ],
     "blocker": null
   }
 ]

@@ -5,6 +5,9 @@ No history squashing or public push occurred. Exact source archive HEADs are add
 ## grok-gadgets
 
 ```
+f44c2a3 fix: keep motion control available across the component directory [HUB-WEB-003]
+c7d9707 feat: list the complete toolkit in interactive homepage disclosures [HUB-WEB-003]
+e0bfe94 docs: close interactive website issue with browser evidence [HUB-WEB-002]
 2f9c30b fix: avoid accidental menu shortcuts and clarify asset attribution [HUB-WEB-002]
 d212592 feat: build continuous interactive architecture and selective navigation [HUB-WEB-002]
 0266f55 feat: adopt approved community identity and sourced reference marks [HUB-WEB-002]
