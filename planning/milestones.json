@@ -58,5 +58,11 @@
     "title": "Publication preparation",
     "stage": "done",
     "scope": "Local deliverables only; external activation and physical/account gates remain separate"
+  },
+  {
+    "id": "MH",
+    "title": "Audit corrections and local release readiness",
+    "stage": "in progress",
+    "scope": "H0\u2013H7 required local acceptance; external activation excluded"
   }
 ]

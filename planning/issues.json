@@ -426,5 +426,82 @@
       "docs/verification/home-components.md"
     ],
     "blocker": null
+  },
+  {
+    "id": "HARD-001",
+    "repository": "grok-gadgets",
+    "owner": "grok-gadgets",
+    "problem": "Complete six audit corrections and release acceptance",
+    "intended_behaviour": "Complete six audit corrections and release acceptance",
+    "acceptance": [
+      "H0\u2013H7 evidence",
+      "Six regressions and independent review",
+      "Fresh artifacts and real-Grok test plan"
+    ],
+    "dependencies": [],
+    "labels": [
+      "maintenance",
+      "integration",
+      "P1",
+      "help wanted"
+    ],
+    "milestone": "MH",
+    "stage": "ready",
+    "commits": [],
+    "evidence": [],
+    "blocker": null
+  },
+  {
+    "id": "HARD-WEB-001",
+    "repository": "grok-gadgets",
+    "owner": "grok-gadgets",
+    "problem": "Persist honest activity failure states",
+    "intended_behaviour": "Persist honest activity failure states",
+    "acceptance": [
+      "Atomic validated refresh result persisted",
+      "File-to-build cached timestamp and owner isolation regression",
+      "Corrupt/missing cache fallback safe"
+    ],
+    "dependencies": [
+      "HARD-001"
+    ],
+    "labels": [
+      "bug",
+      "website",
+      "P2",
+      "help wanted"
+    ],
+    "milestone": "MH",
+    "stage": "ready",
+    "commits": [],
+    "evidence": [],
+    "blocker": null
+  },
+  {
+    "id": "HARD-WEB-002",
+    "repository": "grok-gadgets",
+    "owner": "grok-gadgets",
+    "problem": "Render safe usable source-relative documentation",
+    "intended_behaviour": "Render safe usable source-relative documentation",
+    "acceptance": [
+      "Headings,tables,links,anchors,code and diagrams usable",
+      "Safe URLs/HTML/diagram regression",
+      "Source-relative links and fragments checked;stale outputs cleaned",
+      "Explicit sanitized public document policy;desktop/mobile review"
+    ],
+    "dependencies": [
+      "HARD-001"
+    ],
+    "labels": [
+      "bug",
+      "website",
+      "P2",
+      "help wanted"
+    ],
+    "milestone": "MH",
+    "stage": "ready",
+    "commits": [],
+    "evidence": [],
+    "blocker": null
   }
 ]
