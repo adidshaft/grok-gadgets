@@ -546,7 +546,7 @@
       "repository": "grok-gadgets",
       "local_id": "HARD-001",
       "github_number": null,
-      "stage": "ready",
+      "stage": "in progress",
       "source": "grok-gadgets/planning/issues.json",
       "record": {
         "id": "HARD-001",
@@ -567,7 +567,7 @@
           "help wanted"
         ],
         "milestone": "MH",
-        "stage": "ready",
+        "stage": "in progress",
         "commits": [],
         "evidence": [],
         "blocker": null
@@ -577,7 +577,7 @@
       "repository": "grok-gadgets",
       "local_id": "HARD-WEB-001",
       "github_number": null,
-      "stage": "ready",
+      "stage": "review",
       "source": "grok-gadgets/planning/issues.json",
       "record": {
         "id": "HARD-WEB-001",
@@ -600,9 +600,14 @@
           "help wanted"
         ],
         "milestone": "MH",
-        "stage": "ready",
-        "commits": [],
-        "evidence": [],
+        "stage": "review",
+        "commits": [
+          "0078a5a"
+        ],
+        "evidence": [
+          "website/test_activity.py",
+          "docs/verification/hardening-journal.md"
+        ],
         "blocker": null
       }
     },
@@ -610,7 +615,7 @@
       "repository": "grok-gadgets",
       "local_id": "HARD-WEB-002",
       "github_number": null,
-      "stage": "ready",
+      "stage": "review",
       "source": "grok-gadgets/planning/issues.json",
       "record": {
         "id": "HARD-WEB-002",
@@ -634,9 +639,12 @@
           "help wanted"
         ],
         "milestone": "MH",
-        "stage": "ready",
+        "stage": "review",
         "commits": [],
-        "evidence": [],
+        "evidence": [
+          "website/test_documents.py",
+          "docs/verification/hardening-journal.md"
+        ],
         "blocker": null
       }
     },
@@ -863,18 +871,20 @@
       "repository": "grok-gadgets-esp32-sdk",
       "local_id": "HARD-ESP-001",
       "github_number": null,
-      "stage": "ready",
+      "stage": "done",
       "source": "grok-gadgets-esp32-sdk/planning/issues.json",
       "record": {
         "id": "HARD-ESP-001",
         "repository": "grok-gadgets-esp32-sdk",
         "owner": "grok-gadgets-esp32-sdk",
         "problem": "Preserve ACKs across repeated retries",
-        "intended_behaviour": "Preserve ACKs across repeated retries",
+        "intended_behaviour": "Retained retries return equivalent owned ACKs without rerunning a handler; decode failures preserve retry uncertainty and cached execution result.",
         "acceptance": [
           "Repeated valid success/failure ACKs with one execution",
           "Interleaved and changed argument IDs covered",
-          "Actual consumer retry, contract and C124 compile pass"
+          "Actual consumer retry, contract and C124 compile pass",
+          "Eight-entry FIFO eviction and reboot retention limits covered",
+          "Corrected clean-source firmware artifacts identify source commit, toolchain and hashes"
         ],
         "dependencies": [
           "HARD-001"
@@ -886,9 +896,16 @@
           "help wanted"
         ],
         "milestone": "MH",
-        "stage": "ready",
-        "commits": [],
-        "evidence": [],
+        "stage": "done",
+        "commits": [
+          "3e8ccff4201a19ceb3f6a488c9faee2a442f25d3",
+          "382444d5a7bb9372e8778421a337b82306aa2c58"
+        ],
+        "evidence": [
+          "docs/verification/hardening.md: installed ArduinoJson reproduced valid ACK, valid ACK, true, true, true with execution count 1",
+          "Library and actual firmware retry regressions fail against original585adda; corrected CTest3/3, format/lint, contract, PTY four redeliveries and C124 build pass",
+          "Clean integrated main382444d: host3/3, contract, repeated PTY ACK, hub validation and real C124 compile pass; four artifacts rebuilt from clean source and hashes/toolchain recorded in docs/build-checksums.json. Physical/Grok remain external gates."
+        ],
         "blocker": null
       }
     },
@@ -1015,7 +1032,7 @@
       "repository": "grok-gadgets-gateway",
       "local_id": "HARD-GW-001",
       "github_number": null,
-      "stage": "ready",
+      "stage": "done",
       "source": "grok-gadgets-gateway/planning/issues.json",
       "record": {
         "id": "HARD-GW-001",
@@ -1038,9 +1055,14 @@
           "help wanted"
         ],
         "milestone": "MH",
-        "stage": "ready",
-        "commits": [],
-        "evidence": [],
+        "stage": "done",
+        "commits": [
+          "4bb6d87"
+        ],
+        "evidence": [
+          "Starting 4cf42ff: button and state both executed and replaced RGB with 1,2,3,true.",
+          "17 pytest tests pass, Ruff passes, hub scripts/check.py passes; official MCP ClientSession rejects button/state/unknown and four malformed RGB forms without state mutation. See docs/verification/hardening.md."
+        ],
         "blocker": null
       }
     },
@@ -1048,7 +1070,7 @@
       "repository": "grok-gadgets-gateway",
       "local_id": "HARD-GW-002",
       "github_number": null,
-      "stage": "ready",
+      "stage": "done",
       "source": "grok-gadgets-gateway/planning/issues.json",
       "record": {
         "id": "HARD-GW-002",
@@ -1071,9 +1093,14 @@
           "help wanted"
         ],
         "milestone": "MH",
-        "stage": "ready",
-        "commits": [],
-        "evidence": [],
+        "stage": "done",
+        "commits": [
+          "85548ea"
+        ],
+        "evidence": [
+          "Starting 4cf42ff: A retry accepted as new after B256 (sequence258).",
+          "21 pytest tests, Ruff and hub check pass; current-boot windows bounded64x256; direct lifecycle and actual MCP plus two authenticated devices verify no sequence/history increment on A retry. See docs/verification/hardening.md."
+        ],
         "blocker": null
       }
     },
@@ -1318,7 +1345,7 @@
       "repository": "grok-gadgets-linux-sdk",
       "local_id": "HARD-LIN-001",
       "github_number": null,
-      "stage": "ready",
+      "stage": "done",
       "source": "grok-gadgets-linux-sdk/planning/issues.json",
       "record": {
         "id": "HARD-LIN-001",
@@ -1341,9 +1368,14 @@
           "help wanted"
         ],
         "milestone": "MH",
-        "stage": "ready",
-        "commits": [],
-        "evidence": [],
+        "stage": "done",
+        "commits": [
+          "beb69c1ff38236adeb570c213d036fd225f8d41e"
+        ],
+        "evidence": [
+          "docs/verification/hardening.md",
+          "18 full macOS tests passed; clean implementation wheel custom display.set onboarding passed macOS and actual pinned Linux; installed safe factory tests passed both platforms (13 passed, 5 optional source-gateway cases skipped)"
+        ],
         "blocker": null
       }
     }

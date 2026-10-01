@@ -473,7 +473,9 @@
     ],
     "milestone": "MH",
     "stage": "review",
-    "commits": [],
+    "commits": [
+      "0078a5a"
+    ],
     "evidence": [
       "website/test_activity.py",
       "docs/verification/hardening-journal.md"
@@ -502,9 +504,12 @@
       "help wanted"
     ],
     "milestone": "MH",
-    "stage": "ready",
+    "stage": "review",
     "commits": [],
-    "evidence": [],
+    "evidence": [
+      "website/test_documents.py",
+      "docs/verification/hardening-journal.md"
+    ],
     "blocker": null
   }
 ]

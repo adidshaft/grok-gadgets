@@ -1,8 +1,10 @@
-Source: grok-gadgets-esp32-sdk/docs/verification.md at 585adda7f854fd33f2d17261d2b1cfa7ec3b1179
+Source: grok-gadgets-esp32-sdk/docs/verification.md at 5ca2e5d7ebe470fef10fc5584287cd0c8b624c65
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
 # Local verification evidence — 4 October 2026
+
+This is the pre-hardening checkpoint. Current ACK retry correction, commands and package provenance are recorded in [hardening verification](verification/hardening.md).
 
 Environment: macOS 27.0, darwin_arm64; Python 3.14.7; AppleClang 21.0.0; CMake; PlatformIO Core 6.1.18. This is Mac host and ESP32-S3 cross-compiler evidence, not Linux runtime validation.
 

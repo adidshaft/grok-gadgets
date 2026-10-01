@@ -6,10 +6,10 @@ Actual Grok connectivity, mobile clients and physical hardware remain unverified
 
 Five sibling repositories: this project hub, [gateway](../grok-gadgets-gateway/README.md), [Linux SDK](../grok-gadgets-linux-sdk/README.md), [ESP32 SDK](../grok-gadgets-esp32-sdk/README.md), [Home Assistant](../grok-gadgets-home-assistant/README.md).
 
-Run the local acceptance suite:
+Create the pinned hub environment as described below, then run the local acceptance suite:
 
 ```sh
-python3 scripts/check-all.py
+.venv/bin/python scripts/check-all.py
 ```
 
 Run the simulator demo:
@@ -20,10 +20,12 @@ uv sync --locked
 uv run python -m grok_gadgets_gateway.demo
 ```
 
-Website from the hub:
+Website from the hub (create its pinned environment first):
 
 ```sh
-python3 website/build.py
+uv venv .venv --python 3.13
+uv pip install --python .venv/bin/python -r website/requirements.txt
+.venv/bin/python website/build.py
 python3 -m http.server 4173 --bind 127.0.0.1 --directory website/dist
 ```
 

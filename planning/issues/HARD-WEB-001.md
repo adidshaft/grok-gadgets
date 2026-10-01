@@ -16,7 +16,7 @@ Acceptance:
 
 Dependencies: HARD-001
 
-Commits: Pending
+Commits: 0078a5a
 
 Evidence:
 

@@ -1,0 +1,63 @@
+{
+  "hub": [
+    "README.md",
+    "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md",
+    "SECURITY.md",
+    "docs/architecture/overview.md",
+    "docs/getting-started/physical-test.md",
+    "community/README.md",
+    "community/guidelines.md",
+    "community/moderation-policy.md",
+    "community/contribution-recognition.md",
+    "community/reddit-setup.md",
+    "community/platform-evaluation.md",
+    "community/content-plan.md",
+    "community/drafts/initial-posts.md"
+  ],
+  "component_sources": [
+    "README.md",
+    "docs/architecture.md",
+    "docs/local-operation.md",
+    "docs/release.md",
+    "docs/development.md",
+    "docs/operation.md",
+    "docs/sdk.md",
+    "docs/build-flash.md",
+    "docs/board-sources.md",
+    "docs/dependencies.md",
+    "docs/protocol-recovery.md",
+    "docs/setup.md",
+    "docs/feasibility.md"
+  ],
+  "aliases": [
+    {
+      "source": "docs/public/local-status.md",
+      "page": "doc-docs-verification-local-handoff.html"
+    },
+    {
+      "source": "docs/public/esp32-sdk-verification.md",
+      "page": "doc-docs-components-grok-gadgets-esp32-sdk-verification.html"
+    },
+    {
+      "source": "docs/public/linux-sdk-verification.md",
+      "page": "doc-docs-components-grok-gadgets-linux-sdk-verification.html"
+    },
+    {
+      "source": "docs/public/gateway-verification.md",
+      "page": "doc-docs-components-grok-gadgets-gateway-verification.html"
+    },
+    {
+      "source": "docs/public/home-assistant-verification.md",
+      "page": "doc-docs-components-grok-gadgets-home-assistant-verification.html"
+    }
+  ],
+  "images": [
+    {
+      "repository": "grok-gadgets",
+      "source": "website/media/grok-gadgets-icon.png",
+      "output": "media/grok-gadgets-icon.png",
+      "sha256": "6d0b4c7cd981d7895bc1763fc55d1c9dae13ad27dbd9c9398ead8a8690b8f56f"
+    }
+  ]
+}
