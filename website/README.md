@@ -2,7 +2,7 @@
 
 Run `python3 website/build.py` from the hub, then `python3 -m http.server 4173 --bind 127.0.0.1 --directory website/dist`. Open http://127.0.0.1:4173. No deployment occurs.
 
-Python standard library generates escaped canonical docs and the issue-ledger roadmap. The homepage presents one short pitch and a large continuous SVG architecture scene. Tap or keyboard-select a node for a concise explanation and documentation link. LED and Button views reveal only their relevant simulated controls. Menu opens the documentation, roadmap and community paths; Escape returns focus to its trigger. No framework, remote font or animation library is required.
+Python standard library generates escaped canonical docs and the issue-ledger roadmap. The homepage presents one short pitch and a large continuous SVG architecture scene. Tap or keyboard-select a node for a concise explanation and documentation link. LED and Button views reveal only their relevant simulated controls. Menu opens the documentation, roadmap and community paths; Escape returns focus to its trigger. Below the scene, ten native disclosure entries list every SDK, connection and project tool. Each opens a short description, verification state, docs links and relevant commands; they remain interactive without JavaScript. No framework, remote font or animation library is required.
 
 Original community artwork is copied from the user-approved local brand package. Official Grok and SpaceXAI marks are unchanged product/company references, separate from the community identity. See media/provenance.json and THIRD_PARTY_NOTICES.md for source hashes and trademark conditions. These official assets are not Apache-2.0 licensed project artwork.
 
