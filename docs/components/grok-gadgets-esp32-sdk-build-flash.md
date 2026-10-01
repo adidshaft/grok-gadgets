@@ -1,4 +1,4 @@
-Source: grok-gadgets-esp32-sdk/docs/build-flash.md at 585adda7f854fd33f2d17261d2b1cfa7ec3b1179
+Source: grok-gadgets-esp32-sdk/docs/build-flash.md at 5ca2e5d7ebe470fef10fc5584287cd0c8b624c65
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -22,6 +22,8 @@ sh tools/check.sh
 PlatformIO 6.1.18, espressif32 6.10.0, Arduino-ESP32 2.0.17, Xtensa compiler 8.4.0+2021r2-patch5, ArduinoJson 6.21.5 and NeoPixel 1.12.3 are pinned. The complete resolved package list and hashes are recorded in verification evidence. Tool downloads require internet and local disk space. Host logic tests on a Mac do not validate Linux USB permissions or physical pins.
 
 Outputs: `.pio/build/atoms3-lite-usb/firmware.bin`, `firmware.elf`, `bootloader.bin`, `partitions.bin`. Build outputs are ignored by Git; `tools/package_build.py` copies them into `artifacts/c124-usb` and writes checksums. These are **build verified, hardware pending** only after the recorded compile succeeds.
+
+For a provenance package, commit the tested source first, then run `.venv/bin/python tools/package_build.py` from a clean checkout. Packaging rebuilds that exact commit and records its clean source state, UTC build time, resolved toolchain and SHA-256 hashes. It rejects uncommitted sources rather than labeling an older binary as the current commit. Refresh the tracked `docs/build-checksums.json` from that manifest in a subsequent evidence commit.
 
 ## Flash when hardware is available
 

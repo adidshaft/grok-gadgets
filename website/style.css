@@ -115,3 +115,23 @@ html[data-reduced-motion] *,html[data-reduced-motion] *:before,html[data-reduced
 @keyframes component-in{from{opacity:0;transform:translateY(-5px);}to{opacity:1;transform:none;}}
 @media(max-width:900px){.component-directory{gap:5%;grid-template-columns:1fr 2fr;}.component summary{font-size:21px;grid-template-columns:25px 1fr 18px;gap:12px;}.component-type{grid-column:2;grid-row:2;text-align:left;}.component-toggle{grid-column:3;grid-row:1/3;}.component-body{padding-left:37px;}}
 @media(max-width:760px){.component-directory{grid-template-columns:1fr;gap:40px;padding:55px 7% 100px;}.component-intro{position:static;}.component-intro h2{font-size:48px;}.component-intro h2 br{display:none;}.component summary{min-height:88px;}.component-body>p{font-size:15px;}.home-page .site-footer{inset:auto 20px 0;margin:0;}}
+
+/* Readable reference documents, including narrow-screen code/table/diagram scrolling. */
+article.document{max-width:900px;font-size:17px;line-height:1.7;}
+.document h1{font-size:clamp(36px,5vw,62px);line-height:1.1;margin:35px 0;}
+.document h2{font-size:30px;letter-spacing:-.03em;line-height:1.25;margin:45px 0 18px;}
+.document h3{font-size:23px;line-height:1.3;margin:30px 0 15px;}
+.document [id]{scroll-margin-top:110px;}
+.document p{max-width:760px;}.document li{margin:8px 0;}
+.document pre{max-width:100%;overflow:auto;padding:20px;background:#f5f5f5;font:14px/1.8 monospace;}
+.document pre code{padding:0;background:none;font-size:inherit;}
+.document table{display:block;max-width:100%;overflow:auto;border-collapse:collapse;font-size:14px;}
+.document th,.document td{padding:13px 16px;border:1px solid var(--line);text-align:left;}
+.document th{background:#f5f5f5;}.document img{max-width:100%;height:auto;}
+.document-diagram{margin:30px 0;max-width:100%;overflow:auto;padding:20px 0;}
+.document-diagram svg{display:block;width:100%;min-width:720px;color:#444;}
+.document-diagram figcaption{font-size:13px;color:var(--muted);max-width:700px;}
+.document section{margin:35px 0;overflow-wrap:anywhere;}
+@media(max-width:760px){article.document{font-size:16px;}.document pre{font-size:12px;padding:15px;}.document h2{font-size:26px;}}
+.document{overflow-wrap:anywhere;min-width:0;}
+.document :not(pre)>code{white-space:normal;overflow-wrap:anywhere;}

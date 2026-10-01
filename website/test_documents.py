@@ -1,0 +1,151 @@
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+import unittest
+
+from documents import Documents, PageLinks, check_links, static_diagram
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+class DocumentTests(unittest.TestCase):
+    def render_fixture(self, text):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "fixture.md"
+            path.write_text(text)
+            return Documents(ROOT).render(
+                dict(
+                    repository="grok-gadgets",
+                    source="README.md",
+                    snapshot=str(path),
+                    page="fixture.html",
+                )
+            )
+
+    def test_semantics_anchors_code_and_unsafe_content(self):
+        html = self.render_fixture("""# Guide
+
+## Install
+
+A paragraph with [jump](#install), **emphasis** and [unsafe](javascript:alert(1)).
+
+- First
+- Second
+
+| Device | Status |
+| --- | --- |
+| C124 | Pending |
+
+```python
+print("<script>code only</script>")
+```
+
+<script>alert("raw")</script>
+[bad](data:text/html,evil)
+[bad](file:///private/file)
+""")
+        for value in [
+            '<h1 id="guide">',
+            '<h2 id="install">',
+            "<p>",
+            "<ul>",
+            "<table>",
+            '<pre><code class="language-python">',
+            'href="#install"',
+        ]:
+            self.assertIn(value, html)
+        self.assertNotIn("<script>", html)
+        parser = PageLinks()
+        parser.feed(html)
+        self.assertFalse(
+            any(
+                link.startswith(("javascript:", "data:", "file:"))
+                for link in parser.links
+            )
+        )
+
+    def test_original_component_source_relative_links(self):
+        documents = Documents(ROOT)
+        record = next(
+            r
+            for r in documents.records
+            if r["repository"] == "grok-gadgets-esp32-sdk"
+            and r["source"] == "README.md"
+        )
+        html = documents.render(record)
+        self.assertIn(
+            'href="doc-docs-components-grok-gadgets-esp32-sdk-build-flash.html"', html
+        )
+        self.assertIn(
+            'href="doc-docs-components-grok-gadgets-esp32-sdk-sdk.html"', html
+        )
+        self.assertNotIn('<pre class="document">', html)
+        # Missing source files cannot acquire fabricated site or GitHub links.
+        with self.assertRaises(subprocess.CalledProcessError):
+            documents.resolve("not-a-real-guide.md", record)
+        self.assertEqual(
+            documents.resolve("../grok-gadgets/CONTRIBUTING.md", record),
+            "doc-CONTRIBUTING.html",
+        )
+        with self.assertRaises(ValueError):
+            documents.resolve("../../outside/private", record)
+
+    def test_diagram_accessibility_and_rejection(self):
+        html = static_diagram(
+            "flowchart LR\nG[Grok Bot] --> W[Gateway]\nW --> E[ESP32 SDK]"
+        )
+        self.assertIn('role="img"', html)
+        self.assertIn("<desc>Grok Bot to Gateway; Gateway to ESP32 SDK</desc>", html)
+        self.assertIn("<figcaption>", html)
+        for content in [
+            "flowchart LR\nA[<script>] --> B",
+            'flowchart LR\nclick A "javascript:alert(1)"',
+            '%%{init: {"securityLevel":"loose"}}%%\nflowchart LR',
+            "flowchart LR\nA --> B\nB --> A",
+            "flowchart LR\n" + "A --> B\n" * 81,
+        ]:
+            with self.subTest(content=content), self.assertRaises(ValueError):
+                static_diagram(content)
+
+    def test_fragment_checker(self):
+        with tempfile.TemporaryDirectory() as d:
+            output = Path(d)
+            (output / "a.html").write_text('<a href="b.html#setup">Setup</a>')
+            (output / "b.html").write_text('<h1 id="setup">Setup</h1>')
+            check_links(output)
+            (output / "b.html").write_text('<h1 id="renamed">Setup</h1>')
+            with self.assertRaisesRegex(ValueError, "Broken fragment"):
+                check_links(output)
+
+    def test_actual_build_cleans_stale_output_and_excludes_private_records(self):
+        with tempfile.TemporaryDirectory(dir=ROOT / "website") as d:
+            preserved = Path(d) / "unrelated.txt"
+            preserved.write_text("preserve this")
+            stale = ROOT / "website/dist/doc-deleted-source.html"
+            stale.write_text("obsolete")
+            env = dict(os.environ)
+            env.pop("GROK_ACTIVITY_FILE", None)
+            subprocess.run(
+                [sys.executable, "website/build.py"],
+                cwd=ROOT,
+                env=env,
+                check=True,
+                capture_output=True,
+            )
+            self.assertFalse(stale.exists())
+            self.assertEqual(preserved.read_text(), "preserve this")
+            output = ROOT / "website/dist"
+            self.assertFalse(
+                (output / "doc-docs-verification-hardening-journal.html").exists()
+            )
+            self.assertFalse((output / "doc-docs-implementation-plan.html").exists())
+            for path in output.glob("*.html"):
+                self.assertNotIn("/Users/", path.read_text())
+            architecture = (output / "doc-docs-architecture-overview.html").read_text()
+            self.assertIn('<svg role="img"', architecture)
+            self.assertIn('src="media/grok-gadgets-icon.png"', architecture)
+            config = json.loads((ROOT / "website/documents.json").read_text())
+            self.assertFalse(any("verification/" in s for s in config["hub"]))

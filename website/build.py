@@ -1,15 +1,20 @@
 """Static, escaped, source-driven documentation and roadmap builder."""
 
-from html.parser import HTMLParser
 from pathlib import Path
 from html import escape as e
 import json
 import shutil
 import os
 from activity import load_activity
+from documents import Documents, check_links
 
 R = Path(__file__).resolve().parents[1]
 OUT = R / "website/dist"
+# Delete only the generator-owned fixed output directory, never arbitrary caller paths.
+if OUT.is_symlink():
+    raise ValueError("Generated output must not be a symlink")
+if OUT.exists():
+    shutil.rmtree(OUT)
 OUT.mkdir(parents=True, exist_ok=True)
 issues = json.loads((R / "planning/issues.json").read_text())
 # Input path is a build-time option, never a browser token or runtime fetch.
@@ -344,24 +349,18 @@ page(
         "Data state",
     ),
 )
-# Technical content remains complete on dedicated reference pages.
-for src in [
-    R / "CONTRIBUTING.md",
-    R / "CODE_OF_CONDUCT.md",
-    R / "SECURITY.md",
-    *sorted((R / "docs").rglob("*.md")),
-    *sorted((R / "community").rglob("*.md")),
-]:
-    name = "doc-" + str(src.relative_to(R)).replace("/", "-").replace(".md", ".html")
+# Only explicitly selected public documents; original source identities resolve component links.
+documents = Documents(R)
+for record in documents.records:
     page(
-        name,
-        src.stem,
+        record["page"],
+        Path(record["source"]).stem,
         '<p class="eyebrow">Reference / '
-        + e(str(src.relative_to(R)))
-        + '</p><pre class="document">'
-        + e(src.read_text())
-        + "</pre>",
+        + e(record["repository"] + "/" + record["source"])
+        + "</p>"
+        + documents.render(record),
     )
+page("source-reference.html", "Source references", documents.reference_html())
 links = "".join(
     '<li><a href="'
     + f.name
@@ -395,19 +394,5 @@ for f in ["style.css", "motion.js", "scene.css", "scene.js"]:
 shutil.copytree(R / "website/media", OUT / "media", dirs_exist_ok=True)
 
 
-class Links(HTMLParser):
-    def handle_starttag(self, tag, attrs):
-        for k, v in attrs:
-            if (
-                k in ["href", "src"]
-                and v
-                and not v.startswith(("http:", "https:", "#", "mailto:"))
-            ):
-                assert (OUT / v.split("#")[0]).is_file(), (self.file, v)
-
-
-for f in OUT.glob("*.html"):
-    parser = Links()
-    parser.file = f.name
-    parser.feed(f.read_text())
-print(f"Built and link-checked {len(list(OUT.glob('*.html')))} static pages")
+check_links(OUT)
+print(f"Built and link/fragment-checked {len(list(OUT.glob('*.html')))} static pages")

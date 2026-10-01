@@ -2,7 +2,7 @@
 
 Owner: grok-gadgets
 
-Stage: ready · MH
+Stage: review · MH
 
 Labels: bug, website, P2, help wanted
 
@@ -21,5 +21,7 @@ Commits: Pending
 
 Evidence:
 
+- website/test_documents.py
+- docs/verification/hardening-journal.md
 
 Blocker: None

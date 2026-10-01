@@ -22,8 +22,8 @@
   {
     "id": "H1",
     "title": "Behavioral corrections",
-    "stage": "in progress",
-    "owner": "coordinator",
+    "stage": "done",
+    "owner": "hard_gateway / hard_esp",
     "dependencies": [
       "H0"
     ],
@@ -32,31 +32,52 @@
       "HARD-GW-001",
       "HARD-GW-002"
     ],
-    "checks": [],
-    "commits": [],
-    "evidence": [],
+    "checks": [
+      "21 gateway tests / actual MCP+TCP / installed wheel",
+      "ESP3CTest,contract,consumerretry,USB PTY,C124 compilation"
+    ],
+    "commits": [
+      "4bb6d87",
+      "85548ea",
+      "84b06fb",
+      "3e8ccff",
+      "382444d",
+      "5ca2e5d"
+    ],
+    "evidence": [
+      "../grok-gadgets-gateway/docs/verification/hardening.md",
+      "../grok-gadgets-esp32-sdk/docs/verification/hardening.md"
+    ],
     "blockers": []
   },
   {
     "id": "H2",
     "title": "Linux onboarding",
-    "stage": "ready",
-    "owner": "coordinator",
+    "stage": "done",
+    "owner": "hard_linux",
     "dependencies": [
       "H0"
     ],
     "issues": [
       "HARD-LIN-001"
     ],
-    "checks": [],
-    "commits": [],
-    "evidence": [],
+    "checks": [
+      "18 source tests",
+      "fresh installed custom factory macOS and actual Linux"
+    ],
+    "commits": [
+      "beb69c1",
+      "04b5ac3"
+    ],
+    "evidence": [
+      "../grok-gadgets-linux-sdk/docs/verification/hardening.md"
+    ],
     "blockers": []
   },
   {
     "id": "H3",
     "title": "Website corrections",
-    "stage": "in progress",
+    "stage": "review",
     "owner": "coordinator",
     "dependencies": [
       "H0"
@@ -65,9 +86,18 @@
       "HARD-WEB-001",
       "HARD-WEB-002"
     ],
-    "checks": [],
-    "commits": [],
-    "evidence": [],
+    "checks": [
+      "11 activity and rendering tests",
+      "1280/390px browser guides;HA overflow corrected"
+    ],
+    "commits": [
+      "0078a5a"
+    ],
+    "evidence": [
+      "website/test_activity.py",
+      "website/test_documents.py",
+      "docs/verification/hardening-journal.md"
+    ],
     "blockers": []
   },
   {
