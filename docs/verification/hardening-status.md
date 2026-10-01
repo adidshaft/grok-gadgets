@@ -48,3 +48,5 @@ Starting repository inventory:
 ```
 
 Next exact actions: assign gateway HARD-GW-001/002, ESP32 HARD-ESP-001, Linux HARD-LIN-001 with exclusive repositories; reproduce before fixing. Coordinator owns hub status and website. Component issue additions are intentional uncommitted H0 tracking. Source assets/ remain untouched.
+
+H0 done at c91a06b. Gateway fix4bb6d87 under agent branch; ESP32 ACK reproduction confirmed and fix active. H3 activity before/after passes6tests; coordinator renderer remains next. H2 Linux queued due runtime thread limit. Read agent-owned ledgers before integration.

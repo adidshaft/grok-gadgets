@@ -6,6 +6,7 @@ import argparse
 import json
 import os
 import re
+import tempfile
 from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.error import URLError
@@ -116,14 +117,88 @@ def fetch(owner, token=None):
     return records
 
 
+def valid_activity(record, now=None, allow_fixture=False):
+    """Accept complete metrics only; cache metadata never proves a failed fetch live."""
+    if not isinstance(record, dict):
+        return False
+    state = record.get("state")
+    if state == "unavailable":
+        return isinstance(record.get("reason"), str)
+    if state not in (
+        ["live", "cached", "fixture"] if allow_fixture else ["live", "cached"]
+    ):
+        return False
+    if state != "fixture":
+        if not isinstance(record.get("owner"), str):
+            return False
+        try:
+            stamp = datetime.fromisoformat(record["last_successful_refresh"])
+            if stamp.tzinfo is None or (now is not None and stamp > now):
+                return False
+        except (KeyError, TypeError, ValueError):
+            return False
+    data = record.get("data")
+    if not isinstance(data, dict):
+        return False
+    if any(
+        type(data.get(k)) is not int or data[k] < 0
+        for k in [
+            "aggregate_stars",
+            "open_issues",
+            "contributors",
+            "active_contributors",
+        ]
+    ):
+        return False
+    releases = data.get("releases", [])
+    return isinstance(releases, list) and all(
+        isinstance(item, dict)
+        and all(isinstance(item.get(k), str) for k in ["repository", "name", "date"])
+        for item in releases
+    )
+
+
+def load_activity(path, now=None, allow_fixture=False):
+    try:
+        record = json.loads(path.read_text())
+        if valid_activity(record, now, allow_fixture):
+            return record
+    except (OSError, ValueError, TypeError):
+        pass
+    return dict(state="unavailable", reason="Activity cache missing or invalid")
+
+
+def persist_activity(cache, result):
+    """Atomic same-directory replacement; readers see an entire prior or new result."""
+    cache.parent.mkdir(parents=True, exist_ok=True)
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="w",
+            encoding="utf-8",
+            dir=cache.parent,
+            prefix=".activity-",
+            suffix=".json",
+            delete=False,
+        ) as stream:
+            temporary = Path(stream.name)
+            stream.write(json.dumps(result, indent=2) + "\n")
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, cache)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
+
+
 def refresh(owner, cache, requester=fetch, now=None):
     now = now or datetime.now(timezone.utc)
     if not re.fullmatch(r"[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})", owner):
         raise ValueError("Invalid GitHub owner")
-    old = json.loads(cache.read_text()) if cache.exists() else None
+    old = load_activity(cache, now)
+    same_owner = old.get("owner") == owner
     if (
-        old
-        and old.get("owner") == owner
+        same_owner
         and old.get("state") == "live"
         and (
             now - datetime.fromisoformat(old["last_successful_refresh"])
@@ -138,17 +213,22 @@ def refresh(owner, cache, requester=fetch, now=None):
             last_successful_refresh=now.isoformat(),
             data=summarize(requester(owner, os.environ.get("GITHUB_TOKEN")), now),
         )
-    except (URLError, ValueError, KeyError, TimeoutError):
-        if old and old.get("owner") == owner and old.get("state") in ["live", "cached"]:
-            return {
+        if not valid_activity(result, now):
+            raise ValueError("Invalid refresh data")
+    except (URLError, ValueError, KeyError, TypeError, TimeoutError, OverflowError):
+        if same_owner and old.get("state") in ["live", "cached"]:
+            result = {
                 **old,
                 "state": "cached",
                 "refresh_error": "Refresh failed; timestamped cached data",
             }
-        return dict(
-            state="unavailable", reason="Refresh failed or exceeded bounded limits"
-        )
-    cache.write_text(json.dumps(result, indent=2) + "\n")
+        else:
+            result = dict(
+                state="unavailable",
+                owner=owner,
+                reason="Refresh failed or exceeded bounded limits",
+            )
+    persist_activity(cache, result)
     return result
 
 
