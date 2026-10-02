@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/local-operation.md at 84b06fb9bef0f01639c215f2b5ada83fe5074218
+Source: grok-gadgets-gateway/docs/local-operation.md at fa062a1db36cfbea90b807b9430d28d153bf585d
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -11,6 +11,9 @@ Run `uv sync --locked`, then `uv run python -m grok_gadgets_gateway.demo`. To co
 The client launches and supervises the stdio process. Keep the client and host awake. The gateway is intentionally not a background systemd service: a standalone stdio process without its client cannot serve assistant requests. A future authenticated reachable MCP transport is tracked separately. If the client exits, restart the gateway and device agent; state/history are in memory and event cursors reset explicitly.
 
 ## Per-device credential enrollment
+
+For an installable configurable software device instead, see [simulator settings](simulator.md).
+`--simulator-config` only works with `--simulator` and never enables test controls implicitly.
 
 Create a private file outside the repository. This command creates a token without printing it:
 
