@@ -719,6 +719,78 @@
       }
     },
     {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-DEMO-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-DEMO-001",
+        "repository": "grok-gadgets",
+        "problem": "Customize and export the browser simulator",
+        "intended_behaviour": "Customize and export the browser simulator",
+        "acceptance": [
+          "Reuse existing motion graphic with browser-only command/state/event behavior",
+          "Names, initial RGB/brightness, delay and offline startup export the gateway config contract",
+          "Keyboard, touch, reduced motion and invalid input verified; no Grok or physical claim"
+        ],
+        "dependencies": [
+          "HUB-GW-001"
+        ],
+        "labels": [
+          "feature",
+          "website",
+          "P1"
+        ],
+        "milestone": "M7",
+        "stage": "done",
+        "commits": [
+          "2602e48"
+        ],
+        "evidence": [
+          "docs/verification/simulator-playground.md"
+        ],
+        "blocker": null
+      }
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-KIT-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-KIT-001",
+        "repository": "grok-gadgets",
+        "problem": "Provide an inspectable configurable Grok simulator kit",
+        "intended_behaviour": "Provide an inspectable configurable Grok simulator kit",
+        "acceptance": [
+          "Download kit contains exact source, wheel, locked hashed dependencies, license and provenance",
+          "Extracted kit installs and configured MCP runs without hardware",
+          "Website export loads in gateway; cloud setup instructions distinguish Bot-reported route and native receipt gate",
+          "Build automatically refreshes changed committed gateway or kit inputs, runs acceptance before publishing, and fails on stale/corrupt/uncommitted source"
+        ],
+        "dependencies": [
+          "HUB-GW-001"
+        ],
+        "labels": [
+          "feature",
+          "gateway",
+          "P1"
+        ],
+        "milestone": "M9",
+        "stage": "done",
+        "commits": [
+          "d2bda94",
+          "fa062a1"
+        ],
+        "evidence": [
+          "docs/verification/simulator-playground.md"
+        ],
+        "blocker": null
+      }
+    },
+    {
       "repository": "grok-gadgets-esp32-sdk",
       "local_id": "ESP-001",
       "github_number": null,
@@ -1170,6 +1242,45 @@
         "evidence": [
           "Starting 4cf42ff: A retry accepted as new after B256 (sequence258).",
           "21 pytest tests, Ruff and hub check pass; current-boot windows bounded64x256; direct lifecycle and actual MCP plus two authenticated devices verify no sequence/history increment on A retry. See docs/verification/hardening.md."
+        ],
+        "blocker": null
+      }
+    },
+    {
+      "repository": "grok-gadgets-gateway",
+      "local_id": "SIM-GW-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-gateway/planning/issues.json",
+      "record": {
+        "id": "SIM-GW-001",
+        "repository": "grok-gadgets-gateway",
+        "owner": "grok-gadgets-gateway",
+        "problem": "Configurable installable Grok Gadgets software simulator",
+        "acceptance": [
+          "Strict packaged v1 config and schema; bounded settings with no executable/network/credential fields",
+          "Explicit simulator-config CLI flag, separate test controls",
+          "Actual official MCP client verifies identity, state, delay, offline startup and reconnect",
+          "Installed wheel loads configuration resources and passes simulator acceptance"
+        ],
+        "dependencies": [
+          "GW-003"
+        ],
+        "labels": [
+          "feature",
+          "simulator",
+          "gateway",
+          "P1"
+        ],
+        "milestone": "M2",
+        "stage": "done",
+        "commits": [
+          "d330131"
+        ],
+        "evidence": [
+          "73 gateway pytest tests and Ruff pass; hub scripts/check.py passes.",
+          "52 simulator config tests pass against a freshly installed wheel from /tmp, including real official MCP subprocess identity/name/state/150ms delay/offline/reconnect checks; packaged default/schema resources present; installed default MCP demo passes.",
+          "See docs/verification/simulator-config.md. Physical C124 and actual Grok Bot verification remain blocked under GW-004."
         ],
         "blocker": null
       }
