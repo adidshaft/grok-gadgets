@@ -202,8 +202,9 @@
     "problem": "Actual existing Grok Bot tool execution",
     "intended_behaviour": "Actual existing Grok Bot tool execution",
     "acceptance": [
-      "Documented commands reproduce observed behaviour",
-      "Evidence identifies actual verification level"
+      "Existing signed-in Grok Bot invokes gateway MCP simulator tools",
+      "Discovery, green/off state, invalid commands, button events and offline/reconnect acceptance",
+      "Record actual client/host/package/tool evidence; no physical verification claim"
     ],
     "dependencies": [
       "HUB-GW-001"
@@ -214,10 +215,12 @@
       "P1"
     ],
     "milestone": "M5",
-    "stage": "blocked",
+    "stage": "in progress",
     "commits": [],
-    "evidence": [],
-    "blocker": "Grok account access and approved reachable authenticated route"
+    "evidence": [
+      "docs/verification/real-grok-experiment.md"
+    ],
+    "blocker": null
   },
   {
     "id": "HUB-HW-001",
