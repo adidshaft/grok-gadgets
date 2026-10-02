@@ -6,9 +6,9 @@
       "repository": "grok-gadgets",
       "path": "/path/to/grok-gadgets",
       "version": "0.1.0-alpha.1",
-      "commit": "5f3dedc6e47b0900d098b1ae6f4e51199d458688",
+      "commit": "2602e48692d0845975d399a757e0c47f5e9c356d",
       "evidence_level": "Website/build/community verified",
-      "checks": "12 website tests;6offline community tests;47page semantic/link/privacy build;desktop/mobile/keyboard/motion review;12integrated groups",
+      "checks": "12 website tests;5 browser model tests;3 kit tests;11 publication tests;50page link build;desktop/mobile keyboard and motion review",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
@@ -99,5 +99,5 @@
       }
     }
   },
-  "note": "Component commits identify verified runtime sources plus evidence; hub identifies integration snapshot5f3dedc. Final publication manifest identifies exact archived HEADs and freshly rebuilt Python package hashes, avoiding self-reference."
+  "note": "Component commits identify verified runtime sources and hub implementation snapshot. Final publication manifest identifies exact archived HEADs and rebuilt Python package hashes, avoiding self-reference."
 }

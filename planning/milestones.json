@@ -45,7 +45,7 @@
     "id": "M7",
     "title": "Website and community",
     "stage": "done",
-    "scope": "Local deliverables only; external activation and physical/account gates remain separate"
+    "scope": "Local website, component directory and configurable browser playground verified; external activation separate"
   },
   {
     "id": "M8",
@@ -57,7 +57,7 @@
     "id": "M9",
     "title": "Publication preparation",
     "stage": "done",
-    "scope": "Local deliverables only; external activation and physical/account gates remain separate"
+    "scope": "Local publication package and source-pinned tested simulator download prepared; public CI refresh triggers and deployment require approval"
   },
   {
     "id": "MH",

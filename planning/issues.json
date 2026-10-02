@@ -574,5 +574,63 @@
       "docs/verification/real-grok-test-plan.md"
     ],
     "blocker": "Remote HTTPS/OAuth transport is unimplemented; separate design and service activation approval required"
+  },
+  {
+    "id": "HUB-DEMO-001",
+    "repository": "grok-gadgets",
+    "problem": "Customize and export the browser simulator",
+    "intended_behaviour": "Customize and export the browser simulator",
+    "acceptance": [
+      "Reuse existing motion graphic with browser-only command/state/event behavior",
+      "Names, initial RGB/brightness, delay and offline startup export the gateway config contract",
+      "Keyboard, touch, reduced motion and invalid input verified; no Grok or physical claim"
+    ],
+    "dependencies": [
+      "HUB-GW-001"
+    ],
+    "labels": [
+      "feature",
+      "website",
+      "P1"
+    ],
+    "milestone": "M7",
+    "stage": "done",
+    "commits": [
+      "2602e48"
+    ],
+    "evidence": [
+      "docs/verification/simulator-playground.md"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "HUB-KIT-001",
+    "repository": "grok-gadgets",
+    "problem": "Provide an inspectable configurable Grok simulator kit",
+    "intended_behaviour": "Provide an inspectable configurable Grok simulator kit",
+    "acceptance": [
+      "Download kit contains exact source, wheel, locked hashed dependencies, license and provenance",
+      "Extracted kit installs and configured MCP runs without hardware",
+      "Website export loads in gateway; cloud setup instructions distinguish Bot-reported route and native receipt gate",
+      "Build automatically refreshes changed committed gateway or kit inputs, runs acceptance before publishing, and fails on stale/corrupt/uncommitted source"
+    ],
+    "dependencies": [
+      "HUB-GW-001"
+    ],
+    "labels": [
+      "feature",
+      "gateway",
+      "P1"
+    ],
+    "milestone": "M9",
+    "stage": "done",
+    "commits": [
+      "d2bda94",
+      "fa062a1"
+    ],
+    "evidence": [
+      "docs/verification/simulator-playground.md"
+    ],
+    "blocker": null
   }
 ]
