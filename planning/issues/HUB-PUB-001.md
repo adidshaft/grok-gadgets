@@ -15,12 +15,10 @@ Acceptance:
 
 Dependencies: HUB-WEB-001, HUB-COM-001
 
-Commits: Pending
+Commits: 47c9be3, 9daf82d
 
 Evidence:
 
-- Inactive protection/labels/issue migration/releases/deployment package
-- License notices and redacted tracked-files secret heuristic scan
-- Final compatibility/evidence manifest; live publication separately blocked
+- 25artifacts independentlycertified;5exactarchives+5completeGitbundles;originalApache/notices; zero redactedheuristicfindings; externalactivationblocked
 
 Blocker: None

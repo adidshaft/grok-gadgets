@@ -15,12 +15,10 @@ Acceptance:
 
 Dependencies: HUB-GW-001
 
-Commits: 585adda, 74085a9
+Commits: 585adda, 74085a9, 3e8ccff, 382444d, 5ca2e5d
 
 Evidence:
 
-- 3 CTest and canonical frame tests
-- Firmware compiled RAM54628 flash276113; binary276480 bytes
-- Actual consumer PTY overflow/restart/revocation tests; independent review regression rerun passed
+- 3CTest;actualimmutableACKconsumer/PTyoverflow/restart/revocation; C124compiled RAM54628/programflash274881/bin283424; physicalpending
 
 Blocker: None

@@ -58,10 +58,13 @@
         "milestone": "M2",
         "stage": "done",
         "commits": [
-          "4cf42ff"
+          "4cf42ff",
+          "4bb6d87",
+          "85548ea",
+          "84b06fb"
         ],
         "evidence": [
-          "13 tests, official MCP subprocess/demo, TCP and PTY tests; actual Grok/hardware pending"
+          "21tests; independent actualMCPnegative/positive;per-deviceTCP; installedcandidate demo"
         ],
         "blocker": null,
         "component_repository": "grok-gadgets-gateway"
@@ -93,10 +96,13 @@
         "milestone": "M3",
         "stage": "done",
         "commits": [
-          "256a07e"
+          "256a07e",
+          "beb69c1",
+          "89478e5",
+          "ce897ee"
         ],
         "evidence": [
-          "15 tests including gateway TCP, installed CLI and Linux container"
+          "20source tests;installed documented/dataclass macOS+actualofflineLinux; independent candidatewheelacceptance"
         ],
         "blocker": null,
         "component_repository": "grok-gadgets-linux-sdk"
@@ -129,12 +135,13 @@
         "stage": "done",
         "commits": [
           "585adda",
-          "74085a9"
+          "74085a9",
+          "3e8ccff",
+          "382444d",
+          "5ca2e5d"
         ],
         "evidence": [
-          "3 CTest and canonical frame tests",
-          "Firmware compiled RAM54628 flash276113; binary276480 bytes",
-          "Actual consumer PTY overflow/restart/revocation tests; independent review regression rerun passed"
+          "3CTest;actualimmutableACKconsumer/PTyoverflow/restart/revocation; C124compiled RAM54628/programflash274881/bin283424; physicalpending"
         ],
         "blocker": null,
         "component_repository": "grok-gadgets-esp32-sdk"
@@ -329,10 +336,12 @@
         "milestone": "M3",
         "stage": "done",
         "commits": [
-          "256a07e"
+          "256a07e",
+          "89478e5",
+          "ce897ee"
         ],
         "evidence": [
-          "Linux aarch64 Docker kernel6.10.14 CPython3.11.17 pinned image; systemd/physical pending"
+          "ActualofflineLinux kernel6.10.14 CPython3.11.17 installedordinary/dataclass factories;15installed tests+5optional source skips;systemdphysicalpending"
         ],
         "blocker": null,
         "component_repository": "grok-gadgets-linux-sdk"
@@ -364,11 +373,12 @@
         ],
         "milestone": "M9",
         "stage": "done",
-        "commits": [],
+        "commits": [
+          "47c9be3",
+          "9daf82d"
+        ],
         "evidence": [
-          "Inactive protection/labels/issue migration/releases/deployment package",
-          "License notices and redacted tracked-files secret heuristic scan",
-          "Final compatibility/evidence manifest; live publication separately blocked"
+          "25artifacts independentlycertified;5exactarchives+5completeGitbundles;originalApache/notices; zero redactedheuristicfindings; externalactivationblocked"
         ],
         "blocker": null
       }
@@ -546,7 +556,7 @@
       "repository": "grok-gadgets",
       "local_id": "HARD-001",
       "github_number": null,
-      "stage": "in progress",
+      "stage": "done",
       "source": "grok-gadgets/planning/issues.json",
       "record": {
         "id": "HARD-001",
@@ -567,9 +577,23 @@
           "help wanted"
         ],
         "milestone": "MH",
-        "stage": "in progress",
-        "commits": [],
-        "evidence": [],
+        "stage": "done",
+        "commits": [
+          "c91a06b",
+          "0078a5a",
+          "a9550ab",
+          "affb69b",
+          "bddd5b9",
+          "5f3dedc",
+          "47c9be3",
+          "9daf82d"
+        ],
+        "evidence": [
+          "docs/verification/hardening-review.md",
+          "docs/verification/hardening-handoff.md",
+          "docs/verification/hardening-completion-audit.md",
+          "artifacts/publication/latest.json"
+        ],
         "blocker": null
       }
     },

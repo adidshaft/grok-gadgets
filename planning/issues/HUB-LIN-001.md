@@ -15,10 +15,10 @@ Acceptance:
 
 Dependencies: HUB-GW-001
 
-Commits: 256a07e
+Commits: 256a07e, beb69c1, 89478e5, ce897ee
 
 Evidence:
 
-- 15 tests including gateway TCP, installed CLI and Linux container
+- 20source tests;installed documented/dataclass macOS+actualofflineLinux; independent candidatewheelacceptance
 
 Blocker: None

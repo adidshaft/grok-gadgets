@@ -2,7 +2,7 @@
 
 Owner: grok-gadgets
 
-Stage: in progress · MH
+Stage: done · MH
 
 Labels: maintenance, integration, P1, help wanted
 
@@ -16,9 +16,13 @@ Acceptance:
 
 Dependencies: None
 
-Commits: Pending
+Commits: c91a06b, 0078a5a, a9550ab, affb69b, bddd5b9, 5f3dedc, 47c9be3, 9daf82d
 
 Evidence:
 
+- docs/verification/hardening-review.md
+- docs/verification/hardening-handoff.md
+- docs/verification/hardening-completion-audit.md
+- artifacts/publication/latest.json
 
 Blocker: None

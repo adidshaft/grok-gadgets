@@ -1,6 +1,6 @@
 # Corrected local alpha handoff —4October2026
 
-All six audit corrections are implemented and locally tested. Twelve integrated acceptance groups passed on committed clean tracked inputs at hub5f3dedc, gateway84b06fb, Linuxce897ee, ESP5ca2e5d and Home Assistanta8b2370. Independent agent correctness review is closed. Final candidate package certification and H7 closure are recorded in the next checkpoint; do not infer completion from this preparation alone.
+All six audit corrections are implemented and locally tested. Twelve integrated acceptance groups passed on committed clean tracked inputs at hub5f3dedc, gateway84b06fb, Linuxce897ee, ESP5ca2e5d and Home Assistanta8b2370. Independent agent correctness review is closed. Independent assembled candidate certification passed; H0–H7 local acceptance is complete. Final current-HEAD candidate is generated after this evidence commit and identified by artifacts/publication/latest.json.
 
 ## Corrections and evidence
 
@@ -13,7 +13,7 @@ All six audit corrections are implemented and locally tested. Twelve integrated 
 | Honest persisted activity | Hub0078a5a +bddd5b9 | Failed/owner-switch atomic file→build; old live cached; invalid/future unavailable |
 | Safe usable documentation | Huba9550ab | Semantic Markdown, source-relative links/fragments, bounded static diagrams, explicit public selection and stale-output cleanup |
 
-Independent reviewer accepted and fixed two additionalP2findings (old LIVE without refresh and dataclass module registration). See [review](hardening-review.md), [journal](hardening-journal.md), [checkpoint](hardening-status.md), [stages](../../planning/hardening-stages.json) and [compatibility](../../compatibility/tested-components.json). Source histories remain incremental, with full local Git repositories and final package bundles.
+Independent reviewer accepted and fixed two additionalP2findings (old LIVE without refresh and dataclass module registration). See [review](hardening-review.md), [journal](hardening-journal.md), [checkpoint](hardening-status.md), [stages](../../planning/hardening-stages.json) and [compatibility](../../compatibility/tested-components.json). Source histories remain incremental, with full local Git repositories and final package bundles. Gateway and Home Assistant use separate environments because their MCP pins differ.
 
 ## Run locally
 
@@ -63,7 +63,7 @@ Website semantic guides reviewed at1280 and390px; original README→guide naviga
 
 Original code Apache-2.0 in all five repositories; dependencies and official marks retain separate notices/provenance. The supplied assets/ source archive is preserved and excluded from Git. No public repositories, remotes, push, deployment, paid/account calls, device actions, Reddit changes or automation activation occurred.
 
-The final unpublished package contains exact HEAD source archives, full-history bundles, freshly rebuilt Python packages, firmware outputs/provenance and the static site, with verified SHA256. Follow publication/README.md for the exact pointer and verification command. Final external manifest identifies its own HEADs to avoid a self-referential tracked commit.
+The final unpublished package contains exact HEAD source archives, full-history bundles, freshly rebuilt Python packages, firmware outputs/provenance and the static site, with verified SHA256. Follow publication/README.md for the exact pointer and verification command. The reviewed candidate20261004T165602-1791132962841338000 is preserved; the final latest pointer identifies the subsequent evidence-only closure HEAD. Final external manifest identifies its own HEADs to avoid a self-referential tracked commit.
 
 1. Actual existing Grok Bot account/client availability and approved cloud Command simulator experiment: [concrete next test](real-grok-test-plan.md). Remote HTTPS/OAuth for reaching this Mac's devices is unimplemented and tracked by HARD-GROK-REMOTE-001; not merely an account gate.
 2. Physical AtomS3 Lite C124/data cable and separately authorized flashing/USB/LED/button/reboot observations. Wi-Fi provisioning/authentication remains future scope.
