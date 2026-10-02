@@ -1,6 +1,6 @@
 # Local release status
 
-Grok Gadgets is an unpublished local alpha exclusively for the existing Grok Bot. All six local audit corrections and independent agent source review pass. Final publication package verification is being refreshed; this does not establish actual Grok or physical verification.
+Grok Gadgets is an unpublished local alpha exclusively for the existing Grok Bot. All six local audit corrections and independent agent source review pass. The unpublished local package passes independent agent certification. Actual Grok and physical verification remain pending.
 
 | Component | Local evidence | Still pending |
 | --- | --- | --- |

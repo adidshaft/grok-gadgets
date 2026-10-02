@@ -15,4 +15,10 @@ Reviewer: bounded GPT-6 Astra Medium agent, read-only source review and independ
 
 H5 source correctness review closed after correction reruns on 4 October2026. No material in-scope finding remains. Reviewer inspected the actual offline Linux log: both factory variants passed,20collected/15executed and5optional source-gateway integrations skipped; separate installed gateway transport exercised. Actual Linux was executed by the implementation owner; reviewer did not independently rerun the container after its local image lookup failed. Gateway/ESP source/build review remains applicable because runtime sources did not change afterward.
 
-H6 package/provenance certification is separate and pending until a concrete final candidate is generated. No actual Grok, physical board, live home device, second human or publication claim follows from this review.
+H6 package/provenance certification passed independently on the concrete candidate below. No actual Grok, physical board, live home device, second human or publication claim follows from this review.
+
+## H6 assembled candidate certification
+
+Independent Astra reviewed candidate20261004T165602-1791132962841338000, source hub9daf82d, manifestSHA256d1d4b792c34d97fe24217333c7f13c59fc2b7ada09a8049df20c0239f340c5ef. All25hashes/sizes matched; --require-current exactarchive/runtimepackage/completebundle/firmwareancestor checks passed.11integrity regressions independently passed. Extracted47pagewebsite passed local links/fragments, privacy exclusions, corrected guides, unavailableactivity and10toolkit disclosures. Fresh candidate Gateway/Linux wheels ran both archived documented/dataclass examples and the installed officialMCPdemo; HA candidate separately installed and archivedfixtureprobe passed.
+
+An exploratory combined environment for allthree Python wheels failed because existing gatewayMCP1.26 and HAMCP2.3 pins conflict. Supported component environments are separate and passed; no shared-environment compatibility is claimed. Final closure is evidence/documentation only; finalmain candidate must be regenerated and verified against exact currentHEADs using the same unchanged reviewed tools.

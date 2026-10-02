@@ -15,10 +15,10 @@ Acceptance:
 
 Dependencies: HUB-LIN-001
 
-Commits: 256a07e
+Commits: 256a07e, 89478e5, ce897ee
 
 Evidence:
 
-- Linux aarch64 Docker kernel6.10.14 CPython3.11.17 pinned image; systemd/physical pending
+- ActualofflineLinux kernel6.10.14 CPython3.11.17 installedordinary/dataclass factories;15installed tests+5optional source skips;systemdphysicalpending
 
 Blocker: None

@@ -15,10 +15,10 @@ Acceptance:
 
 Dependencies: None
 
-Commits: 4cf42ff
+Commits: 4cf42ff, 4bb6d87, 85548ea, 84b06fb
 
 Evidence:
 
-- 13 tests, official MCP subprocess/demo, TCP and PTY tests; actual Grok/hardware pending
+- 21tests; independent actualMCPnegative/positive;per-deviceTCP; installedcandidate demo
 
 Blocker: None

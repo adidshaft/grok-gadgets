@@ -31,6 +31,6 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory website/dist
 
 Open http://127.0.0.1:4173. Developer lint: `uvx --from ruff==0.14.14 ruff check scripts website community`; formatting: replace check with `format --check`. No publication occurs.
 
-[Complete local handoff and external gates](docs/verification/local-handoff.md) · [compatibility](compatibility/tested-components.json) · [roadmap](planning/milestones.json) · [labeled issues](planning/issues.json) · [publication package](publication/README.md) · [commit histories](publication/commit-summary.md) · [implementation brief](docs/implementation-plan.md).
+[Corrected local handoff and external gates](docs/verification/hardening-handoff.md) · [compatibility](compatibility/tested-components.json) · [roadmap](planning/milestones.json) · [labeled issues](planning/issues.json) · [publication package](publication/README.md) · [commit histories](publication/commit-summary.md) · [implementation brief](docs/implementation-plan.md).
 
 Community policies/drafts and tested offline recognition logic are in [community](community/README.md). No live Reddit change or ongoing automation is active. No public repositories, push, deployment or paid calls were made. Independent project; no xAI affiliation implied.
