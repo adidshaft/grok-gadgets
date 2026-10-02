@@ -5,11 +5,18 @@ from html import escape as e
 import json
 import shutil
 import os
+import importlib.util
 from activity import load_activity
 from documents import Documents, check_links
 
 R = Path(__file__).resolve().parents[1]
 OUT = R / "website/dist"
+kit_spec = importlib.util.spec_from_file_location(
+    "simulator_kit", R / "scripts/build-simulator-kit.py"
+)
+kit_builder = importlib.util.module_from_spec(kit_spec)
+kit_spec.loader.exec_module(kit_builder)
+simulator_build = kit_builder.ensure_current(R / "website/downloads")
 # Delete only the generator-owned fixed output directory, never arbitrary caller paths.
 if OUT.is_symlink():
     raise ValueError("Generated output must not be a symlink")
@@ -102,7 +109,9 @@ def page(name, title, body):
     )
     footer = '<footer class="site-footer"><a href="start.html">Start building ↗</a><span class="independent-note">Independent. Open source.</span><button id="motion-toggle" aria-pressed="false">Pause motion <span>[Ⅱ]</span></button></footer>'
     scripts = '<script src="motion.js" defer></script>' + (
-        '<script src="scene.js" defer></script>' if home else ""
+        '<script src="simulator.js" defer></script><script src="scene.js" defer></script>'
+        if home
+        else ""
     )
     (OUT / name).write_text(
         '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Open source devices for Grok. Explore the local alpha."><title>'
@@ -155,7 +164,13 @@ scene_source = R / "website/home-scene.html"
 page(
     "index.html",
     "Home",
-    (scene_source.read_text() + (R / "website/components.html").read_text())
+    (
+        scene_source.read_text()
+        + (R / "website/playground.html")
+        .read_text()
+        .replace("{{SIMULATOR_BUILD}}", e(simulator_build["gateway_commit"][:8]))
+        + (R / "website/components.html").read_text()
+    )
     if scene_source.is_file()
     else "<h1>Grok, meet the real world.</h1><p>Interactive architecture is being assembled locally.</p>",
 )
@@ -169,9 +184,9 @@ page(
     + path_row(
         "01",
         "Try the simulator",
-        "Discover a device. Change its LED. Read button events.",
-        "doc-docs-components-grok-gadgets-gateway-README.html",
-        "Run the demo",
+        "Customize in the browser or use your Grok Bot with the inspectable kit.",
+        "simulator.html",
+        "Try both",
     )
     + path_row(
         "02",
@@ -188,6 +203,33 @@ page(
         "Home Assistant",
     )
     + '</div><p class="quiet-note">Local alpha. Actual Grok connectivity and physical verification are pending.</p>',
+)
+page(
+    "simulator.html",
+    "Simulator",
+    intro(
+        "No hardware required",
+        "Try it.<br>Then make it yours.",
+        "One virtual light. Two ways to explore.",
+    )
+    + path_row(
+        "01",
+        "In your browser",
+        "Color, button events and offline recovery. No downloads or Grok calls.",
+        "index.html#playground",
+        "Customize & try",
+    )
+    + path_row(
+        "02",
+        "With your Grok Bot",
+        "An inspectable MCP simulator kit. Install in the Bot’s cloud computer using a supported Command connection.",
+        "downloads/grok-gadgets-simulator-kit.zip",
+        "Download kit",
+    )
+    + '<p class="quiet-note">The kit includes readable source, the wheel, locked hashed runtime dependencies, configuration schema and Apache-2.0 notices. Installation downloads the dependencies. No account connection happens automatically.</p>'
+    + '<p><a href="doc-docs-getting-started-simulator-kit.html">Step-by-step setup &amp; customization ↗</a></p>'
+    + '<p><a href="downloads/simulator-kit-manifest.json">Source commit, contents &amp; SHA256 hashes ↗</a></p>'
+    + '<p class="status">Browser simulated · local MCP tested · Grok operation Bot-reported · physical and mobile pending</p>',
 )
 page(
     "esp32.html",
@@ -387,11 +429,12 @@ page(
     )
     + activity_html(activity),
 )
-for f in ["style.css", "motion.js", "scene.css", "scene.js"]:
+for f in ["style.css", "motion.js", "scene.css", "simulator.js", "scene.js"]:
     source = R / "website" / f
     if source.is_file():
         shutil.copy(source, OUT / f)
 shutil.copytree(R / "website/media", OUT / "media", dirs_exist_ok=True)
+shutil.copytree(R / "website/downloads", OUT / "downloads", dirs_exist_ok=True)
 
 
 check_links(OUT)

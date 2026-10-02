@@ -13,7 +13,8 @@
     "community/reddit-setup.md",
     "community/platform-evaluation.md",
     "community/content-plan.md",
-    "community/drafts/initial-posts.md"
+    "community/drafts/initial-posts.md",
+    "docs/getting-started/simulator-kit.md"
   ],
   "component_sources": [
     "README.md",
@@ -28,7 +29,8 @@
     "docs/dependencies.md",
     "docs/protocol-recovery.md",
     "docs/setup.md",
-    "docs/feasibility.md"
+    "docs/feasibility.md",
+    "docs/simulator.md"
   ],
   "aliases": [
     {
