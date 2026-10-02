@@ -6,45 +6,49 @@
       "repository": "grok-gadgets",
       "path": "/path/to/grok-gadgets",
       "version": "0.1.0-alpha.1",
-      "commit": "f44c2a3ca32bb342d461c1c39d85b6f99d6ef23f",
+      "commit": "5f3dedc6e47b0900d098b1ae6f4e51199d458688",
       "evidence_level": "Website/build/community verified",
-      "checks": "Hub checks;52-page link build;3 activity tests;6 recognition tests;desktop/mobile animation,keyboard,LED/button/offline/menu/pause verification;10-entry disclosure directory keyboard/mobile verified",
+      "checks": "12 website tests;6offline community tests;47page semantic/link/privacy build;desktop/mobile/keyboard/motion review;12integrated groups",
       "grok_verified": false,
       "hardware_verified": false,
-      "independently_reproduced": false
+      "independently_reproduced": false,
+      "independently_reviewed_by_agent": true
     },
     {
       "repository": "grok-gadgets-gateway",
       "path": "/path/to/grok-gadgets-gateway",
       "version": "0.1.0a1",
-      "commit": "4cf42fffa32afa2e5ad022e3fa4797f474ba10a9",
+      "commit": "84b06fb9bef0f01639c215f2b5ada83fe5074218",
       "evidence_level": "Simulated; MCP client verified",
-      "checks": "13 tests; official stdio MCP demo; authenticated TCP/USB PTY",
+      "checks": "21tests; official stdio MCP positive/negative; authenticated TCP per-device dedup; installed wheel",
       "grok_verified": false,
       "hardware_verified": false,
-      "independently_reproduced": false
+      "independently_reproduced": false,
+      "independently_reviewed_by_agent": true
     },
     {
       "repository": "grok-gadgets-linux-sdk",
       "path": "/path/to/grok-gadgets-linux-sdk",
       "version": "0.1.0a1",
-      "commit": "256a07e23ac4a4393066e0492847276849ac3348",
+      "commit": "ce897eee8f259a2ba82afad37e7a607c56f2f6e1",
       "evidence_level": "Simulated; package and Linux runtime verified",
-      "checks": "15 tests macOS and Linux installed wheel/CLI; actual gateway TCP",
+      "checks": "20 source tests; fresh installed documented and annotated-dataclass macOS+actual offline Linux onboarding;15installed tests plus5optional source integration skips",
       "grok_verified": false,
       "hardware_verified": false,
-      "independently_reproduced": false
+      "independently_reproduced": false,
+      "independently_reviewed_by_agent": true
     },
     {
       "repository": "grok-gadgets-esp32-sdk",
       "path": "/path/to/grok-gadgets-esp32-sdk",
       "version": "0.1.0",
-      "commit": "585adda7f854fd33f2d17261d2b1cfa7ec3b1179",
+      "commit": "5ca2e5d7ebe470fef10fc5584287cd0c8b624c65",
       "evidence_level": "Build verified; host simulated",
-      "checks": "3 CTest suites; canonical frames; actual consumer PTY incl overflow/restart/revocation; ESP32-S3 compile",
+      "checks": "3CTest suites; immutable repeated ACK actual consumer; contracts; actual consumer USB PTY overflow/restart/revocation; C124 compile",
       "grok_verified": false,
       "hardware_verified": false,
-      "independently_reproduced": false
+      "independently_reproduced": false,
+      "independently_reviewed_by_agent": true
     },
     {
       "repository": "grok-gadgets-home-assistant",
@@ -52,10 +56,11 @@
       "version": "0.1.0a1",
       "commit": "a8b2370b7e82e136511b6299e1317eb80915d012",
       "evidence_level": "Fixture/transport and package verified",
-      "checks": "13tests incl loopback HTTP official MCP client; clean wheel; no actions",
+      "checks": "13tests including loopback HTTP official MCP client; unchanged package; no real home actions",
       "grok_verified": false,
       "hardware_verified": false,
-      "independently_reproduced": false
+      "independently_reproduced": false,
+      "independently_reviewed_by_agent": true
     }
   ],
   "linux_environment": {
@@ -67,16 +72,22 @@
   },
   "firmware": {
     "status": "build verified; hardware and Grok pending; unpublished",
-    "source_commit": "585adda7f854fd33f2d17261d2b1cfa7ec3b1179",
+    "source_commit": "382444d5a7bb9372e8778421a337b82306aa2c58",
     "source_tree_clean": true,
+    "built_at_utc": "2026-10-04T16:24:01.474053+00:00",
+    "build_command": ".venv/bin/pio run -e atoms3-lite-usb",
+    "toolchain": {
+      "platformio_core": "PlatformIO Core, version 6.1.18",
+      "resolved_packages": "Resolving atoms3-lite-usb dependencies...\nPlatform espressif32 @ 6.10.0 (required: espressif32 @ 6.10.0)\n\u251c\u2500\u2500 framework-arduinoespressif32 @ 3.20017.0 (required: platformio/framework-arduinoespressif32 @ 3.20017.0)\n\u251c\u2500\u2500 tool-esptoolpy @ 1.40501.0 (required: platformio/tool-esptoolpy @ 1.40501.0)\n\u251c\u2500\u2500 tool-scons @ 4.40801.0 (required: platformio/tool-scons @ 4.40801.0)\n\u251c\u2500\u2500 toolchain-riscv32-esp @ 8.4.0+2021r2-patch5 (required: espressif/toolchain-riscv32-esp @ 8.4.0+2021r2-patch5)\n\u2514\u2500\u2500 toolchain-xtensa-esp32s3 @ 8.4.0+2021r2-patch5 (required: espressif/toolchain-xtensa-esp32s3 @ 8.4.0+2021r2-patch5)\n\nLibraries\n\u251c\u2500\u2500 Adafruit NeoPixel @ 1.12.3 (required: adafruit/Adafruit NeoPixel @ 1.12.3)\n\u2514\u2500\u2500 ArduinoJson @ 6.21.5 (required: bblanchon/ArduinoJson @ 6.21.5)"
+    },
     "files": {
       "firmware.bin": {
-        "bytes": 276480,
-        "sha256": "de12327c4fdc7ef6a728c5841a81d844257012d558c71ecd4fe331c6708af709"
+        "bytes": 283424,
+        "sha256": "de30fff189e37682ede9613bfccabb39550b5fa30d606eab797da4c49b80de25"
       },
       "firmware.elf": {
-        "bytes": 7582696,
-        "sha256": "09e4c6e3ba19cc3322ad14628a2c9ee644e80f29625b68944cdf9abf5e3ead45"
+        "bytes": 7556144,
+        "sha256": "cfa5baa2e6709cb6581b1add5a09142531c56db1ad82e09c5b7cfddc90c933f2"
       },
       "bootloader.bin": {
         "bytes": 15104,
@@ -88,5 +99,5 @@
       }
     }
   },
-  "note": "Hub commit identifies tested implementation snapshot; final handoff/evidence-only commit may follow. Publication archive manifest identifies exact archived HEADs."
+  "note": "Component commits identify verified runtime sources plus evidence; hub identifies integration snapshot5f3dedc. Final publication manifest identifies exact archived HEADs and freshly rebuilt Python package hashes, avoiding self-reference."
 }
