@@ -1,4 +1,4 @@
-/* A local illustration. No network or hardware requests are made. */
+/* A browser simulator and architecture illustration. No network or hardware requests. */
 (() => {
   'use strict';
   const root = document.querySelector('.home-scene');
@@ -27,6 +27,7 @@
   const palette = {off: '#fbfbf8', green: '#55866c', blue: '#446da4', coral: '#c66b50'};
   let selected = 'gateway';
   let view = 'system';
+  const simulator = new GrokSimulator.Simulator();
   let led = 'off';
   let connected = true;
   let events = 0;
@@ -116,7 +117,8 @@
     board += ring([e[0] - 34, e[1] + 14, e[2] + 32], 10) + line([e[0], e[1], e[2]], [e[0], -68, e[2]]);
     objectPaths.esp32.setAttribute('d', board);
     ledSurface.setAttribute('d', polygon([[e[0] + 23, 18, e[2] - 41], [e[0] + 44, 18, e[2] - 41], [e[0] + 44, 18, e[2] - 20], [e[0] + 23, 18, e[2] - 20]]));
-    ledSurface.setAttribute('fill', connected ? palette[led] : palette.off);
+    const output = simulator.state.rgb;
+    ledSurface.setAttribute('fill', connected && output.on ? `rgb(${output.r},${output.g},${output.b})` : palette.off);
     const l = positions.linux;
     let linux = wireBox(l, 90, 100, 67) + wireBox([l[0], l[1] + 15, l[2] + 35], 64, 59, 5);
     for (let y = 125; y <= 135; y += 5) linux += line([l[0] - 29, y, l[2] + 34], [l[0] + 29, y, l[2] + 34]);
@@ -185,31 +187,103 @@
       root.querySelector('#scene-detail').textContent = name === 'led' ? 'Set a colour. See a simulated execution report.' : 'Press once. Read a simulated press and release.';
     }
   }
+  const form = document.querySelector('#playground-config');
+  const stateOutput = document.querySelector('#playground-state');
+  const report = document.querySelector('#playground-report');
+  const phaseLabel = document.querySelector('#playground-phase');
+  const configFeedback = document.querySelector('#playground-config-feedback');
   function feedback(message) {
-    root.querySelector('#scene-feedback').textContent = message || `LED ${led} · ${events} button events · ${connected ? 'connected' : 'disconnected'}`;
+    root.querySelector('#scene-feedback').textContent = message || `${simulator.config.display_name} · LED ${led} · ${events} button events · ${connected ? 'connected' : 'disconnected'}`;
   }
-  buttons.forEach((button) => button.addEventListener('click', () => {view = 'system'; root.dataset.view = 'system'; root.querySelectorAll('[data-view]').forEach((control) => control.setAttribute('aria-pressed', String(control.dataset.view === 'system'))); setDetail(button.dataset.node);}));
-  root.querySelectorAll('[data-view]').forEach((button) => button.addEventListener('click', () => setView(button.dataset.view)));
-  root.querySelectorAll('[data-led]').forEach((button) => button.addEventListener('click', () => {
+  function sync(message, result) {
+    connected = simulator.available; events = simulator.sequence;
+    const color = simulator.state.rgb;
+    led = color.on ? `#${[color.r, color.g, color.b].map(value => value.toString(16).padStart(2, '0')).join('')}` : 'off';
+    root.toggleAttribute('data-disconnected', !connected);
+    const disconnect = root.querySelector('#scene-disconnect');
+    disconnect.setAttribute('aria-pressed', String(!connected));
+    disconnect.textContent = connected ? 'Disconnect' : 'Reconnect';
+    root.querySelectorAll('[data-led]').forEach(control => control.setAttribute('aria-pressed', String(control.dataset.led === 'off' && !color.on || palette[control.dataset.led] === led)));
+    stateOutput.textContent = JSON.stringify(simulator.snapshot(), null, 2);
+    if (result) report.textContent = JSON.stringify(result, null, 2);
+    feedback(message); render();
+  }
+  function readConfig() {
+    const hex = form.elements.color.value;
+    const brightness = Number(form.elements.brightness.value) / 100;
+    return GrokSimulator.validateConfig({schema_version: 1,
+      device_id: form.elements.device_id.value, display_name: form.elements.display_name.value,
+      initial_rgb: {r: Math.round(parseInt(hex.slice(1, 3), 16) * brightness),
+        g: Math.round(parseInt(hex.slice(3, 5), 16) * brightness), b: Math.round(parseInt(hex.slice(5, 7), 16) * brightness),
+        on: form.elements.start_on.checked}, response_delay_ms: Number(form.elements.response_delay_ms.value),
+      start_disconnected: form.elements.start_disconnected.checked});
+  }
+  function configAction(action) {
+    try {
+      if (!form.reportValidity()) return;
+      const config = readConfig(); action(config);
+    } catch (error) { configFeedback.textContent = error.message; }
+  }
+  async function send(arguments_, label) {
+    if (simulator.busy) { feedback('A command is pending · wait for its execution report'); return; }
+    const generation = simulator.generation;
     setView('led');
-    if (!connected) {feedback('Device disconnected · command unconfirmed'); return;}
-    led = button.dataset.led;
-    root.querySelectorAll('[data-led]').forEach((control) => control.setAttribute('aria-pressed', String(control.dataset.led === led)));
-    feedback(); render();
+    phaseLabel.textContent = simulator.available ? 'Requested → accepted · waiting for the virtual device' : 'Requested → unavailable';
+    feedback(simulator.available ? 'Command accepted · waiting for simulated execution' : 'Device disconnected · command unconfirmed');
+    const result = await simulator.command(arguments_);
+    if (generation !== simulator.generation) return;
+    phaseLabel.textContent = result.ok ? 'Requested → accepted → simulated execution reported' : `Requested → ${result.error.code}`;
+    sync(result.ok ? null : `Command ${result.error.code} · LED unchanged`, result);
+    if (result.ok && label) feedback(`${simulator.config.display_name} · LED ${label} · ${events} button events · connected`);
+  }
+  buttons.forEach(button => button.addEventListener('click', () => {view = 'system'; root.dataset.view = 'system'; root.querySelectorAll('[data-view]').forEach(control => control.setAttribute('aria-pressed', String(control.dataset.view === 'system'))); setDetail(button.dataset.node);}));
+  root.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => setView(button.dataset.view)));
+  root.querySelectorAll('[data-led]').forEach(button => button.addEventListener('click', () => {
+    const choice = button.dataset.led;
+    if (choice === 'off') {send({...simulator.state.rgb, on: false}, 'off'); return;}
+    const hex = palette[choice];
+    send({r: parseInt(hex.slice(1, 3), 16), g: parseInt(hex.slice(3, 5), 16), b: parseInt(hex.slice(5, 7), 16), on: true}, choice);
   }));
   root.querySelector('#scene-press').addEventListener('click', () => {
     setView('button');
-    if (!connected) {feedback('Device disconnected · no button event'); return;}
-    events += 2; eventAt = phase;
-    feedback(); render();
+    const result = simulator.press(); eventAt = phase;
+    phaseLabel.textContent = result.ok ? 'Simulated button press → release → two events' : 'Device unavailable · no event';
+    sync(result.ok ? null : 'Device disconnected · no button event', result);
   });
-  root.querySelector('#scene-disconnect').addEventListener('click', (event) => {
-    connected = !connected;
-    root.toggleAttribute('data-disconnected', !connected);
-    event.currentTarget.setAttribute('aria-pressed', String(!connected));
-    event.currentTarget.textContent = connected ? 'Disconnect' : 'Reconnect';
-    feedback(); render();
+  root.querySelector('#scene-disconnect').addEventListener('click', () => {
+    if (simulator.available) simulator.disconnect(); else simulator.reconnect();
+    phaseLabel.textContent = simulator.available ? 'Reconnected · starting state restored' : 'Offline · commands will fail';
+    sync();
   });
+  document.querySelector('#playground-try').addEventListener('click', () => {setView('led'); root.scrollIntoView({block: 'start', behavior: reduced ? 'instant' : 'smooth'});});
+  form.addEventListener('submit', event => {
+    event.preventDefault(); configAction(config => {
+      document.querySelector('#playground-export-preview').hidden = true; simulator.reset(config); report.textContent = 'No command yet.'; phaseLabel.textContent = 'Restarted · your starting state';
+      configFeedback.textContent = 'Applied. The virtual device has restarted.';
+      setView('led'); sync();
+    });
+  });
+  document.querySelector('#playground-custom-color').addEventListener('click', () => configAction(config => send({...config.initial_rgb, on: true}, 'custom')));
+  document.querySelector('#playground-export').addEventListener('click', () => configAction(config => {
+    const json = JSON.stringify(config, null, 2) + '\n';
+    document.querySelector('#playground-export-json').value = json;
+    document.querySelector('#playground-export-preview').hidden = false;
+    const url = URL.createObjectURL(new Blob([json], {type: 'application/json'}));
+    const link = document.createElement('a'); link.href = url; link.download = 'simulator-config.json';
+    document.body.appendChild(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+    configFeedback.textContent = 'Configuration ready. Save the download, or copy the JSON below into simulator-config.json.';
+  }));
+  document.querySelector('#playground-copy').addEventListener('click', async () => {
+    const output = document.querySelector('#playground-export-json');
+    try { await navigator.clipboard.writeText(output.value); configFeedback.textContent = 'Copied. Save as simulator-config.json and use it with the kit.'; }
+    catch { output.focus(); output.select(); configFeedback.textContent = 'Select and copy the JSON, then save it as simulator-config.json.'; }
+  });
+  form.elements.brightness.addEventListener('input', () => {document.querySelector('#playground-brightness').value = `${form.elements.brightness.value}%`;});
+  document.querySelector('#playground-reset').addEventListener('click', () => {
+    form.reset(); document.querySelector('#playground-export-preview').hidden = true; document.querySelector('#playground-brightness').value = '100%';
+    simulator.reset(readConfig()); report.textContent = 'No command yet.'; phaseLabel.textContent = 'Ready · browser simulation'; configFeedback.textContent = 'Defaults restored.'; sync();
+  });
+  simulator.reset(readConfig()); sync();
   function tick(time) {
     raf = 0;
     if (reduced || document.hidden || !visible) {lastTime = null; return;}

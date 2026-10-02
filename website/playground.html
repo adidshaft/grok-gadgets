@@ -1,0 +1,25 @@
+<section class="playground-workbench" id="playground" aria-labelledby="playground-heading">
+  <div class="playground-intro"><p class="eyebrow">NO HARDWARE REQUIRED</p><h2 id="playground-heading">Make it yours.</h2><p>Try a virtual light here.<br>Take the same setup to your Grok Bot.</p><button id="playground-try">Try it above ↑</button></div>
+  <div class="playground-tools">
+    <details class="playground-customize">
+      <summary>Customize your virtual device <span>↗</span></summary>
+      <form id="playground-config">
+        <div class="playground-fields">
+          <label>Device name<input name="display_name" value="Desk light" required minlength="1" maxlength="80" autocomplete="off"></label>
+          <label>Device ID<input name="device_id" value="sim-c124" required maxlength="64" pattern="[A-Za-z0-9][A-Za-z0-9._:\-]*" autocomplete="off" spellcheck="false"></label>
+          <label>Starting color<input name="color" type="color" value="#000000"></label>
+          <label>Brightness <output id="playground-brightness">100%</output><input name="brightness" type="range" min="0" max="100" value="100"></label>
+          <label>Response delay <span class="field-unit">ms</span><input name="response_delay_ms" type="number" min="0" max="2000" step="1" value="0" required></label>
+          <div class="playground-checks"><label><input name="start_on" type="checkbox"> Start with LED on</label><label><input name="start_disconnected" type="checkbox"> Start disconnected</label></div>
+        </div>
+        <div class="playground-actions"><button type="submit">Apply &amp; restart ↗</button><button type="button" id="playground-custom-color">Try this color</button><button type="button" id="playground-reset">Reset</button></div>
+        <p id="playground-config-feedback" class="playground-note" role="status" aria-live="polite">Settings define the starting state. Reconnecting restores it.</p>
+        <button type="button" id="playground-export" class="playground-export">Export configuration ↓</button>
+        <div id="playground-export-preview" hidden><label for="playground-export-json">Configuration JSON</label><textarea id="playground-export-json" readonly rows="12" spellcheck="false"></textarea><button type="button" id="playground-copy">Copy JSON</button></div>
+      </form>
+    </details>
+    <details class="playground-inspector"><summary>See commands &amp; state <span>+</span></summary><p id="playground-phase" role="status" aria-live="polite">Ready · browser simulation</p><div class="playground-reports"><div><h3>Latest report</h3><pre><code id="playground-report">No command yet.</code></pre></div><div><h3>Virtual device state</h3><pre><code id="playground-state"></code></pre></div></div></details>
+    <div class="playground-kit"><div><p class="eyebrow">WITH YOUR GROK BOT</p><h3>Your own simulator.</h3><p>Open source. Inspect it, install it, then ask Grok to control your virtual light.</p><p class="playground-note">Requires a supported Command MCP connection. No hardware. No API key in the file.</p><p class="playground-note">Build {{SIMULATOR_BUILD}} · source tests + installed MCP checks passed</p></div><div class="playground-kit-links"><a href="downloads/grok-gadgets-simulator-kit.zip" download>Download simulator kit ↓</a><a href="simulator.html">Setup &amp; source contents ↗</a><a href="downloads/simulator-kit-manifest.json">Hashes &amp; provenance ↗</a></div></div>
+    <p class="playground-note">Above: browser simulation, with no Grok calls. Kit: real MCP software with a simulated device. Our Grok Bot reports successful operation; independent invocation evidence, mobile and physical verification remain pending.</p>
+  </div>
+</section>
