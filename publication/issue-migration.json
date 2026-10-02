@@ -252,7 +252,7 @@
       "repository": "grok-gadgets",
       "local_id": "HUB-GROK-001",
       "github_number": null,
-      "stage": "in progress",
+      "stage": "blocked",
       "source": "grok-gadgets/planning/issues.json",
       "record": {
         "id": "HUB-GROK-001",
@@ -273,12 +273,14 @@
           "P1"
         ],
         "milestone": "M5",
-        "stage": "in progress",
-        "commits": [],
+        "stage": "blocked",
+        "commits": [
+          "ff88a67"
+        ],
         "evidence": [
           "docs/verification/real-grok-experiment.md"
         ],
-        "blocker": null
+        "blocker": "Dedicated Grok Bot reports A/B/C and cleanup success, but client exposes message JSON only and no native connector receipts/export; inspectable invocation evidence required."
       }
     },
     {

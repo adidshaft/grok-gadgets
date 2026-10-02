@@ -1,10 +1,10 @@
 # Local release status
 
-Grok Gadgets is an unpublished local alpha exclusively for the existing Grok Bot. All six local audit corrections and independent agent source review pass. The unpublished local package passes independent agent certification. Actual Grok and physical verification remain pending.
+Grok Gadgets is an unpublished local alpha exclusively for the existing Grok Bot. All six local audit corrections and independent agent source review pass. The unpublished local package passes independent agent certification. A dedicated Grok Bot reports successful cloud simulator commands, failures and reconnect. Inspectable native invocation evidence and physical verification remain pending.
 
 | Component | Local evidence | Still pending |
 | --- | --- | --- |
-| Gateway and simulator | Official MCP client, authenticated loopback and simulation tests | Actual Grok Bot connectivity |
+| Gateway and simulator | Official MCP client, authenticated loopback and simulation tests | Native invocation evidence (Bot reports simulator success) |
 | Linux SDK | Installed-wheel software acceptance | Physical peripherals and systemd lifecycle |
 | ESP32 SDK / AtomS3 Lite C124 | Host consumer tests and ESP32-S3 compilation | Physical USB, LED/button and flashing |
 | Home Assistant | Fixtures and local MCP transport checks | Actual home installation and Grok |
@@ -33,6 +33,6 @@ These operations prove software behavior. They do not prove physical effects or 
 
 ## Remaining gates
 
-The Grok Bot needs a supported authenticated route to the self-hosted gateway. The current loopback-only device listener and local stdio test process are not a hosted HTTPS/OAuth service. A cloud command cannot execute a private path on a user's computer. Real Grok, mobile clients, C124 hardware, actual Home Assistant devices and independent human reproduction remain separate checks.
+The Grok Bot needs a supported authenticated route to the self-hosted gateway. The current loopback-only device listener and local stdio test process are not a hosted HTTPS/OAuth service. A cloud command cannot execute a private path on a user's computer. Inspectable Grok invocation evidence, mobile clients, C124 hardware, actual Home Assistant devices and independent human reproduction remain separate checks.
 
 Public repositories, release uploads, hosted CI, deployment, Reddit changes and live recognition require separate approval. Firmware binary redistribution needs dependency/license review. No account or device action is implied by these local instructions.

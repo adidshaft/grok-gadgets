@@ -2,7 +2,7 @@
 
 Owner: grok-gadgets
 
-Stage: in progress · M5
+Stage: blocked · M5
 
 Labels: feature, gateway, P1
 
@@ -16,10 +16,10 @@ Acceptance:
 
 Dependencies: HUB-GW-001
 
-Commits: Pending
+Commits: ff88a67
 
 Evidence:
 
 - docs/verification/real-grok-experiment.md
 
-Blocker: None
+Blocker: Dedicated Grok Bot reports A/B/C and cleanup success, but client exposes message JSON only and no native connector receipts/export; inspectable invocation evidence required.

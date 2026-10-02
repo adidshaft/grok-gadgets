@@ -294,7 +294,7 @@ def prepare(root=ROOT, output=None):
                 "artifacts": records,
                 "limitations": [
                     "Actual Grok, physical hardware and independent human testing pending",
-                    "No public repositories, uploads, deployment or account actions performed",
+                    "No public repositories, release uploads or public gateway/site deployment performed; separately authorized Grok simulator Bot setup recorded",
                 ],
             },
         )

@@ -1,4 +1,6 @@
-# Next real Grok simulator experiment — inactive
+# Real Grok simulator experiment — original proposal
+
+Historical proposal: the user subsequently authorized the desktop cloud simulator experiment and requested a new dedicated Bot. See [recorded experiment and evidence gate](real-grok-experiment.md). The authorization statements below describe the original proposal, not the current approval state.
 
 Checked official docs on4October2026: [Grok Bot overview](https://docs.x.ai/grok-bot/overview) describes its persistent cloud computer; [Team Bot plugins](https://docs.x.ai/grok-bot/team-bots#plugins) lists Command and Remote HTTPS custom MCP routes. Availability must be confirmed in the actual account/client before configuration. Nothing here configures an account or grants approval.
 
