@@ -79,7 +79,7 @@
   {
     "id": "H3",
     "title": "Website corrections",
-    "stage": "review",
+    "stage": "done",
     "owner": "coordinator",
     "dependencies": [
       "H0"
@@ -94,19 +94,21 @@
     ],
     "commits": [
       "0078a5a",
-      "a9550ab"
+      "a9550ab",
+      "bddd5b9"
     ],
     "evidence": [
       "website/test_activity.py",
       "website/test_documents.py",
-      "docs/verification/hardening-journal.md"
+      "docs/verification/hardening-journal.md",
+      "docs/verification/hardening-review.md"
     ],
     "blockers": []
   },
   {
     "id": "H4",
     "title": "Cross-repository acceptance",
-    "stage": "in progress",
+    "stage": "done",
     "owner": "coordinator",
     "dependencies": [
       "H1",
@@ -117,20 +119,21 @@
       "HARD-001"
     ],
     "checks": [
-      "12/12 clean committed initial integration passed; final review corrections require rerun"
+      "12/12 final groups passed, each recorded clean before/after tracked inputs"
     ],
     "commits": [
-      "affb69b"
+      "affb69b",
+      "5f3dedc"
     ],
     "evidence": [
-      "artifacts/verification/latest.json"
+      "artifacts/verification/20261004T164755-1791132475423552000/results.json"
     ],
     "blockers": []
   },
   {
     "id": "H5",
     "title": "Independent review and closure",
-    "stage": "review",
+    "stage": "done",
     "owner": "coordinator",
     "dependencies": [
       "H4"
@@ -139,10 +142,16 @@
       "HARD-001"
     ],
     "checks": [
-      "Two independent P2 findings corrected; reviewer rerun pending"
+      "Independent all-six source review closed; two P2 findings fixed and rerun"
     ],
-    "commits": [],
-    "evidence": [],
+    "commits": [
+      "bddd5b9",
+      "89478e5",
+      "ce897ee"
+    ],
+    "evidence": [
+      "docs/verification/hardening-review.md"
+    ],
     "blockers": []
   },
   {

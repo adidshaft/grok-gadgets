@@ -1,7 +1,7 @@
 # Hardening checkpoint
 
-H0–H2 implementation complete. H3 implemented; two independent review findings corrected. H4 initial12-group clean committed acceptance passed at affb69b; final corrections need rerun. H5 reviewer closure pending. H6 package tooling and final handoff in progress; H7 audit remains open.
+H0–H5 complete: allsix corrections, two accepted reviewer findings, independent source review and12/12clean tracked integrated groups passed. H6 publication tooling/strict artifact checks is owned by hard_gateway; final docs and checkpoint owned by coordinator. H7 final package review/main integration/audit remains open.
 
-Gateway main84b06fb; ESP32 main5ca2e5d (compiled artifact source382444d); Linux maince897ee (rebuilt package source89478e5); Home Assistant maina8b2370 unchanged. Hub fix/hardening-cycle ataffb69b, stale-cache review fix and this checkpoint intentionally pending commit. Unrelated assets/ preserved and untracked.
+Hub fix/hardening-cycle47c9be3 with intentional docs/tracking edits; package tooling47c9be3 tested and committed. Gateway main84b06fb; ESP main5ca2e5d (compiled artifactsource382444d); Linux maince897ee (rebuilt localwheel source89478e5); HA maina8b2370. Siblings clean. Unrelated assets/ preserved/untracked. Final12group logs artifacts/verification/20261004T164755-1791132475423552000/.
 
-Next: commit validated stale-cache correction, import Linux final documentation, rerun all12 integrated groups, obtain independent closure, finish package/handoff and main integration. No remotes or public/account/hardware/automation actions. Large logs remain under distinct artifacts/verification run IDs.
+Next: commit reviewed candidate tooling and final docs, generate fresh candidate, obtain independent H6audit, close trackedH6/H7 with evidence, fast-forward hubmain and regenerate/verify exact finalHEADpackage. No public/account/hardware/automation actions or remotes. ActualGrok/physical/secondhuman retainpendingstatus.

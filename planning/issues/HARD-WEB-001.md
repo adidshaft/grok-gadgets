@@ -2,7 +2,7 @@
 
 Owner: grok-gadgets
 
-Stage: review · MH
+Stage: done · MH
 
 Labels: bug, website, P2, help wanted
 
@@ -16,11 +16,12 @@ Acceptance:
 
 Dependencies: HARD-001
 
-Commits: 0078a5a
+Commits: 0078a5a, bddd5b9
 
 Evidence:
 
 - website/test_activity.py
 - docs/verification/hardening-journal.md
+- docs/verification/hardening-review.md
 
 Blocker: None

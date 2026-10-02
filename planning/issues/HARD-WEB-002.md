@@ -2,7 +2,7 @@
 
 Owner: grok-gadgets
 
-Stage: review · MH
+Stage: done · MH
 
 Labels: bug, website, P2, help wanted
 
@@ -23,5 +23,6 @@ Evidence:
 
 - website/test_documents.py
 - docs/verification/hardening-journal.md
+- docs/verification/hardening-review.md
 
 Blocker: None

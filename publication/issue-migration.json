@@ -577,7 +577,7 @@
       "repository": "grok-gadgets",
       "local_id": "HARD-WEB-001",
       "github_number": null,
-      "stage": "review",
+      "stage": "done",
       "source": "grok-gadgets/planning/issues.json",
       "record": {
         "id": "HARD-WEB-001",
@@ -600,13 +600,15 @@
           "help wanted"
         ],
         "milestone": "MH",
-        "stage": "review",
+        "stage": "done",
         "commits": [
-          "0078a5a"
+          "0078a5a",
+          "bddd5b9"
         ],
         "evidence": [
           "website/test_activity.py",
-          "docs/verification/hardening-journal.md"
+          "docs/verification/hardening-journal.md",
+          "docs/verification/hardening-review.md"
         ],
         "blocker": null
       }
@@ -615,7 +617,7 @@
       "repository": "grok-gadgets",
       "local_id": "HARD-WEB-002",
       "github_number": null,
-      "stage": "review",
+      "stage": "done",
       "source": "grok-gadgets/planning/issues.json",
       "record": {
         "id": "HARD-WEB-002",
@@ -639,15 +641,52 @@
           "help wanted"
         ],
         "milestone": "MH",
-        "stage": "review",
+        "stage": "done",
         "commits": [
           "a9550ab"
         ],
         "evidence": [
           "website/test_documents.py",
-          "docs/verification/hardening-journal.md"
+          "docs/verification/hardening-journal.md",
+          "docs/verification/hardening-review.md"
         ],
         "blocker": null
+      }
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HARD-GROK-REMOTE-001",
+      "github_number": null,
+      "stage": "blocked",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HARD-GROK-REMOTE-001",
+        "repository": "grok-gadgets",
+        "problem": "Implement authenticated cloud-to-local HTTPS MCP transport",
+        "intended_behaviour": "Existing Grok Bot reaches explicitly authorized local devices through a reviewed HTTPS MCP service",
+        "acceptance": [
+          "Approved route and access design; no raw device protocol exposure",
+          "TLS, scoped authorization or OAuth, device/tenant isolation and credential revocation",
+          "Missing/invalid/expired/revoked credential and cross-device access rejection regressions",
+          "Bounded commands/connections/timeouts; redacted diagnostics; shutdown/reconnect tests",
+          "Actual Grok desktop/mobile experiment after separate activation approval"
+        ],
+        "dependencies": [
+          "HUB-GROK-001"
+        ],
+        "labels": [
+          "feature",
+          "gateway",
+          "P1",
+          "help wanted"
+        ],
+        "milestone": "M5",
+        "stage": "blocked",
+        "commits": [],
+        "evidence": [
+          "docs/verification/real-grok-test-plan.md"
+        ],
+        "blocker": "Remote HTTPS/OAuth transport is unimplemented; separate design and service activation approval required"
       }
     },
     {

@@ -1,5 +1,7 @@
 # Local alpha handoff — 4 October 2026
 
+Historical record only. The corrected current handoff is [hardening-handoff.md](hardening-handoff.md); the old counts/hashes below are superseded.
+
 Historical local-alpha completion predates six audit findings. The correction cycle is active; see [current hardening checkpoint](hardening-status.md) and [hardening plan](../hardening-plan.md). It is exclusively for Grok and remains unpublished. Actual existing Grok Bot use, physical hardware and independent reproduction are not verified.
 
 ## Repositories and verification
