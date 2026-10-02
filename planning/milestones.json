@@ -32,8 +32,8 @@
   {
     "id": "M5",
     "title": "Actual Grok",
-    "stage": "in progress",
-    "scope": "Local deliverables only; external activation and physical/account gates remain separate"
+    "stage": "blocked",
+    "scope": "Authorized desktop cloud simulator experiment reports success; native invocation evidence gate pending. Physical/local-device and mobile routes separate."
   },
   {
     "id": "M6",
