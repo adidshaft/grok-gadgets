@@ -1,6 +1,6 @@
 # Simulator export-to-kit correction
 
-HARD-SIM-EXPORT-001 / S1. Reproduction/tracking: 549555c; implementation and regression: 24729e0. Local functional acceptance and bounded independent review passed. Final committed publication certification follows the evidence checkpoint; its exact source HEADs/hashes live in artifacts/publication/latest.json and the referenced manifest.
+HARD-SIM-EXPORT-001 / S1. Reproduction/tracking: 549555c; implementation and regression: 24729e0. Local functional acceptance and bounded independent review passed. Corrected25-artifact candidate20261004T194005-1791142805602319000 was certified against c2e8981. Final evidence-only HEAD certification is required before goal closure; exact source HEADs/hashes live in artifacts/publication/latest.json and the referenced manifest.
 
 ## Failure and correction
 
@@ -43,3 +43,15 @@ Raw local evidence: artifacts/verification/export-onboarding/acceptance.json con
 Bounded read-only high-effort agent reviewer found no material functional defect in24729e0. It reran Node/kit/freshness checks; evaluated actual scene export/copy/fallback handlers with a lightweight VM; independently matched extracted defaults/customfile/evidence hashes and parsed MCP lifecycle. Dry-run regression scope was documented accurately; a stale inprogress verification note was replaced with this record. Review is another agent, not independent human installation.
 
 No live Grok accounts operated, and no public push/publish/deployment/spending/automation/Reddit or physical-device action occurred. Actual Grok invocation receipts and mobile, hardware C124, real homes/peripherals/systemd, another human and public CI/deployment remain external gates. Downloaded copies remain snapshots; website builds run freshness gates and public cross-repository CI/deployment stays inactive.
+
+## Requirement completion audit
+
+1. Reproduction and labeled local issue: protected-default overwrite fails exactly as reported; 549555c and collision.log.
+2. Corrected filename/integrity: download/copy/fallback/guide all use my-light.json; unchanged default still hash protected; 24729e0 and independent review.
+3. Meaningful regression: browser-used export contract into actual extractedkit plus old overwrite-negative; Node6/kit4 pass, integrated acceptance/CI include them.
+4. Actual browser and fresh install/MCP: actual file hash236bytes, clean installed site-packages, observed configured/offline/reconnect/command/state outcomes above and acceptance.json.
+5. Affected/cross-repository checks and artifacts:14clean-source groups, affectedtests/lint/hubcheck pass; kit rebuilt/current/hashchecked,50page website and25artifact correctedcandidate certified. Final evidence-only candidate must additionally pass require-current before goalclosure.
+6. Independent review: bounded read-only review of24729e0 and actualinstallation/receipts, no material finding; limitations and stale-note disposition recorded.
+7. Tracking/process: issue, S1 rollup, migration export, currentcheckpoint, simulator evidence, review and journal updated. Historical acceptance is qualified, not represented as correct filename onboarding.
+
+All implementation is locally committed; main integration and final currentHEAD certification are performed after this evidence closure. Unrelated assets/ preserved. Final external evidence pointer: artifacts/verification/export-onboarding/final.json.

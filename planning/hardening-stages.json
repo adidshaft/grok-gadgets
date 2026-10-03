@@ -211,7 +211,7 @@
   {
     "id": "S1",
     "title": "Simulator export-to-kit correction",
-    "stage": "review",
+    "stage": "done",
     "owner": "coordinator",
     "dependencies": [
       "H7"
@@ -224,14 +224,18 @@
       "Node6,kit4,website12,publication11,hubcheck,Ruff pass",
       "Actual browser file + fresh installed local MCP discovery/state/offline/reconnect pass",
       "14/14 cross-repository checks at clean24729e0",
-      "Bounded read-only review no material findings; final currentHEADpublication certification pending"
+      "Bounded independent review no material findings;25-artifact currentHEADcandidate certified at c2e8981; final evidenceHEAD certification required before goal closure"
     ],
     "commits": [
       "549555c",
-      "24729e0"
+      "24729e0",
+      "c2e8981"
     ],
     "evidence": [
-      "docs/verification/simulator-export-onboarding.md"
+      "docs/verification/simulator-export-onboarding.md",
+      "artifacts/verification/20261004T193719-1791142639802012000/results.json",
+      "artifacts/verification/export-onboarding/acceptance.json",
+      "artifacts/publication/latest.json"
     ],
     "blockers": []
   }
