@@ -17,6 +17,8 @@ out = root / "artifacts/verification" / run_id
 out.mkdir(parents=True, exist_ok=True)
 jobs = [
     ("hub", root, [sys.executable, "scripts/check.py"]),
+    ("browser-simulator", root, ["node", "--test", "website/test_simulator.cjs"]),
+    ("simulator-kit", root, [sys.executable, "scripts/test_simulator_kit.py"]),
     ("website", root, [sys.executable, "website/build.py"]),
     (
         "activity",

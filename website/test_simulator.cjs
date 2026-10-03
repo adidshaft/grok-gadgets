@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const {Simulator, defaults, validateConfig} = require('./simulator.js');
+const {Simulator, defaults, validateConfig, exportConfiguration} = require('./simulator.js');
 
 test('strict export contract rejects unsafe and malformed settings', () => {
   for (const patch of [{schema_version: true}, {device_id: 'sim\n'}, {display_name: 'Name\n'},
@@ -46,4 +46,14 @@ test('configuration and snapshots are detached copies', () => {
   config.initial_rgb.r = 222;
   const snapshot = simulator.snapshot(); snapshot.state.rgb.g = 222;
   assert.deepEqual(simulator.state.rgb, defaults.initial_rgb);
+});
+
+test('custom configuration exports a separate file and round-trips every setting', () => {
+  const config = {...defaults, device_id: 'studio-light', display_name: 'Studio light',
+    initial_rgb: {r: 26, g: 51, b: 128, on: true}, response_delay_ms: 250, start_disconnected: true};
+  const exported = exportConfiguration(config);
+  assert.equal(exported.filename, 'my-light.json');
+  assert.notEqual(exported.filename, 'simulator-config.json');
+  assert.deepEqual(JSON.parse(exported.content), config);
+  assert.throws(() => exportConfiguration({...config, response_delay_ms: -1}));
 });

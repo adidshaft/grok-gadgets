@@ -150,6 +150,54 @@ class KitTests(unittest.TestCase):
             self.assertNotEqual(failure.returncode, 0)
             self.assertIn("Hash mismatch", failure.stderr)
 
+    def test_browser_export_into_extracted_kit_preserves_default_integrity(self):
+        # Run the same export function used by the website, not a hand-renamed fixture.
+        export = json.loads(
+            subprocess.check_output(
+                [
+                    "node",
+                    "-e",
+                    "const s=require('./website/simulator.js'); console.log(JSON.stringify(s.exportConfiguration({...s.defaults, device_id:'studio-light', display_name:'Studio light', initial_rgb:{r:26,g:51,b:128,on:true}, response_delay_ms:250, start_disconnected:true})));",
+                ],
+                cwd=ROOT,
+                text=True,
+            )
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            with zipfile.ZipFile(
+                ROOT / "website/downloads/grok-gadgets-simulator-kit.zip"
+            ) as bundle:
+                bundle.extractall(temporary)
+            kit = Path(temporary) / "grok-gadgets-simulator-kit"
+            default = kit / "simulator-config.json"
+            original = default.read_bytes()
+            (kit / export["filename"]).write_text(export["content"])
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(kit / "install.py"),
+                    "--config",
+                    str(kit / export["filename"]),
+                ],
+                capture_output=True,
+                text=True,
+            )
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(default.read_bytes(), original)
+            self.assertEqual(export["filename"], "my-light.json")
+            config = json.loads((kit / "my-light.json").read_text())
+            self.assertEqual(config["device_id"], "studio-light")
+            self.assertTrue(config["start_disconnected"])
+            # Protect the integrity boundary: the old overwrite must still fail.
+            default.write_text(export["content"])
+            rejected = subprocess.run(
+                [sys.executable, str(kit / "install.py")],
+                capture_output=True,
+                text=True,
+            )
+            self.assertNotEqual(rejected.returncode, 0)
+            self.assertIn("Hash mismatch: simulator-config.json", rejected.stderr)
+
     def test_verifier_rejects_traversal_and_symlink(self):
         spec = importlib.util.spec_from_file_location(
             "kit_install", ROOT / "scripts/simulator-kit/install.py"

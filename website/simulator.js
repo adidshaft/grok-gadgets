@@ -20,6 +20,9 @@
     if (typeof config.start_disconnected !== 'boolean') throw new Error('Offline startup must be true or false.');
     return config;
   }
+  function exportConfiguration(config) {
+    return {filename: 'my-light.json', content: JSON.stringify(validateConfig(config), null, 2) + '\n'};
+  }
   class Simulator {
     constructor(config = defaults) { this.generation = 0; this.reset(config); }
     reset(config = this.config) {
@@ -58,7 +61,7 @@
       return {ok: true, command};
     }
   }
-  const api = {defaults: clone(defaults), validateConfig, Simulator};
+  const api = {defaults: clone(defaults), validateConfig, exportConfiguration, Simulator};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else scope.GrokSimulator = api;
 })(typeof window !== 'undefined' ? window : globalThis);
