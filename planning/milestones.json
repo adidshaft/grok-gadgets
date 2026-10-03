@@ -64,5 +64,11 @@
     "title": "Audit corrections and local release readiness",
     "stage": "done",
     "scope": "H0\u2013H7 required local acceptance; external activation excluded"
+  },
+  {
+    "id": "ML",
+    "title": "Public alpha launch preparation",
+    "stage": "in progress",
+    "scope": "L0\u2013L7 local preparation and G1 authorized cloud simulation; GitHub/Pages activation excluded"
   }
 ]

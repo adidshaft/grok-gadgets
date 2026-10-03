@@ -1,0 +1,101 @@
+[
+  {
+    "id": "L0",
+    "issue": "LAUNCH-001",
+    "stage": "in progress",
+    "owner": "coordinator",
+    "commits": [],
+    "evidence": [
+      "docs/verification/launch-journal.md"
+    ],
+    "blockers": []
+  },
+  {
+    "id": "L1",
+    "issue": "LAUNCH-META-001",
+    "stage": "ready",
+    "owner": "coordinator",
+    "commits": [],
+    "evidence": [
+      "docs/verification/launch-journal.md"
+    ],
+    "blockers": []
+  },
+  {
+    "id": "L2",
+    "issue": "LAUNCH-DOCS-001",
+    "stage": "ready",
+    "owner": "coordinator",
+    "commits": [],
+    "evidence": [
+      "docs/verification/launch-journal.md"
+    ],
+    "blockers": []
+  },
+  {
+    "id": "L3",
+    "issue": "LAUNCH-VIS-001",
+    "stage": "ready",
+    "owner": "coordinator",
+    "commits": [],
+    "evidence": [
+      "docs/verification/launch-journal.md"
+    ],
+    "blockers": []
+  },
+  {
+    "id": "L4",
+    "issue": "LAUNCH-ISSUES-001",
+    "stage": "ready",
+    "owner": "coordinator",
+    "commits": [],
+    "evidence": [
+      "docs/verification/launch-journal.md"
+    ],
+    "blockers": []
+  },
+  {
+    "id": "L5",
+    "issue": "LAUNCH-CI-001",
+    "stage": "ready",
+    "owner": "coordinator",
+    "commits": [],
+    "evidence": [
+      "docs/verification/launch-journal.md"
+    ],
+    "blockers": []
+  },
+  {
+    "id": "L6",
+    "issue": "LAUNCH-PUBLIC-001",
+    "stage": "ready",
+    "owner": "coordinator",
+    "commits": [],
+    "evidence": [
+      "docs/verification/launch-journal.md"
+    ],
+    "blockers": []
+  },
+  {
+    "id": "L7",
+    "issue": "LAUNCH-CANDIDATE-001",
+    "stage": "ready",
+    "owner": "coordinator",
+    "commits": [],
+    "evidence": [
+      "docs/verification/launch-journal.md"
+    ],
+    "blockers": []
+  },
+  {
+    "id": "G1",
+    "issue": "LAUNCH-GROK-001",
+    "stage": "ready",
+    "owner": "coordinator",
+    "commits": [],
+    "evidence": [
+      "docs/verification/launch-journal.md"
+    ],
+    "blockers": []
+  }
+]
