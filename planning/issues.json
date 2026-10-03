@@ -667,5 +667,237 @@
       "docs/verification/simulator-export-onboarding.md"
     ],
     "blocker": null
+  },
+  {
+    "id": "LAUNCH-001",
+    "repository": "grok-gadgets",
+    "problem": "L0: prepare contributor-friendly GitHub alpha",
+    "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
+    "acceptance": [
+      "Stage acceptance and named deliverables in docs/github-launch-plan.md",
+      "Tested incremental source commits and exact evidence",
+      "No public activation or unsupported evidence claims"
+    ],
+    "dependencies": [],
+    "labels": [
+      "maintenance",
+      "website",
+      "P1"
+    ],
+    "milestone": "ML",
+    "stage": "in progress",
+    "commits": [],
+    "evidence": [
+      "docs/verification/launch-journal.md"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "LAUNCH-META-001",
+    "repository": "grok-gadgets",
+    "problem": "L1: prepare contributor-friendly GitHub alpha",
+    "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
+    "acceptance": [
+      "Stage acceptance and named deliverables in docs/github-launch-plan.md",
+      "Tested incremental source commits and exact evidence",
+      "No public activation or unsupported evidence claims"
+    ],
+    "dependencies": [
+      "LAUNCH-001"
+    ],
+    "labels": [
+      "maintenance",
+      "website",
+      "P1"
+    ],
+    "milestone": "ML",
+    "stage": "ready",
+    "commits": [],
+    "evidence": [
+      "docs/verification/launch-journal.md"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "LAUNCH-DOCS-001",
+    "repository": "grok-gadgets",
+    "problem": "L2: prepare contributor-friendly GitHub alpha",
+    "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
+    "acceptance": [
+      "Stage acceptance and named deliverables in docs/github-launch-plan.md",
+      "Tested incremental source commits and exact evidence",
+      "No public activation or unsupported evidence claims"
+    ],
+    "dependencies": [
+      "LAUNCH-001"
+    ],
+    "labels": [
+      "maintenance",
+      "website",
+      "P1"
+    ],
+    "milestone": "ML",
+    "stage": "ready",
+    "commits": [],
+    "evidence": [
+      "docs/verification/launch-journal.md"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "LAUNCH-VIS-001",
+    "repository": "grok-gadgets",
+    "problem": "L3: prepare contributor-friendly GitHub alpha",
+    "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
+    "acceptance": [
+      "Stage acceptance and named deliverables in docs/github-launch-plan.md",
+      "Tested incremental source commits and exact evidence",
+      "No public activation or unsupported evidence claims"
+    ],
+    "dependencies": [
+      "LAUNCH-001"
+    ],
+    "labels": [
+      "maintenance",
+      "website",
+      "P1"
+    ],
+    "milestone": "ML",
+    "stage": "ready",
+    "commits": [],
+    "evidence": [
+      "docs/verification/launch-journal.md"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "LAUNCH-ISSUES-001",
+    "repository": "grok-gadgets",
+    "problem": "L4: prepare contributor-friendly GitHub alpha",
+    "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
+    "acceptance": [
+      "Stage acceptance and named deliverables in docs/github-launch-plan.md",
+      "Tested incremental source commits and exact evidence",
+      "No public activation or unsupported evidence claims"
+    ],
+    "dependencies": [
+      "LAUNCH-001"
+    ],
+    "labels": [
+      "maintenance",
+      "website",
+      "P1"
+    ],
+    "milestone": "ML",
+    "stage": "ready",
+    "commits": [],
+    "evidence": [
+      "docs/verification/launch-journal.md"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "LAUNCH-CI-001",
+    "repository": "grok-gadgets",
+    "problem": "L5: prepare contributor-friendly GitHub alpha",
+    "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
+    "acceptance": [
+      "Stage acceptance and named deliverables in docs/github-launch-plan.md",
+      "Tested incremental source commits and exact evidence",
+      "No public activation or unsupported evidence claims"
+    ],
+    "dependencies": [
+      "LAUNCH-001"
+    ],
+    "labels": [
+      "maintenance",
+      "website",
+      "P1"
+    ],
+    "milestone": "ML",
+    "stage": "ready",
+    "commits": [],
+    "evidence": [
+      "docs/verification/launch-journal.md"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "LAUNCH-PUBLIC-001",
+    "repository": "grok-gadgets",
+    "problem": "L6: prepare contributor-friendly GitHub alpha",
+    "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
+    "acceptance": [
+      "Stage acceptance and named deliverables in docs/github-launch-plan.md",
+      "Tested incremental source commits and exact evidence",
+      "No public activation or unsupported evidence claims"
+    ],
+    "dependencies": [
+      "LAUNCH-001"
+    ],
+    "labels": [
+      "maintenance",
+      "website",
+      "P1"
+    ],
+    "milestone": "ML",
+    "stage": "ready",
+    "commits": [],
+    "evidence": [
+      "docs/verification/launch-journal.md"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "LAUNCH-CANDIDATE-001",
+    "repository": "grok-gadgets",
+    "problem": "L7: prepare contributor-friendly GitHub alpha",
+    "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
+    "acceptance": [
+      "Stage acceptance and named deliverables in docs/github-launch-plan.md",
+      "Tested incremental source commits and exact evidence",
+      "No public activation or unsupported evidence claims"
+    ],
+    "dependencies": [
+      "LAUNCH-001"
+    ],
+    "labels": [
+      "maintenance",
+      "website",
+      "P1"
+    ],
+    "milestone": "ML",
+    "stage": "ready",
+    "commits": [],
+    "evidence": [
+      "docs/verification/launch-journal.md"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "LAUNCH-GROK-001",
+    "repository": "grok-gadgets",
+    "problem": "Obtain actual Grok simulator invocation evidence",
+    "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
+    "acceptance": [
+      "Stage acceptance and named deliverables in docs/github-launch-plan.md",
+      "Tested incremental source commits and exact evidence",
+      "No public activation or unsupported evidence claims"
+    ],
+    "dependencies": [
+      "LAUNCH-001"
+    ],
+    "labels": [
+      "research",
+      "gateway",
+      "P1"
+    ],
+    "milestone": "ML",
+    "stage": "ready",
+    "commits": [],
+    "evidence": [
+      "docs/verification/launch-journal.md"
+    ],
+    "blocker": null
   }
 ]
