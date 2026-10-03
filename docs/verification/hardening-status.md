@@ -1,3 +1,11 @@
+# Current correction checkpoint
+
+S1 / HARD-SIM-EXPORT-001: filename collision reproduced and corrected in 24729e0. Browser downloads my-light.json separately from the kit protected simulator-config.json. Actual exported-file fresh installation and local MCP discovery/commands/state/offline/reconnect passed; Node6, kit4, website12, publication11 and14/14 cross-repository groups passed. Raw evidence: artifacts/verification/export-onboarding/acceptance.json and artifacts/verification/20261004T193719-1791142639802012000/results.json. Only unrelated assets/ is untracked; sibling sources unchanged and clean. Current branch fix/simulator-export-onboarding. Final review/evidence integration and currentHEADpublication package remain pending.
+
+The earlier checkpoint below is historical; current gateway is fa062a1 and exact hub/package source comes from git HEAD and final publication manifest. Actual Grok/mobile/physical/home/independent-human/public gates remain separate; no live accounts operated for this correction.
+
+## Historical hardening closure
+
 # Hardening checkpoint
 
 H0–H7 local acceptance complete, including allsix original findings and two reviewer findings.12/12clean tracked integrated groups passed at hub5f3dedc; independent source and25artifact package certification passed at hub9daf82d.11publication integrity regressions pass. Original localalpha completion record is historical.

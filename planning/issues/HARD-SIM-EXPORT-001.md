@@ -2,7 +2,7 @@
 
 Owner: grok-gadgets
 
-Stage: in progress · MH
+Stage: review · MH
 
 Labels: bug, website, gateway, P1
 
@@ -19,7 +19,7 @@ Acceptance:
 
 Dependencies: HUB-DEMO-001, HUB-KIT-001
 
-Commits: Pending
+Commits: 549555c, 24729e0
 
 Evidence:
 
