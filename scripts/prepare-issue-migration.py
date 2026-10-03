@@ -1,30 +1,78 @@
-"""Prepare a migration plan only; never invokes GitHub."""
+"""Prepare a durable migration dry-run only; never invokes GitHub."""
 
-from pathlib import Path
+import argparse
+from datetime import datetime, timezone
 import json
+from pathlib import Path
+import sys
+import time
 
-root = Path(__file__).resolve().parents[1]
-records = []
-for repo in [root, *sorted(root.parent.glob("grok-gadgets-*"))]:
-    src = repo / "planning/issues.json"
-    if not src.is_file():
-        continue
-    items = json.loads(src.read_text())
-    if isinstance(items, dict):
-        items = items.get("issues", [])
-    for issue in items:
-        records.append(
-            dict(
-                repository=repo.name,
-                local_id=issue["id"],
-                github_number=None,
-                stage=issue.get("stage"),
-                source=str(src.relative_to(root.parent)),
-                record=issue,
-            )
+from issue_migration import MigrationError, OWNER, atomic_json, prepare
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--output", type=Path, default=ROOT / "publication/issue-migration.json"
+    )
+    parser.add_argument(
+        "--existing",
+        type=Path,
+        default=ROOT / "publication/issue-migration.json",
+        help="Read durable mappings here even when output is a scratch preview",
+    )
+    parser.add_argument(
+        "--report-dir",
+        type=Path,
+        default=ROOT / "artifacts/issue-migration",
+        help="Timestamped local dry-run/restore reports",
+    )
+    args = parser.parse_args()
+    try:
+        existing = (
+            json.loads(args.existing.read_text()) if args.existing.is_file() else {}
         )
-out = root / "publication/issue-migration.json"
-out.write_text(
-    json.dumps(dict(activated=False, owner=None, records=records), indent=2) + "\n"
-)
-print(f"Prepared {len(records)} local issue records; no GitHub changes")
+        plan = prepare(ROOT, existing, owner=OWNER)
+        run_id = (
+            datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S")
+            + "-"
+            + str(time.time_ns())
+        )
+        report = {
+            "run_id": run_id,
+            "mode": "local dry-run",
+            "remote_actions": 0,
+            "prepared_at_utc": plan["prepared_at_utc"],
+            "owner": OWNER,
+            "record_count": len(plan["records"]),
+            "mapped_count": sum(
+                row["github_number"] is not None for row in plan["records"]
+            ),
+            "unknown_retained_count": sum(
+                not row["source_present"] for row in plan["records"]
+            ),
+            "validation": plan["validation"],
+            "previous_mapping_snapshot": existing,
+            "restore": "Review this previous_mapping_snapshot and use atomic_json to restore the intended local checkpoint; no remote rollback is performed.",
+        }
+        # Preserve the pre-write mapping snapshot before replacing the canonical plan.
+        atomic_json(args.report_dir / (run_id + ".json"), report)
+        atomic_json(args.output, plan)
+        print(
+            f"Prepared {len(plan['records'])} local issue records for {OWNER}; no GitHub changes"
+        )
+        print(f"Dry-run/restore report: {args.report_dir / (run_id + '.json')}")
+        if not plan["validation"]["ready"]:
+            for error in plan["validation"]["errors"]:
+                print("Blocked: " + error, file=sys.stderr)
+            return 1
+        return 0
+    except (MigrationError, OSError, ValueError, KeyError, TypeError) as exc:
+        print("Migration preparation failed: " + str(exc), file=sys.stderr)
+        return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
