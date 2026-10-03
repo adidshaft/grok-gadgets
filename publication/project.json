@@ -1,0 +1,31 @@
+{
+  "owner": "adidshaft",
+  "title": "Grok Gadgets",
+  "activated": false,
+  "fields": [
+    "Status",
+    "Priority",
+    "Component",
+    "Milestone",
+    "Local ID",
+    "Evidence needed",
+    "Blocked by"
+  ],
+  "statuses": [
+    "Proposed",
+    "Ready",
+    "In progress",
+    "Review",
+    "Blocked",
+    "Done"
+  ],
+  "views": [
+    "Roadmap",
+    "Ready to contribute",
+    "Needs hardware",
+    "Active work",
+    "Done"
+  ],
+  "authorization": "Personal Project writes require separately approved minimum-scope credentials; repository GITHUB_TOKEN is insufficient",
+  "snapshot_policy": "After activation GitHub is authoritative; local JSON becomes generated timestamped snapshot with durable local-ID mappings"
+}
