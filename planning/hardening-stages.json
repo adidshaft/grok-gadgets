@@ -207,5 +207,25 @@
       "artifacts/publication/latest.json"
     ],
     "blockers": []
+  },
+  {
+    "id": "S1",
+    "title": "Simulator export-to-kit correction",
+    "stage": "in progress",
+    "owner": "coordinator",
+    "dependencies": [
+      "H7"
+    ],
+    "issues": [
+      "HARD-SIM-EXPORT-001"
+    ],
+    "checks": [
+      "Old exported default filename reproduces Hash mismatch: simulator-config.json"
+    ],
+    "commits": [],
+    "evidence": [
+      "docs/verification/simulator-export-onboarding.md"
+    ],
+    "blockers": []
   }
 ]
