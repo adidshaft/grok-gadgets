@@ -794,7 +794,7 @@
       "repository": "grok-gadgets",
       "local_id": "HARD-SIM-EXPORT-001",
       "github_number": null,
-      "stage": "in progress",
+      "stage": "review",
       "source": "grok-gadgets/planning/issues.json",
       "record": {
         "id": "HARD-SIM-EXPORT-001",
@@ -820,8 +820,11 @@
           "P1"
         ],
         "milestone": "MH",
-        "stage": "in progress",
-        "commits": [],
+        "stage": "review",
+        "commits": [
+          "549555c",
+          "24729e0"
+        ],
         "evidence": [
           "docs/verification/simulator-export-onboarding.md"
         ],

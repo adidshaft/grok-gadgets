@@ -211,7 +211,7 @@
   {
     "id": "S1",
     "title": "Simulator export-to-kit correction",
-    "stage": "in progress",
+    "stage": "review",
     "owner": "coordinator",
     "dependencies": [
       "H7"
@@ -220,9 +220,16 @@
       "HARD-SIM-EXPORT-001"
     ],
     "checks": [
-      "Old exported default filename reproduces Hash mismatch: simulator-config.json"
+      "Collision reproduced; original default integrity preserved",
+      "Node6,kit4,website12,publication11,hubcheck,Ruff pass",
+      "Actual browser file + fresh installed local MCP discovery/state/offline/reconnect pass",
+      "14/14 cross-repository checks at clean24729e0",
+      "Bounded read-only review no material findings; final currentHEADpublication certification pending"
     ],
-    "commits": [],
+    "commits": [
+      "549555c",
+      "24729e0"
+    ],
     "evidence": [
       "docs/verification/simulator-export-onboarding.md"
     ],

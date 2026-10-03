@@ -8,11 +8,13 @@ Local, unpublished acceptance. Gateway source `fa062a1db36cfbea90b807b9430d28d15
 - `python3 scripts/test_simulator_kit.py`: three tests passed. Actual downloadable ZIP/verifier, malformed inventory/version/source, tampering, traversal/symlinks, stale inputs/source, rejected dirty checkout, refresh failure, malformed manifest and standalone pinned checkout.
 - Website suite: 12 tests passed. Publication suite: 11 tests passed. Ruff check and formatting passed. Final website build checks 50 page/link/fragment targets.
 - Kit generator runs 73 gateway tests on an exact committed archive, builds its wheel/sdist, installs the readable kit into a fresh virtual environment and runs the official MCP demonstration with both default and custom/offline settings. All passed before archive replacement. Gateway agent additionally reported 52 installed configuration tests passing; gateway evidence is in its `docs/verification/simulator-config.md`.
-- Current ZIP SHA-256: `214cf7c37b69014b459d5c3fd11cc48d5cfd0623e10e51e39d5900b1a7794a8b`. This matches the file actually downloaded through the website. The separate website manifest records every file hash, build input and source commit.
+- Original ZIP SHA-256 at 3266a05: `214cf7c37b69014b459d5c3fd11cc48d5cfd0623e10e51e39d5900b1a7794a8b`. This matches the file actually downloaded through the website. The separate website manifest records every file hash, build input and source commit.
 
 ## Browser and extracted kit
 
 Tested in an in-app browser at 1280×800 and 390×844. The mobile document has no horizontal overflow (390 viewport / 375 document). Native disclosures opened and closed with Enter. Whitespace-only names were rejected without replacing simulator state. LED controls visibly changed state; resetting clears prior session reports. Pause produced identical frame 938 across observations; resume advances motion. Existing offscreen/hidden/menu/reduced-motion handling is retained. No browser console errors were recorded.
+
+The original config-content test manually used a separate custom filename; it did not catch the automatic export filename collision. That onboarding claim is superseded by HARD-SIM-EXPORT-001 and [corrected actual browser-to-kit acceptance](simulator-export-onboarding.md).
 
 The browser exported `studio-light` / `Studio light`, RGB 26/51/128 on, delay 250 ms and offline startup. This exact export was validated and used by a clean extracted kit's real local stdio MCP demonstration: discovery name/ID/initial state, offline rejection, reconnect, blue execution/status/state, ordered injected button edges, LED off and physical=false assertions passed. The default demonstration also passed. The JSON download and clipboard copy matched the displayed export.
 
