@@ -1,0 +1,32 @@
+[
+  {
+    "id": "PUBLIC-ALPHA",
+    "title": "Public alpha launch",
+    "description": "Approved public docs, checks, issues, prereleases, support and website verified"
+  },
+  {
+    "id": "INDEPENDENT-SOFTWARE",
+    "title": "First independent software setup",
+    "description": "Another human reproduces simulator and contributor setup"
+  },
+  {
+    "id": "GROK-CONNECTION",
+    "title": "Verified Grok connection",
+    "description": "Inspectable native invocation evidence for exact supported route"
+  },
+  {
+    "id": "PHYSICAL-C124",
+    "title": "First physical C124 build",
+    "description": "Flash, LED, button, lifecycle and physical observations recorded"
+  },
+  {
+    "id": "REAL-HOSTS",
+    "title": "Real Linux and Home Assistant",
+    "description": "Selected systemd/peripheral/home paths verified"
+  },
+  {
+    "id": "REMOTE-PROVISIONING",
+    "title": "Remote connection and provisioning",
+    "description": "Authenticated HTTPS/OAuth/provisioning design and implementation reviewed"
+  }
+]

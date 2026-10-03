@@ -674,9 +674,8 @@
     "problem": "L0: prepare contributor-friendly GitHub alpha",
     "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
     "acceptance": [
-      "Stage acceptance and named deliverables in docs/github-launch-plan.md",
-      "Tested incremental source commits and exact evidence",
-      "No public activation or unsupported evidence claims"
+      "Baseline 14/14 acceptance and five exact source heads recorded",
+      "Launch stages and journal established; original assets preserved"
     ],
     "dependencies": [],
     "labels": [
@@ -685,8 +684,10 @@
       "P1"
     ],
     "milestone": "ML",
-    "stage": "in progress",
-    "commits": [],
+    "stage": "done",
+    "commits": [
+      "4451f0a"
+    ],
     "evidence": [
       "docs/verification/launch-journal.md"
     ],
@@ -698,9 +699,8 @@
     "problem": "L1: prepare contributor-friendly GitHub alpha",
     "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
     "acceptance": [
-      "Stage acceptance and named deliverables in docs/github-launch-plan.md",
-      "Tested incremental source commits and exact evidence",
-      "No public activation or unsupported evidence claims"
+      "Owner/contact consistent in manifest and policies",
+      "Descriptions/topics/settings/Project prepared without activation"
     ],
     "dependencies": [
       "LAUNCH-001"
@@ -711,10 +711,13 @@
       "P1"
     ],
     "milestone": "ML",
-    "stage": "ready",
+    "stage": "done",
     "commits": [],
     "evidence": [
-      "docs/verification/launch-journal.md"
+      "publication/repositories.json",
+      "publication/project.json",
+      "GOVERNANCE.md",
+      "SECURITY.md"
     ],
     "blocker": null
   },
@@ -897,6 +900,77 @@
     "commits": [],
     "evidence": [
       "docs/verification/launch-journal.md"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "DOC-GLOSSARY-001",
+    "repository": "grok-gadgets",
+    "problem": "Add a newcomer terminology glossary",
+    "intended_behaviour": "Add a newcomer terminology glossary",
+    "acceptance": [
+      "Exact starting behavior, bounded criteria and focused commands in docs/contributing/ready-issues.md",
+      "Document observed results without hardware or Grok claims"
+    ],
+    "dependencies": [],
+    "labels": [
+      "docs",
+      "good first issue",
+      "P2"
+    ],
+    "milestone": "INDEPENDENT-SOFTWARE",
+    "stage": "ready",
+    "commits": [],
+    "evidence": [
+      "docs/contributing/ready-issues.md"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "DOC-TROUBLE-001",
+    "repository": "grok-gadgets",
+    "problem": "Add a verified simulator troubleshooting lookup",
+    "intended_behaviour": "Add a verified simulator troubleshooting lookup",
+    "acceptance": [
+      "Exact starting behavior, bounded criteria and focused commands in docs/contributing/ready-issues.md",
+      "Document observed results without hardware or Grok claims"
+    ],
+    "dependencies": [],
+    "labels": [
+      "docs",
+      "simulator",
+      "good first issue",
+      "P2"
+    ],
+    "milestone": "INDEPENDENT-SOFTWARE",
+    "stage": "ready",
+    "commits": [],
+    "evidence": [
+      "docs/contributing/ready-issues.md"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "WEB-COPY-001",
+    "repository": "grok-gadgets",
+    "problem": "Copy documentation commands with accessible feedback",
+    "intended_behaviour": "Copy documentation commands with accessible feedback",
+    "acceptance": [
+      "Exact starting behavior, bounded criteria and focused commands in docs/contributing/ready-issues.md",
+      "Document observed results without hardware or Grok claims"
+    ],
+    "dependencies": [],
+    "labels": [
+      "website",
+      "feature",
+      "help wanted",
+      "P2"
+    ],
+    "milestone": "INDEPENDENT-SOFTWARE",
+    "stage": "ready",
+    "commits": [],
+    "evidence": [
+      "docs/contributing/ready-issues.md"
     ],
     "blocker": null
   }

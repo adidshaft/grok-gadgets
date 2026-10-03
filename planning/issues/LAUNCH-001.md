@@ -2,7 +2,7 @@
 
 Owner: grok-gadgets
 
-Stage: in progress · ML
+Stage: done · ML
 
 Labels: maintenance, website, P1
 
@@ -10,13 +10,12 @@ Intended behaviour: Meet exact launch-plan stage acceptance; public activation r
 
 Acceptance:
 
-- Stage acceptance and named deliverables in docs/github-launch-plan.md
-- Tested incremental source commits and exact evidence
-- No public activation or unsupported evidence claims
+- Baseline 14/14 acceptance and five exact source heads recorded
+- Launch stages and journal established; original assets preserved
 
 Dependencies: None
 
-Commits: Pending
+Commits: 4451f0a
 
 Evidence:
 

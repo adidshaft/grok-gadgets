@@ -70,5 +70,11 @@
     "title": "Public alpha launch preparation",
     "stage": "in progress",
     "scope": "L0\u2013L7 local preparation and G1 authorized cloud simulation; GitHub/Pages activation excluded"
+  },
+  {
+    "id": "INDEPENDENT-SOFTWARE",
+    "title": "First independent software setup",
+    "exit": "Another person reproduces the software setup; ready documentation and usability tasks support this milestone",
+    "stage": "ready"
   }
 ]

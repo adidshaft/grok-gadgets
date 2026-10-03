@@ -1,0 +1,163 @@
+{
+  "owner": "adidshaft",
+  "activated": false,
+  "naming": "Current names retained; naming/brand disposition deferred before activation",
+  "private_contact": "adidshaft@kyokasuigetsu.xyz",
+  "pages_url": "https://adidshaft.github.io/grok-gadgets/",
+  "repositories": [
+    {
+      "name": "grok-gadgets",
+      "url": "https://github.com/adidshaft/grok-gadgets",
+      "create_payload": {
+        "name": "grok-gadgets",
+        "description": "Open-source tools and SDKs for connecting devices to Grok. Start with a simulator, explore the architecture, and contribute. Experimental alpha.",
+        "private": false,
+        "has_issues": true,
+        "has_wiki": false,
+        "auto_init": false
+      },
+      "settings_payload": {
+        "has_issues": true,
+        "has_wiki": false,
+        "has_discussions": true,
+        "allow_merge_commit": true,
+        "allow_squash_merge": false,
+        "allow_rebase_merge": true,
+        "delete_branch_on_merge": true
+      },
+      "topics": [
+        "grok",
+        "mcp",
+        "open-source",
+        "iot",
+        "home-automation",
+        "developer-tools"
+      ],
+      "homepage": "https://adidshaft.github.io/grok-gadgets/",
+      "private_vulnerability_reporting": "enable and verify after repository creation, before inviting reports"
+    },
+    {
+      "name": "grok-gadgets-gateway",
+      "url": "https://github.com/adidshaft/grok-gadgets-gateway",
+      "create_payload": {
+        "name": "grok-gadgets-gateway",
+        "description": "MCP gateway and configurable simulator for Grok-connected gadgets, with versioned device contracts and local USB/TCP transports.",
+        "private": false,
+        "has_issues": true,
+        "has_wiki": false,
+        "auto_init": false
+      },
+      "settings_payload": {
+        "has_issues": true,
+        "has_wiki": false,
+        "has_discussions": false,
+        "allow_merge_commit": true,
+        "allow_squash_merge": false,
+        "allow_rebase_merge": true,
+        "delete_branch_on_merge": true
+      },
+      "topics": [
+        "grok",
+        "mcp",
+        "python",
+        "iot",
+        "simulator",
+        "serial"
+      ],
+      "homepage": "https://adidshaft.github.io/grok-gadgets/doc-docs-components-grok-gadgets-gateway-README.html",
+      "private_vulnerability_reporting": "enable and verify after repository creation, before inviting reports"
+    },
+    {
+      "name": "grok-gadgets-linux-sdk",
+      "url": "https://github.com/adidshaft/grok-gadgets-linux-sdk",
+      "create_payload": {
+        "name": "grok-gadgets-linux-sdk",
+        "description": "Python SDK and local device agent for Linux gadget applications targeting Grok through the Grok Gadgets gateway.",
+        "private": false,
+        "has_issues": true,
+        "has_wiki": false,
+        "auto_init": false
+      },
+      "settings_payload": {
+        "has_issues": true,
+        "has_wiki": false,
+        "has_discussions": false,
+        "allow_merge_commit": true,
+        "allow_squash_merge": false,
+        "allow_rebase_merge": true,
+        "delete_branch_on_merge": true
+      },
+      "topics": [
+        "grok",
+        "python",
+        "linux",
+        "raspberry-pi",
+        "iot",
+        "sdk"
+      ],
+      "homepage": "https://adidshaft.github.io/grok-gadgets/linux.html",
+      "private_vulnerability_reporting": "enable and verify after repository creation, before inviting reports"
+    },
+    {
+      "name": "grok-gadgets-esp32-sdk",
+      "url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk",
+      "create_payload": {
+        "name": "grok-gadgets-esp32-sdk",
+        "description": "C++ SDK and experimental AtomS3 Lite C124 USB firmware for Grok Gadgets. Build verified; physical testing pending.",
+        "private": false,
+        "has_issues": true,
+        "has_wiki": false,
+        "auto_init": false
+      },
+      "settings_payload": {
+        "has_issues": true,
+        "has_wiki": false,
+        "has_discussions": false,
+        "allow_merge_commit": true,
+        "allow_squash_merge": false,
+        "allow_rebase_merge": true,
+        "delete_branch_on_merge": true
+      },
+      "topics": [
+        "grok",
+        "esp32",
+        "esp32-s3",
+        "arduino",
+        "m5stack",
+        "sdk"
+      ],
+      "homepage": "https://adidshaft.github.io/grok-gadgets/esp32.html",
+      "private_vulnerability_reporting": "enable and verify after repository creation, before inviting reports"
+    },
+    {
+      "name": "grok-gadgets-home-assistant",
+      "url": "https://github.com/adidshaft/grok-gadgets-home-assistant",
+      "create_payload": {
+        "name": "grok-gadgets-home-assistant",
+        "description": "Home Assistant MCP setup guidance and read-only compatibility diagnostics for Grok. Reuses the upstream server.",
+        "private": false,
+        "has_issues": true,
+        "has_wiki": false,
+        "auto_init": false
+      },
+      "settings_payload": {
+        "has_issues": true,
+        "has_wiki": false,
+        "has_discussions": false,
+        "allow_merge_commit": true,
+        "allow_squash_merge": false,
+        "allow_rebase_merge": true,
+        "delete_branch_on_merge": true
+      },
+      "topics": [
+        "grok",
+        "home-assistant",
+        "mcp",
+        "home-automation",
+        "python"
+      ],
+      "homepage": "https://adidshaft.github.io/grok-gadgets/home-assistant.html",
+      "private_vulnerability_reporting": "enable and verify after repository creation, before inviting reports"
+    }
+  ]
+}

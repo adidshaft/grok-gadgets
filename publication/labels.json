@@ -1,74 +1,107 @@
 [
   {
     "name": "bug",
-    "color": "537A5A"
+    "color": "537A5A",
+    "description": "Reproducible incorrect behavior"
   },
   {
     "name": "feature",
-    "color": "537A5A"
+    "color": "537A5A",
+    "description": "New capability with bounded scope"
   },
   {
     "name": "docs",
-    "color": "537A5A"
+    "color": "537A5A",
+    "description": "Documentation and onboarding"
   },
   {
     "name": "research",
-    "color": "537A5A"
+    "color": "537A5A",
+    "description": "Evidence or feasibility investigation"
   },
   {
     "name": "maintenance",
-    "color": "537A5A"
+    "color": "537A5A",
+    "description": "Build, dependencies and repository upkeep"
   },
   {
     "name": "protocol",
-    "color": "7B8CDE"
+    "color": "7B8CDE",
+    "description": "Versioned device contracts"
   },
   {
     "name": "gateway",
-    "color": "7B8CDE"
+    "color": "7B8CDE",
+    "description": "MCP and transport routing"
   },
   {
     "name": "linux",
-    "color": "7B8CDE"
+    "color": "7B8CDE",
+    "description": "Linux SDK and agent"
   },
   {
     "name": "esp32",
-    "color": "7B8CDE"
+    "color": "7B8CDE",
+    "description": "ESP32 SDK and firmware"
   },
   {
     "name": "home-assistant",
-    "color": "7B8CDE"
+    "color": "7B8CDE",
+    "description": "Upstream Home Assistant compatibility"
   },
   {
     "name": "website",
-    "color": "7B8CDE"
+    "color": "7B8CDE",
+    "description": "Website and public docs"
   },
   {
     "name": "community",
-    "color": "7B8CDE"
+    "color": "7B8CDE",
+    "description": "Community policy and tooling"
   },
   {
     "name": "P0",
-    "color": "B86E56"
+    "color": "B86E56",
+    "description": "Urgent confirmed impact"
   },
   {
     "name": "P1",
-    "color": "B86E56"
+    "color": "B86E56",
+    "description": "Release or important feature"
   },
   {
     "name": "P2",
-    "color": "B86E56"
+    "color": "B86E56",
+    "description": "Normal improvement"
   },
   {
     "name": "good first issue",
-    "color": "C6AC45"
+    "color": "C6AC45",
+    "description": "Bounded software work suitable for a newcomer"
   },
   {
     "name": "help wanted",
-    "color": "C6AC45"
+    "color": "C6AC45",
+    "description": "Contributor assistance welcome"
   },
   {
     "name": "needs hardware",
-    "color": "C6AC45"
+    "color": "C6AC45",
+    "description": "Requires the specified physical device"
+  },
+  {
+    "name": "integration",
+    "color": "7B8CDE",
+    "description": "Cross-repository acceptance"
+  },
+  {
+    "name": "simulator",
+    "color": "7B8CDE",
+    "description": "Software-only simulated devices"
+  },
+  {
+    "name": "blocked",
+    "color": "B86E56",
+    "description": "Concrete dependency documented in the issue"
   }
 ]
