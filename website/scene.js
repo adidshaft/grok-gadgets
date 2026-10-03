@@ -265,18 +265,19 @@
   });
   document.querySelector('#playground-custom-color').addEventListener('click', () => configAction(config => send({...config.initial_rgb, on: true}, 'custom')));
   document.querySelector('#playground-export').addEventListener('click', () => configAction(config => {
-    const json = JSON.stringify(config, null, 2) + '\n';
+    const exported = GrokSimulator.exportConfiguration(config);
+    const json = exported.content;
     document.querySelector('#playground-export-json').value = json;
     document.querySelector('#playground-export-preview').hidden = false;
     const url = URL.createObjectURL(new Blob([json], {type: 'application/json'}));
-    const link = document.createElement('a'); link.href = url; link.download = 'simulator-config.json';
+    const link = document.createElement('a'); link.href = url; link.download = exported.filename;
     document.body.appendChild(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
-    configFeedback.textContent = 'Configuration ready. Save the download, or copy the JSON below into simulator-config.json.';
+    configFeedback.textContent = 'Configuration ready. Save the download, or copy the JSON below into my-light.json. Keep the kit’s simulator-config.json unchanged.';
   }));
   document.querySelector('#playground-copy').addEventListener('click', async () => {
     const output = document.querySelector('#playground-export-json');
-    try { await navigator.clipboard.writeText(output.value); configFeedback.textContent = 'Copied. Save as simulator-config.json and use it with the kit.'; }
-    catch { output.focus(); output.select(); configFeedback.textContent = 'Select and copy the JSON, then save it as simulator-config.json.'; }
+    try { await navigator.clipboard.writeText(output.value); configFeedback.textContent = 'Copied. Save as my-light.json and use --config ./my-light.json. Keep the bundled default unchanged.'; }
+    catch { output.focus(); output.select(); configFeedback.textContent = 'Select and copy the JSON, then save it as my-light.json. Keep the bundled default unchanged.'; }
   });
   form.elements.brightness.addEventListener('input', () => {document.querySelector('#playground-brightness').value = `${form.elements.brightness.value}%`;});
   document.querySelector('#playground-reset').addEventListener('click', () => {

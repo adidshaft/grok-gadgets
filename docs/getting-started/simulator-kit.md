@@ -10,7 +10,7 @@ The ZIP includes the wheel, sdist, exact committed `source.tar`, `uv.lock` insid
 
 ## Customize
 
-Export `simulator-config.json` from the website, or copy/edit the default using the included schema. Keep the original kit files unchanged for hash verification; put customized settings in a separate file such as `my-light.json`.
+Export `my-light.json` from the website and copy that separate file into the extracted kit folder. If downloading is unavailable, copy the displayed JSON into a new file named `my-light.json`. Alternatively, copy the bundled default to `my-light.json` and edit the copy using the included schema. Keep every original kit file unchanged for hash verification, especially `simulator-config.json`; do not replace it with your export. Pass `--config ./my-light.json` to use your settings.
 
 - Device ID and display name identify your virtual light.
 - Starting RGB channels are integers 0–255; `on` is a boolean. Website brightness is converted into these channels; physical LED brightness is not being calibrated.
