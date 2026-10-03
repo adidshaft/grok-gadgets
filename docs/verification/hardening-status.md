@@ -1,8 +1,10 @@
 # Current correction checkpoint
 
-S1 / HARD-SIM-EXPORT-001: filename collision reproduced and corrected in 24729e0. Browser downloads my-light.json separately from the kit protected simulator-config.json. Actual exported-file fresh installation and local MCP discovery/commands/state/offline/reconnect passed; Node6, kit4, website12, publication11 and14/14 cross-repository groups passed. Raw evidence: artifacts/verification/export-onboarding/acceptance.json and artifacts/verification/20261004T193719-1791142639802012000/results.json. Only unrelated assets/ is untracked; sibling sources unchanged and clean. Current branch fix/simulator-export-onboarding. Final review/evidence integration and currentHEADpublication package remain pending.
+S1 / HARD-SIM-EXPORT-001 local correction complete: reproduced in549555c, fixed24729e0, acceptance recordedc2e8981. Export/copy/fallback now use my-light.json separately from protected simulator-config.json. Actual browser file + fresh installed local MCP discovery/commands/state/offline/reconnect passed. Node6,kit4,website12,publication11,hubcheck,Ruff and14/14 clean-source cross-repository groups passed. Bounded independent review reported no material findings.25-artifact candidate20261004T194005-1791142805602319000 certified against c2e8981, including actual archivedsite export wiring, renderedsetupguide and exactkitZIP. Final evidence-only commit/main integration followed by package-local.py and verify-publication.py --require-current must pass before persistent goal closure; artifacts/publication/latest.json identifies that final candidate without self-reference.
 
-The earlier checkpoint below is historical; current gateway is fa062a1 and exact hub/package source comes from git HEAD and final publication manifest. Actual Grok/mobile/physical/home/independent-human/public gates remain separate; no live accounts operated for this correction.
+Raw evidence: artifacts/verification/export-onboarding/acceptance.json and artifacts/verification/20261004T193719-1791142639802012000/results.json. Gatewayfa062a1, Linuxce897ee, ESP5ca2e5d, HAa8b2370 remain unchanged and clean. Only unrelated assets/ untracked, preserved. Actual Grok/mobile/physical/home/independent-human/public gates remain separate; no live accounts operated for this correction. See simulator-export-onboarding.md for exact corrected instructions and limitations.
+
+Earlier checkpoint below is historical; current package/source facts come from gitHEAD and final publication manifest.
 
 ## Historical hardening closure
 
