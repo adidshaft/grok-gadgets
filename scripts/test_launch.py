@@ -1,0 +1,120 @@
+"""Launch safety and exact-pin regressions; no network or publication."""
+
+import importlib.util
+import json
+from pathlib import Path
+import tempfile
+import unittest
+
+import yaml
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def load(name):
+    spec = importlib.util.spec_from_file_location(
+        name.replace("-", "_"), ROOT / "scripts" / (name + ".py")
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+class LaunchTests(unittest.TestCase):
+    def test_candidate_sha_is_bounded_and_other_pins_are_retained(self):
+        pins = load("ci-component-pins")
+        baseline = pins.selected()
+        chosen = pins.selected("grok-gadgets-gateway", "a" * 40)
+        self.assertEqual(chosen["gateway"], "a" * 40)
+        self.assertEqual(
+            {k: v for k, v in chosen.items() if k != "gateway"},
+            {k: v for k, v in baseline.items() if k != "gateway"},
+        )
+        for repo, sha in [
+            ("other/repo", "a" * 40),
+            ("grok-gadgets-gateway", "main"),
+            ("grok-gadgets-gateway", "$(printenv)"),
+            ("", "a" * 40),
+            ("grok-gadgets-gateway", ""),
+        ]:
+            with self.subTest(repo=repo, sha=sha), self.assertRaises(ValueError):
+                pins.selected(repo, sha)
+
+    def test_workflows_are_readonly_except_manual_deployment_and_use_verified_pins(
+        self,
+    ):
+        approved = {
+            item["repository"]: item["sha"]
+            for item in json.loads((ROOT / "publication/action-pins.json").read_text())[
+                "actions"
+            ]
+        }
+        for file in (ROOT / ".github/workflows").glob("*.yml"):
+            workflow = yaml.load(file.read_text(), Loader=yaml.BaseLoader)
+            self.assertEqual(workflow["permissions"], {"contents": "read"})
+            self.assertNotIn("pull_request_target", workflow["on"])
+            self.assertNotIn("schedule", workflow["on"])
+            for name, job in workflow["jobs"].items():
+                self.assertIn("timeout-minutes", job)
+                for step in job["steps"]:
+                    if "uses" not in step:
+                        continue
+                    repo, sha = step["uses"].split("@")
+                    self.assertRegex(sha, r"^[a-f0-9]{40}$")
+                    self.assertEqual(sha, approved[repo])
+                    if repo == "actions/checkout":
+                        self.assertEqual(step["with"]["persist-credentials"], "false")
+                if name != "deploy":
+                    self.assertNotIn("pages", job.get("permissions", {}))
+                    self.assertNotIn("id-token", job.get("permissions", {}))
+        pages = yaml.load(
+            (ROOT / ".github/workflows/pages.yml").read_text(), Loader=yaml.BaseLoader
+        )
+        self.assertEqual(set(pages["on"]), {"workflow_dispatch"})
+        self.assertEqual(pages["jobs"]["deploy"]["needs"], "build")
+        self.assertEqual(
+            pages["jobs"]["build"]["if"], "github.ref == 'refs/heads/main'"
+        )
+        self.assertIn("scripts/check-all.py", str(pages["jobs"]["build"]["steps"]))
+        self.assertEqual(
+            pages["jobs"]["deploy"]["permissions"],
+            {"contents": "read", "pages": "write", "id-token": "write"},
+        )
+
+    def test_rules_preserve_history_and_solo_maintainer_can_merge(self):
+        for file in (ROOT / "publication/rulesets").glob("*.json"):
+            rules = json.loads(file.read_text())
+            self.assertEqual(rules["enforcement"], "disabled")
+            kinds = {
+                rule["type"]: rule.get("parameters", {}) for rule in rules["rules"]
+            }
+            self.assertTrue(
+                {
+                    "deletion",
+                    "non_fast_forward",
+                    "pull_request",
+                    "required_status_checks",
+                }
+                <= set(kinds)
+            )
+            self.assertNotIn("required_linear_history", kinds)
+            self.assertEqual(
+                kinds["pull_request"]["required_approving_review_count"], 0
+            )
+            self.assertTrue(kinds["pull_request"]["required_review_thread_resolution"])
+            self.assertTrue(
+                kinds["required_status_checks"]["strict_required_status_checks_policy"]
+            )
+
+    def test_project_prefix_rejects_root_and_deep_missing_assets(self):
+        checker = load("check-pages-prefix")
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / "index.html").write_text('<a href="/style.css">bad root</a>')
+            (root / "style.css").write_text("")
+            with self.assertRaisesRegex(ValueError, "prefix"):
+                checker.check(root)
+            (root / "index.html").write_text("")
+            (root / "404.html").write_text('<link href="style.css">')
+            with self.assertRaisesRegex(ValueError, "deep link"):
+                checker.check(root)

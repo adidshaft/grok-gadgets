@@ -1,7 +1,15 @@
-## Problem and resulting behaviour
+## Problem and resulting behavior
 
-## Local issue and acceptance evidence
+<!-- Concrete before/after behavior and scope. -->
 
-## Verification level and remaining gates
+## Issue and changes
 
-## Security, compatibility, recovery
+<!-- Link the issue or stable local ID. Small typo fixes need no new issue. -->
+
+## Checks and evidence
+
+<!-- Commands and actual results; distinguish simulation, compilation, native Grok and physical observation. -->
+
+## Documentation, compatibility and remaining limitations
+
+<!-- Pin/schema changes, recovery and unresolved gates. Redact private information. -->
