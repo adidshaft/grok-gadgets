@@ -129,6 +129,40 @@ print("<script>code only</script>")
             with self.subTest(content=content), self.assertRaises(ValueError):
                 static_diagram(content)
 
+    def test_source_archive_bundles_only_allowlisted_hub_references(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / "website").mkdir()
+            (root / "compatibility").mkdir()
+            (root / "compatibility/documentation-sources.json").write_text("[]")
+            (root / "compatibility/source-inventory.json").write_text("[]")
+            (root / "website/documents.json").write_text(
+                json.dumps(
+                    {
+                        "hub": [],
+                        "component_sources": [],
+                        "aliases": [],
+                        "hub_references": ["LICENSE", "alias"],
+                    }
+                )
+            )
+            (root / "LICENSE").write_text("Public license fixture")
+            (root / "private.txt").write_text("excluded")
+            (root / "alias").symlink_to(root / "LICENSE")
+            documents = Documents(root)
+            record = {
+                "repository": "grok-gadgets",
+                "source": "README.md",
+                "page": "index.html",
+            }
+            output = documents.resolve("LICENSE", record)
+            self.assertTrue(output.startswith("source/"))
+            self.assertEqual(documents.bundled_references[output]["source"], "LICENSE")
+            with self.assertRaises(ValueError):
+                documents.resolve("private.txt", record)
+            with self.assertRaisesRegex(ValueError, "Unsafe bundled"):
+                documents.resolve("alias", record)
+
     def test_quoted_pending_and_bidirectional_diagram_meaning(self):
         html = static_diagram(
             'flowchart LR\nA["SDK library + agent"] <-->|"Loopback ACK"| G["Gateway"]\nB["Grok pending"] -.-> G'

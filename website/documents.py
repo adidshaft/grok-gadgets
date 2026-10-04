@@ -134,6 +134,8 @@ class Documents:
     def __init__(self, root):
         self.root = Path(root)
         config = json.loads((self.root / "website/documents.json").read_text())
+        self.hub_references = set(config.get("hub_references", []))
+        self.bundled_references = {}
         self.records = []
         for source in config["hub"]:
             self.records.append(
@@ -252,6 +254,21 @@ class Documents:
             return self.images[(repo, source)]
         if image:
             raise ValueError("Local image must be explicitly bundled before rendering")
+        if repo == "grok-gadgets" and source in self.hub_references:
+            local = self.root / source
+            if (
+                local.is_symlink()
+                or not local.resolve().is_relative_to(self.root.resolve())
+                or not local.is_file()
+                or local.stat().st_size > 1024 * 1024
+            ):
+                raise ValueError("Unsafe bundled project reference")
+            # Selected public records work from both Git clones and source archives.
+            # Content hashes identify these bytes without inventing an archive HEAD.
+            digest = hashlib.sha256(local.read_bytes()).hexdigest()
+            output = "source/" + digest[:16] + "-" + local.name
+            self.bundled_references[output] = {"source": source, "sha256": digest}
+            return output
         # A real checkout alternative: verify the exact tracked object exists, never invent a public URL.
         checkout = self.root if repo == "grok-gadgets" else self.root.parent / repo
         commit = record.get("commit") if repo == record["repository"] else None

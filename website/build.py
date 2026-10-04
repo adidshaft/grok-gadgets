@@ -530,6 +530,14 @@ for approved_image in json.loads((R / "website/documents.json").read_text()).get
     destination = OUT / approved_image["output"]
     destination.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy(R / approved_image["source"], destination)
+for output, record in documents.bundled_references.items():
+    destination = OUT / output
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy(R / record["source"], destination)
+(OUT / "source").mkdir(exist_ok=True)
+(OUT / "source/manifest.json").write_text(
+    json.dumps(documents.bundled_references, indent=2) + "\n"
+)
 
 
 # A deep missing URL must load 404 assets from the actual project base.

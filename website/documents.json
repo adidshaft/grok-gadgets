@@ -110,5 +110,15 @@
       "output": "media/diagrams/simulator-playground.jpg",
       "sha256": "c3215addc08a33a6d12b72727f9a034ca96c2743bd1ad26159bac70ac39a7dd2"
     }
+  ],
+  "hub_references": [
+    "LICENSE",
+    "NOTICE",
+    "THIRD_PARTY_NOTICES.md",
+    "planning/launch-stages.json",
+    "planning/issues.json",
+    "publication/project.json",
+    "compatibility/tested-components.json",
+    "website/media/provenance.json"
   ]
 }
