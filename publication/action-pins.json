@@ -1,0 +1,53 @@
+{
+  "verified_via": "Public GitHub release/tag APIs, recursively resolved to commit objects; local preparation only",
+  "actions": [
+    {
+      "repository": "actions/checkout",
+      "tag": "v7.0.1",
+      "sha": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "source": "https://github.com/actions/checkout/releases/tag/v7.0.1"
+    },
+    {
+      "repository": "actions/setup-python",
+      "tag": "v7.0.0",
+      "sha": "5fda3b95a4ea91299a34e894583c3862153e4b97",
+      "source": "https://github.com/actions/setup-python/releases/tag/v7.0.0"
+    },
+    {
+      "repository": "actions/setup-node",
+      "tag": "v7.0.0",
+      "sha": "820762786026740c76f36085b0efc47a31fe5020",
+      "source": "https://github.com/actions/setup-node/releases/tag/v7.0.0"
+    },
+    {
+      "repository": "actions/upload-artifact",
+      "tag": "v7.0.1",
+      "sha": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+      "source": "https://github.com/actions/upload-artifact/releases/tag/v7.0.1"
+    },
+    {
+      "repository": "actions/upload-pages-artifact",
+      "tag": "v5.0.0",
+      "sha": "fc324d3547104276b827a68afc52ff2a11cc49c9",
+      "source": "https://github.com/actions/upload-pages-artifact/releases/tag/v5.0.0"
+    },
+    {
+      "repository": "actions/deploy-pages",
+      "tag": "v5.0.1",
+      "sha": "368f82528645a54fb793d4d04e342629a3f51346",
+      "source": "https://github.com/actions/deploy-pages/releases/tag/v5.0.1"
+    },
+    {
+      "repository": "actions/configure-pages",
+      "tag": "v6.0.0",
+      "sha": "45bfe0192ca1faeb007ade9deae92b16b8254a0d",
+      "source": "https://github.com/actions/configure-pages/releases/tag/v6.0.0"
+    },
+    {
+      "repository": "astral-sh/setup-uv",
+      "tag": "v10.2.0",
+      "sha": "c18668ad3cf93ea998bef934396af7bb5c839dc7",
+      "source": "https://github.com/astral-sh/setup-uv/releases/tag/v10.2.0"
+    }
+  ]
+}

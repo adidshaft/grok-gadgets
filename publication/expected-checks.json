@@ -1,0 +1,23 @@
+{
+  "activated": false,
+  "status": "Expected job contexts; verify actual hosted names and originating GitHub Actions app IDs before activation",
+  "repositories": {
+    "grok-gadgets": [
+      "checks",
+      "integration"
+    ],
+    "grok-gadgets-gateway": [
+      "gateway-checks"
+    ],
+    "grok-gadgets-linux-sdk": [
+      "linux-sdk-checks"
+    ],
+    "grok-gadgets-esp32-sdk": [
+      "esp32-host",
+      "esp32-firmware"
+    ],
+    "grok-gadgets-home-assistant": [
+      "home-assistant-checks"
+    ]
+  }
+}
