@@ -1,130 +1,98 @@
 {
   "activated": false,
-  "owner": null,
+  "owner": "adidshaft",
   "records": [
     {
-      "repository": "grok-gadgets",
-      "local_id": "HUB-001",
+      "repository": "grok-gadgets-esp32-sdk",
+      "local_id": "ESP-001",
       "github_number": null,
       "stage": "done",
-      "source": "grok-gadgets/planning/issues.json",
+      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
       "record": {
-        "id": "HUB-001",
-        "repository": "grok-gadgets",
-        "problem": "Foundation and architecture",
-        "intended_behaviour": "Foundation and architecture",
+        "id": "ESP-001",
+        "owner": "grok-gadgets-esp32-sdk",
+        "problem": "Independent open-source repository foundation",
         "acceptance": [
-          "Documented commands reproduce observed behaviour",
-          "Evidence identifies actual verification level"
+          "README, Apache-2.0 license and contribution/security/agent instructions exist",
+          "Issue forms and proposed publication checks exist"
         ],
         "dependencies": [],
         "labels": [
-          "feature",
-          "protocol",
+          "maintenance",
+          "esp32",
           "P1"
         ],
         "milestone": "M0",
         "stage": "done",
         "commits": [
-          "9c6d5c0"
+          "d4f18b3"
         ],
-        "evidence": [
-          "Foundation check and architecture documents"
-        ],
-        "blocker": null
-      }
+        "evidence": "Foundation checks and Git diff review passed."
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-esp32-sdk/ESP-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/ESP-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/ESP-001 -->\n\nLocal ID: `ESP-001`\n\nStatus: **done**\n\nIndependent open-source repository foundation\n\n### Acceptance\n\n- README, Apache-2.0 license and contribution/security/agent instructions exist\n- Issue forms and proposed publication checks exist\n\n### Evidence\n\n- Foundation checks and Git diff review passed.\n\n### Commits\n\n- d4f18b3\n"
     },
     {
-      "repository": "grok-gadgets",
-      "local_id": "HUB-GW-001",
+      "repository": "grok-gadgets-esp32-sdk",
+      "local_id": "ESP-002",
       "github_number": null,
       "stage": "done",
-      "source": "grok-gadgets/planning/issues.json",
+      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
       "record": {
-        "id": "HUB-GW-001",
-        "repository": "grok-gadgets",
-        "problem": "Protocol, gateway, simulator and MCP acceptance",
-        "intended_behaviour": "Protocol, gateway, simulator and MCP acceptance",
+        "id": "ESP-002",
+        "owner": "grok-gadgets-esp32-sdk",
+        "problem": "Portable independently useful ESP32 SDK",
         "acceptance": [
-          "Documented commands reproduce observed behaviour",
-          "Evidence identifies actual verification level"
-        ],
-        "dependencies": [],
-        "labels": [
-          "feature",
-          "gateway",
-          "P1"
-        ],
-        "milestone": "M2",
-        "stage": "done",
-        "commits": [
-          "4cf42ff",
-          "4bb6d87",
-          "85548ea",
-          "84b06fb"
-        ],
-        "evidence": [
-          "21tests; independent actualMCPnegative/positive;per-deviceTCP; installedcandidate demo"
-        ],
-        "blocker": null,
-        "component_repository": "grok-gadgets-gateway"
-      }
-    },
-    {
-      "repository": "grok-gadgets",
-      "local_id": "HUB-LIN-001",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets/planning/issues.json",
-      "record": {
-        "id": "HUB-LIN-001",
-        "repository": "grok-gadgets",
-        "problem": "Reusable Linux SDK and gateway contract",
-        "intended_behaviour": "Reusable Linux SDK and gateway contract",
-        "acceptance": [
-          "Documented commands reproduce observed behaviour",
-          "Evidence identifies actual verification level"
+          "Custom capabilities register without gateway changes",
+          "Strict RGB validation and duplicate command handling",
+          "Bounded framing and button debounce tests pass"
         ],
         "dependencies": [
-          "HUB-GW-001"
+          "GW-002"
         ],
         "labels": [
           "feature",
-          "linux",
+          "esp32",
+          "protocol",
           "P1"
         ],
-        "milestone": "M3",
+        "milestone": "M4",
         "stage": "done",
         "commits": [
-          "256a07e",
-          "beb69c1",
-          "89478e5",
-          "ce897ee"
+          "ff4dd9d"
         ],
-        "evidence": [
-          "20source tests;installed documented/dataclass macOS+actualofflineLinux; independent candidatewheelacceptance"
-        ],
-        "blocker": null,
-        "component_repository": "grok-gadgets-linux-sdk"
-      }
+        "evidence": "C++ host tests and pinned canonical protocol frame validation passed."
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-esp32-sdk/ESP-002",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/ESP-002 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/ESP-002 -->\n\nLocal ID: `ESP-002`\n\nStatus: **done**\n\nPortable independently useful ESP32 SDK\n\n### Acceptance\n\n- Custom capabilities register without gateway changes\n- Strict RGB validation and duplicate command handling\n- Bounded framing and button debounce tests pass\n\n### Evidence\n\n- C++ host tests and pinned canonical protocol frame validation passed.\n\n### Commits\n\n- ff4dd9d\n\n### Dependencies\n\n- `grok-gadgets-gateway#GW-002` (resolve after issue creation)\n"
     },
     {
-      "repository": "grok-gadgets",
-      "local_id": "HUB-ESP-001",
+      "repository": "grok-gadgets-esp32-sdk",
+      "local_id": "ESP-003",
       "github_number": null,
       "stage": "done",
-      "source": "grok-gadgets/planning/issues.json",
+      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
       "record": {
-        "id": "HUB-ESP-001",
-        "repository": "grok-gadgets",
-        "problem": "Reusable C124 USB firmware and compilation",
-        "intended_behaviour": "Reusable C124 USB firmware and compilation",
+        "id": "ESP-003",
+        "owner": "grok-gadgets-esp32-sdk",
+        "problem": "C124 USB firmware and lifecycle",
         "acceptance": [
-          "Documented commands reproduce observed behaviour",
-          "Evidence identifies actual verification level"
+          "Pinned ESP32-S3 firmware compilation succeeds",
+          "Actual consumer host simulation exercises RGB/button/timeout",
+          "USB bridge/gateway host integration and recovery pass",
+          "Flashing/recovery instructions and build artifacts exist"
         ],
         "dependencies": [
-          "HUB-GW-001"
+          "ESP-002",
+          "GW-003"
         ],
         "labels": [
           "feature",
@@ -134,35 +102,736 @@
         "milestone": "M4",
         "stage": "done",
         "commits": [
-          "585adda",
-          "74085a9",
-          "3e8ccff",
-          "382444d",
-          "5ca2e5d"
+          "0481cc9b277c1b04886d64e00d92565facb42b91"
         ],
-        "evidence": [
-          "3CTest;actualimmutableACKconsumer/PTyoverflow/restart/revocation; C124compiled RAM54628/programflash274881/bin283424; physicalpending"
-        ],
-        "blocker": null,
-        "component_repository": "grok-gadgets-esp32-sdk"
-      }
+        "evidence": "3/3 CTest; SDK frame contract; PTY actual firmware simulation/gateway execution, server restart and credential revocation/restoration; real firmware compile. No flash."
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-esp32-sdk/ESP-003",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/ESP-003 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/ESP-003 -->\n\nLocal ID: `ESP-003`\n\nStatus: **done**\n\nC124 USB firmware and lifecycle\n\n### Acceptance\n\n- Pinned ESP32-S3 firmware compilation succeeds\n- Actual consumer host simulation exercises RGB/button/timeout\n- USB bridge/gateway host integration and recovery pass\n- Flashing/recovery instructions and build artifacts exist\n\n### Evidence\n\n- 3/3 CTest; SDK frame contract; PTY actual firmware simulation/gateway execution, server restart and credential revocation/restoration; real firmware compile. No flash.\n\n### Commits\n\n- 0481cc9b277c1b04886d64e00d92565facb42b91\n\n### Dependencies\n\n- `grok-gadgets-esp32-sdk#ESP-002` (resolve after issue creation)\n- `grok-gadgets-gateway#GW-003` (resolve after issue creation)\n"
     },
     {
-      "repository": "grok-gadgets",
-      "local_id": "HUB-HA-001",
+      "repository": "grok-gadgets-esp32-sdk",
+      "local_id": "ESP-004",
+      "github_number": null,
+      "stage": "blocked",
+      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
+      "record": {
+        "id": "ESP-004",
+        "owner": "grok-gadgets-esp32-sdk",
+        "problem": "Physical C124 acceptance",
+        "acceptance": [
+          "Visibly verify green/colour/off",
+          "Read real button edges",
+          "Unplug/reconnect/reboot acceptance",
+          "Record versions/checksums and observations"
+        ],
+        "dependencies": [
+          "ESP-003"
+        ],
+        "labels": [
+          "feature",
+          "esp32",
+          "P1",
+          "needs hardware",
+          "help wanted"
+        ],
+        "milestone": "M8",
+        "stage": "blocked",
+        "commits": [],
+        "evidence": "No C124 available; requires physical board and authorization to flash."
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-esp32-sdk/ESP-004",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/ESP-004 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/ESP-004 -->\n\nLocal ID: `ESP-004`\n\nStatus: **blocked**\n\nPhysical C124 acceptance\n\n### Acceptance\n\n- Visibly verify green/colour/off\n- Read real button edges\n- Unplug/reconnect/reboot acceptance\n- Record versions/checksums and observations\n\n### Evidence\n\n- No C124 available; requires physical board and authorization to flash.\n\n### Dependencies\n\n- `grok-gadgets-esp32-sdk#ESP-003` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets-esp32-sdk",
+      "local_id": "ESP-005",
+      "github_number": null,
+      "stage": "blocked",
+      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
+      "record": {
+        "id": "ESP-005",
+        "owner": "grok-gadgets-esp32-sdk",
+        "problem": "Secure Wi-Fi transport and provisioning",
+        "acceptance": [
+          "Agree authenticated reachable TLS transport",
+          "Certificate validation, device credential revocation and secret provisioning",
+          "Compile firmware and test LAN lifecycle"
+        ],
+        "dependencies": [
+          "ESP-003",
+          "GW-003"
+        ],
+        "labels": [
+          "feature",
+          "esp32",
+          "protocol",
+          "P2"
+        ],
+        "milestone": "M4",
+        "stage": "blocked",
+        "commits": [],
+        "evidence": "Canonical gateway 0.1.0 binds loopback-only, without LAN/TLS endpoint; plain network credentials/exposure excluded. Secure endpoint/provisioning contract required."
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-esp32-sdk/ESP-005",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/ESP-005 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/ESP-005 -->\n\nLocal ID: `ESP-005`\n\nStatus: **blocked**\n\nSecure Wi-Fi transport and provisioning\n\n### Acceptance\n\n- Agree authenticated reachable TLS transport\n- Certificate validation, device credential revocation and secret provisioning\n- Compile firmware and test LAN lifecycle\n\n### Evidence\n\n- Canonical gateway 0.1.0 binds loopback-only, without LAN/TLS endpoint; plain network credentials/exposure excluded. Secure endpoint/provisioning contract required.\n\n### Dependencies\n\n- `grok-gadgets-esp32-sdk#ESP-003` (resolve after issue creation)\n- `grok-gadgets-gateway#GW-003` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets-esp32-sdk",
+      "local_id": "ESP-006",
+      "github_number": null,
+      "stage": "blocked",
+      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
+      "record": {
+        "id": "ESP-006",
+        "owner": "grok-gadgets-esp32-sdk",
+        "problem": "Independent reproduction",
+        "acceptance": [
+          "Another person follows build/install instructions",
+          "Hardware procedure independently reproduced"
+        ],
+        "dependencies": [
+          "ESP-004"
+        ],
+        "labels": [
+          "docs",
+          "esp32",
+          "P2",
+          "help wanted"
+        ],
+        "milestone": "M8",
+        "stage": "blocked",
+        "commits": [],
+        "evidence": "Independent tester and physical board unavailable."
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-esp32-sdk/ESP-006",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/ESP-006 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/ESP-006 -->\n\nLocal ID: `ESP-006`\n\nStatus: **blocked**\n\nIndependent reproduction\n\n### Acceptance\n\n- Another person follows build/install instructions\n- Hardware procedure independently reproduced\n\n### Evidence\n\n- Independent tester and physical board unavailable.\n\n### Dependencies\n\n- `grok-gadgets-esp32-sdk#ESP-004` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets-esp32-sdk",
+      "local_id": "ESP-007",
       "github_number": null,
       "stage": "done",
-      "source": "grok-gadgets/planning/issues.json",
+      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
       "record": {
-        "id": "HUB-HA-001",
-        "repository": "grok-gadgets",
-        "problem": "Upstream MCP integration and fixtures",
-        "intended_behaviour": "Upstream MCP integration and fixtures",
+        "id": "ESP-007",
+        "owner": "grok-gadgets-esp32-sdk",
+        "problem": "Undeclared history_lost event causes repeated session reset after button queue overflow",
         "acceptance": [
-          "Documented commands reproduce observed behaviour",
-          "Evidence identifies actual verification level"
+          "Declare every firmware event capability in hello",
+          "Actual consumer retains 16 ordered edges and reports four dropped edges after a 20-edge stall",
+          "Gateway accepts history_lost without a session reset; subsequent RGB command executes",
+          "Rebuild firmware and update packaged checksums"
+        ],
+        "dependencies": [
+          "ESP-003",
+          "GW-003"
+        ],
+        "labels": [
+          "bug",
+          "esp32",
+          "protocol",
+          "P1"
+        ],
+        "milestone": "M4",
+        "stage": "done",
+        "commits": [
+          "74085a9d33fba115a2701d4274140f33d8813d6c"
+        ],
+        "evidence": "3/3 CTest, pinned contract checks, actual consumer PTY integration (20 GPIO edges, retained 16/drop4, unchanged session, subsequent execution), ESP32-S3 compile SUCCESS."
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-esp32-sdk/ESP-007",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/ESP-007 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/ESP-007 -->\n\nLocal ID: `ESP-007`\n\nStatus: **done**\n\nUndeclared history_lost event causes repeated session reset after button queue overflow\n\n### Acceptance\n\n- Declare every firmware event capability in hello\n- Actual consumer retains 16 ordered edges and reports four dropped edges after a 20-edge stall\n- Gateway accepts history_lost without a session reset; subsequent RGB command executes\n- Rebuild firmware and update packaged checksums\n\n### Evidence\n\n- 3/3 CTest, pinned contract checks, actual consumer PTY integration (20 GPIO edges, retained 16/drop4, unchanged session, subsequent execution), ESP32-S3 compile SUCCESS.\n\n### Commits\n\n- 74085a9d33fba115a2701d4274140f33d8813d6c\n\n### Dependencies\n\n- `grok-gadgets-esp32-sdk#ESP-003` (resolve after issue creation)\n- `grok-gadgets-gateway#GW-003` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets-esp32-sdk",
+      "local_id": "HARD-ESP-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
+      "record": {
+        "id": "HARD-ESP-001",
+        "repository": "grok-gadgets-esp32-sdk",
+        "owner": "grok-gadgets-esp32-sdk",
+        "problem": "Preserve ACKs across repeated retries",
+        "intended_behaviour": "Retained retries return equivalent owned ACKs without rerunning a handler; decode failures preserve retry uncertainty and cached execution result.",
+        "acceptance": [
+          "Repeated valid success/failure ACKs with one execution",
+          "Interleaved and changed argument IDs covered",
+          "Actual consumer retry, contract and C124 compile pass",
+          "Eight-entry FIFO eviction and reboot retention limits covered",
+          "Corrected clean-source firmware artifacts identify source commit, toolchain and hashes"
+        ],
+        "dependencies": [
+          "HARD-001"
+        ],
+        "labels": [
+          "bug",
+          "esp32",
+          "P1",
+          "help wanted"
+        ],
+        "milestone": "MH",
+        "stage": "done",
+        "commits": [
+          "3e8ccff4201a19ceb3f6a488c9faee2a442f25d3",
+          "382444d5a7bb9372e8778421a337b82306aa2c58"
+        ],
+        "evidence": [
+          "docs/verification/hardening.md: installed ArduinoJson reproduced valid ACK, valid ACK, true, true, true with execution count 1",
+          "Library and actual firmware retry regressions fail against original585adda; corrected CTest3/3, format/lint, contract, PTY four redeliveries and C124 build pass",
+          "Clean integrated main382444d: host3/3, contract, repeated PTY ACK, hub validation and real C124 compile pass; four artifacts rebuilt from clean source and hashes/toolchain recorded in docs/build-checksums.json. Physical/Grok remain external gates."
+        ],
+        "blocker": null
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-esp32-sdk/HARD-ESP-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/HARD-ESP-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/HARD-ESP-001 -->\n\nLocal ID: `HARD-ESP-001`\n\nStatus: **done**\n\nRetained retries return equivalent owned ACKs without rerunning a handler; decode failures preserve retry uncertainty and cached execution result.\n\n### Acceptance\n\n- Repeated valid success/failure ACKs with one execution\n- Interleaved and changed argument IDs covered\n- Actual consumer retry, contract and C124 compile pass\n- Eight-entry FIFO eviction and reboot retention limits covered\n- Corrected clean-source firmware artifacts identify source commit, toolchain and hashes\n\n### Evidence\n\n- docs/verification/hardening.md: installed ArduinoJson reproduced valid ACK, valid ACK, true, true, true with execution count 1\n- Library and actual firmware retry regressions fail against original585adda; corrected CTest3/3, format/lint, contract, PTY four redeliveries and C124 build pass\n- Clean integrated main382444d: host3/3, contract, repeated PTY ACK, hub validation and real C124 compile pass; four artifacts rebuilt from clean source and hashes/toolchain recorded in docs/build-checksums.json. Physical/Grok remain external gates.\n\n### Commits\n\n- 3e8ccff4201a19ceb3f6a488c9faee2a442f25d3\n- 382444d5a7bb9372e8778421a337b82306aa2c58\n\n### Dependencies\n\n- `grok-gadgets#HARD-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets-esp32-sdk",
+      "local_id": "LAUNCH-CI-ESP-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-esp32-sdk/LAUNCH-CI-ESP-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/LAUNCH-CI-ESP-001 -->",
+      "github_number": null,
+      "github_url": null,
+      "record": {
+        "id": "LAUNCH-CI-ESP-001",
+        "repository": "grok-gadgets-esp32-sdk",
+        "problem": "Pin and bound standalone read-only checks",
+        "acceptance": [
+          "Verified official action commit pins, read-only permissions, no persisted credentials and timeouts",
+          "Real hosted contexts remain unverified until approved activation"
         ],
         "dependencies": [],
+        "labels": [
+          "maintenance",
+          "esp32",
+          "P1"
+        ],
+        "milestone": "PUBLIC-ALPHA",
+        "stage": "done",
+        "commits": [],
+        "evidence": [
+          ".github/workflows/checks.yml",
+          "Local YAML/pin/permission validation; runtime unchanged from fresh standalone docs acceptance"
+        ],
+        "blocker": null
+      },
+      "stage": "done",
+      "source_present": true,
+      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/LAUNCH-CI-ESP-001 -->\n\nLocal ID: `LAUNCH-CI-ESP-001`\n\nStatus: **done**\n\nPin and bound standalone read-only checks\n\n### Acceptance\n\n- Verified official action commit pins, read-only permissions, no persisted credentials and timeouts\n- Real hosted contexts remain unverified until approved activation\n\n### Evidence\n\n- .github/workflows/checks.yml\n- Local YAML/pin/permission validation; runtime unchanged from fresh standalone docs acceptance\n"
+    },
+    {
+      "repository": "grok-gadgets-esp32-sdk",
+      "local_id": "LAUNCH-DOCS-ESP-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-esp32-sdk/LAUNCH-DOCS-ESP-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/LAUNCH-DOCS-ESP-001 -->",
+      "github_number": null,
+      "github_url": null,
+      "record": {
+        "id": "LAUNCH-DOCS-ESP-001",
+        "repository": "grok-gadgets-esp32-sdk",
+        "owner": "grok-gadgets-esp32-sdk",
+        "problem": "Prepare an independently buildable C124 SDK guide and public contributor/support policies",
+        "intended_behaviour": "A newcomer builds software without hardware, finds requirements/outputs/provenance, understands pending physical/Grok gates and follows canonical public policy links.",
+        "acceptance": [
+          "README standalone quickstart includes requirements, exact commands,3CTest/contract/firmware success and output paths",
+          "Fresh temporary source and environment host/contract/current C124 compile pass",
+          "SDK/custom capability, USB/recovery, manufacturer sources and licensing remain accurate without runtime/schema changes",
+          "Contribution/security/support/CODEOWNERS identify maintainer and planned channels"
+        ],
+        "dependencies": [
+          "LAUNCH-DOCS-001"
+        ],
+        "labels": [
+          "docs",
+          "esp32",
+          "P1"
+        ],
+        "milestone": "PUBLIC-ALPHA",
+        "stage": "done",
+        "commits": [
+          "ff954cc533c18ab4700e2798cabf4944ededb0ab"
+        ],
+        "evidence": [
+          "docs/verification/launch.md: standalone locked pip install, pinned toolcache reuse, hostCTest3/3, canonicalcontract and exactC124 compileSUCCESS; RAM54628/programflash274881/bin283424. Physical/Grok/Wi-Fi remain pending.",
+          "Clean documentation commit ff954cc packaged with tools/package_build.py; four artifact hashes and resolved toolchain recorded in docs/build-checksums.json. No hardware/Grok observation."
+        ],
+        "blocker": null
+      },
+      "stage": "done",
+      "source_present": true,
+      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-esp32-sdk/LAUNCH-DOCS-ESP-001 -->\n\nLocal ID: `LAUNCH-DOCS-ESP-001`\n\nStatus: **done**\n\nA newcomer builds software without hardware, finds requirements/outputs/provenance, understands pending physical/Grok gates and follows canonical public policy links.\n\n### Acceptance\n\n- README standalone quickstart includes requirements, exact commands,3CTest/contract/firmware success and output paths\n- Fresh temporary source and environment host/contract/current C124 compile pass\n- SDK/custom capability, USB/recovery, manufacturer sources and licensing remain accurate without runtime/schema changes\n- Contribution/security/support/CODEOWNERS identify maintainer and planned channels\n\n### Evidence\n\n- docs/verification/launch.md: standalone locked pip install, pinned toolcache reuse, hostCTest3/3, canonicalcontract and exactC124 compileSUCCESS; RAM54628/programflash274881/bin283424. Physical/Grok/Wi-Fi remain pending.\n- Clean documentation commit ff954cc packaged with tools/package_build.py; four artifact hashes and resolved toolchain recorded in docs/build-checksums.json. No hardware/Grok observation.\n\n### Commits\n\n- ff954cc533c18ab4700e2798cabf4944ededb0ab\n\n### Dependencies\n\n- `grok-gadgets#LAUNCH-DOCS-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets-gateway",
+      "local_id": "GW-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-gateway/planning/issues.json",
+      "record": {
+        "id": "GW-001",
+        "owner": "grok-gadgets-gateway",
+        "problem": "Contribution-ready local foundation",
+        "acceptance": [
+          "Locked dependencies install",
+          "initial checks pass"
+        ],
+        "dependencies": [],
+        "labels": [
+          "maintenance",
+          "gateway",
+          "P0"
+        ],
+        "milestone": "M0",
+        "stage": "done",
+        "commits": [
+          "9bab82b"
+        ],
+        "evidence": "uv sync --locked and initial pytest smoke check"
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-gateway/GW-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-gateway/GW-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-gateway/GW-001 -->\n\nLocal ID: `GW-001`\n\nStatus: **done**\n\nContribution-ready local foundation\n\n### Acceptance\n\n- Locked dependencies install\n- initial checks pass\n\n### Evidence\n\n- uv sync --locked and initial pytest smoke check\n\n### Commits\n\n- 9bab82b\n"
+    },
+    {
+      "repository": "grok-gadgets-gateway",
+      "local_id": "GW-002",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-gateway/planning/issues.json",
+      "record": {
+        "id": "GW-002",
+        "owner": "grok-gadgets-gateway",
+        "problem": "Canonical versioned device protocol and lifecycle",
+        "acceptance": [
+          "schemas and fixtures validate",
+          "bounded history and command semantics tested"
+        ],
+        "dependencies": [
+          "GW-001"
+        ],
+        "labels": [
+          "feature",
+          "protocol",
+          "P0"
+        ],
+        "milestone": "M1",
+        "stage": "done",
+        "commits": [
+          "17d3168"
+        ],
+        "evidence": "7 pytest tests pass: schemas/fixtures, RGB bounds, custom capability discovery, ACK isolation, offline/timeouts/reconnect, bounded cursor history and restart"
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-gateway/GW-002",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-gateway/GW-002 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-gateway/GW-002 -->\n\nLocal ID: `GW-002`\n\nStatus: **done**\n\nCanonical versioned device protocol and lifecycle\n\n### Acceptance\n\n- schemas and fixtures validate\n- bounded history and command semantics tested\n\n### Evidence\n\n- 7 pytest tests pass: schemas/fixtures, RGB bounds, custom capability discovery, ACK isolation, offline/timeouts/reconnect, bounded cursor history and restart\n\n### Commits\n\n- 17d3168\n\n### Dependencies\n\n- `grok-gadgets-gateway#GW-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets-gateway",
+      "local_id": "GW-003",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-gateway/planning/issues.json",
+      "record": {
+        "id": "GW-003",
+        "owner": "grok-gadgets-gateway",
+        "problem": "Usable simulator MCP and authenticated transports",
+        "acceptance": [
+          "real MCP stdio client tests",
+          "revocation and device isolation tests",
+          "USB bridge transcript acceptance"
+        ],
+        "dependencies": [
+          "GW-002"
+        ],
+        "labels": [
+          "feature",
+          "gateway",
+          "P0"
+        ],
+        "milestone": "M2",
+        "stage": "done",
+        "commits": [
+          "e9a887e",
+          "b2ad132"
+        ],
+        "evidence": "13 passing tests; real official MCP stdio client; TCP revocation/isolation/timeouts; USB PTY command/events/repeated hello/gateway restart; clean wheel install demo passes. Hardware and real Bot separate GW-004."
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-gateway/GW-003",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-gateway/GW-003 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-gateway/GW-003 -->\n\nLocal ID: `GW-003`\n\nStatus: **done**\n\nUsable simulator MCP and authenticated transports\n\n### Acceptance\n\n- real MCP stdio client tests\n- revocation and device isolation tests\n- USB bridge transcript acceptance\n\n### Evidence\n\n- 13 passing tests; real official MCP stdio client; TCP revocation/isolation/timeouts; USB PTY command/events/repeated hello/gateway restart; clean wheel install demo passes. Hardware and real Bot separate GW-004.\n\n### Commits\n\n- e9a887e\n- b2ad132\n\n### Dependencies\n\n- `grok-gadgets-gateway#GW-002` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets-gateway",
+      "local_id": "GW-004",
+      "github_number": null,
+      "stage": "blocked",
+      "source": "grok-gadgets-gateway/planning/issues.json",
+      "record": {
+        "id": "GW-004",
+        "owner": "grok-gadgets-gateway",
+        "problem": "Real Grok Bot and physical C124 acceptance",
+        "acceptance": [
+          "real Bot tool call",
+          "physical LED and button observations"
+        ],
+        "dependencies": [
+          "GW-003"
+        ],
+        "labels": [
+          "research",
+          "gateway",
+          "P1",
+          "needs hardware"
+        ],
+        "milestone": "M5",
+        "stage": "blocked",
+        "commits": [],
+        "blocker": "Inspectable native Grok invocation evidence and physical C124 observations remain unavailable for this component.",
+        "related_milestones": [
+          "M8"
+        ],
+        "evidence": "Primary M5: native Grok invocation evidence; physical C124 observations remain a separate linked M8 gate. Local simulator acceptance does not close either gate."
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-gateway/GW-004",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-gateway/GW-004 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-gateway/GW-004 -->\n\nLocal ID: `GW-004`\n\nStatus: **blocked**\n\nReal Grok Bot and physical C124 acceptance\n\n### Acceptance\n\n- real Bot tool call\n- physical LED and button observations\n\n### Evidence\n\n- Primary M5: native Grok invocation evidence; physical C124 observations remain a separate linked M8 gate. Local simulator acceptance does not close either gate.\n\n### Blocked by\n\nInspectable native Grok invocation evidence and physical C124 observations remain unavailable for this component.\n\n### Dependencies\n\n- `grok-gadgets-gateway#GW-003` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets-gateway",
+      "local_id": "HARD-GW-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-gateway/planning/issues.json",
+      "record": {
+        "id": "HARD-GW-001",
+        "repository": "grok-gadgets-gateway",
+        "owner": "grok-gadgets-gateway",
+        "problem": "Route simulator commands by command capability",
+        "intended_behaviour": "Route simulator commands by command capability",
+        "acceptance": [
+          "Invalid capability and RGB requests cannot mutate LED",
+          "Negative actual MCP coverage",
+          "Custom SDK capabilities remain valid"
+        ],
+        "dependencies": [
+          "HARD-001"
+        ],
+        "labels": [
+          "bug",
+          "gateway",
+          "P1",
+          "help wanted"
+        ],
+        "milestone": "MH",
+        "stage": "done",
+        "commits": [
+          "4bb6d87"
+        ],
+        "evidence": [
+          "Starting 4cf42ff: button and state both executed and replaced RGB with 1,2,3,true.",
+          "17 pytest tests pass, Ruff passes, hub scripts/check.py passes; official MCP ClientSession rejects button/state/unknown and four malformed RGB forms without state mutation. See docs/verification/hardening.md."
+        ],
+        "blocker": null
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-gateway/HARD-GW-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-gateway/HARD-GW-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-gateway/HARD-GW-001 -->\n\nLocal ID: `HARD-GW-001`\n\nStatus: **done**\n\nRoute simulator commands by command capability\n\n### Acceptance\n\n- Invalid capability and RGB requests cannot mutate LED\n- Negative actual MCP coverage\n- Custom SDK capabilities remain valid\n\n### Evidence\n\n- Starting 4cf42ff: button and state both executed and replaced RGB with 1,2,3,true.\n- 17 pytest tests pass, Ruff passes, hub scripts/check.py passes; official MCP ClientSession rejects button/state/unknown and four malformed RGB forms without state mutation. See docs/verification/hardening.md.\n\n### Commits\n\n- 4bb6d87\n\n### Dependencies\n\n- `grok-gadgets#HARD-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets-gateway",
+      "local_id": "HARD-GW-002",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-gateway/planning/issues.json",
+      "record": {
+        "id": "HARD-GW-002",
+        "repository": "grok-gadgets-gateway",
+        "owner": "grok-gadgets-gateway",
+        "problem": "Isolate bounded event duplicate windows per device and boot",
+        "intended_behaviour": "Isolate bounded event duplicate windows per device and boot",
+        "acceptance": [
+          "Busy device cannot evict another window",
+          "256-boundary,content conflicts,lifecycle and stale sessions covered",
+          "Device/boot/history bookkeeping bounded"
+        ],
+        "dependencies": [
+          "HARD-001"
+        ],
+        "labels": [
+          "bug",
+          "protocol",
+          "P2",
+          "help wanted"
+        ],
+        "milestone": "MH",
+        "stage": "done",
+        "commits": [
+          "85548ea"
+        ],
+        "evidence": [
+          "Starting 4cf42ff: A retry accepted as new after B256 (sequence258).",
+          "21 pytest tests, Ruff and hub check pass; current-boot windows bounded64x256; direct lifecycle and actual MCP plus two authenticated devices verify no sequence/history increment on A retry. See docs/verification/hardening.md."
+        ],
+        "blocker": null
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-gateway/HARD-GW-002",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-gateway/HARD-GW-002 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-gateway/HARD-GW-002 -->\n\nLocal ID: `HARD-GW-002`\n\nStatus: **done**\n\nIsolate bounded event duplicate windows per device and boot\n\n### Acceptance\n\n- Busy device cannot evict another window\n- 256-boundary,content conflicts,lifecycle and stale sessions covered\n- Device/boot/history bookkeeping bounded\n\n### Evidence\n\n- Starting 4cf42ff: A retry accepted as new after B256 (sequence258).\n- 21 pytest tests, Ruff and hub check pass; current-boot windows bounded64x256; direct lifecycle and actual MCP plus two authenticated devices verify no sequence/history increment on A retry. See docs/verification/hardening.md.\n\n### Commits\n\n- 85548ea\n\n### Dependencies\n\n- `grok-gadgets#HARD-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets-gateway",
+      "local_id": "LAUNCH-CI-GW-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-gateway/LAUNCH-CI-GW-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-gateway/LAUNCH-CI-GW-001 -->",
+      "github_number": null,
+      "github_url": null,
+      "record": {
+        "id": "LAUNCH-CI-GW-001",
+        "repository": "grok-gadgets-gateway",
+        "problem": "Pin and bound standalone read-only checks",
+        "acceptance": [
+          "Verified official action commit pins, read-only permissions, no persisted credentials and timeouts",
+          "Real hosted contexts remain unverified until approved activation"
+        ],
+        "dependencies": [],
+        "labels": [
+          "maintenance",
+          "gateway",
+          "P1"
+        ],
+        "milestone": "PUBLIC-ALPHA",
+        "stage": "done",
+        "commits": [],
+        "evidence": [
+          ".github/workflows/checks.yml",
+          "Local YAML/pin/permission validation; runtime unchanged from fresh standalone docs acceptance"
+        ],
+        "blocker": null
+      },
+      "stage": "done",
+      "source_present": true,
+      "source": "grok-gadgets-gateway/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-gateway/LAUNCH-CI-GW-001 -->\n\nLocal ID: `LAUNCH-CI-GW-001`\n\nStatus: **done**\n\nPin and bound standalone read-only checks\n\n### Acceptance\n\n- Verified official action commit pins, read-only permissions, no persisted credentials and timeouts\n- Real hosted contexts remain unverified until approved activation\n\n### Evidence\n\n- .github/workflows/checks.yml\n- Local YAML/pin/permission validation; runtime unchanged from fresh standalone docs acceptance\n"
+    },
+    {
+      "repository": "grok-gadgets-gateway",
+      "local_id": "LAUNCH-DOCS-GW-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-gateway/LAUNCH-DOCS-GW-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-gateway/LAUNCH-DOCS-GW-001 -->",
+      "github_number": null,
+      "github_url": null,
+      "record": {
+        "id": "LAUNCH-DOCS-GW-001",
+        "repository": "grok-gadgets-gateway",
+        "owner": "grok-gadgets-gateway",
+        "problem": "Prepare a newcomer gateway journey and public-alpha component policies",
+        "acceptance": [
+          "Standalone wheel demo from a fresh directory with no source imports",
+          "Accurate Mermaid architecture and runtime/evidence table",
+          "Canonical public hub policy links, actual owner/contact, research Max rule",
+          "LICENSE/NOTICE and runtime/protocol preserved; history/privacy disposition recorded"
+        ],
+        "dependencies": [],
+        "labels": [
+          "docs",
+          "gateway",
+          "P1"
+        ],
+        "milestone": "PUBLIC-ALPHA",
+        "stage": "done",
+        "commits": [
+          "dd4f50aa8abcee97b72596ae65c067231533772d"
+        ],
+        "evidence": [
+          "docs/verification/launch-docs.md: exact fresh installed README journey passed on macOS27 arm64 CPython3.11.15; canonical public-alpha policy/contact/CODEOWNERS and original Mermaid prepared.",
+          "Required source/lint/build checks and hub check passed; runtime/protocol/LICENSE/NOTICE unchanged. Bounded reachable-history identity/path findings remain an explicit publication-review gate; no external activation."
+        ],
+        "blocker": null
+      },
+      "stage": "done",
+      "source_present": true,
+      "source": "grok-gadgets-gateway/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-gateway/LAUNCH-DOCS-GW-001 -->\n\nLocal ID: `LAUNCH-DOCS-GW-001`\n\nStatus: **done**\n\nPrepare a newcomer gateway journey and public-alpha component policies\n\n### Acceptance\n\n- Standalone wheel demo from a fresh directory with no source imports\n- Accurate Mermaid architecture and runtime/evidence table\n- Canonical public hub policy links, actual owner/contact, research Max rule\n- LICENSE/NOTICE and runtime/protocol preserved; history/privacy disposition recorded\n\n### Evidence\n\n- docs/verification/launch-docs.md: exact fresh installed README journey passed on macOS27 arm64 CPython3.11.15; canonical public-alpha policy/contact/CODEOWNERS and original Mermaid prepared.\n- Required source/lint/build checks and hub check passed; runtime/protocol/LICENSE/NOTICE unchanged. Bounded reachable-history identity/path findings remain an explicit publication-review gate; no external activation.\n\n### Commits\n\n- dd4f50aa8abcee97b72596ae65c067231533772d\n"
+    },
+    {
+      "repository": "grok-gadgets-gateway",
+      "local_id": "SIM-GW-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-gateway/planning/issues.json",
+      "record": {
+        "id": "SIM-GW-001",
+        "repository": "grok-gadgets-gateway",
+        "owner": "grok-gadgets-gateway",
+        "problem": "Configurable installable Grok Gadgets software simulator",
+        "acceptance": [
+          "Strict packaged v1 config and schema; bounded settings with no executable/network/credential fields",
+          "Explicit simulator-config CLI flag, separate test controls",
+          "Actual official MCP client verifies identity, state, delay, offline startup and reconnect",
+          "Installed wheel loads configuration resources and passes simulator acceptance"
+        ],
+        "dependencies": [
+          "GW-003"
+        ],
+        "labels": [
+          "feature",
+          "simulator",
+          "gateway",
+          "P1"
+        ],
+        "milestone": "M2",
+        "stage": "done",
+        "commits": [
+          "d330131"
+        ],
+        "evidence": [
+          "73 gateway pytest tests and Ruff pass; hub scripts/check.py passes.",
+          "52 simulator config tests pass against a freshly installed wheel from /tmp, including real official MCP subprocess identity/name/state/150ms delay/offline/reconnect checks; packaged default/schema resources present; installed default MCP demo passes.",
+          "See docs/verification/simulator-config.md. Physical C124 and actual Grok Bot verification remain blocked under GW-004."
+        ],
+        "blocker": null
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-gateway/SIM-GW-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-gateway/SIM-GW-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-gateway/SIM-GW-001 -->\n\nLocal ID: `SIM-GW-001`\n\nStatus: **done**\n\nConfigurable installable Grok Gadgets software simulator\n\n### Acceptance\n\n- Strict packaged v1 config and schema; bounded settings with no executable/network/credential fields\n- Explicit simulator-config CLI flag, separate test controls\n- Actual official MCP client verifies identity, state, delay, offline startup and reconnect\n- Installed wheel loads configuration resources and passes simulator acceptance\n\n### Evidence\n\n- 73 gateway pytest tests and Ruff pass; hub scripts/check.py passes.\n- 52 simulator config tests pass against a freshly installed wheel from /tmp, including real official MCP subprocess identity/name/state/150ms delay/offline/reconnect checks; packaged default/schema resources present; installed default MCP demo passes.\n- See docs/verification/simulator-config.md. Physical C124 and actual Grok Bot verification remain blocked under GW-004.\n\n### Commits\n\n- d330131\n\n### Dependencies\n\n- `grok-gadgets-gateway#GW-003` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets-home-assistant",
+      "local_id": "HA-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-home-assistant/planning/issues.json",
+      "record": {
+        "id": "HA-001",
+        "owner": "grok-gadgets-home-assistant",
+        "problem": "Establish contribution foundation",
+        "acceptance": [
+          "Apache-2.0 and contribution/setup commands"
+        ],
+        "dependencies": [],
+        "labels": [
+          "maintenance",
+          "home-assistant",
+          "P1"
+        ],
+        "milestone": "M0",
+        "stage": "done",
+        "commits": [
+          "46b63cd"
+        ],
+        "evidence": "Foundation files reviewed; publication inactive"
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-home-assistant/HA-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-home-assistant/HA-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-home-assistant/HA-001 -->\n\nLocal ID: `HA-001`\n\nStatus: **done**\n\nEstablish contribution foundation\n\n### Acceptance\n\n- Apache-2.0 and contribution/setup commands\n\n### Evidence\n\n- Foundation files reviewed; publication inactive\n\n### Commits\n\n- 46b63cd\n"
+    },
+    {
+      "repository": "grok-gadgets-home-assistant",
+      "local_id": "HA-002",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-home-assistant/planning/issues.json",
+      "record": {
+        "id": "HA-002",
+        "owner": "grok-gadgets-home-assistant",
+        "problem": "Choose upstream reuse and investigate Grok route",
+        "acceptance": [
+          "Official source/date/route/auth/hosting/mobile/events recorded"
+        ],
+        "dependencies": [],
+        "labels": [
+          "research",
+          "home-assistant",
+          "P0"
+        ],
+        "milestone": "M1",
+        "stage": "done",
+        "commits": [
+          "7f175c0"
+        ],
+        "evidence": "Official sources/date reviewed; all account/runtime gates explicitly open"
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-home-assistant/HA-002",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-home-assistant/HA-002 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-home-assistant/HA-002 -->\n\nLocal ID: `HA-002`\n\nStatus: **done**\n\nChoose upstream reuse and investigate Grok route\n\n### Acceptance\n\n- Official source/date/route/auth/hosting/mobile/events recorded\n\n### Evidence\n\n- Official sources/date reviewed; all account/runtime gates explicitly open\n\n### Commits\n\n- 7f175c0\n"
+    },
+    {
+      "repository": "grok-gadgets-home-assistant",
+      "local_id": "HA-003",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-home-assistant/planning/issues.json",
+      "record": {
+        "id": "HA-003",
+        "owner": "grok-gadgets-home-assistant",
+        "problem": "Provide read-only compatibility diagnostics",
+        "acceptance": [
+          "Fixture and mock endpoint tests",
+          "No tool execution",
+          "Redacted output"
+        ],
+        "dependencies": [
+          "HA-002"
+        ],
         "labels": [
           "feature",
           "home-assistant",
@@ -171,391 +840,475 @@
         "milestone": "M6",
         "stage": "done",
         "commits": [
-          "a8b2370"
+          "d40882d"
         ],
-        "evidence": [
-          "13 tests and clean wheel; upstream reuse; actual HA/Grok pending"
-        ],
-        "blocker": null,
-        "component_repository": "grok-gadgets-home-assistant"
-      }
+        "evidence": "13 unittest checks, including official SDK against loopback HTTP fixture endpoint; lint/format/package and clean wheel installation passed 2026-10-04. No real HA/Grok."
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-home-assistant/HA-003",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-home-assistant/HA-003 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-home-assistant/HA-003 -->\n\nLocal ID: `HA-003`\n\nStatus: **done**\n\nProvide read-only compatibility diagnostics\n\n### Acceptance\n\n- Fixture and mock endpoint tests\n- No tool execution\n- Redacted output\n\n### Evidence\n\n- 13 unittest checks, including official SDK against loopback HTTP fixture endpoint; lint/format/package and clean wheel installation passed 2026-10-04. No real HA/Grok.\n\n### Commits\n\n- d40882d\n\n### Dependencies\n\n- `grok-gadgets-home-assistant#HA-002` (resolve after issue creation)\n"
     },
     {
-      "repository": "grok-gadgets",
-      "local_id": "HUB-WEB-001",
+      "repository": "grok-gadgets-home-assistant",
+      "local_id": "HA-004",
       "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets/planning/issues.json",
+      "stage": "blocked",
+      "source": "grok-gadgets-home-assistant/planning/issues.json",
       "record": {
-        "id": "HUB-WEB-001",
-        "repository": "grok-gadgets",
-        "problem": "Source-driven website and local visual verification",
-        "intended_behaviour": "Source-driven website and local visual verification",
+        "id": "HA-004",
+        "owner": "grok-gadgets-home-assistant",
+        "problem": "Verify actual Grok and selected home entities",
         "acceptance": [
-          "Documented commands reproduce observed behaviour",
-          "Evidence identifies actual verification level"
+          "Actual Bot discovery and safe light/state checks",
+          "Desktop/mobile versions and physical observations recorded"
         ],
         "dependencies": [
-          "HUB-001"
+          "HA-003",
+          "Grok account access",
+          "authorized reachable endpoint",
+          "real Home Assistant"
         ],
         "labels": [
-          "feature",
-          "website",
-          "P1"
+          "home-assistant",
+          "P1",
+          "help wanted",
+          "needs hardware"
         ],
-        "milestone": "M7",
-        "stage": "done",
-        "commits": [
-          "7c76969",
-          "48cadc5"
-        ],
-        "evidence": [
-          "27-page static build/link checks",
-          "3 activity tests, fixture escape check, desktop/mobile visual check, keyboard/reduced-motion browser checks"
-        ],
-        "blocker": null
-      }
+        "milestone": "M6",
+        "stage": "blocked",
+        "commits": [],
+        "evidence": "No account/home/hardware access"
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-home-assistant/HA-004",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-home-assistant/HA-004 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-home-assistant/HA-004 -->\n\nLocal ID: `HA-004`\n\nStatus: **blocked**\n\nVerify actual Grok and selected home entities\n\n### Acceptance\n\n- Actual Bot discovery and safe light/state checks\n- Desktop/mobile versions and physical observations recorded\n\n### Evidence\n\n- No account/home/hardware access\n\n### Dependencies\n\n- `grok-gadgets-home-assistant#HA-003` (resolve after issue creation)\n- Grok account access (external prerequisite)\n- authorized reachable endpoint (external prerequisite)\n- real Home Assistant (external prerequisite)\n"
     },
     {
-      "repository": "grok-gadgets",
-      "local_id": "HUB-COM-001",
+      "repository": "grok-gadgets-home-assistant",
+      "local_id": "LAUNCH-CI-HA-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-home-assistant/LAUNCH-CI-HA-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-home-assistant/LAUNCH-CI-HA-001 -->",
       "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets/planning/issues.json",
+      "github_url": null,
       "record": {
-        "id": "HUB-COM-001",
-        "repository": "grok-gadgets",
-        "problem": "Community package and tested dry-run recognition",
-        "intended_behaviour": "Community package and tested dry-run recognition",
+        "id": "LAUNCH-CI-HA-001",
+        "repository": "grok-gadgets-home-assistant",
+        "problem": "Pin and bound standalone read-only checks",
         "acceptance": [
-          "Documented commands reproduce observed behaviour",
-          "Evidence identifies actual verification level"
+          "Verified official action commit pins, read-only permissions, no persisted credentials and timeouts",
+          "Real hosted contexts remain unverified until approved activation"
         ],
         "dependencies": [],
         "labels": [
-          "feature",
-          "community",
+          "maintenance",
+          "home-assistant",
           "P1"
         ],
-        "milestone": "M7",
+        "milestone": "PUBLIC-ALPHA",
         "stage": "done",
-        "commits": [
-          "9d9b75c"
-        ],
+        "commits": [],
         "evidence": [
-          "6 offline recognition tests; source policies/drafts; no live API"
+          ".github/workflows/checks.yml",
+          "Local YAML/pin/permission validation; runtime unchanged from fresh standalone docs acceptance"
         ],
         "blocker": null
-      }
+      },
+      "stage": "done",
+      "source_present": true,
+      "source": "grok-gadgets-home-assistant/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-home-assistant/LAUNCH-CI-HA-001 -->\n\nLocal ID: `LAUNCH-CI-HA-001`\n\nStatus: **done**\n\nPin and bound standalone read-only checks\n\n### Acceptance\n\n- Verified official action commit pins, read-only permissions, no persisted credentials and timeouts\n- Real hosted contexts remain unverified until approved activation\n\n### Evidence\n\n- .github/workflows/checks.yml\n- Local YAML/pin/permission validation; runtime unchanged from fresh standalone docs acceptance\n"
     },
     {
-      "repository": "grok-gadgets",
-      "local_id": "HUB-GROK-001",
+      "repository": "grok-gadgets-home-assistant",
+      "local_id": "LAUNCH-DOCS-HA-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-home-assistant/LAUNCH-DOCS-HA-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-home-assistant/LAUNCH-DOCS-HA-001 -->",
       "github_number": null,
-      "stage": "blocked",
-      "source": "grok-gadgets/planning/issues.json",
+      "github_url": null,
       "record": {
-        "id": "HUB-GROK-001",
-        "repository": "grok-gadgets",
-        "problem": "Actual existing Grok Bot tool execution",
-        "intended_behaviour": "Actual existing Grok Bot tool execution",
+        "id": "LAUNCH-DOCS-HA-001",
+        "repository": "grok-gadgets-home-assistant",
+        "owner": "grok-gadgets-home-assistant",
+        "problem": "Prepare an independently reproducible Home Assistant fixture journey and public contribution/support policies",
+        "intended_behaviour": "A newcomer runs the account-free fixture probe, understands discovery-only limits, finds requirements/checks/support, and can follow canonical adidshaft policy links.",
         "acceptance": [
-          "Existing signed-in Grok Bot invokes gateway MCP simulator tools",
-          "Discovery, green/off state, invalid commands, button events and offline/reconnect acceptance",
-          "Record actual client/host/package/tool evidence; no physical verification claim"
+          "README includes exact standalone Python3.11/frozen setup and expected counts with no home-control claim",
+          "Fresh temporary source and separately installed wheel fixture probe pass",
+          "13tests, Ruff and wheel/sdist build pass with no runtime or lock changes",
+          "Contribution/security/support/CODEOWNERS identify actual maintainer and planned reporting channels"
         ],
         "dependencies": [
-          "HUB-GW-001"
+          "LAUNCH-DOCS-001"
         ],
         "labels": [
-          "feature",
-          "gateway",
+          "docs",
+          "home-assistant",
           "P1"
         ],
-        "milestone": "M5",
-        "stage": "blocked",
+        "milestone": "PUBLIC-ALPHA",
+        "stage": "done",
         "commits": [
-          "ff88a67"
+          "fe2b93f52124ac199706f62708bb162751f087e2"
         ],
         "evidence": [
-          "docs/verification/real-grok-experiment.md"
+          "docs/verification/launch.md: fresh standalone frozen install,13tests,Ruff,build and installedwheel fixtureprobe pass; LICENSE/NOTICE inside wheel, Apache metadata. No real HA/Grok/device calls.",
+          "Clean documentation commit fe2b93f built with uv build --offline; actual wheel/sdist sizes, hashes, source and package license metadata recorded in planning/artifacts.json."
         ],
-        "blocker": "Dedicated Grok Bot reports A/B/C and cleanup success, but client exposes message JSON only and no native connector receipts/export; inspectable invocation evidence required."
-      }
+        "blocker": null
+      },
+      "stage": "done",
+      "source_present": true,
+      "source": "grok-gadgets-home-assistant/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-home-assistant/LAUNCH-DOCS-HA-001 -->\n\nLocal ID: `LAUNCH-DOCS-HA-001`\n\nStatus: **done**\n\nA newcomer runs the account-free fixture probe, understands discovery-only limits, finds requirements/checks/support, and can follow canonical adidshaft policy links.\n\n### Acceptance\n\n- README includes exact standalone Python3.11/frozen setup and expected counts with no home-control claim\n- Fresh temporary source and separately installed wheel fixture probe pass\n- 13tests, Ruff and wheel/sdist build pass with no runtime or lock changes\n- Contribution/security/support/CODEOWNERS identify actual maintainer and planned reporting channels\n\n### Evidence\n\n- docs/verification/launch.md: fresh standalone frozen install,13tests,Ruff,build and installedwheel fixtureprobe pass; LICENSE/NOTICE inside wheel, Apache metadata. No real HA/Grok/device calls.\n- Clean documentation commit fe2b93f built with uv build --offline; actual wheel/sdist sizes, hashes, source and package license metadata recorded in planning/artifacts.json.\n\n### Commits\n\n- fe2b93f52124ac199706f62708bb162751f087e2\n\n### Dependencies\n\n- `grok-gadgets#LAUNCH-DOCS-001` (resolve after issue creation)\n"
     },
     {
-      "repository": "grok-gadgets",
-      "local_id": "HUB-HW-001",
+      "repository": "grok-gadgets-linux-sdk",
+      "local_id": "HARD-LIN-001",
       "github_number": null,
-      "stage": "blocked",
-      "source": "grok-gadgets/planning/issues.json",
+      "stage": "done",
+      "source": "grok-gadgets-linux-sdk/planning/issues.json",
       "record": {
-        "id": "HUB-HW-001",
-        "repository": "grok-gadgets",
-        "problem": "Physical LED/button/recovery verification",
-        "intended_behaviour": "Physical LED/button/recovery verification",
+        "id": "HARD-LIN-001",
+        "repository": "grok-gadgets-linux-sdk",
+        "owner": "grok-gadgets-linux-sdk",
+        "problem": "Make documented custom gadget installation work",
+        "intended_behaviour": "Make documented custom gadget installation work",
         "acceptance": [
-          "Documented commands reproduce observed behaviour",
-          "Evidence identifies actual verification level"
+          "Clean installed wheel custom factory registers,executes,reports state",
+          "No implicit PYTHONPATH or editable import",
+          "macOS and actual Linux acceptance and safe errors"
         ],
         "dependencies": [
-          "HUB-ESP-001"
+          "HARD-001"
         ],
         "labels": [
-          "feature",
-          "esp32",
+          "bug",
+          "linux",
           "P1",
-          "needs hardware"
-        ],
-        "milestone": "M8",
-        "stage": "blocked",
-        "commits": [],
-        "evidence": [],
-        "blocker": "C124 hardware unavailable",
-        "component_repository": "grok-gadgets-esp32-sdk"
-      }
-    },
-    {
-      "repository": "grok-gadgets",
-      "local_id": "HUB-LIN-002",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets/planning/issues.json",
-      "record": {
-        "id": "HUB-LIN-002",
-        "repository": "grok-gadgets",
-        "problem": "Real Linux execution",
-        "intended_behaviour": "Real Linux execution",
-        "acceptance": [
-          "Documented commands reproduce observed behaviour",
-          "Evidence identifies actual verification level"
-        ],
-        "dependencies": [
-          "HUB-LIN-001"
-        ],
-        "labels": [
-          "feature",
-          "linux",
-          "P1"
-        ],
-        "milestone": "M3",
-        "stage": "done",
-        "commits": [
-          "256a07e",
-          "89478e5",
-          "ce897ee"
-        ],
-        "evidence": [
-          "ActualofflineLinux kernel6.10.14 CPython3.11.17 installedordinary/dataclass factories;15installed tests+5optional source skips;systemdphysicalpending"
-        ],
-        "blocker": null,
-        "component_repository": "grok-gadgets-linux-sdk"
-      }
-    },
-    {
-      "repository": "grok-gadgets",
-      "local_id": "HUB-PUB-001",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets/planning/issues.json",
-      "record": {
-        "id": "HUB-PUB-001",
-        "repository": "grok-gadgets",
-        "problem": "Publication package and external activation",
-        "intended_behaviour": "Publication package and external activation",
-        "acceptance": [
-          "Documented commands reproduce observed behaviour",
-          "Evidence identifies actual verification level"
-        ],
-        "dependencies": [
-          "HUB-WEB-001",
-          "HUB-COM-001"
-        ],
-        "labels": [
-          "feature",
-          "docs",
-          "P1"
-        ],
-        "milestone": "M9",
-        "stage": "done",
-        "commits": [
-          "47c9be3",
-          "9daf82d"
-        ],
-        "evidence": [
-          "25artifacts independentlycertified;5exactarchives+5completeGitbundles;originalApache/notices; zero redactedheuristicfindings; externalactivationblocked"
-        ],
-        "blocker": null
-      }
-    },
-    {
-      "repository": "grok-gadgets",
-      "local_id": "HUB-REP-001",
-      "github_number": null,
-      "stage": "blocked",
-      "source": "grok-gadgets/planning/issues.json",
-      "record": {
-        "id": "HUB-REP-001",
-        "repository": "grok-gadgets",
-        "problem": "Independent installation by second tester",
-        "intended_behaviour": "Independent installation by second tester",
-        "acceptance": [
-          "Documented commands reproduce observed behaviour",
-          "Evidence identifies actual verification level"
-        ],
-        "dependencies": [
-          "HUB-GW-001",
-          "HUB-LIN-001",
-          "HUB-ESP-001"
-        ],
-        "labels": [
-          "feature",
-          "docs",
-          "P1"
-        ],
-        "milestone": "M8",
-        "stage": "blocked",
-        "commits": [],
-        "evidence": [],
-        "blocker": "Second tester unavailable"
-      }
-    },
-    {
-      "repository": "grok-gadgets",
-      "local_id": "HUB-SERVICE-001",
-      "github_number": null,
-      "stage": "blocked",
-      "source": "grok-gadgets/planning/issues.json",
-      "record": {
-        "id": "HUB-SERVICE-001",
-        "repository": "grok-gadgets",
-        "problem": "Verify systemd service lifecycle on real Linux host",
-        "intended_behaviour": "Start/stop/restart service reliably",
-        "acceptance": [
-          "Real systemd host installation/lifecycle observed"
-        ],
-        "dependencies": [
-          "HUB-LIN-001"
-        ],
-        "labels": [
-          "linux",
-          "P2",
           "help wanted"
         ],
-        "milestone": "M3",
-        "stage": "blocked",
-        "commits": [],
-        "evidence": [],
-        "blocker": "Container is not a systemd target host",
-        "component_repository": "grok-gadgets-linux-sdk"
-      }
+        "milestone": "MH",
+        "stage": "done",
+        "commits": [
+          "beb69c1ff38236adeb570c213d036fd225f8d41e",
+          "89478e51488764dd1d28618d7028973e5546e4a6"
+        ],
+        "evidence": [
+          "docs/verification/hardening.md",
+          "18 full macOS tests passed; clean implementation wheel custom display.set onboarding passed macOS and actual pinned Linux; installed safe factory tests passed both platforms (13 passed, 5 optional source-gateway cases skipped)",
+          "Historical source review reopened before the correction below: annotated stdlib dataclass factory failed because its defining module was absent from sys.modules.",
+          "Review correction89478e5:20 full macOS tests; fresh installed docs+annotated dataclass factories register/execute/report on macOS and actual pinned Linux;15 installed tests pass+5 optional source-gateway skips on both; module rollback/unique repeated loads covered"
+        ],
+        "blocker": null
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-linux-sdk/HARD-LIN-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-linux-sdk/HARD-LIN-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-linux-sdk/HARD-LIN-001 -->\n\nLocal ID: `HARD-LIN-001`\n\nStatus: **done**\n\nMake documented custom gadget installation work\n\n### Acceptance\n\n- Clean installed wheel custom factory registers,executes,reports state\n- No implicit PYTHONPATH or editable import\n- macOS and actual Linux acceptance and safe errors\n\n### Evidence\n\n- docs/verification/hardening.md\n- 18 full macOS tests passed; clean implementation wheel custom display.set onboarding passed macOS and actual pinned Linux; installed safe factory tests passed both platforms (13 passed, 5 optional source-gateway cases skipped)\n- Historical source review reopened before the correction below: annotated stdlib dataclass factory failed because its defining module was absent from sys.modules.\n- Review correction89478e5:20 full macOS tests; fresh installed docs+annotated dataclass factories register/execute/report on macOS and actual pinned Linux;15 installed tests pass+5 optional source-gateway skips on both; module rollback/unique repeated loads covered\n\n### Commits\n\n- beb69c1ff38236adeb570c213d036fd225f8d41e\n- 89478e51488764dd1d28618d7028973e5546e4a6\n\n### Dependencies\n\n- `grok-gadgets#HARD-001` (resolve after issue creation)\n"
     },
     {
-      "repository": "grok-gadgets",
-      "local_id": "HUB-PUBLISH-001",
+      "repository": "grok-gadgets-linux-sdk",
+      "local_id": "LAUNCH-CI-LIN-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-linux-sdk/LAUNCH-CI-LIN-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-linux-sdk/LAUNCH-CI-LIN-001 -->",
       "github_number": null,
-      "stage": "blocked",
-      "source": "grok-gadgets/planning/issues.json",
+      "github_url": null,
       "record": {
-        "id": "HUB-PUBLISH-001",
-        "repository": "grok-gadgets",
-        "problem": "Activate approved public repositories/releases/site",
-        "intended_behaviour": "Publish exact reviewed snapshots after authorization",
+        "id": "LAUNCH-CI-LIN-001",
+        "repository": "grok-gadgets-linux-sdk",
+        "problem": "Pin and bound standalone read-only checks",
         "acceptance": [
-          "Explicit approval and owner",
-          "Post-publication remotes/checks/links verified"
+          "Verified official action commit pins, read-only permissions, no persisted credentials and timeouts",
+          "Real hosted contexts remain unverified until approved activation"
         ],
-        "dependencies": [
-          "HUB-PUB-001"
-        ],
+        "dependencies": [],
         "labels": [
           "maintenance",
-          "website",
+          "linux",
           "P1"
         ],
-        "milestone": "M9",
+        "milestone": "PUBLIC-ALPHA",
+        "stage": "done",
+        "commits": [],
+        "evidence": [
+          ".github/workflows/checks.yml",
+          "Local YAML/pin/permission validation; runtime unchanged from fresh standalone docs acceptance"
+        ],
+        "blocker": null
+      },
+      "stage": "done",
+      "source_present": true,
+      "source": "grok-gadgets-linux-sdk/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-linux-sdk/LAUNCH-CI-LIN-001 -->\n\nLocal ID: `LAUNCH-CI-LIN-001`\n\nStatus: **done**\n\nPin and bound standalone read-only checks\n\n### Acceptance\n\n- Verified official action commit pins, read-only permissions, no persisted credentials and timeouts\n- Real hosted contexts remain unverified until approved activation\n\n### Evidence\n\n- .github/workflows/checks.yml\n- Local YAML/pin/permission validation; runtime unchanged from fresh standalone docs acceptance\n"
+    },
+    {
+      "repository": "grok-gadgets-linux-sdk",
+      "local_id": "LAUNCH-DOCS-LIN-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-linux-sdk/LAUNCH-DOCS-LIN-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-linux-sdk/LAUNCH-DOCS-LIN-001 -->",
+      "github_number": null,
+      "github_url": null,
+      "record": {
+        "id": "LAUNCH-DOCS-LIN-001",
+        "repository": "grok-gadgets-linux-sdk",
+        "owner": "grok-gadgets-linux-sdk",
+        "problem": "Prepare a standalone custom-device newcomer journey and public-alpha policies",
+        "acceptance": [
+          "Fresh installed README example acknowledges custom state through separately installed gateway",
+          "Accurate Mermaid and support/runtime/evidence table",
+          "Canonical public policy links, actual owner/contact, research Max rule",
+          "Runtime/protocol/LICENSE/NOTICE unchanged; historical privacy disposition recorded"
+        ],
+        "dependencies": [],
+        "labels": [
+          "docs",
+          "linux",
+          "P1"
+        ],
+        "milestone": "PUBLIC-ALPHA",
+        "stage": "done",
+        "commits": [
+          "94b9fb910c8cf58c6864146f1c1db18472315847"
+        ],
+        "evidence": [
+          "docs/verification/launch-docs.md: exact fresh installed README journey passed on macOS27 arm64 CPython3.11.15; canonical public-alpha policy/contact/CODEOWNERS and original Mermaid prepared.",
+          "Required source/lint/build checks and hub check passed; runtime/protocol/LICENSE/NOTICE unchanged. Bounded reachable-history identity/path findings remain an explicit publication-review gate; no external activation."
+        ],
+        "blocker": null
+      },
+      "stage": "done",
+      "source_present": true,
+      "source": "grok-gadgets-linux-sdk/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-linux-sdk/LAUNCH-DOCS-LIN-001 -->\n\nLocal ID: `LAUNCH-DOCS-LIN-001`\n\nStatus: **done**\n\nPrepare a standalone custom-device newcomer journey and public-alpha policies\n\n### Acceptance\n\n- Fresh installed README example acknowledges custom state through separately installed gateway\n- Accurate Mermaid and support/runtime/evidence table\n- Canonical public policy links, actual owner/contact, research Max rule\n- Runtime/protocol/LICENSE/NOTICE unchanged; historical privacy disposition recorded\n\n### Evidence\n\n- docs/verification/launch-docs.md: exact fresh installed README journey passed on macOS27 arm64 CPython3.11.15; canonical public-alpha policy/contact/CODEOWNERS and original Mermaid prepared.\n- Required source/lint/build checks and hub check passed; runtime/protocol/LICENSE/NOTICE unchanged. Bounded reachable-history identity/path findings remain an explicit publication-review gate; no external activation.\n\n### Commits\n\n- 94b9fb910c8cf58c6864146f1c1db18472315847\n"
+    },
+    {
+      "repository": "grok-gadgets-linux-sdk",
+      "local_id": "LIN-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-linux-sdk/planning/issues.json",
+      "record": {
+        "id": "LIN-001",
+        "owner": "grok-gadgets-linux-sdk",
+        "problem": "Independent contribution foundation",
+        "acceptance": [
+          "License and developer instructions"
+        ],
+        "dependencies": [],
+        "labels": [
+          "maintenance",
+          "linux",
+          "P1"
+        ],
+        "milestone": "M0",
+        "stage": "done",
+        "commits": [
+          "ec228ec"
+        ],
+        "evidence": "Foundation review"
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-linux-sdk/LIN-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-linux-sdk/LIN-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-linux-sdk/LIN-001 -->\n\nLocal ID: `LIN-001`\n\nStatus: **done**\n\nIndependent contribution foundation\n\n### Acceptance\n\n- License and developer instructions\n\n### Evidence\n\n- Foundation review\n\n### Commits\n\n- ec228ec\n"
+    },
+    {
+      "repository": "grok-gadgets-linux-sdk",
+      "local_id": "LIN-002",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-linux-sdk/planning/issues.json",
+      "record": {
+        "id": "LIN-002",
+        "owner": "grok-gadgets-linux-sdk",
+        "problem": "Reusable capability registry and pinned contracts",
+        "acceptance": [
+          "Custom handlers/state/events without gateway edits",
+          "Strict validation and boot-local dedup"
+        ],
+        "dependencies": [
+          "gateway protocol 0.1.0"
+        ],
+        "labels": [
+          "feature",
+          "linux",
+          "protocol",
+          "P1"
+        ],
+        "milestone": "M3",
+        "stage": "done",
+        "commits": [
+          "937e1c3"
+        ],
+        "evidence": "Historical LIN-002 checkpoint: 8 macOS unit tests plus pinned SHA256 contract loading; Linux was pending then and was subsequently recorded under LIN-003."
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-linux-sdk/LIN-002",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-linux-sdk/LIN-002 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-linux-sdk/LIN-002 -->\n\nLocal ID: `LIN-002`\n\nStatus: **done**\n\nReusable capability registry and pinned contracts\n\n### Acceptance\n\n- Custom handlers/state/events without gateway edits\n- Strict validation and boot-local dedup\n\n### Evidence\n\n- Historical LIN-002 checkpoint: 8 macOS unit tests plus pinned SHA256 contract loading; Linux was pending then and was subsequently recorded under LIN-003.\n\n### Commits\n\n- 937e1c3\n\n### Dependencies\n\n- gateway protocol 0.1.0 (external prerequisite)\n"
+    },
+    {
+      "repository": "grok-gadgets-linux-sdk",
+      "local_id": "LIN-003",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets-linux-sdk/planning/issues.json",
+      "record": {
+        "id": "LIN-003",
+        "owner": "grok-gadgets-linux-sdk",
+        "problem": "Agent and real gateway transport integration",
+        "acceptance": [
+          "Authenticated loopback registration/poll/ack/events",
+          "Capped reconnect and safe retry"
+        ],
+        "dependencies": [
+          "LIN-002",
+          "gateway TCP service"
+        ],
+        "labels": [
+          "feature",
+          "linux",
+          "P1"
+        ],
+        "milestone": "M3",
+        "stage": "done",
+        "commits": [
+          "4df75b2"
+        ],
+        "evidence": "15 tests on macOS and Linux-aarch64 Docker incl installed CLI + real gateway4cf42ff TCP; pinned Python digest and exact runtime in docs/verification.md"
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-linux-sdk/LIN-003",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-linux-sdk/LIN-003 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-linux-sdk/LIN-003 -->\n\nLocal ID: `LIN-003`\n\nStatus: **done**\n\nAgent and real gateway transport integration\n\n### Acceptance\n\n- Authenticated loopback registration/poll/ack/events\n- Capped reconnect and safe retry\n\n### Evidence\n\n- 15 tests on macOS and Linux-aarch64 Docker incl installed CLI + real gateway4cf42ff TCP; pinned Python digest and exact runtime in docs/verification.md\n\n### Commits\n\n- 4df75b2\n\n### Dependencies\n\n- `grok-gadgets-linux-sdk#LIN-002` (resolve after issue creation)\n- gateway TCP service (external prerequisite)\n"
+    },
+    {
+      "repository": "grok-gadgets-linux-sdk",
+      "local_id": "LIN-004",
+      "github_number": null,
+      "stage": "blocked",
+      "source": "grok-gadgets-linux-sdk/planning/issues.json",
+      "record": {
+        "id": "LIN-004",
+        "owner": "grok-gadgets-linux-sdk",
+        "problem": "Linux runtime and physical peripheral evidence",
+        "acceptance": [
+          "Example run on real Linux",
+          "Observed peripheral behavior"
+        ],
+        "dependencies": [
+          "selected authorized peripheral",
+          "Linux service lifecycle",
+          "independent tester"
+        ],
+        "labels": [
+          "linux",
+          "help wanted",
+          "needs hardware",
+          "P1"
+        ],
+        "milestone": "M8",
         "stage": "blocked",
         "commits": [],
-        "evidence": [],
-        "blocker": "Separate public creation/push/deployment/release approval required"
-      }
+        "evidence": "Linux aarch64 Docker kernel6.10.14-linuxkit CPython3.11.17 wheel acceptance passed; physical peripherals and systemd remain pending"
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets-linux-sdk/LIN-004",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-linux-sdk/LIN-004 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets-linux-sdk/LIN-004 -->\n\nLocal ID: `LIN-004`\n\nStatus: **blocked**\n\nLinux runtime and physical peripheral evidence\n\n### Acceptance\n\n- Example run on real Linux\n- Observed peripheral behavior\n\n### Evidence\n\n- Linux aarch64 Docker kernel6.10.14-linuxkit CPython3.11.17 wheel acceptance passed; physical peripherals and systemd remain pending\n\n### Dependencies\n\n- selected authorized peripheral (external prerequisite)\n- Linux service lifecycle (external prerequisite)\n- independent tester (external prerequisite)\n"
     },
     {
       "repository": "grok-gadgets",
-      "local_id": "HUB-WEB-002",
+      "local_id": "DOC-GLOSSARY-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/DOC-GLOSSARY-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/DOC-GLOSSARY-001 -->",
       "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets/planning/issues.json",
+      "github_url": null,
       "record": {
-        "id": "HUB-WEB-002",
+        "id": "DOC-GLOSSARY-001",
         "repository": "grok-gadgets",
-        "problem": "Use approved identity and create selective interactive homepage",
-        "intended_behaviour": "Full-screen architecture motion, touch interactions and minimal copy; docs behind menu",
+        "problem": "Add a newcomer terminology glossary",
+        "intended_behaviour": "Add a newcomer terminology glossary",
         "acceptance": [
-          "User-supplied brand icon rendered and official reference marks retain provenance",
-          "Large-region continuous motion visibly changes, with keyboard/touch selection",
-          "LED/button/offline illustration honest about simulation",
-          "Navigation,desktop/mobile layout,reduced-motion and link/build checks pass"
+          "Exact starting behavior, bounded criteria and focused commands in docs/contributing/ready-issues.md",
+          "Document observed results without hardware or Grok claims"
         ],
-        "dependencies": [
-          "HUB-WEB-001"
-        ],
+        "dependencies": [],
         "labels": [
-          "feature",
-          "website",
-          "P1"
+          "docs",
+          "good first issue",
+          "P2"
         ],
-        "milestone": "M7",
-        "stage": "done",
-        "commits": [
-          "0266f55",
-          "d212592",
-          "2f9c30b"
-        ],
+        "milestone": "INDEPENDENT-SOFTWARE",
+        "stage": "ready",
+        "commits": [],
         "evidence": [
-          "docs/verification/website-redesign.md",
-          "docs/decisions/002-website-direction.md",
-          "website/media/provenance.json"
+          "docs/contributing/ready-issues.md"
         ],
         "blocker": null
-      }
+      },
+      "stage": "ready",
+      "source_present": true,
+      "source": "grok-gadgets/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/DOC-GLOSSARY-001 -->\n\nLocal ID: `DOC-GLOSSARY-001`\n\nStatus: **ready**\n\nAdd a newcomer terminology glossary\n\n### Acceptance\n\n- Exact starting behavior, bounded criteria and focused commands in docs/contributing/ready-issues.md\n- Document observed results without hardware or Grok claims\n\n### Evidence\n\n- docs/contributing/ready-issues.md\n"
     },
     {
       "repository": "grok-gadgets",
-      "local_id": "HUB-WEB-003",
+      "local_id": "DOC-TROUBLE-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/DOC-TROUBLE-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/DOC-TROUBLE-001 -->",
       "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets/planning/issues.json",
+      "github_url": null,
       "record": {
-        "id": "HUB-WEB-003",
+        "id": "DOC-TROUBLE-001",
         "repository": "grok-gadgets",
-        "problem": "Homepage must list the full SDK and tool collection",
-        "intended_behaviour": "Interactive component directory with concise descriptions, evidence states and documentation links",
+        "problem": "Add a verified simulator troubleshooting lookup",
+        "intended_behaviour": "Add a verified simulator troubleshooting lookup",
         "acceptance": [
-          "All five repositories and local tools represented",
-          "Mouse, touch and keyboard disclosure works without JavaScript",
-          "Responsive directory preserves scene motion and honest verification states",
-          "Build/link checks and browser desktop/mobile checks pass"
+          "Exact starting behavior, bounded criteria and focused commands in docs/contributing/ready-issues.md",
+          "Document observed results without hardware or Grok claims"
         ],
-        "dependencies": [
-          "HUB-WEB-002"
-        ],
+        "dependencies": [],
         "labels": [
-          "feature",
-          "website",
-          "P1"
+          "docs",
+          "simulator",
+          "good first issue",
+          "P2"
         ],
-        "milestone": "M7",
-        "stage": "done",
-        "commits": [
-          "c7d9707",
-          "f44c2a3"
-        ],
+        "milestone": "INDEPENDENT-SOFTWARE",
+        "stage": "ready",
+        "commits": [],
         "evidence": [
-          "docs/verification/home-components.md"
+          "docs/contributing/ready-issues.md"
         ],
         "blocker": null
-      }
+      },
+      "stage": "ready",
+      "source_present": true,
+      "source": "grok-gadgets/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/DOC-TROUBLE-001 -->\n\nLocal ID: `DOC-TROUBLE-001`\n\nStatus: **ready**\n\nAdd a verified simulator troubleshooting lookup\n\n### Acceptance\n\n- Exact starting behavior, bounded criteria and focused commands in docs/contributing/ready-issues.md\n- Document observed results without hardware or Grok claims\n\n### Evidence\n\n- docs/contributing/ready-issues.md\n"
     },
     {
       "repository": "grok-gadgets",
@@ -600,87 +1353,13 @@
           "artifacts/publication/latest.json"
         ],
         "blocker": null
-      }
-    },
-    {
-      "repository": "grok-gadgets",
-      "local_id": "HARD-WEB-001",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets/planning/issues.json",
-      "record": {
-        "id": "HARD-WEB-001",
-        "repository": "grok-gadgets",
-        "owner": "grok-gadgets",
-        "problem": "Persist honest activity failure states",
-        "intended_behaviour": "Persist honest activity failure states",
-        "acceptance": [
-          "Atomic validated refresh result persisted",
-          "File-to-build cached timestamp and owner isolation regression",
-          "Corrupt/missing cache fallback safe"
-        ],
-        "dependencies": [
-          "HARD-001"
-        ],
-        "labels": [
-          "bug",
-          "website",
-          "P2",
-          "help wanted"
-        ],
-        "milestone": "MH",
-        "stage": "done",
-        "commits": [
-          "0078a5a",
-          "bddd5b9"
-        ],
-        "evidence": [
-          "website/test_activity.py",
-          "docs/verification/hardening-journal.md",
-          "docs/verification/hardening-review.md"
-        ],
-        "blocker": null
-      }
-    },
-    {
-      "repository": "grok-gadgets",
-      "local_id": "HARD-WEB-002",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets/planning/issues.json",
-      "record": {
-        "id": "HARD-WEB-002",
-        "repository": "grok-gadgets",
-        "owner": "grok-gadgets",
-        "problem": "Render safe usable source-relative documentation",
-        "intended_behaviour": "Render safe usable source-relative documentation",
-        "acceptance": [
-          "Headings,tables,links,anchors,code and diagrams usable",
-          "Safe URLs/HTML/diagram regression",
-          "Source-relative links and fragments checked;stale outputs cleaned",
-          "Explicit sanitized public document policy;desktop/mobile review"
-        ],
-        "dependencies": [
-          "HARD-001"
-        ],
-        "labels": [
-          "bug",
-          "website",
-          "P2",
-          "help wanted"
-        ],
-        "milestone": "MH",
-        "stage": "done",
-        "commits": [
-          "a9550ab"
-        ],
-        "evidence": [
-          "website/test_documents.py",
-          "docs/verification/hardening-journal.md",
-          "docs/verification/hardening-review.md"
-        ],
-        "blocker": null
-      }
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HARD-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HARD-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HARD-001 -->\n\nLocal ID: `HARD-001`\n\nStatus: **done**\n\nComplete six audit corrections and release acceptance\n\n### Acceptance\n\n- H0\u2013H7 evidence\n- Six regressions and independent review\n- Fresh artifacts and real-Grok test plan\n\n### Evidence\n\n- docs/verification/hardening-review.md\n- docs/verification/hardening-handoff.md\n- docs/verification/hardening-completion-audit.md\n- artifacts/publication/latest.json\n\n### Commits\n\n- c91a06b\n- 0078a5a\n- a9550ab\n- affb69b\n- bddd5b9\n- 5f3dedc\n- 47c9be3\n- 9daf82d\n"
     },
     {
       "repository": "grok-gadgets",
@@ -716,79 +1395,13 @@
           "docs/verification/real-grok-test-plan.md"
         ],
         "blocker": "Remote HTTPS/OAuth transport is unimplemented; separate design and service activation approval required"
-      }
-    },
-    {
-      "repository": "grok-gadgets",
-      "local_id": "HUB-DEMO-001",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets/planning/issues.json",
-      "record": {
-        "id": "HUB-DEMO-001",
-        "repository": "grok-gadgets",
-        "problem": "Customize and export the browser simulator",
-        "intended_behaviour": "Customize and export the browser simulator",
-        "acceptance": [
-          "Reuse existing motion graphic with browser-only command/state/event behavior",
-          "Names, initial RGB/brightness, delay and offline startup export the gateway config contract",
-          "Keyboard, touch, reduced motion and invalid input verified; no Grok or physical claim"
-        ],
-        "dependencies": [
-          "HUB-GW-001"
-        ],
-        "labels": [
-          "feature",
-          "website",
-          "P1"
-        ],
-        "milestone": "M7",
-        "stage": "done",
-        "commits": [
-          "2602e48"
-        ],
-        "evidence": [
-          "docs/verification/simulator-playground.md"
-        ],
-        "blocker": null
-      }
-    },
-    {
-      "repository": "grok-gadgets",
-      "local_id": "HUB-KIT-001",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets/planning/issues.json",
-      "record": {
-        "id": "HUB-KIT-001",
-        "repository": "grok-gadgets",
-        "problem": "Provide an inspectable configurable Grok simulator kit",
-        "intended_behaviour": "Provide an inspectable configurable Grok simulator kit",
-        "acceptance": [
-          "Download kit contains exact source, wheel, locked hashed dependencies, license and provenance",
-          "Extracted kit installs and configured MCP runs without hardware",
-          "Website export loads in gateway; cloud setup instructions distinguish Bot-reported route and native receipt gate",
-          "Build automatically refreshes changed committed gateway or kit inputs, runs acceptance before publishing, and fails on stale/corrupt/uncommitted source"
-        ],
-        "dependencies": [
-          "HUB-GW-001"
-        ],
-        "labels": [
-          "feature",
-          "gateway",
-          "P1"
-        ],
-        "milestone": "M9",
-        "stage": "done",
-        "commits": [
-          "d2bda94",
-          "fa062a1"
-        ],
-        "evidence": [
-          "docs/verification/simulator-playground.md"
-        ],
-        "blocker": null
-      }
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HARD-GROK-REMOTE-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HARD-GROK-REMOTE-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HARD-GROK-REMOTE-001 -->\n\nLocal ID: `HARD-GROK-REMOTE-001`\n\nStatus: **blocked**\n\nExisting Grok Bot reaches explicitly authorized local devices through a reviewed HTTPS MCP service\n\n### Acceptance\n\n- Approved route and access design; no raw device protocol exposure\n- TLS, scoped authorization or OAuth, device/tenant isolation and credential revocation\n- Missing/invalid/expired/revoked credential and cross-device access rejection regressions\n- Bounded commands/connections/timeouts; redacted diagnostics; shutdown/reconnect tests\n- Actual Grok desktop/mobile experiment after separate activation approval\n\n### Evidence\n\n- docs/verification/real-grok-test-plan.md\n\n### Blocked by\n\nRemote HTTPS/OAuth transport is unimplemented; separate design and service activation approval required\n\n### Dependencies\n\n- `grok-gadgets#HUB-GROK-001` (resolve after issue creation)\n"
     },
     {
       "repository": "grok-gadgets",
@@ -830,780 +1443,1523 @@
           "docs/verification/simulator-export-onboarding.md"
         ],
         "blocker": null
-      }
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HARD-SIM-EXPORT-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HARD-SIM-EXPORT-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HARD-SIM-EXPORT-001 -->\n\nLocal ID: `HARD-SIM-EXPORT-001`\n\nStatus: **done**\n\nExport my-light.json and use it as a separate custom config without weakening bundled integrity\n\n### Acceptance\n\n- Reproduce old simulator-config.json hash collision\n- Align download, copy, fallback and setup with distinct my-light.json\n- Regression exports browser contract into extracted kit and verifies immutable defaults\n- Actual browser file installs and exercises local MCP discovery, commands, state, offline rejection and reconnect\n- Affected and cross-repository acceptance passes; current kit/site/release provenance verified\n- Bounded independent review resolved and stages/journal/evidence updated\n\n### Evidence\n\n- docs/verification/simulator-export-onboarding.md\n\n### Commits\n\n- 549555c\n- 24729e0\n- c2e8981\n\n### Dependencies\n\n- `grok-gadgets#HUB-DEMO-001` (resolve after issue creation)\n- `grok-gadgets#HUB-KIT-001` (resolve after issue creation)\n"
     },
     {
-      "repository": "grok-gadgets-esp32-sdk",
-      "local_id": "ESP-001",
+      "repository": "grok-gadgets",
+      "local_id": "HARD-WEB-001",
       "github_number": null,
       "stage": "done",
-      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
+      "source": "grok-gadgets/planning/issues.json",
       "record": {
-        "id": "ESP-001",
-        "owner": "grok-gadgets-esp32-sdk",
-        "problem": "Independent open-source repository foundation",
+        "id": "HARD-WEB-001",
+        "repository": "grok-gadgets",
+        "owner": "grok-gadgets",
+        "problem": "Persist honest activity failure states",
+        "intended_behaviour": "Persist honest activity failure states",
         "acceptance": [
-          "README, Apache-2.0 license and contribution/security/agent instructions exist",
-          "Issue forms and proposed publication checks exist"
+          "Atomic validated refresh result persisted",
+          "File-to-build cached timestamp and owner isolation regression",
+          "Corrupt/missing cache fallback safe"
+        ],
+        "dependencies": [
+          "HARD-001"
+        ],
+        "labels": [
+          "bug",
+          "website",
+          "P2",
+          "help wanted"
+        ],
+        "milestone": "MH",
+        "stage": "done",
+        "commits": [
+          "0078a5a",
+          "bddd5b9"
+        ],
+        "evidence": [
+          "website/test_activity.py",
+          "docs/verification/hardening-journal.md",
+          "docs/verification/hardening-review.md"
+        ],
+        "blocker": null
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HARD-WEB-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HARD-WEB-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HARD-WEB-001 -->\n\nLocal ID: `HARD-WEB-001`\n\nStatus: **done**\n\nPersist honest activity failure states\n\n### Acceptance\n\n- Atomic validated refresh result persisted\n- File-to-build cached timestamp and owner isolation regression\n- Corrupt/missing cache fallback safe\n\n### Evidence\n\n- website/test_activity.py\n- docs/verification/hardening-journal.md\n- docs/verification/hardening-review.md\n\n### Commits\n\n- 0078a5a\n- bddd5b9\n\n### Dependencies\n\n- `grok-gadgets#HARD-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HARD-WEB-002",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HARD-WEB-002",
+        "repository": "grok-gadgets",
+        "owner": "grok-gadgets",
+        "problem": "Render safe usable source-relative documentation",
+        "intended_behaviour": "Render safe usable source-relative documentation",
+        "acceptance": [
+          "Headings,tables,links,anchors,code and diagrams usable",
+          "Safe URLs/HTML/diagram regression",
+          "Source-relative links and fragments checked;stale outputs cleaned",
+          "Explicit sanitized public document policy;desktop/mobile review"
+        ],
+        "dependencies": [
+          "HARD-001"
+        ],
+        "labels": [
+          "bug",
+          "website",
+          "P2",
+          "help wanted"
+        ],
+        "milestone": "MH",
+        "stage": "done",
+        "commits": [
+          "a9550ab"
+        ],
+        "evidence": [
+          "website/test_documents.py",
+          "docs/verification/hardening-journal.md",
+          "docs/verification/hardening-review.md"
+        ],
+        "blocker": null
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HARD-WEB-002",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HARD-WEB-002 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HARD-WEB-002 -->\n\nLocal ID: `HARD-WEB-002`\n\nStatus: **done**\n\nRender safe usable source-relative documentation\n\n### Acceptance\n\n- Headings,tables,links,anchors,code and diagrams usable\n- Safe URLs/HTML/diagram regression\n- Source-relative links and fragments checked;stale outputs cleaned\n- Explicit sanitized public document policy;desktop/mobile review\n\n### Evidence\n\n- website/test_documents.py\n- docs/verification/hardening-journal.md\n- docs/verification/hardening-review.md\n\n### Commits\n\n- a9550ab\n\n### Dependencies\n\n- `grok-gadgets#HARD-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-001",
+        "repository": "grok-gadgets",
+        "problem": "Foundation and architecture",
+        "intended_behaviour": "Foundation and architecture",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
         ],
         "dependencies": [],
         "labels": [
-          "maintenance",
-          "esp32",
+          "feature",
+          "protocol",
           "P1"
         ],
         "milestone": "M0",
         "stage": "done",
         "commits": [
-          "d4f18b3"
+          "9c6d5c0"
         ],
-        "evidence": "Foundation checks and Git diff review passed."
-      }
+        "evidence": [
+          "Foundation check and architecture documents"
+        ],
+        "blocker": null
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HUB-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-001 -->\n\nLocal ID: `HUB-001`\n\nStatus: **done**\n\nFoundation and architecture\n\n### Acceptance\n\n- Documented commands reproduce observed behaviour\n- Evidence identifies actual verification level\n\n### Evidence\n\n- Foundation check and architecture documents\n\n### Commits\n\n- 9c6d5c0\n"
     },
     {
-      "repository": "grok-gadgets-esp32-sdk",
-      "local_id": "ESP-002",
+      "repository": "grok-gadgets",
+      "local_id": "HUB-COM-001",
       "github_number": null,
       "stage": "done",
-      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
+      "source": "grok-gadgets/planning/issues.json",
       "record": {
-        "id": "ESP-002",
-        "owner": "grok-gadgets-esp32-sdk",
-        "problem": "Portable independently useful ESP32 SDK",
+        "id": "HUB-COM-001",
+        "repository": "grok-gadgets",
+        "problem": "Community package and tested dry-run recognition",
+        "intended_behaviour": "Community package and tested dry-run recognition",
         "acceptance": [
-          "Custom capabilities register without gateway changes",
-          "Strict RGB validation and duplicate command handling",
-          "Bounded framing and button debounce tests pass"
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [],
+        "labels": [
+          "feature",
+          "community",
+          "P1"
+        ],
+        "milestone": "M7",
+        "stage": "done",
+        "commits": [
+          "9d9b75c"
+        ],
+        "evidence": [
+          "6 offline recognition tests; source policies/drafts; no live API"
+        ],
+        "blocker": null
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HUB-COM-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-COM-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-COM-001 -->\n\nLocal ID: `HUB-COM-001`\n\nStatus: **done**\n\nCommunity package and tested dry-run recognition\n\n### Acceptance\n\n- Documented commands reproduce observed behaviour\n- Evidence identifies actual verification level\n\n### Evidence\n\n- 6 offline recognition tests; source policies/drafts; no live API\n\n### Commits\n\n- 9d9b75c\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-DEMO-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-DEMO-001",
+        "repository": "grok-gadgets",
+        "problem": "Customize and export the browser simulator",
+        "intended_behaviour": "Customize and export the browser simulator",
+        "acceptance": [
+          "Reuse existing motion graphic with browser-only command/state/event behavior",
+          "Names, initial RGB/brightness, delay and offline startup export the gateway config contract",
+          "Keyboard, touch, reduced motion and invalid input verified; no Grok or physical claim"
         ],
         "dependencies": [
-          "GW-002"
+          "HUB-GW-001"
+        ],
+        "labels": [
+          "feature",
+          "website",
+          "P1"
+        ],
+        "milestone": "M7",
+        "stage": "done",
+        "commits": [
+          "2602e48"
+        ],
+        "evidence": [
+          "docs/verification/simulator-playground.md"
+        ],
+        "blocker": null
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HUB-DEMO-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-DEMO-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-DEMO-001 -->\n\nLocal ID: `HUB-DEMO-001`\n\nStatus: **done**\n\nCustomize and export the browser simulator\n\n### Acceptance\n\n- Reuse existing motion graphic with browser-only command/state/event behavior\n- Names, initial RGB/brightness, delay and offline startup export the gateway config contract\n- Keyboard, touch, reduced motion and invalid input verified; no Grok or physical claim\n\n### Evidence\n\n- docs/verification/simulator-playground.md\n\n### Commits\n\n- 2602e48\n\n### Dependencies\n\n- `grok-gadgets#HUB-GW-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-ESP-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-ESP-001",
+        "repository": "grok-gadgets",
+        "problem": "Reusable C124 USB firmware and compilation",
+        "intended_behaviour": "Reusable C124 USB firmware and compilation",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [
+          "HUB-GW-001"
         ],
         "labels": [
           "feature",
           "esp32",
-          "protocol",
           "P1"
         ],
         "milestone": "M4",
         "stage": "done",
         "commits": [
-          "ff4dd9d"
+          "585adda",
+          "74085a9",
+          "3e8ccff",
+          "382444d",
+          "5ca2e5d"
         ],
-        "evidence": "C++ host tests and pinned canonical protocol frame validation passed."
-      }
+        "evidence": [
+          "3CTest;actualimmutableACKconsumer/PTyoverflow/restart/revocation; C124compiled RAM54628/programflash274881/bin283424; physicalpending"
+        ],
+        "blocker": null,
+        "component_repository": "grok-gadgets-esp32-sdk"
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HUB-ESP-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-ESP-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-ESP-001 -->\n\nLocal ID: `HUB-ESP-001`\n\nStatus: **done**\n\nReusable C124 USB firmware and compilation\n\n### Acceptance\n\n- Documented commands reproduce observed behaviour\n- Evidence identifies actual verification level\n\n### Evidence\n\n- 3CTest;actualimmutableACKconsumer/PTyoverflow/restart/revocation; C124compiled RAM54628/programflash274881/bin283424; physicalpending\n\n### Commits\n\n- 585adda\n- 74085a9\n- 3e8ccff\n- 382444d\n- 5ca2e5d\n\n### Dependencies\n\n- `grok-gadgets#HUB-GW-001` (resolve after issue creation)\n"
     },
     {
-      "repository": "grok-gadgets-esp32-sdk",
-      "local_id": "ESP-003",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
-      "record": {
-        "id": "ESP-003",
-        "owner": "grok-gadgets-esp32-sdk",
-        "problem": "C124 USB firmware and lifecycle",
-        "acceptance": [
-          "Pinned ESP32-S3 firmware compilation succeeds",
-          "Actual consumer host simulation exercises RGB/button/timeout",
-          "USB bridge/gateway host integration and recovery pass",
-          "Flashing/recovery instructions and build artifacts exist"
-        ],
-        "dependencies": [
-          "ESP-002",
-          "GW-003"
-        ],
-        "labels": [
-          "feature",
-          "esp32",
-          "P1"
-        ],
-        "milestone": "M4",
-        "stage": "done",
-        "commits": [
-          "0481cc9b277c1b04886d64e00d92565facb42b91"
-        ],
-        "evidence": "3/3 CTest; SDK frame contract; PTY actual firmware simulation/gateway execution, server restart and credential revocation/restoration; real firmware compile. No flash."
-      }
-    },
-    {
-      "repository": "grok-gadgets-esp32-sdk",
-      "local_id": "ESP-004",
+      "repository": "grok-gadgets",
+      "local_id": "HUB-GROK-001",
       "github_number": null,
       "stage": "blocked",
-      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
+      "source": "grok-gadgets/planning/issues.json",
       "record": {
-        "id": "ESP-004",
-        "owner": "grok-gadgets-esp32-sdk",
-        "problem": "Physical C124 acceptance",
+        "id": "HUB-GROK-001",
+        "repository": "grok-gadgets",
+        "problem": "Actual existing Grok Bot tool execution",
+        "intended_behaviour": "Actual existing Grok Bot tool execution",
         "acceptance": [
-          "Visibly verify green/colour/off",
-          "Read real button edges",
-          "Unplug/reconnect/reboot acceptance",
-          "Record versions/checksums and observations"
+          "Existing signed-in Grok Bot invokes gateway MCP simulator tools",
+          "Discovery, green/off state, invalid commands, button events and offline/reconnect acceptance",
+          "Record actual client/host/package/tool evidence; no physical verification claim"
         ],
         "dependencies": [
-          "ESP-003"
+          "HUB-GW-001"
+        ],
+        "labels": [
+          "feature",
+          "gateway",
+          "P1"
+        ],
+        "milestone": "M5",
+        "stage": "blocked",
+        "commits": [
+          "ff88a67"
+        ],
+        "evidence": [
+          "docs/verification/real-grok-experiment.md",
+          "docs/verification/grok-launch-evidence.md"
+        ],
+        "blocker": "Exact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors. Installation-only computer evidence recorded for grok-launch-20261005-a."
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HUB-GROK-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-GROK-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-GROK-001 -->\n\nLocal ID: `HUB-GROK-001`\n\nStatus: **blocked**\n\nActual existing Grok Bot tool execution\n\n### Acceptance\n\n- Existing signed-in Grok Bot invokes gateway MCP simulator tools\n- Discovery, green/off state, invalid commands, button events and offline/reconnect acceptance\n- Record actual client/host/package/tool evidence; no physical verification claim\n\n### Evidence\n\n- docs/verification/real-grok-experiment.md\n- docs/verification/grok-launch-evidence.md\n\n### Commits\n\n- ff88a67\n\n### Blocked by\n\nExact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors. Installation-only computer evidence recorded for grok-launch-20261005-a.\n\n### Dependencies\n\n- `grok-gadgets#HUB-GW-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-GW-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-GW-001",
+        "repository": "grok-gadgets",
+        "problem": "Protocol, gateway, simulator and MCP acceptance",
+        "intended_behaviour": "Protocol, gateway, simulator and MCP acceptance",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [],
+        "labels": [
+          "feature",
+          "gateway",
+          "P1"
+        ],
+        "milestone": "M2",
+        "stage": "done",
+        "commits": [
+          "4cf42ff",
+          "4bb6d87",
+          "85548ea",
+          "84b06fb"
+        ],
+        "evidence": [
+          "21tests; independent actualMCPnegative/positive;per-deviceTCP; installedcandidate demo"
+        ],
+        "blocker": null,
+        "component_repository": "grok-gadgets-gateway"
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HUB-GW-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-GW-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-GW-001 -->\n\nLocal ID: `HUB-GW-001`\n\nStatus: **done**\n\nProtocol, gateway, simulator and MCP acceptance\n\n### Acceptance\n\n- Documented commands reproduce observed behaviour\n- Evidence identifies actual verification level\n\n### Evidence\n\n- 21tests; independent actualMCPnegative/positive;per-deviceTCP; installedcandidate demo\n\n### Commits\n\n- 4cf42ff\n- 4bb6d87\n- 85548ea\n- 84b06fb\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-HA-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-HA-001",
+        "repository": "grok-gadgets",
+        "problem": "Upstream MCP integration and fixtures",
+        "intended_behaviour": "Upstream MCP integration and fixtures",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [],
+        "labels": [
+          "feature",
+          "home-assistant",
+          "P1"
+        ],
+        "milestone": "M6",
+        "stage": "done",
+        "commits": [
+          "a8b2370"
+        ],
+        "evidence": [
+          "13 tests and clean wheel; upstream reuse; actual HA/Grok pending"
+        ],
+        "blocker": null,
+        "component_repository": "grok-gadgets-home-assistant"
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HUB-HA-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-HA-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-HA-001 -->\n\nLocal ID: `HUB-HA-001`\n\nStatus: **done**\n\nUpstream MCP integration and fixtures\n\n### Acceptance\n\n- Documented commands reproduce observed behaviour\n- Evidence identifies actual verification level\n\n### Evidence\n\n- 13 tests and clean wheel; upstream reuse; actual HA/Grok pending\n\n### Commits\n\n- a8b2370\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-HW-001",
+      "github_number": null,
+      "stage": "blocked",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-HW-001",
+        "repository": "grok-gadgets",
+        "problem": "Physical LED/button/recovery verification",
+        "intended_behaviour": "Physical LED/button/recovery verification",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [
+          "HUB-ESP-001"
         ],
         "labels": [
           "feature",
           "esp32",
           "P1",
-          "needs hardware",
-          "help wanted"
+          "needs hardware"
         ],
         "milestone": "M8",
         "stage": "blocked",
         "commits": [],
-        "evidence": "No C124 available; requires physical board and authorization to flash."
-      }
+        "evidence": [],
+        "blocker": "C124 hardware unavailable",
+        "component_repository": "grok-gadgets-esp32-sdk"
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HUB-HW-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-HW-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-HW-001 -->\n\nLocal ID: `HUB-HW-001`\n\nStatus: **blocked**\n\nPhysical LED/button/recovery verification\n\n### Acceptance\n\n- Documented commands reproduce observed behaviour\n- Evidence identifies actual verification level\n\n### Blocked by\n\nC124 hardware unavailable\n\n### Dependencies\n\n- `grok-gadgets#HUB-ESP-001` (resolve after issue creation)\n"
     },
     {
-      "repository": "grok-gadgets-esp32-sdk",
-      "local_id": "ESP-005",
+      "repository": "grok-gadgets",
+      "local_id": "HUB-KIT-001",
       "github_number": null,
-      "stage": "blocked",
-      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
+      "stage": "done",
+      "source": "grok-gadgets/planning/issues.json",
       "record": {
-        "id": "ESP-005",
-        "owner": "grok-gadgets-esp32-sdk",
-        "problem": "Secure Wi-Fi transport and provisioning",
+        "id": "HUB-KIT-001",
+        "repository": "grok-gadgets",
+        "problem": "Provide an inspectable configurable Grok simulator kit",
+        "intended_behaviour": "Provide an inspectable configurable Grok simulator kit",
         "acceptance": [
-          "Agree authenticated reachable TLS transport",
-          "Certificate validation, device credential revocation and secret provisioning",
-          "Compile firmware and test LAN lifecycle"
+          "Download kit contains exact source, wheel, locked hashed dependencies, license and provenance",
+          "Extracted kit installs and configured MCP runs without hardware",
+          "Website export loads in gateway; cloud setup instructions distinguish Bot-reported route and native receipt gate",
+          "Build automatically refreshes changed committed gateway or kit inputs, runs acceptance before publishing, and fails on stale/corrupt/uncommitted source"
         ],
         "dependencies": [
-          "ESP-003",
-          "GW-003"
+          "HUB-GW-001"
         ],
         "labels": [
           "feature",
+          "gateway",
+          "P1"
+        ],
+        "milestone": "M9",
+        "stage": "done",
+        "commits": [
+          "d2bda94",
+          "fa062a1",
+          "7ac61fd",
+          "f4ad5f9"
+        ],
+        "evidence": [
+          "docs/verification/simulator-playground.md",
+          "docs/verification/download-build-policy.md"
+        ],
+        "blocker": null
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HUB-KIT-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-KIT-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-KIT-001 -->\n\nLocal ID: `HUB-KIT-001`\n\nStatus: **done**\n\nProvide an inspectable configurable Grok simulator kit\n\n### Acceptance\n\n- Download kit contains exact source, wheel, locked hashed dependencies, license and provenance\n- Extracted kit installs and configured MCP runs without hardware\n- Website export loads in gateway; cloud setup instructions distinguish Bot-reported route and native receipt gate\n- Build automatically refreshes changed committed gateway or kit inputs, runs acceptance before publishing, and fails on stale/corrupt/uncommitted source\n\n### Evidence\n\n- docs/verification/simulator-playground.md\n- docs/verification/download-build-policy.md\n\n### Commits\n\n- d2bda94\n- fa062a1\n- 7ac61fd\n- f4ad5f9\n\n### Dependencies\n\n- `grok-gadgets#HUB-GW-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-LIN-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-LIN-001",
+        "repository": "grok-gadgets",
+        "problem": "Reusable Linux SDK and gateway contract",
+        "intended_behaviour": "Reusable Linux SDK and gateway contract",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [
+          "HUB-GW-001"
+        ],
+        "labels": [
+          "feature",
+          "linux",
+          "P1"
+        ],
+        "milestone": "M3",
+        "stage": "done",
+        "commits": [
+          "256a07e",
+          "beb69c1",
+          "89478e5",
+          "ce897ee"
+        ],
+        "evidence": [
+          "20source tests;installed documented/dataclass macOS+actualofflineLinux; independent candidatewheelacceptance"
+        ],
+        "blocker": null,
+        "component_repository": "grok-gadgets-linux-sdk"
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HUB-LIN-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-LIN-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-LIN-001 -->\n\nLocal ID: `HUB-LIN-001`\n\nStatus: **done**\n\nReusable Linux SDK and gateway contract\n\n### Acceptance\n\n- Documented commands reproduce observed behaviour\n- Evidence identifies actual verification level\n\n### Evidence\n\n- 20source tests;installed documented/dataclass macOS+actualofflineLinux; independent candidatewheelacceptance\n\n### Commits\n\n- 256a07e\n- beb69c1\n- 89478e5\n- ce897ee\n\n### Dependencies\n\n- `grok-gadgets#HUB-GW-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-LIN-002",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-LIN-002",
+        "repository": "grok-gadgets",
+        "problem": "Real Linux execution",
+        "intended_behaviour": "Real Linux execution",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [
+          "HUB-LIN-001"
+        ],
+        "labels": [
+          "feature",
+          "linux",
+          "P1"
+        ],
+        "milestone": "M3",
+        "stage": "done",
+        "commits": [
+          "256a07e",
+          "89478e5",
+          "ce897ee"
+        ],
+        "evidence": [
+          "ActualofflineLinux kernel6.10.14 CPython3.11.17 installedordinary/dataclass factories;15installed tests+5optional source skips;systemdphysicalpending"
+        ],
+        "blocker": null,
+        "component_repository": "grok-gadgets-linux-sdk"
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HUB-LIN-002",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-LIN-002 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-LIN-002 -->\n\nLocal ID: `HUB-LIN-002`\n\nStatus: **done**\n\nReal Linux execution\n\n### Acceptance\n\n- Documented commands reproduce observed behaviour\n- Evidence identifies actual verification level\n\n### Evidence\n\n- ActualofflineLinux kernel6.10.14 CPython3.11.17 installedordinary/dataclass factories;15installed tests+5optional source skips;systemdphysicalpending\n\n### Commits\n\n- 256a07e\n- 89478e5\n- ce897ee\n\n### Dependencies\n\n- `grok-gadgets#HUB-LIN-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-PUB-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-PUB-001",
+        "repository": "grok-gadgets",
+        "problem": "Publication package and external activation",
+        "intended_behaviour": "Publication package and external activation",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [
+          "HUB-WEB-001",
+          "HUB-COM-001"
+        ],
+        "labels": [
+          "feature",
+          "docs",
+          "P1"
+        ],
+        "milestone": "M9",
+        "stage": "done",
+        "commits": [
+          "47c9be3",
+          "9daf82d"
+        ],
+        "evidence": [
+          "25artifacts independentlycertified;5exactarchives+5completeGitbundles;originalApache/notices; zero redactedheuristicfindings; externalactivationblocked"
+        ],
+        "blocker": null
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HUB-PUB-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-PUB-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-PUB-001 -->\n\nLocal ID: `HUB-PUB-001`\n\nStatus: **done**\n\nPublication package and external activation\n\n### Acceptance\n\n- Documented commands reproduce observed behaviour\n- Evidence identifies actual verification level\n\n### Evidence\n\n- 25artifacts independentlycertified;5exactarchives+5completeGitbundles;originalApache/notices; zero redactedheuristicfindings; externalactivationblocked\n\n### Commits\n\n- 47c9be3\n- 9daf82d\n\n### Dependencies\n\n- `grok-gadgets#HUB-WEB-001` (resolve after issue creation)\n- `grok-gadgets#HUB-COM-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-PUBLISH-001",
+      "github_number": null,
+      "stage": "blocked",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-PUBLISH-001",
+        "repository": "grok-gadgets",
+        "problem": "Activate approved public repositories/releases/site",
+        "intended_behaviour": "Publish exact reviewed snapshots after authorization",
+        "acceptance": [
+          "Explicit approval and owner",
+          "Post-publication remotes/checks/links verified"
+        ],
+        "dependencies": [
+          "HUB-PUB-001"
+        ],
+        "labels": [
+          "maintenance",
+          "website",
+          "P1"
+        ],
+        "milestone": "M9",
+        "stage": "blocked",
+        "commits": [],
+        "evidence": [],
+        "blocker": "Separate creation/push/release/Pages approval plus reviewed historical paths and commit-email disclosure, naming/official-mark disposition and hosted acceptance required. Recovery bundles and firmware binary uploads excluded."
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HUB-PUBLISH-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-PUBLISH-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-PUBLISH-001 -->\n\nLocal ID: `HUB-PUBLISH-001`\n\nStatus: **blocked**\n\nPublish exact reviewed snapshots after authorization\n\n### Acceptance\n\n- Explicit approval and owner\n- Post-publication remotes/checks/links verified\n\n### Blocked by\n\nSeparate creation/push/release/Pages approval plus reviewed historical paths and commit-email disclosure, naming/official-mark disposition and hosted acceptance required. Recovery bundles and firmware binary uploads excluded.\n\n### Dependencies\n\n- `grok-gadgets#HUB-PUB-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-REP-001",
+      "github_number": null,
+      "stage": "blocked",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-REP-001",
+        "repository": "grok-gadgets",
+        "problem": "Independent installation by second tester",
+        "intended_behaviour": "Independent installation by second tester",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [
+          "HUB-GW-001",
+          "HUB-LIN-001",
+          "HUB-ESP-001"
+        ],
+        "labels": [
+          "feature",
+          "docs",
+          "P1"
+        ],
+        "milestone": "M8",
+        "stage": "blocked",
+        "commits": [],
+        "evidence": [],
+        "blocker": "Second tester unavailable"
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HUB-REP-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-REP-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-REP-001 -->\n\nLocal ID: `HUB-REP-001`\n\nStatus: **blocked**\n\nIndependent installation by second tester\n\n### Acceptance\n\n- Documented commands reproduce observed behaviour\n- Evidence identifies actual verification level\n\n### Blocked by\n\nSecond tester unavailable\n\n### Dependencies\n\n- `grok-gadgets#HUB-GW-001` (resolve after issue creation)\n- `grok-gadgets#HUB-LIN-001` (resolve after issue creation)\n- `grok-gadgets#HUB-ESP-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-SERVICE-001",
+      "github_number": null,
+      "stage": "blocked",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-SERVICE-001",
+        "repository": "grok-gadgets",
+        "problem": "Verify systemd service lifecycle on real Linux host",
+        "intended_behaviour": "Start/stop/restart service reliably",
+        "acceptance": [
+          "Real systemd host installation/lifecycle observed"
+        ],
+        "dependencies": [
+          "HUB-LIN-001"
+        ],
+        "labels": [
+          "linux",
+          "P2",
+          "help wanted"
+        ],
+        "milestone": "M3",
+        "stage": "blocked",
+        "commits": [],
+        "evidence": [],
+        "blocker": "Container is not a systemd target host",
+        "component_repository": "grok-gadgets-linux-sdk"
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HUB-SERVICE-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-SERVICE-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-SERVICE-001 -->\n\nLocal ID: `HUB-SERVICE-001`\n\nStatus: **blocked**\n\nStart/stop/restart service reliably\n\n### Acceptance\n\n- Real systemd host installation/lifecycle observed\n\n### Blocked by\n\nContainer is not a systemd target host\n\n### Dependencies\n\n- `grok-gadgets#HUB-LIN-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-WEB-001",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-WEB-001",
+        "repository": "grok-gadgets",
+        "problem": "Source-driven website and local visual verification",
+        "intended_behaviour": "Source-driven website and local visual verification",
+        "acceptance": [
+          "Documented commands reproduce observed behaviour",
+          "Evidence identifies actual verification level"
+        ],
+        "dependencies": [
+          "HUB-001"
+        ],
+        "labels": [
+          "feature",
+          "website",
+          "P1"
+        ],
+        "milestone": "M7",
+        "stage": "done",
+        "commits": [
+          "7c76969",
+          "48cadc5"
+        ],
+        "evidence": [
+          "27-page static build/link checks",
+          "3 activity tests, fixture escape check, desktop/mobile visual check, keyboard/reduced-motion browser checks"
+        ],
+        "blocker": null
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HUB-WEB-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-WEB-001 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-WEB-001 -->\n\nLocal ID: `HUB-WEB-001`\n\nStatus: **done**\n\nSource-driven website and local visual verification\n\n### Acceptance\n\n- Documented commands reproduce observed behaviour\n- Evidence identifies actual verification level\n\n### Evidence\n\n- 27-page static build/link checks\n- 3 activity tests, fixture escape check, desktop/mobile visual check, keyboard/reduced-motion browser checks\n\n### Commits\n\n- 7c76969\n- 48cadc5\n\n### Dependencies\n\n- `grok-gadgets#HUB-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-WEB-002",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-WEB-002",
+        "repository": "grok-gadgets",
+        "problem": "Use approved identity and create selective interactive homepage",
+        "intended_behaviour": "Full-screen architecture motion, touch interactions and minimal copy; docs behind menu",
+        "acceptance": [
+          "User-supplied brand icon rendered and official reference marks retain provenance",
+          "Large-region continuous motion visibly changes, with keyboard/touch selection",
+          "LED/button/offline illustration honest about simulation",
+          "Navigation,desktop/mobile layout,reduced-motion and link/build checks pass"
+        ],
+        "dependencies": [
+          "HUB-WEB-001"
+        ],
+        "labels": [
+          "feature",
+          "website",
+          "P1"
+        ],
+        "milestone": "M7",
+        "stage": "done",
+        "commits": [
+          "0266f55",
+          "d212592",
+          "2f9c30b"
+        ],
+        "evidence": [
+          "docs/verification/website-redesign.md",
+          "docs/decisions/002-website-direction.md",
+          "website/media/provenance.json"
+        ],
+        "blocker": null
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HUB-WEB-002",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-WEB-002 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-WEB-002 -->\n\nLocal ID: `HUB-WEB-002`\n\nStatus: **done**\n\nFull-screen architecture motion, touch interactions and minimal copy; docs behind menu\n\n### Acceptance\n\n- User-supplied brand icon rendered and official reference marks retain provenance\n- Large-region continuous motion visibly changes, with keyboard/touch selection\n- LED/button/offline illustration honest about simulation\n- Navigation,desktop/mobile layout,reduced-motion and link/build checks pass\n\n### Evidence\n\n- docs/verification/website-redesign.md\n- docs/decisions/002-website-direction.md\n- website/media/provenance.json\n\n### Commits\n\n- 0266f55\n- d212592\n- 2f9c30b\n\n### Dependencies\n\n- `grok-gadgets#HUB-WEB-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "HUB-WEB-003",
+      "github_number": null,
+      "stage": "done",
+      "source": "grok-gadgets/planning/issues.json",
+      "record": {
+        "id": "HUB-WEB-003",
+        "repository": "grok-gadgets",
+        "problem": "Homepage must list the full SDK and tool collection",
+        "intended_behaviour": "Interactive component directory with concise descriptions, evidence states and documentation links",
+        "acceptance": [
+          "All five repositories and local tools represented",
+          "Mouse, touch and keyboard disclosure works without JavaScript",
+          "Responsive directory preserves scene motion and honest verification states",
+          "Build/link checks and browser desktop/mobile checks pass"
+        ],
+        "dependencies": [
+          "HUB-WEB-002"
+        ],
+        "labels": [
+          "feature",
+          "website",
+          "P1"
+        ],
+        "milestone": "M7",
+        "stage": "done",
+        "commits": [
+          "c7d9707",
+          "f44c2a3"
+        ],
+        "evidence": [
+          "docs/verification/home-components.md"
+        ],
+        "blocker": null
+      },
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/HUB-WEB-003",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-WEB-003 -->",
+      "github_url": null,
+      "source_present": true,
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-WEB-003 -->\n\nLocal ID: `HUB-WEB-003`\n\nStatus: **done**\n\nInteractive component directory with concise descriptions, evidence states and documentation links\n\n### Acceptance\n\n- All five repositories and local tools represented\n- Mouse, touch and keyboard disclosure works without JavaScript\n- Responsive directory preserves scene motion and honest verification states\n- Build/link checks and browser desktop/mobile checks pass\n\n### Evidence\n\n- docs/verification/home-components.md\n\n### Commits\n\n- c7d9707\n- f44c2a3\n\n### Dependencies\n\n- `grok-gadgets#HUB-WEB-002` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "LAUNCH-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/LAUNCH-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-001 -->",
+      "github_number": null,
+      "github_url": null,
+      "record": {
+        "id": "LAUNCH-001",
+        "repository": "grok-gadgets",
+        "problem": "L0: prepare contributor-friendly GitHub alpha",
+        "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
+        "acceptance": [
+          "Baseline 14/14 acceptance and five exact source heads recorded",
+          "Launch stages and journal established; original assets preserved"
+        ],
+        "dependencies": [],
+        "labels": [
+          "maintenance",
+          "website",
+          "P1"
+        ],
+        "milestone": "ML",
+        "stage": "done",
+        "commits": [
+          "4451f0a"
+        ],
+        "evidence": [
+          "docs/verification/launch-journal.md"
+        ],
+        "blocker": null
+      },
+      "stage": "done",
+      "source_present": true,
+      "source": "grok-gadgets/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-001 -->\n\nLocal ID: `LAUNCH-001`\n\nStatus: **done**\n\nMeet exact launch-plan stage acceptance; public activation remains separately gated\n\n### Acceptance\n\n- Baseline 14/14 acceptance and five exact source heads recorded\n- Launch stages and journal established; original assets preserved\n\n### Evidence\n\n- docs/verification/launch-journal.md\n\n### Commits\n\n- 4451f0a\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "LAUNCH-CANDIDATE-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/LAUNCH-CANDIDATE-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-CANDIDATE-001 -->",
+      "github_number": null,
+      "github_url": null,
+      "record": {
+        "id": "LAUNCH-CANDIDATE-001",
+        "repository": "grok-gadgets",
+        "problem": "L7: prepare contributor-friendly GitHub alpha",
+        "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
+        "acceptance": [
+          "Stage acceptance and named deliverables in docs/github-launch-plan.md",
+          "Tested incremental source commits and exact evidence",
+          "No public activation or unsupported evidence claims"
+        ],
+        "dependencies": [
+          "LAUNCH-001"
+        ],
+        "labels": [
+          "maintenance",
+          "website",
+          "P1"
+        ],
+        "milestone": "ML",
+        "stage": "in progress",
+        "commits": [],
+        "evidence": [
+          "docs/verification/launch-journal.md"
+        ],
+        "blocker": null
+      },
+      "stage": "in progress",
+      "source_present": true,
+      "source": "grok-gadgets/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-CANDIDATE-001 -->\n\nLocal ID: `LAUNCH-CANDIDATE-001`\n\nStatus: **in progress**\n\nMeet exact launch-plan stage acceptance; public activation remains separately gated\n\n### Acceptance\n\n- Stage acceptance and named deliverables in docs/github-launch-plan.md\n- Tested incremental source commits and exact evidence\n- No public activation or unsupported evidence claims\n\n### Evidence\n\n- docs/verification/launch-journal.md\n\n### Dependencies\n\n- `grok-gadgets#LAUNCH-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "LAUNCH-CI-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/LAUNCH-CI-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-CI-001 -->",
+      "github_number": null,
+      "github_url": null,
+      "record": {
+        "id": "LAUNCH-CI-001",
+        "repository": "grok-gadgets",
+        "problem": "L5: prepare contributor-friendly GitHub alpha",
+        "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
+        "acceptance": [
+          "Stage acceptance and named deliverables in docs/github-launch-plan.md",
+          "Tested incremental source commits and exact evidence",
+          "No public activation or unsupported evidence claims"
+        ],
+        "dependencies": [
+          "LAUNCH-001"
+        ],
+        "labels": [
+          "maintenance",
+          "website",
+          "P1"
+        ],
+        "milestone": "ML",
+        "stage": "done",
+        "commits": [
+          "e063a38",
+          "f4ad5f9"
+        ],
+        "evidence": [
+          "publication/activation-guide.md",
+          "publication/expected-checks.json",
+          "docs/verification/download-build-policy.md",
+          "scripts/test_launch.py"
+        ],
+        "blocker": null
+      },
+      "stage": "done",
+      "source_present": true,
+      "source": "grok-gadgets/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-CI-001 -->\n\nLocal ID: `LAUNCH-CI-001`\n\nStatus: **done**\n\nMeet exact launch-plan stage acceptance; public activation remains separately gated\n\n### Acceptance\n\n- Stage acceptance and named deliverables in docs/github-launch-plan.md\n- Tested incremental source commits and exact evidence\n- No public activation or unsupported evidence claims\n\n### Evidence\n\n- publication/activation-guide.md\n- publication/expected-checks.json\n- docs/verification/download-build-policy.md\n- scripts/test_launch.py\n\n### Commits\n\n- e063a38\n- f4ad5f9\n\n### Dependencies\n\n- `grok-gadgets#LAUNCH-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "LAUNCH-DOCS-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/LAUNCH-DOCS-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-DOCS-001 -->",
+      "github_number": null,
+      "github_url": null,
+      "record": {
+        "id": "LAUNCH-DOCS-001",
+        "repository": "grok-gadgets",
+        "problem": "L2: prepare contributor-friendly GitHub alpha",
+        "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
+        "acceptance": [
+          "Stage acceptance and named deliverables in docs/github-launch-plan.md",
+          "Tested incremental source commits and exact evidence",
+          "No public activation or unsupported evidence claims"
+        ],
+        "dependencies": [
+          "LAUNCH-001"
+        ],
+        "labels": [
+          "maintenance",
+          "website",
+          "P1"
+        ],
+        "milestone": "ML",
+        "stage": "done",
+        "commits": [
+          "e1a9948",
+          "4ae0072"
+        ],
+        "evidence": [
+          "README.md",
+          "CONTRIBUTING.md",
+          "compatibility/documentation-sources.json",
+          "docs/public/support-matrix.md"
+        ],
+        "blocker": null
+      },
+      "stage": "done",
+      "source_present": true,
+      "source": "grok-gadgets/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-DOCS-001 -->\n\nLocal ID: `LAUNCH-DOCS-001`\n\nStatus: **done**\n\nMeet exact launch-plan stage acceptance; public activation remains separately gated\n\n### Acceptance\n\n- Stage acceptance and named deliverables in docs/github-launch-plan.md\n- Tested incremental source commits and exact evidence\n- No public activation or unsupported evidence claims\n\n### Evidence\n\n- README.md\n- CONTRIBUTING.md\n- compatibility/documentation-sources.json\n- docs/public/support-matrix.md\n\n### Commits\n\n- e1a9948\n- 4ae0072\n\n### Dependencies\n\n- `grok-gadgets#LAUNCH-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "LAUNCH-FIRMWARE-DIST-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/LAUNCH-FIRMWARE-DIST-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-FIRMWARE-DIST-001 -->",
+      "github_number": null,
+      "github_url": null,
+      "record": {
+        "id": "LAUNCH-FIRMWARE-DIST-001",
+        "repository": "grok-gadgets",
+        "problem": "Prepare the required third-party redistribution material before firmware binary uploads",
+        "intended_behaviour": "Keep experimental source/build instructions eligible while BIN/ELF/bootloader/partition release assets remain excluded",
+        "acceptance": [
+          "Inventory exact linked dependency licenses and corresponding sources for the compiled C124 build",
+          "Supply and review required relinking/source/notice material before selecting firmware binary release assets",
+          "Record explicit redistribution disposition and reproduce from reviewed sources"
+        ],
+        "dependencies": [
+          "HUB-ESP-001"
+        ],
+        "labels": [
+          "maintenance",
           "esp32",
-          "protocol",
+          "P1",
+          "blocked"
+        ],
+        "milestone": "PUBLIC-ALPHA",
+        "stage": "blocked",
+        "commits": [],
+        "evidence": [
+          "publication/history-and-assets-review.md"
+        ],
+        "blocker": "Corresponding-source/relinking redistribution package has not been assembled or cleared; source-only publication package excludes binaries."
+      },
+      "stage": "blocked",
+      "source_present": true,
+      "source": "grok-gadgets/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-FIRMWARE-DIST-001 -->\n\nLocal ID: `LAUNCH-FIRMWARE-DIST-001`\n\nStatus: **blocked**\n\nKeep experimental source/build instructions eligible while BIN/ELF/bootloader/partition release assets remain excluded\n\n### Acceptance\n\n- Inventory exact linked dependency licenses and corresponding sources for the compiled C124 build\n- Supply and review required relinking/source/notice material before selecting firmware binary release assets\n- Record explicit redistribution disposition and reproduce from reviewed sources\n\n### Evidence\n\n- publication/history-and-assets-review.md\n\n### Blocked by\n\nCorresponding-source/relinking redistribution package has not been assembled or cleared; source-only publication package excludes binaries.\n\n### Dependencies\n\n- `grok-gadgets#HUB-ESP-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "LAUNCH-GROK-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/LAUNCH-GROK-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-GROK-001 -->",
+      "github_number": null,
+      "github_url": null,
+      "record": {
+        "id": "LAUNCH-GROK-001",
+        "repository": "grok-gadgets",
+        "problem": "Obtain actual Grok simulator invocation evidence",
+        "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
+        "acceptance": [
+          "Inspect native Grok requests/results or independently retrieved stdio trace for exact kit and website-exported configuration",
+          "Discovery, color/off/state, invalid/unsupported input, retry, ordered simulated events, disconnect/recovery tested through native route",
+          "Return to normal six tools; preserve unrelated connectors and real devices"
+        ],
+        "dependencies": [
+          "LAUNCH-001"
+        ],
+        "labels": [
+          "research",
+          "gateway",
+          "P1",
+          "blocked",
+          "simulator"
+        ],
+        "milestone": "ML",
+        "stage": "blocked",
+        "commits": [
+          "3bb66cc"
+        ],
+        "evidence": [
+          "docs/verification/grok-launch-evidence.md"
+        ],
+        "blocker": "Exact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors."
+      },
+      "stage": "blocked",
+      "source_present": true,
+      "source": "grok-gadgets/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-GROK-001 -->\n\nLocal ID: `LAUNCH-GROK-001`\n\nStatus: **blocked**\n\nMeet exact launch-plan stage acceptance; public activation remains separately gated\n\n### Acceptance\n\n- Inspect native Grok requests/results or independently retrieved stdio trace for exact kit and website-exported configuration\n- Discovery, color/off/state, invalid/unsupported input, retry, ordered simulated events, disconnect/recovery tested through native route\n- Return to normal six tools; preserve unrelated connectors and real devices\n\n### Evidence\n\n- docs/verification/grok-launch-evidence.md\n\n### Commits\n\n- 3bb66cc\n\n### Blocked by\n\nExact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors.\n\n### Dependencies\n\n- `grok-gadgets#LAUNCH-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "LAUNCH-ISSUES-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/LAUNCH-ISSUES-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-ISSUES-001 -->",
+      "github_number": null,
+      "github_url": null,
+      "record": {
+        "id": "LAUNCH-ISSUES-001",
+        "repository": "grok-gadgets",
+        "problem": "L4: prepare contributor-friendly GitHub alpha",
+        "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
+        "acceptance": [
+          "Stage acceptance and named deliverables in docs/github-launch-plan.md",
+          "Tested incremental source commits and exact evidence",
+          "No public activation or unsupported evidence claims"
+        ],
+        "dependencies": [
+          "LAUNCH-001"
+        ],
+        "labels": [
+          "maintenance",
+          "website",
+          "P1"
+        ],
+        "milestone": "ML",
+        "stage": "done",
+        "commits": [
+          "8b362f7",
+          "e063a38"
+        ],
+        "evidence": [
+          "publication/migration-guide.md",
+          "scripts/test_issue_migration.py",
+          "docs/contributing/ready-issues.md",
+          ".github/ISSUE_TEMPLATE"
+        ],
+        "blocker": null
+      },
+      "stage": "done",
+      "source_present": true,
+      "source": "grok-gadgets/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-ISSUES-001 -->\n\nLocal ID: `LAUNCH-ISSUES-001`\n\nStatus: **done**\n\nMeet exact launch-plan stage acceptance; public activation remains separately gated\n\n### Acceptance\n\n- Stage acceptance and named deliverables in docs/github-launch-plan.md\n- Tested incremental source commits and exact evidence\n- No public activation or unsupported evidence claims\n\n### Evidence\n\n- publication/migration-guide.md\n- scripts/test_issue_migration.py\n- docs/contributing/ready-issues.md\n- .github/ISSUE_TEMPLATE\n\n### Commits\n\n- 8b362f7\n- e063a38\n\n### Dependencies\n\n- `grok-gadgets#LAUNCH-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "LAUNCH-META-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/LAUNCH-META-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-META-001 -->",
+      "github_number": null,
+      "github_url": null,
+      "record": {
+        "id": "LAUNCH-META-001",
+        "repository": "grok-gadgets",
+        "problem": "L1: prepare contributor-friendly GitHub alpha",
+        "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
+        "acceptance": [
+          "Owner/contact consistent in manifest and policies",
+          "Descriptions/topics/settings/Project prepared without activation"
+        ],
+        "dependencies": [
+          "LAUNCH-001"
+        ],
+        "labels": [
+          "maintenance",
+          "website",
+          "P1"
+        ],
+        "milestone": "ML",
+        "stage": "done",
+        "commits": [
+          "f1cff58"
+        ],
+        "evidence": [
+          "publication/repositories.json",
+          "publication/project.json",
+          "GOVERNANCE.md",
+          "SECURITY.md"
+        ],
+        "blocker": null
+      },
+      "stage": "done",
+      "source_present": true,
+      "source": "grok-gadgets/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-META-001 -->\n\nLocal ID: `LAUNCH-META-001`\n\nStatus: **done**\n\nMeet exact launch-plan stage acceptance; public activation remains separately gated\n\n### Acceptance\n\n- Owner/contact consistent in manifest and policies\n- Descriptions/topics/settings/Project prepared without activation\n\n### Evidence\n\n- publication/repositories.json\n- publication/project.json\n- GOVERNANCE.md\n- SECURITY.md\n\n### Commits\n\n- f1cff58\n\n### Dependencies\n\n- `grok-gadgets#LAUNCH-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "LAUNCH-PUBLIC-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/LAUNCH-PUBLIC-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-PUBLIC-001 -->",
+      "github_number": null,
+      "github_url": null,
+      "record": {
+        "id": "LAUNCH-PUBLIC-001",
+        "repository": "grok-gadgets",
+        "problem": "L6: prepare contributor-friendly GitHub alpha",
+        "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
+        "acceptance": [
+          "Stage acceptance and named deliverables in docs/github-launch-plan.md",
+          "Tested incremental source commits and exact evidence",
+          "No public activation or unsupported evidence claims"
+        ],
+        "dependencies": [
+          "LAUNCH-001"
+        ],
+        "labels": [
+          "maintenance",
+          "website",
+          "P1"
+        ],
+        "milestone": "ML",
+        "stage": "done",
+        "commits": [
+          "3bb66cc"
+        ],
+        "evidence": [
+          "publication/history-and-assets-review.md",
+          "scripts/test_audit_launch.py"
+        ],
+        "blocker": null
+      },
+      "stage": "done",
+      "source_present": true,
+      "source": "grok-gadgets/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-PUBLIC-001 -->\n\nLocal ID: `LAUNCH-PUBLIC-001`\n\nStatus: **done**\n\nMeet exact launch-plan stage acceptance; public activation remains separately gated\n\n### Acceptance\n\n- Stage acceptance and named deliverables in docs/github-launch-plan.md\n- Tested incremental source commits and exact evidence\n- No public activation or unsupported evidence claims\n\n### Evidence\n\n- publication/history-and-assets-review.md\n- scripts/test_audit_launch.py\n\n### Commits\n\n- 3bb66cc\n\n### Dependencies\n\n- `grok-gadgets#LAUNCH-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "LAUNCH-VIS-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/LAUNCH-VIS-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-VIS-001 -->",
+      "github_number": null,
+      "github_url": null,
+      "record": {
+        "id": "LAUNCH-VIS-001",
+        "repository": "grok-gadgets",
+        "problem": "L3: prepare contributor-friendly GitHub alpha",
+        "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
+        "acceptance": [
+          "Stage acceptance and named deliverables in docs/github-launch-plan.md",
+          "Tested incremental source commits and exact evidence",
+          "No public activation or unsupported evidence claims"
+        ],
+        "dependencies": [
+          "LAUNCH-001"
+        ],
+        "labels": [
+          "maintenance",
+          "website",
+          "P1"
+        ],
+        "milestone": "ML",
+        "stage": "done",
+        "commits": [
+          "e1a9948"
+        ],
+        "evidence": [
+          "docs/visuals/README.md",
+          "website/documents.json"
+        ],
+        "blocker": null
+      },
+      "stage": "done",
+      "source_present": true,
+      "source": "grok-gadgets/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-VIS-001 -->\n\nLocal ID: `LAUNCH-VIS-001`\n\nStatus: **done**\n\nMeet exact launch-plan stage acceptance; public activation remains separately gated\n\n### Acceptance\n\n- Stage acceptance and named deliverables in docs/github-launch-plan.md\n- Tested incremental source commits and exact evidence\n- No public activation or unsupported evidence claims\n\n### Evidence\n\n- docs/visuals/README.md\n- website/documents.json\n\n### Commits\n\n- e1a9948\n\n### Dependencies\n\n- `grok-gadgets#LAUNCH-001` (resolve after issue creation)\n"
+    },
+    {
+      "repository": "grok-gadgets",
+      "local_id": "WEB-COPY-001",
+      "owner": "adidshaft",
+      "mapping_key": "adidshaft/grok-gadgets/WEB-COPY-001",
+      "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/WEB-COPY-001 -->",
+      "github_number": null,
+      "github_url": null,
+      "record": {
+        "id": "WEB-COPY-001",
+        "repository": "grok-gadgets",
+        "problem": "Copy documentation commands with accessible feedback",
+        "intended_behaviour": "Copy documentation commands with accessible feedback",
+        "acceptance": [
+          "Exact starting behavior, bounded criteria and focused commands in docs/contributing/ready-issues.md",
+          "Document observed results without hardware or Grok claims"
+        ],
+        "dependencies": [],
+        "labels": [
+          "website",
+          "feature",
+          "help wanted",
           "P2"
         ],
-        "milestone": "M4",
-        "stage": "blocked",
+        "milestone": "INDEPENDENT-SOFTWARE",
+        "stage": "ready",
         "commits": [],
-        "evidence": "Canonical gateway 0.1.0 binds loopback-only, without LAN/TLS endpoint; plain network credentials/exposure excluded. Secure endpoint/provisioning contract required."
-      }
-    },
-    {
-      "repository": "grok-gadgets-esp32-sdk",
-      "local_id": "ESP-006",
-      "github_number": null,
-      "stage": "blocked",
-      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
-      "record": {
-        "id": "ESP-006",
-        "owner": "grok-gadgets-esp32-sdk",
-        "problem": "Independent reproduction",
-        "acceptance": [
-          "Another person follows build/install instructions",
-          "Hardware procedure independently reproduced"
-        ],
-        "dependencies": [
-          "ESP-004"
-        ],
-        "labels": [
-          "docs",
-          "esp32",
-          "P2",
-          "help wanted"
-        ],
-        "milestone": "M8",
-        "stage": "blocked",
-        "commits": [],
-        "evidence": "Independent tester and physical board unavailable."
-      }
-    },
-    {
-      "repository": "grok-gadgets-esp32-sdk",
-      "local_id": "ESP-007",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
-      "record": {
-        "id": "ESP-007",
-        "owner": "grok-gadgets-esp32-sdk",
-        "problem": "Undeclared history_lost event causes repeated session reset after button queue overflow",
-        "acceptance": [
-          "Declare every firmware event capability in hello",
-          "Actual consumer retains 16 ordered edges and reports four dropped edges after a 20-edge stall",
-          "Gateway accepts history_lost without a session reset; subsequent RGB command executes",
-          "Rebuild firmware and update packaged checksums"
-        ],
-        "dependencies": [
-          "ESP-003",
-          "GW-003"
-        ],
-        "labels": [
-          "bug",
-          "esp32",
-          "protocol",
-          "P1"
-        ],
-        "milestone": "M4",
-        "stage": "done",
-        "commits": [
-          "74085a9d33fba115a2701d4274140f33d8813d6c"
-        ],
-        "evidence": "3/3 CTest, pinned contract checks, actual consumer PTY integration (20 GPIO edges, retained 16/drop4, unchanged session, subsequent execution), ESP32-S3 compile SUCCESS."
-      }
-    },
-    {
-      "repository": "grok-gadgets-esp32-sdk",
-      "local_id": "HARD-ESP-001",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets-esp32-sdk/planning/issues.json",
-      "record": {
-        "id": "HARD-ESP-001",
-        "repository": "grok-gadgets-esp32-sdk",
-        "owner": "grok-gadgets-esp32-sdk",
-        "problem": "Preserve ACKs across repeated retries",
-        "intended_behaviour": "Retained retries return equivalent owned ACKs without rerunning a handler; decode failures preserve retry uncertainty and cached execution result.",
-        "acceptance": [
-          "Repeated valid success/failure ACKs with one execution",
-          "Interleaved and changed argument IDs covered",
-          "Actual consumer retry, contract and C124 compile pass",
-          "Eight-entry FIFO eviction and reboot retention limits covered",
-          "Corrected clean-source firmware artifacts identify source commit, toolchain and hashes"
-        ],
-        "dependencies": [
-          "HARD-001"
-        ],
-        "labels": [
-          "bug",
-          "esp32",
-          "P1",
-          "help wanted"
-        ],
-        "milestone": "MH",
-        "stage": "done",
-        "commits": [
-          "3e8ccff4201a19ceb3f6a488c9faee2a442f25d3",
-          "382444d5a7bb9372e8778421a337b82306aa2c58"
-        ],
         "evidence": [
-          "docs/verification/hardening.md: installed ArduinoJson reproduced valid ACK, valid ACK, true, true, true with execution count 1",
-          "Library and actual firmware retry regressions fail against original585adda; corrected CTest3/3, format/lint, contract, PTY four redeliveries and C124 build pass",
-          "Clean integrated main382444d: host3/3, contract, repeated PTY ACK, hub validation and real C124 compile pass; four artifacts rebuilt from clean source and hashes/toolchain recorded in docs/build-checksums.json. Physical/Grok remain external gates."
+          "docs/contributing/ready-issues.md"
         ],
         "blocker": null
-      }
-    },
-    {
-      "repository": "grok-gadgets-gateway",
-      "local_id": "GW-001",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets-gateway/planning/issues.json",
-      "record": {
-        "id": "GW-001",
-        "owner": "grok-gadgets-gateway",
-        "problem": "Contribution-ready local foundation",
-        "acceptance": [
-          "Locked dependencies install",
-          "initial checks pass"
-        ],
-        "dependencies": [],
-        "labels": [
-          "maintenance",
-          "gateway",
-          "P0"
-        ],
-        "milestone": "M0",
-        "stage": "done",
-        "commits": [
-          "9bab82b"
-        ],
-        "evidence": "uv sync --locked and initial pytest smoke check"
-      }
-    },
-    {
-      "repository": "grok-gadgets-gateway",
-      "local_id": "GW-002",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets-gateway/planning/issues.json",
-      "record": {
-        "id": "GW-002",
-        "owner": "grok-gadgets-gateway",
-        "problem": "Canonical versioned device protocol and lifecycle",
-        "acceptance": [
-          "schemas and fixtures validate",
-          "bounded history and command semantics tested"
-        ],
-        "dependencies": [
-          "GW-001"
-        ],
-        "labels": [
-          "feature",
-          "protocol",
-          "P0"
-        ],
-        "milestone": "M1",
-        "stage": "done",
-        "commits": [
-          "17d3168"
-        ],
-        "evidence": "7 pytest tests pass: schemas/fixtures, RGB bounds, custom capability discovery, ACK isolation, offline/timeouts/reconnect, bounded cursor history and restart"
-      }
-    },
-    {
-      "repository": "grok-gadgets-gateway",
-      "local_id": "GW-003",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets-gateway/planning/issues.json",
-      "record": {
-        "id": "GW-003",
-        "owner": "grok-gadgets-gateway",
-        "problem": "Usable simulator MCP and authenticated transports",
-        "acceptance": [
-          "real MCP stdio client tests",
-          "revocation and device isolation tests",
-          "USB bridge transcript acceptance"
-        ],
-        "dependencies": [
-          "GW-002"
-        ],
-        "labels": [
-          "feature",
-          "gateway",
-          "P0"
-        ],
-        "milestone": "M2",
-        "stage": "done",
-        "commits": [
-          "e9a887e",
-          "b2ad132"
-        ],
-        "evidence": "13 passing tests; real official MCP stdio client; TCP revocation/isolation/timeouts; USB PTY command/events/repeated hello/gateway restart; clean wheel install demo passes. Hardware and real Bot separate GW-004."
-      }
-    },
-    {
-      "repository": "grok-gadgets-gateway",
-      "local_id": "GW-004",
-      "github_number": null,
-      "stage": "blocked",
-      "source": "grok-gadgets-gateway/planning/issues.json",
-      "record": {
-        "id": "GW-004",
-        "owner": "grok-gadgets-gateway",
-        "problem": "Real Grok Bot and physical C124 acceptance",
-        "acceptance": [
-          "real Bot tool call",
-          "physical LED and button observations"
-        ],
-        "dependencies": [
-          "GW-003"
-        ],
-        "labels": [
-          "research",
-          "gateway",
-          "P1",
-          "needs hardware"
-        ],
-        "milestone": "M5/M8",
-        "stage": "blocked",
-        "commits": [],
-        "blocker": "Grok account route and physical C124 unavailable"
-      }
-    },
-    {
-      "repository": "grok-gadgets-gateway",
-      "local_id": "HARD-GW-001",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets-gateway/planning/issues.json",
-      "record": {
-        "id": "HARD-GW-001",
-        "repository": "grok-gadgets-gateway",
-        "owner": "grok-gadgets-gateway",
-        "problem": "Route simulator commands by command capability",
-        "intended_behaviour": "Route simulator commands by command capability",
-        "acceptance": [
-          "Invalid capability and RGB requests cannot mutate LED",
-          "Negative actual MCP coverage",
-          "Custom SDK capabilities remain valid"
-        ],
-        "dependencies": [
-          "HARD-001"
-        ],
-        "labels": [
-          "bug",
-          "gateway",
-          "P1",
-          "help wanted"
-        ],
-        "milestone": "MH",
-        "stage": "done",
-        "commits": [
-          "4bb6d87"
-        ],
-        "evidence": [
-          "Starting 4cf42ff: button and state both executed and replaced RGB with 1,2,3,true.",
-          "17 pytest tests pass, Ruff passes, hub scripts/check.py passes; official MCP ClientSession rejects button/state/unknown and four malformed RGB forms without state mutation. See docs/verification/hardening.md."
-        ],
-        "blocker": null
-      }
-    },
-    {
-      "repository": "grok-gadgets-gateway",
-      "local_id": "HARD-GW-002",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets-gateway/planning/issues.json",
-      "record": {
-        "id": "HARD-GW-002",
-        "repository": "grok-gadgets-gateway",
-        "owner": "grok-gadgets-gateway",
-        "problem": "Isolate bounded event duplicate windows per device and boot",
-        "intended_behaviour": "Isolate bounded event duplicate windows per device and boot",
-        "acceptance": [
-          "Busy device cannot evict another window",
-          "256-boundary,content conflicts,lifecycle and stale sessions covered",
-          "Device/boot/history bookkeeping bounded"
-        ],
-        "dependencies": [
-          "HARD-001"
-        ],
-        "labels": [
-          "bug",
-          "protocol",
-          "P2",
-          "help wanted"
-        ],
-        "milestone": "MH",
-        "stage": "done",
-        "commits": [
-          "85548ea"
-        ],
-        "evidence": [
-          "Starting 4cf42ff: A retry accepted as new after B256 (sequence258).",
-          "21 pytest tests, Ruff and hub check pass; current-boot windows bounded64x256; direct lifecycle and actual MCP plus two authenticated devices verify no sequence/history increment on A retry. See docs/verification/hardening.md."
-        ],
-        "blocker": null
-      }
-    },
-    {
-      "repository": "grok-gadgets-gateway",
-      "local_id": "SIM-GW-001",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets-gateway/planning/issues.json",
-      "record": {
-        "id": "SIM-GW-001",
-        "repository": "grok-gadgets-gateway",
-        "owner": "grok-gadgets-gateway",
-        "problem": "Configurable installable Grok Gadgets software simulator",
-        "acceptance": [
-          "Strict packaged v1 config and schema; bounded settings with no executable/network/credential fields",
-          "Explicit simulator-config CLI flag, separate test controls",
-          "Actual official MCP client verifies identity, state, delay, offline startup and reconnect",
-          "Installed wheel loads configuration resources and passes simulator acceptance"
-        ],
-        "dependencies": [
-          "GW-003"
-        ],
-        "labels": [
-          "feature",
-          "simulator",
-          "gateway",
-          "P1"
-        ],
-        "milestone": "M2",
-        "stage": "done",
-        "commits": [
-          "d330131"
-        ],
-        "evidence": [
-          "73 gateway pytest tests and Ruff pass; hub scripts/check.py passes.",
-          "52 simulator config tests pass against a freshly installed wheel from /tmp, including real official MCP subprocess identity/name/state/150ms delay/offline/reconnect checks; packaged default/schema resources present; installed default MCP demo passes.",
-          "See docs/verification/simulator-config.md. Physical C124 and actual Grok Bot verification remain blocked under GW-004."
-        ],
-        "blocker": null
-      }
-    },
-    {
-      "repository": "grok-gadgets-home-assistant",
-      "local_id": "HA-001",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets-home-assistant/planning/issues.json",
-      "record": {
-        "id": "HA-001",
-        "owner": "grok-gadgets-home-assistant",
-        "problem": "Establish contribution foundation",
-        "acceptance": [
-          "Apache-2.0 and contribution/setup commands"
-        ],
-        "dependencies": [],
-        "labels": [
-          "maintenance",
-          "home-assistant",
-          "P1"
-        ],
-        "milestone": "M0",
-        "stage": "done",
-        "commits": [
-          "46b63cd"
-        ],
-        "evidence": "Foundation files reviewed; publication inactive"
-      }
-    },
-    {
-      "repository": "grok-gadgets-home-assistant",
-      "local_id": "HA-002",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets-home-assistant/planning/issues.json",
-      "record": {
-        "id": "HA-002",
-        "owner": "grok-gadgets-home-assistant",
-        "problem": "Choose upstream reuse and investigate Grok route",
-        "acceptance": [
-          "Official source/date/route/auth/hosting/mobile/events recorded"
-        ],
-        "dependencies": [],
-        "labels": [
-          "research",
-          "home-assistant",
-          "P0"
-        ],
-        "milestone": "M1",
-        "stage": "done",
-        "commits": [
-          "7f175c0"
-        ],
-        "evidence": "Official sources/date reviewed; all account/runtime gates explicitly open"
-      }
-    },
-    {
-      "repository": "grok-gadgets-home-assistant",
-      "local_id": "HA-003",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets-home-assistant/planning/issues.json",
-      "record": {
-        "id": "HA-003",
-        "owner": "grok-gadgets-home-assistant",
-        "problem": "Provide read-only compatibility diagnostics",
-        "acceptance": [
-          "Fixture and mock endpoint tests",
-          "No tool execution",
-          "Redacted output"
-        ],
-        "dependencies": [
-          "HA-002"
-        ],
-        "labels": [
-          "feature",
-          "home-assistant",
-          "P1"
-        ],
-        "milestone": "M6",
-        "stage": "done",
-        "commits": [
-          "d40882d"
-        ],
-        "evidence": "13 unittest checks, including official SDK against loopback HTTP fixture endpoint; lint/format/package and clean wheel installation passed 2026-10-04. No real HA/Grok."
-      }
-    },
-    {
-      "repository": "grok-gadgets-home-assistant",
-      "local_id": "HA-004",
-      "github_number": null,
-      "stage": "blocked",
-      "source": "grok-gadgets-home-assistant/planning/issues.json",
-      "record": {
-        "id": "HA-004",
-        "owner": "grok-gadgets-home-assistant",
-        "problem": "Verify actual Grok and selected home entities",
-        "acceptance": [
-          "Actual Bot discovery and safe light/state checks",
-          "Desktop/mobile versions and physical observations recorded"
-        ],
-        "dependencies": [
-          "HA-003",
-          "Grok account access",
-          "authorized reachable endpoint",
-          "real Home Assistant"
-        ],
-        "labels": [
-          "home-assistant",
-          "P1",
-          "help wanted",
-          "needs hardware"
-        ],
-        "milestone": "M6",
-        "stage": "blocked",
-        "commits": [],
-        "evidence": "No account/home/hardware access"
-      }
-    },
-    {
-      "repository": "grok-gadgets-linux-sdk",
-      "local_id": "LIN-001",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets-linux-sdk/planning/issues.json",
-      "record": {
-        "id": "LIN-001",
-        "owner": "grok-gadgets-linux-sdk",
-        "problem": "Independent contribution foundation",
-        "acceptance": [
-          "License and developer instructions"
-        ],
-        "dependencies": [],
-        "labels": [
-          "maintenance",
-          "linux",
-          "P1"
-        ],
-        "milestone": "M0",
-        "stage": "done",
-        "commits": [
-          "ec228ec"
-        ],
-        "evidence": "Foundation review"
-      }
-    },
-    {
-      "repository": "grok-gadgets-linux-sdk",
-      "local_id": "LIN-002",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets-linux-sdk/planning/issues.json",
-      "record": {
-        "id": "LIN-002",
-        "owner": "grok-gadgets-linux-sdk",
-        "problem": "Reusable capability registry and pinned contracts",
-        "acceptance": [
-          "Custom handlers/state/events without gateway edits",
-          "Strict validation and boot-local dedup"
-        ],
-        "dependencies": [
-          "gateway protocol 0.1.0"
-        ],
-        "labels": [
-          "feature",
-          "linux",
-          "protocol",
-          "P1"
-        ],
-        "milestone": "M3",
-        "stage": "done",
-        "commits": [
-          "937e1c3"
-        ],
-        "evidence": "8 macOS unit tests plus pinned SHA256 contract loading; actual Linux pending"
-      }
-    },
-    {
-      "repository": "grok-gadgets-linux-sdk",
-      "local_id": "LIN-003",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets-linux-sdk/planning/issues.json",
-      "record": {
-        "id": "LIN-003",
-        "owner": "grok-gadgets-linux-sdk",
-        "problem": "Agent and real gateway transport integration",
-        "acceptance": [
-          "Authenticated loopback registration/poll/ack/events",
-          "Capped reconnect and safe retry"
-        ],
-        "dependencies": [
-          "LIN-002",
-          "gateway TCP service"
-        ],
-        "labels": [
-          "feature",
-          "linux",
-          "P1"
-        ],
-        "milestone": "M3",
-        "stage": "done",
-        "commits": [
-          "4df75b2"
-        ],
-        "evidence": "15 tests on macOS and Linux-aarch64 Docker incl installed CLI + real gateway4cf42ff TCP; pinned Python digest and exact runtime in docs/verification.md"
-      }
-    },
-    {
-      "repository": "grok-gadgets-linux-sdk",
-      "local_id": "LIN-004",
-      "github_number": null,
-      "stage": "blocked",
-      "source": "grok-gadgets-linux-sdk/planning/issues.json",
-      "record": {
-        "id": "LIN-004",
-        "owner": "grok-gadgets-linux-sdk",
-        "problem": "Linux runtime and physical peripheral evidence",
-        "acceptance": [
-          "Example run on real Linux",
-          "Observed peripheral behavior"
-        ],
-        "dependencies": [
-          "selected authorized peripheral",
-          "Linux service lifecycle",
-          "independent tester"
-        ],
-        "labels": [
-          "linux",
-          "help wanted",
-          "needs hardware",
-          "P1"
-        ],
-        "milestone": "M8",
-        "stage": "blocked",
-        "commits": [],
-        "evidence": "Linux aarch64 Docker kernel6.10.14-linuxkit CPython3.11.17 wheel acceptance passed; physical peripherals and systemd remain pending"
-      }
-    },
-    {
-      "repository": "grok-gadgets-linux-sdk",
-      "local_id": "HARD-LIN-001",
-      "github_number": null,
-      "stage": "done",
-      "source": "grok-gadgets-linux-sdk/planning/issues.json",
-      "record": {
-        "id": "HARD-LIN-001",
-        "repository": "grok-gadgets-linux-sdk",
-        "owner": "grok-gadgets-linux-sdk",
-        "problem": "Make documented custom gadget installation work",
-        "intended_behaviour": "Make documented custom gadget installation work",
-        "acceptance": [
-          "Clean installed wheel custom factory registers,executes,reports state",
-          "No implicit PYTHONPATH or editable import",
-          "macOS and actual Linux acceptance and safe errors"
-        ],
-        "dependencies": [
-          "HARD-001"
-        ],
-        "labels": [
-          "bug",
-          "linux",
-          "P1",
-          "help wanted"
-        ],
-        "milestone": "MH",
-        "stage": "done",
-        "commits": [
-          "beb69c1ff38236adeb570c213d036fd225f8d41e",
-          "89478e51488764dd1d28618d7028973e5546e4a6"
-        ],
-        "evidence": [
-          "docs/verification/hardening.md",
-          "18 full macOS tests passed; clean implementation wheel custom display.set onboarding passed macOS and actual pinned Linux; installed safe factory tests passed both platforms (13 passed, 5 optional source-gateway cases skipped)",
-          "Independent Astra review reopened: annotated stdlib dataclass factory fails because defining module absent from sys.modules; correction and fresh installed acceptance pending",
-          "Review correction89478e5:20 full macOS tests; fresh installed docs+annotated dataclass factories register/execute/report on macOS and actual pinned Linux;15 installed tests pass+5 optional source-gateway skips on both; module rollback/unique repeated loads covered"
-        ],
-        "blocker": null
-      }
+      },
+      "stage": "ready",
+      "source_present": true,
+      "source": "grok-gadgets/planning/issues.json",
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/WEB-COPY-001 -->\n\nLocal ID: `WEB-COPY-001`\n\nStatus: **ready**\n\nCopy documentation commands with accessible feedback\n\n### Acceptance\n\n- Exact starting behavior, bounded criteria and focused commands in docs/contributing/ready-issues.md\n- Document observed results without hardware or Grok claims\n\n### Evidence\n\n- docs/contributing/ready-issues.md\n"
     }
-  ]
+  ],
+  "format_version": 2,
+  "mode": "local dry-run",
+  "labels": [
+    {
+      "name": "bug",
+      "color": "537A5A",
+      "description": "Reproducible incorrect behavior"
+    },
+    {
+      "name": "feature",
+      "color": "537A5A",
+      "description": "New capability with bounded scope"
+    },
+    {
+      "name": "docs",
+      "color": "537A5A",
+      "description": "Documentation and onboarding"
+    },
+    {
+      "name": "research",
+      "color": "537A5A",
+      "description": "Evidence or feasibility investigation"
+    },
+    {
+      "name": "maintenance",
+      "color": "537A5A",
+      "description": "Build, dependencies and repository upkeep"
+    },
+    {
+      "name": "protocol",
+      "color": "7B8CDE",
+      "description": "Versioned device contracts"
+    },
+    {
+      "name": "gateway",
+      "color": "7B8CDE",
+      "description": "MCP and transport routing"
+    },
+    {
+      "name": "linux",
+      "color": "7B8CDE",
+      "description": "Linux SDK and agent"
+    },
+    {
+      "name": "esp32",
+      "color": "7B8CDE",
+      "description": "ESP32 SDK and firmware"
+    },
+    {
+      "name": "home-assistant",
+      "color": "7B8CDE",
+      "description": "Upstream Home Assistant compatibility"
+    },
+    {
+      "name": "website",
+      "color": "7B8CDE",
+      "description": "Website and public docs"
+    },
+    {
+      "name": "community",
+      "color": "7B8CDE",
+      "description": "Community policy and tooling"
+    },
+    {
+      "name": "P0",
+      "color": "B86E56",
+      "description": "Urgent confirmed impact"
+    },
+    {
+      "name": "P1",
+      "color": "B86E56",
+      "description": "Release or important feature"
+    },
+    {
+      "name": "P2",
+      "color": "B86E56",
+      "description": "Normal improvement"
+    },
+    {
+      "name": "good first issue",
+      "color": "C6AC45",
+      "description": "Bounded software work suitable for a newcomer"
+    },
+    {
+      "name": "help wanted",
+      "color": "C6AC45",
+      "description": "Contributor assistance welcome"
+    },
+    {
+      "name": "needs hardware",
+      "color": "C6AC45",
+      "description": "Requires the specified physical device"
+    },
+    {
+      "name": "integration",
+      "color": "7B8CDE",
+      "description": "Cross-repository acceptance"
+    },
+    {
+      "name": "simulator",
+      "color": "7B8CDE",
+      "description": "Software-only simulated devices"
+    },
+    {
+      "name": "blocked",
+      "color": "B86E56",
+      "description": "Concrete dependency documented in the issue"
+    }
+  ],
+  "milestones": [
+    {
+      "id": "M0",
+      "title": "Foundations",
+      "stage": "done",
+      "scope": "Local deliverables only; external activation and physical/account gates remain separate"
+    },
+    {
+      "id": "M1",
+      "title": "Feasibility and protocol",
+      "stage": "done",
+      "scope": "Local deliverables only; external activation and physical/account gates remain separate"
+    },
+    {
+      "id": "M2",
+      "title": "Gateway and simulator",
+      "stage": "done",
+      "scope": "Local deliverables only; external activation and physical/account gates remain separate"
+    },
+    {
+      "id": "M3",
+      "title": "Linux SDK",
+      "stage": "done",
+      "scope": "Local deliverables only; external activation and physical/account gates remain separate"
+    },
+    {
+      "id": "M4",
+      "title": "ESP32 SDK",
+      "stage": "done",
+      "scope": "Local deliverables only; external activation and physical/account gates remain separate"
+    },
+    {
+      "id": "M5",
+      "title": "Actual Grok",
+      "stage": "blocked",
+      "scope": "Dedicated Grok computer kit/config installation observed; native exact-kit invocation evidence and scoped reload remain blocked. Physical/local-device and mobile routes separate."
+    },
+    {
+      "id": "M6",
+      "title": "Home Assistant",
+      "stage": "done",
+      "scope": "Local deliverables only; external activation and physical/account gates remain separate"
+    },
+    {
+      "id": "M7",
+      "title": "Website and community",
+      "stage": "done",
+      "scope": "Local website, component directory and configurable browser playground verified; external activation separate"
+    },
+    {
+      "id": "M8",
+      "title": "Physical and independent verification",
+      "stage": "blocked",
+      "scope": "Local deliverables only; external activation and physical/account gates remain separate"
+    },
+    {
+      "id": "M9",
+      "title": "Publication preparation",
+      "stage": "done",
+      "scope": "Local publication package and source-pinned tested simulator download prepared; public CI refresh triggers and deployment require approval"
+    },
+    {
+      "id": "MH",
+      "title": "Audit corrections and local release readiness",
+      "stage": "done",
+      "scope": "H0\u2013H7 required local acceptance; external activation excluded"
+    },
+    {
+      "id": "ML",
+      "title": "Public alpha launch preparation",
+      "stage": "in progress",
+      "scope": "L0\u2013L7 local preparation and G1 authorized cloud simulation; GitHub/Pages activation excluded"
+    },
+    {
+      "id": "INDEPENDENT-SOFTWARE",
+      "title": "First independent software setup",
+      "exit": "Another person reproduces the software setup; ready documentation and usability tasks support this milestone",
+      "stage": "ready",
+      "description": "Another human reproduces simulator and contributor setup"
+    },
+    {
+      "id": "PUBLIC-ALPHA",
+      "title": "Public alpha launch",
+      "description": "Approved public docs, checks, issues, prereleases, support and website verified"
+    },
+    {
+      "id": "GROK-CONNECTION",
+      "title": "Verified Grok connection",
+      "description": "Inspectable native invocation evidence for exact supported route"
+    },
+    {
+      "id": "PHYSICAL-C124",
+      "title": "First physical C124 build",
+      "description": "Flash, LED, button, lifecycle and physical observations recorded"
+    },
+    {
+      "id": "REAL-HOSTS",
+      "title": "Real Linux and Home Assistant",
+      "description": "Selected systemd/peripheral/home paths verified"
+    },
+    {
+      "id": "REMOTE-PROVISIONING",
+      "title": "Remote connection and provisioning",
+      "description": "Authenticated HTTPS/OAuth/provisioning design and implementation reviewed"
+    }
+  ],
+  "validation": {
+    "ready": true,
+    "errors": []
+  },
+  "prepared_at_utc": "2026-10-04T21:12:42.994068+00:00"
 }

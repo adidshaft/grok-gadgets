@@ -17,7 +17,9 @@
     "issue": "LAUNCH-META-001",
     "stage": "done",
     "owner": "coordinator",
-    "commits": [],
+    "commits": [
+      "f1cff58"
+    ],
     "evidence": [
       "publication/repositories.json",
       "publication/project.json",
@@ -29,62 +31,86 @@
   {
     "id": "L2",
     "issue": "LAUNCH-DOCS-001",
-    "stage": "in progress",
+    "stage": "done",
     "owner": "coordinator",
-    "commits": [],
+    "commits": [
+      "e1a9948",
+      "4ae0072"
+    ],
     "evidence": [
-      "docs/verification/launch-journal.md"
+      "README.md",
+      "CONTRIBUTING.md",
+      "compatibility/documentation-sources.json",
+      "docs/public/support-matrix.md"
     ],
     "blockers": []
   },
   {
     "id": "L3",
     "issue": "LAUNCH-VIS-001",
-    "stage": "in progress",
+    "stage": "done",
     "owner": "coordinator",
-    "commits": [],
+    "commits": [
+      "e1a9948"
+    ],
     "evidence": [
-      "docs/verification/launch-journal.md"
+      "docs/visuals/README.md",
+      "website/documents.json"
     ],
     "blockers": []
   },
   {
     "id": "L4",
     "issue": "LAUNCH-ISSUES-001",
-    "stage": "in progress",
+    "stage": "done",
     "owner": "coordinator",
-    "commits": [],
+    "commits": [
+      "8b362f7",
+      "e063a38"
+    ],
     "evidence": [
-      "docs/verification/launch-journal.md"
+      "publication/migration-guide.md",
+      "scripts/test_issue_migration.py",
+      "docs/contributing/ready-issues.md",
+      ".github/ISSUE_TEMPLATE"
     ],
     "blockers": []
   },
   {
     "id": "L5",
     "issue": "LAUNCH-CI-001",
-    "stage": "in progress",
+    "stage": "done",
     "owner": "coordinator",
-    "commits": [],
+    "commits": [
+      "e063a38",
+      "f4ad5f9"
+    ],
     "evidence": [
-      "docs/verification/launch-journal.md"
+      "publication/activation-guide.md",
+      "publication/expected-checks.json",
+      "docs/verification/download-build-policy.md",
+      "scripts/test_launch.py"
     ],
     "blockers": []
   },
   {
     "id": "L6",
     "issue": "LAUNCH-PUBLIC-001",
-    "stage": "ready",
+    "stage": "done",
     "owner": "coordinator",
-    "commits": [],
+    "commits": [
+      "3bb66cc"
+    ],
     "evidence": [
-      "docs/verification/launch-journal.md"
+      "publication/history-and-assets-review.md",
+      "scripts/test_audit_launch.py"
     ],
     "blockers": []
   },
   {
     "id": "L7",
     "issue": "LAUNCH-CANDIDATE-001",
-    "stage": "ready",
+    "stage": "in progress",
     "owner": "coordinator",
     "commits": [],
     "evidence": [
@@ -95,12 +121,16 @@
   {
     "id": "G1",
     "issue": "LAUNCH-GROK-001",
-    "stage": "in progress",
+    "stage": "blocked",
     "owner": "coordinator",
-    "commits": [],
-    "evidence": [
-      "docs/verification/launch-journal.md"
+    "commits": [
+      "3bb66cc"
     ],
-    "blockers": []
+    "evidence": [
+      "docs/verification/grok-launch-evidence.md"
+    ],
+    "blockers": [
+      "Exact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors."
+    ]
   }
 ]

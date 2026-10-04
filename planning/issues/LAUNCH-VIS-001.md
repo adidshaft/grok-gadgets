@@ -2,7 +2,7 @@
 
 Owner: grok-gadgets
 
-Stage: ready · ML
+Stage: done · ML
 
 Labels: maintenance, website, P1
 
@@ -16,10 +16,11 @@ Acceptance:
 
 Dependencies: LAUNCH-001
 
-Commits: Pending
+Commits: e1a9948
 
 Evidence:
 
-- docs/verification/launch-journal.md
+- docs/visuals/README.md
+- website/documents.json
 
 Blocker: None

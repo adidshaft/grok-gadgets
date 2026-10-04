@@ -17,10 +17,11 @@ Acceptance:
 
 Dependencies: HUB-GW-001
 
-Commits: d2bda94, fa062a1
+Commits: d2bda94, fa062a1, 7ac61fd, f4ad5f9
 
 Evidence:
 
 - docs/verification/simulator-playground.md
+- docs/verification/download-build-policy.md
 
 Blocker: None
