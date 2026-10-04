@@ -1,4 +1,4 @@
-:root { --paper:#fff; --ink:#111; --muted:#707070; --line:#e6e6e6; --accent:#121212; }
+:root { --paper:#fff; --ink:#111; --muted:#626262; --line:#e6e6e6; --accent:#121212; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; background:var(--paper); color:var(--ink); font-family:"Helvetica Neue",Helvetica,sans-serif; font-size:17px; line-height:1.55; -webkit-font-smoothing:antialiased; }
@@ -135,3 +135,8 @@ article.document{max-width:900px;font-size:17px;line-height:1.7;}
 @media(max-width:760px){article.document{font-size:16px;}.document pre{font-size:12px;padding:15px;}.document h2{font-size:26px;}}
 .document{overflow-wrap:anywhere;min-width:0;}
 .document :not(pre)>code{white-space:normal;overflow-wrap:anywhere;}
+
+.header-contribute{margin-left:auto;margin-right:28px;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;min-height:44px;}
+.site-footer{font-size:13px;}.home-page .site-footer{padding-inline:12px;}
+.documentation-index a{min-height:48px;}
+@media(max-width:700px){.header-contribute{font-size:12px;margin-right:12px;}.identity{font-size:17px;}.site-header{gap:8px;}.site-footer{font-size:12px;}}

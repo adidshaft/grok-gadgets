@@ -1,26 +1,23 @@
 # Grok Gadgets
 
-Independent, Apache-2.0 gadgets exclusively for the existing Grok Bot. **Unpublished local alpha**: simulator/MCP acceptance, separately useful Linux and ESP32 SDKs, C124 firmware compilation, Home Assistant integration diagnostics, website and community preparation.
+Open-source tools and separate SDKs for connecting devices to Grok. Start with a virtual light, then build with Linux, ESP32 or Home Assistant.
 
-Actual Grok connectivity, mobile clients and physical hardware remain unverified. The target is M5Stack AtomS3 Lite C124 with a USB-C data cable. Linux SDK software passed on actual Linux Docker; that does not verify physical peripherals or systemd.
+**Experimental alpha, not yet published.** Browser simulation and local MCP are tested. C124 firmware compiles. Inspectable native Grok invocation, mobile and physical-device acceptance remain open.
 
-Five sibling repositories: this project hub, [gateway](../grok-gadgets-gateway/README.md), [Linux SDK](../grok-gadgets-linux-sdk/README.md), [ESP32 SDK](../grok-gadgets-esp32-sdk/README.md), [Home Assistant](../grok-gadgets-home-assistant/README.md).
+![Browser simulation exports a configuration for the tested MCP simulator; SDK and native Grok paths have separate evidence gates.](docs/visuals/project-overview.svg)
 
-Create the pinned hub environment as described below, then run the local acceptance suite:
+| Your next step | Start here |
+| --- | --- |
+| Try without hardware | [Browser and simulator kit](docs/getting-started/simulator-kit.md) |
+| Develop a connection | [Gateway](https://github.com/adidshaft/grok-gadgets-gateway) |
+| Build a Linux application | [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk) |
+| Compile C124 firmware | [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk) |
+| Explore an existing home | [Home Assistant diagnostics](https://github.com/adidshaft/grok-gadgets-home-assistant) |
+| Help improve the alpha | [Ready issues](docs/contributing/ready-issues.md) and [contribution guide](CONTRIBUTING.md) |
 
-```sh
-.venv/bin/python scripts/check-all.py
-```
+GitHub URLs and [the project website](https://adidshaft.github.io/grok-gadgets/) are planned destinations until activation. The five repositories currently exist as local sibling checkouts; no public launch is claimed.
 
-Run the simulator demo:
-
-```sh
-cd ../grok-gadgets-gateway
-uv sync --locked
-uv run python -m grok_gadgets_gateway.demo
-```
-
-Website from the hub (create its pinned environment first):
+From this hub checkout, with Python 3.13, uv, Node.js 22+ and Git:
 
 ```sh
 uv venv .venv --python 3.13
@@ -29,8 +26,18 @@ uv pip install --python .venv/bin/python -r website/requirements.txt
 python3 -m http.server 4173 --bind 127.0.0.1 --directory website/dist
 ```
 
-Open http://127.0.0.1:4173. Developer lint: `uvx --from ruff==0.14.14 ruff check scripts website community`; formatting: replace check with `format --check`. No publication occurs.
+Open `http://127.0.0.1:4173/index.html#playground`. Change the virtual light, customize it and export `my-light.json`. Nothing in the browser calls Grok or controls hardware. The source checkout includes a verified downloadable kit; with a clean gateway sibling the build refreshes it when source or packaging inputs change, and runs source plus installed default/custom MCP checks before replacing it. A stale kit or failed verification blocks the new build. Keep the last good deployed site until a replacement passes.
 
-[Corrected local handoff and external gates](docs/verification/hardening-handoff.md) · [compatibility](compatibility/tested-components.json) · [roadmap](planning/milestones.json) · [labeled issues](planning/issues.json) · [publication package](publication/README.md) · [commit histories](publication/commit-summary.md) · [implementation brief](docs/implementation-plan.md).
+Hardware and a Grok account are unnecessary for browser/local simulation. Kit installation requires Python 3.11+ and downloads hashed dependencies. A Grok experiment needs an existing Bot and a supported MCP connection in its execution environment; a cloud Bot cannot run a path that exists only on your Mac. Remote HTTPS/OAuth to local gadgets is unimplemented.
 
-Community policies/drafts and tested offline recognition logic are in [community](community/README.md). No live Reddit change or ongoing automation is active. No public repositories, push, deployment or paid calls were made. Independent project; no xAI affiliation implied.
+| Evidence | What it establishes |
+| --- | --- |
+| Gateway and configurable kit | Source and extracted-package MCP software acceptance |
+| Linux SDK | Software tests on macOS and Linux container; peripherals/systemd unverified |
+| ESP32 SDK | Host logic, simulated USB/PTY and C124 compilation; no flashing or physical observation |
+| Home Assistant | Fixture diagnostics and read-only client; no real home or Grok acceptance |
+| Website | Static build/link tests, browser interaction and responsive checks |
+
+Run standalone hub checks with `python3 scripts/check.py`, `node --test website/test_simulator.cjs`, and `.venv/bin/python -m unittest discover -s website`. With all four pinned siblings installed, `.venv/bin/python scripts/check-all.py` runs the fourteen integration groups. See [verification matrix](docs/public/support-matrix.md), [architecture](docs/architecture/overview.md), [roadmap](ROADMAP.md), [support](SUPPORT.md), [security](SECURITY.md), [governance](GOVERNANCE.md) and [community](community/README.md).
+
+Original code and vectors: [Apache-2.0](LICENSE), with [NOTICE](NOTICE) and [third-party notices](THIRD_PARTY_NOTICES.md). Independent community project, unaffiliated with xAI, M5Stack or Home Assistant. Working names retained; public branding review is deferred.

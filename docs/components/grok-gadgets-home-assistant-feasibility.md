@@ -1,8 +1,10 @@
-Source: grok-gadgets-home-assistant/docs/feasibility.md at a8b2370b7e82e136511b6299e1317eb80915d012
+Source: grok-gadgets-home-assistant/docs/feasibility.md at 3c8d8adba31918b051dbdbf2343f9fa6e26dedce
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
 # Feasibility record — 4 October 2026
+
+Historical documentation review. The current software first step and tested limits are in the [README](../README.md) and [verification](verification.md). This record is not a fresh platform or account test.
 
 Evidence: official documentation review only; no Grok account, HA installation, or phone was connected. Source dates below are publication/update dates where provided. Recheck at actual onboarding.
 

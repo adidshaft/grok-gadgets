@@ -1,11 +1,11 @@
 # Local release status
 
-Grok Gadgets is an unpublished local alpha exclusively for the existing Grok Bot. All six local audit corrections and independent agent source review pass. The unpublished local package passes independent agent certification. A dedicated Grok Bot reports successful cloud simulator commands, failures and reconnect. Inspectable native invocation evidence and physical verification remain pending.
+Grok Gadgets is an unpublished local alpha exclusively for the existing Grok Bot. All six local audit corrections and independent agent source review pass. The unpublished local package passes independent agent certification. A dedicated Grok Bot computer has the tested simulator kit and browser-exported configuration installed. Direct terminal observation confirms the configuration checksum and installed package version; this does not prove native Grok tool invocation. Inspectable native invocation evidence and physical verification remain pending.
 
 | Component | Local evidence | Still pending |
 | --- | --- | --- |
-| Gateway and simulator | Official MCP client, authenticated loopback and simulation tests | Native invocation evidence (Bot reports simulator success) |
-| Linux SDK | Installed-wheel software acceptance | Physical peripherals and systemd lifecycle |
+| Gateway and simulator | Official MCP client, authenticated loopback and simulation tests | Native invocation receipts and scoped connector reload |
+| Linux SDK | Installed-wheel acceptance on macOS and an isolated Linux container | Physical peripherals and systemd lifecycle |
 | ESP32 SDK / AtomS3 Lite C124 | Host consumer tests and ESP32-S3 compilation | Physical USB, LED/button and flashing |
 | Home Assistant | Fixtures and local MCP transport checks | Actual home installation and Grok |
 | Website and community | Static site, fixtures and offline recognition | Publication and community activation |

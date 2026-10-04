@@ -46,7 +46,7 @@ The firmware was not reflashed, hardware was not exercised, and live Grok accoun
 
 Recorded corrected playground, from the build-verification evidence inspected during this audit:
 
-![The simulator export panel directs users to save my-light.json and preserve the bundled default.](grok-gadgets-simulator-export-evidence.png)
+The historical audit referenced an export screenshot outside this checkout. A fresh, actual browser screenshot is now recorded in [visual sources](visuals/README.md); it does not substitute for native Grok invocation evidence.
 
 This screenshot documents software simulation and the corrected instructions; it is not proof of a Grok session or physical device.
 

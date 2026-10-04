@@ -1,9 +1,9 @@
 # Grok Gadgets — audit corrections and local release readiness
 
-**Prepared:** 4 October 2026  
-**Status:** Continuation plan; none of these corrections has been implemented by the planning chat.  
-**Execution:** A separate Codex chat using the accompanying `/goal` prompt.  
-**Workspace:** `/path/to/grok-gadgets` and its four existing sibling repositories.  
+**Prepared:** 4 October 2026
+**Status:** Continuation plan; none of these corrections has been implemented by the planning chat.
+**Execution:** A separate Codex chat using the accompanying `/goal` prompt.
+**Workspace:** `<workspace>/grok-gadgets` and its four existing sibling repositories.
 **Outcome:** Correct the six audited problems, demonstrate the corrected behavior, preserve incremental history, and deliver an accurately documented local alpha candidate.
 
 This plan extends `docs/implementation-plan.md`; it does not replace the product direction or restart the project. Read the original plan and applicable `AGENTS.md` files before implementing. The original handoff's statement that the local alpha is complete predates the findings below and must be qualified during this work.
@@ -31,7 +31,7 @@ Account, physical hardware, independent human testing, and public activation are
 
 At the audit, all eleven existing groups in `python3 scripts/check-all.py` passed. The five repositories contained 29 commits, and all seventeen publication files matched their recorded checksums. Additional focused probes nevertheless found the six problems in Section 3. Test counts and hashes below describe that historical snapshot, not a guarantee about the next chat's starting state.
 
-| Repository under `/path/to/user/projects` | Audited HEAD | Ownership |
+| Repository under `<workspace>` | Audited HEAD | Ownership |
 | --- | --- | --- |
 | `grok-gadgets` | `06a617e490992d597c1b46ce9adf2390e19a713f` | Coordinator, issues, cross-repository acceptance, website, community, publication preparation |
 | `grok-gadgets-gateway` | `4cf42fffa32afa2e5ad022e3fa4797f474ba10a9` | Canonical protocol, gateway, simulator, MCP and device transports |
@@ -51,7 +51,7 @@ Use the proposed IDs below if they are unused; otherwise allocate stable alterna
 
 ### HARD-ESP-001 — preserve acknowledgements across repeated retries
 
-**Repository:** ESP32 SDK. **Priority:** P1.  
+**Repository:** ESP32 SDK. **Priority:** P1.
 **Starting location:** `lib/GrokGadgets/src/GrokGadgets.h`, around line 59; `tests/device_tests.cpp`, around line 42.
 
 `Device::execute` deserializes a cached acknowledgement from a mutable `char[]`. The installed ArduinoJson parser modifies that buffer. The original command and first retry return a valid acknowledgement; subsequent retries return JSON `true` in the focused host reproduction. The handler still executes once, but the transport response is invalid. Existing tests exercise only one retry.
@@ -78,7 +78,7 @@ Acceptance:
 
 ### HARD-GW-001 — route simulator commands by capability
 
-**Repository:** Gateway. **Priority:** P1.  
+**Repository:** Gateway. **Priority:** P1.
 **Starting location:** `src/grok_gadgets_gateway/simulator.py`, around lines 38–49; `domain.py`, around lines 103–107 and 145.
 
 The simulator declares `rgb.set`, `button`, and `state`. Its execution loop treats any delivered command as an RGB command. A `button` command carrying RGB-shaped arguments changes the simulated LED and returns `executed`. Discovery also exposes event/state capabilities as though they were command contracts.
@@ -103,7 +103,7 @@ Acceptance:
 
 ### HARD-GW-002 — isolate event duplicate windows by device and boot
 
-**Repository:** Gateway. **Priority:** P2.  
+**Repository:** Gateway. **Priority:** P2.
 **Starting location:** `src/grok_gadgets_gateway/domain.py`, around lines 254–272; `protocol/0.1.0/README.md`, around line 11.
 
 The contract promises a retained duplicate window of 256 event identifiers per device/boot. The implementation uses a single global cache of 256 entries. In the reproduced case, device A sends an event, device B sends 256 events, and retrying A's original event is accepted as a new event.
@@ -122,7 +122,7 @@ Acceptance:
 
 ### HARD-LIN-001 — make the documented custom-gadget path work
 
-**Repository:** Linux SDK. **Priority:** P1.  
+**Repository:** Linux SDK. **Priority:** P1.
 **Starting location:** `docs/development.md`, around line 26; `src/grok_gadgets_linux/cli.py`, around line 29.
 
 The guide tells a developer to create `my_gadget.py` and run `uv run grok-linux-agent --factory my_gadget:create`. The installed console entry point does not automatically make that working directory importable. A focused isolated-directory check failed before the factory ran; adding that directory explicitly to `PYTHONPATH` reached the factory. The root audit completed that control check.
@@ -140,7 +140,7 @@ Acceptance:
 
 ### HARD-WEB-001 — persist accurate activity states after refresh failure
 
-**Repository:** Hub website. **Priority:** P2.  
+**Repository:** Hub website. **Priority:** P2.
 **Starting location:** `website/activity.py`, around lines 119–152; `website/test_activity.py`.
 
 On a refresh error, `refresh()` returns a `cached` or `unavailable` result before writing it to the cache. A subsequent website build consuming that file can still read its old `live` state. The audit confirmed `returned state=cached` while the saved file remained `live`.
@@ -156,7 +156,7 @@ Acceptance:
 
 ### HARD-WEB-002 — render documentation as a usable website
 
-**Repository:** Hub website. **Priority:** P2.  
+**Repository:** Hub website. **Priority:** P2.
 **Starting location:** `website/build.py`, around lines 219–249; component-document import logic and the source manifest.
 
 Canonical Markdown currently appears inside a single escaped `<pre>` block. Its links, tables, headings and diagrams are displayed as source text. The generated ESP32 README page had zero links inside its main content even though its source points users to additional instructions.
@@ -422,10 +422,10 @@ Do not claim that Grok controls hardware merely because every local stage has pa
 
 ## 13. Compact goal prompt
 
-Paste the following into a new Codex chat attached to `/path/to/grok-gadgets`:
+Paste the following into a new Codex chat attached to `<workspace>/grok-gadgets`:
 
 ```text
-/goal Complete the Grok Gadgets local correction cycle using /path/to/planning/2026-10-04/https-gadgets-muse-ai-https-gadgets/outputs/grok-gadgets-hardening-plan.md. Read it fully, the original docs/implementation-plan.md and each repository's AGENTS.md, then execute H0–H7 across the five existing repositories. Fix all six audit findings, add meaningful regressions, verify clean installation and cross-repository behavior, rebuild affected firmware/packages/site, obtain independent review, and refresh the local release candidate.
+/goal Complete the Grok Gadgets local correction cycle using docs/hardening-plan.md. Read it fully, the original docs/implementation-plan.md and each repository's AGENTS.md, then execute H0–H7 across the five existing repositories. Fix all six audit findings, add meaningful regressions, verify clean installation and cross-repository behavior, rebuild affected firmware/packages/site, obtain independent review, and refresh the local release candidate.
 
 Keep working across goal turns until the required local acceptance is met; do not stop at a plan or the first passing suite. Use bounded subagents with the plan's approved models. Commit every coherent tested increment on short-lived branches, preserve history, update labeled local issues, and maintain the stage tracker, execution journal and resumable checkpoint throughout. Before accepting each next commit, run checks protecting previous work. Record failures and decisions as well as successes.
 

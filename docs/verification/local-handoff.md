@@ -8,11 +8,11 @@ Historical local-alpha completion predates six audit findings. The correction cy
 
 | Repository | Tested implementation commit | Observed evidence |
 | --- | --- | --- |
-| `/path/to/grok-gadgets` | `72c9d6ed` | Hub checks,48-page link build,3activity tests,6recognition tests,desktop/narrow/keyboard/motion review |
-| `/path/to/grok-gadgets-gateway` | `4cf42fff` | 13 tests; official stdio MCP demo; authenticated TCP/USB PTY |
-| `/path/to/grok-gadgets-linux-sdk` | `256a07e2` | 15 tests macOS and Linux installed wheel/CLI; actual gateway TCP |
-| `/path/to/grok-gadgets-esp32-sdk` | `585adda7` | 3 CTest suites; canonical frames; actual consumer PTY incl overflow/restart/revocation; ESP32-S3 compile |
-| `/path/to/grok-gadgets-home-assistant` | `a8b2370b` | 13tests incl loopback HTTP official MCP client; clean wheel; no actions |
+| `<workspace>/grok-gadgets` | `72c9d6ed` | Hub checks,48-page link build,3activity tests,6recognition tests,desktop/narrow/keyboard/motion review |
+| `<workspace>/grok-gadgets-gateway` | `4cf42fff` | 13 tests; official stdio MCP demo; authenticated TCP/USB PTY |
+| `<workspace>/grok-gadgets-linux-sdk` | `256a07e2` | 15 tests macOS and Linux installed wheel/CLI; actual gateway TCP |
+| `<workspace>/grok-gadgets-esp32-sdk` | `585adda7` | 3 CTest suites; canonical frames; actual consumer PTY incl overflow/restart/revocation; ESP32-S3 compile |
+| `<workspace>/grok-gadgets-home-assistant` | `a8b2370b` | 13tests incl loopback HTTP official MCP client; clean wheel; no actions |
 
 Full commit histories are in publication/commit-summary.md. All repositories have Apache-2.0 original code, contribution foundations, pinned toolchains/dependencies where needed, feature-branch commits and local issue records. Canonical shared policies live in hub. Component docs are pinned by commit/hash in compatibility/documentation-sources.json.
 
@@ -29,7 +29,7 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory website/dist
 Website: http://127.0.0.1:4173. Run gateway demo in another terminal:
 
 ```sh
-cd /path/to/grok-gadgets-gateway
+cd <workspace>/grok-gadgets-gateway
 uv sync --locked
 uv run python -m grok_gadgets_gateway.demo
 ```
@@ -42,7 +42,7 @@ Linux software example, service template and credential setup: sibling Linux REA
 
 Coordinator reran gateway13, Linux15, HA13 tests plus ESP3CTest, schema/frame and actual-consumer USB PTY integration, hub/activity/community/build checks. Retained check logs and machine results: artifacts/verification/. Linux Docker acceptance independently rerun by coordinator against installed wheel with no networking or published ports. Environment: aarch64 kernel6.10.14-linuxkit, CPython3.11.17 and pinned official image in compatibility manifest. This is container runtime evidence; physical peripherals and systemd host lifecycle remain pending.
 
-ESP32 cross-compilation passed: RAM54,628bytes, program flash276,113bytes. Final firmware binary276,480bytes, SHA256 `de12327c4fdc7ef6a728c5841a81d844257012d558c71ecd4fe331c6708af709`. Path: `/path/to/grok-gadgets-esp32-sdk/artifacts/c124-usb/firmware.bin`; ELF/bootloader/partition source provenance/checksums in manifest.json. Pins: RGBGPIO35; active-low buttonGPIO41. No electrical/USB-enumeration observation was made.
+ESP32 cross-compilation passed: RAM54,628bytes, program flash276,113bytes. Final firmware binary276,480bytes, SHA256 `de12327c4fdc7ef6a728c5841a81d844257012d558c71ecd4fe331c6708af709`. Path: `<workspace>/grok-gadgets-esp32-sdk/artifacts/c124-usb/firmware.bin`; ELF/bootloader/partition source provenance/checksums in manifest.json. Pins: RGBGPIO35; active-low buttonGPIO41. No electrical/USB-enumeration observation was made.
 
 Independent Astra review found an overflow reconnect loop, fixed in ESP74085a9. A20-edge host test reports16 ordered events and4lost, preserves session, then executes another command. Reviewer independently reran the integration and confirmed resolution. Explicit reduced motion now disables both animation and smooth scrolling. Screenshots: website-desktop.jpg, website-mobile.jpg.
 
