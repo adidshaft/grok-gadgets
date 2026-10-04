@@ -74,6 +74,24 @@ class KitTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "uncommitted"):
                 module.ensure_current(output)
 
+    def test_clean_source_advancing_during_verification_is_rejected(self):
+        module = self.builder()
+        commit = "a" * 40
+        record = {"gateway_commit": commit}
+        with (
+            patch.object(module, "run", side_effect=["", commit, "", "b" * 40]),
+            patch.object(module, "verify_download", return_value=record),
+        ):
+            with self.assertRaisesRegex(ValueError, "changed during verification"):
+                module.ensure_current(ROOT / "website/downloads", rebuild=False)
+        with (
+            patch.object(module, "inputs", side_effect=[{}, {"changed": "digest"}]),
+            patch.object(module, "run", side_effect=["", commit]),
+            patch.object(module, "verify_download", return_value=record),
+        ):
+            with self.assertRaisesRegex(ValueError, "inputs changed during"):
+                module.ensure_current(ROOT / "website/downloads", rebuild=False)
+
     def test_download_integrity_contents_and_tamper_detection(self):
         directory = ROOT / "website/downloads"
         record = json.loads((directory / "simulator-kit-manifest.json").read_text())

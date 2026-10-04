@@ -9,6 +9,7 @@ import shutil
 import subprocess
 import tempfile
 import zipfile
+import tomllib
 
 ROOT = Path(__file__).resolve().parents[1]
 GATEWAY = ROOT.parent / "grok-gadgets-gateway"
@@ -71,7 +72,13 @@ def verify_download(output, expected_commit=None):
             raise ValueError("Malformed simulator kit inner manifest")
         if any(
             manifest.get(key) != record.get(key)
-            for key in ["files", "gateway_commit", "build_inputs", "verification"]
+            for key in [
+                "files",
+                "gateway_commit",
+                "package_version",
+                "build_inputs",
+                "verification",
+            ]
         ):
             raise ValueError("Simulator kit inner provenance mismatch")
         expected_names = {prefix + entry["file"] for entry in record["files"]} | {
@@ -92,7 +99,23 @@ def verify_download(output, expected_commit=None):
     return record
 
 
+def assert_source_unchanged(commit, captured_inputs):
+    if inputs() != captured_inputs:
+        raise ValueError(
+            "Simulator kit inputs changed during verification; retry the build"
+        )
+    if (GATEWAY / ".git").exists():
+        if (
+            run(["git", "status", "--porcelain"], cwd=GATEWAY)
+            or run(["git", "rev-parse", "HEAD"], cwd=GATEWAY) != commit
+        ):
+            raise ValueError(
+                "Gateway source changed during verification; retry the build"
+            )
+
+
 def ensure_current(output, rebuild=True):
+    captured_inputs = inputs()
     if (GATEWAY / ".git").exists():
         if run(["git", "status", "--porcelain"], cwd=GATEWAY):
             raise ValueError(
@@ -109,17 +132,20 @@ def ensure_current(output, rebuild=True):
             if item["repository"] == "grok-gadgets-gateway"
         )
     try:
-        return verify_download(output, commit)
+        record = verify_download(output, commit)
     except (ValueError, OSError, KeyError, zipfile.BadZipFile):
         if not rebuild or not (GATEWAY / ".git").exists():
             raise ValueError(
                 "Current verified simulator kit unavailable; checkout the gateway and rebuild"
             ) from None
         build(output)
-        return verify_download(output, commit)
+        record = verify_download(output, commit)
+    assert_source_unchanged(commit, captured_inputs)
+    return record
 
 
 def build(output):
+    captured_inputs = inputs()
     if run(["git", "status", "--porcelain"], cwd=GATEWAY):
         raise ValueError(
             "Gateway must have a clean committed checkout before kit generation"
@@ -200,7 +226,10 @@ def build(output):
             "format_version": 1,
             "gateway_commit": commit,
             "gateway_commit_epoch": int(epoch),
-            "build_inputs": inputs(),
+            "package_version": tomllib.loads((source / "pyproject.toml").read_text())[
+                "project"
+            ]["version"],
+            "build_inputs": captured_inputs,
             "verification": {
                 "gateway_tests": "passed",
                 "installed_mcp_default": "passed",
@@ -282,6 +311,7 @@ def build(output):
                 info.compress_type = zipfile.ZIP_DEFLATED
                 info.external_attr = 0o100644 << 16
                 bundle.writestr(info, path.read_bytes())
+        assert_source_unchanged(commit, captured_inputs)
         staging.replace(target)
         record = {
             **manifest,

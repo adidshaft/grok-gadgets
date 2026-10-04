@@ -1,9 +1,10 @@
 {
   "format_version": 1,
-  "gateway_commit": "fa062a1db36cfbea90b807b9430d28d153bf585d",
-  "gateway_commit_epoch": 1791137746,
+  "gateway_commit": "71cfecbaf1120b27e1956384861efda5f5a3eef6",
+  "gateway_commit_epoch": 1791147206,
+  "package_version": "0.1.0a1",
   "build_inputs": {
-    "scripts/build-simulator-kit.py": "7572336e210c58334b3beccd8adaca75bd2fd4aac010f74ae4983dfc52d3cc00",
+    "scripts/build-simulator-kit.py": "eb94e4ebb0a1f357622dc56a73635b8bfcd4793695ebd21770e4cf4aeabc0c72",
     "docs/getting-started/simulator-kit.md": "370456b13bfbe613a2aaae8c09496a3b0e478efac8aaf0cdaed5859d492a4ad8",
     "scripts/simulator-kit/install.py": "9d0951e352a1b97b46eaa3e26476ced81793fc7624ddf771778ab63992b69b8e",
     "scripts/simulator-kit/try_simulator.py": "c54a4a1797ab2cd3cdec31eef93de32eeffa372ef29c1eb7c05b3555654a33cc"
@@ -33,12 +34,12 @@
     {
       "file": "grok_gadgets_gateway-0.1.0a1-py3-none-any.whl",
       "bytes": 27286,
-      "sha256": "e853d06bcdad2fa325c0bc959f067a10ef88f1db535abb30ad0c4dc10231f059"
+      "sha256": "0d56cc459e9a8e6e4c4c2c5bf0f28d03d8cc2016800b60d3149a4564483c4d86"
     },
     {
       "file": "grok_gadgets_gateway-0.1.0a1.tar.gz",
-      "bytes": 90025,
-      "sha256": "3eccd9d435727ada457e10f04dc7771fc9803960cd800aefc7dd367857310a87"
+      "bytes": 97016,
+      "sha256": "9015a970d5991329601fd5ee61412ae77a2619495dea12103c6e1de3d2022fbe"
     },
     {
       "file": "install.py",
@@ -62,8 +63,8 @@
     },
     {
       "file": "source.tar",
-      "bytes": 348160,
-      "sha256": "c3edb36b152633d14712348a80bcd7537fc55bcfae9f2f8c9ec2b8bdda438bb8"
+      "bytes": 368640,
+      "sha256": "1133a115a402ff0346c302d8355f6eda0ba9ff94b76c9d1ac7546e871b472936"
     },
     {
       "file": "try_simulator.py",
@@ -72,6 +73,6 @@
     }
   ],
   "archive": "grok-gadgets-simulator-kit.zip",
-  "archive_bytes": 237651,
-  "archive_sha256": "94a868ccf69bc792c8865c520efae8b40e3f342236593d6af26bf97f4eb19e1f"
+  "archive_bytes": 250816,
+  "archive_sha256": "82fa91f366cf803e04b166f3db30adfb9fbcff7927fe9936d14b2355a6173859"
 }
