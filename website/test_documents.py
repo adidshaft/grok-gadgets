@@ -12,6 +12,20 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class DocumentTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        # A selected test file must not depend on activity-test execution order.
+        if not (ROOT / "website/dist/index.html").is_file():
+            env = dict(os.environ)
+            env.pop("GROK_ACTIVITY_FILE", None)
+            subprocess.run(
+                [sys.executable, "website/build.py"],
+                cwd=ROOT,
+                env=env,
+                check=True,
+                capture_output=True,
+            )
+
     def render_fixture(self, text):
         with tempfile.TemporaryDirectory() as d:
             path = Path(d) / "fixture.md"
@@ -84,8 +98,13 @@ print("<script>code only</script>")
         )
         self.assertNotIn('<pre class="document">', html)
         # Missing source files cannot acquire fabricated site or GitHub links.
-        with self.assertRaises(subprocess.CalledProcessError):
-            documents.resolve("not-a-real-guide.md", record)
+        checkout = ROOT.parent / record["repository"]
+        if (checkout / ".git").exists():
+            with self.assertRaises(subprocess.CalledProcessError):
+                documents.resolve("not-a-real-guide.md", record)
+        else:
+            with self.assertRaisesRegex(ValueError, "Unverified component"):
+                documents.resolve("not-a-real-guide.md", record)
         self.assertEqual(
             documents.resolve("../grok-gadgets/CONTRIBUTING.md", record),
             "doc-CONTRIBUTING.html",

@@ -10,11 +10,27 @@ import tempfile
 import unittest
 import zipfile
 from unittest.mock import patch
+from contextlib import contextmanager
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class KitTests(unittest.TestCase):
+    @contextmanager
+    def mocked_source(self, module, commit):
+        # Exercise clean-source rebuild branches in a standalone hub checkout too.
+        with (
+            patch.object(module, "GATEWAY", ROOT),
+            patch.object(
+                module,
+                "run",
+                side_effect=lambda args, **kwargs: commit
+                if args[1] == "rev-parse"
+                else "",
+            ),
+        ):
+            yield
+
     def builder(self):
         spec = importlib.util.spec_from_file_location(
             "kit_builder", ROOT / "scripts/build-simulator-kit.py"
@@ -47,6 +63,7 @@ class KitTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Malformed"):
                 module.verify_download(scratch)
             with (
+                self.mocked_source(module, record["gateway_commit"]),
                 patch.object(module, "build") as build,
                 patch.object(
                     module,
@@ -57,6 +74,7 @@ class KitTests(unittest.TestCase):
                 self.assertEqual(module.ensure_current(scratch), record)
                 build.assert_called_once_with(scratch)
         with (
+            self.mocked_source(module, record["gateway_commit"]),
             patch.object(
                 module, "verify_download", side_effect=[ValueError("stale"), record]
             ),
@@ -65,12 +83,16 @@ class KitTests(unittest.TestCase):
             self.assertEqual(module.ensure_current(output), record)
             build.assert_called_once_with(output)
         with (
+            self.mocked_source(module, record["gateway_commit"]),
             patch.object(module, "verify_download", side_effect=ValueError("stale")),
             patch.object(module, "build", side_effect=RuntimeError("tests failed")),
         ):
             with self.assertRaisesRegex(RuntimeError, "tests failed"):
                 module.ensure_current(output)
-        with patch.object(module, "run", return_value=" M src/change.py"):
+        with (
+            patch.object(module, "GATEWAY", ROOT),
+            patch.object(module, "run", return_value=" M src/change.py"),
+        ):
             with self.assertRaisesRegex(ValueError, "uncommitted"):
                 module.ensure_current(output)
 
@@ -79,12 +101,14 @@ class KitTests(unittest.TestCase):
         commit = "a" * 40
         record = {"gateway_commit": commit}
         with (
+            patch.object(module, "GATEWAY", ROOT),
             patch.object(module, "run", side_effect=["", commit, "", "b" * 40]),
             patch.object(module, "verify_download", return_value=record),
         ):
             with self.assertRaisesRegex(ValueError, "changed during verification"):
                 module.ensure_current(ROOT / "website/downloads", rebuild=False)
         with (
+            patch.object(module, "GATEWAY", ROOT),
             patch.object(module, "inputs", side_effect=[{}, {"changed": "digest"}]),
             patch.object(module, "run", side_effect=["", commit]),
             patch.object(module, "verify_download", return_value=record),
