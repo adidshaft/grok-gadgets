@@ -19,17 +19,20 @@ class KitTests(unittest.TestCase):
     @contextmanager
     def mocked_source(self, module, commit):
         # Exercise clean-source rebuild branches in a standalone hub checkout too.
-        with (
-            patch.object(module, "GATEWAY", ROOT),
-            patch.object(
-                module,
-                "run",
-                side_effect=lambda args, **kwargs: commit
-                if args[1] == "rev-parse"
-                else "",
-            ),
-        ):
-            yield
+        with tempfile.TemporaryDirectory() as folder:
+            gateway = Path(folder)
+            (gateway / ".git").mkdir()
+            with (
+                patch.object(module, "GATEWAY", gateway),
+                patch.object(
+                    module,
+                    "run",
+                    side_effect=lambda args, **kwargs: commit
+                    if args[1] == "rev-parse"
+                    else "",
+                ),
+            ):
+                yield
 
     def builder(self):
         spec = importlib.util.spec_from_file_location(
@@ -90,7 +93,7 @@ class KitTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "tests failed"):
                 module.ensure_current(output)
         with (
-            patch.object(module, "GATEWAY", ROOT),
+            self.mocked_source(module, record["gateway_commit"]),
             patch.object(module, "run", return_value=" M src/change.py"),
         ):
             with self.assertRaisesRegex(ValueError, "uncommitted"):
@@ -101,14 +104,14 @@ class KitTests(unittest.TestCase):
         commit = "a" * 40
         record = {"gateway_commit": commit}
         with (
-            patch.object(module, "GATEWAY", ROOT),
+            self.mocked_source(module, record["gateway_commit"]),
             patch.object(module, "run", side_effect=["", commit, "", "b" * 40]),
             patch.object(module, "verify_download", return_value=record),
         ):
             with self.assertRaisesRegex(ValueError, "changed during verification"):
                 module.ensure_current(ROOT / "website/downloads", rebuild=False)
         with (
-            patch.object(module, "GATEWAY", ROOT),
+            self.mocked_source(module, record["gateway_commit"]),
             patch.object(module, "inputs", side_effect=[{}, {"changed": "digest"}]),
             patch.object(module, "run", side_effect=["", commit]),
             patch.object(module, "verify_download", return_value=record),
@@ -191,6 +194,35 @@ class KitTests(unittest.TestCase):
             )
             self.assertNotEqual(failure.returncode, 0)
             self.assertIn("Hash mismatch", failure.stderr)
+
+    def test_manifest_promotion_failure_restores_previous_download_pair(self):
+        module = self.builder()
+        source = ROOT / "website/downloads"
+        record = json.loads((source / "simulator-kit-manifest.json").read_text())
+        original_replace = Path.replace
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder) / "downloads"
+            output.mkdir()
+            (output / module.ARCHIVE).write_bytes(b"previous verified archive fixture")
+            (output / "simulator-kit-manifest.json").write_bytes(
+                b"previous manifest fixture"
+            )
+            previous = {p.name: p.read_bytes() for p in output.iterdir()}
+
+            def interrupted(path, destination):
+                if (
+                    path.parent.name == "candidate"
+                    and path.name == "simulator-kit-manifest.json"
+                ):
+                    raise OSError("injected manifest promotion failure")
+                return original_replace(path, destination)
+
+            with patch.object(Path, "replace", interrupted):
+                with self.assertRaisesRegex(OSError, "injected manifest"):
+                    module.promote_download(output, source / module.ARCHIVE, record)
+            self.assertEqual(
+                {p.name: p.read_bytes() for p in output.iterdir()}, previous
+            )
 
     def test_browser_export_into_extracted_kit_preserves_default_integrity(self):
         # Run the same export function used by the website, not a hand-renamed fixture.

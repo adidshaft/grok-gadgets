@@ -144,6 +144,41 @@ def ensure_current(output, rebuild=True):
     return record
 
 
+def promote_download(output, staged_archive, record):
+    """Validate a complete pair first; restore the previous pair on write errors."""
+    output.mkdir(parents=True, exist_ok=True)
+    names = [ARCHIVE, "simulator-kit-manifest.json"]
+    with tempfile.TemporaryDirectory(
+        prefix="kit-promotion-", dir=output.parent
+    ) as directory:
+        directory = Path(directory)
+        candidate = directory / "candidate"
+        backup = directory / "backup"
+        candidate.mkdir()
+        backup.mkdir()
+        shutil.copyfile(staged_archive, candidate / ARCHIVE)
+        (candidate / names[1]).write_text(json.dumps(record, indent=2) + "\n")
+        verify_download(candidate, record["gateway_commit"])
+        assert_source_unchanged(record["gateway_commit"], record["build_inputs"])
+        previous = set()
+        for name in names:
+            if (output / name).exists():
+                shutil.copyfile(output / name, backup / name)
+                previous.add(name)
+        promoted = []
+        try:
+            for name in names:
+                (candidate / name).replace(output / name)
+                promoted.append(name)
+        except Exception:
+            for name in promoted:
+                if name in previous:
+                    (backup / name).replace(output / name)
+                else:
+                    (output / name).unlink(missing_ok=True)
+            raise
+
+
 def build(output):
     captured_inputs = inputs()
     if run(["git", "status", "--porcelain"], cwd=GATEWAY):
@@ -297,9 +332,7 @@ def build(output):
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
         )
-        output.mkdir(parents=True, exist_ok=True)
-        target = output / ARCHIVE
-        staging = output / ("." + ARCHIVE)
+        staging = work / ARCHIVE
         with zipfile.ZipFile(
             staging, "w", zipfile.ZIP_DEFLATED, compresslevel=9
         ) as bundle:
@@ -312,20 +345,17 @@ def build(output):
                 info.external_attr = 0o100644 << 16
                 bundle.writestr(info, path.read_bytes())
         assert_source_unchanged(commit, captured_inputs)
-        staging.replace(target)
         record = {
             **manifest,
             "archive": ARCHIVE,
-            "archive_bytes": target.stat().st_size,
-            "archive_sha256": digest(target),
+            "archive_bytes": staging.stat().st_size,
+            "archive_sha256": digest(staging),
         }
-        (output / "simulator-kit-manifest.json").write_text(
-            json.dumps(record, indent=2) + "\n"
-        )
+        promote_download(output, staging, record)
         print(
             json.dumps(
                 {
-                    "archive": str(target),
+                    "archive": str(output / ARCHIVE),
                     "sha256": record["archive_sha256"],
                     "gateway_commit": commit,
                 },

@@ -4,7 +4,7 @@
   "gateway_commit_epoch": 1791147206,
   "package_version": "0.1.0a1",
   "build_inputs": {
-    "scripts/build-simulator-kit.py": "eb94e4ebb0a1f357622dc56a73635b8bfcd4793695ebd21770e4cf4aeabc0c72",
+    "scripts/build-simulator-kit.py": "abcec59f13480b75a75fd9eb8f8794cbc09312b9d686d32712c3960a6ed0fbd9",
     "docs/getting-started/simulator-kit.md": "370456b13bfbe613a2aaae8c09496a3b0e478efac8aaf0cdaed5859d492a4ad8",
     "scripts/simulator-kit/install.py": "9d0951e352a1b97b46eaa3e26476ced81793fc7624ddf771778ab63992b69b8e",
     "scripts/simulator-kit/try_simulator.py": "c54a4a1797ab2cd3cdec31eef93de32eeffa372ef29c1eb7c05b3555654a33cc"
@@ -73,6 +73,6 @@
     }
   ],
   "archive": "grok-gadgets-simulator-kit.zip",
-  "archive_bytes": 250816,
-  "archive_sha256": "82fa91f366cf803e04b166f3db30adfb9fbcff7927fe9936d14b2355a6173859"
+  "archive_bytes": 250818,
+  "archive_sha256": "96d5004d1c3c5da8be08d4d90bc475240b03c3a21a5e917eef5b92c33992117a"
 }
