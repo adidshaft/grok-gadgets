@@ -4,11 +4,11 @@
   "components": [
     {
       "repository": "grok-gadgets",
-      "path": "/path/to/grok-gadgets",
+      "path": "grok-gadgets",
       "version": "0.1.0-alpha.1",
       "commit": "24729e027b8ee5e7098742de5bc71b6da68ad3d5",
       "evidence_level": "Website/build/community verified",
-      "checks": "12 website tests;6 browser model/export tests;4 kit tests;11 publication tests;50page link build;actual browser export to fresh installed kit MCP;14 clean tracked cross-repository groups",
+      "checks": "14 website tests;6 browser model/export tests;5 kit tests;11 publication regressions;project-prefix links and last-good build preservation; final clean integration report recorded separately",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
@@ -16,9 +16,9 @@
     },
     {
       "repository": "grok-gadgets-gateway",
-      "path": "/path/to/grok-gadgets-gateway",
+      "path": "grok-gadgets-gateway",
       "version": "0.1.0a1",
-      "commit": "fa062a1db36cfbea90b807b9430d28d153bf585d",
+      "commit": "71cfecbaf1120b27e1956384861efda5f5a3eef6",
       "evidence_level": "Simulated; MCP client verified",
       "checks": "73 source tests;52 installed configuration tests;fresh kit installer and default/custom offline official MCP acceptance",
       "grok_verified": false,
@@ -28,9 +28,9 @@
     },
     {
       "repository": "grok-gadgets-linux-sdk",
-      "path": "/path/to/grok-gadgets-linux-sdk",
+      "path": "grok-gadgets-linux-sdk",
       "version": "0.1.0a1",
-      "commit": "ce897eee8f259a2ba82afad37e7a607c56f2f6e1",
+      "commit": "9c13fef60d3dd0d5feb2973bd7e51bfacfb48dec",
       "evidence_level": "Simulated; package and Linux runtime verified",
       "checks": "20 source tests; fresh installed documented and annotated-dataclass macOS+actual offline Linux onboarding;15installed tests plus5optional source integration skips",
       "grok_verified": false,
@@ -40,9 +40,9 @@
     },
     {
       "repository": "grok-gadgets-esp32-sdk",
-      "path": "/path/to/grok-gadgets-esp32-sdk",
+      "path": "grok-gadgets-esp32-sdk",
       "version": "0.1.0",
-      "commit": "5ca2e5d7ebe470fef10fc5584287cd0c8b624c65",
+      "commit": "db3fe8755364f74478bf576d9d57aabe4684eb62",
       "evidence_level": "Build verified; host simulated",
       "checks": "3CTest suites; immutable repeated ACK actual consumer; contracts; actual consumer USB PTY overflow/restart/revocation; C124 compile",
       "grok_verified": false,
@@ -52,9 +52,9 @@
     },
     {
       "repository": "grok-gadgets-home-assistant",
-      "path": "/path/to/grok-gadgets-home-assistant",
+      "path": "grok-gadgets-home-assistant",
       "version": "0.1.0a1",
-      "commit": "a8b2370b7e82e136511b6299e1317eb80915d012",
+      "commit": "3c8d8adba31918b051dbdbf2343f9fa6e26dedce",
       "evidence_level": "Fixture/transport and package verified",
       "checks": "13tests including loopback HTTP official MCP client; unchanged package; no real home actions",
       "grok_verified": false,
@@ -72,9 +72,9 @@
   },
   "firmware": {
     "status": "build verified; hardware and Grok pending; unpublished",
-    "source_commit": "382444d5a7bb9372e8778421a337b82306aa2c58",
+    "source_commit": "0a36948d49fe292374cea222e3971c74c6cc2e4e",
     "source_tree_clean": true,
-    "built_at_utc": "2026-10-04T16:24:01.474053+00:00",
+    "built_at_utc": "2026-10-04T21:01:29.753349+00:00",
     "build_command": ".venv/bin/pio run -e atoms3-lite-usb",
     "toolchain": {
       "platformio_core": "PlatformIO Core, version 6.1.18",

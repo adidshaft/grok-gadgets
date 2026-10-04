@@ -11,14 +11,29 @@ out.mkdir(exist_ok=True)
 manifest = R / "compatibility/documentation-sources.json"
 previous = json.loads(manifest.read_text()) if manifest.exists() else []
 records = []
+inventory = []
 for repo in sorted(R.parent.glob("grok-gadgets-*")):
     if not (repo / ".git").is_dir():
         continue
     commit = subprocess.check_output(
         ["git", "-C", str(repo), "rev-parse", "HEAD"], text=True
     ).strip()
+    inventory.append(
+        dict(
+            repository=repo.name,
+            commit=commit,
+            files=subprocess.check_output(
+                ["git", "-C", str(repo), "ls-tree", "-r", "--name-only", commit],
+                text=True,
+            ).splitlines(),
+        )
+    )
     for src in [repo / "README.md", *sorted((repo / "docs").glob("*.md"))]:
-        text = src.read_text()
+        relative = str(src.relative_to(repo))
+        # Import the immutable tracked Git object, even if a working copy is being edited.
+        text = subprocess.check_output(
+            ["git", "-C", str(repo), "show", commit + ":" + relative], text=True
+        )
         dest = out / (repo.name + "-" + src.name)
         dest.write_text(
             "Source: "
@@ -46,4 +61,7 @@ for record in previous:
     if record["snapshot"] not in current and stale.parent == out.resolve():
         stale.unlink(missing_ok=True)
 manifest.write_text(json.dumps(records, indent=2) + "\n")
+(R / "compatibility/source-inventory.json").write_text(
+    json.dumps(inventory, indent=2) + "\n"
+)
 print(f"Imported {len(records)} pinned component documentation sources")

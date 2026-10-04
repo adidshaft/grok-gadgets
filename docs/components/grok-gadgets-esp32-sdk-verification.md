@@ -1,8 +1,12 @@
-Source: grok-gadgets-esp32-sdk/docs/verification.md at 5ca2e5d7ebe470fef10fc5584287cd0c8b624c65
+Source: grok-gadgets-esp32-sdk/docs/verification.md at db3fe8755364f74478bf576d9d57aabe4684eb62
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
-# Local verification evidence — 4 October 2026
+# Verification
+
+Current newcomer build rehearsal: [standalone documentation verification](verification/launch.md). The exact account-free guide passed in a fresh source directory and Python environment.
+
+## Historical local checkpoint — 4 October 2026
 
 This is the pre-hardening checkpoint. Current ACK retry correction, commands and package provenance are recorded in [hardening verification](verification/hardening.md).
 

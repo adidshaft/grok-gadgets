@@ -1,4 +1,4 @@
-Source: grok-gadgets-home-assistant/docs/setup.md at a8b2370b7e82e136511b6299e1317eb80915d012
+Source: grok-gadgets-home-assistant/docs/setup.md at 3c8d8adba31918b051dbdbf2343f9fa6e26dedce
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -6,9 +6,11 @@ This is a pinned documentation snapshot. Relative filesystem paths describe the 
 
 ## Local fixture first
 
-Run the README commands. Fixture data is hand-authored representative MCP discovery data, not captured from a real HA release. The probe only initializes and lists tools/resources/prompts; it never executes a tool, reads a resource, or changes a light.
+Run the [README fixture commands](../README.md#run-the-fixture-first). Fixture data is hand-authored representative MCP discovery data, not captured from a real HA release. The probe only initializes and lists tools/resources/prompts; it never executes a tool, reads a resource, or changes a light.
 
 ## Prepare a real home (not performed here)
+
+This is a dated preparation recipe based on the [4 October 2026 feasibility record](feasibility.md). Verify the actual installation/client interface when an authorized home test is scheduled. These steps are separate from the account-free quickstart.
 
 1. Record HA version, selected test light/sensor, and current state. Choose a harmless test light; leave locks, alarms, garage doors and other consequential entities unexposed for this acceptance run.
 2. In HA Settings → Devices & services add Model Context Protocol Server. Select Assist, then expose only the chosen entities through the exposed-entity page. Confirm ordinary dashboard controls still work. Do not interpret exposure as a token scope limiting every HA API.

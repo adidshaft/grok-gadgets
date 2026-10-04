@@ -32,7 +32,7 @@ Open http://127.0.0.1:4173/index.html. The main page includes all ten interactiv
 Gateway simulation:
 
 ```sh
-cd /path/to/grok-gadgets-gateway
+cd <workspace>/grok-gadgets-gateway
 uv sync --locked
 uv run python -m grok_gadgets_gateway.demo
 ```

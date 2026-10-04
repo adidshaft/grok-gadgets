@@ -10,6 +10,7 @@ import posixpath
 import re
 import shlex
 import subprocess
+import xml.etree.ElementTree as ET
 
 from markdown_it import MarkdownIt
 
@@ -47,26 +48,32 @@ def static_diagram(source):
     if len(lines) > 80 or not lines or lines[0] not in {"flowchart LR", "flowchart TD"}:
         raise ValueError("Unsupported or oversized diagram")
     nodes, edges = {}, []
-    atom = r"([A-Za-z][A-Za-z0-9_]{0,30})(?:\[([\w .,()/:-]{1,80})\])?"
+    atom = r'([A-Za-z][A-Za-z0-9_]{0,30})(?:\[(?:"([\w .,()/:+&-]{1,100})"|([\w .,()/:+&-]{1,100}))\])?'
     for line in lines[1:]:
-        match = re.fullmatch(atom + r"\s*-->\s*" + atom, line)
+        line = line.replace("<br/>", " ").replace("<br>", " ")
+        match = re.fullmatch(
+            atom
+            + r'\s*(-->|-\.->|<-->)\s*(?:\|"?([\w .,()/:+&-]{1,80})"?\|)?\s*'
+            + atom,
+            line,
+        )
         if not match:
             raise ValueError("Unsafe or unsupported diagram statement")
-        a, alabel, b, blabel = match.groups()
-        for key, label in [(a, alabel), (b, blabel)]:
-            if label and key in nodes and nodes[key] != label:
+        a, quoted_a, plain_a, kind, edge_label, b, quoted_b, plain_b = match.groups()
+        for key, label in [(a, quoted_a or plain_a), (b, quoted_b or plain_b)]:
+            if label and key in nodes and nodes[key] not in {key, label}:
                 raise ValueError("Conflicting diagram label")
             nodes.setdefault(key, label or key)
             if label:
                 nodes[key] = label
-        edges.append((a, b))
+        edges.append((a, b, kind, edge_label or ""))
     if not nodes or len(nodes) > 24:
         raise ValueError("Empty or oversized diagram")
     # Dag layering with a bounded cycle check; supported diagrams are acyclic.
     levels = {key: 0 for key in nodes}
     for step in range(len(nodes)):
         changed = False
-        for a, b in edges:
+        for a, b, kind, edge_label in edges:
             if levels[b] <= levels[a]:
                 levels[b] = levels[a] + 1
                 changed = True
@@ -84,18 +91,34 @@ def static_diagram(source):
     }
     width = (max(levels.values()) + 1) * 220 + 24
     height = max(len(keys) for keys in columns.values()) * 100 + 20
-    description = "; ".join(nodes[a] + " to " + nodes[b] for a, b in edges)
+    description = "; ".join(
+        nodes[a]
+        + (" exchanges with " if kind == "<-->" else " to ")
+        + nodes[b]
+        + (" (pending)" if kind == "-.->" else "")
+        + (": " + label if label else "")
+        for a, b, kind, label in edges
+    )
     parts = [
         f'<figure class="document-diagram" tabindex="0" aria-label="Scrollable connection diagram"><svg role="img" aria-label="Connection diagram" '
         f'viewBox="0 0 {width} {height}"><title>Connection diagram</title><desc>{escape(description)}</desc>'
     ]
-    for a, b in edges:
+    for a, b, kind, edge_label in edges:
         x, y = positions[a]
         tx, ty = positions[b]
+        dash = ' stroke-dasharray="6 5"' if kind == "-.->" else ""
         parts.append(
-            f'<path d="M{x + 174},{y + 25}L{tx - 8},{ty + 25}" fill="none" stroke="currentColor"/>'
-            f'<path d="M{tx - 15},{ty + 20}L{tx - 8},{ty + 25}L{tx - 15},{ty + 30}" fill="none" stroke="currentColor"/>'
+            f'<path d="M{x + 174},{y + 25}L{tx - 8},{ty + 25}" fill="none" stroke="currentColor"{dash}/>'
+            + f'<path d="M{tx - 15},{ty + 20}L{tx - 8},{ty + 25}L{tx - 15},{ty + 30}" fill="none" stroke="currentColor"/>'
         )
+        if kind == "<-->":
+            parts.append(
+                f'<path d="M{x + 181},{y + 20}L{x + 174},{y + 25}L{x + 181},{y + 30}" fill="none" stroke="currentColor"/>'
+            )
+        if edge_label:
+            parts.append(
+                f'<text x="{(x + 174 + tx) / 2}" y="{y + 15}" text-anchor="middle" font-size="10">{escape(edge_label)}</text>'
+            )
     for key, (x, y) in positions.items():
         parts.append(
             f'<rect x="{x}" y="{y}" width="174" height="50" rx="3" fill="white" stroke="currentColor"/>'
@@ -144,12 +167,45 @@ class Documents:
             source = self.root / image["source"]
             if (
                 image["repository"] != "grok-gadgets"
-                or source.suffix != ".png"
-                or not source.read_bytes().startswith(b"\x89PNG\r\n\x1a\n")
+                or source.suffix not in {".png", ".jpg", ".svg"}
+                or (
+                    source.suffix == ".png"
+                    and not source.read_bytes().startswith(b"\x89PNG\r\n\x1a\n")
+                )
+                or (
+                    source.suffix == ".jpg"
+                    and not source.read_bytes().startswith(b"\xff\xd8\xff")
+                )
             ):
                 raise ValueError("Unapproved documentation image")
             if hashlib.sha256(source.read_bytes()).hexdigest() != image["sha256"]:
                 raise ValueError("Documentation image provenance mismatch")
+            if source.suffix == ".svg":
+                tree = ET.fromstring(source.read_text())
+                allowed = {
+                    "svg",
+                    "title",
+                    "desc",
+                    "rect",
+                    "text",
+                    "path",
+                    "circle",
+                    "g",
+                }
+                if any(
+                    node.tag.split("}")[-1] not in allowed
+                    or any(
+                        key.lower().startswith("on")
+                        or key.split("}")[-1] in {"href", "src"}
+                        for key in node.attrib
+                    )
+                    for node in tree.iter()
+                ):
+                    raise ValueError("Unsafe documentation SVG")
+                if not tree.findall(
+                    "{http://www.w3.org/2000/svg}title"
+                ) or not tree.findall("{http://www.w3.org/2000/svg}desc"):
+                    raise ValueError("Documentation SVG needs title and description")
             self.images[(image["repository"], image["source"])] = image["output"]
         self.parser = MarkdownIt(
             "commonmark", {"html": False, "linkify": False}
@@ -192,24 +248,41 @@ class Documents:
                 if parsed.fragment
                 else ""
             )
+        if (repo, source) in self.images:
+            return self.images[(repo, source)]
         if image:
-            if (repo, source) in self.images:
-                return self.images[(repo, source)]
             raise ValueError("Local image must be explicitly bundled before rendering")
         # A real checkout alternative: verify the exact tracked object exists, never invent a public URL.
         checkout = self.root if repo == "grok-gadgets" else self.root.parent / repo
         commit = record.get("commit") if repo == record["repository"] else None
-        commit = (
-            commit
-            or subprocess.check_output(
-                ["git", "-C", str(checkout), "rev-parse", "HEAD"], text=True
-            ).strip()
-        )
-        subprocess.run(
-            ["git", "-C", str(checkout), "cat-file", "-e", commit + ":" + source],
-            check=True,
-            capture_output=True,
-        )
+        if (checkout / ".git").exists():
+            commit = (
+                commit
+                or subprocess.check_output(
+                    ["git", "-C", str(checkout), "rev-parse", "HEAD"], text=True
+                ).strip()
+            )
+            subprocess.run(
+                ["git", "-C", str(checkout), "cat-file", "-e", commit + ":" + source],
+                check=True,
+                capture_output=True,
+            )
+        else:
+            # A standalone hub checkout uses the exact tracked component inventory.
+            inventory = json.loads(
+                (self.root / "compatibility/source-inventory.json").read_text()
+            )
+            origin = next(
+                (item for item in inventory if item["repository"] == repo), None
+            )
+            if (
+                not origin
+                or source not in origin["files"]
+                or (commit and origin["commit"] != commit)
+                or not re.fullmatch(r"[0-9a-f]{40}", origin["commit"])
+            ):
+                raise ValueError("Unverified component source reference")
+            commit = origin["commit"]
         key = (
             slug(repo + "-" + source)
             + "-"
@@ -256,7 +329,7 @@ class Documents:
         )
 
     def reference_html(self):
-        body = '<article class="document"><h1>Source checkout references</h1><p>These files are not mirrored into the public site. Use the five local sibling checkouts or the unpublished source archives. No public GitHub URL exists yet.</p>'
+        body = '<article class="document"><h1>Source checkout references</h1><p>These files are not mirrored into the site. Exact checkout commands are below. GitHub destinations are planned until publication.</p>'
         for key, r in sorted(self.references.items()):
             body += (
                 '<section id="'
@@ -275,7 +348,13 @@ class Documents:
                         ]
                     )
                 )
-                + "</code></pre></section>"
+                + '</code></pre><p><a href="https://github.com/adidshaft/'
+                + escape(r["repository"])
+                + "/blob/"
+                + escape(r["commit"])
+                + "/"
+                + quote(r["source"], safe="/")
+                + '">Planned GitHub source at this commit</a></p></section>'
             )
         return body + "</article>"
 

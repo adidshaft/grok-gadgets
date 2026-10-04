@@ -1,12 +1,16 @@
-Source: grok-gadgets-home-assistant/docs/verification.md at a8b2370b7e82e136511b6299e1317eb80915d012
+Source: grok-gadgets-home-assistant/docs/verification.md at 3c8d8adba31918b051dbdbf2343f9fa6e26dedce
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
-# Local alpha verification — 2026-10-04
+# Verification
+
+Current newcomer rehearsal: [standalone documentation verification](verification/launch.md). It identifies the source state, checks, installed-wheel result and package-license inspection.
+
+## Historical local alpha checkpoint — 4 October 2026
 
 Environment: macOS arm64; uv-managed CPython 3.11.15. Official MCP SDK 2.3.0; dependency versions/hashes in uv.lock. These are client and fixture tests, not a running Home Assistant installation.
 
-Passed: frozen install, ruff lint/format, 13 unittest cases, wheel/sdist build, wheel installation into a separate `/tmp/grok-ha-clean-alpha` venv and fixture CLI run. Transport evidence includes authenticated initialize, tool/resource/prompt pagination through SDK MockTransport and a real ephemeral loopback HTTP fixture server. 401/404 fail; malformed/duplicate schemas/cursors fail; plaintext public/embedded-credential URLs fail; errors omit exceptions. No tools/call or resources/read requests occurred. Endpoint test counts are assertions, not HA device claims.
+Passed: frozen install, ruff lint/format, 13 unittest cases, wheel/sdist build, wheel installation into a separate temporary venv and fixture CLI run. Transport evidence includes authenticated initialize, tool/resource/prompt pagination through SDK MockTransport and a real ephemeral loopback HTTP fixture server. 401/404 fail; malformed/duplicate schemas/cursors fail; plaintext public/embedded-credential URLs fail; errors omit exceptions. No tools/call or resources/read requests occurred. Endpoint test counts are assertions, not HA device claims.
 
 Fixture CLI reports 2 tools, 1 resource, 1 prompt, no tool execution, and false Grok/hardware flags. Fixtures are hand-authored and are not a captured compatibility matrix for an installed HA version.
 

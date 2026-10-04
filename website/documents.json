@@ -14,7 +14,14 @@
     "community/platform-evaluation.md",
     "community/content-plan.md",
     "community/drafts/initial-posts.md",
-    "docs/getting-started/simulator-kit.md"
+    "docs/getting-started/simulator-kit.md",
+    "SUPPORT.md",
+    "GOVERNANCE.md",
+    "ROADMAP.md",
+    "docs/contributing/ready-issues.md",
+    "docs/visuals/README.md",
+    "docs/public/support-matrix.md",
+    "docs/visuals/brand-provenance.md"
   ],
   "component_sources": [
     "README.md",
@@ -60,6 +67,48 @@
       "source": "website/media/grok-gadgets-icon.png",
       "output": "media/grok-gadgets-icon.png",
       "sha256": "6d0b4c7cd981d7895bc1763fc55d1c9dae13ad27dbd9c9398ead8a8690b8f56f"
+    },
+    {
+      "repository": "grok-gadgets",
+      "source": "docs/visuals/c124-reference.svg",
+      "output": "media/diagrams/c124-reference.svg",
+      "sha256": "40b8ceed62fd5e27e977ddf70e5a4b456e05fab358d443615906c52bfbc20f6e"
+    },
+    {
+      "repository": "grok-gadgets",
+      "source": "docs/visuals/command-lifecycle.svg",
+      "output": "media/diagrams/command-lifecycle.svg",
+      "sha256": "4cc680a59a284b323be15d4069b1fc557a74b63cdbddff0d4aa796c8b8410ab6"
+    },
+    {
+      "repository": "grok-gadgets",
+      "source": "docs/visuals/contribution.svg",
+      "output": "media/diagrams/contribution.svg",
+      "sha256": "0bc862e3c92b2b854b1b1ca86deb0077b624191273a783754b9bac842dbf6b3d"
+    },
+    {
+      "repository": "grok-gadgets",
+      "source": "docs/visuals/no-hardware.svg",
+      "output": "media/diagrams/no-hardware.svg",
+      "sha256": "8fd63182d59fb8ccdf95facd6f4b974d732c0ca0a08d3393590a2da9467f5792"
+    },
+    {
+      "repository": "grok-gadgets",
+      "source": "docs/visuals/project-overview.svg",
+      "output": "media/diagrams/project-overview.svg",
+      "sha256": "095414e8ddad1967d5c94034482d6b02a0d0253bd0515c0f9cc15b4385952a91"
+    },
+    {
+      "repository": "grok-gadgets",
+      "source": "docs/visuals/responsibilities.svg",
+      "output": "media/diagrams/responsibilities.svg",
+      "sha256": "a3227d95f4f347395639ffe25d29ed2ec3ff3faf453fb1ea250154922e19905f"
+    },
+    {
+      "repository": "grok-gadgets",
+      "source": "docs/visuals/simulator-playground.jpg",
+      "output": "media/diagrams/simulator-playground.jpg",
+      "sha256": "c3215addc08a33a6d12b72727f9a034ca96c2743bd1ad26159bac70ac39a7dd2"
     }
   ]
 }

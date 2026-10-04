@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/simulator.md at fa062a1db36cfbea90b807b9430d28d153bf585d
+Source: grok-gadgets-gateway/docs/simulator.md at 71cfecbaf1120b27e1956384861efda5f5a3eef6
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -17,8 +17,8 @@ From an unpacked gateway source tree:
 ```sh
 python3 -m venv .venv
 .venv/bin/python -m pip install .
-.venv/bin/python -m grok_gadgets_gateway.simulator_config > simulator-config.json
-.venv/bin/grok-gadgets-gateway --simulator --simulator-config "$PWD/simulator-config.json"
+.venv/bin/python -m grok_gadgets_gateway.simulator_config > my-light.json
+.venv/bin/grok-gadgets-gateway --simulator --simulator-config "$PWD/my-light.json"
 ```
 
 The last command is a stdio MCP server: configure your local MCP client to launch it using
@@ -68,7 +68,7 @@ controls. To deliberately inject button edges or exercise reconnection through M
 `--test-controls` separately:
 
 ```sh
-.venv/bin/grok-gadgets-gateway --simulator --simulator-config "$PWD/simulator-config.json" --test-controls
+.venv/bin/grok-gadgets-gateway --simulator --simulator-config "$PWD/my-light.json" --test-controls
 ```
 
 The `test_simulator_control` tool accepts `disconnect`, `reconnect`, or `button` with a

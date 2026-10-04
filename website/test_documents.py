@@ -110,6 +110,37 @@ print("<script>code only</script>")
             with self.subTest(content=content), self.assertRaises(ValueError):
                 static_diagram(content)
 
+    def test_quoted_pending_and_bidirectional_diagram_meaning(self):
+        html = static_diagram(
+            'flowchart LR\nA["SDK library + agent"] <-->|"Loopback ACK"| G["Gateway"]\nB["Grok pending"] -.-> G'
+        )
+        self.assertIn("exchanges with Gateway", html)
+        self.assertIn("(pending)", html)
+        self.assertIn('stroke-dasharray="6 5"', html)
+        self.assertIn("Loopback ACK", html)
+
+    def test_failed_build_keeps_previous_site(self):
+        preview = ROOT / "website/dist/index.html"
+        before = preview.read_bytes()
+        # Invalid activity intentionally becomes an unavailable state. Challenge
+        # promotion with a real validation failure after staging the new site.
+        result = subprocess.run(
+            [
+                sys.executable,
+                "-c",
+                "import runpy,sys; from unittest.mock import patch; "
+                "sys.path.insert(0, 'website'); "
+                "patcher=patch('documents.check_links', side_effect=ValueError('injected broken link')); "
+                "patcher.start(); runpy.run_path('website/build.py', run_name='__main__')",
+            ],
+            cwd=ROOT,
+            env=os.environ.copy(),
+            capture_output=True,
+        )
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn(b"injected broken link", result.stderr)
+        self.assertEqual(preview.read_bytes(), before)
+
     def test_fragment_checker(self):
         with tempfile.TemporaryDirectory() as d:
             output = Path(d)

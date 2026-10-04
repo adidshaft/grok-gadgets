@@ -1,0 +1,8 @@
+flowchart LR
+B[Browser simulation] --> C[my-light.json]
+C --> K[Simulator kit]
+K --> W[Gateway MCP]
+W --> L[Linux SDK]
+W --> E[ESP32 SDK]
+G[Grok Bot pending] -.-> W
+G -.-> H[Home Assistant upstream MCP]
