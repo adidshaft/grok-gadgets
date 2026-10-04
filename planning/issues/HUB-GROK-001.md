@@ -21,5 +21,6 @@ Commits: ff88a67
 Evidence:
 
 - docs/verification/real-grok-experiment.md
+- docs/verification/grok-launch-evidence.md
 
-Blocker: Dedicated Grok Bot reports A/B/C and cleanup success, but client exposes message JSON only and no native connector receipts/export; inspectable invocation evidence required.
+Blocker: Exact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors. Installation-only computer evidence recorded for grok-launch-20261005-a.

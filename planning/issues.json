@@ -220,9 +220,10 @@
       "ff88a67"
     ],
     "evidence": [
-      "docs/verification/real-grok-experiment.md"
+      "docs/verification/real-grok-experiment.md",
+      "docs/verification/grok-launch-evidence.md"
     ],
-    "blocker": "Dedicated Grok Bot reports A/B/C and cleanup success, but client exposes message JSON only and no native connector receipts/export; inspectable invocation evidence required."
+    "blocker": "Exact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors. Installation-only computer evidence recorded for grok-launch-20261005-a."
   },
   {
     "id": "HUB-HW-001",
@@ -377,7 +378,7 @@
     "stage": "blocked",
     "commits": [],
     "evidence": [],
-    "blocker": "Separate public creation/push/deployment/release approval required"
+    "blocker": "Separate creation/push/release/Pages approval plus reviewed historical paths and commit-email disclosure, naming/official-mark disposition and hosted acceptance required. Recovery bundles and firmware binary uploads excluded."
   },
   {
     "id": "HUB-WEB-002",
@@ -626,10 +627,13 @@
     "stage": "done",
     "commits": [
       "d2bda94",
-      "fa062a1"
+      "fa062a1",
+      "7ac61fd",
+      "f4ad5f9"
     ],
     "evidence": [
-      "docs/verification/simulator-playground.md"
+      "docs/verification/simulator-playground.md",
+      "docs/verification/download-build-policy.md"
     ],
     "blocker": null
   },
@@ -712,7 +716,9 @@
     ],
     "milestone": "ML",
     "stage": "done",
-    "commits": [],
+    "commits": [
+      "f1cff58"
+    ],
     "evidence": [
       "publication/repositories.json",
       "publication/project.json",
@@ -740,10 +746,16 @@
       "P1"
     ],
     "milestone": "ML",
-    "stage": "ready",
-    "commits": [],
+    "stage": "done",
+    "commits": [
+      "e1a9948",
+      "4ae0072"
+    ],
     "evidence": [
-      "docs/verification/launch-journal.md"
+      "README.md",
+      "CONTRIBUTING.md",
+      "compatibility/documentation-sources.json",
+      "docs/public/support-matrix.md"
     ],
     "blocker": null
   },
@@ -766,10 +778,13 @@
       "P1"
     ],
     "milestone": "ML",
-    "stage": "ready",
-    "commits": [],
+    "stage": "done",
+    "commits": [
+      "e1a9948"
+    ],
     "evidence": [
-      "docs/verification/launch-journal.md"
+      "docs/visuals/README.md",
+      "website/documents.json"
     ],
     "blocker": null
   },
@@ -792,10 +807,16 @@
       "P1"
     ],
     "milestone": "ML",
-    "stage": "ready",
-    "commits": [],
+    "stage": "done",
+    "commits": [
+      "8b362f7",
+      "e063a38"
+    ],
     "evidence": [
-      "docs/verification/launch-journal.md"
+      "publication/migration-guide.md",
+      "scripts/test_issue_migration.py",
+      "docs/contributing/ready-issues.md",
+      ".github/ISSUE_TEMPLATE"
     ],
     "blocker": null
   },
@@ -818,10 +839,16 @@
       "P1"
     ],
     "milestone": "ML",
-    "stage": "ready",
-    "commits": [],
+    "stage": "done",
+    "commits": [
+      "e063a38",
+      "f4ad5f9"
+    ],
     "evidence": [
-      "docs/verification/launch-journal.md"
+      "publication/activation-guide.md",
+      "publication/expected-checks.json",
+      "docs/verification/download-build-policy.md",
+      "scripts/test_launch.py"
     ],
     "blocker": null
   },
@@ -844,10 +871,13 @@
       "P1"
     ],
     "milestone": "ML",
-    "stage": "ready",
-    "commits": [],
+    "stage": "done",
+    "commits": [
+      "3bb66cc"
+    ],
     "evidence": [
-      "docs/verification/launch-journal.md"
+      "publication/history-and-assets-review.md",
+      "scripts/test_audit_launch.py"
     ],
     "blocker": null
   },
@@ -870,7 +900,7 @@
       "P1"
     ],
     "milestone": "ML",
-    "stage": "ready",
+    "stage": "in progress",
     "commits": [],
     "evidence": [
       "docs/verification/launch-journal.md"
@@ -883,9 +913,9 @@
     "problem": "Obtain actual Grok simulator invocation evidence",
     "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
     "acceptance": [
-      "Stage acceptance and named deliverables in docs/github-launch-plan.md",
-      "Tested incremental source commits and exact evidence",
-      "No public activation or unsupported evidence claims"
+      "Inspect native Grok requests/results or independently retrieved stdio trace for exact kit and website-exported configuration",
+      "Discovery, color/off/state, invalid/unsupported input, retry, ordered simulated events, disconnect/recovery tested through native route",
+      "Return to normal six tools; preserve unrelated connectors and real devices"
     ],
     "dependencies": [
       "LAUNCH-001"
@@ -893,15 +923,19 @@
     "labels": [
       "research",
       "gateway",
-      "P1"
+      "P1",
+      "blocked",
+      "simulator"
     ],
     "milestone": "ML",
-    "stage": "ready",
-    "commits": [],
-    "evidence": [
-      "docs/verification/launch-journal.md"
+    "stage": "blocked",
+    "commits": [
+      "3bb66cc"
     ],
-    "blocker": null
+    "evidence": [
+      "docs/verification/grok-launch-evidence.md"
+    ],
+    "blocker": "Exact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors."
   },
   {
     "id": "DOC-GLOSSARY-001",
@@ -973,5 +1007,32 @@
       "docs/contributing/ready-issues.md"
     ],
     "blocker": null
+  },
+  {
+    "id": "LAUNCH-FIRMWARE-DIST-001",
+    "repository": "grok-gadgets",
+    "problem": "Prepare the required third-party redistribution material before firmware binary uploads",
+    "intended_behaviour": "Keep experimental source/build instructions eligible while BIN/ELF/bootloader/partition release assets remain excluded",
+    "acceptance": [
+      "Inventory exact linked dependency licenses and corresponding sources for the compiled C124 build",
+      "Supply and review required relinking/source/notice material before selecting firmware binary release assets",
+      "Record explicit redistribution disposition and reproduce from reviewed sources"
+    ],
+    "dependencies": [
+      "HUB-ESP-001"
+    ],
+    "labels": [
+      "maintenance",
+      "esp32",
+      "P1",
+      "blocked"
+    ],
+    "milestone": "PUBLIC-ALPHA",
+    "stage": "blocked",
+    "commits": [],
+    "evidence": [
+      "publication/history-and-assets-review.md"
+    ],
+    "blocker": "Corresponding-source/relinking redistribution package has not been assembled or cleared; source-only publication package excludes binaries."
   }
 ]

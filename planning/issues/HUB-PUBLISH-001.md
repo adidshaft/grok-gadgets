@@ -20,4 +20,4 @@ Commits: Pending
 Evidence:
 
 
-Blocker: Separate public creation/push/deployment/release approval required
+Blocker: Separate creation/push/release/Pages approval plus reviewed historical paths and commit-email disclosure, naming/official-mark disposition and hosted acceptance required. Recovery bundles and firmware binary uploads excluded.
