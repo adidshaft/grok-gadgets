@@ -2,7 +2,7 @@
 
 The project provides reusable gadget libraries for Grok Bot. C124 is the first ESP32 example. It is not the SDK boundary. Actual Grok and physical-device verification remain pending.
 
-The gateway operator hosts the MCP server. Grok/xAI hosts Grok Bot. The static project website hosts neither the gateway nor a device connection. Read the [hosting and remote access FAQ](../getting-started/hosting.md) for operator responsibilities, tunnel ownership and future product options.
+The gateway operator hosts the MCP server. Grok/xAI hosts Grok Bot. The website hosts neither. Read the [hosting FAQ](../getting-started/hosting.md).
 
 | Repository | Responsibility |
 | --- | --- |
@@ -14,8 +14,8 @@ The gateway operator hosts the MCP server. Grok/xAI hosts Grok Bot. The static p
 
 ```mermaid
 flowchart TD
-    G["Grok Bot: pending"] -.-> R["Remote MCP: missing"]
-    R -.-> W["Gadget gateway"]
+    G["Grok Bot: unverified"] -.-> T["Operator HTTPS"]
+    T -.-> W["Gateway serve on 127.0.0.1:8766"]
     C["Local MCP client"] --> W
     W --> S["Software simulator"]
     W --> L["Linux application using the Python SDK"]
@@ -25,7 +25,7 @@ flowchart TD
     H -.-> D["Existing home devices: verification pending"]
 ```
 
-Solid arrows describe implemented software interfaces. They do not establish physical operation. The dotted gateway path needs remote HTTPS MCP implementation and actual Grok verification. The dotted Home Assistant path needs its own client, endpoint and physical checks. Home Assistant does not need our gateway for its own MCP route.
+Solid arrows describe implemented software interfaces. They do not establish physical operation. The dotted gateway path is operator HTTPS in front of local `serve`. That path is implemented locally and unverified with Grok Bot. The dotted Home Assistant path needs its own client, endpoint and physical checks. Home Assistant does not need our gateway for its own MCP route.
 
 ## Reusable core, separate board examples
 
@@ -54,4 +54,4 @@ The gateway owns canonical protocol 0.1.0. Loopback TCP and the USB bridge use b
 
 Simulation controls require explicit opt-in and are absent from normal MCP tool discovery. A device acknowledgement does not prove a physical effect. The gateway provides stdio MCP, optional loopback HTTP MCP (`serve` on 127.0.0.1:8766 with a bearer token), and authenticated loopback device transport. It does not terminate public TLS and has not been used with Grok Bot. Never expose the device protocol.
 
-[HARD-GROK-REMOTE-001](https://github.com/adidshaft/grok-gadgets/issues/4) tracks the missing remote service. Local software acceptance, native Grok invocation, remote security and physical operation require separate evidence. The [hosting FAQ](../getting-started/hosting.md#does-a-passing-local-test-prove-the-cloud-route-works) defines those checks.
+[HARD-GROK-REMOTE-001](https://github.com/adidshaft/grok-gadgets/issues/4) tracks a later Grok Bot experiment, not the missing local HTTP listener. Local software acceptance, Grok invocation, remote security and physical operation require separate evidence. The [hosting FAQ](../getting-started/hosting.md) defines those checks.

@@ -20,7 +20,7 @@ kit_spec = importlib.util.spec_from_file_location(
 )
 kit_builder = importlib.util.module_from_spec(kit_spec)
 kit_spec.loader.exec_module(kit_builder)
-simulator_build = kit_builder.ensure_current(R / "website/downloads")
+simulator_build = kit_builder.verify_download(R / "website/downloads")
 # Assemble the whole site away from the last known-good preview. Promote only after validation.
 if DESTINATION.is_symlink():
     raise ValueError("Generated output must not be a symlink")
@@ -636,9 +636,10 @@ shutil.copy(
 )
 check_links(OUT)
 kit_builder.verify_download(OUT / "downloads", simulator_build["gateway_commit"])
-kit_builder.assert_source_unchanged(
-    simulator_build["gateway_commit"], simulator_build["build_inputs"]
-)
+if kit_builder.inputs() != simulator_build["build_inputs"]:
+    raise ValueError(
+        "Simulator kit inputs changed; run python3 scripts/build-simulator-kit.py"
+    )
 backup = Path(site_staging.name) / "previous-dist"
 if DESTINATION.exists():
     DESTINATION.replace(backup)

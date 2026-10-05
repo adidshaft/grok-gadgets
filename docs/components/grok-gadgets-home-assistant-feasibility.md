@@ -1,4 +1,4 @@
-Source: grok-gadgets-home-assistant/docs/feasibility.md at 2d9930dc967bf0cc75f4d72f0c91f2e4c300676f
+Source: grok-gadgets-home-assistant/docs/feasibility.md at ae584fff2882e1b9bea8fb3c4c0fe835bf04a826
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -21,6 +21,8 @@ Evidence: official documentation review only; no Grok account, HA installation, 
 | Home authentication/hosting | [HA MCP](https://www.home-assistant.io/integrations/mcp_server/) (retrieved Oct 4): stateless Streamable HTTP, `/api/mcp`; selected LLM API, exposed entities, bearer token or OAuth. OAuth uses URL client IDs, not RFC7591 registration. | Confirm Grok supports HA's URL client ID and callback scheme/domain. No exact Grok callback/client ID is documented in the reviewed material. Remote HTTPS must be authenticated and reachable by cloud. No tunnel created. |
 | Mobile | [Mobile](https://docs.x.ai/grok-bot/mobile) (updated Sep 21): same Bots/connectors/cloud computer on iOS, iPadOS, Android; advanced setup can require desktop. Push rollout is account dependent. | Record desktop/iOS/Android versions and real tool calls. Documentation parity is not verification. |
 | Outside events | [Routines](https://docs.x.ai/grok-bot/skills-routines-and-automations) (updated Sep 14): supported integrations may trigger routines, e.g. Slack/GitHub. HA MCP docs explicitly exclude notifications and sampling. | Arbitrary HA button/webhook wake into the existing Bot is not established. Polling/event retention in gadget gateway is distinct from Bot wake or mobile push. |
+
+Update, 5 October 2026 (documentation review only): the Home Assistant MCP page still describes IndieAuth URL client IDs, no RFC 7591 registration endpoint, the _Control Home Assistant_ option, and `/api/mcp/<api_id>` requiring an administrator for non-Assist APIs. A public Grok Bot community support thread (number 171877; staff replies 17 and 25 September 2026) reports that Grok Bot custom MCP authenticates only through OAuth with Dynamic Client Registration, and that there is no safe way to set a secret header. If that holds, neither OAuth nor bearer authentication currently works between Grok Bot and Home Assistant. This is a community report, not a primary xAI document, and was not tested here.
 
 
 Decision: reuse Home Assistant's MCP server directly for its exposed Assist capabilities. A second server would duplicate authentication, entity exposure, and actions. This repository supplies discovery diagnostics, fixtures, and an onboarding recipe. No adapter is currently required. If real onboarding reveals a gap, capture the exact failure before designing one.

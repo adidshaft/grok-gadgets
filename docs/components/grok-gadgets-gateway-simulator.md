@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/simulator.md at bd37127c640f89bb2e36fc98eb66f19feb0c1493
+Source: grok-gadgets-gateway/docs/simulator.md at 9d2f2c3b99de9fe105a3d14f470995f06b35ba0e
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
