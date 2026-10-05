@@ -16,10 +16,11 @@ Acceptance:
 
 Dependencies: LAUNCH-001
 
-Commits: 3bb66cc
+Commits: 3bb66cc, 3e2d066
 
 Evidence:
 
 - docs/verification/grok-launch-evidence.md
+- docs/verification/mcp-trace.md
 
 Blocker: Exact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors.
