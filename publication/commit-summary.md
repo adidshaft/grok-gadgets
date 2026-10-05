@@ -4,14 +4,14 @@ This is the source snapshot after local preparation was integrated into main. Th
 
 | Repository | Snapshot HEAD | Incremental commits |
 | --- | --- | ---: |
-| grok-gadgets | `b8df02d8057e80e2005958e358e330b07faf9e1f` | 49 |
-| grok-gadgets-gateway | `71cfecbaf1120b27e1956384861efda5f5a3eef6` | 14 |
-| grok-gadgets-linux-sdk | `9c13fef60d3dd0d5feb2973bd7e51bfacfb48dec` | 12 |
-| grok-gadgets-esp32-sdk | `db3fe8755364f74478bf576d9d57aabe4684eb62` | 14 |
-| grok-gadgets-home-assistant | `3c8d8adba31918b051dbdbf2343f9fa6e26dedce` | 8 |
+| grok-gadgets | `db70c35994c52e9bdfa89169f0486369f324ca17` | 49 |
+| grok-gadgets-gateway | `259f8a46be0571e7a885133cafd50bc908e471a7` | 14 |
+| grok-gadgets-linux-sdk | `6656090b86231925b3570211836486242d3db1dc` | 12 |
+| grok-gadgets-esp32-sdk | `c8d7d84b87401ef76466f9e59f01866e613c378d` | 14 |
+| grok-gadgets-home-assistant | `8d32cc64dbc2f48727f94bbc2d9be7bbd3be5459` | 8 |
 
-Launch preparation hub commits:4451f0a baseline;f1cff58 owner/policies/ready queue;8b362f7 resumable migration;7ac61fd source-race gate;e1a9948 newcomer docs/vectors/site;e063a38 pinned CI/forms/rulesets;3bb66cc history/tree-ref audit and standalone fixtures;4ae0072 source-archive reference support;f4ad5f9 download-pair rollback;4876c8b stage/gate reconciliation;3e2d066 bounded test trace;6fb967f public-subset/activation guide;049aa77 local stage closure and fast-forward main integration;b8df02d preserved commit summary. The final following correction isolates homepage scene layers so the scrolled simulator status cannot intercept header Menu clicks; desktop/narrow pointer, Escape/focus and LED controls were checked in the actual browser.
+Launch preparation hub commits:92a4aa8 baseline;04865de owner/policies/ready queue;d902b1c resumable migration;67b3b91 source-race gate;3d83db9 newcomer docs/vectors/site;1d4a81c pinned CI/forms/rulesets;41bd204 history/tree-ref audit and standalone fixtures;17ff1e8 source-archive reference support;2b8a4a2 download-pair rollback;62aa756 stage/gate reconciliation;53e3841 bounded test trace;7891beb public-subset/activation guide;2567dd4 local stage closure and fast-forward main integration;db70c35 preserved commit summary. The final following correction isolates homepage scene layers so the scrolled simulator status cannot intercept header Menu clicks; desktop/narrow pointer, Escape/focus and LED controls were checked in the actual browser.
 
-Gateway:dd4f50a docs and18824b0 closure,1a6c876 read-only CI,71cfecb issue forms. Linux:94b9fb9 docs/f1468b4 closure,27af8c8 CI/9c13fef forms. ESP32:ff954cc docs/a02c4e8 closure,fe7e505 CI/0a36948 forms,db3fe87 final compilation record. HA:fe2b93f docs/706c2be closure,2aa4a25 CI/3c8d8ad forms. These launch changes preserve verified runtime interfaces and license/notice bytes.
+Gateway:668abd5 docs and18824b0 closure,69ba4a3 read-only CI,259f8a4 issue forms. Linux:b075892 docs/3568d4f closure,d39ad5b CI/6656090 forms. ESP32:9177ff5 docs/5a701f9 closure,00f4d9b CI/2d4a70d forms,c8d7d84 final compilation record. HA:66362e8 docs/55dd05e closure,6b8ba92 CI/8d32cc6 forms. These launch changes preserve verified runtime interfaces and license/notice bytes.
 
 Use `git log --oneline --graph main` in each checkout for complete maintained history. Original alpha and hardening commits remain reachable. Main pushes expose historical paths and personal author metadata; the history/asset report records that explicit approval gate. Source archives contain selected current trees only; private recovery bundles additionally preserve local refs. The separate final approval packet gives runnable paths, exact hashes, verified check logs and remaining external gates.

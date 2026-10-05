@@ -16,11 +16,12 @@ Acceptance:
 
 Dependencies: LAUNCH-001
 
-Commits: 3bb66cc
+Commits: 41bd204
 
 Evidence:
 
 - publication/history-and-assets-review.md
 - scripts/test_audit_launch.py
+- docs/verification/publication-sanitization.md — user-authorized sanitized copies retain all99 original commits, maintain ignore exclusions/examples and regenerate source/download provenance
 
 Blocker: None

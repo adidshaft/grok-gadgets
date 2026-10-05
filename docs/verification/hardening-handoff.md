@@ -1,16 +1,16 @@
 # Corrected local alpha handoff —4October2026
 
-All six audit corrections are implemented and locally tested. Twelve integrated acceptance groups passed on committed clean tracked inputs at hub5f3dedc, gateway84b06fb, Linuxce897ee, ESP5ca2e5d and Home Assistanta8b2370. Independent agent correctness review is closed. Independent assembled candidate certification passed; H0–H7 local acceptance is complete. Final current-HEAD candidate is generated after this evidence commit and identified by artifacts/publication/latest.json.
+All six audit corrections are implemented and locally tested. Twelve integrated acceptance groups passed on committed clean tracked inputs at hub5f3dedc, gateway221f73f, Linuxbe66ea4, ESPe78fb1c and Home Assistantb06eb07. Independent agent correctness review is closed. Independent assembled candidate certification passed; H0–H7 local acceptance is complete. Final current-HEAD candidate is generated after this evidence commit and identified by artifacts/publication/latest.json.
 
 ## Corrections and evidence
 
 | Correction | Commit | Repeatable evidence |
 | --- | --- | --- |
-| Retained firmware ACK retry | ESP3e8ccff | Actual ArduinoJson consumer repeated success/failure, FIFO/reboot;3CTest; C124 compile |
-| Command/input capability routing | Gateway4bb6d87 | Negative official MCP calls preserve LED; discovery contracts;21tests |
-| Per-device/boot event retention | Gateway85548ea | Two-device saturation, reconnect and new boot dedup/window lifecycle |
-| Installed custom factory | Linuxbeb69c1 +89478e5 | Documented and dataclass examples from fresh installed wheels; macOS and actual offline Linux |
-| Honest persisted activity | Hub0078a5a +bddd5b9 | Failed/owner-switch atomic file→build; old live cached; invalid/future unavailable |
+| Retained firmware ACK retry | ESPad89e7a | Actual ArduinoJson consumer repeated success/failure, FIFO/reboot;3CTest; C124 compile |
+| Command/input capability routing | Gatewaye0b7256 | Negative official MCP calls preserve LED; discovery contracts;21tests |
+| Per-device/boot event retention | Gateway7a4ba40 | Two-device saturation, reconnect and new boot dedup/window lifecycle |
+| Installed custom factory | Linuxad3bb53 +7d0f82b | Documented and dataclass examples from fresh installed wheels; macOS and actual offline Linux |
+| Honest persisted activity | Hub0078a5a +fc69edd | Failed/owner-switch atomic file→build; old live cached; invalid/future unavailable |
 | Safe usable documentation | Huba9550ab | Semantic Markdown, source-relative links/fragments, bounded static diagrams, explicit public selection and stale-output cleanup |
 
 Independent reviewer accepted and fixed two additionalP2findings (old LIVE without refresh and dataclass module registration). See [review](hardening-review.md), [journal](hardening-journal.md), [checkpoint](hardening-status.md), [stages](../../planning/hardening-stages.json) and [compatibility](../../compatibility/tested-components.json). Source histories remain incremental, with full local Git repositories and final package bundles. Gateway and Home Assistant use separate environments because their MCP pins differ.

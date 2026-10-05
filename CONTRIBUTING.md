@@ -42,3 +42,7 @@ PRs explain before/after behavior, scope, linked issue, commands/results, docs a
 @adidshaft reviews and merges; zero mandatory human approvals are planned while there is only one maintainer. A merge is a maintainer decision, not an automatic guarantee. No response SLA, CLA or reward promise is made. Original contributions are Apache-2.0; preserve notices and credit non-code work. Recognition is [opt-in](community/contribution-recognition.md); documentation/tests qualify, and account linking never follows from matching usernames.
 
 Follow [conduct](CODE_OF_CONDUCT.md), [security](SECURITY.md), [governance](GOVERNANCE.md) and [support](SUPPORT.md). Security and conduct reports go privately to adidshaft@kyokasuigetsu.xyz; private GitHub vulnerability reporting will be enabled after creation.
+
+## Ignore rules and publication privacy
+
+Keep `.gitignore` current whenever a new tool produces caches, build output, local device configurations, execution logs or credentials. Preserve reviewed sample configuration files and the hub's verified public simulator download. Check new patterns with `git check-ignore`, then review the staged file list before committing. Ignore rules do not remove tracked files or past history; never merge the private pre-publication history back into a public branch. Use the sanitized public checkout and a public or GitHub noreply commit email.

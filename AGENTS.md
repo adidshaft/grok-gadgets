@@ -4,6 +4,10 @@ Own shared architecture, roadmap, integration acceptance, website, and community
 
 Local development and tested incremental commits are authorized. Use main and short-lived feature branches. Reference local issue IDs. Run python3 scripts/check.py and any changed subsystem checks before committing. Maintain labeled issue evidence and explicit blocked external gates.
 
-Do not create public repositories, push, deploy, spend money, activate automation, or modify Reddit. Never open Brave, Safari, or Passwords. Product backend exclusively Grok. Never claim physical or actual Grok verification from simulated/compiled evidence.
+The owner authorized the first sanitized source push to the five adidshaft repositories and issue setup on 5 October 2026. Future pushes need task authorization. Do not deploy, spend money, activate automation, or modify Reddit without specific authorization. Never open Brave, Safari, or Passwords. Product backend exclusively Grok. Never claim physical or actual Grok verification from simulated/compiled evidence.
 
 Research tasks use the strongest available reasoning and cite primary sources. Computer-use Grok simulation requires specific authorization and native receipts or independently retrieved execution logs. Model narratives are not proof. Public policy links and reports use owner adidshaft and adidshaft@kyokasuigetsu.xyz; activation remains separate.
+
+## Ignore rules and publication privacy
+
+Keep `.gitignore` current whenever a new tool produces caches, build output, local device configurations, execution logs or credentials. Preserve reviewed sample configuration files and the hub's verified public simulator download. Check new patterns with `git check-ignore`, then review the staged file list before committing. Ignore rules do not remove tracked files or past history; never merge the private pre-publication history back into a public branch. Use the sanitized public checkout and a public or GitHub noreply commit email.

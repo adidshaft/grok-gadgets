@@ -1,6 +1,6 @@
 # Simulator export-to-kit correction
 
-HARD-SIM-EXPORT-001 / S1. Reproduction/tracking: 549555c; implementation and regression: 24729e0. Local functional acceptance and bounded independent review passed. Corrected25-artifact candidate20261004T194005-1791142805602319000 was certified against c2e8981. Final evidence-only HEAD certification is required before goal closure; exact source HEADs/hashes live in artifacts/publication/latest.json and the referenced manifest.
+HARD-SIM-EXPORT-001 / S1. Reproduction/tracking: 17ba5f2; implementation and regression: 2f20398. Local functional acceptance and bounded independent review passed. Corrected25-artifact candidate20261004T194005-1791142805602319000 was certified against 692a191. Final evidence-only HEAD certification is required before goal closure; exact source HEADs/hashes live in artifacts/publication/latest.json and the referenced manifest.
 
 ## Failure and correction
 
@@ -24,7 +24,7 @@ The first command checks bundled integrity without installation. The second crea
 
 ## Actual browser-to-kit evidence
 
-Actual in-app browser file: my-light.json,236bytes, SHA256 `6b0c7b08fbbd252f9a91f03c9d513c947331cd14ae4e439b5159a804dc71406d`. Displayed and copied JSON match its bytes. Settings: onboarding-light / Onboarding light; RGB26/51/128,ontrue (50% of #3366ff); response delay125ms; startdisconnectedtrue. Actual website kit download matches separate manifest: SHA256 `94a868ccf69bc792c8865c520efae8b40e3f342236593d6af26bf97f4eb19e1f`, gateway `fa062a1db36cfbea90b807b9430d28d153bf585d`.
+Actual in-app browser file: my-light.json,236bytes, SHA256 `6b0c7b08fbbd252f9a91f03c9d513c947331cd14ae4e439b5159a804dc71406d`. Displayed and copied JSON match its bytes. Settings: onboarding-light / Onboarding light; RGB26/51/128,ontrue (50% of #3366ff); response delay125ms; startdisconnectedtrue. Actual website kit download matches separate manifest: SHA256 `94a868ccf69bc792c8865c520efae8b40e3f342236593d6af26bf97f4eb19e1f`, gateway `e3cd6f0062f1a70fb4eb5a8f7a130a4ffe7c4199`.
 
 Freshly extracted downloaded kit plus the separate actual browser file passed verify and --install. Native arm64 Python3.11.15 imported gateway from fresh venv site-packages under -I, not the source checkout. Official stdio MCP responses/assertions show configured discovery and initial state, offline command unavailable, reconnect restores initial state with new boot/session, blue executed/status/state readback, ordered button edges/cursor, off/readback, diagnostics physicalfalse. Review measured configured delay125ms against observed130.612ms; timing is not physical calibration.
 
@@ -35,19 +35,19 @@ Raw local evidence: artifacts/verification/export-onboarding/acceptance.json con
 - Node6/6: existing model regressions plus the browser-used export contract, complete customized setting round-trip and rejection of invalid export settings.
 - Kit4/4: actual export function writes its emitted filename into an extracted ZIP, the real verifier accepts immutable defaults, and overwriting the original default still fails. Other tamper/inventory/traversal/symlink/freshness tests remain green. This dry-run test alone does not prove install/config/MCP; the actual fresh installed acceptance above supplies that evidence.
 - Website12/12, publication11/11, Ruff lint/format and hubcheck passed. Website builds50 checked pages.
-- `.venv/bin/python scripts/check-all.py`:14/14 groups passed on clean tracked source24729e0; raw artifacts/verification/20261004T193719-1791142639802012000/results.json records exact commands/source/diff state and logs. Includes new Node/kit checks and existing community, gateway, official MCP, Linux, installed-custom onboarding, HA fixtures, ESP host/contracts/USB. Gatewayfa062a1, Linuxce897ee, ESP5ca2e5d, HAa8b2370 unchanged. No firmware source changed; compiled C124 provenance remains separate from host/USB regression checks.
+- `.venv/bin/python scripts/check-all.py`:14/14 groups passed on clean tracked source24729e0; raw artifacts/verification/20261004T193719-1791142639802012000/results.json records exact commands/source/diff state and logs. Includes new Node/kit checks and existing community, gateway, official MCP, Linux, installed-custom onboarding, HA fixtures, ESP host/contracts/USB. Gatewaye3cd6f0, Linuxbe66ea4, ESPe78fb1c, HAb06eb07 unchanged. No firmware source changed; compiled C124 provenance remains separate from host/USB regression checks.
 - Kit was rebuilt from exact committed gateway source. Builder runs73 gateway tests and fresh installed default/custom offline MCP before replacing download. Website/kit freshness/provenance and final25-artifact publication certification are required after final source commits.
 
 ## Independent review and limits
 
-Bounded read-only high-effort agent reviewer found no material functional defect in24729e0. It reran Node/kit/freshness checks; evaluated actual scene export/copy/fallback handlers with a lightweight VM; independently matched extracted defaults/customfile/evidence hashes and parsed MCP lifecycle. Dry-run regression scope was documented accurately; a stale inprogress verification note was replaced with this record. Review is another agent, not independent human installation.
+Bounded read-only high-effort agent reviewer found no material functional defect in2f20398. It reran Node/kit/freshness checks; evaluated actual scene export/copy/fallback handlers with a lightweight VM; independently matched extracted defaults/customfile/evidence hashes and parsed MCP lifecycle. Dry-run regression scope was documented accurately; a stale inprogress verification note was replaced with this record. Review is another agent, not independent human installation.
 
 No live Grok accounts operated, and no public push/publish/deployment/spending/automation/Reddit or physical-device action occurred. Actual Grok invocation receipts and mobile, hardware C124, real homes/peripherals/systemd, another human and public CI/deployment remain external gates. Downloaded copies remain snapshots; website builds run freshness gates and public cross-repository CI/deployment stays inactive.
 
 ## Requirement completion audit
 
-1. Reproduction and labeled local issue: protected-default overwrite fails exactly as reported; 549555c and collision.log.
-2. Corrected filename/integrity: download/copy/fallback/guide all use my-light.json; unchanged default still hash protected; 24729e0 and independent review.
+1. Reproduction and labeled local issue: protected-default overwrite fails exactly as reported; 17ba5f2 and collision.log.
+2. Corrected filename/integrity: download/copy/fallback/guide all use my-light.json; unchanged default still hash protected; 2f20398 and independent review.
 3. Meaningful regression: browser-used export contract into actual extractedkit plus old overwrite-negative; Node6/kit4 pass, integrated acceptance/CI include them.
 4. Actual browser and fresh install/MCP: actual file hash236bytes, clean installed site-packages, observed configured/offline/reconnect/command/state outcomes above and acceptance.json.
 5. Affected/cross-repository checks and artifacts:14clean-source groups, affectedtests/lint/hubcheck pass; kit rebuilt/current/hashchecked,50page website and25artifact correctedcandidate certified. Final evidence-only candidate must additionally pass require-current before goalclosure.

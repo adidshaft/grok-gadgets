@@ -15,7 +15,7 @@ Acceptance:
 
 Dependencies: HUB-GW-001
 
-Commits: 256a07e, beb69c1, 89478e5, ce897ee
+Commits: 1991aef, ad3bb53, 7d0f82b, be66ea4
 
 Evidence:
 

@@ -10,11 +10,11 @@ Checkpoint inventory: `artifacts/launch-audit/review-complete.json`, SHA-256 `10
 
 | Repository | HEAD | HEAD commits | Reachable blobs, including direct recovery refs | Replaced/deleted HEAD-history blobs |
 | --- | --- | ---: | ---: | ---: |
-| Hub, `prep/github-alpha-launch` | `7ac61fd135b31e4f477d2e8a370c95808c12d364` | 39 | 434 | 237 |
-| Gateway, main | `71cfecbaf1120b27e1956384861efda5f5a3eef6` | 14 | 103 | 52 |
-| Linux SDK, main | `9c13fef60d3dd0d5feb2973bd7e51bfacfb48dec` | 12 | 85 | 38 |
-| ESP32 SDK, main | `db3fe8755364f74478bf576d9d57aabe4684eb62` | 14 | 128 | 71 |
-| Home Assistant, main | `3c8d8adba31918b051dbdbf2343f9fa6e26dedce` | 8 | 49 | 19 |
+| Hub, `prep/github-alpha-launch` | `67b3b9182b486adb6b53582e363c573400d81c1e` | 39 | 434 | 237 |
+| Gateway, main | `259f8a46be0571e7a885133cafd50bc908e471a7` | 14 | 103 | 52 |
+| Linux SDK, main | `6656090b86231925b3570211836486242d3db1dc` | 12 | 85 | 38 |
+| ESP32 SDK, main | `c8d7d84b87401ef76466f9e59f01866e613c378d` | 14 | 128 | 71 |
+| Home Assistant, main | `8d32cc64dbc2f48727f94bbc2d9be7bbd3be5459` | 8 | 49 | 19 |
 
 Totals: 87 commits, 799 unique blobs per repository summed, 55 local refs. All commits reachable through local refs are also in the respective HEAD histories at this checkpoint. Three hub agent checkpoint refs point directly to tree `d1c5c5f250cc6a91ea346647167c67058cfbe5f0`, rather than commits. Walking only commit history would miss seven additional recovery-only blobs. Those contain raw brand assets, generation notes and a 3,138,712-byte ZIP; the inventory records full object IDs and hashes. The extra ZIP object is `6daf294ae95d7d3c45fc8236db58e8d9d054a603`. No refs were removed or rewritten.
 

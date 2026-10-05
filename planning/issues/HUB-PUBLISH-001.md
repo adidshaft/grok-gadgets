@@ -2,7 +2,7 @@
 
 Owner: grok-gadgets
 
-Stage: blocked · M9
+Stage: in progress · M9
 
 Labels: maintenance, website, P1
 
@@ -19,5 +19,6 @@ Commits: Pending
 
 Evidence:
 
+- First sanitized GitHub source push and issue setup authorized on 5 October 2026; Pages/releases/firmware/Reddit/automation remain separate.
 
-Blocker: Separate creation/push/release/Pages approval plus reviewed historical paths and commit-email disclosure, naming/official-mark disposition and hosted acceptance required. Recovery bundles and firmware binary uploads excluded.
+Blocker: None

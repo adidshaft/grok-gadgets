@@ -12,7 +12,7 @@
       "Baseline 11/11 groups passed"
     ],
     "commits": [
-      "c91a06b"
+      "43311ff"
     ],
     "evidence": [
       "artifacts/verification/hardening-baseline/results.json"
@@ -37,12 +37,12 @@
       "ESP3CTest,contract,consumerretry,USB PTY,C124 compilation"
     ],
     "commits": [
-      "4bb6d87",
-      "85548ea",
-      "84b06fb",
-      "3e8ccff",
-      "382444d",
-      "5ca2e5d"
+      "e0b7256",
+      "7a4ba40",
+      "221f73f",
+      "ad89e7a",
+      "08bfa69",
+      "e78fb1c"
     ],
     "evidence": [
       "../grok-gadgets-gateway/docs/verification/hardening.md",
@@ -66,10 +66,10 @@
       "fresh installed documented and annotated-dataclass factories on macOS and actual offline Linux"
     ],
     "commits": [
-      "beb69c1",
-      "04b5ac3",
-      "89478e5",
-      "ce897ee"
+      "ad3bb53",
+      "d334212",
+      "7d0f82b",
+      "be66ea4"
     ],
     "evidence": [
       "../grok-gadgets-linux-sdk/docs/verification/hardening.md"
@@ -93,9 +93,9 @@
       "1280/390px browser guides; HA overflow corrected"
     ],
     "commits": [
-      "0078a5a",
-      "a9550ab",
-      "bddd5b9"
+      "c6309c2",
+      "1688413",
+      "fc69edd"
     ],
     "evidence": [
       "website/test_activity.py",
@@ -122,8 +122,8 @@
       "12/12 final groups passed, each recorded clean before/after tracked inputs"
     ],
     "commits": [
-      "affb69b",
-      "5f3dedc"
+      "c984ae7",
+      "358ce02"
     ],
     "evidence": [
       "artifacts/verification/20261004T164755-1791132475423552000/results.json"
@@ -145,9 +145,9 @@
       "Independent all-six source review closed; two P2 findings fixed and rerun"
     ],
     "commits": [
-      "bddd5b9",
-      "89478e5",
-      "ce897ee"
+      "fc69edd",
+      "7d0f82b",
+      "be66ea4"
     ],
     "evidence": [
       "docs/verification/hardening-review.md"
@@ -171,8 +171,8 @@
       "Fresh candidate installed Gateway/Linux ordinary+dataclass/MCPdemo and separateHAfixture pass"
     ],
     "commits": [
-      "47c9be3",
-      "9daf82d"
+      "cf25696",
+      "21606fa"
     ],
     "evidence": [
       "docs/verification/hardening-review.md",
@@ -198,7 +198,7 @@
       "Closure evidence-only commit and finalcurrentHEADpackage required before goalcompletion"
     ],
     "commits": [
-      "9daf82d"
+      "21606fa"
     ],
     "evidence": [
       "docs/verification/hardening-completion-audit.md",
@@ -223,13 +223,13 @@
       "Collision reproduced; original default integrity preserved",
       "Node6,kit4,website12,publication11,hubcheck,Ruff pass",
       "Actual browser file + fresh installed local MCP discovery/state/offline/reconnect pass",
-      "14/14 cross-repository checks at clean24729e0",
-      "Bounded independent review no material findings;25-artifact currentHEADcandidate certified at c2e8981; final evidenceHEAD certification required before goal closure"
+      "14/14 cross-repository checks at clean2f20398",
+      "Bounded independent review no material findings;25-artifact currentHEADcandidate certified at 692a191; final evidenceHEAD certification required before goal closure"
     ],
     "commits": [
-      "549555c",
-      "24729e0",
-      "c2e8981"
+      "17ba5f2",
+      "2f20398",
+      "692a191"
     ],
     "evidence": [
       "docs/verification/simulator-export-onboarding.md",

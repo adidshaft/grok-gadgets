@@ -1,10 +1,12 @@
+> Publication update, 5 October 2026: the owner approved sanitization and the first source push. The original 99 commits are preserved with new IDs; private metadata and historical generated downloads were sanitized. See [the sanitization record](publication-sanitization.md). Hosted activation and verification are being performed separately; the original preparation record below is historical.
+
 # Local alpha launch preparation status
 
 L0–L7 preparation is complete; G1 is accurately gated. Five separate Apache-2.0 repositories retain their incremental histories, maintained labels/milestones and stable issue IDs. Public repositories, packages, releases, hosted CI, Pages and community operations remain inactive. Current names are retained with a deferred public branding decision.
 
 The local website offers the original interactive architecture, all project components, customizable browser light, exported configuration and source-backed simulator download. The download rebuilds with checked source/input changes, requires source plus installed default/custom MCP acceptance and uses version/hash URLs. Failed pair/site promotion preserves prior usable files. Downloaded copies remain frozen; users upgrade into a fresh folder with their separate configuration.
 
-Current kit: gateway71cfecbaf1120b27e1956384861efda5f5a3eef6, version0.1.0a1, SHA25696d5004d1c3c5da8be08d4d90bc475240b03c3a21a5e917eef5b92c33992117a. The actual local website download matches. The actual browser JSON-fallback export installs and passes fresh local MCP acceptance without overwriting defaults.
+Current kit: gateway 997259daa5bec0b026cbfaa4a02975568b4df4bd, version 0.1.0a1, SHA256 cf6f0ba2034452c2e5cb8453975b6009ba95447d247466e8a0573bf746cde4b7. Fresh installed local MCP checks pass; historical account observations do not verify this new artifact.
 
 Verification:14 integration groups,57 script regressions,15 website tests,6 browser tests and C124 compilation pass. Independent fresh Git/source-ZIP review without siblings passed website/kit/launch checks,59pages and1632project-prefix links. The release notes/support matrix identify platform/runtime limits. Final clean-main verification, audit, candidate hashes and public asset subset are recorded outside source in the exact approval packet under artifacts/publication-public; the earlier candidate in the journal was independently achievable pre-closure verification.
 

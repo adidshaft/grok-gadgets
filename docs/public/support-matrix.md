@@ -13,3 +13,5 @@ This is an experimental software alpha exclusively for Grok. The [compatibility 
 | Community recognition | Consent/identity/merged-contribution fixture logic, bounded offline tests | Approved identity backend, platform permissions and moderator activation |
 
 Remote authenticated HTTPS/OAuth and provisioning, Wi-Fi, and voice entry points are future work. No public service, real device, Reddit action or unattended automation is enabled. Record additional acceptance through the appropriate issue form with exact version/hash and safely redacted evidence.
+
+During fresh publication setup, an Intel Python 3.13 environment selected a cryptography source build and failed with the installed old Rust toolchain. The native arm64 Python 3.11 environment installed the pinned wheels and passed gateway/Home Assistant checks. Intel Mac setup remains unverified; this is not a claim that every Intel installation fails.

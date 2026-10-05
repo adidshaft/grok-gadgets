@@ -1,6 +1,6 @@
 # Configurable simulator acceptance
 
-Local, unpublished acceptance. Gateway source `fa062a1db36cfbea90b807b9430d28d153bf585d` includes configurable simulation and offline button guards. The browser reuses the existing architecture animation; no Grok requests or physical operations occur in the browser.
+Local, unpublished acceptance. Gateway source `e3cd6f0062f1a70fb4eb5a8f7a130a4ffe7c4199` includes configurable simulation and offline button guards. The browser reuses the existing architecture animation; no Grok requests or physical operations occur in the browser.
 
 ## Automated checks
 
@@ -8,7 +8,7 @@ Local, unpublished acceptance. Gateway source `fa062a1db36cfbea90b807b9430d28d15
 - `python3 scripts/test_simulator_kit.py`: three tests passed. Actual downloadable ZIP/verifier, malformed inventory/version/source, tampering, traversal/symlinks, stale inputs/source, rejected dirty checkout, refresh failure, malformed manifest and standalone pinned checkout.
 - Website suite: 12 tests passed. Publication suite: 11 tests passed. Ruff check and formatting passed. Final website build checks 50 page/link/fragment targets.
 - Kit generator runs 73 gateway tests on an exact committed archive, builds its wheel/sdist, installs the readable kit into a fresh virtual environment and runs the official MCP demonstration with both default and custom/offline settings. All passed before archive replacement. Gateway agent additionally reported 52 installed configuration tests passing; gateway evidence is in its `docs/verification/simulator-config.md`.
-- Original ZIP SHA-256 at 3266a05: `214cf7c37b69014b459d5c3fd11cc48d5cfd0623e10e51e39d5900b1a7794a8b`. This matches the file actually downloaded through the website. The separate website manifest records every file hash, build input and source commit.
+- Original ZIP SHA-256 at 86dda0f: `214cf7c37b69014b459d5c3fd11cc48d5cfd0623e10e51e39d5900b1a7794a8b`. This matches the file actually downloaded through the website. The separate website manifest records every file hash, build input and source commit.
 
 ## Browser and extracted kit
 

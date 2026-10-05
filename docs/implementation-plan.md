@@ -1,7 +1,7 @@
 # Grok Gadgets — implementation and launch plan
 
 **Plan date:** 4 October 2026  
-**Status:** Agreed product direction; implementation has not started.  
+**Status:** Historical implementation handoff; the local alpha is now built. See [current verification](verification/launch-status.md) and [publication sanitization](verification/publication-sanitization.md).
 **Current authorized phase:** Local development, testing, and incremental Git commits in a separate build chat.  
 **License decision:** Apache-2.0 for original code.  
 **Community:** [r/GrokGadgets](https://www.reddit.com/r/GrokGadgets/)
