@@ -1,4 +1,4 @@
-Source: grok-gadgets-home-assistant/docs/verification.md at 9fe1a111122b6077a19c4266a7b1b99d7b7ec0e4
+Source: grok-gadgets-home-assistant/docs/verification.md at 0125967b3d1e193d4b898c77350b7da2d8574f90
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 

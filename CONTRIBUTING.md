@@ -1,10 +1,12 @@
 # Contributing
 
-Code, documentation, tests, accessibility, diagnostics and verified build reports all count. No hardware is needed for browser, simulator, SDK host tests or fixture diagnostics. Start with the [ready queue](docs/contributing/ready-issues.md).
+Use the shared [writing guide](docs/contributing/writing-guide.md) and [review and privacy rules](docs/contributing/review-and-privacy.md). Keep explanations short and use diagrams where they clarify a connection.
+
+You can contribute code, documentation, tests, accessibility fixes, diagnostics or verified build reports. Browser, simulator, SDK host tests and fixture diagnostics need no hardware. Start with the [ready queue](docs/contributing/ready-issues.md).
 
 ![Choose an issue, make a focused branch, run checks, open a pull request, then review and merge.](docs/visuals/contribution.svg)
 
-Choose the owning repository: hub for website/policies/integration; gateway for MCP/protocol/simulator; Linux SDK for Python applications; ESP32 SDK for firmware/library; Home Assistant for the upstream recipe and diagnostic client. The [responsibility map](docs/visuals/responsibilities.svg) and component README commands explain these boundaries.
+Choose the repository that owns the change. Use the [repository map](docs/architecture/overview.md) and each component README. The [responsibility diagram](docs/visuals/responsibilities.svg) shows the same division.
 
 Discuss protocol/schema changes, cross-repository interfaces and substantial features in an issue first. A typo fix needs no issue ceremony. Reproduce a bug before changing code; state the expected behavior, observed result and evidence level. GitHub Issues are authoritative after the initial migration. The local planning ledgers preserve pre-publication history; the website consumes a timestamped GitHub snapshot. The separate GitHub Project board remains pending.
 
@@ -20,7 +22,7 @@ python3 scripts/check.py
 .venv/bin/python website/build.py
 ```
 
-Make small coherent commits; use the issue ID where available. Do not alter global Git identity. Push your contribution branch and open a focused PR against main using the template.
+Make small commits with one clear purpose. Reference the issue ID when available. Do not change global Git identity. Push your contribution branch. Open a focused pull request (PR) against main with the template.
 
 | Change | Focused checks |
 | --- | --- |
@@ -33,18 +35,30 @@ Make small coherent commits; use the issue ID where available. Do not alter glob
 | Cross-repository contract/pins | `.venv/bin/python scripts/check-all.py` with the exact tested sibling combination |
 | Publication/migration | Relevant integrity/fake-API regressions; no remote writes |
 
-Hub lint/format uses `uvx --from ruff==0.14.14 ruff check scripts website community` and `ruff format --check` with the same pinned package. Component prerequisites/commands live in their own CONTRIBUTING files. Pure text corrections need usable links and accurate instructions, not invented behavior tests.
+Run hub lint with `uvx --from ruff==0.14.14 ruff check scripts website community`. Run `ruff format --check` with the same pinned package. Each component lists its requirements and commands in CONTRIBUTING.md. For text-only changes, check links and instructions. Do not invent behavior tests.
 
-A protocol change starts at gateway canonical schemas/fixtures, identifies the new version and updates SDK pins, consumers and integration evidence before promotion. Test a component candidate with other known-good pins, then open a hub compatibility/documentation update; a passing component PR does not automatically change the public website or download.
+Start protocol changes in the gateway schemas and fixtures. Identify the new version. Update SDK pins, consumers and integration evidence before release.
 
-PRs explain before/after behavior, scope, linked issue, commands/results, docs and remaining limitations. Include a meaningful regression for functional changes. Never label a simulator, fixture, compilation or assistant narrative as physical/native Grok proof. Redact tokens, account details and household state. AI-assisted work must be reviewed, understood and tested by its contributor; generated code gets the same review standards.
+Test the changed component with known-good versions of the other components. Then propose the hub compatibility and documentation update. A passing component PR does not automatically change the website or download.
 
-@adidshaft reviews and merges; the policy uses zero mandatory human approvals while there is only one maintainer. A merge is a maintainer decision, not an automatic guarantee. No response SLA, CLA or reward promise is made. Original contributions are Apache-2.0; preserve notices and credit non-code work. Recognition is [opt-in](community/contribution-recognition.md); documentation/tests qualify, and account linking never follows from matching usernames.
+In the PR, describe the behavior before and after the change. Link the issue. List checks, results, documentation changes and remaining limits. Add a meaningful regression test for changed behavior.
 
-Maintainer merges must use a reviewed public identity. GitHub-created merges need an explicit public author email; local Git settings do not control them. If GitHub rejects that address, do not retry with a private email: prepare a local merge, check its identity and exact tree, run the required checks, and retain the normal branch protections. Contributors should choose an email they intend to make public, such as their own GitHub noreply address.
+Simulation, fixtures, compilation and assistant narratives do not prove physical or native Grok operation. Remove tokens, account details and household state from shared evidence. Contributors must understand, review and test AI-assisted work. Generated code has the same review requirements.
+
+@adidshaft reviews and merges contributions. With one maintainer, the policy requires zero mandatory human approvals. The maintainer still decides each merge. Passing checks do not guarantee a merge.
+
+We promise no response deadline or reward. No contributor license agreement (CLA) is required. Original contributions use Apache-2.0. Preserve notices and credit non-code work.
+
+Recognition is [opt-in](community/contribution-recognition.md). Documentation and tests qualify. Matching usernames do not prove account ownership.
+
+Use a reviewed public identity for maintainer merges. GitHub-created merges need an explicit public author email. Local Git settings do not control that email.
+
+If GitHub rejects the address, do not retry with a private email. Prepare a local merge. Check its identity and exact tree. Run required checks and keep normal branch protections. Contributors should use an email they intend to publish, such as their GitHub noreply address.
 
 Follow [conduct](CODE_OF_CONDUCT.md), [security](SECURITY.md), [governance](GOVERNANCE.md) and [support](SUPPORT.md). Security and conduct reports go privately to adidshaft@kyokasuigetsu.xyz; GitHub private vulnerability reporting is also enabled for security reports.
 
 ## Ignore rules and publication privacy
 
-Keep `.gitignore` current whenever a new tool produces caches, build output, local device configurations, execution logs or credentials. Preserve reviewed sample configuration files and the hub's verified public simulator download. Check new patterns with `git check-ignore`, then review the staged file list before committing. Ignore rules do not remove tracked files or past history; never merge the private pre-publication history back into a public branch. Use the sanitized public checkout and a public or GitHub noreply commit email.
+Update `.gitignore` when a tool creates caches, build output, local configuration, logs or credentials. Preserve reviewed sample configurations and the verified public simulator download.
+
+Check new patterns with `git check-ignore`. Review staged files before each commit. Ignore rules do not remove tracked files or past history. Never merge private pre-publication history into a public branch. Use the sanitized public checkout and a public commit email.
