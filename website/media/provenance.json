@@ -4,6 +4,11 @@
   "usage_terms": "https://x.ai/legal/brand-guidelines",
   "files": [
     {
+      "file": "grok-gadgets-share-v3.png",
+      "sha256": "74aed0723ba3dd5a7109a5f18b401d05f64f133dcc67dfc0ae02ab5db3cf2bdf",
+      "origin": "Built-in image generation edited the user-supplied website screenshot with the original Grok Gadgets project mark and two user-supplied Grok Bot round-face references. The project name and logo are foregrounded; one oversized outline Bot face sits behind the conceptual wireframe hardware scene. Normalized to 1200x630 with macOS sips. The round-face reference supersedes the desktop app icon used in v2; no claim of official asset provenance or verified hardware operation."
+    },
+    {
       "file": "grok-gadgets-share-v1.png",
       "sha256": "edeafdb6a82d466e3a180e1940d354a87d8dc43d002a0e0480655ba1186b55a7",
       "origin": "Built-in image generation for the background; composed with unchanged project and official Grok marks. Conceptual architecture illustration, not evidence of an operational connection."
