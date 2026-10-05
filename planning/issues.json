@@ -577,7 +577,7 @@
       "docs/verification/real-grok-test-plan.md",
       "docs/getting-started/hosting.md"
     ],
-    "blocker": "Split: (a) local Streamable HTTP + bearer on loopback is authorized now and does not depend on HUB-GROK-001. (b) a public tunnel, hosted service, or actual Grok Bot experiment still needs owner approval. Native stdio tool-I/O export cannot close this gate."
+    "blocker": "Local serve (loopback HTTP + bearer) is on the gateway simplify-and-fix branch (ba1b9f0). A public tunnel, hosted service, or Grok Bot experiment still needs owner approval. Native stdio tool-I/O export cannot close this gate."
   },
   {
     "id": "HUB-DEMO-001",
