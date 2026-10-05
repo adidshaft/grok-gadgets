@@ -15,7 +15,7 @@ Open-source tools so you can connect gadgets to [Grok Bot](https://docs.x.ai/gro
 | Try the [browser light](https://grok-gadgets.pages.dev/#playground). It does not call Grok. | Ask Grok Bot to control a board on your Mac, a Pi, or your home network. |
 | Run the [local simulator kit](docs/getting-started/simulator-kit.md) on your computer. | Use a cloud Bot against a file that only exists on your Mac. Command MCP runs on Grok's cloud computer. |
 | Build the Linux agent or compile C124 firmware. | Treat compile success as a flashed, working board. |
-| Read the [hosting FAQ](docs/getting-started/hosting.md). | Point Grok Bot at `127.0.0.1`. Remote HTTPS MCP is not verified with Grok Bot. |
+| Read the [hosting FAQ](docs/getting-started/hosting.md). | Point Grok Bot at `127.0.0.1`. Local `serve` exists; Grok Bot has not used it. |
 
 **Experimental alpha.** Software tests pass. `grok_verified` and `hardware_verified` stay false until native Grok receipts and physical observation exist.
 

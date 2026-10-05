@@ -2,9 +2,9 @@
 
 Grok Gadgets provides tools and SDKs for an existing Grok Bot. The operator runs the gateway. Grok/xAI runs Grok Bot.
 
-**Current boundary:** the gateway supports local Model Context Protocol (MCP) over standard input and output (stdio). Its device connection uses authenticated loopback TCP. An authenticated remote HTTPS MCP service is not implemented.
+**Current boundary:** the gateway speaks MCP two ways on the operator's computer: stdio, and `serve` at `http://127.0.0.1:8766/mcp` with a local bearer token. Gadgets still connect on loopback TCP (`127.0.0.1:8765`). That HTTP mode is software-tested locally. It is **not** verified with Grok Bot. A cloud Bot cannot open `127.0.0.1`. Public HTTPS is something the operator puts in front of port 8766; this project does not ship TLS or OAuth. Never publish the device port.
 
-You can run local development and simulator tests now. The remote diagrams below describe future routes. They are not setup instructions for the current gateway.
+You can run local development and simulator tests now. Putting `serve` on the public internet, or connecting Grok Bot to it, needs a separate experiment and is unverified.
 
 ## Who hosts the custom MCP server?
 
@@ -13,7 +13,7 @@ The person or organization that runs the Grok Gadgets gateway hosts its MCP serv
 | Part | Who runs it? | Current role |
 | --- | --- | --- |
 | Grok Bot | Grok/xAI | Runs the Bot and its supported client environment. |
-| Local gateway | Builder or user | Runs the stdio MCP process on their computer or Linux box. |
+| Local gateway | Builder or user | Runs stdio MCP and, if they choose, `grok-gadgets-gateway serve` on loopback. |
 | Future product gateway | Customer or product maker | Depends on the product's hosting design. A remote service is not shipped. |
 | Project website | Project maintainers, on Cloudflare Pages | Serves docs, downloads and the browser simulator. It does not run a gadget gateway. |
 | Home Assistant MCP server | The Home Assistant installation operator | Uses Home Assistant's own MCP route. It does not require our gateway. |
@@ -34,7 +34,7 @@ During a builder experiment, the builder keeps the gateway, tunnel process and h
 
 **A tunnel provides reachability. It does not add gateway authentication.** Some providers offer separate access controls. Those controls need explicit configuration and a compatible MCP client. A browser login page alone is not an MCP credential flow.
 
-A tunnel does not convert the current stdio MCP process into an HTTPS MCP service. Do not point a tunnel at the gateway's loopback device port. That port uses the device protocol, not remote MCP.
+A tunnel does not replace the bearer token. Do not point a tunnel at the gateway's device port (8765). Point it only at the MCP port (8766) if you are running an authorized experiment. That path is unimplemented as a hosted product and unverified with Grok Bot.
 
 See [Grok's custom MCP tunneling guide](https://docs.x.ai/grok/connectors/custom-mcp-tunneling), [Cloudflare Tunnel](https://developers.cloudflare.com/tunnel/) and [Quick Tunnels](https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/). Cloudflare's tunnel agent runs on the operator's host and connects outward to the provider. It does not require a public origin IP or an inbound router port.
 
@@ -42,11 +42,11 @@ Provider features need a separate compatibility check. Quick Tunnels are tempora
 
 ## What can a builder do now?
 
-Run the [browser and local simulator](simulator-kit.md). Build a Linux application or compile the ESP32 example. These tasks need no public gateway or tunnel. Installing dependencies can still need Internet access.
+Run the [browser and local simulator](simulator-kit.md). Build a Linux application or compile the ESP32 example. On the gadget host you can `enroll` a device and run `grok-gadgets-gateway serve` so a **local** MCP client can use HTTP. These tasks need no public gateway. Installing dependencies can still need Internet access.
 
-A cloud Grok Bot needs a supported route to invoke an MCP tool. The simulator guide describes a conditional Command experiment inside the Bot's environment. Native tool invocation still needs its own evidence.
+A cloud Grok Bot still cannot see a kit that only exists on your Mac. Native tool invocation still needs its own evidence.
 
-To reach the builder's local gadgets through Remote HTTPS, Grok needs a reachable, authenticated MCP service. That service is missing from Grok Gadgets. [HARD-GROK-REMOTE-001](https://github.com/adidshaft/grok-gadgets/issues/4) tracks the required design, implementation and tests.
+To try reaching local gadgets from a Bot, the operator would run `serve` and publish only `127.0.0.1:8766` over HTTPS they control, with the bearer token in the Bot config. That experiment is **not** done here. [HARD-GROK-REMOTE-001](https://github.com/adidshaft/grok-gadgets/issues/4) tracks activation. Gateway file: `docs/remote-access.md`.
 
 After that work, a compatible tunnel could provide a temporary experiment route:
 
