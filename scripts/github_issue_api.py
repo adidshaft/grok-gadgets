@@ -8,6 +8,7 @@ import json
 import os
 import re
 import subprocess
+import time
 
 from issue_migration import (
     ID,
@@ -22,11 +23,17 @@ from issue_migration import (
 class GitHubIssueAPI:
     PAGE_SIZE = 100
     MAX_PAGES = 1000
+    MUTATION_INTERVAL = 1.05
 
-    def __init__(self, *, allow_writes=False, request_runner=None):
+    def __init__(
+        self, *, allow_writes=False, request_runner=None, clock=None, sleeper=None
+    ):
         self.allow_writes = allow_writes
         self.verified = False
         self.request_runner = request_runner or subprocess.run
+        self.clock = clock or time.monotonic
+        self.sleeper = sleeper or time.sleep
+        self._last_mutation_started_at = None
 
     @staticmethod
     def scope(owner, repository):
@@ -41,6 +48,16 @@ class GitHubIssueAPI:
             raise MigrationError(
                 "GitHub writes require --apply and verified migration targets"
             )
+
+    def pace_mutation(self):
+        now = self.clock()
+        if self._last_mutation_started_at is not None:
+            earliest = self._last_mutation_started_at + self.MUTATION_INTERVAL
+            while now < earliest:
+                self.sleeper(earliest - now)
+                now = self.clock()
+        # An uncertain or failed attempt still counts; it is never retried here.
+        self._last_mutation_started_at = now
 
     def request(self, endpoint, *, method="GET", payload=None, missing_ok=False):
         route = endpoint.partition("?")[0].split("/")
@@ -85,10 +102,13 @@ class GitHubIssueAPI:
         environment = os.environ.copy()
         environment.pop("GH_DEBUG", None)
         environment.update(GH_PROMPT_DISABLED="1", GH_PAGER="cat")
+        request_input = json.dumps(payload) if payload is not None else None
+        if method != "GET":
+            self.pace_mutation()
         try:
             result = self.request_runner(
                 command,
-                input=json.dumps(payload) if payload is not None else None,
+                input=request_input,
                 text=True,
                 capture_output=True,
                 timeout=60,
