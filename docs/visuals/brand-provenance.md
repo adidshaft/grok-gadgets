@@ -14,4 +14,4 @@ The four `badge-*.svg` files are original project navigation graphics. They use 
 
 ## Website share preview
 
-`website/media/grok-gadgets-share-v1.png` is a 1200×630 conceptual architecture illustration for Open Graph and X/Twitter cards. Its technical drawing background was generated for this project and composed with the unchanged project mark and official Grok mark; source checksums are in `website/media/provenance.json`. It labels Grok Bot, Grok Gadgets tools and maker hardware as an intended architecture, not a verified connection. The card states the project is open source and not affiliated with xAI or SpaceXAI.
+The current `website/media/grok-gadgets-share-v2.png` card is 1200×630. It pairs the Grok Bot desktop app icon with the project’s original mark and wordmark; small labels were removed, while the lower-left open-source/non-affiliation note remains. The faint hardware route is conceptual, not evidence of a live connection. Provenance includes the signed app bundle identity and source icon checksum in `website/media/provenance.json`. Version 1 remains in the site for caches that may still request its earlier URL.
