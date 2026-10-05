@@ -2347,17 +2347,20 @@
           "P1"
         ],
         "milestone": "ML",
-        "stage": "in progress",
-        "commits": [],
+        "stage": "done",
+        "commits": [
+          "6fb967f"
+        ],
         "evidence": [
-          "docs/verification/launch-journal.md"
+          "docs/verification/launch-status.md",
+          "artifacts/publication/latest.json"
         ],
         "blocker": null
       },
-      "stage": "in progress",
+      "stage": "done",
       "source_present": true,
       "source": "grok-gadgets/planning/issues.json",
-      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-CANDIDATE-001 -->\n\nLocal ID: `LAUNCH-CANDIDATE-001`\n\nStatus: **in progress**\n\nMeet exact launch-plan stage acceptance; public activation remains separately gated\n\n### Acceptance\n\n- Stage acceptance and named deliverables in docs/github-launch-plan.md\n- Tested incremental source commits and exact evidence\n- No public activation or unsupported evidence claims\n\n### Evidence\n\n- docs/verification/launch-journal.md\n\n### Dependencies\n\n- `grok-gadgets#LAUNCH-001` (resolve after issue creation)\n"
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-CANDIDATE-001 -->\n\nLocal ID: `LAUNCH-CANDIDATE-001`\n\nStatus: **done**\n\nMeet exact launch-plan stage acceptance; public activation remains separately gated\n\n### Acceptance\n\n- Stage acceptance and named deliverables in docs/github-launch-plan.md\n- Tested incremental source commits and exact evidence\n- No public activation or unsupported evidence claims\n\n### Evidence\n\n- docs/verification/launch-status.md\n- artifacts/publication/latest.json\n\n### Commits\n\n- 6fb967f\n\n### Dependencies\n\n- `grok-gadgets#LAUNCH-001` (resolve after issue creation)\n"
     },
     {
       "repository": "grok-gadgets",
@@ -2520,17 +2523,19 @@
         "milestone": "ML",
         "stage": "blocked",
         "commits": [
-          "3bb66cc"
+          "3bb66cc",
+          "3e2d066"
         ],
         "evidence": [
-          "docs/verification/grok-launch-evidence.md"
+          "docs/verification/grok-launch-evidence.md",
+          "docs/verification/mcp-trace.md"
         ],
         "blocker": "Exact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors."
       },
       "stage": "blocked",
       "source_present": true,
       "source": "grok-gadgets/planning/issues.json",
-      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-GROK-001 -->\n\nLocal ID: `LAUNCH-GROK-001`\n\nStatus: **blocked**\n\nMeet exact launch-plan stage acceptance; public activation remains separately gated\n\n### Acceptance\n\n- Inspect native Grok requests/results or independently retrieved stdio trace for exact kit and website-exported configuration\n- Discovery, color/off/state, invalid/unsupported input, retry, ordered simulated events, disconnect/recovery tested through native route\n- Return to normal six tools; preserve unrelated connectors and real devices\n\n### Evidence\n\n- docs/verification/grok-launch-evidence.md\n\n### Commits\n\n- 3bb66cc\n\n### Blocked by\n\nExact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors.\n\n### Dependencies\n\n- `grok-gadgets#LAUNCH-001` (resolve after issue creation)\n"
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-GROK-001 -->\n\nLocal ID: `LAUNCH-GROK-001`\n\nStatus: **blocked**\n\nMeet exact launch-plan stage acceptance; public activation remains separately gated\n\n### Acceptance\n\n- Inspect native Grok requests/results or independently retrieved stdio trace for exact kit and website-exported configuration\n- Discovery, color/off/state, invalid/unsupported input, retry, ordered simulated events, disconnect/recovery tested through native route\n- Return to normal six tools; preserve unrelated connectors and real devices\n\n### Evidence\n\n- docs/verification/grok-launch-evidence.md\n- docs/verification/mcp-trace.md\n\n### Commits\n\n- 3bb66cc\n- 3e2d066\n\n### Blocked by\n\nExact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors.\n\n### Dependencies\n\n- `grok-gadgets#LAUNCH-001` (resolve after issue creation)\n"
     },
     {
       "repository": "grok-gadgets",
@@ -2921,8 +2926,8 @@
     {
       "id": "ML",
       "title": "Public alpha launch preparation",
-      "stage": "in progress",
-      "scope": "L0\u2013L7 local preparation and G1 authorized cloud simulation; GitHub/Pages activation excluded"
+      "stage": "done",
+      "scope": "L0\u2013L7 local preparation completed and G1 bounded attempt accurately gated; native invocation and public activation remain excluded/open"
     },
     {
       "id": "INDEPENDENT-SOFTWARE",
@@ -2961,5 +2966,5 @@
     "ready": true,
     "errors": []
   },
-  "prepared_at_utc": "2026-10-04T21:12:42.994068+00:00"
+  "prepared_at_utc": "2026-10-04T21:18:39.548508+00:00"
 }
