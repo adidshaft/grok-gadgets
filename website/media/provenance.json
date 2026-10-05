@@ -4,6 +4,11 @@
   "usage_terms": "https://x.ai/legal/brand-guidelines",
   "files": [
     {
+      "file": "grok-gadgets-share-v1.png",
+      "sha256": "edeafdb6a82d466e3a180e1940d354a87d8dc43d002a0e0480655ba1186b55a7",
+      "origin": "Built-in image generation for the background; composed with unchanged project and official Grok marks. Conceptual architecture illustration, not evidence of an operational connection."
+    },
+    {
       "file": "grok-gadgets-icon.png",
       "sha256": "6d0b4c7cd981d7895bc1763fc55d1c9dae13ad27dbd9c9398ead8a8690b8f56f",
       "origin": "User-supplied AI-generated original community artwork"
