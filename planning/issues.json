@@ -563,9 +563,7 @@
       "Bounded commands/connections/queues/timeouts; redacted diagnostics; shutdown/reconnect tests",
       "Actual Grok desktop/mobile experiment after separate activation approval"
     ],
-    "dependencies": [
-      "HUB-GROK-001"
-    ],
+    "dependencies": [],
     "labels": [
       "feature",
       "gateway",
@@ -573,13 +571,13 @@
       "help wanted"
     ],
     "milestone": "M5",
-    "stage": "blocked",
+    "stage": "in progress",
     "commits": [],
     "evidence": [
       "docs/verification/real-grok-test-plan.md",
       "docs/getting-started/hosting.md"
     ],
-    "blocker": "Remote HTTPS MCP/OAuth service is unimplemented. Design, implementation and security tests are required before separately approved service activation. Documentation does not close this gate."
+    "blocker": "Split: (a) local Streamable HTTP + bearer on loopback is authorized now and does not depend on HUB-GROK-001. (b) a public tunnel, hosted service, or actual Grok Bot experiment still needs owner approval. Native stdio tool-I/O export cannot close this gate."
   },
   {
     "id": "HUB-DEMO-001",
@@ -1100,10 +1098,45 @@
       "P1"
     ],
     "milestone": "M7",
+    "stage": "done",
+    "commits": [
+      "1eebe5f"
+    ],
+    "evidence": [
+      "scripts/check-archive-build.py",
+      "scripts/check-commit-emails.py",
+      "community/tests/test_recognition.py",
+      "scripts/test_issue_migration.py"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "REVIEW-HUB-002",
+    "repository": "grok-gadgets",
+    "owner": "grok-gadgets",
+    "problem": "Readers inferred Grok Bot could already control local gadgets; README and homepage copy said verification pending instead of not reachable",
+    "intended_behaviour": "First screen and README state what works today without changing the site's visual design",
+    "acceptance": [
+      "README has a What works with Grok Bot today table",
+      "Homepage playground no longer says take the same setup to your Grok Bot",
+      "HARD-GROK-REMOTE-001 no longer depends on HUB-GROK-001",
+      "Website layout, hero heading and CSS are unchanged"
+    ],
+    "dependencies": [
+      "REVIEW-HUB-001"
+    ],
+    "labels": [
+      "docs",
+      "website",
+      "P1"
+    ],
+    "milestone": "M7",
     "stage": "in progress",
     "commits": [],
     "evidence": [
-      "/Users/amanpandey/projects/grok-gadgets-review/REPORT.md WEB-02, KIT-01, KIT-02, SCR-01, SCR-03, COM-01..05, CI-01, X-02, X-06"
+      "README.md",
+      "website/playground.html",
+      "website/home-scene.html"
     ],
     "blocker": null
   }

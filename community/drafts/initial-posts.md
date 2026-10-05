@@ -1,8 +1,6 @@
-# Prepared community posts — unpublished
+# Prepared community posts
 
-## Welcome / start here
-
-Grok Gadgets is an independent, Apache-2.0 ecosystem exclusively for Grok. The local alpha connects a software device simulator through an MCP gateway, with separate Linux and ESP32 SDKs and a Home Assistant integration recipe. Our first hardware target is AtomS3 Lite C124. Physical verification and actual existing Grok Bot integration are still pending. Start with the canonical getting-started guide when public destinations are approved.
+The welcome post is live; its text is in the [Reddit channel package](../reddit-package.md). The other drafts below are unpublished.
 
 ## Contribution guide
 
