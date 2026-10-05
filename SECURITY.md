@@ -1,6 +1,6 @@
 # Security reporting
 
-Do not put credentials, household data or exploitable private details in a public issue. Email [adidshaft@kyokasuigetsu.xyz](mailto:adidshaft@kyokasuigetsu.xyz) privately. GitHub private vulnerability reporting will be enabled and verified after repository creation; until then use email. We do not promise a response deadline.
+Do not put credentials, household data or exploitable private details in a public issue. Email [adidshaft@kyokasuigetsu.xyz](mailto:adidshaft@kyokasuigetsu.xyz) privately. [GitHub private vulnerability reporting](https://github.com/adidshaft/grok-gadgets/security/advisories/new) is enabled and verified; email remains available. We do not promise a response deadline.
 
 The supported alpha scope is the current 0.1.0 alpha simulator, SDKs and implemented local transports. No public hosted gateway exists. Include the affected version/commit, minimal reproduction, impact and redacted logs. Send secret values only if explicitly requested through a suitable private channel. Maintainers coordinate a fix and disclosure with the reporter; avoid publishing exploit details before that coordination.
 

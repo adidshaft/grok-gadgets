@@ -82,9 +82,13 @@ class LaunchTests(unittest.TestCase):
         )
 
     def test_rules_preserve_history_and_solo_maintainer_can_merge(self):
+        repositories = json.loads((ROOT / "publication/repositories.json").read_text())
         for file in (ROOT / "publication/rulesets").glob("*.json"):
             rules = json.loads(file.read_text())
-            self.assertEqual(rules["enforcement"], "disabled")
+            self.assertIn(rules["enforcement"], {"disabled", "active"})
+            if rules["enforcement"] == "active":
+                self.assertTrue(repositories["activated"])
+            self.assertEqual(rules["bypass_actors"], [])
             kinds = {
                 rule["type"]: rule.get("parameters", {}) for rule in rules["rules"]
             }
@@ -102,9 +106,17 @@ class LaunchTests(unittest.TestCase):
                 kinds["pull_request"]["required_approving_review_count"], 0
             )
             self.assertTrue(kinds["pull_request"]["required_review_thread_resolution"])
+            self.assertEqual(
+                kinds["pull_request"]["allowed_merge_methods"], ["merge", "rebase"]
+            )
+            self.assertFalse(
+                kinds["pull_request"]["require_extra_approval_for_unattributed_changes"]
+            )
             self.assertTrue(
                 kinds["required_status_checks"]["strict_required_status_checks_policy"]
             )
+            for check in kinds["required_status_checks"]["required_status_checks"]:
+                self.assertEqual(check["integration_id"], 15368)
 
     def test_project_prefix_rejects_root_and_deep_missing_assets(self):
         checker = load("check-pages-prefix")

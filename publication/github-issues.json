@@ -1,0 +1,1191 @@
+{
+  "schema_version": 1,
+  "owner": "adidshaft",
+  "refreshed_at": "2026-10-05T03:43:46Z",
+  "source": "GitHub Issues",
+  "issues": [
+    {
+      "id": "DOC-GLOSSARY-001",
+      "repository": "grok-gadgets",
+      "number": 1,
+      "problem": "[DOC-GLOSSARY-001] Add a newcomer terminology glossary",
+      "title": "[DOC-GLOSSARY-001] Add a newcomer terminology glossary",
+      "state": "open",
+      "stage": "ready",
+      "labels": [
+        "docs",
+        "good first issue",
+        "P2"
+      ],
+      "milestone": "First independent software setup",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/1"
+    },
+    {
+      "id": "DOC-TROUBLE-001",
+      "repository": "grok-gadgets",
+      "number": 2,
+      "problem": "[DOC-TROUBLE-001] Add a verified simulator troubleshooting lookup",
+      "title": "[DOC-TROUBLE-001] Add a verified simulator troubleshooting lookup",
+      "state": "open",
+      "stage": "ready",
+      "labels": [
+        "docs",
+        "good first issue",
+        "P2",
+        "simulator"
+      ],
+      "milestone": "First independent software setup",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/2"
+    },
+    {
+      "id": "HARD-001",
+      "repository": "grok-gadgets",
+      "number": 3,
+      "problem": "[HARD-001] Complete six audit corrections and release acceptance",
+      "title": "[HARD-001] Complete six audit corrections and release acceptance",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "help wanted",
+        "integration",
+        "maintenance",
+        "P1"
+      ],
+      "milestone": "Audit corrections and local release readiness",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/3"
+    },
+    {
+      "id": "HARD-GROK-REMOTE-001",
+      "repository": "grok-gadgets",
+      "number": 4,
+      "problem": "[HARD-GROK-REMOTE-001] Implement authenticated cloud-to-local HTTPS MCP transport",
+      "title": "[HARD-GROK-REMOTE-001] Implement authenticated cloud-to-local HTTPS MCP transport",
+      "state": "open",
+      "stage": "blocked",
+      "labels": [
+        "feature",
+        "gateway",
+        "help wanted",
+        "P1"
+      ],
+      "milestone": "Actual Grok",
+      "blocker": "Remote HTTPS/OAuth transport is unimplemented; separate design and service activation approval required",
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/4"
+    },
+    {
+      "id": "HARD-SIM-EXPORT-001",
+      "repository": "grok-gadgets",
+      "number": 5,
+      "problem": "[HARD-SIM-EXPORT-001] Browser export overwrites the hash-protected simulator default",
+      "title": "[HARD-SIM-EXPORT-001] Browser export overwrites the hash-protected simulator default",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "gateway",
+        "P1",
+        "website"
+      ],
+      "milestone": "Audit corrections and local release readiness",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/5"
+    },
+    {
+      "id": "HARD-WEB-001",
+      "repository": "grok-gadgets",
+      "number": 6,
+      "problem": "[HARD-WEB-001] Persist honest activity failure states",
+      "title": "[HARD-WEB-001] Persist honest activity failure states",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "help wanted",
+        "P2",
+        "website"
+      ],
+      "milestone": "Audit corrections and local release readiness",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/6"
+    },
+    {
+      "id": "HARD-WEB-002",
+      "repository": "grok-gadgets",
+      "number": 7,
+      "problem": "[HARD-WEB-002] Render safe usable source-relative documentation",
+      "title": "[HARD-WEB-002] Render safe usable source-relative documentation",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "help wanted",
+        "P2",
+        "website"
+      ],
+      "milestone": "Audit corrections and local release readiness",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/7"
+    },
+    {
+      "id": "HUB-001",
+      "repository": "grok-gadgets",
+      "number": 8,
+      "problem": "[HUB-001] Foundation and architecture",
+      "title": "[HUB-001] Foundation and architecture",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "P1",
+        "protocol"
+      ],
+      "milestone": "Foundations",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/8"
+    },
+    {
+      "id": "HUB-COM-001",
+      "repository": "grok-gadgets",
+      "number": 9,
+      "problem": "[HUB-COM-001] Community package and tested dry-run recognition",
+      "title": "[HUB-COM-001] Community package and tested dry-run recognition",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "community",
+        "feature",
+        "P1"
+      ],
+      "milestone": "Website and community",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/9"
+    },
+    {
+      "id": "HUB-DEMO-001",
+      "repository": "grok-gadgets",
+      "number": 10,
+      "problem": "[HUB-DEMO-001] Customize and export the browser simulator",
+      "title": "[HUB-DEMO-001] Customize and export the browser simulator",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "P1",
+        "website"
+      ],
+      "milestone": "Website and community",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/10"
+    },
+    {
+      "id": "HUB-ESP-001",
+      "repository": "grok-gadgets",
+      "number": 11,
+      "problem": "[HUB-ESP-001] Reusable C124 USB firmware and compilation",
+      "title": "[HUB-ESP-001] Reusable C124 USB firmware and compilation",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "esp32",
+        "feature",
+        "P1"
+      ],
+      "milestone": "ESP32 SDK",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/11"
+    },
+    {
+      "id": "HUB-GROK-001",
+      "repository": "grok-gadgets",
+      "number": 12,
+      "problem": "[HUB-GROK-001] Actual existing Grok Bot tool execution",
+      "title": "[HUB-GROK-001] Actual existing Grok Bot tool execution",
+      "state": "open",
+      "stage": "blocked",
+      "labels": [
+        "feature",
+        "gateway",
+        "P1"
+      ],
+      "milestone": "Actual Grok",
+      "blocker": "Exact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors. Installation-only computer evidence recorded for grok-launch-20261005-a.",
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/12"
+    },
+    {
+      "id": "HUB-GW-001",
+      "repository": "grok-gadgets",
+      "number": 13,
+      "problem": "[HUB-GW-001] Protocol, gateway, simulator and MCP acceptance",
+      "title": "[HUB-GW-001] Protocol, gateway, simulator and MCP acceptance",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "gateway",
+        "P1"
+      ],
+      "milestone": "Gateway and simulator",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/13"
+    },
+    {
+      "id": "HUB-HA-001",
+      "repository": "grok-gadgets",
+      "number": 14,
+      "problem": "[HUB-HA-001] Upstream MCP integration and fixtures",
+      "title": "[HUB-HA-001] Upstream MCP integration and fixtures",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "home-assistant",
+        "P1"
+      ],
+      "milestone": "Home Assistant",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/14"
+    },
+    {
+      "id": "HUB-HW-001",
+      "repository": "grok-gadgets",
+      "number": 15,
+      "problem": "[HUB-HW-001] Physical LED/button/recovery verification",
+      "title": "[HUB-HW-001] Physical LED/button/recovery verification",
+      "state": "open",
+      "stage": "blocked",
+      "labels": [
+        "esp32",
+        "feature",
+        "needs hardware",
+        "P1"
+      ],
+      "milestone": "Physical and independent verification",
+      "blocker": "C124 hardware unavailable",
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/15"
+    },
+    {
+      "id": "HUB-KIT-001",
+      "repository": "grok-gadgets",
+      "number": 16,
+      "problem": "[HUB-KIT-001] Provide an inspectable configurable Grok simulator kit",
+      "title": "[HUB-KIT-001] Provide an inspectable configurable Grok simulator kit",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "gateway",
+        "P1"
+      ],
+      "milestone": "Publication preparation",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/16"
+    },
+    {
+      "id": "HUB-LIN-001",
+      "repository": "grok-gadgets",
+      "number": 17,
+      "problem": "[HUB-LIN-001] Reusable Linux SDK and gateway contract",
+      "title": "[HUB-LIN-001] Reusable Linux SDK and gateway contract",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "linux",
+        "P1"
+      ],
+      "milestone": "Linux SDK",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/17"
+    },
+    {
+      "id": "HUB-LIN-002",
+      "repository": "grok-gadgets",
+      "number": 18,
+      "problem": "[HUB-LIN-002] Real Linux execution",
+      "title": "[HUB-LIN-002] Real Linux execution",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "linux",
+        "P1"
+      ],
+      "milestone": "Linux SDK",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/18"
+    },
+    {
+      "id": "HUB-PUB-001",
+      "repository": "grok-gadgets",
+      "number": 19,
+      "problem": "[HUB-PUB-001] Publication package and external activation",
+      "title": "[HUB-PUB-001] Publication package and external activation",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "feature",
+        "P1"
+      ],
+      "milestone": "Publication preparation",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/19"
+    },
+    {
+      "id": "HUB-PUBLISH-001",
+      "repository": "grok-gadgets",
+      "number": 20,
+      "problem": "[HUB-PUBLISH-001] Activate approved public repositories/releases/site",
+      "title": "[HUB-PUBLISH-001] Activate approved public repositories/releases/site",
+      "state": "open",
+      "stage": "blocked",
+      "labels": [
+        "blocked",
+        "maintenance",
+        "P1",
+        "website"
+      ],
+      "milestone": "Publication preparation",
+      "blocker": "The source launch is complete. Website deployment, package releases, firmware downloads and the separate GitHub Project remain distinct pending operations.",
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/20"
+    },
+    {
+      "id": "HUB-REP-001",
+      "repository": "grok-gadgets",
+      "number": 21,
+      "problem": "[HUB-REP-001] Independent installation by second tester",
+      "title": "[HUB-REP-001] Independent installation by second tester",
+      "state": "open",
+      "stage": "blocked",
+      "labels": [
+        "docs",
+        "feature",
+        "P1"
+      ],
+      "milestone": "Physical and independent verification",
+      "blocker": "Second tester unavailable",
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/21"
+    },
+    {
+      "id": "HUB-SERVICE-001",
+      "repository": "grok-gadgets",
+      "number": 22,
+      "problem": "[HUB-SERVICE-001] Verify systemd service lifecycle on real Linux host",
+      "title": "[HUB-SERVICE-001] Verify systemd service lifecycle on real Linux host",
+      "state": "open",
+      "stage": "blocked",
+      "labels": [
+        "help wanted",
+        "linux",
+        "P2"
+      ],
+      "milestone": "Linux SDK",
+      "blocker": "Container is not a systemd target host",
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/22"
+    },
+    {
+      "id": "HUB-WEB-001",
+      "repository": "grok-gadgets",
+      "number": 23,
+      "problem": "[HUB-WEB-001] Source-driven website and local visual verification",
+      "title": "[HUB-WEB-001] Source-driven website and local visual verification",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "P1",
+        "website"
+      ],
+      "milestone": "Website and community",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/23"
+    },
+    {
+      "id": "HUB-WEB-002",
+      "repository": "grok-gadgets",
+      "number": 24,
+      "problem": "[HUB-WEB-002] Use approved identity and create selective interactive homepage",
+      "title": "[HUB-WEB-002] Use approved identity and create selective interactive homepage",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "P1",
+        "website"
+      ],
+      "milestone": "Website and community",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/24"
+    },
+    {
+      "id": "HUB-WEB-003",
+      "repository": "grok-gadgets",
+      "number": 25,
+      "problem": "[HUB-WEB-003] Homepage must list the full SDK and tool collection",
+      "title": "[HUB-WEB-003] Homepage must list the full SDK and tool collection",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "P1",
+        "website"
+      ],
+      "milestone": "Website and community",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/25"
+    },
+    {
+      "id": "LAUNCH-001",
+      "repository": "grok-gadgets",
+      "number": 26,
+      "problem": "[LAUNCH-001] L0: prepare contributor-friendly GitHub alpha",
+      "title": "[LAUNCH-001] L0: prepare contributor-friendly GitHub alpha",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P1",
+        "website"
+      ],
+      "milestone": "Public alpha launch preparation",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/26"
+    },
+    {
+      "id": "LAUNCH-CANDIDATE-001",
+      "repository": "grok-gadgets",
+      "number": 27,
+      "problem": "[LAUNCH-CANDIDATE-001] L7: prepare contributor-friendly GitHub alpha",
+      "title": "[LAUNCH-CANDIDATE-001] L7: prepare contributor-friendly GitHub alpha",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P1",
+        "website"
+      ],
+      "milestone": "Public alpha launch preparation",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/27"
+    },
+    {
+      "id": "LAUNCH-CI-001",
+      "repository": "grok-gadgets",
+      "number": 28,
+      "problem": "[LAUNCH-CI-001] L5: prepare contributor-friendly GitHub alpha",
+      "title": "[LAUNCH-CI-001] L5: prepare contributor-friendly GitHub alpha",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P1",
+        "website"
+      ],
+      "milestone": "Public alpha launch preparation",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/28"
+    },
+    {
+      "id": "LAUNCH-DOCS-001",
+      "repository": "grok-gadgets",
+      "number": 29,
+      "problem": "[LAUNCH-DOCS-001] L2: prepare contributor-friendly GitHub alpha",
+      "title": "[LAUNCH-DOCS-001] L2: prepare contributor-friendly GitHub alpha",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P1",
+        "website"
+      ],
+      "milestone": "Public alpha launch preparation",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/29"
+    },
+    {
+      "id": "LAUNCH-FIRMWARE-DIST-001",
+      "repository": "grok-gadgets",
+      "number": 30,
+      "problem": "[LAUNCH-FIRMWARE-DIST-001] Prepare the required third-party redistribution material before firmware binary uploads",
+      "title": "[LAUNCH-FIRMWARE-DIST-001] Prepare the required third-party redistribution material before firmware binary uploads",
+      "state": "open",
+      "stage": "blocked",
+      "labels": [
+        "blocked",
+        "esp32",
+        "maintenance",
+        "P1"
+      ],
+      "milestone": "Public alpha launch",
+      "blocker": "Corresponding-source/relinking redistribution package has not been assembled or cleared; source-only publication package excludes binaries.",
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/30"
+    },
+    {
+      "id": "LAUNCH-GROK-001",
+      "repository": "grok-gadgets",
+      "number": 31,
+      "problem": "[LAUNCH-GROK-001] Obtain actual Grok simulator invocation evidence",
+      "title": "[LAUNCH-GROK-001] Obtain actual Grok simulator invocation evidence",
+      "state": "open",
+      "stage": "blocked",
+      "labels": [
+        "blocked",
+        "gateway",
+        "P1",
+        "research",
+        "simulator"
+      ],
+      "milestone": "Public alpha launch preparation",
+      "blocker": "Exact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors.",
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/31"
+    },
+    {
+      "id": "LAUNCH-ISSUES-001",
+      "repository": "grok-gadgets",
+      "number": 32,
+      "problem": "[LAUNCH-ISSUES-001] L4: prepare contributor-friendly GitHub alpha",
+      "title": "[LAUNCH-ISSUES-001] L4: prepare contributor-friendly GitHub alpha",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P1",
+        "website"
+      ],
+      "milestone": "Public alpha launch preparation",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/32"
+    },
+    {
+      "id": "LAUNCH-META-001",
+      "repository": "grok-gadgets",
+      "number": 33,
+      "problem": "[LAUNCH-META-001] L1: prepare contributor-friendly GitHub alpha",
+      "title": "[LAUNCH-META-001] L1: prepare contributor-friendly GitHub alpha",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P1",
+        "website"
+      ],
+      "milestone": "Public alpha launch preparation",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/33"
+    },
+    {
+      "id": "LAUNCH-PUBLIC-001",
+      "repository": "grok-gadgets",
+      "number": 34,
+      "problem": "[LAUNCH-PUBLIC-001] L6: prepare contributor-friendly GitHub alpha",
+      "title": "[LAUNCH-PUBLIC-001] L6: prepare contributor-friendly GitHub alpha",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P1",
+        "website"
+      ],
+      "milestone": "Public alpha launch preparation",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/34"
+    },
+    {
+      "id": "LAUNCH-VIS-001",
+      "repository": "grok-gadgets",
+      "number": 35,
+      "problem": "[LAUNCH-VIS-001] L3: prepare contributor-friendly GitHub alpha",
+      "title": "[LAUNCH-VIS-001] L3: prepare contributor-friendly GitHub alpha",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P1",
+        "website"
+      ],
+      "milestone": "Public alpha launch preparation",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/35"
+    },
+    {
+      "id": "WEB-COPY-001",
+      "repository": "grok-gadgets",
+      "number": 36,
+      "problem": "[WEB-COPY-001] Copy documentation commands with accessible feedback",
+      "title": "[WEB-COPY-001] Copy documentation commands with accessible feedback",
+      "state": "open",
+      "stage": "ready",
+      "labels": [
+        "feature",
+        "help wanted",
+        "P2",
+        "website"
+      ],
+      "milestone": "First independent software setup",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/36"
+    },
+    {
+      "id": "ESP-001",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 1,
+      "problem": "[ESP-001] Independent open-source repository foundation",
+      "title": "[ESP-001] Independent open-source repository foundation",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "esp32",
+        "maintenance",
+        "P1"
+      ],
+      "milestone": "Foundations",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/1"
+    },
+    {
+      "id": "ESP-002",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 2,
+      "problem": "[ESP-002] Portable independently useful ESP32 SDK",
+      "title": "[ESP-002] Portable independently useful ESP32 SDK",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "esp32",
+        "feature",
+        "P1",
+        "protocol"
+      ],
+      "milestone": "ESP32 SDK",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/2"
+    },
+    {
+      "id": "ESP-003",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 3,
+      "problem": "[ESP-003] C124 USB firmware and lifecycle",
+      "title": "[ESP-003] C124 USB firmware and lifecycle",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "esp32",
+        "feature",
+        "P1"
+      ],
+      "milestone": "ESP32 SDK",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/3"
+    },
+    {
+      "id": "ESP-004",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 4,
+      "problem": "[ESP-004] Physical C124 acceptance",
+      "title": "[ESP-004] Physical C124 acceptance",
+      "state": "open",
+      "stage": "blocked",
+      "labels": [
+        "esp32",
+        "feature",
+        "help wanted",
+        "needs hardware",
+        "P1"
+      ],
+      "milestone": "Physical and independent verification",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/4"
+    },
+    {
+      "id": "ESP-005",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 5,
+      "problem": "[ESP-005] Secure Wi-Fi transport and provisioning",
+      "title": "[ESP-005] Secure Wi-Fi transport and provisioning",
+      "state": "open",
+      "stage": "blocked",
+      "labels": [
+        "esp32",
+        "feature",
+        "P2",
+        "protocol"
+      ],
+      "milestone": "ESP32 SDK",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/5"
+    },
+    {
+      "id": "ESP-006",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 6,
+      "problem": "[ESP-006] Independent reproduction",
+      "title": "[ESP-006] Independent reproduction",
+      "state": "open",
+      "stage": "blocked",
+      "labels": [
+        "docs",
+        "esp32",
+        "help wanted",
+        "P2"
+      ],
+      "milestone": "Physical and independent verification",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/6"
+    },
+    {
+      "id": "ESP-007",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 7,
+      "problem": "[ESP-007] Undeclared history_lost event causes repeated session reset after button queue overflow",
+      "title": "[ESP-007] Undeclared history_lost event causes repeated session reset after button queue overflow",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "esp32",
+        "P1",
+        "protocol"
+      ],
+      "milestone": "ESP32 SDK",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/7"
+    },
+    {
+      "id": "HARD-ESP-001",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 8,
+      "problem": "[HARD-ESP-001] Preserve ACKs across repeated retries",
+      "title": "[HARD-ESP-001] Preserve ACKs across repeated retries",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "esp32",
+        "help wanted",
+        "P1"
+      ],
+      "milestone": "Audit corrections and local release readiness",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/8"
+    },
+    {
+      "id": "LAUNCH-CI-ESP-001",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 9,
+      "problem": "[LAUNCH-CI-ESP-001] Pin and bound standalone read-only checks",
+      "title": "[LAUNCH-CI-ESP-001] Pin and bound standalone read-only checks",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "esp32",
+        "maintenance",
+        "P1"
+      ],
+      "milestone": "Public alpha launch",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/9"
+    },
+    {
+      "id": "LAUNCH-DOCS-ESP-001",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 10,
+      "problem": "[LAUNCH-DOCS-ESP-001] Prepare an independently buildable C124 SDK guide and public contributor/support policies",
+      "title": "[LAUNCH-DOCS-ESP-001] Prepare an independently buildable C124 SDK guide and public contributor/support policies",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "esp32",
+        "P1"
+      ],
+      "milestone": "Public alpha launch",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/10"
+    },
+    {
+      "id": "GW-001",
+      "repository": "grok-gadgets-gateway",
+      "number": 1,
+      "problem": "[GW-001] Contribution-ready local foundation",
+      "title": "[GW-001] Contribution-ready local foundation",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "gateway",
+        "maintenance",
+        "P0"
+      ],
+      "milestone": "Foundations",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/1"
+    },
+    {
+      "id": "GW-002",
+      "repository": "grok-gadgets-gateway",
+      "number": 2,
+      "problem": "[GW-002] Canonical versioned device protocol and lifecycle",
+      "title": "[GW-002] Canonical versioned device protocol and lifecycle",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "P0",
+        "protocol"
+      ],
+      "milestone": "Feasibility and protocol",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/2"
+    },
+    {
+      "id": "GW-003",
+      "repository": "grok-gadgets-gateway",
+      "number": 3,
+      "problem": "[GW-003] Usable simulator MCP and authenticated transports",
+      "title": "[GW-003] Usable simulator MCP and authenticated transports",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "gateway",
+        "P0"
+      ],
+      "milestone": "Gateway and simulator",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/3"
+    },
+    {
+      "id": "GW-004",
+      "repository": "grok-gadgets-gateway",
+      "number": 4,
+      "problem": "[GW-004] Real Grok Bot and physical C124 acceptance",
+      "title": "[GW-004] Real Grok Bot and physical C124 acceptance",
+      "state": "open",
+      "stage": "blocked",
+      "labels": [
+        "gateway",
+        "needs hardware",
+        "P1",
+        "research"
+      ],
+      "milestone": "Actual Grok",
+      "blocker": "Inspectable native Grok invocation evidence and physical C124 observations remain unavailable for this component.",
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/4"
+    },
+    {
+      "id": "HARD-GW-001",
+      "repository": "grok-gadgets-gateway",
+      "number": 5,
+      "problem": "[HARD-GW-001] Route simulator commands by command capability",
+      "title": "[HARD-GW-001] Route simulator commands by command capability",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "gateway",
+        "help wanted",
+        "P1"
+      ],
+      "milestone": "Audit corrections and local release readiness",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/5"
+    },
+    {
+      "id": "HARD-GW-002",
+      "repository": "grok-gadgets-gateway",
+      "number": 6,
+      "problem": "[HARD-GW-002] Isolate bounded event duplicate windows per device and boot",
+      "title": "[HARD-GW-002] Isolate bounded event duplicate windows per device and boot",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "help wanted",
+        "P2",
+        "protocol"
+      ],
+      "milestone": "Audit corrections and local release readiness",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/6"
+    },
+    {
+      "id": "LAUNCH-CI-GW-001",
+      "repository": "grok-gadgets-gateway",
+      "number": 7,
+      "problem": "[LAUNCH-CI-GW-001] Pin and bound standalone read-only checks",
+      "title": "[LAUNCH-CI-GW-001] Pin and bound standalone read-only checks",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "gateway",
+        "maintenance",
+        "P1"
+      ],
+      "milestone": "Public alpha launch",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/7"
+    },
+    {
+      "id": "LAUNCH-DOCS-GW-001",
+      "repository": "grok-gadgets-gateway",
+      "number": 8,
+      "problem": "[LAUNCH-DOCS-GW-001] Prepare a newcomer gateway journey and public-alpha component policies",
+      "title": "[LAUNCH-DOCS-GW-001] Prepare a newcomer gateway journey and public-alpha component policies",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "gateway",
+        "P1"
+      ],
+      "milestone": "Public alpha launch",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/8"
+    },
+    {
+      "id": "SIM-GW-001",
+      "repository": "grok-gadgets-gateway",
+      "number": 9,
+      "problem": "[SIM-GW-001] Configurable installable Grok Gadgets software simulator",
+      "title": "[SIM-GW-001] Configurable installable Grok Gadgets software simulator",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "gateway",
+        "P1",
+        "simulator"
+      ],
+      "milestone": "Gateway and simulator",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/9"
+    },
+    {
+      "id": "HA-001",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 1,
+      "problem": "[HA-001] Establish contribution foundation",
+      "title": "[HA-001] Establish contribution foundation",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "home-assistant",
+        "maintenance",
+        "P1"
+      ],
+      "milestone": "Foundations",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/1"
+    },
+    {
+      "id": "HA-002",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 2,
+      "problem": "[HA-002] Choose upstream reuse and investigate Grok route",
+      "title": "[HA-002] Choose upstream reuse and investigate Grok route",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "home-assistant",
+        "P0",
+        "research"
+      ],
+      "milestone": "Feasibility and protocol",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/2"
+    },
+    {
+      "id": "HA-003",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 3,
+      "problem": "[HA-003] Provide read-only compatibility diagnostics",
+      "title": "[HA-003] Provide read-only compatibility diagnostics",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "home-assistant",
+        "P1"
+      ],
+      "milestone": "Home Assistant",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/3"
+    },
+    {
+      "id": "HA-004",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 4,
+      "problem": "[HA-004] Verify actual Grok and selected home entities",
+      "title": "[HA-004] Verify actual Grok and selected home entities",
+      "state": "open",
+      "stage": "blocked",
+      "labels": [
+        "help wanted",
+        "home-assistant",
+        "needs hardware",
+        "P1"
+      ],
+      "milestone": "Home Assistant",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/4"
+    },
+    {
+      "id": "LAUNCH-CI-HA-001",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 5,
+      "problem": "[LAUNCH-CI-HA-001] Pin and bound standalone read-only checks",
+      "title": "[LAUNCH-CI-HA-001] Pin and bound standalone read-only checks",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "home-assistant",
+        "maintenance",
+        "P1"
+      ],
+      "milestone": "Public alpha launch",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/5"
+    },
+    {
+      "id": "LAUNCH-DOCS-HA-001",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 6,
+      "problem": "[LAUNCH-DOCS-HA-001] Prepare an independently reproducible Home Assistant fixture journey and public contribution/support policies",
+      "title": "[LAUNCH-DOCS-HA-001] Prepare an independently reproducible Home Assistant fixture journey and public contribution/support policies",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "home-assistant",
+        "P1"
+      ],
+      "milestone": "Public alpha launch",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/6"
+    },
+    {
+      "id": "HARD-LIN-001",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 1,
+      "problem": "[HARD-LIN-001] Make documented custom gadget installation work",
+      "title": "[HARD-LIN-001] Make documented custom gadget installation work",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "help wanted",
+        "linux",
+        "P1"
+      ],
+      "milestone": "Audit corrections and local release readiness",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/1"
+    },
+    {
+      "id": "LAUNCH-CI-LIN-001",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 2,
+      "problem": "[LAUNCH-CI-LIN-001] Pin and bound standalone read-only checks",
+      "title": "[LAUNCH-CI-LIN-001] Pin and bound standalone read-only checks",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "linux",
+        "maintenance",
+        "P1"
+      ],
+      "milestone": "Public alpha launch",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/2"
+    },
+    {
+      "id": "LAUNCH-DOCS-LIN-001",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 3,
+      "problem": "[LAUNCH-DOCS-LIN-001] Prepare a standalone custom-device newcomer journey and public-alpha policies",
+      "title": "[LAUNCH-DOCS-LIN-001] Prepare a standalone custom-device newcomer journey and public-alpha policies",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "linux",
+        "P1"
+      ],
+      "milestone": "Public alpha launch",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/3"
+    },
+    {
+      "id": "LIN-001",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 4,
+      "problem": "[LIN-001] Independent contribution foundation",
+      "title": "[LIN-001] Independent contribution foundation",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "linux",
+        "maintenance",
+        "P1"
+      ],
+      "milestone": "Foundations",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/4"
+    },
+    {
+      "id": "LIN-002",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 5,
+      "problem": "[LIN-002] Reusable capability registry and pinned contracts",
+      "title": "[LIN-002] Reusable capability registry and pinned contracts",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "linux",
+        "P1",
+        "protocol"
+      ],
+      "milestone": "Linux SDK",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/5"
+    },
+    {
+      "id": "LIN-003",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 6,
+      "problem": "[LIN-003] Agent and real gateway transport integration",
+      "title": "[LIN-003] Agent and real gateway transport integration",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "linux",
+        "P1"
+      ],
+      "milestone": "Linux SDK",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/6"
+    },
+    {
+      "id": "LIN-004",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 7,
+      "problem": "[LIN-004] Linux runtime and physical peripheral evidence",
+      "title": "[LIN-004] Linux runtime and physical peripheral evidence",
+      "state": "open",
+      "stage": "blocked",
+      "labels": [
+        "help wanted",
+        "linux",
+        "needs hardware",
+        "P1"
+      ],
+      "milestone": "Physical and independent verification",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/7"
+    }
+  ]
+}

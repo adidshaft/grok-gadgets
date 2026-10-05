@@ -1,7 +1,7 @@
 {
   "name": "Reviewed main",
   "target": "branch",
-  "enforcement": "disabled",
+  "enforcement": "active",
   "conditions": {
     "ref_name": {
       "include": [
@@ -25,7 +25,12 @@
         "require_code_owner_review": false,
         "require_last_push_approval": false,
         "required_approving_review_count": 0,
-        "required_review_thread_resolution": true
+        "required_review_thread_resolution": true,
+        "allowed_merge_methods": [
+          "merge",
+          "rebase"
+        ],
+        "require_extra_approval_for_unattributed_changes": false
       }
     },
     {
@@ -35,7 +40,8 @@
         "do_not_enforce_on_create": true,
         "required_status_checks": [
           {
-            "context": "home-assistant-checks"
+            "context": "home-assistant-checks",
+            "integration_id": 15368
           }
         ]
       }

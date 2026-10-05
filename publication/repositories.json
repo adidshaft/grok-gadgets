@@ -1,7 +1,7 @@
 {
   "owner": "adidshaft",
-  "activated": false,
-  "naming": "Current names retained; naming/brand disposition deferred before activation",
+  "activated": true,
+  "naming": "Current names retained by owner for first public source publication",
   "private_contact": "adidshaft@kyokasuigetsu.xyz",
   "pages_url": "https://adidshaft.github.io/grok-gadgets/",
   "repositories": [
@@ -34,7 +34,10 @@
         "developer-tools"
       ],
       "homepage": "https://adidshaft.github.io/grok-gadgets/",
-      "private_vulnerability_reporting": "enable and verify after repository creation, before inviting reports"
+      "private_vulnerability_reporting": "enabled and verified",
+      "github_id": 1405061808,
+      "initial_source_commit": "0738438d376c7e5b3546a70388b8ad9aa76d86d7",
+      "homepage_status": "Pending separate Pages deployment; no live homepage configured"
     },
     {
       "name": "grok-gadgets-gateway",
@@ -65,7 +68,10 @@
         "serial"
       ],
       "homepage": "https://adidshaft.github.io/grok-gadgets/doc-docs-components-grok-gadgets-gateway-README.html",
-      "private_vulnerability_reporting": "enable and verify after repository creation, before inviting reports"
+      "private_vulnerability_reporting": "enabled and verified",
+      "github_id": 1405061866,
+      "initial_source_commit": "6c66a109084dc8480fdd49636dab2254d7e3d82e",
+      "homepage_status": "Pending separate Pages deployment; no live homepage configured"
     },
     {
       "name": "grok-gadgets-linux-sdk",
@@ -96,7 +102,10 @@
         "sdk"
       ],
       "homepage": "https://adidshaft.github.io/grok-gadgets/linux.html",
-      "private_vulnerability_reporting": "enable and verify after repository creation, before inviting reports"
+      "private_vulnerability_reporting": "enabled and verified",
+      "github_id": 1405061925,
+      "initial_source_commit": "b0e5f4bb407f4d4419673d4c1a5d540f68511c23",
+      "homepage_status": "Pending separate Pages deployment; no live homepage configured"
     },
     {
       "name": "grok-gadgets-esp32-sdk",
@@ -127,7 +136,10 @@
         "sdk"
       ],
       "homepage": "https://adidshaft.github.io/grok-gadgets/esp32.html",
-      "private_vulnerability_reporting": "enable and verify after repository creation, before inviting reports"
+      "private_vulnerability_reporting": "enabled and verified",
+      "github_id": 1405062015,
+      "initial_source_commit": "ef04fa0405ea4820de6430578684959f6e6dd8d8",
+      "homepage_status": "Pending separate Pages deployment; no live homepage configured"
     },
     {
       "name": "grok-gadgets-home-assistant",
@@ -157,7 +169,12 @@
         "python"
       ],
       "homepage": "https://adidshaft.github.io/grok-gadgets/home-assistant.html",
-      "private_vulnerability_reporting": "enable and verify after repository creation, before inviting reports"
+      "private_vulnerability_reporting": "enabled and verified",
+      "github_id": 1405062066,
+      "initial_source_commit": "6afac04e39ca5cf16af9c4bfd3d9a12f6844386a",
+      "homepage_status": "Pending separate Pages deployment; no live homepage configured"
     }
-  ]
+  ],
+  "activated_at": "2026-10-05T03:24:29.323606+00:00",
+  "pages_deployed": false
 }
