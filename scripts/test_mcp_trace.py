@@ -61,11 +61,12 @@ async def run():
                 assert restored["state"]["rgb"] == settings["initial_rgb"]
                 command = (await call("gadgets_command", {**request, "command_id": "blue"}))["command"]
                 assert command["status"] == "executed" and command["simulated"]
-                assert not command["physical_verified"]
+                assert not command["physical_verified"] and command.get("duplicate") is False
                 assert command["reported_state"]["rgb"] == request["arguments"]
                 retry = (await call("gadgets_command", {**request, "command_id": "blue"}))["command"]
-                assert retry == command
-                assert (await call("gadgets_command_status", {"command_id": "blue"}))["command"] == command
+                assert retry == {**command, "duplicate": True}
+                receipt = {key: value for key, value in command.items() if key != "duplicate"}
+                assert (await call("gadgets_command_status", {"command_id": "blue"}))["command"] == receipt
                 assert (await call("gadgets_get_state", {"device_id": settings["device_id"]}))["device"]["state"]["rgb"] == request["arguments"]
                 for pressed in (True, False):
                     await call("test_simulator_control", {"action": "button", "pressed": pressed})

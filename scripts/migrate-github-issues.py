@@ -79,8 +79,25 @@ def preview(plan):
         )
 
 
-def apply(root, path):
+def refuse_completed(path, force):
+    # After activation GitHub is the authority; phase two would revert remote edits.
+    stored = json.loads(path.read_text())
+    if (
+        isinstance(stored, dict)
+        and stored.get("activated")
+        and stored.get("migration_complete")
+        and not force
+    ):
+        raise MigrationError(
+            "Migration already completed and GitHub Issues are now the authority. "
+            "Re-running would overwrite issue edits made on GitHub. Review them, then "
+            "pass --force-overwrite only if you really want the local ledger to win."
+        )
+
+
+def apply(root, path, force=False):
     with apply_lock(root):
+        refuse_completed(path, force)
         # Reload under the lock; do not overwrite a checkpoint read before another run.
         previous, plan = current_plan(root, path)
         run_id = (
@@ -126,10 +143,15 @@ def main(argv=None):
         action="store_true",
         help="Create/reconcile GitHub labels, milestones and marked issues",
     )
+    parser.add_argument(
+        "--force-overwrite",
+        action="store_true",
+        help="Allow --apply after a completed migration (reverts GitHub-side edits)",
+    )
     args = parser.parse_args(argv)
     try:
         if args.apply:
-            apply(ROOT, args.plan)
+            apply(ROOT, args.plan, force=args.force_overwrite)
         else:
             _, plan = current_plan(ROOT, args.plan)
             preview(plan)

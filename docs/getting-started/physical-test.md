@@ -6,6 +6,8 @@
 
 Wait until the board is available. Obtain the owner's authorization before flashing it. Use the ESP32 SDK's pinned build and recovery instructions.
 
+Run the local gateway and USB bridge on the host computer. A hardware test needs no public tunnel. The cloud Grok route requires a future authenticated remote MCP service and separate invocation evidence. Read the [hosting FAQ](hosting.md) before planning remote access. Do not expose the device protocol directly.
+
 Record the board model C124, USB-C data cable, firmware SHA-256, gateway and SDK commits, host operating system, port, time and tester. Do not record tokens.
 
 ## Procedure

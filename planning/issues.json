@@ -205,7 +205,8 @@
     "acceptance": [
       "Existing signed-in Grok Bot invokes gateway MCP simulator tools",
       "Discovery, green/off state, invalid commands, button events and offline/reconnect acceptance",
-      "Record actual client/host/package/tool evidence; no physical verification claim"
+      "Evidence is operator-owned server logs plus transcript observation, correlated by command ID",
+      "No physical verification claim"
     ],
     "dependencies": [
       "HUB-GW-001"
@@ -224,7 +225,7 @@
       "docs/verification/real-grok-experiment.md",
       "docs/verification/grok-launch-evidence.md"
     ],
-    "blocker": "Exact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors. Installation-only computer evidence recorded for grok-launch-20261005-a."
+    "blocker": "No Grok Bot session has used local serve. Native tool-I/O export cannot close this gate on a personal plan. Operator HTTP logs plus transcript observation are the evidence trail once an experiment is approved."
   },
   {
     "id": "HUB-HW-001",
@@ -556,15 +557,14 @@
     "problem": "Implement authenticated cloud-to-local HTTPS MCP transport",
     "intended_behaviour": "Existing Grok Bot reaches explicitly authorized local devices through a reviewed HTTPS MCP service",
     "acceptance": [
-      "Approved route and access design; no raw device protocol exposure",
-      "TLS, scoped authorization or OAuth, device/tenant isolation and credential revocation",
-      "Missing/invalid/expired/revoked credential and cross-device access rejection regressions",
-      "Bounded commands/connections/timeouts; redacted diagnostics; shutdown/reconnect tests",
+      "Approved hosting, route and trust design; no raw device protocol exposure",
+      "TLS, supported OAuth or scoped credentials, per-user/per-device authorization and tenant isolation",
+      "User consent, secure secret storage, credential rotation and revocation",
+      "Missing/invalid/expired/revoked credential and cross-user/cross-device access rejection regressions",
+      "Bounded commands/connections/queues/timeouts; redacted diagnostics; shutdown/reconnect tests",
       "Actual Grok desktop/mobile experiment after separate activation approval"
     ],
-    "dependencies": [
-      "HUB-GROK-001"
-    ],
+    "dependencies": [],
     "labels": [
       "feature",
       "gateway",
@@ -572,12 +572,13 @@
       "help wanted"
     ],
     "milestone": "M5",
-    "stage": "blocked",
+    "stage": "in progress",
     "commits": [],
     "evidence": [
-      "docs/verification/real-grok-test-plan.md"
+      "docs/verification/real-grok-test-plan.md",
+      "docs/getting-started/hosting.md"
     ],
-    "blocker": "Remote HTTPS/OAuth transport is unimplemented; separate design and service activation approval required"
+    "blocker": "Local serve (loopback HTTP + bearer) is on the gateway simplify-and-fix branch (a9be0db). A public tunnel, hosted service, or Grok Bot experiment still needs owner approval. Native stdio tool-I/O export cannot close this gate."
   },
   {
     "id": "HUB-DEMO-001",
@@ -921,8 +922,8 @@
     "problem": "Obtain actual Grok simulator invocation evidence",
     "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
     "acceptance": [
-      "Inspect native Grok requests/results or independently retrieved stdio trace for exact kit and website-exported configuration",
-      "Discovery, color/off/state, invalid/unsupported input, retry, ordered simulated events, disconnect/recovery tested through native route",
+      "Operator-owned serve HTTP logs plus transcript observation, correlated by command ID, for the exact kit and website-exported configuration",
+      "Discovery, color/off/state, invalid/unsupported input, retry, ordered simulated events, disconnect/recovery through that route",
       "Return to normal six tools; preserve unrelated connectors and real devices"
     ],
     "dependencies": [
@@ -945,7 +946,7 @@
       "docs/verification/grok-launch-evidence.md",
       "docs/verification/mcp-trace.md"
     ],
-    "blocker": "Exact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors."
+    "blocker": "No Grok Bot session has used local serve. Native stdio tool-I/O export cannot close this gate on a personal plan."
   },
   {
     "id": "DOC-GLOSSARY-001",
@@ -1044,5 +1045,136 @@
       "publication/history-and-assets-review.md"
     ],
     "blocker": "Corresponding-source/relinking redistribution package has not been assembled or cleared; source-only publication package excludes binaries."
+  },
+  {
+    "id": "DOC-HOSTING-001",
+    "repository": "grok-gadgets",
+    "problem": "Explain gateway hosting, tunnel ownership and remote security gates",
+    "intended_behaviour": "Readers can identify each operator, current local support and proposed product hosting choices from one canonical FAQ",
+    "acceptance": [
+      "Canonical FAQ cites official Grok and tunnel docs, with compact future-route diagrams",
+      "README, website, getting-started, architecture and component setup guides link the FAQ",
+      "Local software, Grok invocation, remote security and physical gates stay separate",
+      "Website/source-archive links and rebuilt simulator guide pass checks; no service is activated"
+    ],
+    "dependencies": [
+      "HARD-GROK-REMOTE-001"
+    ],
+    "labels": [
+      "documentation",
+      "website",
+      "P2"
+    ],
+    "milestone": "M7",
+    "stage": "done",
+    "commits": [
+      "66c96b515c41e91b37d69573901be95b2ec2fd6f"
+    ],
+    "evidence": [
+      "docs/getting-started/hosting.md",
+      "docs/verification/hosting-documentation.md",
+      "website/downloads/simulator-kit-manifest.json"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "REVIEW-HUB-001",
+    "repository": "grok-gadgets",
+    "problem": "Project review found hub defects: ZIP downloads cannot build the site, flair logic fails open, re-running the finished issue migration reverts GitHub edits, checks pass under python -O, the deploy tool is unlocked, and nothing stops a private commit email",
+    "intended_behaviour": "Every hub check fails closed and a contributor can run all of them with one command",
+    "acceptance": [
+      "scripts/check-archive-build.py builds the site and passes website tests from tracked files without .git, and runs in CI",
+      "Recognition requires exact true values, typed GitHub/Reddit IDs, owner/name repositories, preserves non-contributor flair, enforces one link per account and can remove revoked awards",
+      "migrate-github-issues.py --apply refuses a completed, activated migration unless --force-overwrite is given",
+      "check.py and the kit demo use explicit checks, refuse python -O, and check.py runs the same steps as CI; dev.py setup/check/site wraps them",
+      "The deploy job installs wrangler from a committed integrity-pinned lockfile with no install scripts",
+      "check-commit-emails.py runs in the required checks job and as local pre-commit/pre-push hooks",
+      "launch-status.md no longer presents first-publication hashes as current"
+    ],
+    "dependencies": [],
+    "labels": [
+      "bug",
+      "security",
+      "developer-experience",
+      "P1"
+    ],
+    "milestone": "M7",
+    "stage": "done",
+    "commits": [
+      "31f9ba5"
+    ],
+    "evidence": [
+      "scripts/check-archive-build.py",
+      "scripts/check-commit-emails.py",
+      "community/tests/test_recognition.py",
+      "scripts/test_issue_migration.py"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "REVIEW-HUB-002",
+    "repository": "grok-gadgets",
+    "owner": "grok-gadgets",
+    "problem": "Readers inferred Grok Bot could already control local gadgets; README and homepage copy said verification pending instead of not reachable",
+    "intended_behaviour": "First screen and README state what works today without changing the site's visual design",
+    "acceptance": [
+      "README has a What works with Grok Bot today table",
+      "Homepage playground no longer says take the same setup to your Grok Bot",
+      "HARD-GROK-REMOTE-001 no longer depends on HUB-GROK-001",
+      "Website layout, hero heading and CSS are unchanged"
+    ],
+    "dependencies": [
+      "REVIEW-HUB-001"
+    ],
+    "labels": [
+      "docs",
+      "website",
+      "P1"
+    ],
+    "milestone": "M7",
+    "stage": "done",
+    "commits": [
+      "2fe5d48"
+    ],
+    "evidence": [
+      "README.md",
+      "website/playground.html",
+      "ROADMAP.md",
+      "planning/issues/HARD-GROK-REMOTE-001.md"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "REVIEW-DEV-001",
+    "repository": "grok-gadgets",
+    "problem": "Developer handoff needs runnable first steps, consistent serve wording, independent software evidence and attribution cleanup",
+    "intended_behaviour": "A newcomer sees the purpose, next local command and unverified Bot/hardware gates without duplicate setup instructions",
+    "acceptance": [
+      "Review all five READMEs and correct stale local HTTP/USB recovery instructions",
+      "Website guide edits do not invalidate the simulator ZIP; bundled changes still do",
+      "Rebuild the kit and update exact checked component documentation and compatibility pins",
+      "Remove automated coauthor trailers from unpublished history without changing source trees or published commits",
+      "Pass hub and cross-repository checks and leave a short review with deliberate deferrals"
+    ],
+    "dependencies": [
+      "REVIEW-HUB-001",
+      "REVIEW-HUB-002"
+    ],
+    "labels": [
+      "maintenance",
+      "developer-experience",
+      "P1"
+    ],
+    "milestone": "M7",
+    "stage": "done",
+    "commits": [],
+    "evidence": [
+      "scripts/test_simulator_kit.py",
+      "README.md",
+      "compatibility/tested-components.json",
+      "planning/issues/REVIEW-DEV-001.md",
+      "2026-10-05: all 14 local integration groups passed; actual Grok Bot, hardware and hosted CI remain unverified."
+    ],
+    "blocker": null
   }
 ]

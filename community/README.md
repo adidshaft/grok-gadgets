@@ -2,14 +2,15 @@
 
 GitHub is the source for community policies and technical records. Reddit links to these files.
 
-The 5 October 2026 audit confirmed a Reddit description, icon, banner, pinned welcome post, and community guide. Post flairs and user flairs were not configured. Automatic contributor recognition was not active.
+On 5 October 2026 the subreddit description, Community Guide and a pinned welcome post were set up. Post flairs and user flairs are not configured. Automatic contributor recognition is not active.
 
 ## Find a policy
 
 | File | Use |
 | --- | --- |
 | [Community guidelines](guidelines.md) | Learn how to participate and report evidence. |
-| [Reddit setup](reddit-setup.md) | Review the setup proposal. Check each item against the live settings. |
+| [Reddit setup](reddit-setup.md) | See what was changed on Reddit and what it looked like before. |
+| [Reddit channel package](reddit-package.md) | Copy-paste text for the subreddit, plus proposed rules and flairs. |
 | [Contribution recognition](contribution-recognition.md) | Review opt-in account verification and private data requirements. |
 | [Moderation policy](moderation-policy.md) | Check which actions need human authorization. |
 | [Post drafts](drafts/initial-posts.md) | Review proposed community posts. |

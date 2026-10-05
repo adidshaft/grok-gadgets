@@ -8,6 +8,8 @@
 
 Host the static documentation and project site on Cloudflare Pages using the free `pages.dev` hostname `https://grok-gadgets.pages.dev/` until the owner selects and purchases a custom domain. Do not enable a paid Cloudflare plan, buy a domain, or put the persistent gadget gateway on Pages.
 
+This decision covers the website only. Gateway and tunnel operators have separate responsibilities. The [hosting FAQ](../getting-started/hosting.md) records them and the unimplemented remote MCP security work.
+
 Use Cloudflare Pages Direct Upload from GitHub Actions rather than Cloudflare's GitHub App integration. The existing protected GitHub main branch and CI remain the source of truth. After a main commit's `Hub checks` and `Integrated acceptance` workflows succeed for the same SHA, the deployment workflow builds that exact commit and deploys only `website/dist`. It never exposes the Cloudflare token to pull-request or build jobs. The token is scoped to Cloudflare Pages edit access for the project account and stored in the `cloudflare-pages-production` GitHub environment.
 
 The static build reads the five public GitHub repositories through bounded API refreshes. Successful website deployments refresh a complete issue snapshot and repository activity. A scheduled run refreshes those snapshots daily at 06:17 UTC (11:47 India time), including star counts which have no reliable event notification path. If the issue export fails, the new build stops and the last successful site remains deployed. If the activity API fails, the page labels the timestamped fallback as cached or unavailable. The site never fetches the API from visitors' browsers and includes no GitHub token.

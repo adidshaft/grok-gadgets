@@ -10,9 +10,10 @@ Intended behaviour: Meet exact launch-plan stage acceptance; public activation r
 
 Acceptance:
 
-- Inspect native Grok requests/results or independently retrieved stdio trace for exact kit and website-exported configuration
-- Discovery, color/off/state, invalid/unsupported input, retry, ordered simulated events, disconnect/recovery tested through native route
+- Operator-owned `serve` HTTP logs plus transcript observation, correlated by command ID, for the exact kit and website-exported configuration
+- Discovery, color/off/state, invalid/unsupported input, retry, ordered simulated events, disconnect/recovery through that route
 - Return to normal six tools; preserve unrelated connectors and real devices
+- Do not wait on native stdio tool-I/O export (Enterprise-only; excludes stdio servers)
 
 Dependencies: LAUNCH-001
 
@@ -23,4 +24,4 @@ Evidence:
 - docs/verification/grok-launch-evidence.md
 - docs/verification/mcp-trace.md
 
-Blocker: Exact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors.
+Blocker: No Grok Bot session has used local `serve`. Native stdio tool-I/O export cannot close this gate on a personal plan.

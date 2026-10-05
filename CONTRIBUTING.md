@@ -1,8 +1,10 @@
 # Contributing
 
+Everyday path: pick a [ready issue](docs/contributing/ready-issues.md), branch from `main`, run `python3 scripts/dev.py check`, open a small pull request.
+
 Use the shared [writing guide](docs/contributing/writing-guide.md) and [review and privacy rules](docs/contributing/review-and-privacy.md). Keep explanations short and use diagrams where they clarify a connection.
 
-You can contribute code, documentation, tests, accessibility fixes, diagnostics or verified build reports. Browser, simulator, SDK host tests and fixture diagnostics need no hardware. Start with the [ready queue](docs/contributing/ready-issues.md).
+You can contribute code, documentation, tests, accessibility fixes, diagnostics or verified build reports. Browser, simulator, SDK host tests and fixture diagnostics need no hardware.
 
 ![Choose an issue, make a focused branch, run checks, open a pull request, then review and merge.](docs/visuals/contribution.svg)
 
@@ -16,10 +18,8 @@ Fork the repository under your account, clone your fork and branch from main:
 git clone https://github.com/YOUR_ACCOUNT/grok-gadgets.git
 cd grok-gadgets
 git switch -c docs/your-focused-change
-uv venv .venv --python 3.13
-uv pip install --python .venv/bin/python -r website/requirements.txt
-python3 scripts/check.py
-.venv/bin/python website/build.py
+python3 scripts/dev.py setup
+python3 scripts/dev.py check
 ```
 
 Make small commits with one clear purpose. Reference the issue ID when available. Do not change global Git identity. Push your contribution branch. Open a focused pull request (PR) against main with the template.
