@@ -81,3 +81,10 @@ All changes remain local. No push, deployment, Reddit modification, actual Grok 
 Published the tested documentation branches and opened hub PR #46, gateway #10, Linux #9, ESP32 #11 and Home Assistant #7. No main merge or deployment was performed. Reused the original project banner and added static navigation badges, quick links and contribution artwork. Image hashes and provenance are recorded. Website tests passed with 61 pages and 1,705 links.
 
 Hosted component CI passed. Hub integration initially failed because SDK documentation snapshots referenced new commits while CI checked out older component pins. Updated Linux, ESP32 and Home Assistant pins to their documentation-only PR heads. All fourteen local integration groups then passed, including installed onboarding and ESP32 USB simulation. No runtime implementation changed.
+
+
+## 5 October 2026 — nested documentation navigation
+
+Added seven task-based sections, nested SDK guides, community-maintenance separation, article breadcrumbs, heading lists and previous/next links. Existing URLs are unchanged. The taxonomy rejects missing or duplicate pages. Native disclosure navigation works without JavaScript; narrow-screen enhancement collapses the outer menu.
+
+Validation:24 website tests (including9 new navigation tests),61 built pages,4258 resolved links, Ruff lint/format, JavaScript syntax and hub checks passed. Computer-use preview checked1280px and390px layouts, Linux subgroup navigation, current-page indication, keyboard expansion and no horizontal page overflow. Source changes are tracked in issue #47 and PR #46. No deployment occurred.
