@@ -11,7 +11,7 @@ Reviewer: bounded medium-effort agent, read-only source review and independently
 | Failed activity state not persisted | Resolved; validated atomic result and owner isolation through actual file/build | Hub0078a5a; repeated failure and replacement-failure tests |
 | Docs are escaped/unusable links | Resolved; safe semantic Markdown, source-relative/fragment validation, allowlist, bounded accessible diagrams | Huba9550ab;35public docs and21checkout references independently reviewed |
 | P2: skipped refresh leaves old LIVE label | Accepted and resolved | Hubbddd5b9; all12website tests independently pass, including stale/future/corrupt/fixture builds |
-| P2: annotated dataclass factory fails | Accepted and resolved | Linux7d0f82b/be66ea4; unique sys.modules registration+rollback, five CLI regressions and fresh installed ordinary/dataclass acceptance independently pass |
+| P2: annotated dataclass factory fails | Accepted and resolved | Linux7d0f82b/c81e5fc; unique sys.modules registration+rollback, five CLI regressions and fresh installed ordinary/dataclass acceptance independently pass |
 
 H5 source correctness review closed after correction reruns on 4 October2026. No material in-scope finding remains. Reviewer inspected the actual offline Linux log: both factory variants passed,20collected/15executed and5optional source-gateway integrations skipped; separate installed gateway transport exercised. Actual Linux was executed by the implementation owner; reviewer did not independently rerun the container after its local image lookup failed. Gateway/ESP source/build review remains applicable because runtime sources did not change afterward.
 

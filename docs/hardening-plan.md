@@ -33,11 +33,11 @@ At the audit, all eleven existing groups in `python3 scripts/check-all.py` passe
 
 | Repository under `<workspace>` | Audited HEAD | Ownership |
 | --- | --- | --- |
-| `grok-gadgets` | `7517d556402938634bb66466a85f8c807e8c4449` | Coordinator, issues, cross-repository acceptance, website, community, publication preparation |
-| `grok-gadgets-gateway` | `46060230e52ea5dd3834a269ef44cebaf186490a` | Canonical protocol, gateway, simulator, MCP and device transports |
-| `grok-gadgets-linux-sdk` | `1991aef23a399564525517a2d31d9a3867740b69` | Linux library, CLI, developer example and service instructions |
-| `grok-gadgets-esp32-sdk` | `3988061fa90d8faac60df9433dbf8ebb29a64a77` | Portable firmware SDK, C124 USB example, host tests and board compilation |
-| `grok-gadgets-home-assistant` | `b06eb071947ccc101d5fc49e91b9d9a4ffcc0894` | Upstream integration recipe, read-only probe and fixture tests |
+| `grok-gadgets` | `abc7b6e4ecfeedd8fff243bb28f80587700800e7` | Coordinator, issues, cross-repository acceptance, website, community, publication preparation |
+| `grok-gadgets-gateway` | `d2b1008c2f2a7474288bf3ae9aa83cd49c1e5554` | Canonical protocol, gateway, simulator, MCP and device transports |
+| `grok-gadgets-linux-sdk` | `2fea71b65e6a3a0e1aa4583270442cc2bb7cbfed` | Linux library, CLI, developer example and service instructions |
+| `grok-gadgets-esp32-sdk` | `41ee9635efeef553197e3d15363e02146d87e773` | Portable firmware SDK, C124 USB example, host tests and board compilation |
+| `grok-gadgets-home-assistant` | `5c81ebe90e058c7dd8af3463748c4a1c43a5cc14` | Upstream integration recipe, read-only probe and fixture tests |
 
 Reinspect current branches, remotes, dirty files, local instructions and active agent assignments. Do not reset newer work to these commits. If another chat is editing the same files, reserve ownership or use an isolated checkout before proceeding. No substantive Home Assistant change is required unless integration testing finds a defect.
 

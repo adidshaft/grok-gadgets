@@ -8,11 +8,11 @@ Historical local-alpha completion predates six audit findings. The correction cy
 
 | Repository | Tested implementation commit | Observed evidence |
 | --- | --- | --- |
-| `<workspace>/grok-gadgets` | `9628eb5c` | Hub checks,48-page link build,3activity tests,6recognition tests,desktop/narrow/keyboard/motion review |
-| `<workspace>/grok-gadgets-gateway` | `46060230` | 13 tests; official stdio MCP demo; authenticated TCP/USB PTY |
-| `<workspace>/grok-gadgets-linux-sdk` | `1991aef2` | 15 tests macOS and Linux installed wheel/CLI; actual gateway TCP |
-| `<workspace>/grok-gadgets-esp32-sdk` | `3988061f` | 3 CTest suites; canonical frames; actual consumer PTY incl overflow/restart/revocation; ESP32-S3 compile |
-| `<workspace>/grok-gadgets-home-assistant` | `b06eb071` | 13tests incl loopback HTTP official MCP client; clean wheel; no actions |
+| `<workspace>/grok-gadgets` | `ac38695a` | Hub checks,48-page link build,3activity tests,6recognition tests,desktop/narrow/keyboard/motion review |
+| `<workspace>/grok-gadgets-gateway` | `d2b1008c` | 13 tests; official stdio MCP demo; authenticated TCP/USB PTY |
+| `<workspace>/grok-gadgets-linux-sdk` | `2fea71b6` | 15 tests macOS and Linux installed wheel/CLI; actual gateway TCP |
+| `<workspace>/grok-gadgets-esp32-sdk` | `41ee9635` | 3 CTest suites; canonical frames; actual consumer PTY incl overflow/restart/revocation; ESP32-S3 compile |
+| `<workspace>/grok-gadgets-home-assistant` | `5c81ebe9` | 13tests incl loopback HTTP official MCP client; clean wheel; no actions |
 
 Full commit histories are in publication/commit-summary.md. All repositories have Apache-2.0 original code, contribution foundations, pinned toolchains/dependencies where needed, feature-branch commits and local issue records. Canonical shared policies live in hub. Component docs are pinned by commit/hash in compatibility/documentation-sources.json.
 

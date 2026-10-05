@@ -15,7 +15,7 @@ Acceptance:
 
 Dependencies: HUB-WEB-001, HUB-COM-001
 
-Commits: cf25696, 21606fa
+Commits: ebc92d8, 3e841db
 
 Evidence:
 

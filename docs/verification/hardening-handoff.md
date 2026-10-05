@@ -9,8 +9,8 @@ All six audit corrections are implemented and locally tested. Twelve integrated 
 | Retained firmware ACK retry | ESPad89e7a | Actual ArduinoJson consumer repeated success/failure, FIFO/reboot;3CTest; C124 compile |
 | Command/input capability routing | Gatewaye0b7256 | Negative official MCP calls preserve LED; discovery contracts;21tests |
 | Per-device/boot event retention | Gateway7a4ba40 | Two-device saturation, reconnect and new boot dedup/window lifecycle |
-| Installed custom factory | Linuxad3bb53 +7d0f82b | Documented and dataclass examples from fresh installed wheels; macOS and actual offline Linux |
-| Honest persisted activity | Hub0078a5a +fc69edd | Failed/owner-switch atomic file→build; old live cached; invalid/future unavailable |
+| Installed custom factory | Linuxad3bb53 +abd7a28 | Documented and dataclass examples from fresh installed wheels; macOS and actual offline Linux |
+| Honest persisted activity | Hub0078a5a +469db61 | Failed/owner-switch atomic file→build; old live cached; invalid/future unavailable |
 | Safe usable documentation | Huba9550ab | Semantic Markdown, source-relative links/fragments, bounded static diagrams, explicit public selection and stale-output cleanup |
 
 Independent reviewer accepted and fixed two additionalP2findings (old LIVE without refresh and dataclass module registration). See [review](hardening-review.md), [journal](hardening-journal.md), [checkpoint](hardening-status.md), [stages](../../planning/hardening-stages.json) and [compatibility](../../compatibility/tested-components.json). Source histories remain incremental, with full local Git repositories and final package bundles. Gateway and Home Assistant use separate environments because their MCP pins differ.

@@ -1,6 +1,6 @@
 # Simulator export-to-kit correction
 
-HARD-SIM-EXPORT-001 / S1. Reproduction/tracking: 17ba5f2; implementation and regression: 2f20398. Local functional acceptance and bounded independent review passed. Corrected25-artifact candidate20261004T194005-1791142805602319000 was certified against 692a191. Final evidence-only HEAD certification is required before goal closure; exact source HEADs/hashes live in artifacts/publication/latest.json and the referenced manifest.
+HARD-SIM-EXPORT-001 / S1. Reproduction/tracking: 7536de4; implementation and regression: ad602e6. Local functional acceptance and bounded independent review passed. Corrected25-artifact candidate20261004T194005-1791142805602319000 was certified against dc346bc. Final evidence-only HEAD certification is required before goal closure; exact source HEADs/hashes live in artifacts/publication/latest.json and the referenced manifest.
 
 ## Failure and correction
 
@@ -24,7 +24,7 @@ The first command checks bundled integrity without installation. The second crea
 
 ## Actual browser-to-kit evidence
 
-Actual in-app browser file: my-light.json,236bytes, SHA256 `6b0c7b08fbbd252f9a91f03c9d513c947331cd14ae4e439b5159a804dc71406d`. Displayed and copied JSON match its bytes. Settings: onboarding-light / Onboarding light; RGB26/51/128,ontrue (50% of #3366ff); response delay125ms; startdisconnectedtrue. Actual website kit download matches separate manifest: SHA256 `94a868ccf69bc792c8865c520efae8b40e3f342236593d6af26bf97f4eb19e1f`, gateway `e3cd6f0062f1a70fb4eb5a8f7a130a4ffe7c4199`.
+Actual in-app browser file: my-light.json,236bytes, SHA256 `6b0c7b08fbbd252f9a91f03c9d513c947331cd14ae4e439b5159a804dc71406d`. Displayed and copied JSON match its bytes. Settings: onboarding-light / Onboarding light; RGB26/51/128,ontrue (50% of #3366ff); response delay125ms; startdisconnectedtrue. Actual website kit download matches separate manifest: SHA256 `94a868ccf69bc792c8865c520efae8b40e3f342236593d6af26bf97f4eb19e1f`, gateway `08f0f127205d23a75ed768cc6372d1329719a03c`.
 
 Freshly extracted downloaded kit plus the separate actual browser file passed verify and --install. Native arm64 Python3.11.15 imported gateway from fresh venv site-packages under -I, not the source checkout. Official stdio MCP responses/assertions show configured discovery and initial state, offline command unavailable, reconnect restores initial state with new boot/session, blue executed/status/state readback, ordered button edges/cursor, off/readback, diagnostics physicalfalse. Review measured configured delay125ms against observed130.612ms; timing is not physical calibration.
 
@@ -46,8 +46,8 @@ No live Grok accounts operated, and no public push/publish/deployment/spending/a
 
 ## Requirement completion audit
 
-1. Reproduction and labeled local issue: protected-default overwrite fails exactly as reported; 17ba5f2 and collision.log.
-2. Corrected filename/integrity: download/copy/fallback/guide all use my-light.json; unchanged default still hash protected; 2f20398 and independent review.
+1. Reproduction and labeled local issue: protected-default overwrite fails exactly as reported; 7536de4 and collision.log.
+2. Corrected filename/integrity: download/copy/fallback/guide all use my-light.json; unchanged default still hash protected; ad602e6 and independent review.
 3. Meaningful regression: browser-used export contract into actual extractedkit plus old overwrite-negative; Node6/kit4 pass, integrated acceptance/CI include them.
 4. Actual browser and fresh install/MCP: actual file hash236bytes, clean installed site-packages, observed configured/offline/reconnect/command/state outcomes above and acceptance.json.
 5. Affected/cross-repository checks and artifacts:14clean-source groups, affectedtests/lint/hubcheck pass; kit rebuilt/current/hashchecked,50page website and25artifact correctedcandidate certified. Final evidence-only candidate must additionally pass require-current before goalclosure.

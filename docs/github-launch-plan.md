@@ -54,11 +54,11 @@ This screenshot documents software simulation and the corrected instructions; it
 
 | Repository | Audited main commit | Commit count |
 | --- | --- | ---: |
-| grok-gadgets | `b01bc6bea400505d1716712615eac93a806412a9` | 35 |
-| grok-gadgets-gateway | `e3cd6f0062f1a70fb4eb5a8f7a130a4ffe7c4199` | 10 |
-| grok-gadgets-linux-sdk | `be66ea4e0bcad4595626274926955bb756cf29e4` | 8 |
-| grok-gadgets-esp32-sdk | `e78fb1c017f674df5010aa1b2e6c212be2d7ae0f` | 9 |
-| grok-gadgets-home-assistant | `b06eb071947ccc101d5fc49e91b9d9a4ffcc0894` | 4 |
+| grok-gadgets | `738fd40d1855f1f31721a9be040986f2d18bb350` | 35 |
+| grok-gadgets-gateway | `08f0f127205d23a75ed768cc6372d1329719a03c` | 10 |
+| grok-gadgets-linux-sdk | `c81e5fc9b24388ea47677276e8259e425a7c341a` | 8 |
+| grok-gadgets-esp32-sdk | `d6262e186e4ae651c4c211b29189359ba51191ad` | 9 |
+| grok-gadgets-home-assistant | `5c81ebe90e058c7dd8af3463748c4a1c43a5cc14` | 4 |
 
 There are **66 incremental commits**. All tracked source is clean; the hub has pre-existing untracked `assets/`, which must remain untouched unless its specific contents are intentionally reviewed.
 

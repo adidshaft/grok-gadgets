@@ -15,3 +15,15 @@ Each repository has updated ignore rules for environment files, credentials, pri
 A second independent literal scan checks the known private identity and machine prefix across reachable commit metadata, blobs and nested archives, complementing the generic heuristic audit. No raw private values or private recovery references belong in public reports. Only reviewed `main` is intended for the first push; old/checkpoint refs and bundles stay private.
 
 The first source push and issue setup are authorized. Pages deployment, package/prerelease uploads, firmware downloads, Reddit changes and recurring automation remain separate operations. The published project is an experimental software alpha with native Grok receipts, physical hardware, real-home and mobile acceptance still pending.
+
+## Reconstructed timeline
+
+The date-only rewrite covered 106 commits: the 99 original commits plus seven tested publication-preparation commits. Every repository has commits on all seven dates. Later cleanup, regenerated evidence and publication commits use their actual creation times. Source trees, messages and parent ordering are unchanged by the date rewrite itself; current source references are refreshed in subsequent commits.
+
+| Repository | Sep 29 | Sep 30 | Oct 1 | Oct 2 | Oct 3 | Oct 4 | Oct 5 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| grok-gadgets | 8 | 8 | 7 | 8 | 7 | 8 | 7 |
+| grok-gadgets-gateway | 3 | 2 | 2 | 2 | 2 | 2 | 2 |
+| grok-gadgets-linux-sdk | 2 | 2 | 2 | 2 | 2 | 2 | 1 |
+| grok-gadgets-esp32-sdk | 3 | 2 | 2 | 3 | 2 | 2 | 2 |
+| grok-gadgets-home-assistant | 2 | 1 | 1 | 2 | 1 | 1 | 1 |

@@ -17,7 +17,7 @@
     "milestone": "M0",
     "stage": "done",
     "commits": [
-      "20bac82"
+      "97989b0"
     ],
     "evidence": [
       "Foundation check and architecture documents"
@@ -42,10 +42,10 @@
     "milestone": "M2",
     "stage": "done",
     "commits": [
-      "4606023",
-      "e0b7256",
-      "7a4ba40",
-      "221f73f"
+      "d2b1008",
+      "66ff03c",
+      "ac12b44",
+      "aeabcaf"
     ],
     "evidence": [
       "21tests; independent actualMCPnegative/positive;per-deviceTCP; installedcandidate demo"
@@ -73,10 +73,10 @@
     "milestone": "M3",
     "stage": "done",
     "commits": [
-      "1991aef",
-      "ad3bb53",
-      "7d0f82b",
-      "be66ea4"
+      "2fea71b",
+      "60b4adc",
+      "abd7a28",
+      "c81e5fc"
     ],
     "evidence": [
       "20source tests;installed documented/dataclass macOS+actualofflineLinux; independent candidatewheelacceptance"
@@ -104,11 +104,11 @@
     "milestone": "M4",
     "stage": "done",
     "commits": [
-      "3988061",
-      "45b50a7",
-      "ad89e7a",
-      "08bfa69",
-      "e78fb1c"
+      "41ee963",
+      "e5a672f",
+      "851ffab",
+      "bca5d4e",
+      "d6262e1"
     ],
     "evidence": [
       "3CTest;actualimmutableACKconsumer/PTyoverflow/restart/revocation; C124compiled RAM54628/programflash274881/bin283424; physicalpending"
@@ -134,7 +134,7 @@
     "milestone": "M6",
     "stage": "done",
     "commits": [
-      "b06eb07"
+      "5c81ebe"
     ],
     "evidence": [
       "13 tests and clean wheel; upstream reuse; actual HA/Grok pending"
@@ -162,8 +162,8 @@
     "milestone": "M7",
     "stage": "done",
     "commits": [
-      "274eda2",
-      "9c87b29"
+      "7cc4c43",
+      "3e58711"
     ],
     "evidence": [
       "27-page static build/link checks",
@@ -190,7 +190,7 @@
     "milestone": "M7",
     "stage": "done",
     "commits": [
-      "f619661"
+      "e6bba02"
     ],
     "evidence": [
       "6 offline recognition tests; source policies/drafts; no live API"
@@ -218,7 +218,7 @@
     "milestone": "M5",
     "stage": "blocked",
     "commits": [
-      "c02733f"
+      "307518b"
     ],
     "evidence": [
       "docs/verification/real-grok-experiment.md",
@@ -271,9 +271,9 @@
     "milestone": "M3",
     "stage": "done",
     "commits": [
-      "1991aef",
-      "7d0f82b",
-      "be66ea4"
+      "2fea71b",
+      "abd7a28",
+      "c81e5fc"
     ],
     "evidence": [
       "ActualofflineLinux kernel6.10.14 CPython3.11.17 installedordinary/dataclass factories;15installed tests+5optional source skips;systemdphysicalpending"
@@ -302,8 +302,8 @@
     "milestone": "M9",
     "stage": "done",
     "commits": [
-      "cf25696",
-      "21606fa"
+      "ebc92d8",
+      "3e841db"
     ],
     "evidence": [
       "25artifacts independentlycertified;5exactarchives+5completeGitbundles;originalApache/notices; zero redactedheuristicfindings; externalactivationblocked"
@@ -405,9 +405,9 @@
     "milestone": "M7",
     "stage": "done",
     "commits": [
-      "78511eb",
-      "5cc5247",
-      "6e6b967"
+      "165ba85",
+      "494b8d4",
+      "88372c6"
     ],
     "evidence": [
       "docs/verification/website-redesign.md",
@@ -438,8 +438,8 @@
     "milestone": "M7",
     "stage": "done",
     "commits": [
-      "6bfeeb1",
-      "939a7b1"
+      "ea89425",
+      "58825c1"
     ],
     "evidence": [
       "docs/verification/home-components.md"
@@ -467,14 +467,14 @@
     "milestone": "MH",
     "stage": "done",
     "commits": [
-      "43311ff",
-      "c6309c2",
-      "1688413",
-      "c984ae7",
-      "fc69edd",
-      "358ce02",
-      "cf25696",
-      "21606fa"
+      "7d2b9f8",
+      "67a88af",
+      "a4b68b0",
+      "85fb10f",
+      "469db61",
+      "cc52204",
+      "ebc92d8",
+      "3e841db"
     ],
     "evidence": [
       "docs/verification/hardening-review.md",
@@ -507,8 +507,8 @@
     "milestone": "MH",
     "stage": "done",
     "commits": [
-      "c6309c2",
-      "fc69edd"
+      "67a88af",
+      "469db61"
     ],
     "evidence": [
       "website/test_activity.py",
@@ -541,7 +541,7 @@
     "milestone": "MH",
     "stage": "done",
     "commits": [
-      "1688413"
+      "a4b68b0"
     ],
     "evidence": [
       "website/test_documents.py",
@@ -600,7 +600,7 @@
     "milestone": "M7",
     "stage": "done",
     "commits": [
-      "c1919b4"
+      "0d9c8b4"
     ],
     "evidence": [
       "docs/verification/simulator-playground.md"
@@ -629,10 +629,10 @@
     "milestone": "M9",
     "stage": "done",
     "commits": [
-      "7d62db6",
-      "e3cd6f0",
-      "67b3b91",
-      "2b8a4a2"
+      "69f274e",
+      "08f0f12",
+      "f03aed0",
+      "86b486c"
     ],
     "evidence": [
       "docs/verification/simulator-playground.md",
@@ -666,9 +666,9 @@
     "milestone": "MH",
     "stage": "done",
     "commits": [
-      "17ba5f2",
-      "2f20398",
-      "692a191"
+      "7536de4",
+      "ad602e6",
+      "dc346bc"
     ],
     "evidence": [
       "docs/verification/simulator-export-onboarding.md"
@@ -693,7 +693,7 @@
     "milestone": "ML",
     "stage": "done",
     "commits": [
-      "92a4aa8"
+      "f378ce4"
     ],
     "evidence": [
       "docs/verification/launch-journal.md"
@@ -720,7 +720,7 @@
     "milestone": "ML",
     "stage": "done",
     "commits": [
-      "04865de"
+      "b917545"
     ],
     "evidence": [
       "publication/repositories.json",
@@ -751,8 +751,8 @@
     "milestone": "ML",
     "stage": "done",
     "commits": [
-      "3d83db9",
-      "17ff1e8"
+      "a4c2b03",
+      "bc97220"
     ],
     "evidence": [
       "README.md",
@@ -784,7 +784,7 @@
     "milestone": "ML",
     "stage": "done",
     "commits": [
-      "3d83db9"
+      "a4c2b03"
     ],
     "evidence": [
       "docs/visuals/README.md",
@@ -813,8 +813,8 @@
     "milestone": "ML",
     "stage": "done",
     "commits": [
-      "d902b1c",
-      "1d4a81c"
+      "233f47e",
+      "4f50cec"
     ],
     "evidence": [
       "publication/migration-guide.md",
@@ -845,8 +845,8 @@
     "milestone": "ML",
     "stage": "done",
     "commits": [
-      "1d4a81c",
-      "2b8a4a2"
+      "4f50cec",
+      "86b486c"
     ],
     "evidence": [
       "publication/activation-guide.md",
@@ -877,7 +877,7 @@
     "milestone": "ML",
     "stage": "done",
     "commits": [
-      "41bd204"
+      "0dad909"
     ],
     "evidence": [
       "publication/history-and-assets-review.md",
@@ -907,7 +907,7 @@
     "milestone": "ML",
     "stage": "done",
     "commits": [
-      "7891beb"
+      "989232c"
     ],
     "evidence": [
       "docs/verification/launch-status.md",
@@ -938,8 +938,8 @@
     "milestone": "ML",
     "stage": "blocked",
     "commits": [
-      "41bd204",
-      "53e3841"
+      "0dad909",
+      "9e45d93"
     ],
     "evidence": [
       "docs/verification/grok-launch-evidence.md",
