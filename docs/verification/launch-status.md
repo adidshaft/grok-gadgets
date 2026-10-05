@@ -1,24 +1,37 @@
-> Publication update, 5 October 2026: the owner approved sanitization and the first source push. The original 99 commits are preserved with new IDs; private metadata and historical generated downloads were sanitized. See [the sanitization record](publication-sanitization.md). Hosted activation and verification are being performed separately; the original preparation record below is historical.
+# Public source alpha — 5 October 2026
 
-# Local alpha launch preparation status
+All five source repositories are public under [adidshaft](https://github.com/adidshaft/grok-gadgets). Each has an Apache-2.0 license, README, contribution/security/conduct guidance, issue templates, repository description and topics. Private vulnerability reporting is enabled and verified. Public website deployment, package releases and firmware downloads remain separate operations.
 
-L0–L7 preparation is complete; G1 is accurately gated. Five separate Apache-2.0 repositories retain their incremental histories, maintained labels/milestones and stable issue IDs. Public repositories, packages, releases, hosted CI, Pages and community operations remain inactive. Current names are retained with a deferred public branding decision.
+## What works now
 
-The local website offers the original interactive architecture, all project components, customizable browser light, exported configuration and source-backed simulator download. The download rebuilds with checked source/input changes, requires source plus installed default/custom MCP acceptance and uses version/hash URLs. Failed pair/site promotion preserves prior usable files. Downloaded copies remain frozen; users upgrade into a fresh folder with their separate configuration.
+The website provides an interactive architecture, a customizable virtual light, exported configuration and an inspectable simulator download. Gateway and SDK software acceptance passes, including installed-package checks. C124 firmware compiles. These checks do not establish native Grok invocation, physical LED/button operation, real-home compatibility or mobile acceptance.
 
-Current kit: gateway 3a1f344dd02f6c56864c4ca689b8ef9752173f54, version 0.1.0a1, SHA256 47f58e94ea6e3c8b6fd3acec1bd0fb4cc84597c3c8d7e28ac49b2bad08c3e894. Fresh installed local MCP checks pass; historical account observations do not verify this new artifact.
+| Component | Published source | Verified evidence |
+| --- | --- | --- |
+| Gateway | `6c66a109084dc8480fdd49636dab2254d7e3d82e` | 77 tests, local MCP and installed simulator acceptance; hosted standalone CI |
+| Linux SDK | `b0e5f4bb407f4d4419673d4c1a5d540f68511c23` | Unit/CLI tests, installed custom applications and hosted standalone CI |
+| ESP32 SDK | `ef04fa0405ea4820de6430578684959f6e6dd8d8` | Three host suites, protocol/USB simulation and hosted firmware compilation |
+| Home Assistant | `6afac04e39ca5cf16af9c4bfd3d9a12f6844386a` | 13 fixture/transport tests and hosted standalone CI; no real home actions |
+| Hub | [Actions](https://github.com/adidshaft/grok-gadgets/actions) | Website, simulator, publication regressions and all fourteen integration groups |
 
-Verification:14 integration groups,57 script regressions,15 website tests,6 browser tests and C124 compilation pass. Independent fresh Git/source-ZIP review without siblings passed website/kit/launch checks,59pages and1632project-prefix links. The release notes/support matrix identify platform/runtime limits. Final clean-main verification, audit, candidate hashes and public asset subset are recorded outside source in the exact approval packet under artifacts/publication-public; the earlier candidate in the journal was independently achievable pre-closure verification.
+The first hub hosted run exposed a filesystem-order assumption in an archive regression and missing pip resolver metadata in an otherwise warmed uv cache. Commit `f78a5f668b8108435acd18cba24ddd249e45abdf` selects the exact source archive and prepares pinned runtime dependencies before strictly offline installed-package acceptance. Its [hub checks](https://github.com/adidshaft/grok-gadgets/actions/runs/37260225878) and [integrated acceptance](https://github.com/adidshaft/grok-gadgets/actions/runs/37260225894) passed on GitHub. The corresponding failed runs remain available as historical diagnostics.
 
-The dedicated signed-in Grok computer has the reviewed test kit/config installed, with package version/config integrity directly observed. Native connector detail still shows its prior normal six-tool command and no scoped edit/reload control; Grok reports only an account-wide restart. No exact-current native invocation receipt was obtained, and no account-wide change was made. See grok-launch-evidence.md and the separately tested trace helper. Simulation, compilation, installation, native invocation, mobile and physical observation are distinct.
+Current simulator kit: gateway `6c66a109084dc8480fdd49636dab2254d7e3d82e`, version `0.1.0a1`, SHA-256 `47f58e94ea6e3c8b6fd3acec1bd0fb4cc84597c3c8d7e28ac49b2bad08c3e894`. Fresh source and installed default/custom MCP acceptance passed. The current download is separate from historical Grok-account observations.
 
-Remaining gates: supported scoped Grok route/receipts; C124 hardware/flashing/LED/button; real home entities and systemd/peripherals; Windows/Intel and independent human setup; history-path/commit-email disclosure; naming/official marks; source/relinking material before firmware uploads; separate creation/push/release/Pages/Reddit/backend permissions and hosted readback. Private all-history bundles and raw account evidence are excluded from the proposed public subset.
+## History, issues and contribution flow
 
-Run from the hub's pinned environment:
+The original 99 commits were retained. Sanitization removed the private commit email and machine-account paths, and rebuilt historical generated downloads. At the owner's request, 106 pre-publication commits were distributed across 29 September–5 October; this is a reconstructed timeline. Actual execution timestamps remain unchanged. See [the history and privacy record](publication-sanitization.md).
 
-```sh
-.venv/bin/python website/build.py
-python3 -m http.server 4173 --bind 127.0.0.1 --directory website/dist
-```
+GitHub Issues is the authority after migration. The local planning ledgers retain preparation history; the website reads a validated timestamped [GitHub snapshot](../../publication/snapshot-guide.md). New issues need no local-ledger entry. The private migration checkpoints and original history backups are excluded from publication. A separate GitHub Project board is not activated.
 
-Open the playground, inspect the kit, then follow component READMEs. Full checks use scripts/check-all.py; package-local.py and verify-publication.py --require-current produce/certify the current internal candidate. The activation guide and final approval packet specify exact reviewable actions. No approval request here authorizes an external action implicitly.
+Main-branch policy requires pull requests, resolved review conversations and the exact GitHub Actions checks. Force pushes and deletion are blocked; original commit history is preserved. Zero mandatory human approvals supports the sole maintainer, while all required checks still apply. The repository rules pages are the authoritative live settings.
+
+## Still pending
+
+- Native invocation receipts from the supported Grok Bot route. Installation or model narration is not invocation evidence.
+- C124 hardware, flashing, USB enumeration and physical LED/button observations.
+- Real Home Assistant entities, Linux peripherals/systemd, mobile and independent human reproduction.
+- Public website deployment, package/prerelease publication and firmware redistribution materials.
+- GitHub Project activation, Reddit configuration, opt-in identity linking and unattended contributor-flair automation.
+
+Use [the support matrix](../public/support-matrix.md) and each component README for the tested environments. Local macOS checks do not establish every platform. Historical build/account observations remain in [the launch journal](launch-journal.md) and [Grok evidence record](grok-launch-evidence.md).

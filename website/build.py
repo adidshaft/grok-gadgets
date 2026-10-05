@@ -8,6 +8,7 @@ import os
 import importlib.util
 import tempfile
 import re
+import sys
 from activity import load_activity
 from documents import Documents, check_links
 
@@ -33,12 +34,24 @@ kit_archive = "grok-gadgets-simulator-kit-" + kit_identity + ".zip"
 kit_manifest = "simulator-kit-" + kit_identity + "-manifest.json"
 PUBLIC_SITE = "https://adidshaft.github.io/grok-gadgets/"
 issues = json.loads((R / "planning/issues.json").read_text())
+issue_snapshot = None
+snapshot_path = R / "publication/github-issues.json"
+if snapshot_path.is_file():
+    sys.path.insert(0, str(R / "scripts"))
+    snapshot_module = importlib.import_module("github_snapshot")
+    issue_snapshot = snapshot_module.load_snapshot(snapshot_path)
+    issues = issue_snapshot["issues"]
 # Input path is a build-time option, never a browser token or runtime fetch.
 activity_path = os.environ.get("GROK_ACTIVITY_FILE")
+if not activity_path and (R / "publication/github-activity.json").is_file():
+    activity_path = str(R / "publication/github-activity.json")
 activity = (
     load_activity(Path(activity_path), allow_fixture=True, classify_stale=True)
     if activity_path
-    else {"state": "unavailable", "reason": "Public repositories have not been created"}
+    else {
+        "state": "unavailable",
+        "reason": "GitHub activity snapshot has not been refreshed",
+    }
 )
 if activity.get("state") not in ["fixture", "unavailable", "cached", "live"]:
     raise ValueError("Unknown activity state")
@@ -118,7 +131,7 @@ def page(name, title, body):
     menu = (
         '<dialog id="site-menu" aria-labelledby="menu-title"><div class="menu-top"><p id="menu-title">Explore</p><button id="menu-close" aria-label="Close menu">Close <span>[esc]</span></button></div><nav aria-label="Main navigation">'
         + active_links
-        + '</nav><div class="menu-components"><a href="https://github.com/adidshaft/grok-gadgets">GitHub (planned)</a><a href="esp32.html">ESP32</a><a href="linux.html">Linux</a><a href="home-assistant.html">Home Assistant</a><a href="architecture.html">Architecture</a><a href="releases.html">Releases</a></div><div class="product-reference"><img src="media/spacexai-mark.svg" width="28" height="28" alt="SpaceXAI"><p>Grok is made by SpaceXAI.<br>Grok Gadgets is an independent project.</p><a href="https://x.ai/legal/brand-guidelines" aria-label="Official brand guidelines">↗</a></div></dialog>'
+        + '</nav><div class="menu-components"><a href="https://github.com/adidshaft/grok-gadgets">GitHub</a><a href="esp32.html">ESP32</a><a href="linux.html">Linux</a><a href="home-assistant.html">Home Assistant</a><a href="architecture.html">Architecture</a><a href="releases.html">Releases</a></div><div class="product-reference"><img src="media/spacexai-mark.svg" width="28" height="28" alt="SpaceXAI"><p>Grok is made by SpaceXAI.<br>Grok Gadgets is an independent project.</p><a href="https://x.ai/legal/brand-guidelines" aria-label="Official brand guidelines">↗</a></div></dialog>'
     )
     footer = '<footer class="site-footer"><a href="start.html">Start building ↗</a><span class="independent-note">Independent. Open source.</span><button id="motion-toggle" aria-pressed="false">Pause motion <span>[Ⅱ]</span></button></footer>'
     scripts = '<script src="motion.js" defer></script>' + (
@@ -358,16 +371,31 @@ rows = "".join(
     + e(i["stage"])
     + "</p><p>"
     + e(i.get("blocker") or " · ".join(i["labels"]))
-    + "</p></article>"
+    + "</p>"
+    + (
+        '<p><a href="'
+        + e(i["github_url"], quote=True)
+        + '">View issue on GitHub ↗</a></p>'
+        if i.get("github_url")
+        else ""
+    )
+    + "</article>"
     for i in issues
 )
 page(
     "roadmap.html",
     "Roadmap",
     intro(
-        "Source-driven / local issues",
+        "GitHub issue snapshot" if issue_snapshot else "Local preparation snapshot",
         "What’s next.",
         "Tested local work. Clear external gates.",
+    )
+    + (
+        '<p class="quiet-note">Refreshed '
+        + e(issue_snapshot["refreshed_at"])
+        + ". GitHub Issues are authoritative; this page is a saved snapshot.</p>"
+        if issue_snapshot
+        else ""
     )
     + '<div class="issue-list">'
     + rows
@@ -396,13 +424,13 @@ page(
         "doc-community-contribution-recognition.html",
         "Recognition policy",
     )
-    + '<p class="quiet-note">Community policies and live changes remain subject to publication approval.</p>',
+    + '<p class="quiet-note">Policies live in GitHub. Reddit configuration and contributor-flair activation are separate steps.</p>',
 )
 page(
     "releases.html",
     "Releases",
     intro(
-        "Unpublished local candidate",
+        "Source alpha · package releases pending",
         "0.1.0-alpha.1",
         "Simulation, separate SDKs, firmware builds and integration recipes.",
     )
@@ -417,7 +445,7 @@ page(
     + path_row(
         "02",
         "Project activity",
-        "Unavailable until public repositories exist.",
+        "Timestamped GitHub activity and its refresh state.",
         "activity.html",
         "Data state",
     ),
@@ -496,7 +524,7 @@ page(
         "doc-CONTRIBUTING.html",
         "Contribution guide",
     )
-    + '<p><a href="https://github.com/adidshaft/grok-gadgets">Planned GitHub destination ↗</a></p><p class="quiet-note">GitHub activation pending. After migration, Issues and the Project become authoritative; local snapshots record their refresh time.</p>',
+    + '<p><a href="https://github.com/adidshaft/grok-gadgets">Contribute on GitHub ↗</a></p><p class="quiet-note">GitHub Issues track contributions and bugs. The roadmap shows a timestamped snapshot; a separate Project board remains pending.</p>',
 )
 page(
     "404.html",

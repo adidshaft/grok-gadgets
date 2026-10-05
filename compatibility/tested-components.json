@@ -1,14 +1,14 @@
 {
-  "status": "unpublished local candidate",
+  "status": "Public source alpha; package releases and website deployment pending",
   "protocol": "0.1.0",
   "components": [
     {
       "repository": "grok-gadgets",
       "path": "grok-gadgets",
       "version": "0.1.0-alpha.1",
-      "commit": "169c485673d3a657eb196eb08782a1f00930b016",
+      "commit": "d5d2a500837106d8139547bd7898c309e59dfde2",
       "evidence_level": "Website/build/community verified",
-      "checks": "15 website tests;6 browser model/export tests;6 kit regressions;70 script regressions;36 migration tests;4 launch-security tests;5 history-audit tests;59 pages and1632 project-prefix links; final clean integration and candidate reports recorded separately",
+      "checks": "Cumulative publication validation:85 script regressions;15 website tests;6 browser tests;59 pages and1628 project-prefix links; GitHub snapshot of68 issues; hosted14-group integration and standalone CI repair passed. The recorded commit is the preceding implementation snapshot; final protected publication checks identify the exact integrated tree in GitHub.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
