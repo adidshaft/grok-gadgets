@@ -1,5 +1,7 @@
 # Contributing
 
+Use the shared [writing guide](docs/contributing/writing-guide.md) and [review and privacy rules](docs/contributing/review-and-privacy.md). Keep explanations short and use diagrams where they clarify a connection.
+
 Code, documentation, tests, accessibility, diagnostics and verified build reports all count. No hardware is needed for browser, simulator, SDK host tests or fixture diagnostics. Start with the [ready queue](docs/contributing/ready-issues.md).
 
 ![Choose an issue, make a focused branch, run checks, open a pull request, then review and merge.](docs/visuals/contribution.svg)

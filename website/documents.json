@@ -21,7 +21,9 @@
     "docs/contributing/ready-issues.md",
     "docs/visuals/README.md",
     "docs/public/support-matrix.md",
-    "docs/visuals/brand-provenance.md"
+    "docs/visuals/brand-provenance.md",
+    "docs/contributing/writing-guide.md",
+    "docs/contributing/review-and-privacy.md"
   ],
   "component_sources": [
     "README.md",
