@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/remote-access.md at 9d2f2c3b99de9fe105a3d14f470995f06b35ba0e
+Source: grok-gadgets-gateway/docs/remote-access.md at a02e8889f3936031040a67644112076e140954b1
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -9,7 +9,7 @@ This is a pinned documentation snapshot. Relative filesystem paths describe the 
 - MCP: `http://127.0.0.1:8766/mcp`
 - Devices: `127.0.0.1:8765`
 
-The MCP client sends `Authorization: Bearer <token>`. The token is the single line in `~/.config/grok-gadgets/mcp-token` (or `$XDG_CONFIG_HOME/grok-gadgets/mcp-token`), mode 0600. `rotate-mcp-token` replaces it and prints `GROK_GADGETS_MCP_TOKEN=...` once on stdout. Restart `serve` after you rotate it if a client still has the old value cached; the server reads the file on each request.
+The MCP client sends `Authorization: Bearer <token>`. The token is the single line in `~/.config/grok-gadgets/mcp-token` (or `$XDG_CONFIG_HOME/grok-gadgets/mcp-token`), mode 0600. `rotate-mcp-token` replaces it and prints `GROK_GADGETS_MCP_TOKEN=...` once on stdout. Update the client's saved token and reconnect. The server reads the file on each request; no gateway restart is needed.
 
 This package does not terminate public TLS and it does not speak OAuth. It has not been verified with Grok Bot. A cloud Bot cannot open `127.0.0.1` on your computer. If you want a Bot to reach the gateway, you run `serve` on the gadget host and you publish HTTPS yourself.
 
@@ -47,4 +47,3 @@ This path is implemented locally. It is not verified with Grok Bot or on hardwar
 - Run `init` as the same user that will run `serve`.
 - `init` prints client JSON and hides the MCP token unless you pass `--show-token`.
 - A local MCP client test is not a Grok Bot session and not physical proof.
-

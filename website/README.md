@@ -1,6 +1,6 @@
 # Static website
 
-Create the hub environment with `uv venv .venv --python 3.13` and `uv pip install --python .venv/bin/python -r website/requirements.txt`. Run `.venv/bin/python website/build.py` from the hub, then `python3 -m http.server 4173 --bind 127.0.0.1 --directory website/dist`. Open http://127.0.0.1:4173. The free public host is Cloudflare Pages at `https://grok-gadgets.pages.dev/`; HTTPS and key routes were verified on 5 October 2026. The project doesn't own a custom domain.
+From the hub, run `python3 scripts/dev.py setup`, then `python3 scripts/dev.py site`. Open http://127.0.0.1:4173. The public site is at `https://grok-gadgets.pages.dev/`. These commands build a local preview; they do not deploy it.
 
 Pinned markdown-it-py renders safe canonical docs and the issue-ledger roadmap. The homepage presents one short pitch and a large continuous SVG architecture scene. Tap or keyboard-select a node for a concise explanation and documentation link. LED and Button views reveal only their relevant simulated controls. Menu opens the documentation, roadmap and community paths; Escape returns focus to its trigger. Below the scene, ten native disclosure entries list every SDK, connection and project tool. Each opens a short description, verification state, docs links and relevant commands; they remain interactive without JavaScript. No framework, remote font or animation library is required.
 

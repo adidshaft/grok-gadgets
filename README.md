@@ -6,19 +6,20 @@
 
 **[Try the simulator](https://grok-gadgets.pages.dev/#playground)** · [Documentation](https://grok-gadgets.pages.dev/docs.html) · [Roadmap](ROADMAP.md) · [Issues](https://github.com/adidshaft/grok-gadgets/issues) · [Community](https://www.reddit.com/r/GrokGadgets/)
 
-Open-source tools so you can connect gadgets to [Grok Bot](https://docs.x.ai/grok-bot). Start with a virtual light in the browser. Then build on Linux or ESP32, or explore Home Assistant.
+Open-source SDKs and tools for your existing [Grok Bot](https://docs.x.ai/grok-bot). Start with a virtual light in the browser. Then build on Linux or ESP32, or explore Home Assistant.
 
 ## What works with Grok Bot today
 
-| You can do this now | You cannot do this yet |
+| Works locally now | Next step |
 | --- | --- |
-| Try the [browser light](https://grok-gadgets.pages.dev/#playground). It does not call Grok. | Ask Grok Bot to control a board on your Mac, a Pi, or your home network. |
-| Run the [local simulator kit](docs/getting-started/simulator-kit.md) on your computer. | Use a cloud Bot against a file that only exists on your Mac. Command MCP runs on Grok's cloud computer. |
-| Build the Linux agent or compile C124 firmware. | Treat compile success as a flashed, working board. |
-| Read the [hosting FAQ](docs/getting-started/hosting.md). | Point Grok Bot at `127.0.0.1`. Local `serve` exists; Grok Bot has not used it. |
-| Ask Grok about events after it is already working. | Press a gadget button and have Grok notice. Bots do not wake on MCP events. |
+| Virtual light in your browser; no Bot connection | [Try it](https://grok-gadgets.pages.dev/#playground) |
+| Simulator and authenticated HTTP MCP gateway | [Run the gateway](https://github.com/adidshaft/grok-gadgets-gateway#quick-start) |
+| Linux gadget software and compiled ESP32 examples | Choose an SDK below |
 
-**Experimental alpha.** Software tests pass. `grok_verified` and `hardware_verified` stay false until a Grok Bot session and physical observation exist.
+**Not connected to Grok Bot yet.** Local `serve` exists. A cloud Bot cannot reach
+its loopback address. The remote route, physical hardware and mobile use remain
+unverified. Button events wait for a client to read them; they do not wake the Bot.
+See the [hosting FAQ](docs/getting-started/hosting.md).
 
 ## Start here
 
@@ -46,8 +47,8 @@ Python 3.13, uv, Node.js 22+ and Git:
 
 ```sh
 python3 scripts/dev.py setup
-python3 scripts/dev.py site
 python3 scripts/dev.py check
+python3 scripts/dev.py site
 ```
 
 Open `http://127.0.0.1:4173/index.html#playground`. Sibling integration is `scripts/check-all.py` when the four other repos sit next to this one.

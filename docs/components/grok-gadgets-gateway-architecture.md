@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/architecture.md at 9d2f2c3b99de9fe105a3d14f470995f06b35ba0e
+Source: grok-gadgets-gateway/docs/architecture.md at a02e8889f3936031040a67644112076e140954b1
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -7,6 +7,8 @@ This is a pinned documentation snapshot. Relative filesystem paths describe the 
 Protocol 0.1.0 lives in protocol/0.1.0 and is shipped unchanged inside the gateway wheel. Consumer SDKs pin and hash those source files. Network/USB use 2048-byte LF JSON frames and one request/reply exchange; polling avoids unsolicited message scheduling and fits small firmware buffers. This intentionally favors an understandable local alpha over a public broker.
 
 Python 3.11+ with official MCP Python SDK 1.26.0 is pinned to the v1 implementation. Historical implementation reference: https://github.com/modelcontextprotocol/python-sdk/blob/v1.26.0/README.md (reviewed 2026-10-04; no claim about current upstream main). Dependency resolution lives in uv.lock. Device schemas use JSON Schema Draft 2020-12.
+
+Custom capability schemas must be inline. The gateway rejects `pattern` and `patternProperties` before registration because device-supplied regular expressions can block command processing. Use explicit properties, `enum`, `minLength` and `maxLength` instead. Other schema dialects and references are not supported.
 
 Domain Gateway knows devices, commands and retained events, not sockets or assistants. Simulator consumes exactly the same register/poll/ack/state/event interface; its explicit control adapter injects button/disconnect/reconnect. MCP adapter exposes typed official SDK tools over stdio and, with `serve`, over loopback Streamable HTTP. DeviceServer wraps the domain in loopback authenticated TCP. usb_bridge relays USB requests and responses, injecting the private host token into hello. Linux SDK and ESP32 firmware remain separate libraries, not gateway modules.
 

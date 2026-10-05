@@ -1,4 +1,4 @@
-Source: grok-gadgets-esp32-sdk/docs/sdk.md at b26f20fbf3a24dedb71a98009dfb7747b3a8a2f5
+Source: grok-gadgets-esp32-sdk/docs/sdk.md at ff562a9a86ca3dd149a82cc36c4ab002ebad7d68
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -55,6 +55,8 @@ Hello may list at most 16 names. The gadget always appends `state` and `history_
 `event(name, schema)` declares a custom event. Its hello schema includes `"x-grok-gadgets-kind": "event"`. `history_lost` is reserved: the gadget emits it, and a sketch cannot register that name. `emit(name, data)` queues a declared event. The data object must be under 128 bytes. A full queue of 16 drops the new event and later reports `history_lost`.
 
 `command(name, handler, context, schema)` registers a callable capability. The optional schema is an inline JSON object. Grok sees that object as the argument contract. `rgb.set` keeps the built-in RGB rules; a replacement schema is rejected.
+
+The gateway rejects schema references, `pattern` and `patternProperties`. Use explicit properties, `enum`, `minLength` and `maxLength` instead. This prevents a device-supplied regular expression from blocking the gateway.
 
 `begin()` calls `Serial.setRxBufferSize` for two full frames (4096 bytes) before `Serial.begin()`. The Arduino-ESP32 2.0.17 USB CDC queue otherwise stays 256 bytes and can drop a long reply. That call is unverified on hardware.
 

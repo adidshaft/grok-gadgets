@@ -1,8 +1,8 @@
 # Grok Gadgets simulator kit
 
-Use a virtual C124 RGB LED and button through the local Model Context Protocol (MCP) gateway. You do not need hardware, an API key, an exposed port or a hosted service. Original code uses Apache-2.0. This independent project is exclusively for Grok.
+Use a virtual C124 RGB LED and button through the local Model Context Protocol (MCP) gateway. You do not need hardware, an API key, an exposed port or a hosted service. Original code uses Apache-2.0. This independent project is for your existing Grok Bot.
 
-The [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md) explains who runs the gateway and tunnel. The kit provides local stdio MCP. It does not include a remote HTTPS MCP service. Do not expose its device port through a tunnel.
+The [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md) explains who runs the gateway and tunnel. The kit demo uses local stdio MCP. The included gateway also provides local HTTP `serve`, but the kit does not configure public HTTPS or connect to Grok Bot. Do not expose its device port through a tunnel.
 
 ## Inspect first
 
@@ -80,7 +80,9 @@ Downloading the ZIP does not install a connector or change your account. The kit
 
 The website build verifies the committed kit: gateway commit inside the manifest, input hashes, archive contents and the acceptance record. It does not rebuild the ZIP because a sibling gateway checkout moved.
 
-Rebuild explicitly from the hub after gateway or kit-script changes:
+Website guide edits do not change the ZIP. The bundled instructions live in
+`scripts/simulator-kit/README.md`. Rebuild explicitly after changes to the gateway,
+builder or bundled kit files:
 
 ```sh
 python3 scripts/build-simulator-kit.py

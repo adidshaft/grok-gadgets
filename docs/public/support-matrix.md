@@ -1,6 +1,6 @@
 # Support and verification matrix
 
-This experimental alpha is exclusively for Grok. The [compatibility manifest](../../compatibility/tested-components.json) identifies tested versions and commits. The final candidate manifest identifies packaged commits. Simulation, compilation and command acknowledgements do not prove physical operation.
+This experimental alpha is for your existing Grok Bot. The [compatibility manifest](../../compatibility/tested-components.json) identifies tested versions and commits. The final candidate manifest identifies packaged commits. Simulation, compilation and command acknowledgements do not prove physical operation.
 
 | Path | Software evidence | External acceptance still needed |
 | --- | --- | --- |

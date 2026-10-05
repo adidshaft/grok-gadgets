@@ -42,6 +42,29 @@ class KitTests(unittest.TestCase):
         spec.loader.exec_module(module)
         return module
 
+    def test_website_guide_changes_do_not_invalidate_the_download(self):
+        module = self.builder()
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary).resolve()
+            script = root / "scripts/build-simulator-kit.py"
+            kit = root / "scripts/simulator-kit"
+            kit.mkdir(parents=True)
+            script.write_text("# Builder fixture\n")
+            (kit / "README.md").write_text("Kit instructions\n")
+            (kit / "install.py").write_text("# Installer fixture\n")
+            guide = root / "docs/getting-started/simulator-kit.md"
+            guide.parent.mkdir(parents=True)
+            guide.write_text("Website instructions\n")
+            with (
+                patch.object(module, "ROOT", root),
+                patch.object(module, "__file__", str(script)),
+            ):
+                before = module.inputs()
+                guide.write_text("Corrected website instructions\n")
+                self.assertEqual(before, module.inputs())
+                (kit / "README.md").write_text("Changed kit instructions\n")
+                self.assertNotEqual(before, module.inputs())
+
     def test_freshness_and_refresh_failure_gate(self):
         module = self.builder()
         output = ROOT / "website/downloads"
