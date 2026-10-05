@@ -30,9 +30,9 @@
       "repository": "grok-gadgets-linux-sdk",
       "path": "grok-gadgets-linux-sdk",
       "version": "0.1.0a1",
-      "commit": "1244c3e2ce3de48763d0c9089b778d8133802127",
-      "evidence_level": "Simulated; package and Linux runtime verified",
-      "checks": "20 source tests; fresh installed documented and annotated-dataclass macOS+actual offline Linux onboarding;15installed tests plus5optional source integration skips; documentation-only update with unchanged runtime from 8a0cb48, current component PR CI passed",
+      "commit": "a6ed5c94dc4cac482ad5140ce522c43c8b03a494",
+      "evidence_level": "Simulated; macOS gateway integration verified",
+      "checks": "41 tests on macOS, including seven cases against sibling gateway source, plus ruff. The cloud Bot route is documented as not implemented. No fresh Linux container, systemd, or Raspberry Pi run on this commit. Grok Bot and hardware remain unverified.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
@@ -42,9 +42,9 @@
       "repository": "grok-gadgets-esp32-sdk",
       "path": "grok-gadgets-esp32-sdk",
       "version": "0.1.0",
-      "commit": "4d754c700491ab0e83bcebaad08876740048e1bb",
-      "evidence_level": "Build verified; host simulated",
-      "checks": "3CTest suites; immutable repeated ACK actual consumer; contracts; actual consumer USB PTY overflow/restart/revocation; C124 compile; documentation-only update with unchanged runtime from 4b994aa, current component PR CI passed",
+      "commit": "b26f20fbf3a24dedb71a98009dfb7747b3a8a2f5",
+      "evidence_level": "Host simulated",
+      "checks": "Host ctest 4/4, contract check on compiled sketch transcripts, and simulated firmware through a PTY USB bridge (green/off, redelivery, overflow, restart, revocation) passed on macOS. Firmware image was not recompiled in this pass. Grok Bot and hardware remain unverified.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
@@ -54,9 +54,9 @@
       "repository": "grok-gadgets-home-assistant",
       "path": "grok-gadgets-home-assistant",
       "version": "0.1.0a1",
-      "commit": "0125967b3d1e193d4b898c77350b7da2d8574f90",
-      "evidence_level": "Fixture/transport and package verified",
-      "checks": "13tests including loopback HTTP official MCP client; unchanged package; no real home actions; documentation-only update with unchanged runtime from 9fe1a11, current component PR CI passed",
+      "commit": "ae584fff2882e1b9bea8fb3c4c0fe835bf04a826",
+      "evidence_level": "Fixture and transport verified",
+      "checks": "26 tests and a fixture ha-probe with zero tool calls and zero resource reads, plus ruff, on macOS. No real Home Assistant installation. The remote Grok Bot recipe is documented and unverified.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
@@ -99,5 +99,5 @@
       }
     }
   },
-  "note": "Component commits identify verified runtime sources and hub implementation snapshot. Final publication manifest identifies exact archived HEADs and rebuilt Python package hashes, avoiding self-reference."
+  "note": "Component commits are the simplify-and-fix trees checked on 5 October 2026. The firmware object is the earlier unpublished publication build at source_commit 4b497fec; it was not rebuilt for the current ESP32 commit. Grok and hardware remain unverified. The hub commit stays the pre-publication snapshot so this file does not name itself."
 }

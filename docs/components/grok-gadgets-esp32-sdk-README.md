@@ -1,4 +1,4 @@
-Source: grok-gadgets-esp32-sdk/README.md at 0c22148b49e7f4b3b80cc8cfc09f9aae8bc557a3
+Source: grok-gadgets-esp32-sdk/README.md at b26f20fbf3a24dedb71a98009dfb7747b3a8a2f5
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -15,7 +15,7 @@ The C124 sketch compiles for ESP32-S3. It has not been flashed, and no LED, butt
 1. Install Python 3.11 or later, CMake 3.16 or later, Git, and a C++14 compiler.
 2. Run the host checks and compile the C124 firmware. Success means **build verified, hardware pending**.
 3. Read [Build, flash and recovery](docs/build-flash.md) before connecting a board. Upload with PlatformIO so the bootloader, partitions, `boot_app0.bin`, and app land at their offsets.
-4. For a board, set `GROK_GADGETS_DEVICE_TOKEN` for the USB bridge. `grok-gadgets-gateway enroll` and `grok-gadgets-gateway serve` are the intended host commands. They were not run here.
+4. For a board, set `GROK_GADGETS_DEVICE_TOKEN` for the USB bridge. `grok-gadgets-gateway enroll` prints that token once, and `grok-gadgets-gateway serve` keeps the loopback listener running. Those commands exist on the gateway branch. They were not run from this SDK, and they are not verified with Grok Bot.
 
 ```sh
 python3 -m venv .venv

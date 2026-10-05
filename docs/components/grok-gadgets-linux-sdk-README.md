@@ -1,4 +1,4 @@
-Source: grok-gadgets-linux-sdk/README.md at c42d8d7b3c6e11037b1a10b50abe190c9125b78a
+Source: grok-gadgets-linux-sdk/README.md at a6ed5c94dc4cac482ad5140ce522c43c8b03a494
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -14,10 +14,10 @@ experimental alpha.
 
 - **Local MCP client on the same computer:** works. A client that starts the gateway
   can list your gadget and call its functions. Tested in software only.
-- **Grok Bot (cloud):** reaches a Linux gadget only if you run the gateway's
-  `grok-gadgets-gateway serve` mode and expose it through your own authenticated HTTPS
-  tunnel. This route is implemented in the gateway but **not verified with Grok Bot**.
-  Never expose the agent's device port (8765).
+- **Grok Bot (cloud):** cannot open this computer. Loopback
+  `grok-gadgets-gateway serve` exists. A cloud Bot would also need HTTPS that you
+  run in front of it. That remote route is **not implemented here** and is **not
+  verified with Grok Bot**. Never expose the agent's device port (8765).
 - **Not verified:** physical peripherals, real systemd operation, Raspberry Pi hardware,
   and any actual Grok invocation.
 
