@@ -42,6 +42,8 @@ pre.document { white-space:pre-wrap; overflow-wrap:anywhere; font:15px/1.9 monos
 .documentation-index { list-style:none; padding:0; margin:0; }
 .documentation-index li { border-top:1px solid var(--line); }
 .documentation-index a { display:flex; justify-content:space-between; gap:25px; padding:16px 0; text-decoration:none; font-size:16px; }
+.docs-entry-paths{display:flex;flex-wrap:wrap;gap:8px 26px;margin:30px 0 45px;border-block:1px solid var(--line);padding:14px 0;}
+.docs-entry-paths a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;border-bottom:1px solid var(--line);}
 .documentation-index span { color:var(--muted); }
 .site-footer { display:flex; align-items:center; justify-content:space-between; gap:20px; margin:65px 32px 0; padding:25px 0; font-size:12px; color:var(--muted); }
 .site-footer>a { color:var(--ink); text-decoration:none; }

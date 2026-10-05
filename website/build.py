@@ -236,7 +236,42 @@ page(
         .read_text()
         .replace("{{SIMULATOR_BUILD}}", e(simulator_build["gateway_commit"][:8]))
         .replace("{{SIMULATOR_VERSION}}", e(simulator_build["package_version"]))
-        + (R / "website/components.html").read_text()
+        + '<section class="builder-paths" id="builder-paths" aria-labelledby="builder-heading"><p class="eyebrow">CHOOSE YOUR FIRST PATH</p><h2 id="builder-heading">Start building.</h2>'
+        + path_row(
+            "01",
+            "ESP32 / C124",
+            "Compile the RGB LED and button firmware. The physical board is still pending.",
+            "esp32.html",
+            "Build for ESP32",
+        )
+        + path_row(
+            "02",
+            "Linux / Raspberry Pi",
+            "Use the Python SDK and agent. Linux container tested; Raspberry Pi hardware pending.",
+            "linux.html",
+            "Build with Linux",
+        )
+        + path_row(
+            "03",
+            "Home Assistant",
+            "Explore the direct route through Home Assistant’s own MCP server. Live home and Grok Bot checks are pending.",
+            "home-assistant.html",
+            "Connect Home Assistant",
+        )
+        + '<p class="quiet-note" id="components">Local alpha. These conceptual routes do not call Grok Bot. <a href="components.html">See all project components ↗</a></p></section>'
+        + '<section class="home-activity" aria-labelledby="home-activity-heading"><p class="eyebrow">PROJECT / COMMUNITY</p><h2 id="home-activity-heading">Built in the open.</h2><p>Follow source, issues and contribution work.</p>'
+        + activity_html(activity)
+        + "".join(
+            f'<a href="https://github.com/adidshaft/{repo}">{repo} ↗</a>'
+            for repo in [
+                "grok-gadgets",
+                "grok-gadgets-gateway",
+                "grok-gadgets-linux-sdk",
+                "grok-gadgets-esp32-sdk",
+                "grok-gadgets-home-assistant",
+            ]
+        )
+        + '<a href="roadmap.html">Project issues ↗</a><a href="activity.html">Activity source and refresh status ↗</a><a href="community.html">Community ↗</a></section>'
     )
     if scene_source.is_file()
     else "<h1>Grok, meet the real world.</h1><p>Interactive architecture is being assembled locally.</p>",
@@ -527,14 +562,24 @@ for record in documents.records:
     )
 page("source-reference.html", "Source references", documents.reference_html())
 page(
+    "components.html",
+    "Project components",
+    documentation_layout(
+        '<header class="docs-intro"><p class="eyebrow">PROJECT MAP</p><h1>Ten parts.<br>One open project.</h1><p>Choose a component and check its current evidence.</p></header>'
+        + (R / "website/components.html").read_text(),
+        "components.html",
+    ),
+)
+page(
     "docs.html",
     "Documentation",
     documentation_layout(
-        '<header class="docs-intro"><p class="eyebrow">Documentation / Experimental alpha</p>'
+        '<header class="docs-intro"><p class="eyebrow">Open source / Local alpha</p>'
         "<h1>Start small.<br>Build your gadget.</h1>"
         "<p>Try the simulator, choose a device platform, or help improve the project.</p>"
         '<a class="docs-start" href="doc-docs-getting-started-simulator-kit.html">'
         'Start without hardware <span aria-hidden="true">↗</span></a>'
+        '<nav class="docs-entry-paths" aria-label="Choose a build path"><a href="simulator.html">Simulator ↗</a><a href="esp32.html">ESP32 ↗</a><a href="linux.html">Linux / Raspberry Pi ↗</a><a href="home-assistant.html">Home Assistant ↗</a></nav>'
         '<p class="docs-note">New here? Start with the simulator. Actual Grok and physical-device verification remain pending.</p></header>'
         + doc_navigation.index(),
         "docs.html",
