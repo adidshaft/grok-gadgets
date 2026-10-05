@@ -56,9 +56,13 @@ def check(site):
                 raise ValueError(f"{page.name}: invalid or missing {key}: {actual!r}")
         for key in ("description", "og:description", "twitter:description"):
             if "Grok Bot" not in values[key] or "Grok Gadgets" not in values[key]:
-                raise ValueError(f"{page.name}: description must identify Grok Bot and Grok Gadgets")
+                raise ValueError(
+                    f"{page.name}: description must identify Grok Bot and Grok Gadgets"
+                )
         if metadata.canonical != base:
-            raise ValueError(f"{page.name}: unexpected canonical {metadata.canonical!r}")
+            raise ValueError(
+                f"{page.name}: unexpected canonical {metadata.canonical!r}"
+            )
         if "localhost" in values["og:image"] or "localhost" in values["twitter:image"]:
             raise ValueError(f"{page.name}: local share image URL")
 

@@ -124,9 +124,7 @@ def page(name, title, body):
     page_title = title + " · Grok Gadgets"
     description = (
         "Grok Gadgets is an independent open-source project building tools and SDKs "
-        "for your existing Grok Bot. "
-        + title
-        + "."
+        "for your existing Grok Bot. " + title + "."
     )
     share_image = PUBLIC_SITE + "media/grok-gadgets-share-v1.png"
     canonical_url = PUBLIC_SITE + name
