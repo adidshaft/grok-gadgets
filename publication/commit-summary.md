@@ -1,82 +1,17 @@
-# Preserved commit histories
+# Preserved implementation and launch history
 
-Snapshot through candidate certification at hub9daf82d. The final evidence-only closure commit follows; its exact HEAD and completehistory are in the final latest publication manifest and Git bundles. No squashing or public push.
+This is the source snapshot after local preparation was integrated into main. The commit containing this summary follows; exact final main HEADs and source/recovery hashes are in the selected latest candidate and approval packet. No squashing, history rewrite or public push occurred. Recovery bundles remain private.
 
-## grok-gadgets
+| Repository | Snapshot HEAD | Incremental commits |
+| --- | --- | ---: |
+| grok-gadgets | `049aa771bc2ce0597b6d6635886df743c4de8b5d` | 48 |
+| grok-gadgets-gateway | `71cfecbaf1120b27e1956384861efda5f5a3eef6` | 14 |
+| grok-gadgets-linux-sdk | `9c13fef60d3dd0d5feb2973bd7e51bfacfb48dec` | 12 |
+| grok-gadgets-esp32-sdk | `db3fe8755364f74478bf576d9d57aabe4684eb62` | 14 |
+| grok-gadgets-home-assistant | `3c8d8adba31918b051dbdbf2343f9fa6e26dedce` | 8 |
 
-```
-9daf82d docs: record reviewed acceptance and next Grok experiment [HARD-001]
-47c9be3 build: verify fresh publication artifacts and preserve history [HARD-001]
-5f3dedc test: integrate reviewed installed factory variants [HARD-001]
-bddd5b9 fix: classify stale activity at build time [HARD-WEB-001]
-affb69b test: repeat installed onboarding and record isolated acceptance provenance [HARD-001]
-a9550ab feat: render safe source-relative public documentation and static diagrams [HARD-WEB-002]
-0078a5a fix: persist validated activity refresh failures atomically [HARD-WEB-001]
-c91a06b docs: establish correction baseline, issues and resumable H0 tracking [HARD-001]
-2e8d8df docs: record full toolkit interaction checks and close homepage issue [HUB-WEB-003]
-f44c2a3 fix: keep motion control available across the component directory [HUB-WEB-003]
-c7d9707 feat: list the complete toolkit in interactive homepage disclosures [HUB-WEB-003]
-e0bfe94 docs: close interactive website issue with browser evidence [HUB-WEB-002]
-2f9c30b fix: avoid accidental menu shortcuts and clarify asset attribution [HUB-WEB-002]
-d212592 feat: build continuous interactive architecture and selective navigation [HUB-WEB-002]
-0266f55 feat: adopt approved community identity and sourced reference marks [HUB-WEB-002]
-06a617e fix: bound Git history auditing and avoid blocked batch pipes [HUB-PUB-001]
-4006c25 docs: deliver verified local alpha and concrete publication handoff [HUB-PUB-001]
-72c9d6e chore: format hub code and enforce reproducible developer checks [HUB-001]
-7ba2437 fix: integrate review results and pinned component documentation [HUB-ESP-001]
-85e46f8 test: record coordinator checks and maintained publication gates [HUB-001]
-58e8072 docs: prepare inactive publication and physical verification package [PUB-001]
-9d9b75c feat: prepare community policies and tested offline recognition logic [COM-001]
-48cadc5 feat: prepare bounded activity refresh with honest fallback states [WEB-001]
-7c76969 feat: add source-driven local website and documentation build [WEB-001]
-9c6d5c0 chore: establish local project foundations and labeled roadmap [HUB-001]
-```
+Launch preparation hub commits:4451f0a baseline;f1cff58 owner/policies/ready queue;8b362f7 resumable migration;7ac61fd source-race gate;e1a9948 newcomer docs/vectors/site;e063a38 pinned CI/forms/rulesets;3bb66cc history/tree-ref audit and standalone fixtures;4ae0072 source-archive reference support;f4ad5f9 download-pair rollback;4876c8b stage/gate reconciliation;3e2d066 bounded test trace;6fb967f public-subset/activation guide;049aa77 local stage closure and fast-forward main integration.
 
-## grok-gadgets-gateway
+Gateway:dd4f50a docs and18824b0 closure,1a6c876 read-only CI,71cfecb issue forms. Linux:94b9fb9 docs/f1468b4 closure,27af8c8 CI/9c13fef forms. ESP32:ff954cc docs/a02c4e8 closure,fe7e505 CI/0a36948 forms,db3fe87 final compilation record. HA:fe2b93f docs/706c2be closure,2aa4a25 CI/3c8d8ad forms. These launch changes preserve verified runtime interfaces and license/notice bytes.
 
-```
-84b06fb docs: record tested gateway hardening and package evidence [HARD-GW-001] [HARD-GW-002]
-85548ea fix: isolate device boot event windows [HARD-GW-002]
-4bb6d87 fix: route simulator commands by capability [HARD-GW-001]
-4cf42ff docs: runnable MCP demo and reviewable local alpha handoff (GW-003)
-b2ad132 fix: recover USB sessions on firmware hello and gateway restart (GW-003)
-e9a887e feat: official MCP tools and authenticated USB TCP transport (GW-003)
-17d3168 feat: canonical protocol and bounded gateway lifecycle (GW-002)
-9bab82b chore: establish contribution and locked Python foundation (GW-001)
-```
-
-## grok-gadgets-linux-sdk
-
-```
-ce897ee docs: record reviewed factory installation evidence [HARD-LIN-001]
-89478e5 fix: register trusted factory modules before execution [HARD-LIN-001]
-04b5ac3 docs: record installed custom onboarding evidence [HARD-LIN-001]
-beb69c1 fix: load explicit trusted gadget files [HARD-LIN-001]
-256a07e docs: finalize Linux issue evidence and triage template (LIN-003)
-4df75b2 feat: add device agent with real Linux gateway acceptance (LIN-003)
-937e1c3 feat: add generic capability library with pinned contracts (LIN-002)
-ec228ec chore: establish independent Linux SDK foundation (LIN-001)
-```
-
-## grok-gadgets-esp32-sdk
-
-```
-5ca2e5d docs: record corrected clean-source firmware evidence [HARD-ESP-001]
-382444d docs: pin corrected gateway lifecycle contract [HARD-ESP-001]
-3e8ccff fix: preserve retained firmware ACKs across retries [HARD-ESP-001]
-585adda docs: refresh firmware artifact and overflow acceptance evidence (ESP-007)
-74085a9 fix: declare overflow events and preserve gateway session (ESP-007)
-fadcf25 docs: record local alpha provenance and open acceptance gates (ESP-003)
-0481cc9 feat: build C124 USB firmware and verify gateway recovery (ESP-003)
-ff4dd9d feat: add portable capability SDK and contract tests (ESP-002)
-d4f18b3 chore: establish ESP32 contribution foundation (ESP-001)
-```
-
-## grok-gadgets-home-assistant
-
-```
-a8b2370 docs: link compatibility probe acceptance commit (HA-003)
-d40882d feat: add read-only MCP compatibility probe and fixtures (HA-003)
-7f175c0 docs: record upstream reuse and Grok feasibility gates (HA-002)
-46b63cd chore: establish Apache-2.0 integration foundation (HA-001)
-```
+Use `git log --oneline --graph main` in each checkout for complete maintained history. Original alpha and hardening commits remain reachable. Main pushes expose historical paths and personal author metadata; the history/asset report records that explicit approval gate. Source archives contain selected current trees only; private recovery bundles additionally preserve local refs. The separate final approval packet gives runnable paths, exact hashes, verified check logs and remaining external gates.
