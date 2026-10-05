@@ -74,3 +74,10 @@ Checks: hub foundation; 15 website tests; 61 built pages and 1,689 resolved loca
 The first website attempt correctly rejected uncommitted gateway work. After the tested gateway documentation commit, the kit rebuild passed its source and installed default/custom MCP checks. New kit SHA-256: `2ea872b113a54e0b35515f7eb208cbf30ee25dc9e44ff3804b6b692867798392`. Final website checks passed.
 
 All changes remain local. No push, deployment, Reddit modification, actual Grok invocation or physical test occurred.
+
+
+## 5 October 2026 — documentation PR publication and README presentation
+
+Published the tested documentation branches and opened hub PR #46, gateway #10, Linux #9, ESP32 #11 and Home Assistant #7. No main merge or deployment was performed. Reused the original project banner and added static navigation badges, quick links and contribution artwork. Image hashes and provenance are recorded. Website tests passed with 61 pages and 1,705 links.
+
+Hosted component CI passed. Hub integration initially failed because SDK documentation snapshots referenced new commits while CI checked out older component pins. Updated Linux, ESP32 and Home Assistant pins to their documentation-only PR heads. All fourteen local integration groups then passed, including installed onboarding and ESP32 USB simulation. No runtime implementation changed.
