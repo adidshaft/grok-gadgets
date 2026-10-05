@@ -481,6 +481,7 @@ page(
         "Share a build. Ask a question. Improve the tools.",
     )
     + '<p><a class="text-cta" href="https://www.reddit.com/r/GrokGadgets/">r/GrokGadgets ↗</a></p>'
+    + '<p class="community-help-links"><a href="doc-docs-getting-started-simulator-kit.html">Start here ↗</a> · <a href="doc-SUPPORT.html">Get help ↗</a> · <a href="doc-community-guidelines.html">Community policy ↗</a> · <a href="doc-CODE_OF_CONDUCT.html">Code of conduct ↗</a> · <a href="doc-SECURITY.html">Security ↗</a></p>'
     + path_row(
         "01",
         "Contribute",

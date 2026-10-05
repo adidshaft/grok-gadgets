@@ -4,6 +4,10 @@ GitHub is the source for community policies and technical records. Reddit links 
 
 On 5 October 2026 the subreddit description, Community Guide and a pinned welcome post were set up. Post flairs and user flairs are not configured. Automatic contributor recognition is not active.
 
+Start with the [simulator setup](../docs/getting-started/simulator-kit.md). For help, use
+[support](../SUPPORT.md), [community guidelines](guidelines.md),
+[code of conduct](../CODE_OF_CONDUCT.md), and [security reporting](../SECURITY.md).
+
 ## Find a policy
 
 | File | Use |
