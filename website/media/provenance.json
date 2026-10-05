@@ -9,6 +9,11 @@
       "origin": "Built-in image generation for the background; composed with unchanged project and official Grok marks. Conceptual architecture illustration, not evidence of an operational connection."
     },
     {
+      "file": "grok-gadgets-share-v2.png",
+      "sha256": "3aea25841c1e0bc2107963f5ef40fb8323975ff2007b1af68bf0429e2f0e4fea",
+      "origin": "Built-in image generation for the background; composed with the unchanged Grok Bot app icon of the Grok Bot desktop app and original Grok Gadgets mark. Conceptual architecture route only, not evidence of a live connection."
+    },
+    {
       "file": "grok-gadgets-icon.png",
       "sha256": "6d0b4c7cd981d7895bc1763fc55d1c9dae13ad27dbd9c9398ead8a8690b8f56f",
       "origin": "User-supplied AI-generated original community artwork"

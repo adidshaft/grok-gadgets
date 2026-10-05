@@ -31,7 +31,7 @@ def check(site):
         metadata.feed(page.read_text())
         values = metadata.meta
         base = f"https://grok-gadgets.pages.dev/{page.name}"
-        image = "https://grok-gadgets.pages.dev/media/grok-gadgets-share-v1.png"
+        image = "https://grok-gadgets.pages.dev/media/grok-gadgets-share-v2.png"
         expected = {
             "description": None,
             "og:type": "website",
@@ -66,7 +66,7 @@ def check(site):
         if "localhost" in values["og:image"] or "localhost" in values["twitter:image"]:
             raise ValueError(f"{page.name}: local share image URL")
 
-    image_path = site / "media/grok-gadgets-share-v1.png"
+    image_path = site / "media/grok-gadgets-share-v2.png"
     data = image_path.read_bytes()
     if not data.startswith(b"\x89PNG\r\n\x1a\n") or len(data) < 24:
         raise ValueError(f"Invalid PNG: {image_path}")

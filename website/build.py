@@ -126,7 +126,7 @@ def page(name, title, body):
         "Grok Gadgets is an independent open-source project building tools and SDKs "
         "for your existing Grok Bot. " + title + "."
     )
-    share_image = PUBLIC_SITE + "media/grok-gadgets-share-v1.png"
+    share_image = PUBLIC_SITE + "media/grok-gadgets-share-v2.png"
     canonical_url = PUBLIC_SITE + name
     body = body.replace(
         "downloads/grok-gadgets-simulator-kit.zip", "downloads/" + kit_archive
@@ -169,13 +169,13 @@ def page(name, title, body):
         + e(canonical_url, quote=True)
         + '"><meta property="og:image" content="'
         + e(share_image, quote=True)
-        + '"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Conceptual architecture illustration connecting Grok Bot to Grok Gadgets tools and maker hardware; an independent open-source project, not affiliated with xAI or SpaceXAI."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="'
+        + '"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Grok Bot app icon and Grok Gadgets logo and wordmark above a conceptual route to maker hardware; open-source project, not affiliated with xAI or SpaceXAI."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="'
         + e(page_title, quote=True)
         + '"><meta name="twitter:description" content="'
         + e(description, quote=True)
         + '"><meta name="twitter:image" content="'
         + e(share_image, quote=True)
-        + '"><meta name="twitter:image:alt" content="Conceptual architecture illustration connecting Grok Bot to Grok Gadgets tools and maker hardware; an independent open-source project, not affiliated with xAI or SpaceXAI."><link rel="icon" type="image/png" href="media/grok-gadgets-icon.png"><link rel="stylesheet" href="style.css">'
+        + '"><meta name="twitter:image:alt" content="Grok Bot app icon and Grok Gadgets logo and wordmark above a conceptual route to maker hardware; open-source project, not affiliated with xAI or SpaceXAI."><link rel="icon" type="image/png" href="media/grok-gadgets-icon.png"><link rel="stylesheet" href="style.css">'
         + ('<link rel="stylesheet" href="scene.css">' if home else "")
         + '</head><body class="'
         + (
