@@ -44,3 +44,4 @@ Thumbs.db
 # Hub-only local output and original raw artwork.
 /website/dist/
 /assets/
+.github/deploy/node_modules/

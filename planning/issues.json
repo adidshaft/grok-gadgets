@@ -1077,5 +1077,34 @@
       "website/downloads/simulator-kit-manifest.json"
     ],
     "blocker": null
+  },
+  {
+    "id": "REVIEW-HUB-001",
+    "repository": "grok-gadgets",
+    "problem": "Project review found hub defects: ZIP downloads cannot build the site, flair logic fails open, re-running the finished issue migration reverts GitHub edits, checks pass under python -O, the deploy tool is unlocked, and nothing stops a private commit email",
+    "intended_behaviour": "Every hub check fails closed and a contributor can run all of them with one command",
+    "acceptance": [
+      "scripts/check-archive-build.py builds the site and passes website tests from tracked files without .git, and runs in CI",
+      "Recognition requires exact true values, typed GitHub/Reddit IDs, owner/name repositories, preserves non-contributor flair, enforces one link per account and can remove revoked awards",
+      "migrate-github-issues.py --apply refuses a completed, activated migration unless --force-overwrite is given",
+      "check.py and the kit demo use explicit checks, refuse python -O, and check.py runs the same steps as CI; dev.py setup/check/site wraps them",
+      "The deploy job installs wrangler from a committed integrity-pinned lockfile with no install scripts",
+      "check-commit-emails.py runs in the required checks job and as local pre-commit/pre-push hooks",
+      "launch-status.md no longer presents first-publication hashes as current"
+    ],
+    "dependencies": [],
+    "labels": [
+      "bug",
+      "security",
+      "developer-experience",
+      "P1"
+    ],
+    "milestone": "M7",
+    "stage": "in progress",
+    "commits": [],
+    "evidence": [
+      "/Users/amanpandey/projects/grok-gadgets-review/REPORT.md WEB-02, KIT-01, KIT-02, SCR-01, SCR-03, COM-01..05, CI-01, X-02, X-06"
+    ],
+    "blocker": null
   }
 ]

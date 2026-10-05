@@ -152,6 +152,7 @@
     "planning/issues.json",
     "publication/project.json",
     "compatibility/tested-components.json",
-    "website/media/provenance.json"
+    "website/media/provenance.json",
+    "docs/verification/publication-sanitization.md"
   ]
 }
