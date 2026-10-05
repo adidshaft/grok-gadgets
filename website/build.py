@@ -11,6 +11,7 @@ import re
 import sys
 from activity import load_activity
 from documents import Documents, check_links
+from docs_navigation import DocsNavigation
 
 R = Path(__file__).resolve().parents[1]
 DESTINATION = R / "website/dist"
@@ -119,6 +120,7 @@ NAVIGATION = [
 
 def page(name, title, body):
     home = name == "index.html"
+    documentation = name == "docs.html" or name.startswith("doc-")
     body = body.replace(
         "downloads/grok-gadgets-simulator-kit.zip", "downloads/" + kit_archive
     ).replace("downloads/simulator-kit-manifest.json", "downloads/" + kit_manifest)
@@ -143,6 +145,8 @@ def page(name, title, body):
         if home
         else ""
     )
+    if documentation:
+        scripts += '<script src="docs.js" defer></script>'
     (OUT / name).write_text(
         '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Open source devices for Grok. Explore the local alpha."><title>'
         + e(title)
@@ -159,7 +163,13 @@ def page(name, title, body):
         + '"><meta name="twitter:card" content="summary"><link rel="icon" type="image/png" href="media/grok-gadgets-icon.png"><link rel="stylesheet" href="style.css">'
         + ('<link rel="stylesheet" href="scene.css">' if home else "")
         + '</head><body class="'
-        + ("home-page" if home else "content-page")
+        + (
+            "home-page"
+            if home
+            else "content-page documentation-page"
+            if documentation
+            else "content-page"
+        )
         + '"><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="identity" href="index.html" aria-label="Grok Gadgets home"><img src="media/grok-gadgets-icon.png" width="36" height="36" alt=""><span>Grok Gadgets</span></a><a class="header-contribute" href="contribute.html">Contribute ↗</a><button id="menu-open" aria-haspopup="dialog" aria-controls="site-menu">Menu <span>[+]</span></button></header>'
         + menu
         + '<main id="main">'
@@ -456,7 +466,31 @@ page(
 )
 # Only explicitly selected public documents; original source identities resolve component links.
 documents = Documents(R)
+doc_navigation = DocsNavigation(documents)
+
+
+def documentation_layout(content, current_page):
+    return (
+        '<div class="docs-layout"><aside class="docs-sidebar">'
+        '<details class="doc-menu" open><summary>Browse documentation</summary>'
+        + doc_navigation.sidebar(current_page)
+        + '</details></aside><div class="docs-content">'
+        + content
+        + "</div></div>"
+    )
+
+
 for record in documents.records:
+    rendered = documents.render(record)
+    rendered = rendered.replace("</h1>", "</h1>" + doc_navigation.toc(record), 1)
+    content = (
+        doc_navigation.breadcrumbs(record["page"])
+        + rendered
+        + doc_navigation.related(record["page"])
+        + '<p class="doc-source">Source: '
+        + e(record["repository"] + "/" + record["source"])
+        + "</p>"
+    )
     page(
         record["page"],
         next(
@@ -467,44 +501,22 @@ for record in documents.records:
             ),
             Path(record["source"]).stem,
         ),
-        '<p class="eyebrow">Reference / '
-        + e(record["repository"] + "/" + record["source"])
-        + "</p>"
-        + documents.render(record),
+        documentation_layout(content, record["page"]),
     )
 page("source-reference.html", "Source references", documents.reference_html())
-doc_groups = [
-    ("Start and contribute", {"grok-gadgets"}),
-    ("Gateway and simulator", {"grok-gadgets-gateway"}),
-    ("Linux SDK", {"grok-gadgets-linux-sdk"}),
-    ("ESP32 SDK", {"grok-gadgets-esp32-sdk"}),
-    ("Home Assistant", {"grok-gadgets-home-assistant"}),
-]
-links = ""
-for label, repositories in doc_groups:
-    links += "<h2>" + label + '</h2><ul class="documentation-index">'
-    for record in documents.records:
-        if record["repository"] in repositories:
-            title = next(
-                (
-                    line.removeprefix("# ")
-                    for line in (R / record["snapshot"]).read_text().splitlines()
-                    if line.startswith("# ")
-                ),
-                record["source"],
-            )
-            links += (
-                '<li><a href="'
-                + record["page"]
-                + '">'
-                + e(title)
-                + "<span>↗</span></a></li>"
-            )
-    links += "</ul>"
 page(
     "docs.html",
     "Documentation",
-    intro("Reference", "Go deeper.", "Choose a task, then a component.") + links,
+    documentation_layout(
+        '<header class="docs-intro"><p class="eyebrow">Documentation / Experimental alpha</p>'
+        "<h1>Start small.<br>Build your gadget.</h1>"
+        "<p>Try the simulator, choose a device platform, or help improve the project.</p>"
+        '<a class="docs-start" href="doc-docs-getting-started-simulator-kit.html">'
+        'Start without hardware <span aria-hidden="true">↗</span></a>'
+        '<p class="docs-note">New here? Start with the simulator. Actual Grok and physical-device verification remain pending.</p></header>'
+        + doc_navigation.index(),
+        "docs.html",
+    ),
 )
 page(
     "contribute.html",
@@ -550,7 +562,7 @@ page(
     )
     + activity_html(activity),
 )
-for f in ["style.css", "motion.js", "scene.css", "simulator.js", "scene.js"]:
+for f in ["style.css", "motion.js", "scene.css", "simulator.js", "scene.js", "docs.js"]:
     source = R / "website" / f
     if source.is_file():
         shutil.copy(source, OUT / f)

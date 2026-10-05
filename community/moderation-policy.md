@@ -1,3 +1,16 @@
-# Moderation proposal
+# Moderation policy
 
-Routine triage can classify duplicates and point to canonical docs under an approved operational policy. Posts, direct user contact, bans, removals, identity disputes, and consequential moderation need explicit human operational authorization. Record rationale and permit appeal. Avoid unsolicited outreach or promotional automation. Private moderator notes are operational data outside Git.
+This policy does not authorize live moderation.
+
+An approved operating policy can permit routine issue review. This includes finding duplicates and linking to the source documentation.
+
+Get explicit human authorization before you:
+
+- Publish a post or contact a user directly.
+- Ban a user or remove content.
+- Resolve an account ownership dispute.
+- Take another moderation action with significant effects.
+
+Record the reason for each decision. Give the user a way to appeal.
+
+Do not send unsolicited messages or run promotional automation. Keep private moderator notes outside Git.

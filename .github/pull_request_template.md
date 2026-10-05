@@ -13,3 +13,9 @@
 ## Documentation, compatibility and remaining limitations
 
 <!-- Pin/schema changes, recovery and unresolved gates. Redact private information. -->
+
+## Review checklist
+
+- [ ] Docs use the shared writing guide; support claims match evidence.
+- [ ] No credentials, private logs or unintended personal details are included.
+- [ ] Workflow/dependency changes and required checks are described above.

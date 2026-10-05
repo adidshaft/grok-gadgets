@@ -1,13 +1,22 @@
-# C124 physical acceptance procedure — pending
+# Test the C124 hardware
 
-Record board model C124, USB-C data cable, firmware SHA256, gateway/SDK commits, host OS, port, timestamp, and tester. Flash only after hardware is available and the user authorizes flashing their board. Use the SDK's pinned build and bootloader recovery instructions.
+**Status: physical verification pending.** Compilation and simulated board tests do not complete this procedure.
 
-1. Discover the device and verify model, boot, capabilities, firmware and `simulated:false`.
-2. Request green and observe LED physically, then another colour and off. Save both command/execution results and human observation separately.
-3. Press/release the button; inspect ordered events and reported state. Check repeated reads do not introduce duplicates.
-4. Unplug, attempt control, verify offline/unconfirmed status. Reconnect and verify state recovery.
-5. Reboot device and gateway independently; check boot/session change, cursor reset, stale state, and no action replay.
-6. Repeat through actual existing Grok Bot and each available client after account and reachable-authentication gates pass.
-7. Ask a second tester to follow the instructions independently and record deviations.
+## Before the test
 
-Never capture tokens. Compilation and PTY/board-stub results cannot fulfill any physical step above.
+Wait until the board is available. Obtain the owner's authorization before flashing it. Use the ESP32 SDK's pinned build and recovery instructions.
+
+Record the board model C124, USB-C data cable, firmware SHA-256, gateway and SDK commits, host operating system, port, time and tester. Do not record tokens.
+
+## Procedure
+
+1. Discover the device. Check its model, boot identity, capabilities, firmware version and `simulated: false` value.
+2. Request green. Observe the physical LED. Repeat with another color, then turn it off. Record command results and physical observations separately.
+3. Press and release the button. Check event order and reported state. Repeat the reads and check for duplicate events.
+4. Unplug the board. Try a command. Check that the result reports offline or unconfirmed status.
+5. Reconnect the board. Check state recovery.
+6. Restart the board and gateway separately. Check boot and session changes, cursor reset and stale state. Check that old actions do not run again.
+7. Repeat through the existing Grok Bot after authentication and connection requirements pass. Test each available client separately.
+8. Ask a second tester to follow the procedure. Record any differences.
+
+Do not mark a failed or unavailable step as passed. Record its blocker and supporting evidence.

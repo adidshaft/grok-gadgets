@@ -10,7 +10,7 @@ Design reference inspected 4 October 2026: https://paradigm.xyz — open composi
 
 The illustration makes no network or hardware requests. Simulated LED/button/disconnect reports do not establish Grok connectivity or physical verification. Both gates remain explicitly pending on the homepage.
 
-Activity is unavailable until public repositories exist. `python3 website/activity.py` is inactive by default. After public-owner approval only, `--live --owner OWNER` writes timestamped cached JSON using an optional server-side GITHUB_TOKEN environment variable. `GROK_ACTIVITY_FILE=website/activity-fixture.json .venv/bin/python website/build.py` exercises explicitly synthetic activity; omit the variable to return to unavailable. Counts and release text are validated/escaped. No live fetch has been performed.
+The deployment workflow refreshes public repository activity. Local `python3 website/activity.py` makes no live request by default. `--live --owner OWNER` writes timestamped JSON and can use a server-side GITHUB_TOKEN. To test synthetic data, run `GROK_ACTIVITY_FILE=website/activity-fixture.json .venv/bin/python website/build.py`. Without that override, the build uses the configured public snapshot. Counts and release text are validated and escaped.
 
 Verification: docs/verification/website-redesign.md records desktop/mobile, actual animation samples, keyboard, offline controls and build/test checks. Earlier website.md and screenshots retain the initial alpha design evidence.
 
@@ -29,3 +29,13 @@ For a local rehearsal, set `GROK_GADGETS_PUBLIC_SITE` to the intended HTTPS site
 The homepage workbench shares a strict configuration format with the gateway simulator. Customize a name/ID, starting RGB/brightness, response delay and offline startup, then export JSON. Browser controls are local simulation. The inspectable downloadable kit contains exact source, wheel, hashed dependencies and license notices; setup is in docs/getting-started/simulator-kit.md.
 
 Each website build validates kit source/input freshness and acceptance before replacing the previous preview. With a clean sibling gateway checkout, stale inputs trigger source tests and fresh installed MCP acceptance before the new download is copied. Without it, only the included kit matching the compatibility pin is accepted. `python3 scripts/build-simulator-kit.py --check`, `python3 scripts/test_simulator_kit.py` and `node --test website/test_simulator.cjs` verify the download/model. The Cloudflare Pages publication workflow runs these gates before deployment. See docs/verification/simulator-playground.md.
+
+## Documentation navigation
+
+`docs_navigation.py` assigns each published document to one task-based section. Linux and ESP32 guides have separate subgroups under Build a gadget. Community maintenance drafts and verification records stay outside the starting path.
+
+To add a document, register it in `documents.json` and the navigation taxonomy. The build rejects missing or duplicate entries. Keep existing page URLs stable when moving a guide between sections.
+
+Each article has breadcrumbs, a local navigation menu, a heading list and previous/next links within its subgroup. Native disclosure controls work without JavaScript. `docs.js` collapses the outer menu on narrow screens. The active subgroup stays open.
+
+Run `.venv/bin/python -m unittest discover -s website -p 'test_*.py'`, build the site, and inspect desktop, narrow-screen and keyboard navigation before publishing a navigation change.

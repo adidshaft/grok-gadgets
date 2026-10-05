@@ -1,7 +1,7 @@
 [
   {
     "repository": "grok-gadgets-esp32-sdk",
-    "commit": "ef04fa0405ea4820de6430578684959f6e6dd8d8",
+    "commit": "f2186841467ba8863f1531edb919431a6ba26060",
     "files": [
       ".clang-format",
       ".github/CODEOWNERS",
@@ -64,7 +64,7 @@
   },
   {
     "repository": "grok-gadgets-gateway",
-    "commit": "6c66a109084dc8480fdd49636dab2254d7e3d82e",
+    "commit": "35bd7aae7f74266c6559447c6518b78afcf0f14a",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -121,7 +121,7 @@
   },
   {
     "repository": "grok-gadgets-home-assistant",
-    "commit": "6afac04e39ca5cf16af9c4bfd3d9a12f6844386a",
+    "commit": "af14de3ba2fe5fa006ee553ea29d95069c2e649a",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -157,7 +157,7 @@
   },
   {
     "repository": "grok-gadgets-linux-sdk",
-    "commit": "b0e5f4bb407f4d4419673d4c1a5d540f68511c23",
+    "commit": "b44856ed38ed7b99b00a4bff372eaa2e3a94eb12",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
