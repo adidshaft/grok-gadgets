@@ -1,36 +1,31 @@
-Source: grok-gadgets-home-assistant/README.md at 9fe1a111122b6077a19c4266a7b1b99d7b7ec0e4
+Source: grok-gadgets-home-assistant/README.md at 57569d20697c67cc49c6fc8459c40727b5012f23
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
 # Grok Gadgets: Home Assistant
 
-Inspect MCP discovery and prepare an existing Home Assistant installation for Grok using Home Assistant's upstream MCP server.
+Check what Home Assistant can offer your existing **Grok Bot**. `ha-probe` lists the tools,
+resources, and prompts from Home Assistant's own MCP server. It never calls a tool or reads
+a resource. A [setup recipe](docs/setup.md) describes the unverified Bot connection.
+It is an experimental alpha and is not affiliated with xAI or Home Assistant.
 
-**Experimental alpha — discovery fixtures and local client transports are tested. Actual Home Assistant, native Grok invocation, mobile clients and physical home devices remain unverified.** The included probe lists capabilities; it performs no tool calls, resource reads or home control.
+## What works with Grok Bot today
 
-```mermaid
-flowchart LR
-    F["Hand-authored MCP fixture"] --> P["Read-only diagnostic probe"]
-    P --> S["Redacted capability summary"]
-    BOT["Existing Grok Bot"] -.-> HA["Home Assistant upstream MCP server"]
-    HA -.-> HOME["Selected exposed home entities"]
-```
+**The probe works with fixtures and local test servers. Real Home Assistant and Grok Bot use remain unverified.**
+Bot setup needs compatible authentication and a reachable HTTPS URL. Check the
+[authentication gate](docs/setup.md#4-remote-route) before exposing a home server.
+This package adds no home-control tools or event-triggered Bot tasks.
 
-The solid path is the software-only first step. The dotted path is the intended real-home route, requiring an authorized installation, compatible authentication and reachable endpoint. Home Assistant can connect directly to the Bot; it does not need a second Grok Gadgets gateway or duplicate home-control server.
+## Quickstart
 
-## Run the fixture first
-
-Clone [adidshaft/grok-gadgets-home-assistant](https://github.com/adidshaft/grok-gadgets-home-assistant) and enter its root directory.
-
-Requirements: Python **3.11** and `uv`, with internet access for the initial locked dependency installation. No sibling checkout, Home Assistant instance, Grok account, token or device is needed. The recorded host is macOS arm64; Windows/Intel Mac and real-home installation are not verified.
+You need Python 3.11+ and [`uv`](https://docs.astral.sh/uv/). From this repository, run:
 
 ```sh
-uv sync --frozen --python 3.11
+uv sync --frozen
 uv run ha-probe --fixture fixtures/assist.json
-uv run python -m unittest discover -s tests -v
 ```
 
-Expected fixture summary:
+No home, account, or token is needed. Expected result (other fixed flags omitted):
 
 ```json
 {
@@ -45,26 +40,36 @@ Expected fixture summary:
 }
 ```
 
-The command also reports the fixture's MCP protocol version and context-capability flags. These counts describe hand-authored discovery data, not a captured Home Assistant release. The test suite reports **13 tests passed**, covering discovery validation, bounded pagination, authentication failures, URL safeguards and redacted diagnostics through mocked and ephemeral loopback fixture transports.
+Next, [prepare a Home Assistant test user and run discovery](docs/setup.md#2-prepare-home-assistant-safely).
+That guide keeps _Control Home Assistant_ off for the first test and explains HTTPS, token scope, and cleanup.
+**A Home Assistant token is a full user credential.** Never paste it into chat or an issue. Revoke it after testing.
 
-| Next step | Guide |
+## Details
+
+The probe enforces discovery-only requests, refuses redirects, and caps responses at 4 MiB.
+It hides household names and descriptions. The [setup recipe](docs/setup.md#3-check-discovery-locally)
+explains the local HTTP opt-in and other limits.
+
+Run the checks with `uv run ruff check .`, `uv run ruff format --check .`, and
+`uv run python -m unittest discover -s tests -v`. CI runs them on Python 3.11–3.14.
+
+| Next | Guide |
 | --- | --- |
-| Prepare a separately authorized real endpoint | [Setup recipe](docs/setup.md) |
-| Understand upstream reuse and remaining Grok requirements | [Feasibility record](docs/feasibility.md) |
-| Review the tested environments and limits | [Verification](docs/verification.md) |
-| Improve fixtures, diagnostics or documentation | [Contributing](CONTRIBUTING.md) |
-| Diagnose installation or discovery errors | [Support](SUPPORT.md) |
+| Set up a real home and remote route | [Setup recipe](docs/setup.md) |
+| Sources and open questions | [Feasibility record](docs/feasibility.md) |
+| What has been tested | [Verification](docs/verification.md) |
+| Contribute or get help | [Contributing](CONTRIBUTING.md) · [Support](SUPPORT.md) · [Security](SECURITY.md) |
 
-## Where this project fits
+This repository is part of [Grok Gadgets](https://github.com/adidshaft/grok-gadgets).
+The [gateway](https://github.com/adidshaft/grok-gadgets-gateway) and SDKs serve new gadgets. Home Assistant
+uses its own MCP server instead. Native Bot compatibility is tracked as `HA-004`. See the
+[hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md) for who runs what.
+Use the [issue chooser](https://github.com/adidshaft/grok-gadgets-home-assistant/issues/new/choose).
+Keep tokens and household names out of issues. General discussion is at [r/GrokGadgets](https://www.reddit.com/r/GrokGadgets/)
+under the hub's [Code of Conduct](https://github.com/adidshaft/grok-gadgets/blob/main/CODE_OF_CONDUCT.md).
 
-The [gateway](https://github.com/adidshaft/grok-gadgets-gateway) serves the separate gadget simulator, USB devices and SDK applications. The [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk) and [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk) help build new gadgets. This repository reuses Home Assistant's own MCP integration and entity exposure. It currently adds discovery diagnostics and a recipe, not an adapter or a general compatibility guarantee.
-
-A cloud Grok Bot cannot launch a path on your computer. Its authentication, transport, network reachability and inspectable invocation results must be checked on the actual supported client. The local probe does not establish OAuth compatibility, desktop/mobile parity, unsolicited event delivery, or a physical device effect. The [historical feasibility review](docs/feasibility.md) records the source/date and open experiments; it is not a freshly verified platform claim.
-
-Use the [issue chooser](https://github.com/adidshaft/grok-gadgets-home-assistant/issues/new/choose). Keep tokens and household names private; vulnerabilities use [Security](SECURITY.md). General discussion is at [r/GrokGadgets](https://www.reddit.com/r/GrokGadgets/) under the hub's [Code of Conduct](https://github.com/adidshaft/grok-gadgets/blob/main/CODE_OF_CONDUCT.md).
-
-Original code is [Apache-2.0](LICENSE), with attribution in [NOTICE](NOTICE). The package uses the official MCP SDK pinned by [uv.lock](uv.lock); package and dependency license metadata are described in [verification](docs/verification.md). This independent project is unaffiliated with xAI and Home Assistant. Package releases remain pending; use the source installation above.
-
-## History note
-
-Pre-publication commit dates were reconstructed across 29 September–5 October 2026 at the owner’s request. Verification records retain their actual execution dates. See the [history and privacy record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/publication-sanitization.md).
+Original code is [Apache-2.0](LICENSE), with attribution in [NOTICE](NOTICE). Dependencies are pinned by
+[uv.lock](uv.lock). Package releases are pending; install from source. The docs follow the project
+[writing guide](https://github.com/adidshaft/grok-gadgets/blob/main/docs/contributing/writing-guide.md), which is inspired by ASD-STE100.
+Pre-publication commit dates were reconstructed at the owner's request. See the
+[history and privacy record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/publication-sanitization.md).

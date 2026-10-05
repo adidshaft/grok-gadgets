@@ -71,7 +71,7 @@ jobs:
         shell: bash
         run: |
           uv venv grok-gadgets/.venv --python 3.13
-          uv pip install --python grok-gadgets/.venv/bin/python -r grok-gadgets/website/requirements.txt
+          uv pip install --python grok-gadgets/.venv/bin/python -r grok-gadgets/website/requirements.txt ruff==0.14.14
           for component in grok-gadgets-gateway grok-gadgets-linux-sdk grok-gadgets-home-assistant; do
             (cd "$component" && uv sync --locked --python 3.11 && uv build)
           done
@@ -82,7 +82,27 @@ jobs:
           python -m venv grok-gadgets-esp32-sdk/.venv
           grok-gadgets-esp32-sdk/.venv/bin/pip install -r grok-gadgets-esp32-sdk/requirements.lock
           (cd grok-gadgets-esp32-sdk && .venv/bin/pio pkg install)
-      - name: Refresh and test candidate kit
+      - name: Prepare an explicitly selected candidate in this disposable checkout
+        if: inputs.candidate_repository != ''
+        working-directory: grok-gadgets
+        env:
+          CANDIDATE_REPOSITORY: ${{ inputs.candidate_repository }}
+          CANDIDATE_COMMIT: ${{ inputs.candidate_commit }}
+        run: |
+          .venv/bin/python - <<'PY'
+          import json, os
+          from pathlib import Path
+          manifest = Path("compatibility/tested-components.json")
+          data = json.loads(manifest.read_text())
+          for component in data["components"]:
+              if component["repository"] == os.environ["CANDIDATE_REPOSITORY"]:
+                  component["commit"] = os.environ["CANDIDATE_COMMIT"]
+          manifest.write_text(json.dumps(data, indent=2) + "\n")
+          PY
+          if [ "$CANDIDATE_REPOSITORY" = grok-gadgets-gateway ]; then
+            .venv/bin/python scripts/build-simulator-kit.py
+          fi
+      - name: Verify committed or explicitly rebuilt simulator kit
         working-directory: grok-gadgets
         run: .venv/bin/python website/build.py
       - name: All fourteen integration groups

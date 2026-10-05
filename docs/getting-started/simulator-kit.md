@@ -1,16 +1,32 @@
 # Grok Gadgets simulator kit
 
-Apache-2.0 original code. A virtual C124 RGB LED and button, through the real MCP gateway. No hardware, API key, exposed port or hosted service is required. This is an independent Grok-only project.
+Use a virtual C124 RGB LED and button through the local Model Context Protocol (MCP) gateway. You do not need hardware, an API key, an exposed port or a hosted service. Original code uses Apache-2.0. This independent project is for your existing Grok Bot.
+
+The [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md) explains who runs the gateway and tunnel. The kit demo uses local stdio MCP. The included gateway also provides local HTTP `serve`, but the kit does not configure public HTTPS or connect to Grok Bot. Do not expose its device port through a tunnel.
 
 ## Inspect first
 
-The ZIP includes the wheel, sdist, exact committed `source.tar`, `uv.lock` inside that source, hashed `requirements.txt`, this readable installer/demo, default settings, schema and license notices. See `manifest.json` for source commit, hashes and sizes; `SHA256SUMS` also covers the manifest. Compare the ZIP hash with the website's separate manifest before trusting it. Hashes detect changed files, not a trusted author by themselves.
+The ZIP contains the Python wheel, source distribution (sdist), committed `source.tar`, installer, demonstration, settings, schema and license notices. It also contains `requirements.txt` with dependency hashes. The source archive includes `uv.lock`.
 
-`python3 install.py` verifies the files; it does not install, download or start anything. `install.py --install` is an explicit opt-in that creates a new `.venv`, downloads pinned runtime dependencies with hash checking, and installs the included wheel without dependency resolution. Inspect source before running code. Installation uses isolated pip and requires matching binary wheels; it stops rather than compiling dependency source. On Apple Silicon, use native Python rather than an Intel interpreter under Rosetta. Runtime dependency wheels are downloaded during installation; this ZIP is not a fully offline dependency cache.
+1. Inspect the source before you run code.
+2. Compare the ZIP hash with the website's separate manifest.
+3. Check `manifest.json` for the source commit, file hashes and sizes. `SHA256SUMS` also covers the manifest.
+
+Hashes detect file changes. They do not prove who created the files.
+
+`python3 install.py` checks the files. It does not install, download or start software.
+
+`install.py --install` creates a new `.venv`. It downloads pinned runtime dependencies with hash checks. It then installs the included wheel without resolving more dependencies.
+
+Installation uses isolated pip and needs matching binary wheels. It stops if those wheels are unavailable. It does not compile dependency source. On Apple Silicon, use native Python, not an Intel interpreter under Rosetta. Installation needs network access for the dependency wheels.
 
 ## Customize
 
-Export `my-light.json` from the website and copy that separate file into the extracted kit folder. If downloading is unavailable, copy the displayed JSON into a new file named `my-light.json`. Alternatively, copy the bundled default to `my-light.json` and edit the copy using the included schema. Keep every original kit file unchanged for hash verification, especially `simulator-config.json`; do not replace it with your export. Pass `--config ./my-light.json` to use your settings.
+1. Export `my-light.json` from the website. If download is unavailable, copy the displayed JSON into that file.
+2. Copy the file into the extracted kit folder.
+3. Pass `--config ./my-light.json` to use your settings.
+
+You can also copy the bundled default to `my-light.json` and edit that copy with the included schema. Keep all original kit files unchanged for hash checks. Do not replace `simulator-config.json` with your export.
 
 - Device ID and display name identify your virtual light.
 - Starting RGB channels are integers 0–255; `on` is a boolean. Website brightness is converted into these channels; physical LED brightness is not being calibrated.
@@ -28,7 +44,9 @@ python3 install.py --install --config ./my-light.json
 .venv/bin/python try_simulator.py --config ./my-light.json
 ```
 
-Omit `--config` to use the original default. Windows uses `.venv\Scripts\python.exe` for the last command. The demonstration calls real MCP tools using the official local client and prints assertion-backed simulated results. It injects test-only button events, reconnects if needed, sets blue and ends off. This proves local simulated MCP behavior, not that Grok invoked anything or that a physical device operated. Test controls are opt-in for that demonstration only; ordinary configuration excludes them.
+Omit `--config` to use the original default. Windows uses `.venv\Scripts\python.exe` for the last command. The demonstration calls MCP tools through the official local client. It checks results with assertions. It sends simulated button events, reconnects if needed, sets blue, then turns the light off.
+
+This verifies local simulation. It does not verify Grok execution or physical operation. The demonstration enables test controls explicitly. Normal configuration excludes them.
 
 ## Troubleshooting the local kit
 
@@ -44,29 +62,52 @@ Start from the extracted `grok-gadgets-simulator-kit` directory. Run `python3 in
 
 The installer version/folder/integrity checks can be reproduced without installing dependencies. The existing kit integrity regression (`python3 scripts/test_simulator_kit.py` from the hub) checks rejection of modified protected files. Configuration limits are enforced by the included schema and gateway loader; `try_simulator.py` asserts the unavailable response and reconnects in its explicit test-control path. These checks are not evidence of native Windows installation, physical hardware operation or Grok invocation.
 
-## Use your existing Grok Bot
+## Experimental route to your existing Grok Bot
 
-Requires an account/client that offers custom **Command MCP** in the Bot's cloud computer. Availability is account-dependent. No developer-API conversation is substituted. Our dedicated desktop Bot reports successful simulator operation on an earlier gateway build. This configurable kit is locally MCP-tested and has not been run inside Grok; inspectable invocation receipts and mobile verification remain pending.
+This route requires custom **Command MCP** in the Bot's cloud computer. Availability depends on the account and client. A developer-API conversation is not a substitute.
 
-1. Inspect the kit. Upload the ZIP, its separate website hash manifest and your exported configuration to the Bot you intend to use.
-2. Ask the Bot to unpack into a dedicated directory on its cloud computer, compare the ZIP hash, then run `python3 install.py` to verify contents. It must stop on a mismatch.
-3. Ask it to install there with `python3 install.py --install --config /absolute/cloud/path/my-light.json`. This downloads hashed binary dependencies. Python 3.11+ and package access are required. The local Mac path cannot be used by the cloud computer.
-4. Register only the simulator as a Command MCP server using the **absolute cloud executable path** printed by the installer, arguments `--simulator --simulator-config /absolute/cloud/path/my-light.json`, and empty environment. No listener, tunnel, account credentials or broader permissions are needed for the simulator. Do not weaken approval protections.
-5. Ask for `gadgets_list_devices`, then `gadgets_get_state` using your configured ID. Ask: “Use the simulator connector to set my virtual light blue and read its command status and state.” Look for `simulated: true`, executed status and the matching blue state. Command receipts/diagnostics report `physical_verified: false`. Preserve actual tool evidence where the client exposes it; a Bot-written narrative alone is not independent verification.
+The dedicated desktop Bot reported simulator success on an earlier gateway build. A later installation of the configurable kit on the Bot's computer was observed. Neither a Bot-written report nor an installation record proves native tool invocation. Local MCP tests passed. Actual invocation records and mobile verification remain pending.
 
-The six ordinary tools are gadgets_list_devices, gadgets_get_state, gadgets_command, gadgets_command_status, gadgets_read_events and gadgets_diagnostics. `rgb.set` is the only command capability; button/state are event/read capabilities. Starting disconnected intentionally makes ordinary commands fail. Start connected for ordinary use, or explicitly opt into `--test-controls` for test-only button/disconnect/reconnect operations, then remove it afterward. No automatic button-triggered Bot waking is promised.
+1. Inspect the kit.
+2. Upload the ZIP, separate website hash manifest and exported configuration to the intended Bot.
+3. Ask the Bot to unpack into a dedicated directory on its cloud computer, compare the ZIP hash, then run `python3 install.py` to verify contents. It must stop on a mismatch.
+4. Ask it to install there with `python3 install.py --install --config /absolute/cloud/path/my-light.json`. This downloads hashed binary dependencies. Python 3.11+ and package access are required. The local Mac path cannot be used by the cloud computer.
+5. Register only the simulator as a Command MCP server using the **absolute cloud executable path** printed by the installer, arguments `--simulator --simulator-config /absolute/cloud/path/my-light.json`, and empty environment. No listener, tunnel, account credentials or broader permissions are needed for the simulator. Do not weaken approval protections.
+6. Ask for `gadgets_list_devices`, then `gadgets_get_state` using your configured ID. Ask: “Use the simulator connector to set my virtual light blue and read its command status and state.” Look for `simulated: true`, executed status and the matching blue state. Command receipts/diagnostics report `physical_verified: false`. Preserve actual tool evidence where the client exposes it; a Bot-written narrative alone is not independent verification.
 
-No automatic connector installation or account changes occur from downloading this ZIP. If your client only supports Remote HTTPS MCP, this kit is not a hosted endpoint. A public authenticated service, physical C124, Linux peripherals and Home Assistant are separate future routes.
+The normal tools are:
+
+- `gadgets_list_devices`
+- `gadgets_get_state`
+- `gadgets_command`
+- `gadgets_command_status`
+- `gadgets_read_events`
+- `gadgets_diagnostics`
+
+`rgb.set` is the only command capability. Button and state capabilities provide events or readings.
+
+Start connected for normal use. Commands fail when the simulator starts disconnected. To test button, disconnect and reconnect operations, enable `--test-controls` explicitly. Remove it after the test. Button events do not promise automatic Bot activation.
+
+Downloading the ZIP does not install a connector or change your account. The kit is not a hosted endpoint for Remote HTTPS MCP. A public authenticated gadget service, physical C124, Linux peripherals and Home Assistant need separate verification.
 
 ## Keeping the download current
 
-The website build checks the gateway source commit, kit input hashes, archive contents and acceptance record before copying the download. With the sibling gateway checkout present, a changed committed source or kit input triggers a rebuild. Uncommitted gateway work is rejected. A rebuild runs the gateway suite, installs the extracted kit in a fresh environment and exercises its default and custom/offline settings through the official MCP client. A failure stops the site build before a stale download is published as current.
+The website build verifies the committed kit: gateway commit inside the manifest, input hashes, archive contents and the acceptance record. It does not rebuild the ZIP because a sibling gateway checkout moved.
+
+Website guide edits do not change the ZIP. The bundled instructions live in
+`scripts/simulator-kit/README.md`. Rebuild explicitly after changes to the gateway,
+builder or bundled kit files:
 
 ```sh
+python3 scripts/build-simulator-kit.py
 python3 scripts/build-simulator-kit.py --check
 .venv/bin/python website/build.py
 ```
 
-These are maintainer commands from the hub, not commands inside the extracted kit. A standalone hub checkout can use the checked-in kit only when it matches the pinned compatibility commit and unchanged inputs; otherwise it requires the gateway checkout to regenerate it. Refresh takes internet access to install hashed dependencies. The visible build ID identifies the tested gateway source; the separate manifest identifies every artifact hash.
+`--check` fails if the sibling gateway HEAD, kit inputs or archive no longer match the stored kit. Uncommitted gateway changes are rejected. The rebuild runs the gateway tests and installs the kit in a fresh environment. It tests default and custom settings through the official MCP client.
 
-This keeps the local build current on rebuild. A public website cannot update itself while unpublished: approved repository CI and deployment must later run these same gates whenever the gateway or kit changes. Downloaded copies remain snapshots; they do not update or run code silently.
+Run these maintainer commands from the hub, not from the extracted kit.
+
+A standalone hub checkout can use the stored kit if the archive and input hashes still match. Otherwise, use the gateway checkout to rebuild it. Rebuilds need internet access for dependencies. The build ID identifies the tested gateway source. The separate manifest lists artifact hashes.
+
+The public website is deployed through the approved CI workflow. A gateway change does not update a downloaded copy or automatically change the hub's compatibility pin. Downloaded kits are fixed snapshots. They do not update or run code silently.

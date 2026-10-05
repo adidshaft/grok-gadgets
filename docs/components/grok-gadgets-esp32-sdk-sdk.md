@@ -1,31 +1,75 @@
-Source: grok-gadgets-esp32-sdk/docs/sdk.md at 4b994aa83df18a1355b1f09387df7f3561c05b7f
+Source: grok-gadgets-esp32-sdk/docs/sdk.md at ff562a9a86ca3dd149a82cc36c4ab002ebad7d68
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
-# Using the library in another gadget
+# Use the library in another gadget
 
-The C124 example is a library consumer. Reuse `GrokCore.h` without Arduino for bounded lines, queues and button debounce. `GrokGadgets.h` adds ArduinoJson 6.21.5 and an extensible device capability registry, with no board or serial dependency. Add `lib/GrokGadgets` to another PlatformIO project, pin ArduinoJson, and include the header. The consumer owns hardware, authentication/transport adapters and state.
+The C124 sketch and `examples/led-button` both use `grok::Gadget`. A second board still needs its own pins, a PlatformIO environment, and its own hardware check. This library has no Wi-Fi transport and no hosted service. The gateway device port stays on loopback. See the [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md).
+
+| Header | Purpose |
+| --- | --- |
+| `GrokCore.h` | Bounded lines, queues, and button debounce |
+| `GrokGadgets.h` | Capability table, RGB helpers, and ACK cache |
+| `GrokSession.h` | `grok::Gadget`: hello, poll, events, loss reports, and recovery |
+| `C124.h` | AtomS3 Lite pins (RGB GPIO35, button GPIO41) |
+
+## Declare a global gadget
+
+`grok::Gadget` holds about 40 KB (ACK cache, line buffer, parse documents, and the event queue). `grok::Device` alone is about 33 KB. `Device::execute` uses a 2 KB stack buffer. The Arduino `loop` task stack is 8 KB. Declare the gadget as a global or static object. A local in `setup()` or `loop()` overflows that stack.
 
 ```cpp
-#include <GrokGadgets.h>
-int counter = 0;
-void state(JsonObject out, void*) { out["counter"] = counter; }
-grok::Error bump(JsonObjectConst args, void*) {
-  if (args.size()) return {"invalid_arguments", "Expected empty arguments"};
-  ++counter;
+#include <GrokSession.h>
+
+bool on = false;
+grok::Gadget gadget("Generic ESP32-S3 LED and button", "0.1.0", "esp32s3");
+
+void report(JsonObject state, void *) { state["led"]["on"] = on; }
+grok::Error setLed(JsonObjectConst args, void *) {
+  if (args.size() != 1 || !args["on"].is<bool>())
+    return {"invalid_arguments", "Expected {\"on\": boolean}"};
+  on = args["on"];
+  digitalWrite(4, on ? HIGH : LOW);
   return {};
 }
-grok::Device gadget(state, nullptr);
-// In setup:
-gadget.capability("counter.bump", bump, nullptr);
-// Once a canonical poll command arrives:
-// gadget.execute(command.as<JsonObjectConst>(), acknowledgement);
+void setup() {
+  pinMode(4, OUTPUT);
+  gadget.state(report);
+  gadget.command("led.set", setLed, nullptr,
+                 R"({"type":"object","properties":{"on":{"type":"boolean"}},)"
+                 R"("required":["on"],"additionalProperties":false})");
+  gadget.event("button.held", R"({"properties":{"ms":{"type":"integer"}}})");
+  gadget.button(0);
+  gadget.begin();
+}
+void loop() { gadget.loop(); }
 ```
 
-Names and handler/context storage must outlive Device. Publish `gadget.capabilities()` in hello alongside read-only names like button/state. Register at most 16 unique names. Handlers validate their own JSON arguments; return an empty Error for execution or a static code/message on failure. StateWriter writes a bounded state object. The application must size JsonDocuments sufficiently (4096 bytes in the consumer) and keep serialized ACK/state below 2048 including LF. If a state callback overflows the document or frame budget, Device returns the original execution status with an empty state object (state unknown) and caches that bounded result, preserving retry safety. Callers must still provide at least 4096 bytes of document capacity. Check document overflow before transmitting. `readRgb` strictly accepts exactly integer r/g/b 0..255 and a boolean on; it validates into a temporary value before touching hardware.
+`examples/led-button` is that sketch, with a one-second hold event. `pio run -e esp32s3-led-button` compiles it. The pins are a documentation example: LED GPIO4, BOOT button GPIO0. They are not a hardware measurement.
 
-Device retains eight ACKs and exact compact serialized command envelopes within one boot. A retained duplicate returns the original execution state without rerunning its handler. Changed parameters under the same ID fail with duplicate_conflict. Different JSON key ordering is conservatively treated as different parameters. Eviction and reboot end that window; this is not durable exactly-once execution. Gateway never replays an old dispatched command into a new session. A timeout is uncertainty, never permission to resend an action with a new ID.
+Strings passed to `command`, `event`, and `state` must outlive the gadget. Use literals. Call them before `begin()`.
 
-Repeated retries read the retained serialization without modifying it and own the decoded strings in the destination document. If decoding fails (for example, an undersized destination), the SDK returns `failed` with `ack_unavailable`, empty state and no handler invocation. That error describes an unavailable execution result; it does not prove the original action failed. The cache remains intact for a retry with adequate document capacity. Reading or conflicting with an existing ID does not extend its eight-entry FIFO retention.
+## Names, events, and schemas
 
-Original SDK code is Apache-2.0. See [dependency notices](dependencies.md) before distributing your firmware. The SDK is useful independently with custom capabilities; tests include a non-RGB counter handler.
+Hello may list at most 16 names. The gadget always appends `state` and `history_lost`. `button(pin)` appends `button`. Custom commands and events share the remaining slots. Registration returns false for a 17th name, a duplicate, or a reserved name (`button`, `state`, `history_lost`).
+
+`event(name, schema)` declares a custom event. Its hello schema includes `"x-grok-gadgets-kind": "event"`. `history_lost` is reserved: the gadget emits it, and a sketch cannot register that name. `emit(name, data)` queues a declared event. The data object must be under 128 bytes. A full queue of 16 drops the new event and later reports `history_lost`.
+
+`command(name, handler, context, schema)` registers a callable capability. The optional schema is an inline JSON object. Grok sees that object as the argument contract. `rgb.set` keeps the built-in RGB rules; a replacement schema is rejected.
+
+The gateway rejects schema references, `pattern` and `patternProperties`. Use explicit properties, `enum`, `minLength` and `maxLength` instead. This prevents a device-supplied regular expression from blocking the gateway.
+
+`begin()` calls `Serial.setRxBufferSize` for two full frames (4096 bytes) before `Serial.begin()`. The Arduino-ESP32 2.0.17 USB CDC queue otherwise stays 256 bytes and can drop a long reply. That call is unverified on hardware.
+
+## Limits
+
+A reply may be one JSON object of at most 2047 bytes plus LF. The parse document is sized for a gateway-legal frame (one value per two input bytes, plus the string bytes). A command that is still too deep gets a failed ACK (`invalid_command`) instead of a session reset. Trailing bytes, a second object, or an embedded NUL resets the session.
+
+The request timeout is 13 seconds, longer than the USB bridge's connect-plus-reply wait. A reply whose shape does not match the outstanding request resets the session. Protocol 0.1.0 has no request id.
+
+Within one boot the device retains eight acknowledgements. The same command id and the same compact arguments return the cached result and do not run the handler again. Changed arguments return `duplicate_conflict`. Reboot clears the cache. A timeout means the result is uncertain: do not repeat a physical action under a new id.
+
+`readRgb` accepts integer `r`, `g`, and `b` from 0 to 255, plus boolean `on`. A float such as `255.0` is rejected. The gateway's own numeric check is a separate code path.
+
+## License
+
+Original SDK code is Apache-2.0. Read the [dependency notices](dependencies.md) before distributing firmware.

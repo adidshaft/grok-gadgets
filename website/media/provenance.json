@@ -4,6 +4,21 @@
   "usage_terms": "https://x.ai/legal/brand-guidelines",
   "files": [
     {
+      "file": "grok-gadgets-share-v3.png",
+      "sha256": "74aed0723ba3dd5a7109a5f18b401d05f64f133dcc67dfc0ae02ab5db3cf2bdf",
+      "origin": "Built-in image generation edited the user-supplied website screenshot with the original Grok Gadgets project mark and two user-supplied Grok Bot round-face references. The project name and logo are foregrounded; one oversized outline Bot face sits behind the conceptual wireframe hardware scene. Normalized to 1200x630 with macOS sips. The round-face reference supersedes the desktop app icon used in v2; no claim of official asset provenance or verified hardware operation."
+    },
+    {
+      "file": "grok-gadgets-share-v1.png",
+      "sha256": "edeafdb6a82d466e3a180e1940d354a87d8dc43d002a0e0480655ba1186b55a7",
+      "origin": "Built-in image generation for the background; composed with unchanged project and official Grok marks. Conceptual architecture illustration, not evidence of an operational connection."
+    },
+    {
+      "file": "grok-gadgets-share-v2.png",
+      "sha256": "3aea25841c1e0bc2107963f5ef40fb8323975ff2007b1af68bf0429e2f0e4fea",
+      "origin": "Built-in image generation for the background; composed with the unchanged Grok Bot app icon from the signed local bundle (com.anysphere.sand, Anysphere Inc.; icon.icns SHA-256 0174e1ce966156a20c07f5715bbf6577b39cec60bd539267395e5f5fa15bbf80) and original Grok Gadgets mark. Conceptual architecture route only, not evidence of a live connection."
+    },
+    {
       "file": "grok-gadgets-icon.png",
       "sha256": "6d0b4c7cd981d7895bc1763fc55d1c9dae13ad27dbd9c9398ead8a8690b8f56f",
       "origin": "User-supplied AI-generated original community artwork"
@@ -12,6 +27,11 @@
       "file": "grok-gadgets-logo.png",
       "sha256": "e984b8c1dcffeb9517b9e4d34effcb5178a95352f249765aca6d64fe1f2000b3",
       "origin": "User-supplied AI-generated original community artwork"
+    },
+    {
+      "file": "grok-bot-mark.svg",
+      "sha256": "ea35da677934e2ac77300280b37d4a851cdfb64072d5d52f9303d7ed0dfaae4b",
+      "origin": "Original vector redraw based on the user-supplied Grok Bot round-face reference; not represented as an official downloadable asset."
     },
     {
       "file": "grok-mark.svg",

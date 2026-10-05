@@ -1,28 +1,18 @@
-Source: grok-gadgets-esp32-sdk/README.md at 4b994aa83df18a1355b1f09387df7f3561c05b7f
+Source: grok-gadgets-esp32-sdk/README.md at ff562a9a86ca3dd149a82cc36c4ab002ebad7d68
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
 # Grok Gadgets ESP32 SDK
 
-Build an ESP32 gadget for Grok with a reusable C++ capability library and an **M5Stack AtomS3 Lite C124** USB example.
+Build USB gadgets for your existing **Grok Bot**. Define commands and events in an Arduino sketch; `grok::Gadget` handles the connection to the local Grok Gadgets gateway. This is an experimental alpha. Original code is Apache-2.0.
 
-**Experimental alpha — software tests and ESP32-S3 compilation pass; physical hardware, native Grok invocation and mobile behavior remain unverified.** You can build and contribute without a board or Grok account. This is standalone Arduino firmware, not an ESPHome integration.
+## What works with Grok Bot today
 
-```mermaid
-flowchart LR
-    SDK["Reusable C++ SDK"] --> FW["C124 firmware"]
-    FW --> USB["USB bridge on your computer"]
-    USB --> GW["Grok Gadgets gateway"]
-    BOT["Existing Grok Bot"] -.-> GW
-```
+**You can build and test the software now. Hardware and Grok Bot control remain unverified.** Two examples compile: the M5Stack AtomS3 Lite C124 RGB LED/button and a [generic ESP32-S3 LED/button](examples/led-button/main.cpp). Neither has been flashed here. Wi-Fi, hosted pairing, and button-triggered Bot tasks are not provided.
 
-The firmware uses the SDK, a computer bridges USB to the local gateway, and the Grok connection is a separately pending authenticated route. Compilation checks the firmware build; it does not demonstrate the LED, button or USB cable working physically.
+## Quickstart
 
-## Start without hardware
-
-Clone [adidshaft/grok-gadgets-esp32-sdk](https://github.com/adidshaft/grok-gadgets-esp32-sdk) and enter its root directory. A sibling repository is unnecessary for the following checks.
-
-Requirements: Python 3.11+, Git, CMake 3.16+, a C++14 compiler, and internet access for the first pinned dependency/toolchain installation. The recorded build host is macOS arm64. Linux USB permissions, Windows and Intel Mac installation are not verified here. The physical example additionally needs the exact C124 board and a USB-C **data** cable; ATOM Lite and display-equipped AtomS3 are different boards.
+You need Python 3.11+, CMake 3.16+, Git, and a C++14 compiler. From this repository, run:
 
 ```sh
 python3 -m venv .venv
@@ -33,33 +23,25 @@ sh tools/check.sh
 .venv/bin/pio run -e atoms3-lite-usb
 ```
 
-Expected results: CTest reports **3/3** host suites passed; the contract checker reports valid canonical and generated frames; PlatformIO reports **SUCCESS**. The firmware output is `.pio/build/atoms3-lite-usb/firmware.bin`, alongside the ELF, bootloader and partition files. Host suites include the real example loop compiled with simulated board/serial APIs; no board is flashed by these commands.
+Expected: four host test suites pass, both sketch transcripts pass the contract check, and the C124 firmware compiles. No board or account is needed. This means **build verified, hardware pending**.
+
+Next, [create your own gadget](docs/sdk.md), or [flash C124 and connect its USB bridge](docs/build-flash.md). The gateway and bridge run on the same computer. `enroll` issues a device token; `serve` keeps the local gateway running. Grok Bot needs a separately verified, authenticated remote route. A tunnel alone does not establish Bot compatibility.
+
+## Details
 
 | Next step | Guide |
 | --- | --- |
-| Build, inspect hashes, and prepare a separate hardware test | [Build, flash and recovery](docs/build-flash.md) |
-| Add your own command and state writer | [Reusable library and counter example](docs/sdk.md) |
-| Understand retries, events and reconnects | [Protocol and recovery](docs/protocol-recovery.md) |
-| Check exact board/pin provenance | [Manufacturer source record](docs/board-sources.md) |
-| Review what passed and what remains open | [Verification](docs/verification.md) |
-| Help with software, docs or hardware evidence | [Contributing](CONTRIBUTING.md) |
+| Flash offsets, device ID, token, and unplug recovery | [Build, flash and recovery](docs/build-flash.md) |
+| Commands, events, and limits | [Library](docs/sdk.md) |
+| Retries, loss reports, and reconnects | [Protocol and recovery](docs/protocol-recovery.md) |
+| C124 pins, and the GPIO48 `RGB_BUILTIN` trap | [Board sources](docs/board-sources.md) |
+| What was checked, and what is still open | [Verification](docs/verification.md) |
+| The one firmware checksum record | [build-checksums.json](docs/build-checksums.json) |
 
-## What is tested
+Host tests compile the sketches against a simulated board. They do not open a serial port. The contract check validates frames those sketches write, plus the pinned protocol fixture. `firmware.bin` hashes also depend on the Xtensa toolchain host variant; see the checksum record.
 
-| Path | Evidence | Remaining gate |
-| --- | --- | --- |
-| Custom capabilities, strict RGB inputs, bounded retries | C++ host tests against pinned ArduinoJson | Your gadget's hardware handler |
-| Canonical protocol 0.1.0 | Pinned fixtures and frame-size validation | Coordinated changes with gateway/SDK consumers |
-| C124 USB consumer | Host loop plus simulated USB/gateway integration | Physical enumeration, flashing, LED/button observation |
-| ESP32-S3 firmware | Pinned C124 build | Physical board acceptance |
-| Wi-Fi and existing Grok Bot connection | Explicit roadmap dependencies | Authenticated reachable transport/provisioning; native invocation evidence |
+The gateway device port is authenticated loopback on the same computer. Cloud access needs a separate authenticated HTTPS MCP route (`HARD-GROK-REMOTE-001`). See the [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md).
 
-The canonical [gateway contract](https://github.com/adidshaft/grok-gadgets-gateway/tree/main/protocol/0.1.0) is consumed through local [protocol pins](protocol/source.json). The [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk) targets computer applications; this SDK targets firmware on a microcontroller. [Home Assistant](https://github.com/adidshaft/grok-gadgets-home-assistant) uses its upstream MCP server directly. The source repositories document each component; no hosted device service is provided.
+For build errors see [Support](SUPPORT.md). Report defects through the [issue chooser](https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/new/choose). Vulnerabilities go through [Security](SECURITY.md). [Contributing](CONTRIBUTING.md) covers software, docs, and hardware evidence. [Dependency licenses](docs/dependencies.md) and [NOTICE](NOTICE) apply before any firmware redistribution. This project is unaffiliated with xAI and M5Stack.
 
-For common build/connection errors see [Support](SUPPORT.md). Report public defects through the [issue chooser](https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/new/choose). Keep credentials private and use [Security](SECURITY.md) for vulnerabilities.
-
-Original code is [Apache-2.0](LICENSE); [NOTICE](NOTICE) and [dependency licenses](docs/dependencies.md) explain attribution and firmware redistribution review. Firmware binaries remain unpublished pending that review. This independent project is unaffiliated with xAI and M5Stack. Community discussion is at [r/GrokGadgets](https://www.reddit.com/r/GrokGadgets/), under the hub's [conduct policy](https://github.com/adidshaft/grok-gadgets/blob/main/CODE_OF_CONDUCT.md).
-
-## History note
-
-Pre-publication commit dates were reconstructed across 29 September–5 October 2026 at the owner’s request. Verification records retain their actual execution dates. See the [history and privacy record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/publication-sanitization.md).
+Pre-publication commit dates were reconstructed across 29 September–5 October 2026. Verification records keep their execution dates. See the [history and privacy record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/publication-sanitization.md).
