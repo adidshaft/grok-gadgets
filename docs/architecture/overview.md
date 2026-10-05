@@ -1,6 +1,6 @@
 # Repository and device map
 
-The project provides reusable gadget libraries for Grok Bot. C124 is the first ESP32 example. It is not the SDK boundary. Actual Grok and physical-device verification remain pending.
+The project provides reusable gadget libraries for Grok Bot. C124 is the first ESP32 example. It is not the SDK boundary. Actual Grok Bot and physical-device verification remain pending.
 
 The gateway operator hosts the MCP server. Grok/xAI hosts Grok Bot. The website hosts neither. Read the [hosting FAQ](../getting-started/hosting.md).
 
@@ -25,14 +25,14 @@ flowchart TD
     H -.-> D["Existing home devices: verification pending"]
 ```
 
-Solid arrows describe implemented software interfaces. They do not establish physical operation. The dotted gateway path is operator HTTPS in front of local `serve`. That path is implemented locally and unverified with Grok Bot. The dotted Home Assistant path needs its own client, endpoint and physical checks. Home Assistant does not need our gateway for its own MCP route.
+Solid arrows describe implemented software interfaces. They do not establish physical operation. The dotted gateway path is operator HTTPS in front of local `serve`. Only the loopback HTTP service is implemented here. Public HTTPS and Grok Bot access remain unverified. The dotted Home Assistant path needs its own client, endpoint and physical checks. Home Assistant does not need our gateway for its own MCP route.
 
 ## Reusable core, separate board examples
 
 ```mermaid
 flowchart LR
     C["Reusable C++ capability library"] --> A["C124 LED and button example"]
-    C -.-> B["Future board example"]
+    C --> B["Generic ESP32-S3 LED/button example"]
     B -.-> P["Board pins, drivers and transport"]
 ```
 

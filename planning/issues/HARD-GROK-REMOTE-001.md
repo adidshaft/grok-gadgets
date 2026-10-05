@@ -18,4 +18,4 @@ Acceptance:
 
 Dependencies: none (does not wait on HUB-GROK-001)
 
-Blocker: Local `serve` (loopback Streamable HTTP + bearer) is implemented on the gateway `simplify-and-fix` branch (`ba1b9f0`). A public tunnel, hosted service, or Grok Bot experiment still needs owner approval. Native stdio tool-I/O export cannot close this gate.
+Blocker: Local `serve` (loopback Streamable HTTP + bearer) is implemented on the gateway `simplify-and-fix` branch (`a9be0db`). A public tunnel, hosted service, or Grok Bot experiment still needs owner approval. Native stdio tool-I/O export cannot close this gate.

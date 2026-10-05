@@ -1,10 +1,10 @@
-Source: grok-gadgets-gateway/README.md at 9d2f2c3b99de9fe105a3d14f470995f06b35ba0e
+Source: grok-gadgets-gateway/README.md at f807c53679a54d87d794a9ba485246471080c7f6
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
 # Grok Gadgets gateway
 
-A local MCP server for Grok Gadgets. It lists gadget capabilities, sends commands, and reports state and events. It includes a software C124 simulator. Experimental alpha. Exclusively for Grok.
+A local MCP server to connect your existing Grok Bot to gadgets. It lists capabilities, sends commands, and reports state and events. It includes a software C124 simulator. Experimental alpha; the Grok Bot connection remains unverified.
 
 ## What works with Grok Bot today
 

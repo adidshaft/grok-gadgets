@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/local-operation.md at 9d2f2c3b99de9fe105a3d14f470995f06b35ba0e
+Source: grok-gadgets-gateway/docs/local-operation.md at f807c53679a54d87d794a9ba485246471080c7f6
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -72,7 +72,7 @@ The baud rate is 115200. Native USB CDC can ignore the baud rate.
 If TCP disconnects or the gateway restarts, the bridge returns `gateway_unavailable`.
 It then waits for a new firmware hello. Each hello opens a new authenticated TCP session.
 Firmware controls the retry delay. It must discard pending acknowledgements from the old session.
-If USB disconnects, wait for the device to return. Then restart the bridge.
+If USB disconnects, the bridge retries the same serial path automatically with a delay of up to 2 seconds. If the operating system assigns a different path, restart the bridge with that path.
 This procedure restores the session. It does not replay actions from durable storage.
 
 Physical USB operation remains unverified. Local software tests with a pseudo-terminal pass.
@@ -84,6 +84,7 @@ Physical USB operation remains unverified. Local software tests with a pseudo-te
 - Offline: agent ended or idle timeout exceeded 15s. Poll/ping regularly; reconnect starts a new session.
 - Stale state: received state older than 10s. Heartbeat proves connection, not fresh sensor state; periodically report state.
 - Unconfirmed/timed_out: do not blindly resend a physical action under a fresh command ID. Inspect state or device safely.
+- Retry protection: use the same command ID and arguments within 10 minutes of the first request, in the same gateway process. An evicted receipt returns `stale_command_id` without dispatch. At 1024 recent IDs, new commands return `busy` until the oldest ID leaves the window. A restart or an older ID has no replay guarantee. Inspect state before acting again.
 - Cursor reset/history_lost: read with null cursor to establish retained baseline. Initial read reports dropped history honestly.
 - Port busy: choose a free --device-port and configure SDK/bridge to match.
 - USB failed: verify data cable, port permissions and firmware model. Unplug/reconnect is a pending physical test.

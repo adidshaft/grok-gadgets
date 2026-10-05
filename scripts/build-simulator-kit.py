@@ -27,7 +27,6 @@ def digest(path):
 def inputs():
     paths = [
         Path(__file__).resolve(),
-        ROOT / "docs/getting-started/simulator-kit.md",
         *sorted(
             path
             for path in (ROOT / "scripts/simulator-kit").iterdir()
@@ -252,7 +251,6 @@ def build(output):
         for path in (ROOT / "scripts/simulator-kit").iterdir():
             if path.suffix in [".py", ".md"]:
                 shutil.copy(path, kit / path.name)
-        shutil.copy(ROOT / "docs/getting-started/simulator-kit.md", kit / "README.md")
         records = [
             {"file": path.name, "bytes": path.stat().st_size, "sha256": digest(path)}
             for path in sorted(kit.iterdir())

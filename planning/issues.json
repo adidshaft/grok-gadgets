@@ -578,7 +578,7 @@
       "docs/verification/real-grok-test-plan.md",
       "docs/getting-started/hosting.md"
     ],
-    "blocker": "Local serve (loopback HTTP + bearer) is on the gateway simplify-and-fix branch (ba1b9f0). A public tunnel, hosted service, or Grok Bot experiment still needs owner approval. Native stdio tool-I/O export cannot close this gate."
+    "blocker": "Local serve (loopback HTTP + bearer) is on the gateway simplify-and-fix branch (a9be0db). A public tunnel, hosted service, or Grok Bot experiment still needs owner approval. Native stdio tool-I/O export cannot close this gate."
   },
   {
     "id": "HUB-DEMO-001",
@@ -1101,7 +1101,7 @@
     "milestone": "M7",
     "stage": "done",
     "commits": [
-      "1eebe5f"
+      "31f9ba5"
     ],
     "evidence": [
       "scripts/check-archive-build.py",
@@ -1134,13 +1134,46 @@
     "milestone": "M7",
     "stage": "done",
     "commits": [
-      "6dcd43d"
+      "2fe5d48"
     ],
     "evidence": [
       "README.md",
       "website/playground.html",
       "ROADMAP.md",
       "planning/issues/HARD-GROK-REMOTE-001.md"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "REVIEW-DEV-001",
+    "repository": "grok-gadgets",
+    "problem": "Developer handoff needs runnable first steps, consistent serve wording, independent software evidence and attribution cleanup",
+    "intended_behaviour": "A newcomer sees the purpose, next local command and unverified Bot/hardware gates without duplicate setup instructions",
+    "acceptance": [
+      "Review all five READMEs and correct stale local HTTP/USB recovery instructions",
+      "Website guide edits do not invalidate the simulator ZIP; bundled changes still do",
+      "Rebuild the kit and update exact checked component documentation and compatibility pins",
+      "Remove automated coauthor trailers from unpublished history without changing source trees or published commits",
+      "Pass hub and cross-repository checks and leave a short review with deliberate deferrals"
+    ],
+    "dependencies": [
+      "REVIEW-HUB-001",
+      "REVIEW-HUB-002"
+    ],
+    "labels": [
+      "maintenance",
+      "developer-experience",
+      "P1"
+    ],
+    "milestone": "M7",
+    "stage": "done",
+    "commits": [],
+    "evidence": [
+      "scripts/test_simulator_kit.py",
+      "README.md",
+      "compatibility/tested-components.json",
+      "planning/issues/REVIEW-DEV-001.md",
+      "2026-10-05: all 14 local integration groups passed; actual Grok Bot, hardware and hosted CI remain unverified."
     ],
     "blocker": null
   }

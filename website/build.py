@@ -276,7 +276,7 @@ page(
         "home-assistant.html",
         "Home Assistant",
     )
-    + '</div><p class="quiet-note">Local alpha. Remote HTTPS MCP is unimplemented. Actual Grok connectivity and physical verification are pending.</p>'
+    + '</div><p class="quiet-note">Local alpha. Authenticated HTTP MCP runs on loopback. Public HTTPS, Grok Bot use and physical operation remain unverified.</p>'
     + hosting_guide,
 )
 page(
@@ -296,15 +296,15 @@ page(
     )
     + path_row(
         "02",
-        "With your Grok Bot",
-        "An inspectable MCP simulator kit. Install in the Bot’s cloud computer using a supported Command connection.",
+        "On your computer",
+        "Download, inspect and run a virtual light with the local MCP client. No Bot account required.",
         "downloads/grok-gadgets-simulator-kit.zip",
         "Download kit",
     )
     + '<p class="quiet-note">The kit includes readable source, the wheel, locked hashed runtime dependencies, configuration schema and Apache-2.0 notices. Installation downloads the dependencies. No account connection happens automatically.</p>'
     + '<p><a href="doc-docs-getting-started-simulator-kit.html">Step-by-step setup &amp; customization ↗</a></p>'
     + '<p><a href="downloads/simulator-kit-manifest.json">Source commit, contents &amp; SHA256 hashes ↗</a></p>'
-    + '<p class="status">Browser simulated · local MCP tested · native Grok receipts, physical and mobile pending</p>'
+    + '<p class="status">Browser simulated · local MCP tested · Grok Bot, physical and mobile checks pending</p>'
     + hosting_guide,
 )
 page(
@@ -356,7 +356,7 @@ page(
         "doc-docs-components-grok-gadgets-linux-sdk-development.html",
         "Developer guide",
     )
-    + '<p class="quiet-note">The agent and gateway share a host. Public remote MCP is not implemented. Physical peripherals and systemd lifecycle remain pending.</p>'
+    + '<p class="quiet-note">The agent and gateway share a host. Local HTTP MCP is available through serve. Public HTTPS and Grok Bot use remain unverified. Physical peripherals and systemd lifecycle remain pending.</p>'
     + hosting_guide,
 )
 page(
@@ -367,7 +367,7 @@ page(
         "Use what<br>you already have.",
         "An integration recipe for Home Assistant’s own MCP server.",
     )
-    + '<p class="status">Fixture tested · actual home and Grok pending</p>'
+    + '<p class="status">Fixture tested · actual home and Grok Bot pending</p>'
     + path_row(
         "01",
         "Expose a few entities",
@@ -393,7 +393,7 @@ page(
         "An action.<br>An observation.",
         "The assistant, connection point and device have separate jobs.",
     )
-    + '<div class="flow"><a href="https://x.ai/bot"><img src="media/grok-mark.svg" width="40" height="40" alt="Grok"><span>Grok Bot</span><small>Run by Grok/xAI</small></a><b>↕ Remote MCP: future</b><span>Your gateway<small>Run by its operator</small></span><b>↕ USB / local TCP</b><span>Your device<small>Execute and observe</small></span></div><p class="status">Requested → accepted → execution reported → physically observed</p><p><a href="doc-docs-architecture-overview.html">Architecture reference ↗</a></p><p class="quiet-note">The gateway has local stdio MCP, with no authenticated remote HTTPS MCP service. A tunnel alone cannot provide that service. Home Assistant can use its own upstream MCP route. Local tests, native Grok invocation, remote security and physical effects need separate evidence.</p>'
+    + '<div class="flow"><a href="https://x.ai/bot"><img src="media/grok-mark.svg" width="40" height="40" alt="Grok"><span>Grok Bot</span><small>Run by Grok/xAI</small></a><b>↕ Remote MCP: future</b><span>Your gateway<small>Run by its operator</small></span><b>↕ USB / local TCP</b><span>Your device<small>Execute and observe</small></span></div><p class="status">Requested → accepted → execution reported → physically observed</p><p><a href="doc-docs-architecture-overview.html">Architecture reference ↗</a></p><p class="quiet-note">The gateway provides stdio MCP and authenticated HTTP MCP on loopback. Public access also needs operator HTTPS. A tunnel does not replace authentication. Home Assistant can use its own upstream MCP route. Local tests, Grok Bot invocation, remote security and physical effects need separate evidence.</p>'
     + hosting_guide,
 )
 rows = "".join(
