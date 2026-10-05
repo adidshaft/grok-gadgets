@@ -149,6 +149,7 @@ GROUPS = (
                 (
                     ("", "community/moderation-policy.md", "Moderation policy"),
                     ("", "community/reddit-setup.md", "Reddit setup checklist"),
+                    ("", "community/reddit-package.md", "Reddit channel package"),
                     ("", "community/platform-evaluation.md", "Platform evaluation"),
                     ("", "community/content-plan.md", "Community content plan"),
                     ("", "community/drafts/initial-posts.md", "Draft community posts"),

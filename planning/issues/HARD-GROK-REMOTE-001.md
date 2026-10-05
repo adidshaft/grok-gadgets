@@ -1,29 +1,21 @@
-# HARD-GROK-REMOTE-001 — Implement authenticated cloud-to-local HTTPS MCP transport
+# HARD-GROK-REMOTE-001 — Authenticated remote MCP for local gadgets
 
 Owner: grok-gadgets
 
-Stage: blocked · M5
+Stage: in progress · M5
 
 Labels: feature, gateway, P1, help wanted
 
-Intended behaviour: Existing Grok Bot reaches explicitly authorized local devices through a reviewed HTTPS MCP service
+Intended behaviour: Grok Bot reaches gadgets the operator explicitly authorized, through HTTPS MCP the operator runs.
 
 Acceptance:
 
-- Approved hosting, route and trust design; no raw device protocol exposure
-- TLS, supported OAuth or scoped credentials, per-user/per-device authorization and tenant isolation
-- User consent, secure secret storage, credential rotation and revocation
-- Missing/invalid/expired/revoked credential and cross-user/cross-device access rejection regressions
-- Bounded commands/connections/queues/timeouts; redacted diagnostics; shutdown/reconnect tests
-- Actual Grok desktop/mobile experiment after separate activation approval
+- Local `serve` mode: Streamable HTTP MCP on loopback with a rotatable bearer, no raw device protocol exposure
+- Tests: missing/wrong token rejected; test controls impossible over HTTP; Host/Origin checks
+- Redacted request logs that can stand in for native stdio receipts
+- TLS, OAuth or scoped credentials, and a public hostname only after separate activation approval
+- Actual Grok desktop/mobile experiment after that approval
 
-Dependencies: HUB-GROK-001
+Dependencies: none (does not wait on HUB-GROK-001)
 
-Commits: Pending
-
-Evidence:
-
-- docs/verification/real-grok-test-plan.md
-- docs/getting-started/hosting.md
-
-Blocker: Remote HTTPS MCP/OAuth service is unimplemented. Design, implementation and security tests are required before separately approved service activation. Documentation does not close this gate.
+Blocker: Local HTTP implementation is authorized now. A public tunnel, hosted service, or Grok Bot experiment still needs owner approval. Native stdio tool-I/O export cannot close this gate.
