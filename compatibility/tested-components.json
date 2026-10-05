@@ -1,5 +1,5 @@
 {
-  "status": "Public source alpha; package releases and website deployment pending",
+  "status": "Public source alpha and website live; package releases pending",
   "protocol": "0.1.0",
   "components": [
     {
@@ -18,9 +18,9 @@
       "repository": "grok-gadgets-gateway",
       "path": "grok-gadgets-gateway",
       "version": "0.1.0a1",
-      "commit": "6c66a109084dc8480fdd49636dab2254d7e3d82e",
+      "commit": "35bd7aae7f74266c6559447c6518b78afcf0f14a",
       "evidence_level": "Simulated; MCP client verified",
-      "checks": "77 source tests including real peer-reset cleanup regression;52 installed configuration tests;fresh kit installer and default/custom offline official MCP acceptance",
+      "checks": "Documentation-only update:77 source tests,Ruff,official MCP demo and rebuilt kit installed default/custom MCP acceptance passed. Runtime source unchanged from 6c66a10.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,

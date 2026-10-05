@@ -61,3 +61,16 @@ Main rules use the observed GitHub Actions app15368 and exact job names, require
 Publication PR #37 passed both required checks and merged. Post-merge identity verification found that GitHub had used the account email instead of the checkout's public noreply email. Corrected only that merge's metadata as 999f74415995c48f63e6bd8cc70da8a3c7589997, preserving its tree, parents, message and real timestamps. A one-time bypass for the sole owner allowed the exact-lease correction; the original active rules and empty bypass list were restored and read back immediately. Private backups preserve recovery. The old GitHub object may remain accessible through pull-request or cached references; no full erasure is claimed. Maintainer instructions now require an explicit public author email for GitHub-created merges, followed by identity verification. No account-wide setting changed.
 
 The follow-up PR passed its hosted checks, but GitHub rejected the explicit noreply merge parameter. No merge occurred from that rejected request. Prepare the merge locally with the public Git identity and test its exact commit before an ordinary protected main push; do not repeat the history-repair bypass for new work.
+
+
+## 5 October 2026 — simplified technical English documentation
+
+Converted 33 current source documents across the five repositories to ASD-STE100-inspired style. Added short instructions, consistent terms and focused tables. Preserved executable code blocks, protocol limits, evidence distinctions and license text. Historical evidence prose remains unchanged. No formal standard/dictionary compliance audit was performed.
+
+Component documentation commits: gateway `35bd7aa`, Home Assistant `af14de3`, Linux `b44856e`, ESP32 `f218684`. Imported their committed documentation with source hashes. Updated the gateway compatibility pin because the downloadable source kit includes that commit. Runtime source did not change.
+
+Checks: hub foundation; 15 website tests; 61 built pages and 1,689 resolved local links; six kit regressions; six community tests and recognition dry-run. Gateway: 77 tests, Ruff and official MCP demo. Home Assistant: 13 tests, frozen sync, Ruff/format and fixture probe. Linux: lint/format, package build, 20 unit cases with five expected integration skips, and fresh installed-wheel example. ESP32: host lint/format, three CTest suites and protocol checks.
+
+The first website attempt correctly rejected uncommitted gateway work. After the tested gateway documentation commit, the kit rebuild passed its source and installed default/custom MCP checks. New kit SHA-256: `24356e7e854870f8a032f64069d6dcd01bb10c8fc33e28380afb4f8121437aa3`. Final website checks passed.
+
+All changes remain local. No push, deployment, Reddit modification, actual Grok invocation or physical test occurred.
