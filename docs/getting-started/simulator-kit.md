@@ -1,6 +1,8 @@
 # Grok Gadgets simulator kit
 
-Use a virtual C124 RGB LED and button through the local Model Context Protocol (MCP) gateway. You do not need hardware, an API key, an exposed port or a hosted service. Original code uses Apache-2.0. This independent project is exclusively for Grok.
+Use a virtual C124 RGB LED and button through the local Model Context Protocol (MCP) gateway. You do not need hardware, an API key, an exposed port or a hosted service. Original code uses Apache-2.0. This independent project is for your existing Grok Bot.
+
+The [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md) explains who runs the gateway and tunnel. The kit demo uses local stdio MCP. The included gateway also provides local HTTP `serve`, but the kit does not configure public HTTPS or connect to Grok Bot. Do not expose its device port through a tunnel.
 
 ## Inspect first
 
@@ -50,7 +52,7 @@ This verifies local simulation. It does not verify Grok execution or physical op
 
 This route requires custom **Command MCP** in the Bot's cloud computer. Availability depends on the account and client. A developer-API conversation is not a substitute.
 
-The dedicated desktop Bot reported simulator success on an earlier gateway build. That report is not independent execution evidence. This configurable kit passed local MCP tests but has not been run inside Grok. Actual invocation records and mobile verification remain pending.
+The dedicated desktop Bot reported simulator success on an earlier gateway build. A later installation of the configurable kit on the Bot's computer was observed. Neither a Bot-written report nor an installation record proves native tool invocation. Local MCP tests passed. Actual invocation records and mobile verification remain pending.
 
 1. Inspect the kit.
 2. Upload the ZIP, separate website hash manifest and exported configuration to the intended Bot.
@@ -76,17 +78,22 @@ Downloading the ZIP does not install a connector or change your account. The kit
 
 ## Keeping the download current
 
-Before it copies the download, the website build checks the gateway commit, kit input hashes, archive contents and acceptance record.
+The website build verifies the committed kit: gateway commit inside the manifest, input hashes, archive contents and the acceptance record. It does not rebuild the ZIP because a sibling gateway checkout moved.
 
-With a sibling gateway checkout, changed committed source or kit inputs trigger a rebuild. Uncommitted gateway changes are rejected. The rebuild runs the gateway tests and installs the kit in a fresh environment. It tests default, custom and offline settings through the official MCP client. A failed check stops the site build.
+Website guide edits do not change the ZIP. The bundled instructions live in
+`scripts/simulator-kit/README.md`. Rebuild explicitly after changes to the gateway,
+builder or bundled kit files:
 
 ```sh
+python3 scripts/build-simulator-kit.py
 python3 scripts/build-simulator-kit.py --check
 .venv/bin/python website/build.py
 ```
 
+`--check` fails if the sibling gateway HEAD, kit inputs or archive no longer match the stored kit. Uncommitted gateway changes are rejected. The rebuild runs the gateway tests and installs the kit in a fresh environment. It tests default and custom settings through the official MCP client.
+
 Run these maintainer commands from the hub, not from the extracted kit.
 
-A standalone hub checkout can use the stored kit if it matches the pinned commit and unchanged inputs. Otherwise, use the gateway checkout to rebuild it. Rebuilds need internet access for dependencies. The build ID identifies the tested gateway source. The separate manifest lists artifact hashes.
+A standalone hub checkout can use the stored kit if the archive and input hashes still match. Otherwise, use the gateway checkout to rebuild it. Rebuilds need internet access for dependencies. The build ID identifies the tested gateway source. The separate manifest lists artifact hashes.
 
-The public website is deployed through the approved CI workflow. Its builds run these checks. A gateway change does not update a downloaded copy or automatically change the hub's compatibility pin. Downloaded kits are fixed snapshots. They do not update or run code silently.
+The public website is deployed through the approved CI workflow. A gateway change does not update a downloaded copy or automatically change the hub's compatibility pin. Downloaded kits are fixed snapshots. They do not update or run code silently.

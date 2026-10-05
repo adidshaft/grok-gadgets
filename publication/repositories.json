@@ -189,6 +189,7 @@
       "/architecture",
       "/activity"
     ],
-    "simulator_kit_sha256": "4c81c95fcf1efd3eb498f39f1946cfefefe4dffb5d07b52aded27f0f2aff6056"
+    "simulator_kit_sha256": "4c81c95fcf1efd3eb498f39f1946cfefefe4dffb5d07b52aded27f0f2aff6056",
+    "note": "First Pages deployment only. Current kit hash lives in website/downloads/simulator-kit-manifest.json."
   }
 }

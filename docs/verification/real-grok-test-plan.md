@@ -23,6 +23,8 @@ Pass means an actual existing Grok Bot invoked the corrected simulator tools. Ph
 
 ## Future physical connection
 
+The current [hosting FAQ](../getting-started/hosting.md) explains gateway operators, tunnel ownership and future deployment options. A tunnel supplies reachability only. It does not implement remote MCP or gateway authorization.
+
 The gateway currently supports local stdio MCP plus authenticated loopback device transport. It has no authenticated remote HTTPS MCP/OAuth service for the cloud Bot to reach devices on this Mac. HARD-GROK-REMOTE-001 tracks the missing implementation: route/access design, OAuth or scoped credential lifecycle, TLS, authorization and isolation, bounded connections/commands, negative auth tests, redacted diagnostics and revocation. Do not expose raw loopback device frames or substitute an unauthenticated tunnel. Service development/activation must be approved separately.
 
 Next decision: authorize the existing-account cloud Command simulator experiment above, or choose a separately scoped authenticated remote transport design. The prepared local release does not depend on either decision.

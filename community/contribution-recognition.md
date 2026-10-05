@@ -31,6 +31,16 @@ The command uses synthetic data and gives redacted dry-run decisions. It does no
 
 Verified fields must come from trusted operations. Do not accept a user's assertion as verification.
 
+The engine fails closed:
+
+- Consent, ownership proofs and merges count only when the value is exactly `true`. Text such as `"false"` or `"yes"` does not count.
+- GitHub IDs must be numeric user IDs. Reddit IDs must be `t2_` account IDs. Repositories must be `adidshaft/<name>`.
+- Bot accounts and automation pull requests never qualify.
+- Any existing flair other than Contributor is preserved. A manual override of `deny` (any case) blocks the award; any other override goes to review.
+- One GitHub account links to one Reddit account. A second link goes to review. Awards are keyed per Reddit account.
+- Revoked consent after an award gives a `would_remove` decision.
+- The dry-run log shows a timestamp, outcome, reason and short hashes only. It never shows account IDs or proofs.
+
 ## Requirements before activation
 
 Complete a separate review before live use. The service must validate signatures and proofs. It must reject expired or reused proofs. Use encrypted storage and access controls.
