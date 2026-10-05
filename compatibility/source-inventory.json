@@ -1,7 +1,7 @@
 [
   {
     "repository": "grok-gadgets-esp32-sdk",
-    "commit": "0c22148b49e7f4b3b80cc8cfc09f9aae8bc557a3",
+    "commit": "b26f20fbf3a24dedb71a98009dfb7747b3a8a2f5",
     "files": [
       ".clang-format",
       ".github/CODEOWNERS",
@@ -169,7 +169,7 @@
   },
   {
     "repository": "grok-gadgets-linux-sdk",
-    "commit": "c42d8d7b3c6e11037b1a10b50abe190c9125b78a",
+    "commit": "a6ed5c94dc4cac482ad5140ce522c43c8b03a494",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
