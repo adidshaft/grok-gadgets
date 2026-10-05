@@ -990,7 +990,7 @@
       "P2"
     ],
     "milestone": "INDEPENDENT-SOFTWARE",
-    "stage": "in_progress",
+    "stage": "in progress",
     "commits": [
       "771be3ef80ac87524cacb6d08632909d68e96735",
       "99c2a6ca9675dfcde36f9409d232edd69dbe096e"
@@ -1000,7 +1000,7 @@
       "python3 scripts/check.py passed against gateway commit a02e8889f3936031040a67644112076e140954b1",
       "PR #53 preserves the original contributor commit and changes only the current guide plus this ledger record"
     ],
-    "blocker": "PR #53 is awaiting hosted integrated acceptance and merge; no deployment or hardware verification is authorized."
+    "blocker": null
   },
   {
     "id": "WEB-COPY-001",
