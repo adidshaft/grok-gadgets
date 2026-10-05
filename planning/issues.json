@@ -1131,12 +1131,15 @@
       "P1"
     ],
     "milestone": "M7",
-    "stage": "in progress",
-    "commits": [],
+    "stage": "done",
+    "commits": [
+      "6dcd43d"
+    ],
     "evidence": [
       "README.md",
       "website/playground.html",
-      "website/home-scene.html"
+      "ROADMAP.md",
+      "planning/issues/HARD-GROK-REMOTE-001.md"
     ],
     "blocker": null
   }

@@ -22,7 +22,7 @@ Simulator kit at first publication: gateway `dc9994eee53c6ba86b011d63034516fbcf9
 
 ## Cloudflare Pages
 
-The free static site is live at [grok-gadgets.pages.dev](https://grok-gadgets.pages.dev/). Production deployment `589fab44-972e-47d6-a02b-05cf12a0576c` is tied to main SHA `8f8b435c5c77e5600fdab7b50abaecb81b2288f9`, after both required workflows passed on that exact SHA. The deployment workflow refreshed complete issue and activity snapshots for all five repositories, built the site, checked its tested kit, and published it. HTTPS `/`, `/start`, `/architecture`, and `/activity` returned 200. The live simulator kit SHA-256 matches `4c81c95fcf1efd3eb498f39f1946cfefefe4dffb5d07b52aded27f0f2aff6056`. All five repository About homepage links were updated and read back. Daily snapshot refresh is scheduled at 06:17 UTC; failed builds keep the last good deployment.
+The free static site is live at [grok-gadgets.pages.dev](https://grok-gadgets.pages.dev/). First production deployment `589fab44-972e-47d6-a02b-05cf12a0576c` is tied to main SHA `8f8b435c5c77e5600fdab7b50abaecb81b2288f9`, after both required workflows passed on that exact SHA. That build's simulator kit SHA-256 was `4c81c95fcf1efd3eb498f39f1946cfefefe4dffb5d07b52aded27f0f2aff6056`. Later `main` commits rebuilt the kit; the hash in this repository now is [`website/downloads/simulator-kit-manifest.json`](../../website/downloads/simulator-kit-manifest.json). Daily snapshot refresh is scheduled at 06:17 UTC; failed builds keep the last good deployment.
 
 ## History, issues and contribution flow
 
@@ -34,7 +34,7 @@ Main-branch policy requires pull requests, resolved review conversations and the
 
 ## Still pending
 
-- Native invocation receipts from the supported Grok Bot route. Installation or model narration is not invocation evidence.
+- Native Grok Bot invocation. Tool-I/O export does not cover stdio servers on a personal plan. Installation or model narration is not invocation evidence.
 - C124 hardware, flashing, USB enumeration and physical LED/button observations.
 - Real Home Assistant entities, Linux peripherals/systemd, mobile and independent human reproduction.
 - Package/prerelease publication and firmware redistribution materials.
