@@ -1,3 +1,5 @@
+> Historical pre-publication audit. Its privacy/history gates were subsequently addressed by the owner-authorized rewrite described in [the sanitization record](../docs/verification/publication-sanitization.md). Original execution timestamps and findings below describe that earlier audit.
+
 # History and public-asset disposition — launch checkpoint
 
 Local review for LAUNCH-PUBLIC-001/L6, 5 October 2026. This records a reviewed checkpoint, not authorization to push, publish, deploy or redistribute binaries. Histories, names, identities, refs and global configuration were preserved. No external research or account access was used.
@@ -10,11 +12,11 @@ Checkpoint inventory: `artifacts/launch-audit/review-complete.json`, SHA-256 `10
 
 | Repository | HEAD | HEAD commits | Reachable blobs, including direct recovery refs | Replaced/deleted HEAD-history blobs |
 | --- | --- | ---: | ---: | ---: |
-| Hub, `prep/github-alpha-launch` | `67b3b9182b486adb6b53582e363c573400d81c1e` | 39 | 434 | 237 |
-| Gateway, main | `259f8a46be0571e7a885133cafd50bc908e471a7` | 14 | 103 | 52 |
-| Linux SDK, main | `6656090b86231925b3570211836486242d3db1dc` | 12 | 85 | 38 |
-| ESP32 SDK, main | `c8d7d84b87401ef76466f9e59f01866e613c378d` | 14 | 128 | 71 |
-| Home Assistant, main | `8d32cc64dbc2f48727f94bbc2d9be7bbd3be5459` | 8 | 49 | 19 |
+| Hub, `prep/github-alpha-launch` | `0a6410f724619ae97ff4594825fa180139badb34` | 39 | 434 | 237 |
+| Gateway, main | `2af35fa07910a6111fa3100496128b3db707dfcd` | 14 | 103 | 52 |
+| Linux SDK, main | `7bff349dee943f20e07fa7cba7761023f0c9584a` | 12 | 85 | 38 |
+| ESP32 SDK, main | `ef5a9cb0d1bc3dd74298e9750dfae954f712d3bd` | 14 | 128 | 71 |
+| Home Assistant, main | `b0dad5fc5eb80941676665ec699aefd52f5671f6` | 8 | 49 | 19 |
 
 Totals: 87 commits, 799 unique blobs per repository summed, 55 local refs. All commits reachable through local refs are also in the respective HEAD histories at this checkpoint. Three hub Codex refs point directly to tree `d1c5c5f250cc6a91ea346647167c67058cfbe5f0`, rather than commits. Walking only commit history would miss seven additional recovery-only blobs. Those contain raw brand assets, generation notes and a 3,138,712-byte ZIP; the inventory records full object IDs and hashes. The extra ZIP object is `6daf294ae95d7d3c45fc8236db58e8d9d054a603`. No refs were removed or rewritten.
 

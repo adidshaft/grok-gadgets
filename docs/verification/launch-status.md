@@ -6,7 +6,7 @@ L0–L7 preparation is complete; G1 is accurately gated. Five separate Apache-2.
 
 The local website offers the original interactive architecture, all project components, customizable browser light, exported configuration and source-backed simulator download. The download rebuilds with checked source/input changes, requires source plus installed default/custom MCP acceptance and uses version/hash URLs. Failed pair/site promotion preserves prior usable files. Downloaded copies remain frozen; users upgrade into a fresh folder with their separate configuration.
 
-Current kit: gateway 997259daa5bec0b026cbfaa4a02975568b4df4bd, version 0.1.0a1, SHA256 dc2ca10b75e77b730425455e444c45fa5b36ae5e4ec6ada6b80aa9d8ff8c0bff. Fresh installed local MCP checks pass; historical account observations do not verify this new artifact.
+Current kit: gateway 08c2beb4c62637fc2d2584b55f45d49f3ebe99ec, version 0.1.0a1, SHA256 4c81c95fcf1efd3eb498f39f1946cfefefe4dffb5d07b52aded27f0f2aff6056. Fresh installed local MCP checks pass; historical account observations do not verify this new artifact.
 
 Verification:14 integration groups,57 script regressions,15 website tests,6 browser tests and C124 compilation pass. Independent fresh Git/source-ZIP review without siblings passed website/kit/launch checks,59pages and1632project-prefix links. The release notes/support matrix identify platform/runtime limits. Final clean-main verification, audit, candidate hashes and public asset subset are recorded outside source in the exact approval packet under artifacts/publication-public; the earlier candidate in the journal was independently achievable pre-closure verification.
 

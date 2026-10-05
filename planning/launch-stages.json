@@ -5,7 +5,7 @@
     "stage": "done",
     "owner": "coordinator",
     "commits": [
-      "92a4aa8"
+      "17f8fc6"
     ],
     "evidence": [
       "docs/verification/launch-journal.md"
@@ -18,7 +18,7 @@
     "stage": "done",
     "owner": "coordinator",
     "commits": [
-      "04865de"
+      "17265ce"
     ],
     "evidence": [
       "publication/repositories.json",
@@ -34,8 +34,8 @@
     "stage": "done",
     "owner": "coordinator",
     "commits": [
-      "3d83db9",
-      "17ff1e8"
+      "f5189b1",
+      "c3915ee"
     ],
     "evidence": [
       "README.md",
@@ -51,7 +51,7 @@
     "stage": "done",
     "owner": "coordinator",
     "commits": [
-      "3d83db9"
+      "f5189b1"
     ],
     "evidence": [
       "docs/visuals/README.md",
@@ -65,8 +65,8 @@
     "stage": "done",
     "owner": "coordinator",
     "commits": [
-      "d902b1c",
-      "1d4a81c"
+      "5936b85",
+      "88c6878"
     ],
     "evidence": [
       "publication/migration-guide.md",
@@ -82,8 +82,8 @@
     "stage": "done",
     "owner": "coordinator",
     "commits": [
-      "1d4a81c",
-      "2b8a4a2"
+      "88c6878",
+      "2e937af"
     ],
     "evidence": [
       "publication/activation-guide.md",
@@ -99,7 +99,7 @@
     "stage": "done",
     "owner": "coordinator",
     "commits": [
-      "41bd204"
+      "0bf8be8"
     ],
     "evidence": [
       "publication/history-and-assets-review.md",
@@ -113,7 +113,7 @@
     "stage": "done",
     "owner": "coordinator",
     "commits": [
-      "7891beb"
+      "03f32dc"
     ],
     "evidence": [
       "docs/verification/launch-status.md",
@@ -128,8 +128,8 @@
     "stage": "blocked",
     "owner": "coordinator",
     "commits": [
-      "41bd204",
-      "53e3841"
+      "0bf8be8",
+      "df8d400"
     ],
     "evidence": [
       "docs/verification/grok-launch-evidence.md",

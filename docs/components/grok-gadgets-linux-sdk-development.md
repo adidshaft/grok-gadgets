@@ -1,4 +1,4 @@
-Source: grok-gadgets-linux-sdk/docs/development.md at 55dd33bf528ec73df82220f901a128df2a0e0596
+Source: grok-gadgets-linux-sdk/docs/development.md at 8a0cb488fa224e404298fd99b61fbe38e1632580
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -48,4 +48,4 @@ Use `device.publish_state({...})` for background observations. `device.emit("but
 
 Command dedup retains 128 results per process/boot. Same ID/arguments returns original acknowledgement; changed parameters conflict. Results can be evicted or lost on restart: not durable exactly-once delivery. Never create a new command ID to retry an uncertain physical action. Gateway separately prevents replay across disconnected sessions.
 
-Copied protocol files are validated at import against [source manifest](../src/grok_gadgets_linux/protocol/source.json), pinned to gateway commit `221f73fddba8eec055d7de312066dbf0234d8f6e`. Update them only by copying a reviewed canonical version and recording new hashes/source; do not hand-edit the SDK's schema copies. Canonical transcript is a contract fixture, not a hardware capture.
+Copied protocol files are validated at import against [source manifest](../src/grok_gadgets_linux/protocol/source.json), pinned to gateway commit `aeabcaf46cca830894836ac5cb85f3a6d33cd63d`. Update them only by copying a reviewed canonical version and recording new hashes/source; do not hand-edit the SDK's schema copies. Canonical transcript is a contract fixture, not a hardware capture.

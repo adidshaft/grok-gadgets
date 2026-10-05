@@ -1,4 +1,4 @@
-Source: grok-gadgets-home-assistant/docs/feasibility.md at 31402476e6d1eca2748453b6f9c86a2a81120f46
+Source: grok-gadgets-home-assistant/docs/feasibility.md at 9fe1a111122b6077a19c4266a7b1b99d7b7ec0e4
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 

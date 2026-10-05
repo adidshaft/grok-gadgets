@@ -1,4 +1,4 @@
-Source: grok-gadgets-linux-sdk/docs/operation.md at 55dd33bf528ec73df82220f901a128df2a0e0596
+Source: grok-gadgets-linux-sdk/docs/operation.md at 8a0cb488fa224e404298fd99b61fbe38e1632580
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 

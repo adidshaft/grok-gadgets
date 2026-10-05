@@ -2,7 +2,7 @@
 
 Open-source tools and separate SDKs for connecting devices to Grok. Start with a virtual light, then build with Linux, ESP32 or Home Assistant.
 
-**Experimental alpha, not yet published.** Browser simulation and local MCP are tested. C124 firmware compiles. Inspectable native Grok invocation, mobile and physical-device acceptance remain open.
+**Experimental alpha.** Browser simulation and local MCP are tested. C124 firmware compiles. Inspectable native Grok invocation, mobile and physical-device acceptance remain open.
 
 ![Browser simulation exports a configuration for the tested MCP simulator; SDK and native Grok paths have separate evidence gates.](docs/visuals/project-overview.svg)
 
@@ -15,7 +15,7 @@ Open-source tools and separate SDKs for connecting devices to Grok. Start with a
 | Explore an existing home | [Home Assistant diagnostics](https://github.com/adidshaft/grok-gadgets-home-assistant) |
 | Help improve the alpha | [Ready issues](docs/contributing/ready-issues.md) and [contribution guide](CONTRIBUTING.md) |
 
-GitHub URLs and [the project website](https://adidshaft.github.io/grok-gadgets/) are planned destinations until activation. The five repositories currently exist as local sibling checkouts; no public launch is claimed.
+The five repositories above hold the source, documentation and contribution work. The website lives in this repository; use the local preview below while public website deployment remains pending. Package releases and firmware downloads have separate release gates.
 
 From this hub checkout, with Python 3.13, uv, Node.js 22+ and Git:
 
@@ -40,4 +40,8 @@ Hardware and a Grok account are unnecessary for browser/local simulation. Kit in
 
 Run standalone hub checks with `python3 scripts/check.py`, `node --test website/test_simulator.cjs`, and `.venv/bin/python -m unittest discover -s website`. With all four pinned siblings installed, `.venv/bin/python scripts/check-all.py` runs the fourteen integration groups. See [verification matrix](docs/public/support-matrix.md), [architecture](docs/architecture/overview.md), [roadmap](ROADMAP.md), [support](SUPPORT.md), [security](SECURITY.md), [governance](GOVERNANCE.md) and [community](community/README.md).
 
-Original code and vectors: [Apache-2.0](LICENSE), with [NOTICE](NOTICE) and [third-party notices](THIRD_PARTY_NOTICES.md). Independent community project, unaffiliated with xAI, M5Stack or Home Assistant. Working names retained; public branding review is deferred.
+Original code and vectors: [Apache-2.0](LICENSE), with [NOTICE](NOTICE) and [third-party notices](THIRD_PARTY_NOTICES.md). Independent community project, unaffiliated with xAI, M5Stack or Home Assistant. The owner has retained the current project and repository names.
+
+## History note
+
+Pre-publication commit dates were reconstructed across 29 September–5 October 2026 at the owner’s request. Verification records retain their actual execution dates. See the [history and privacy record](docs/verification/publication-sanitization.md).

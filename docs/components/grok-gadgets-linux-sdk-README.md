@@ -1,4 +1,4 @@
-Source: grok-gadgets-linux-sdk/README.md at 55dd33bf528ec73df82220f901a128df2a0e0596
+Source: grok-gadgets-linux-sdk/README.md at 8a0cb488fa224e404298fd99b61fbe38e1632580
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -28,7 +28,7 @@ separate packages. The software example reports state without operating a physic
 - **Write a handler:** follow [development](docs/development.md); no hardware is required.
 - **Run an agent:** read [operation and recovery](docs/operation.md).
 - **Contribute:** use [CONTRIBUTING](CONTRIBUTING.md), [support](SUPPORT.md), and
-  [local issues](planning/issues.json).
+  [GitHub Issues](https://github.com/adidshaft/grok-gadgets-linux-sdk/issues).
 
 ## Try a custom software device
 
@@ -37,8 +37,7 @@ Native Apple Silicon Python 3.11.15 is the freshly tested baseline. Installation
 need network access. The check uses a temporary authenticated loopback listener,
 closes it afterward, and needs no Grok account, API key, hardware, or persistent service.
 
-Public GitHub and release URLs are **planned destinations pending activation**.
-For the local candidate, run `uv sync --frozen` and `uv build` in this repository
+Package releases are not yet published. Build from source: run `uv sync --frozen` and `uv build` in this repository
 and build the gateway wheel separately. No hub checkout is required. Put these files
 in an otherwise empty working folder:
 
@@ -104,8 +103,7 @@ software-only boundaries. A Mac test never establishes Linux peripheral behavior
 
 The [gateway](https://github.com/adidshaft/grok-gadgets-gateway) owns assistant tools and
 canonical contracts; the [hub](https://github.com/adidshaft/grok-gadgets) owns shared
-architecture, roadmap, and policies. Cross-repository URLs become usable after approved
-publication; the SDK's own unit checks require no sibling checkout.
+architecture, roadmap, and policies. The SDK's own unit checks require no sibling checkout.
 
 The agent accepts only loopback TCP. A cloud Bot cannot execute your local filesystem
 path; a reviewed authenticated remote route is not provided here. Command/event retention
@@ -128,3 +126,7 @@ or account captures.
 Original code and copied protocol artifacts are [Apache-2.0](LICENSE).
 Retain [NOTICE](NOTICE) and dependency licenses. This independent project is exclusively
 for Grok and is not affiliated with xAI.
+
+## History note
+
+Pre-publication commit dates were reconstructed across 29 September–5 October 2026 at the owner’s request. Verification records retain their actual execution dates. See the [history and privacy record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/publication-sanitization.md).
