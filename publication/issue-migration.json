@@ -2444,14 +2444,15 @@
           "README.md",
           "CONTRIBUTING.md",
           "compatibility/documentation-sources.json",
-          "docs/public/support-matrix.md"
+          "docs/public/support-matrix.md",
+          "docs/verification/launch-journal.md \u2014 5 October fresh audit: narrow-screen documentation table correction; 15 website tests and 59 pages/1632 project-prefix links pass; actual 390px browser table scroll verified"
         ],
         "blocker": null
       },
       "stage": "done",
       "source_present": true,
       "source": "grok-gadgets/planning/issues.json",
-      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-DOCS-001 -->\n\nLocal ID: `LAUNCH-DOCS-001`\n\nStatus: **done**\n\nMeet exact launch-plan stage acceptance; public activation remains separately gated\n\n### Acceptance\n\n- Stage acceptance and named deliverables in docs/github-launch-plan.md\n- Tested incremental source commits and exact evidence\n- No public activation or unsupported evidence claims\n\n### Evidence\n\n- README.md\n- CONTRIBUTING.md\n- compatibility/documentation-sources.json\n- docs/public/support-matrix.md\n\n### Commits\n\n- e1a9948\n- 4ae0072\n\n### Dependencies\n\n- `grok-gadgets#LAUNCH-001` (resolve after issue creation)\n"
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/LAUNCH-DOCS-001 -->\n\nLocal ID: `LAUNCH-DOCS-001`\n\nStatus: **done**\n\nMeet exact launch-plan stage acceptance; public activation remains separately gated\n\n### Acceptance\n\n- Stage acceptance and named deliverables in docs/github-launch-plan.md\n- Tested incremental source commits and exact evidence\n- No public activation or unsupported evidence claims\n\n### Evidence\n\n- README.md\n- CONTRIBUTING.md\n- compatibility/documentation-sources.json\n- docs/public/support-matrix.md\n- docs/verification/launch-journal.md \u2014 5 October fresh audit: narrow-screen documentation table correction; 15 website tests and 59 pages/1632 project-prefix links pass; actual 390px browser table scroll verified\n\n### Commits\n\n- e1a9948\n- 4ae0072\n\n### Dependencies\n\n- `grok-gadgets#LAUNCH-001` (resolve after issue creation)\n"
     },
     {
       "repository": "grok-gadgets",
@@ -2967,5 +2968,5 @@
     "ready": true,
     "errors": []
   },
-  "prepared_at_utc": "2026-10-04T21:24:14.630341+00:00"
+  "prepared_at_utc": "2026-10-05T02:28:02.743058+00:00"
 }

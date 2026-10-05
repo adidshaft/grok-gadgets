@@ -24,5 +24,6 @@ Evidence:
 - CONTRIBUTING.md
 - compatibility/documentation-sources.json
 - docs/public/support-matrix.md
+- docs/verification/launch-journal.md — 5 October fresh audit: narrow-screen documentation table correction; 15 website tests and 59 pages/1632 project-prefix links pass; actual 390px browser table scroll verified
 
 Blocker: None
