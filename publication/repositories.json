@@ -3,7 +3,7 @@
   "activated": true,
   "naming": "Current names retained by owner for first public source publication",
   "private_contact": "adidshaft@kyokasuigetsu.xyz",
-  "pages_url": "https://adidshaft.github.io/grok-gadgets/",
+  "pages_url": "https://grok-gadgets.pages.dev/",
   "repositories": [
     {
       "name": "grok-gadgets",
@@ -33,11 +33,11 @@
         "home-automation",
         "developer-tools"
       ],
-      "homepage": "https://adidshaft.github.io/grok-gadgets/",
+      "homepage": "https://grok-gadgets.pages.dev/",
       "private_vulnerability_reporting": "enabled and verified",
       "github_id": 1405061808,
       "initial_source_commit": "0738438d376c7e5b3546a70388b8ad9aa76d86d7",
-      "homepage_status": "Pending separate Pages deployment; no live homepage configured"
+      "homepage_status": "Live Cloudflare Pages homepage; URL and HTTPS verified 5 October 2026"
     },
     {
       "name": "grok-gadgets-gateway",
@@ -67,11 +67,11 @@
         "simulator",
         "serial"
       ],
-      "homepage": "https://adidshaft.github.io/grok-gadgets/doc-docs-components-grok-gadgets-gateway-README.html",
+      "homepage": "https://grok-gadgets.pages.dev/",
       "private_vulnerability_reporting": "enabled and verified",
       "github_id": 1405061866,
       "initial_source_commit": "6c66a109084dc8480fdd49636dab2254d7e3d82e",
-      "homepage_status": "Pending separate Pages deployment; no live homepage configured"
+      "homepage_status": "Live Cloudflare Pages homepage; URL and HTTPS verified 5 October 2026"
     },
     {
       "name": "grok-gadgets-linux-sdk",
@@ -101,11 +101,11 @@
         "iot",
         "sdk"
       ],
-      "homepage": "https://adidshaft.github.io/grok-gadgets/linux.html",
+      "homepage": "https://grok-gadgets.pages.dev/",
       "private_vulnerability_reporting": "enabled and verified",
       "github_id": 1405061925,
       "initial_source_commit": "b0e5f4bb407f4d4419673d4c1a5d540f68511c23",
-      "homepage_status": "Pending separate Pages deployment; no live homepage configured"
+      "homepage_status": "Live Cloudflare Pages homepage; URL and HTTPS verified 5 October 2026"
     },
     {
       "name": "grok-gadgets-esp32-sdk",
@@ -135,11 +135,11 @@
         "m5stack",
         "sdk"
       ],
-      "homepage": "https://adidshaft.github.io/grok-gadgets/esp32.html",
+      "homepage": "https://grok-gadgets.pages.dev/",
       "private_vulnerability_reporting": "enabled and verified",
       "github_id": 1405062015,
       "initial_source_commit": "ef04fa0405ea4820de6430578684959f6e6dd8d8",
-      "homepage_status": "Pending separate Pages deployment; no live homepage configured"
+      "homepage_status": "Live Cloudflare Pages homepage; URL and HTTPS verified 5 October 2026"
     },
     {
       "name": "grok-gadgets-home-assistant",
@@ -168,13 +168,27 @@
         "home-automation",
         "python"
       ],
-      "homepage": "https://adidshaft.github.io/grok-gadgets/home-assistant.html",
+      "homepage": "https://grok-gadgets.pages.dev/",
       "private_vulnerability_reporting": "enabled and verified",
       "github_id": 1405062066,
       "initial_source_commit": "6afac04e39ca5cf16af9c4bfd3d9a12f6844386a",
-      "homepage_status": "Pending separate Pages deployment; no live homepage configured"
+      "homepage_status": "Live Cloudflare Pages homepage; URL and HTTPS verified 5 October 2026"
     }
   ],
   "activated_at": "2026-10-05T03:24:29.323606+00:00",
-  "pages_deployed": false
+  "pages_deployed": true,
+  "pages_deployment_commit": "925d4b6e362f30202d1072ebfecd9d52fc49637e",
+  "pages_deployment_id": "589fab44-972e-47d6-a02b-05cf12a0576c",
+  "pages_deployed_at": "2026-10-05T04:48:49.119047Z",
+  "pages_verification": {
+    "canonical_url": "https://grok-gadgets.pages.dev/",
+    "verified_at": "2026-10-05T04:51:14Z",
+    "https_routes": [
+      "/",
+      "/start",
+      "/architecture",
+      "/activity"
+    ],
+    "simulator_kit_sha256": "47f58e94ea6e3c8b6fd3acec1bd0fb4cc84597c3c8d7e28ac49b2bad08c3e894"
+  }
 }
