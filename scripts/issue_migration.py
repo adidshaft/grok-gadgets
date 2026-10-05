@@ -1,7 +1,4 @@
-"""Durable local issue preparation and an injected fixture-only migration engine.
-
-No credentials, network client, GitHub adapter or remote execution entry point exists here.
-"""
+"""Durable issue preparation and a mode-aware, injected migration engine."""
 
 import copy
 from datetime import datetime, timezone
@@ -339,20 +336,33 @@ def prepare(root, existing=None, *, owner=OWNER):
     return result
 
 
-class FixtureMigrator:
-    """In-memory/fake API only: no shipped live adapter or executable migration command.
+def matches_payload(issue, payload):
+    """GitHub label order is not part of the desired issue state."""
+    for field, value in payload.items():
+        actual = issue.get(field)
+        if field == "labels":
+            if not isinstance(actual, list) or set(actual) != set(value):
+                return False
+        elif actual != value:
+            return False
+    return True
+
+
+class MigrationRunner:
+    """Reconcile an injected API and save every accepted identity durably.
 
     The injected API implements list/create_label, list/create_milestone, find_issues
     (complete marker matches), get/create/update_issue. Checkpoint must durably save a
     full plan after each accepted mapping and phase. Unknown source rows are read-only.
     """
 
-    def __init__(self, api, checkpoint):
+    def __init__(self, api, checkpoint, *, fixture_only=True):
         self.api = api
         self.checkpoint = checkpoint
+        self.fixture_only = fixture_only
 
     def save(self, plan, phase):
-        plan["fixture_phase"] = phase
+        plan["fixture_phase" if self.fixture_only else "migration_phase"] = phase
         self.checkpoint(copy.deepcopy(plan))
 
     def checked_issue(self, row, issue):
@@ -360,9 +370,9 @@ class FixtureMigrator:
             raise MigrationError("Stale mapping points at an unrelated issue")
         number = issue.get("number")
         if type(number) is not int or number <= 0:
-            raise MigrationError("API fixture returned an invalid issue number")
+            raise MigrationError("API returned an invalid issue number")
         if issue.get("url") != github_url(row["owner"], row["repository"], number):
-            raise MigrationError("API fixture returned the wrong repository URL")
+            raise MigrationError("API returned the wrong repository URL")
         return issue
 
     def reconcile(self, row):
@@ -391,9 +401,14 @@ class FixtureMigrator:
 
     def run(self, plan):
         plan = copy.deepcopy(plan)
+        if not self.fixture_only:
+            plan.pop("fixture_phase", None)
+            plan.update(
+                fixture_only=False, mode="github apply", migration_complete=False
+            )
         if not plan.get("validation", {}).get("ready"):
             raise MigrationError(
-                "Manifest/dependency validation must pass before fixture migration"
+                "Manifest/dependency validation must pass before migration"
             )
         plan["records"] = [
             normalize_record(row, plan["owner"]) for row in plan["records"]
@@ -403,14 +418,14 @@ class FixtureMigrator:
             "ready"
         ]:
             raise MigrationError(
-                "Current manifest validation must pass before fixture migration"
+                "Current manifest validation must pass before migration"
             )
         for row in plan["records"]:
             if row.get("source_present"):
                 render_body(row, plan["records"])
         selected = [r for r in plan["records"] if r.get("source_present")]
         milestones = {m["id"]: m for m in plan["milestones"]}
-        # Reconcile EVERY existing mapping before issuing a fake write; collisions fail closed.
+        # Reconcile EVERY existing mapping before a write; collisions fail closed.
         discovered = {}
         for row in plan["records"]:
             if row.get("source_present") or row["github_number"] is not None:
@@ -489,7 +504,7 @@ class FixtureMigrator:
                 "labels": row["record"]["labels"],
                 "milestone": milestones[row["record"]["milestone"]]["title"],
             }
-            if any(issue.get(field) != value for field, value in payload.items()):
+            if not matches_payload(issue, payload):
                 self.api.update_issue(
                     row["owner"], row["repository"], row["github_number"], payload
                 )
@@ -511,10 +526,14 @@ class FixtureMigrator:
                         "labels": row["record"]["labels"],
                         "milestone": milestones[row["record"]["milestone"]]["title"],
                     }
-                    if any(
-                        issue.get(field) != value for field, value in expected.items()
-                    ):
-                        raise MigrationError("Mapped fixture issue verification failed")
-        plan.update(migration_complete=True, fixture_only=True)
+                    if not matches_payload(issue, expected):
+                        raise MigrationError("Mapped issue verification failed")
+        plan.update(migration_complete=True, fixture_only=self.fixture_only)
+        if not self.fixture_only:
+            plan["activated"] = True
         self.save(plan, "verified")
         return plan
+
+
+# Existing fixture tests/callers retain their default, explicitly marked fixture mode.
+FixtureMigrator = MigrationRunner

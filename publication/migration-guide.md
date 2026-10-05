@@ -28,7 +28,7 @@ Issue bodies contain `<!-- grok-gadgets-local-id:adidshaft/repository/local-id -
 .venv/bin/python -m unittest discover -s scripts -p test_issue_migration.py -v
 ```
 
-`FixtureMigrator` accepts only an injected test API and checkpoint callback. No live API adapter, credential handling, migration CLI, or remote execution is supplied. Its fake interface expects complete issue-marker matches and label/milestone lists, including closed historical resources. It follows this order:
+`FixtureMigrator` remains a compatibility alias for `MigrationRunner` with fixture mode enabled by default. The injected interface expects complete issue-marker matches and label/milestone lists, including closed historical resources. It follows this order:
 
 1. Validate manifests and mapping collisions, and reconcile every mapped issue before fake writes. A stale number pointing at an unrelated issue blocks all writes. Multiple marker matches require review.
 2. Create missing labels and each required milestone before attaching them to issues.
@@ -38,4 +38,32 @@ Issue bodies contain `<!-- grok-gadgets-local-id:adidshaft/repository/local-id -
 
 A missing mapped issue without a marker match requires review rather than silently recreating deleted history. A stale number with one correct marker match may be repaired, retaining its prior mapping in `mapping_history`. Failures propagate; resume from the latest durable checkpoint. Re-running an unchanged successful fixture creates no duplicate issues or prerequisite resources and performs no redundant issue updates.
 
-Public activation requires separate approval, a reviewed live adapter, complete remote reconciliation/readback, and the repository/project permissions described in the launch plan. After approved migration, GitHub Issues/Project become the authoritative status source; local ledgers become generated snapshots with the durable IDs retained. This local dry-run does not establish that transition or create the planned Project.
+## Explicit GitHub migration
+
+Use the sanitized public checkout on macOS or Linux with Python and the existing authenticated GitHub CLI. Preview performs no GitHub calls, writes no files, and refreshes the plan in memory against all five current ledgers:
+
+```sh
+.venv/bin/python scripts/migrate-github-issues.py
+```
+
+Once source publication and issue population are authorized, apply with the same durable mapping file:
+
+```sh
+.venv/bin/python scripts/migrate-github-issues.py --owner adidshaft --apply
+```
+
+`--plan <checkpoint.json>` chooses another existing mapping checkpoint; the canonical default is `publication/issue-migration.json`. The command reloads it under a local apply lock, preserves retained rows and extensions, validates current manifests/dependencies and every target, then checks that `gh` authenticates as `adidshaft` and all five repositories have issues enabled and write permissions. It cannot target another owner/repository. Preview never constructs the API adapter. Writes require both explicit `--apply` and successful preflight.
+
+`github_issue_api.py` uses `gh api` against `github.com`, JSON on standard input, pinned REST version `2022-11-28`, and bounded paginated inventories. It reads open and closed issues/milestones, excludes pull requests, verifies HTML issue URLs, resolves milestone titles to remote numbers, and compares labels independent of response order. Stable markers must be exactly the first body line, once only; duplicate or misplaced markers block migration. API stderr, response bodies and credentials are not printed or written into reports. Request uncertainty stops without an automatic mutation retry.
+
+Each apply run saves the previous full mapping and numbered checkpoints under ignored `artifacts/issue-migration/apply-<run-id>/`. Every accepted identity is saved before the next issue and before dependency links/closed states. The canonical mapping is atomically replaced after each checkpoint. If a response or checkpoint is lost, rerun the same command: remote markers recover accepted issues before any new create. Existing unrelated/stale/ambiguous mappings, unknown API responses or incomplete pagination block writes. Retained rows absent from ledgers are verified without modification. Do not run migrations concurrently from separate workspaces.
+
+Run the offline adapter/entry-point regressions with:
+
+```sh
+.venv/bin/python -m unittest discover -s scripts -p 'test*issue*.py' -v
+```
+
+Success records `migration_complete: true`, `fixture_only: false`, `activated: true` and `migration_phase: verified`, after readback of all mapped issues. This completes repository issue migration, not the separately scoped GitHub Project. Preserve the local mapping after activation; switch status ownership to GitHub Issues/Project only when their live setup and snapshot/export workflow have been verified. Do not continue writing conflicting independent local status.
+
+API behavior: [GitHub issues REST API](https://docs.github.com/en/rest/issues/issues), [supported API versions](https://docs.github.com/en/rest/about-the-rest-api/api-versions), and [GitHub CLI API](https://cli.github.com/manual/gh_api).
