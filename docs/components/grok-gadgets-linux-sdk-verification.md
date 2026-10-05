@@ -1,4 +1,4 @@
-Source: grok-gadgets-linux-sdk/docs/verification.md at 8a0cb488fa224e404298fd99b61fbe38e1632580
+Source: grok-gadgets-linux-sdk/docs/verification.md at 1244c3e2ce3de48763d0c9089b778d8133802127
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 

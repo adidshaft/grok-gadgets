@@ -1,9 +1,19 @@
 # Governance
 
-The initial maintainer is [@adidshaft](https://github.com/adidshaft). The maintainer reviews releases, compatibility pins, security reports and project direction. Proposals use a scoped issue describing the problem, evidence and tradeoffs. Protocol changes need coordination with both SDKs; small typo fixes can go directly to a PR.
+[@adidshaft](https://github.com/adidshaft) is the initial maintainer. The maintainer reviews releases, compatibility pins, security reports and project direction.
 
-Decisions and their reasons are recorded in source or the linked issue. Technical disagreements should be resolved using repeatable evidence; unresolved scope decisions belong to the maintainer. Conduct concerns follow the private [appeal path](CODE_OF_CONDUCT.md). There is no invented committee or automatic contributor-to-maintainer promotion.
+## Propose a change
 
-Additional maintainers can join after sustained reviewed work and an explicit public invitation/acceptance defining responsibilities. Documentation, tests and software/hardware verification all count. Changes are reviewed and credited in Git history and release notes. Original contributions use Apache-2.0; there is no additional CLA or sign-off requirement. AI assistance does not transfer responsibility for correctness or test claims.
+Open an issue that states the problem, evidence and tradeoffs. Coordinate protocol changes with both SDKs. Small typo fixes can go directly to a pull request (PR).
 
-The owner retained the current project and repository names for public source publication. Future branding changes remain an explicit project decision. See [roadmap](ROADMAP.md).
+Record decisions and reasons in the source or linked issue. Use repeatable evidence to resolve technical disagreements. The maintainer decides unresolved scope questions. Use the private [appeal path](CODE_OF_CONDUCT.md) for conduct concerns.
+
+## Become a maintainer
+
+Additional maintainers can join after sustained, reviewed contributions. The invitation and acceptance must be public and must define responsibilities. Documentation, tests and software or hardware verification all count. Contributor status does not automatically grant maintainer access.
+
+## Contribution terms
+
+Changes receive review and credit in Git history and release notes. Original contributions use Apache-2.0. No additional contributor license agreement (CLA) or sign-off is required. Contributors remain responsible for AI-assisted code and test claims.
+
+The owner retained the current project and repository names for public source publication. Future branding changes require an explicit project decision. See the [roadmap](ROADMAP.md).

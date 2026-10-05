@@ -1,5 +1,19 @@
 # Get help
 
-For usage questions, use [r/GrokGadgets](https://www.reddit.com/r/GrokGadgets/) or hub Discussions after activation. For actionable defects, use the relevant repository bug form with a version/commit, host/runtime, steps and redacted expected/actual results. Planned issue chooser: https://github.com/adidshaft/grok-gadgets/issues/new/choose (activates after publication).
+Start with the [simulator guide](docs/getting-started/simulator-kit.md). Use [r/GrokGadgets](https://www.reddit.com/r/GrokGadgets/) for questions. GitHub Discussions is not an active support channel unless separately enabled.
 
-Never post device tokens, account screenshots, household addresses or personal mappings. [Security reports](SECURITY.md) and [conduct reports](CODE_OF_CONDUCT.md) go privately to adidshaft@kyokasuigetsu.xyz. We provide volunteer alpha support without an SLA. Start with [simulator setup](docs/getting-started/simulator-kit.md) and [the contribution guide](CONTRIBUTING.md).
+For a defect, open a bug report in the repository that owns the code. Use the [hub issue chooser](https://github.com/adidshaft/grok-gadgets/issues/new/choose) if you do not know which repository to use.
+
+Include:
+
+- The version or commit.
+- Your operating system and runtime version.
+- The steps to reproduce the problem.
+- The expected result and actual result.
+- Logs with private information removed.
+
+Do not post device tokens, private account screenshots, household addresses or account-linking records.
+
+Send [security reports](SECURITY.md) and private [conduct reports](CODE_OF_CONDUCT.md) to adidshaft@kyokasuigetsu.xyz. Support is provided by volunteers. We do not promise a response time.
+
+To help others, read the [contribution guide](CONTRIBUTING.md).
