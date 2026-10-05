@@ -64,14 +64,18 @@ async def demo(path):
                 command["status"] == "executed"
                 and command["simulated"]
                 and not command["physical_verified"]
+                and command.get("duplicate") is False
             )
             assert command["reported_state"]["rgb"] == request["arguments"]
             assert (await call("gadgets_get_state", {"device_id": device_id}))[
                 "device"
             ]["state"]["rgb"] == request["arguments"]
+            receipt = {
+                key: value for key, value in command.items() if key != "duplicate"
+            }
             assert (await call("gadgets_command_status", {"command_id": "kit-blue"}))[
                 "command"
-            ] == command
+            ] == receipt
             for pressed in (True, False):
                 await call(
                     "test_simulator_control", {"action": "button", "pressed": pressed}
