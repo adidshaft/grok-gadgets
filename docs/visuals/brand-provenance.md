@@ -11,3 +11,7 @@ Official Grok and SpaceXAI reference marks have separate origin/checksum records
 `project-banner.png` is an unchanged copy of the user-supplied `banner-wide-master.png`. It includes the original project logo and name. SHA-256: `cfd861189767d4b8e970ff6dc24089467254e3d2047cb168569087fcc5e3a32c`. It was visually reviewed before publication. No source artwork archive or generation metadata is included.
 
 The four `badge-*.svg` files are original project navigation graphics. They use static labels and do not claim live counts or passing CI. Their links lead to the relevant status, license, checks and contribution pages.
+
+## Website share preview
+
+`website/media/grok-gadgets-share-v1.png` is a 1200×630 conceptual architecture illustration for Open Graph and X/Twitter cards. Its technical drawing background was generated for this project and composed with the unchanged project mark and official Grok mark; source checksums are in `website/media/provenance.json`. It labels Grok Bot, Grok Gadgets tools and maker hardware as an intended architecture, not a verified connection. The card states the project is open source and not affiliated with xAI or SpaceXAI.
