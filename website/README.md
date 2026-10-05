@@ -1,14 +1,14 @@
 # Static website
 
-Create the hub environment with `uv venv .venv --python 3.13` and `uv pip install --python .venv/bin/python -r website/requirements.txt`. Run `.venv/bin/python website/build.py` from the hub, then `python3 -m http.server 4173 --bind 127.0.0.1 --directory website/dist`. Open http://127.0.0.1:4173. The free public host is Cloudflare Pages at `https://grok-gadgets.pages.dev/`; HTTPS and key routes were verified on 5 October 2026. The project doesn't own a custom domain.
+From the hub, run `python3 scripts/dev.py setup`, then `python3 scripts/dev.py site`. Open http://127.0.0.1:4173. The public site is at `https://grok-gadgets.pages.dev/`. These commands build a local preview; they do not deploy it.
 
-Pinned markdown-it-py renders safe canonical docs and the issue-ledger roadmap. The homepage presents one short pitch and a large continuous SVG architecture scene. Tap or keyboard-select a node for a concise explanation and documentation link. LED and Button views reveal only their relevant simulated controls. Menu opens the documentation, roadmap and community paths; Escape returns focus to its trigger. Below the scene, ten native disclosure entries list every SDK, connection and project tool. Each opens a short description, verification state, docs links and relevant commands; they remain interactive without JavaScript. No framework, remote font or animation library is required.
+Pinned markdown-it-py renders safe canonical docs and the issue-ledger roadmap. The homepage names Grok Bot, shows a local alpha status, and links directly to the virtual-light controls and three builder paths. Its conceptual route story runs one short pass and holds; Replay restarts the story without resetting simulator state. The separate Project components page holds the ten-item inventory. Documentation exposes simulator, ESP32, Linux/Raspberry Pi and Home Assistant paths directly. Menu opens the docs, roadmap and community paths; Escape returns focus to its trigger. No framework, remote font or animation library is required.
 
 Original community artwork is copied from the user-approved local brand package. Official Grok and SpaceXAI marks are unchanged product/company references, separate from the community identity. See media/provenance.json and THIRD_PARTY_NOTICES.md for source hashes and trademark conditions. These official assets are not Apache-2.0 licensed project artwork.
 
 Design reference inspected 4 October 2026: https://paradigm.xyz — open composition and broad geometric motion. The projected device architecture and implementation are original. Motion advances at approximately 30 redraws/second and stops when hidden, outside the viewport, explicitly paused, or while the menu is open. OS reduced-motion preference defaults to a static scene; interactions still work. Native buttons, visible focus indicators and a keyboard skip link are included.
 
-The illustration makes no network or hardware requests. Simulated LED/button/disconnect reports do not establish Grok connectivity or physical verification. Both gates remain explicitly pending on the homepage.
+The illustration makes no network or hardware requests. Its routes are conceptual. Simulated LED/button/disconnect reports do not establish Grok connectivity or physical verification. Both gates remain explicitly pending on the homepage. The Bot mark is a redraw based on the reference supplied by the project owner; it is not an official asset provenance claim.
 
 The deployment workflow refreshes public repository activity. Local `python3 website/activity.py` makes no live request by default. `--live --owner OWNER` writes timestamped JSON and can use a server-side GITHUB_TOKEN. To test synthetic data, run `GROK_ACTIVITY_FILE=website/activity-fixture.json .venv/bin/python website/build.py`. Without that override, the build uses the configured public snapshot. Counts and release text are validated and escaped.
 
@@ -19,6 +19,8 @@ Public documents are explicitly selected in website/documents.json. Host logs, r
 A live cache is fresh for less than one hour (the refresh throttle). Builds classify older live records as cached even if a refresh never ran; future timestamps and incomplete/corrupt records become unavailable. Failed refreshes atomically persist the same validated cached/unavailable result they report.
 
 ## Hosting and refreshes
+
+This section describes static website hosting. It does not describe a gadget gateway service. The site runs no MCP endpoint or device tunnel. See the canonical [hosting and remote access FAQ](../docs/getting-started/hosting.md) for gateway operators, tunnel ownership and future product hosting choices.
 
 The hub repository is the website source. `.github/workflows/pages.yml` deploys via Cloudflare Pages Direct Upload only after the exact main commit passes both `Hub checks` and `Integrated acceptance`. The build validates the complete GitHub issue snapshot, the bounded cross-repository activity data, all website tests, the project-root/deep-link check and the simulator kit before upload. The Cloudflare Pages token is held by the protected `cloudflare-pages-production` GitHub environment and is visible only to the final deploy job.
 

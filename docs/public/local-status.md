@@ -1,25 +1,25 @@
-# Local release status
+# Local software and service status
 
-Grok Gadgets is an unpublished local alpha exclusively for the existing Grok Bot. All six local audit corrections and independent agent source review pass. The unpublished local package passes independent agent certification. A dedicated Grok Bot computer has the tested simulator kit and browser-exported configuration installed. Direct terminal observation confirms the configuration checksum and installed package version; this does not prove native Grok tool invocation. Inspectable native invocation evidence and physical verification remain pending.
+Grok Gadgets is an alpha for your existing Grok Bot. The public site provides docs and a browser simulator. The local gateway provides stdio MCP and authenticated HTTP MCP through `serve`. No Grok Bot connection or physical hardware operation is verified. See the [tested component versions](../../compatibility/tested-components.json) for the current local software evidence.
 
 | Component | Local evidence | Still pending |
 | --- | --- | --- |
-| Gateway and simulator | Official MCP client, authenticated loopback and simulation tests | Native invocation receipts and scoped connector reload |
+| Gateway and simulator | Official MCP client, authenticated loopback and simulation tests | Supported remote route and actual Grok Bot execution evidence |
 | Linux SDK | Installed-wheel acceptance on macOS and an isolated Linux container | Physical peripherals and systemd lifecycle |
 | ESP32 SDK / AtomS3 Lite C124 | Host consumer tests and ESP32-S3 compilation | Physical USB, LED/button and flashing |
-| Home Assistant | Fixtures and local MCP transport checks | Actual home installation and Grok |
-| Website and community | Static site, fixtures and offline recognition | Publication and community activation |
+| Home Assistant | Fixtures and local MCP transport checks | Actual home installation and Grok Bot |
+| Website and community | Public static site, fixtures and offline recognition | Release uploads, a hosted gateway and automatic recognition |
 
 ## Run locally
 
-Choose a workspace containing the five sibling repositories. From the hub, create the pinned website environment before building:
+From the hub, run:
 
 ```sh
-uv venv .venv --python 3.13
-uv pip install --python .venv/bin/python -r website/requirements.txt
-.venv/bin/python website/build.py
-python3 -m http.server 4173 --bind 127.0.0.1 --directory website/dist
+python3 scripts/dev.py setup
+python3 scripts/dev.py site
 ```
+
+Open `http://127.0.0.1:4173`. You do not need the sibling repositories to build the website.
 
 Run the gateway's assertion-backed simulator demo:
 
@@ -33,6 +33,8 @@ These operations prove software behavior. They do not prove physical effects or 
 
 ## Remaining gates
 
-The Grok Bot needs a supported authenticated route to the self-hosted gateway. The current loopback-only device listener and local stdio test process are not a hosted HTTPS/OAuth service. A cloud command cannot execute a private path on a user's computer. Inspectable Grok invocation evidence, mobile clients, C124 hardware, actual Home Assistant devices and independent human reproduction remain separate checks.
+The Grok Bot needs a supported authenticated route to the gateway for local gadgets. Local HTTP MCP is implemented with a bearer token. Public TLS, OAuth and a hosted service are not supplied. An operator route to Grok Bot remains unverified. A tunnel supplies reachability, not authorization. A cloud command cannot execute a private path on a user's computer. See the [hosting FAQ](../getting-started/hosting.md) for operator responsibilities and future hosting choices.
 
-Public repositories, release uploads, hosted CI, deployment, Reddit changes and live recognition require separate approval. Firmware binary redistribution needs dependency/license review. No account or device action is implied by these local instructions.
+Local software acceptance, native Grok invocation, remote security and physical verification are separate checks. Mobile clients, actual Home Assistant devices and independent human reproduction need their own evidence.
+
+The public website does not run the gateway or a tunnel. Future service deployment, release uploads and live recognition require their own approval. Firmware binary redistribution needs dependency/license review. These local instructions do not activate an account or device.

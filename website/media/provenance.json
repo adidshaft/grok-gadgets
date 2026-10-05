@@ -29,6 +29,11 @@
       "origin": "User-supplied AI-generated original community artwork"
     },
     {
+      "file": "grok-bot-mark.svg",
+      "sha256": "ea35da677934e2ac77300280b37d4a851cdfb64072d5d52f9303d7ed0dfaae4b",
+      "origin": "Original vector redraw based on the user-supplied Grok Bot round-face reference; not represented as an official downloadable asset."
+    },
+    {
       "file": "grok-mark.svg",
       "sha256": "a127a7cd42b0450f7d3827a331b0730aab49fd99c3fe920d172475b9ffc83992",
       "origin": "Official downloadable SpaceXAI_Grok_Assets.zip; bytes unchanged"
