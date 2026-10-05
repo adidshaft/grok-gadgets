@@ -6,4 +6,4 @@ Decisions and their reasons are recorded in source or the linked issue. Technica
 
 Additional maintainers can join after sustained reviewed work and an explicit public invitation/acceptance defining responsibilities. Documentation, tests and software/hardware verification all count. Changes are reviewed and credited in Git history and release notes. Original contributions use Apache-2.0; there is no additional CLA or sign-off requirement. AI assistance does not transfer responsibility for correctness or test claims.
 
-Naming is deferred. The current project and repository names are retained; public activation and any trademark/asset disposition require the reviewed publication decision. See [roadmap](ROADMAP.md).
+The owner retained the current project and repository names for public source publication. Future branding changes remain an explicit project decision. See [roadmap](ROADMAP.md).

@@ -1,0 +1,14 @@
+{
+  "state": "live",
+  "owner": "adidshaft",
+  "last_successful_refresh": "2026-10-05T03:43:46.938310+00:00",
+  "data": {
+    "aggregate_stars": 0,
+    "aggregate_stars_definition": "Sum of repository stars; not unique people",
+    "open_issues": 17,
+    "contributors": 1,
+    "active_contributors": 0,
+    "active_definition": "Non-bot contributors with an eligible merged PR in the previous 90 days",
+    "releases": []
+  }
+}

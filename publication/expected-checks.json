@@ -1,6 +1,6 @@
 {
-  "activated": false,
-  "status": "Expected job contexts; verify actual hosted names and originating GitHub Actions app IDs before activation",
+  "activated": true,
+  "status": "All five main rulesets activated against observed GitHub Actions app15368 contexts; hub uses successful CI-repair branch proof before its protected publication merge",
   "repositories": {
     "grok-gadgets": [
       "checks",
@@ -19,5 +19,9 @@
     "grok-gadgets-home-assistant": [
       "home-assistant-checks"
     ]
+  },
+  "originating_app": {
+    "id": 15368,
+    "slug": "github-actions"
   }
 }

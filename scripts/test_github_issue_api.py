@@ -22,6 +22,19 @@ cli = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(cli)
 
 
+class FakeClock:
+    def __init__(self):
+        self.now = 0.0
+        self.sleeps = []
+
+    def monotonic(self):
+        return self.now
+
+    def sleep(self, delay):
+        self.sleeps.append(delay)
+        self.now += delay
+
+
 class FakeGH:
     def __init__(self):
         self.calls = []
@@ -174,7 +187,13 @@ class GitHubIssueAPITests(unittest.TestCase):
         self.path = self.root / "publication/issue-migration.json"
         migration.atomic_json(self.path, self.plan)
         self.server = FakeGH()
-        self.api = GitHubIssueAPI(allow_writes=True, request_runner=self.server)
+        self.clock = FakeClock()
+        self.api = GitHubIssueAPI(
+            allow_writes=True,
+            request_runner=self.server,
+            clock=self.clock.monotonic,
+            sleeper=self.clock.sleep,
+        )
         self.api.verify_targets()
         self.saved = []
 
@@ -218,6 +237,71 @@ class GitHubIssueAPITests(unittest.TestCase):
             if call[0] == "POST" and call[1].endswith("/issues")
         ]
         self.assertEqual(len(creates), 5)
+
+    def test_mutation_pacing_leaves_first_write_and_reads_immediate(self):
+        starts = []
+
+        def transport(command, **kwargs):
+            method = command[command.index("--method") + 1]
+            starts.append((method, self.clock.monotonic()))
+            return FakeGH.response({})
+
+        self.api.request_runner = transport
+        collection = "repos/adidshaft/grok-gadgets/labels"
+        self.api.request("user")
+        self.api.request(collection, method="POST", payload={})
+        self.assertEqual(self.clock.sleeps, [])
+        self.clock.now += 0.3
+        self.api.request("user")
+        self.assertEqual(self.clock.sleeps, [])
+        self.api.request(collection, method="POST", payload={})
+        self.api.request(
+            "repos/adidshaft/grok-gadgets/issues/1", method="PATCH", payload={}
+        )
+        self.clock.now += 1.5
+        self.api.request(collection, method="POST", payload={})
+        self.assertEqual(
+            [method for method, _ in starts],
+            ["GET", "POST", "GET", "POST", "PATCH", "POST"],
+        )
+        for actual, expected in zip(
+            [started for _, started in starts], [0.0, 0.0, 0.3, 1.05, 2.1, 3.6]
+        ):
+            self.assertAlmostEqual(actual, expected)
+        self.assertEqual(len(self.clock.sleeps), 2)
+        self.assertAlmostEqual(self.clock.sleeps[0], 0.75)
+        self.assertAlmostEqual(self.clock.sleeps[1], 1.05)
+
+    def test_failed_mutations_are_not_retried_and_still_count_for_pacing(self):
+        for failure in (429, 503, "timeout"):
+            with self.subTest(failure=failure):
+                clock = FakeClock()
+                starts = []
+
+                def transport(command, **kwargs):
+                    starts.append(clock.monotonic())
+                    if len(starts) == 1:
+                        if failure == "timeout":
+                            raise subprocess.TimeoutExpired(command, 60)
+                        return FakeGH.response({}, failure)
+                    return FakeGH.response({})
+
+                api = GitHubIssueAPI(
+                    allow_writes=True,
+                    request_runner=transport,
+                    clock=clock.monotonic,
+                    sleeper=clock.sleep,
+                )
+                api.verified = True
+                collection = "repos/adidshaft/grok-gadgets/labels"
+                with self.assertRaises(migration.MigrationError):
+                    api.request(collection, method="POST", payload={})
+                self.assertEqual(starts, [0.0])
+                self.assertEqual(clock.sleeps, [])
+                # Only a caller's explicit next request may invoke transport again.
+                api.request(collection, method="POST", payload={})
+                self.assertEqual(starts, [0.0, 1.05])
+                self.assertEqual(clock.sleeps, [1.05])
 
     def test_pagination_includes_closed_issues_and_excludes_pull_requests(self):
         self.migrate()

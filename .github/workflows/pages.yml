@@ -64,6 +64,10 @@ jobs:
           for component in grok-gadgets-gateway grok-gadgets-linux-sdk grok-gadgets-home-assistant; do
             (cd "$component" && uv sync --locked --python 3.11 && uv build)
           done
+          # Locked sync alone does not populate pip resolver metadata for offline acceptance.
+          uv export --project grok-gadgets-gateway --frozen --offline --no-dev --no-emit-project --no-header --no-annotate --output-file "$RUNNER_TEMP/grok-onboarding-runtime.txt"
+          uv venv "$RUNNER_TEMP/grok-onboarding-cache" --python 3.11
+          uv pip install --python "$RUNNER_TEMP/grok-onboarding-cache/bin/python" --require-hashes -r "$RUNNER_TEMP/grok-onboarding-runtime.txt"
           python -m venv grok-gadgets-esp32-sdk/.venv
           grok-gadgets-esp32-sdk/.venv/bin/pip install -r grok-gadgets-esp32-sdk/requirements.lock
           (cd grok-gadgets-esp32-sdk && .venv/bin/pio pkg install)
