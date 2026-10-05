@@ -2,6 +2,8 @@
 
 Open-source tools and separate SDKs for connecting devices to Grok. Start with a virtual light, then build with Linux, ESP32 or Home Assistant.
 
+Documentation uses concise technical English inspired by ASD-STE100. See our [writing guide](docs/contributing/writing-guide.md); formal compliance is not claimed.
+
 **Experimental alpha.** Browser simulation and local MCP are tested. C124 firmware compiles. Inspectable native Grok invocation, mobile and physical-device acceptance remain open.
 
 ![Browser simulation exports a configuration for the tested MCP simulator; SDK and native Grok paths have separate evidence gates.](docs/visuals/project-overview.svg)
@@ -11,11 +13,13 @@ Open-source tools and separate SDKs for connecting devices to Grok. Start with a
 | Try without hardware | [Browser and simulator kit](docs/getting-started/simulator-kit.md) |
 | Develop a connection | [Gateway](https://github.com/adidshaft/grok-gadgets-gateway) |
 | Build a Linux application | [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk) |
-| Compile C124 firmware | [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk) |
+| Build an ESP32 gadget | [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk) |
 | Explore an existing home | [Home Assistant diagnostics](https://github.com/adidshaft/grok-gadgets-home-assistant) |
 | Help improve the alpha | [Ready issues](docs/contributing/ready-issues.md) and [contribution guide](CONTRIBUTING.md) |
 
-The five repositories above hold the source, documentation and contribution work. The website lives in this repository; use the local preview below while public website deployment remains pending. Package releases and firmware downloads have separate release gates.
+The [public website](https://grok-gadgets.pages.dev/) is live. Its source lives here. Package releases and firmware downloads have separate release gates.
+
+The ESP32 library is reusable; C124 is the first board example. Other boards need their own hardware handlers, build configuration and verification. See the [repository and device map](docs/architecture/overview.md).
 
 From this hub checkout, with Python 3.13, uv, Node.js 22+ and Git:
 
