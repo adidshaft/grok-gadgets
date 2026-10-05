@@ -1,7 +1,8 @@
-"""Rehearse links, deep pages and downloads at the GitHub Pages project prefix."""
+"""Rehearse links, deep pages and downloads at the public site URL."""
 
 import hashlib
 import json
+import os
 from pathlib import Path
 import sys
 from urllib.parse import unquote, urljoin, urlsplit
@@ -10,7 +11,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "website"))
 from documents import PageLinks  # noqa: E402
 
-BASE = "https://adidshaft.github.io/grok-gadgets/"
+BASE = os.environ.get(
+    "GROK_GADGETS_PUBLIC_SITE", "https://grok-gadgets.pages.dev/"
+).strip()
 
 
 def check(output, base=BASE):
@@ -64,7 +67,7 @@ def check(output, base=BASE):
         "pages": len(pages),
         "resolved_local_links": checked,
         "download_sha256": manifest["archive_sha256"],
-        "evidence": "local project-prefix rehearsal; public HTTPS deployment pending",
+        "evidence": "local URL-prefix rehearsal; verify live Cloudflare delivery after deployment",
     }
 
 
