@@ -8,11 +8,11 @@ Historical local-alpha completion predates six audit findings. The correction cy
 
 | Repository | Tested implementation commit | Observed evidence |
 | --- | --- | --- |
-| `<workspace>/grok-gadgets` | `72c9d6ed` | Hub checks,48-page link build,3activity tests,6recognition tests,desktop/narrow/keyboard/motion review |
-| `<workspace>/grok-gadgets-gateway` | `4cf42fff` | 13 tests; official stdio MCP demo; authenticated TCP/USB PTY |
-| `<workspace>/grok-gadgets-linux-sdk` | `256a07e2` | 15 tests macOS and Linux installed wheel/CLI; actual gateway TCP |
-| `<workspace>/grok-gadgets-esp32-sdk` | `585adda7` | 3 CTest suites; canonical frames; actual consumer PTY incl overflow/restart/revocation; ESP32-S3 compile |
-| `<workspace>/grok-gadgets-home-assistant` | `a8b2370b` | 13tests incl loopback HTTP official MCP client; clean wheel; no actions |
+| `<workspace>/grok-gadgets` | `9628eb5c` | Hub checks,48-page link build,3activity tests,6recognition tests,desktop/narrow/keyboard/motion review |
+| `<workspace>/grok-gadgets-gateway` | `46060230` | 13 tests; official stdio MCP demo; authenticated TCP/USB PTY |
+| `<workspace>/grok-gadgets-linux-sdk` | `1991aef2` | 15 tests macOS and Linux installed wheel/CLI; actual gateway TCP |
+| `<workspace>/grok-gadgets-esp32-sdk` | `3988061f` | 3 CTest suites; canonical frames; actual consumer PTY incl overflow/restart/revocation; ESP32-S3 compile |
+| `<workspace>/grok-gadgets-home-assistant` | `b06eb071` | 13tests incl loopback HTTP official MCP client; clean wheel; no actions |
 
 Full commit histories are in publication/commit-summary.md. All repositories have Apache-2.0 original code, contribution foundations, pinned toolchains/dependencies where needed, feature-branch commits and local issue records. Canonical shared policies live in hub. Component docs are pinned by commit/hash in compatibility/documentation-sources.json.
 
@@ -44,7 +44,7 @@ Coordinator reran gateway13, Linux15, HA13 tests plus ESP3CTest, schema/frame an
 
 ESP32 cross-compilation passed: RAM54,628bytes, program flash276,113bytes. Final firmware binary276,480bytes, SHA256 `de12327c4fdc7ef6a728c5841a81d844257012d558c71ecd4fe331c6708af709`. Path: `<workspace>/grok-gadgets-esp32-sdk/artifacts/c124-usb/firmware.bin`; ELF/bootloader/partition source provenance/checksums in manifest.json. Pins: RGBGPIO35; active-low buttonGPIO41. No electrical/USB-enumeration observation was made.
 
-Independent Astra review found an overflow reconnect loop, fixed in ESP74085a9. A20-edge host test reports16 ordered events and4lost, preserves session, then executes another command. Reviewer independently reran the integration and confirmed resolution. Explicit reduced motion now disables both animation and smooth scrolling. Screenshots: website-desktop.jpg, website-mobile.jpg.
+Independent Astra review found an overflow reconnect loop, fixed in ESP45b50a7. A20-edge host test reports16 ordered events and4lost, preserves session, then executes another command. Reviewer independently reran the integration and confirmed resolution. Explicit reduced motion now disables both animation and smooth scrolling. Screenshots: website-desktop.jpg, website-mobile.jpg.
 
 Gateway emitted one known third-party annotation warning on stderr; assertions pass. Component evidence details document this. No success claim is based only on printed PASS.
 

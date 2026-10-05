@@ -1,5 +1,7 @@
 # Dedicated Grok computer — exact-kit checkpoint
 
+> Historical account observation: the source IDs and archive hashes below identify the exact pre-publication artifacts used in that experiment. They are intentionally not rewritten to sanitized commit IDs and do not verify the new public kit.
+
 Run `grok-launch-20261005-a`, 5 October 2026 Asia/Kolkata, existing signed-in desktop Grok Bot and dedicated Grok Gadgets Test Bot. This is installation evidence, not native Grok tool acceptance.
 
 The actual website customization/export panel produced `my-light.json` via its visible JSON fallback after a download-event capture timed out. The 232-byte exported document has SHA256 `a0284decb0763d499201d8d9c989529b106552f2de62d2ed1ba2cdc5a750758f`: device `launch-light-a`, display `Launch light A`, RGB20/60/120, on, brightness100, delay25ms, initially connected.

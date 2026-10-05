@@ -1,5 +1,7 @@
 # Real Grok simulator experiment — reported results, receipt gate
 
+> Historical account observation: the source IDs and archive hashes below identify the exact pre-publication artifacts used in that experiment. They are intentionally not rewritten to sanitized commit IDs and do not verify the new public kit.
+
 User authorized the proposed existing-account simulator connection test on 4 October 2026. Scope: inspect current MCP availability, install the reviewed gateway in the Bot environment, configure the simulator connection and request the concrete tools/tests. No physical hardware, public repository, deployment, purchase, Reddit action or broad unrelated Bot operation is included. Earlier local H0–H7 goal remains complete; this is the separately authorized next experiment.
 
 Client: installed Grok Bot 0.61.0, bundle com.anysphere.sand. Native app is signed in. A blocking introduction requires designating a Primary Bot. User chose to create a new Bot. The Create Primary Bot flow created a new Primary Bot, renamed Grok Gadgets Test through its native name control. The startup briefly performed its built-in onboarding scan, then the explicit simulator-only prompt was sent and acknowledged: no other Bot messages/changes, Finance/trading, purchases, routines or sign-in. No unrelated Bot was selected for this test. The Bot reports Command MCP is available and the reviewed gateway is installed in its cloud environment. Local execution is Ask every time; security settings remain unchanged.
