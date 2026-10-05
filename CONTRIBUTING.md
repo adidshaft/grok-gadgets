@@ -41,6 +41,8 @@ PRs explain before/after behavior, scope, linked issue, commands/results, docs a
 
 @adidshaft reviews and merges; the policy uses zero mandatory human approvals while there is only one maintainer. A merge is a maintainer decision, not an automatic guarantee. No response SLA, CLA or reward promise is made. Original contributions are Apache-2.0; preserve notices and credit non-code work. Recognition is [opt-in](community/contribution-recognition.md); documentation/tests qualify, and account linking never follows from matching usernames.
 
+Maintainer merges must use a reviewed public identity. GitHub-created merges need an explicit public author email; local Git settings do not control them. If GitHub rejects that address, do not retry with a private email: prepare a local merge, check its identity and exact tree, run the required checks, and retain the normal branch protections. Contributors should choose an email they intend to make public, such as their own GitHub noreply address.
+
 Follow [conduct](CODE_OF_CONDUCT.md), [security](SECURITY.md), [governance](GOVERNANCE.md) and [support](SUPPORT.md). Security and conduct reports go privately to adidshaft@kyokasuigetsu.xyz; GitHub private vulnerability reporting is also enabled for security reports.
 
 ## Ignore rules and publication privacy
