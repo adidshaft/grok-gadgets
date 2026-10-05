@@ -126,7 +126,7 @@ article.document{max-width:900px;font-size:17px;line-height:1.7;}
 .document pre{max-width:100%;overflow:auto;padding:20px;background:#f5f5f5;font:14px/1.8 monospace;}
 .document pre code{padding:0;background:none;font-size:inherit;}
 .document table{display:block;max-width:100%;overflow:auto;border-collapse:collapse;font-size:14px;}
-.document th,.document td{padding:13px 16px;border:1px solid var(--line);text-align:left;}
+.document th,.document td{padding:13px 16px;border:1px solid var(--line);text-align:left;min-width:10rem;overflow-wrap:break-word;}
 .document th{background:#f5f5f5;}.document img{max-width:100%;height:auto;}
 .document-diagram{margin:30px 0;max-width:100%;overflow:auto;padding:20px 0;}
 .document-diagram svg{display:block;width:100%;min-width:720px;color:#444;}
