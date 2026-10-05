@@ -53,7 +53,8 @@ class LaunchTests(unittest.TestCase):
             workflow = yaml.load(file.read_text(), Loader=yaml.BaseLoader)
             self.assertEqual(workflow["permissions"], {"contents": "read"})
             self.assertNotIn("pull_request_target", workflow["on"])
-            self.assertNotIn("schedule", workflow["on"])
+            if file.name != "pages.yml":
+                self.assertNotIn("schedule", workflow["on"])
             for name, job in workflow["jobs"].items():
                 self.assertIn("timeout-minutes", job)
                 for step in job["steps"]:
@@ -64,22 +65,33 @@ class LaunchTests(unittest.TestCase):
                     self.assertEqual(sha, approved[repo])
                     if repo == "actions/checkout":
                         self.assertEqual(step["with"]["persist-credentials"], "false")
-                if name != "deploy":
-                    self.assertNotIn("pages", job.get("permissions", {}))
-                    self.assertNotIn("id-token", job.get("permissions", {}))
+                self.assertNotIn("pages", job.get("permissions", {}))
+                self.assertNotIn("id-token", job.get("permissions", {}))
         pages = yaml.load(
             (ROOT / ".github/workflows/pages.yml").read_text(), Loader=yaml.BaseLoader
         )
-        self.assertEqual(set(pages["on"]), {"workflow_dispatch"})
-        self.assertEqual(pages["jobs"]["deploy"]["needs"], "build")
         self.assertEqual(
-            pages["jobs"]["build"]["if"], "github.ref == 'refs/heads/main'"
+            set(pages["on"]), {"workflow_run", "schedule", "workflow_dispatch"}
         )
-        self.assertIn("scripts/check-all.py", str(pages["jobs"]["build"]["steps"]))
+        self.assertEqual(pages["on"]["workflow_run"]["workflows"], ["Integrated acceptance"])
+        self.assertEqual(pages["on"]["schedule"][0]["cron"], "17 6 * * *")
+        self.assertEqual(pages["jobs"]["deploy"]["needs"], "build")
+        self.assertIn("head_branch == 'main'", pages["jobs"]["build"]["if"])
+        self.assertIn("conclusion == 'success'", pages["jobs"]["build"]["if"])
+        self.assertIn("Hub checks", str(pages["jobs"]["build"]["steps"]))
+        self.assertIn("Integrated acceptance", str(pages["jobs"]["build"]["steps"]))
+        self.assertIn("scripts/refresh-github-snapshot.py", str(pages["jobs"]["build"]["steps"]))
+        self.assertIn("website/activity.py --live", str(pages["jobs"]["build"]["steps"]))
+        self.assertIn("scripts/check-pages-prefix.py", str(pages["jobs"]["build"]["steps"]))
+        self.assertIn("https://grok-gadgets.pages.dev/", str(pages["jobs"]["build"]["steps"]))
         self.assertEqual(
             pages["jobs"]["deploy"]["permissions"],
-            {"contents": "read", "pages": "write", "id-token": "write"},
+            {"contents": "read", "deployments": "write"},
         )
+        self.assertEqual(pages["jobs"]["deploy"]["environment"]["name"], "cloudflare-pages-production")
+        self.assertIn("CLOUDFLARE_API_TOKEN", str(pages["jobs"]["deploy"]))
+        self.assertNotIn("CLOUDFLARE_API_TOKEN", str(pages["jobs"]["build"]))
+        self.assertIn("pages deploy website/dist --project-name=grok-gadgets --branch=main", str(pages["jobs"]["deploy"]))
 
     def test_rules_preserve_history_and_solo_maintainer_can_merge(self):
         repositories = json.loads((ROOT / "publication/repositories.json").read_text())

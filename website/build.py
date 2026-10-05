@@ -32,7 +32,11 @@ kit_identity = (
 )
 kit_archive = "grok-gadgets-simulator-kit-" + kit_identity + ".zip"
 kit_manifest = "simulator-kit-" + kit_identity + "-manifest.json"
-PUBLIC_SITE = "https://adidshaft.github.io/grok-gadgets/"
+PUBLIC_SITE = os.environ.get(
+    "GROK_GADGETS_PUBLIC_SITE", "https://grok-gadgets.pages.dev/"
+).strip()
+if not re.fullmatch(r"https://[A-Za-z0-9.-]+/", PUBLIC_SITE):
+    raise ValueError("GROK_GADGETS_PUBLIC_SITE must be an HTTPS site root URL")
 issues = json.loads((R / "planning/issues.json").read_text())
 issue_snapshot = None
 snapshot_path = R / "publication/github-issues.json"

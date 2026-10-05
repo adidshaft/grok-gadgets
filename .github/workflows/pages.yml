@@ -1,106 +1,121 @@
-name: Publish reviewed Pages site
+name: Deploy website to Cloudflare Pages
 on:
+  workflow_run:
+    workflows: [Integrated acceptance]
+    types: [completed]
+  schedule:
+    - cron: '17 6 * * *'
   workflow_dispatch:
 permissions:
   contents: read
 concurrency:
-  group: github-pages
+  group: cloudflare-pages-${{ github.event.workflow_run.head_sha || github.sha }}
   cancel-in-progress: false
 jobs:
   build:
-    if: github.ref == 'refs/heads/main'
+    if: >-
+      (github.event_name == 'workflow_run' &&
+       github.event.workflow_run.head_branch == 'main' &&
+       github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_repository.full_name == github.repository) ||
+      ((github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') &&
+       github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 20
+    permissions:
+      actions: read
+      checks: read
+      contents: read
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
           path: grok-gadgets
           persist-credentials: false
+      - name: Verify required checks passed for this exact main commit
+        working-directory: grok-gadgets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEPLOY_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+        run: |
+          for attempt in $(seq 1 20); do
+            gh run list --repo "$GITHUB_REPOSITORY" --commit "$DEPLOY_SHA" --limit 100 --json name,status,conclusion,headSha > "$RUNNER_TEMP/runs.json"
+            result=$(jq -r --arg sha "$DEPLOY_SHA" '
+              def state($name):
+                ([.[] | select(.headSha == $sha and .name == $name)] | first) as $run
+                | if $run == null or $run.status != "completed" then "pending"
+                  elif $run.conclusion == "success" then "success"
+                  else "failure"
+                  end;
+              [state("Hub checks"), state("Integrated acceptance")] | join(",")
+            ' "$RUNNER_TEMP/runs.json")
+            if [ "$result" = "success,success" ]; then
+              echo "Both required workflows succeeded for $DEPLOY_SHA."
+              exit 0
+            fi
+            case "$result" in
+              *failure*) echo "A required workflow did not succeed for $DEPLOY_SHA." >&2; exit 1 ;;
+            esac
+            if [ "$attempt" -lt 20 ]; then sleep 30; fi
+          done
+          echo "Required checks did not finish for $DEPLOY_SHA; no deployment was made." >&2
+          exit 1
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.13'
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: '22'
-      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
-        with:
-          version: '0.12.3'
-      - name: Resolve exact component sources
-        id: pins
+      - name: Install the website build requirements
+        working-directory: grok-gadgets
+        run: python -m pip install --requirement website/requirements.txt
+      - name: Refresh the complete five-repository issue snapshot
         working-directory: grok-gadgets
         env:
-          CANDIDATE_REPOSITORY: ''
-          CANDIDATE_COMMIT: ''
-        run: python scripts/ci-component-pins.py --candidate-repository "$CANDIDATE_REPOSITORY" --candidate-commit "$CANDIDATE_COMMIT" >> "$GITHUB_OUTPUT"
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          repository: adidshaft/grok-gadgets-gateway
-          ref: ${{ steps.pins.outputs.gateway }}
-          path: grok-gadgets-gateway
-          persist-credentials: false
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          repository: adidshaft/grok-gadgets-linux-sdk
-          ref: ${{ steps.pins.outputs.linux }}
-          path: grok-gadgets-linux-sdk
-          persist-credentials: false
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          repository: adidshaft/grok-gadgets-esp32-sdk
-          ref: ${{ steps.pins.outputs.esp32 }}
-          path: grok-gadgets-esp32-sdk
-          persist-credentials: false
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          repository: adidshaft/grok-gadgets-home-assistant
-          ref: ${{ steps.pins.outputs.ha }}
-          path: grok-gadgets-home-assistant
-          persist-credentials: false
-      - name: Install pinned check environments
-        shell: bash
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/refresh-github-snapshot.py
+      - name: Refresh bounded public activity snapshot
+        working-directory: grok-gadgets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python website/activity.py --live --owner adidshaft --cache publication/github-activity.json
+      - name: Validate snapshots and rebuild the site for its Cloudflare URL
+        working-directory: grok-gadgets
+        env:
+          GROK_GADGETS_PUBLIC_SITE: https://grok-gadgets.pages.dev/
         run: |
-          uv venv grok-gadgets/.venv --python 3.13
-          uv pip install --python grok-gadgets/.venv/bin/python -r grok-gadgets/website/requirements.txt
-          for component in grok-gadgets-gateway grok-gadgets-linux-sdk grok-gadgets-home-assistant; do
-            (cd "$component" && uv sync --locked --python 3.11 && uv build)
-          done
-          # Locked sync alone does not populate pip resolver metadata for offline acceptance.
-          uv export --project grok-gadgets-gateway --frozen --offline --no-dev --no-emit-project --no-header --no-annotate --output-file "$RUNNER_TEMP/grok-onboarding-runtime.txt"
-          uv venv "$RUNNER_TEMP/grok-onboarding-cache" --python 3.11
-          uv pip install --python "$RUNNER_TEMP/grok-onboarding-cache/bin/python" --require-hashes -r "$RUNNER_TEMP/grok-onboarding-runtime.txt"
-          python -m venv grok-gadgets-esp32-sdk/.venv
-          grok-gadgets-esp32-sdk/.venv/bin/pip install -r grok-gadgets-esp32-sdk/requirements.lock
-          (cd grok-gadgets-esp32-sdk && .venv/bin/pio pkg install)
-      - name: Refresh and test candidate kit
-        working-directory: grok-gadgets
-        run: .venv/bin/python website/build.py
-      - name: All fourteen integration groups
-        working-directory: grok-gadgets
-        run: .venv/bin/python scripts/check-all.py
-      - name: Migration, publication and deployment-path regressions
-        working-directory: grok-gadgets
-        run: |
-          .venv/bin/python -m unittest discover -s scripts -p 'test_*.py'
-          .venv/bin/python scripts/build-simulator-kit.py --check
-          .venv/bin/python scripts/check-pages-prefix.py
-      - name: Configure approved Pages destination
-        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
-      - name: Upload this tested site
-        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+          python scripts/refresh-github-snapshot.py --check
+          python -m unittest discover -s website -p 'test_*.py'
+          node --test website/test_simulator.cjs
+          python website/build.py
+          python scripts/check-pages-prefix.py
+          python scripts/build-simulator-kit.py --check
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
+          name: cloudflare-site-${{ github.run_id }}
           path: grok-gadgets/website/dist
+          if-no-files-found: error
+          retention-days: 1
   deploy:
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
       contents: read
-      pages: write
-      id-token: write
+      deployments: write
     environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      name: cloudflare-pages-production
     steps:
-      - name: Deploy the artifact checked in this run
-        id: deployment
-        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: cloudflare-site-${{ github.run_id }}
+          path: website/dist
+      - name: Deploy the tested site to Cloudflare Pages
+        id: deploy
+        uses: cloudflare/wrangler-action@953926a2e2182532811c01a25e53647d93bf07c0 # v4.1.3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4.147.0'
+          command: pages deploy website/dist --project-name=grok-gadgets --branch=main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
