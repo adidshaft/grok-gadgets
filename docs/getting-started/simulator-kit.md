@@ -78,17 +78,20 @@ Downloading the ZIP does not install a connector or change your account. The kit
 
 ## Keeping the download current
 
-Before it copies the download, the website build checks the gateway commit, kit input hashes, archive contents and acceptance record.
+The website build verifies the committed kit: gateway commit inside the manifest, input hashes, archive contents and the acceptance record. It does not rebuild the ZIP because a sibling gateway checkout moved.
 
-With a sibling gateway checkout, changed committed source or kit inputs trigger a rebuild. Uncommitted gateway changes are rejected. The rebuild runs the gateway tests and installs the kit in a fresh environment. It tests default, custom and offline settings through the official MCP client. A failed check stops the site build.
+Rebuild explicitly from the hub after gateway or kit-script changes:
 
 ```sh
+python3 scripts/build-simulator-kit.py
 python3 scripts/build-simulator-kit.py --check
 .venv/bin/python website/build.py
 ```
 
+`--check` fails if the sibling gateway HEAD, kit inputs or archive no longer match the stored kit. Uncommitted gateway changes are rejected. The rebuild runs the gateway tests and installs the kit in a fresh environment. It tests default and custom settings through the official MCP client.
+
 Run these maintainer commands from the hub, not from the extracted kit.
 
-A standalone hub checkout can use the stored kit if it matches the pinned commit and unchanged inputs. Otherwise, use the gateway checkout to rebuild it. Rebuilds need internet access for dependencies. The build ID identifies the tested gateway source. The separate manifest lists artifact hashes.
+A standalone hub checkout can use the stored kit if the archive and input hashes still match. Otherwise, use the gateway checkout to rebuild it. Rebuilds need internet access for dependencies. The build ID identifies the tested gateway source. The separate manifest lists artifact hashes.
 
-The public website is deployed through the approved CI workflow. Its builds run these checks. A gateway change does not update a downloaded copy or automatically change the hub's compatibility pin. Downloaded kits are fixed snapshots. They do not update or run code silently.
+The public website is deployed through the approved CI workflow. A gateway change does not update a downloaded copy or automatically change the hub's compatibility pin. Downloaded kits are fixed snapshots. They do not update or run code silently.
