@@ -1,4 +1,4 @@
-Source: grok-gadgets-esp32-sdk/README.md at 4d754c700491ab0e83bcebaad08876740048e1bb
+Source: grok-gadgets-esp32-sdk/README.md at 04b35d6110c18ad590e4510e0798a0a2011521dd
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -15,12 +15,23 @@ You can build and contribute without a board or Grok account. The example uses s
 ```mermaid
 flowchart LR
     SDK["Reusable C++ SDK"] --> FW["C124 firmware"]
-    FW --> USB["USB bridge on your computer"]
-    USB --> GW["Grok Gadgets gateway"]
-    BOT["Existing Grok Bot"] -.-> GW
+    FW --> USB["Host USB bridge"]
+    USB -->|"Authenticated loopback"| GW["Local gateway"]
+    LOCAL["Local MCP client"] -->|"stdio"| GW
+    BOT["Cloud Grok Bot"] -.-> REMOTE["Remote MCP: missing"]
+    REMOTE -.-> GW
 ```
 
-Firmware uses the SDK. A computer connects USB to the local gateway. The authenticated route from Grok remains pending.
+Firmware uses the SDK. The USB bridge and gateway run on the same computer.
+Local development and simulation need no public hosting. The builder operates the gateway.
+Grok/xAI hosts Grok Bot.
+
+The gateway has local stdio MCP and an authenticated loopback device port.
+It has no remote HTTPS or OAuth MCP service. Do not expose the device port through a tunnel.
+Cloud access needs a publicly reachable, authenticated HTTPS MCP route.
+`HARD-GROK-REMOTE-001` tracks this missing service and its security work.
+See the [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md)
+for tunnel ownership and proposed customer-hosted or maker-hosted product options.
 
 Compilation checks the build. It does not prove physical LED, button or USB operation.
 

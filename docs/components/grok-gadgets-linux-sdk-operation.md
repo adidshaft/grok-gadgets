@@ -1,4 +1,4 @@
-Source: grok-gadgets-linux-sdk/docs/operation.md at 1244c3e2ce3de48763d0c9089b778d8133802127
+Source: grok-gadgets-linux-sdk/docs/operation.md at 4477303dc64ce705f1ff1828e696fe51b54b7f35
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -6,7 +6,15 @@ This is a pinned documentation snapshot. Relative filesystem paths describe the 
 
 The agent connects only to loopback TCP: `127.0.0.1` or `::1`. The default port is 8765. Run the agent and gateway on the same host.
 
-This SDK does not provide a remote transport, public gateway, tunnel or cloud service. The authenticated route from Grok remains unresolved.
+Local simulation needs no public hosting. You operate the gateway and agent on this host.
+Grok/xAI hosts Grok Bot; it does not host these processes for you.
+
+The gateway exposes local stdio MCP and an authenticated loopback device port.
+It has no remote HTTPS or OAuth MCP service. Do not tunnel the device port.
+A tunnel adds reachability. It does not add gateway authentication.
+`HARD-GROK-REMOTE-001` tracks the missing remote service and security work.
+See the [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md)
+for the future cloud route and product hosting choices.
 
 ## Start the agent
 

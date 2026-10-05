@@ -18,6 +18,11 @@ GROUPS = (
                 (
                     ("", "README.md", "Project overview"),
                     ("", "docs/getting-started/simulator-kit.md", "Try the simulator"),
+                    (
+                        "",
+                        "docs/getting-started/hosting.md",
+                        "Hosting and remote access",
+                    ),
                     ("", "docs/public/support-matrix.md", "Supported paths and limits"),
                     ("", "SUPPORT.md", "Get help"),
                 ),

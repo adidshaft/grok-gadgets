@@ -556,10 +556,11 @@
     "problem": "Implement authenticated cloud-to-local HTTPS MCP transport",
     "intended_behaviour": "Existing Grok Bot reaches explicitly authorized local devices through a reviewed HTTPS MCP service",
     "acceptance": [
-      "Approved route and access design; no raw device protocol exposure",
-      "TLS, scoped authorization or OAuth, device/tenant isolation and credential revocation",
-      "Missing/invalid/expired/revoked credential and cross-device access rejection regressions",
-      "Bounded commands/connections/timeouts; redacted diagnostics; shutdown/reconnect tests",
+      "Approved hosting, route and trust design; no raw device protocol exposure",
+      "TLS, supported OAuth or scoped credentials, per-user/per-device authorization and tenant isolation",
+      "User consent, secure secret storage, credential rotation and revocation",
+      "Missing/invalid/expired/revoked credential and cross-user/cross-device access rejection regressions",
+      "Bounded commands/connections/queues/timeouts; redacted diagnostics; shutdown/reconnect tests",
       "Actual Grok desktop/mobile experiment after separate activation approval"
     ],
     "dependencies": [
@@ -575,9 +576,10 @@
     "stage": "blocked",
     "commits": [],
     "evidence": [
-      "docs/verification/real-grok-test-plan.md"
+      "docs/verification/real-grok-test-plan.md",
+      "docs/getting-started/hosting.md"
     ],
-    "blocker": "Remote HTTPS/OAuth transport is unimplemented; separate design and service activation approval required"
+    "blocker": "Remote HTTPS MCP/OAuth service is unimplemented. Design, implementation and security tests are required before separately approved service activation. Documentation does not close this gate."
   },
   {
     "id": "HUB-DEMO-001",
@@ -1044,5 +1046,36 @@
       "publication/history-and-assets-review.md"
     ],
     "blocker": "Corresponding-source/relinking redistribution package has not been assembled or cleared; source-only publication package excludes binaries."
+  },
+  {
+    "id": "DOC-HOSTING-001",
+    "repository": "grok-gadgets",
+    "problem": "Explain gateway hosting, tunnel ownership and remote security gates",
+    "intended_behaviour": "Readers can identify each operator, current local support and proposed product hosting choices from one canonical FAQ",
+    "acceptance": [
+      "Canonical FAQ cites official Grok and tunnel docs, with compact future-route diagrams",
+      "README, website, getting-started, architecture and component setup guides link the FAQ",
+      "Local software, Grok invocation, remote security and physical gates stay separate",
+      "Website/source-archive links and rebuilt simulator guide pass checks; no service is activated"
+    ],
+    "dependencies": [
+      "HARD-GROK-REMOTE-001"
+    ],
+    "labels": [
+      "documentation",
+      "website",
+      "P2"
+    ],
+    "milestone": "M7",
+    "stage": "done",
+    "commits": [
+      "66c96b515c41e91b37d69573901be95b2ec2fd6f"
+    ],
+    "evidence": [
+      "docs/getting-started/hosting.md",
+      "docs/verification/hosting-documentation.md",
+      "website/downloads/simulator-kit-manifest.json"
+    ],
+    "blocker": null
   }
 ]

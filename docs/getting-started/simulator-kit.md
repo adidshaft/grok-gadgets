@@ -2,6 +2,8 @@
 
 Use a virtual C124 RGB LED and button through the local Model Context Protocol (MCP) gateway. You do not need hardware, an API key, an exposed port or a hosted service. Original code uses Apache-2.0. This independent project is exclusively for Grok.
 
+The [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md) explains who runs the gateway and tunnel. The kit provides local stdio MCP. It does not include a remote HTTPS MCP service. Do not expose its device port through a tunnel.
+
 ## Inspect first
 
 The ZIP contains the Python wheel, source distribution (sdist), committed `source.tar`, installer, demonstration, settings, schema and license notices. It also contains `requirements.txt` with dependency hashes. The source archive includes `uv.lock`.
@@ -50,7 +52,7 @@ This verifies local simulation. It does not verify Grok execution or physical op
 
 This route requires custom **Command MCP** in the Bot's cloud computer. Availability depends on the account and client. A developer-API conversation is not a substitute.
 
-The dedicated desktop Bot reported simulator success on an earlier gateway build. That report is not independent execution evidence. This configurable kit passed local MCP tests but has not been run inside Grok. Actual invocation records and mobile verification remain pending.
+The dedicated desktop Bot reported simulator success on an earlier gateway build. A later installation of the configurable kit on the Bot's computer was observed. Neither a Bot-written report nor an installation record proves native tool invocation. Local MCP tests passed. Actual invocation records and mobile verification remain pending.
 
 1. Inspect the kit.
 2. Upload the ZIP, separate website hash manifest and exported configuration to the intended Bot.

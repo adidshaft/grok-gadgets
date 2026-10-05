@@ -1,4 +1,4 @@
-Source: grok-gadgets-esp32-sdk/docs/build-flash.md at 4d754c700491ab0e83bcebaad08876740048e1bb
+Source: grok-gadgets-esp32-sdk/docs/build-flash.md at 04b35d6110c18ad590e4510e0798a0a2011521dd
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -7,6 +7,13 @@ This is a pinned documentation snapshot. Relative filesystem paths describe the 
 This example uses the reusable library in `lib/GrokGadgets`. It is standalone Arduino firmware, not an ESPHome integration.
 
 Use **M5Stack AtomS3 Lite SKU C124**, with ESP32-S3FN8 and 8 MB flash. ATOM Lite and AtomS3 with a display are different boards.
+
+Builds and local software tests need no public hosting. For the USB route, run the bridge
+and gateway on the same computer. That computer must remain on during use.
+The gateway's MCP interface is local stdio. Its device port is authenticated loopback TCP.
+It has no remote HTTPS or OAuth MCP service. Do not expose the device port through a tunnel.
+See the [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md)
+for who operates each process and the `HARD-GROK-REMOTE-001` remote-access gate.
 
 ## Clean setup
 
@@ -85,6 +92,9 @@ The device ID is `c124-<MAC hex>`. Each boot creates a random boot ID. Credentia
 5. Follow the [gateway USB bridge guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/local-operation.md#usb-bridge).
 
 The bridge command is `.venv/bin/python -m grok_gadgets_gateway.usb_bridge PORT`. The bridge supplies the token to the loopback connection. Only one process can use the serial connection at a time.
+
+This token protects the local device connection. It does not provide remote MCP authentication.
+A tunnel adds reachability only. Keep this device transport local.
 
 ## Recover the board
 

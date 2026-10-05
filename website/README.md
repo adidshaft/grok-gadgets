@@ -20,6 +20,8 @@ A live cache is fresh for less than one hour (the refresh throttle). Builds clas
 
 ## Hosting and refreshes
 
+This section describes static website hosting. It does not describe a gadget gateway service. The site runs no MCP endpoint or device tunnel. See the canonical [hosting and remote access FAQ](../docs/getting-started/hosting.md) for gateway operators, tunnel ownership and future product hosting choices.
+
 The hub repository is the website source. `.github/workflows/pages.yml` deploys via Cloudflare Pages Direct Upload only after the exact main commit passes both `Hub checks` and `Integrated acceptance`. The build validates the complete GitHub issue snapshot, the bounded cross-repository activity data, all website tests, the project-root/deep-link check and the simulator kit before upload. The Cloudflare Pages token is held by the protected `cloudflare-pages-production` GitHub environment and is visible only to the final deploy job.
 
 Successful main deployments refresh issues and activity across the five `adidshaft` repositories. A daily run at 06:17 UTC (11:47 IST) refreshes activity such as star counts that has no dependable event trigger. If the issue snapshot cannot be fully refreshed, deployment stops and the prior site remains live. Activity failures show timestamped cached or unavailable data. Neither snapshot refresh changes tested component pins or commits generated data back to `main`.

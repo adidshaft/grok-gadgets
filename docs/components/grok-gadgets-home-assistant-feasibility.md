@@ -1,10 +1,16 @@
-Source: grok-gadgets-home-assistant/docs/feasibility.md at 0125967b3d1e193d4b898c77350b7da2d8574f90
+Source: grok-gadgets-home-assistant/docs/feasibility.md at 6ba55362b3bc32e8ae07f3d1e4cf47202fcbc937
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
 # Feasibility record — 4 October 2026
 
 Historical documentation review. The current software first step and tested limits are in the [README](../README.md) and [verification](verification.md). This record is not a fresh platform or account test.
+
+For current project hosting boundaries, use the canonical
+[hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md).
+Home Assistant's operator runs its upstream MCP server. The cloud Bot needs a publicly
+reachable HTTPS route and compatible authentication. Native Bot compatibility remains unverified.
+The separate gadget gateway's remote-service gate does not mean Home Assistant lacks an MCP server.
 
 Evidence: official documentation review only; no Grok account, HA installation, or phone was connected. Source dates below are publication/update dates where provided. Recheck at actual onboarding.
 

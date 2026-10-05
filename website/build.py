@@ -225,6 +225,7 @@ def path_row(number, title, description, url, link_text):
     )
 
 
+hosting_guide = '<p><a href="doc-docs-getting-started-hosting.html">Who runs the gateway? Hosting and remote access FAQ ↗</a></p>'
 scene_source = R / "website/home-scene.html"
 page(
     "index.html",
@@ -250,7 +251,7 @@ page(
     + path_row(
         "01",
         "Try the simulator",
-        "Customize in the browser or use your Grok Bot with the inspectable kit.",
+        "Customize in the browser or run the local MCP kit. No public hosting is needed.",
         "simulator.html",
         "Try both",
     )
@@ -275,7 +276,8 @@ page(
         "home-assistant.html",
         "Home Assistant",
     )
-    + '</div><p class="quiet-note">Local alpha. Actual Grok connectivity and physical verification are pending.</p>',
+    + '</div><p class="quiet-note">Local alpha. Remote HTTPS MCP is unimplemented. Actual Grok connectivity and physical verification are pending.</p>'
+    + hosting_guide,
 )
 page(
     "simulator.html",
@@ -302,7 +304,8 @@ page(
     + '<p class="quiet-note">The kit includes readable source, the wheel, locked hashed runtime dependencies, configuration schema and Apache-2.0 notices. Installation downloads the dependencies. No account connection happens automatically.</p>'
     + '<p><a href="doc-docs-getting-started-simulator-kit.html">Step-by-step setup &amp; customization ↗</a></p>'
     + '<p><a href="downloads/simulator-kit-manifest.json">Source commit, contents &amp; SHA256 hashes ↗</a></p>'
-    + '<p class="status">Browser simulated · local MCP tested · native Grok receipts, physical and mobile pending</p>',
+    + '<p class="status">Browser simulated · local MCP tested · native Grok receipts, physical and mobile pending</p>'
+    + hosting_guide,
 )
 page(
     "esp32.html",
@@ -327,7 +330,8 @@ page(
         "doc-docs-components-grok-gadgets-esp32-sdk-sdk.html",
         "SDK reference",
     )
-    + '<p class="quiet-note">Target: M5Stack AtomS3 Lite C124 + USB-C data cable. <a href="doc-docs-components-grok-gadgets-esp32-sdk-verification.html">Verification record ↗</a></p>',
+    + '<p class="quiet-note">Target: M5Stack AtomS3 Lite C124 + USB-C data cable. The local gateway and USB bridge run on your computer. <a href="doc-docs-components-grok-gadgets-esp32-sdk-verification.html">Verification record ↗</a></p>'
+    + hosting_guide,
 )
 page(
     "linux.html",
@@ -352,7 +356,8 @@ page(
         "doc-docs-components-grok-gadgets-linux-sdk-development.html",
         "Developer guide",
     )
-    + '<p class="quiet-note">Physical peripherals and systemd lifecycle remain pending.</p>',
+    + '<p class="quiet-note">The agent and gateway share a host. Public remote MCP is not implemented. Physical peripherals and systemd lifecycle remain pending.</p>'
+    + hosting_guide,
 )
 page(
     "home-assistant.html",
@@ -377,7 +382,8 @@ page(
         "doc-docs-components-grok-gadgets-home-assistant-README.html",
         "Run the probe",
     )
-    + '<p class="quiet-note">Upstream MCP notifications are unsupported. Entity coverage varies.</p>',
+    + '<p class="quiet-note">Home Assistant runs its own MCP server. Its endpoint authentication, reachability and Grok compatibility need separate verification. Entity coverage varies.</p>'
+    + hosting_guide,
 )
 page(
     "architecture.html",
@@ -387,7 +393,8 @@ page(
         "An action.<br>An observation.",
         "The assistant, connection point and device have separate jobs.",
     )
-    + '<div class="flow"><a href="https://x.ai/bot"><img src="media/grok-mark.svg" width="40" height="40" alt="Grok"><span>Grok Bot</span><small>Account route pending</small></a><b>↕ MCP</b><span>Gateway<small>Route and report</small></span><b>↕ USB / local TCP</b><span>Your device<small>Execute and observe</small></span></div><p class="status">Requested → accepted → execution reported → physically observed</p><p><a href="doc-docs-architecture-overview.html">Architecture reference ↗</a></p><p class="quiet-note">Home Assistant can use its upstream MCP route directly. Local MCP success is separate from actual Grok or hardware verification.</p>',
+    + '<div class="flow"><a href="https://x.ai/bot"><img src="media/grok-mark.svg" width="40" height="40" alt="Grok"><span>Grok Bot</span><small>Run by Grok/xAI</small></a><b>↕ Remote MCP: future</b><span>Your gateway<small>Run by its operator</small></span><b>↕ USB / local TCP</b><span>Your device<small>Execute and observe</small></span></div><p class="status">Requested → accepted → execution reported → physically observed</p><p><a href="doc-docs-architecture-overview.html">Architecture reference ↗</a></p><p class="quiet-note">The gateway has local stdio MCP, with no authenticated remote HTTPS MCP service. A tunnel alone cannot provide that service. Home Assistant can use its own upstream MCP route. Local tests, native Grok invocation, remote security and physical effects need separate evidence.</p>'
+    + hosting_guide,
 )
 rows = "".join(
     '<article class="issue"><span>'

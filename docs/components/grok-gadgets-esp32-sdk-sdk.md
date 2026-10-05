@@ -1,10 +1,16 @@
-Source: grok-gadgets-esp32-sdk/docs/sdk.md at 4d754c700491ab0e83bcebaad08876740048e1bb
+Source: grok-gadgets-esp32-sdk/docs/sdk.md at 04b35d6110c18ad590e4510e0798a0a2011521dd
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
 # Use the library in another gadget
 
 The C124 example uses the reusable SDK. It does not define the SDK's board support limit.
+
+The current example uses USB to a bridge and gateway on one computer.
+Local development needs no public hosting. The library does not provide a hosted service
+or a secure remote device connection. Do not expose the gateway's loopback device protocol.
+See the [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md)
+for the remote MCP engineering gate and proposed product hosting options.
 
 | Library | Purpose | Dependencies |
 | --- | --- | --- |
