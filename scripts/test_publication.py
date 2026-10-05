@@ -249,7 +249,15 @@ class PublicationTests(unittest.TestCase):
 
     def test_wrong_source_archive_rejected_even_when_rehashed(self):
         candidate = self.prepare()
-        archive = next(candidate.glob("grok-gadgets-*.tar.gz"))
+        manifest = json.loads((candidate / "manifest.json").read_text())
+        sources = [
+            record
+            for record in manifest["artifacts"]
+            if record["repository"] == "grok-gadgets"
+            and record["kind"] == "source_archive"
+        ]
+        self.assertEqual(len(sources), 1)
+        archive = candidate / sources[0]["file"]
         with tarfile.open(archive, "w:gz"):
             pass
         self.rehash(candidate)
