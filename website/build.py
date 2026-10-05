@@ -20,7 +20,7 @@ kit_spec = importlib.util.spec_from_file_location(
 )
 kit_builder = importlib.util.module_from_spec(kit_spec)
 kit_spec.loader.exec_module(kit_builder)
-simulator_build = kit_builder.ensure_current(R / "website/downloads")
+simulator_build = kit_builder.verify_download(R / "website/downloads")
 # Assemble the whole site away from the last known-good preview. Promote only after validation.
 if DESTINATION.is_symlink():
     raise ValueError("Generated output must not be a symlink")
@@ -225,6 +225,7 @@ def path_row(number, title, description, url, link_text):
     )
 
 
+hosting_guide = '<p><a href="doc-docs-getting-started-hosting.html">Who runs the gateway? Hosting and remote access FAQ ↗</a></p>'
 scene_source = R / "website/home-scene.html"
 page(
     "index.html",
@@ -235,7 +236,42 @@ page(
         .read_text()
         .replace("{{SIMULATOR_BUILD}}", e(simulator_build["gateway_commit"][:8]))
         .replace("{{SIMULATOR_VERSION}}", e(simulator_build["package_version"]))
-        + (R / "website/components.html").read_text()
+        + '<section class="builder-paths" id="builder-paths" aria-labelledby="builder-heading"><p class="eyebrow">CHOOSE YOUR FIRST PATH</p><h2 id="builder-heading">Start building.</h2>'
+        + path_row(
+            "01",
+            "ESP32 / C124",
+            "Compile the RGB LED and button firmware. The physical board is still pending.",
+            "esp32.html",
+            "Build for ESP32",
+        )
+        + path_row(
+            "02",
+            "Linux / Raspberry Pi",
+            "Use the Python SDK and agent. Linux container tested; Raspberry Pi hardware pending.",
+            "linux.html",
+            "Build with Linux",
+        )
+        + path_row(
+            "03",
+            "Home Assistant",
+            "Explore the direct route through Home Assistant’s own MCP server. Live home and Grok Bot checks are pending.",
+            "home-assistant.html",
+            "Connect Home Assistant",
+        )
+        + '<p class="quiet-note" id="components">Local alpha. These conceptual routes do not call Grok Bot. <a href="components.html">See all project components ↗</a></p></section>'
+        + '<section class="home-activity" aria-labelledby="home-activity-heading"><p class="eyebrow">PROJECT / COMMUNITY</p><h2 id="home-activity-heading">Built in the open.</h2><p>Follow source, issues and contribution work.</p>'
+        + activity_html(activity)
+        + "".join(
+            f'<a href="https://github.com/adidshaft/{repo}">{repo} ↗</a>'
+            for repo in [
+                "grok-gadgets",
+                "grok-gadgets-gateway",
+                "grok-gadgets-linux-sdk",
+                "grok-gadgets-esp32-sdk",
+                "grok-gadgets-home-assistant",
+            ]
+        )
+        + '<a href="roadmap.html">Project issues ↗</a><a href="activity.html">Activity source and refresh status ↗</a><a href="community.html">Community ↗</a></section>'
     )
     if scene_source.is_file()
     else "<h1>Grok, meet the real world.</h1><p>Interactive architecture is being assembled locally.</p>",
@@ -250,7 +286,7 @@ page(
     + path_row(
         "01",
         "Try the simulator",
-        "Customize in the browser or use your Grok Bot with the inspectable kit.",
+        "Customize in the browser or run the local MCP kit. No public hosting is needed.",
         "simulator.html",
         "Try both",
     )
@@ -275,7 +311,8 @@ page(
         "home-assistant.html",
         "Home Assistant",
     )
-    + '</div><p class="quiet-note">Local alpha. Actual Grok connectivity and physical verification are pending.</p>',
+    + '</div><p class="quiet-note">Local alpha. Authenticated HTTP MCP runs on loopback. Public HTTPS, Grok Bot use and physical operation remain unverified.</p>'
+    + hosting_guide,
 )
 page(
     "simulator.html",
@@ -294,15 +331,16 @@ page(
     )
     + path_row(
         "02",
-        "With your Grok Bot",
-        "An inspectable MCP simulator kit. Install in the Bot’s cloud computer using a supported Command connection.",
+        "On your computer",
+        "Download, inspect and run a virtual light with the local MCP client. No Bot account required.",
         "downloads/grok-gadgets-simulator-kit.zip",
         "Download kit",
     )
     + '<p class="quiet-note">The kit includes readable source, the wheel, locked hashed runtime dependencies, configuration schema and Apache-2.0 notices. Installation downloads the dependencies. No account connection happens automatically.</p>'
     + '<p><a href="doc-docs-getting-started-simulator-kit.html">Step-by-step setup &amp; customization ↗</a></p>'
     + '<p><a href="downloads/simulator-kit-manifest.json">Source commit, contents &amp; SHA256 hashes ↗</a></p>'
-    + '<p class="status">Browser simulated · local MCP tested · native Grok receipts, physical and mobile pending</p>',
+    + '<p class="status">Browser simulated · local MCP tested · Grok Bot, physical and mobile checks pending</p>'
+    + hosting_guide,
 )
 page(
     "esp32.html",
@@ -327,7 +365,8 @@ page(
         "doc-docs-components-grok-gadgets-esp32-sdk-sdk.html",
         "SDK reference",
     )
-    + '<p class="quiet-note">Target: M5Stack AtomS3 Lite C124 + USB-C data cable. <a href="doc-docs-components-grok-gadgets-esp32-sdk-verification.html">Verification record ↗</a></p>',
+    + '<p class="quiet-note">Target: M5Stack AtomS3 Lite C124 + USB-C data cable. The local gateway and USB bridge run on your computer. <a href="doc-docs-components-grok-gadgets-esp32-sdk-verification.html">Verification record ↗</a></p>'
+    + hosting_guide,
 )
 page(
     "linux.html",
@@ -352,7 +391,8 @@ page(
         "doc-docs-components-grok-gadgets-linux-sdk-development.html",
         "Developer guide",
     )
-    + '<p class="quiet-note">Physical peripherals and systemd lifecycle remain pending.</p>',
+    + '<p class="quiet-note">The agent and gateway share a host. Local HTTP MCP is available through serve. Public HTTPS and Grok Bot use remain unverified. Physical peripherals and systemd lifecycle remain pending.</p>'
+    + hosting_guide,
 )
 page(
     "home-assistant.html",
@@ -362,7 +402,7 @@ page(
         "Use what<br>you already have.",
         "An integration recipe for Home Assistant’s own MCP server.",
     )
-    + '<p class="status">Fixture tested · actual home and Grok pending</p>'
+    + '<p class="status">Fixture tested · actual home and Grok Bot pending</p>'
     + path_row(
         "01",
         "Expose a few entities",
@@ -377,7 +417,8 @@ page(
         "doc-docs-components-grok-gadgets-home-assistant-README.html",
         "Run the probe",
     )
-    + '<p class="quiet-note">Upstream MCP notifications are unsupported. Entity coverage varies.</p>',
+    + '<p class="quiet-note">Home Assistant runs its own MCP server. Its endpoint authentication, reachability and Grok compatibility need separate verification. Entity coverage varies.</p>'
+    + hosting_guide,
 )
 page(
     "architecture.html",
@@ -387,7 +428,8 @@ page(
         "An action.<br>An observation.",
         "The assistant, connection point and device have separate jobs.",
     )
-    + '<div class="flow"><a href="https://x.ai/bot"><img src="media/grok-mark.svg" width="40" height="40" alt="Grok"><span>Grok Bot</span><small>Account route pending</small></a><b>↕ MCP</b><span>Gateway<small>Route and report</small></span><b>↕ USB / local TCP</b><span>Your device<small>Execute and observe</small></span></div><p class="status">Requested → accepted → execution reported → physically observed</p><p><a href="doc-docs-architecture-overview.html">Architecture reference ↗</a></p><p class="quiet-note">Home Assistant can use its upstream MCP route directly. Local MCP success is separate from actual Grok or hardware verification.</p>',
+    + '<div class="flow"><a href="https://x.ai/bot"><img src="media/grok-mark.svg" width="40" height="40" alt="Grok"><span>Grok Bot</span><small>Run by Grok/xAI</small></a><b>↕ Remote MCP: future</b><span>Your gateway<small>Run by its operator</small></span><b>↕ USB / local TCP</b><span>Your device<small>Execute and observe</small></span></div><p class="status">Requested → accepted → execution reported → physically observed</p><p><a href="doc-docs-architecture-overview.html">Architecture reference ↗</a></p><p class="quiet-note">The gateway provides stdio MCP and authenticated HTTP MCP on loopback. Public access also needs operator HTTPS. A tunnel does not replace authentication. Home Assistant can use its own upstream MCP route. Local tests, Grok Bot invocation, remote security and physical effects need separate evidence.</p>'
+    + hosting_guide,
 )
 rows = "".join(
     '<article class="issue"><span>'
@@ -439,6 +481,7 @@ page(
         "Share a build. Ask a question. Improve the tools.",
     )
     + '<p><a class="text-cta" href="https://www.reddit.com/r/GrokGadgets/">r/GrokGadgets ↗</a></p>'
+    + '<p class="community-help-links"><a href="doc-docs-getting-started-simulator-kit.html">Start here ↗</a> · <a href="doc-SUPPORT.html">Get help ↗</a> · <a href="doc-community-guidelines.html">Community policy ↗</a> · <a href="doc-CODE_OF_CONDUCT.html">Code of conduct ↗</a> · <a href="doc-SECURITY.html">Security ↗</a></p>'
     + path_row(
         "01",
         "Contribute",
@@ -520,14 +563,24 @@ for record in documents.records:
     )
 page("source-reference.html", "Source references", documents.reference_html())
 page(
+    "components.html",
+    "Project components",
+    documentation_layout(
+        '<header class="docs-intro"><p class="eyebrow">PROJECT MAP</p><h1>Ten parts.<br>One open project.</h1><p>Choose a component and check its current evidence.</p></header>'
+        + (R / "website/components.html").read_text(),
+        "components.html",
+    ),
+)
+page(
     "docs.html",
     "Documentation",
     documentation_layout(
-        '<header class="docs-intro"><p class="eyebrow">Documentation / Experimental alpha</p>'
+        '<header class="docs-intro"><p class="eyebrow">Open source / Local alpha</p>'
         "<h1>Start small.<br>Build your gadget.</h1>"
         "<p>Try the simulator, choose a device platform, or help improve the project.</p>"
         '<a class="docs-start" href="doc-docs-getting-started-simulator-kit.html">'
         'Start without hardware <span aria-hidden="true">↗</span></a>'
+        '<nav class="docs-entry-paths" aria-label="Choose a build path"><a href="simulator.html">Simulator ↗</a><a href="esp32.html">ESP32 ↗</a><a href="linux.html">Linux / Raspberry Pi ↗</a><a href="home-assistant.html">Home Assistant ↗</a></nav>'
         '<p class="docs-note">New here? Start with the simulator. Actual Grok and physical-device verification remain pending.</p></header>'
         + doc_navigation.index(),
         "docs.html",
@@ -629,9 +682,10 @@ shutil.copy(
 )
 check_links(OUT)
 kit_builder.verify_download(OUT / "downloads", simulator_build["gateway_commit"])
-kit_builder.assert_source_unchanged(
-    simulator_build["gateway_commit"], simulator_build["build_inputs"]
-)
+if kit_builder.inputs() != simulator_build["build_inputs"]:
+    raise ValueError(
+        "Simulator kit inputs changed; run python3 scripts/build-simulator-kit.py"
+    )
 backup = Path(site_staging.name) / "previous-dist"
 if DESTINATION.exists():
     DESTINATION.replace(backup)

@@ -6,7 +6,9 @@ All five source repositories are public under [adidshaft](https://github.com/adi
 
 The website provides an interactive architecture, a customizable virtual light, exported configuration and an inspectable simulator download. Gateway and SDK software acceptance passes, including installed-package checks. C124 firmware compiles. These checks do not establish native Grok invocation, physical LED/button operation, real-home compatibility or mobile acceptance.
 
-| Component | Published source | Verified evidence |
+The table and kit line below record the first publication on 5 October 2026. Current tested commits are in [`compatibility/tested-components.json`](../../compatibility/tested-components.json). The current kit hash and gateway commit are in [`website/downloads/simulator-kit-manifest.json`](../../website/downloads/simulator-kit-manifest.json) and its `SHA256SUMS`.
+
+| Component | Source at first publication | Verified evidence |
 | --- | --- | --- |
 | Gateway | `6c66a109084dc8480fdd49636dab2254d7e3d82e` | 77 tests, local MCP and installed simulator acceptance; hosted standalone CI |
 | Linux SDK | `b0e5f4bb407f4d4419673d4c1a5d540f68511c23` | Unit/CLI tests, installed custom applications and hosted standalone CI |
@@ -16,11 +18,11 @@ The website provides an interactive architecture, a customizable virtual light, 
 
 The first hub hosted run exposed a filesystem-order assumption in an archive regression and missing pip resolver metadata in an otherwise warmed uv cache. Commit `f78a5f668b8108435acd18cba24ddd249e45abdf` selects the exact source archive and prepares pinned runtime dependencies before strictly offline installed-package acceptance. Its [hub checks](https://github.com/adidshaft/grok-gadgets/actions/runs/37260225878) and [integrated acceptance](https://github.com/adidshaft/grok-gadgets/actions/runs/37260225894) passed on GitHub. The corresponding failed runs remain available as historical diagnostics.
 
-Current simulator kit: gateway `6c66a109084dc8480fdd49636dab2254d7e3d82e`, version `0.1.0a1`, SHA-256 `47f58e94ea6e3c8b6fd3acec1bd0fb4cc84597c3c8d7e28ac49b2bad08c3e894`. Fresh source and installed default/custom MCP acceptance passed. The current download is separate from historical Grok-account observations.
+Simulator kit at first publication: gateway `6c66a109084dc8480fdd49636dab2254d7e3d82e`, version `0.1.0a1`, SHA-256 `47f58e94ea6e3c8b6fd3acec1bd0fb4cc84597c3c8d7e28ac49b2bad08c3e894`. Fresh source and installed default/custom MCP acceptance passed. The current download is separate from historical Grok-account observations.
 
 ## Cloudflare Pages
 
-The free static site is live at [grok-gadgets.pages.dev](https://grok-gadgets.pages.dev/). Production deployment `589fab44-972e-47d6-a02b-05cf12a0576c` is tied to main SHA `925d4b6e362f30202d1072ebfecd9d52fc49637e`, after both required workflows passed on that exact SHA. The deployment workflow refreshed complete issue and activity snapshots for all five repositories, built the site, checked its tested kit, and published it. HTTPS `/`, `/start`, `/architecture`, and `/activity` returned 200. The live simulator kit SHA-256 matches `47f58e94ea6e3c8b6fd3acec1bd0fb4cc84597c3c8d7e28ac49b2bad08c3e894`. All five repository About homepage links were updated and read back. Daily snapshot refresh is scheduled at 06:17 UTC; failed builds keep the last good deployment.
+The free static site is live at [grok-gadgets.pages.dev](https://grok-gadgets.pages.dev/). First production deployment `589fab44-972e-47d6-a02b-05cf12a0576c` is tied to main SHA `925d4b6e362f30202d1072ebfecd9d52fc49637e`, after both required workflows passed on that exact SHA. That build's simulator kit SHA-256 was `47f58e94ea6e3c8b6fd3acec1bd0fb4cc84597c3c8d7e28ac49b2bad08c3e894`. Later `main` commits rebuilt the kit; the hash in this repository now is [`website/downloads/simulator-kit-manifest.json`](../../website/downloads/simulator-kit-manifest.json). Daily snapshot refresh is scheduled at 06:17 UTC; failed builds keep the last good deployment.
 
 ## History, issues and contribution flow
 
@@ -32,7 +34,7 @@ Main-branch policy requires pull requests, resolved review conversations and the
 
 ## Still pending
 
-- Native invocation receipts from the supported Grok Bot route. Installation or model narration is not invocation evidence.
+- Native Grok Bot invocation. Tool-I/O export does not cover stdio servers on a personal plan. Installation or model narration is not invocation evidence.
 - C124 hardware, flashing, USB enumeration and physical LED/button observations.
 - Real Home Assistant entities, Linux peripherals/systemd, mobile and independent human reproduction.
 - Package/prerelease publication and firmware redistribution materials.

@@ -1,10 +1,20 @@
-Source: grok-gadgets-home-assistant/docs/verification.md at af14de3ba2fe5fa006ee553ea29d95069c2e649a
+Source: grok-gadgets-home-assistant/docs/verification.md at b22ef5f8d378264952234fb86d19c4932a871687
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
 # Verification
 
 Current newcomer rehearsal: [standalone documentation verification](verification/launch.md). It identifies the source state, checks, installed-wheel result and package-license inspection.
+
+## Review fixes — 5 October 2026
+
+Environment: macOS arm64, uv 0.12.3, MCP SDK 2.3.0. The full CI sequence passed on CPython 3.11.15, 3.12.13,
+3.13.5 and 3.14.7: frozen install, Ruff lint/format, 26 unittest cases, wheel/sdist build, and the fixture probe.
+New tests cover name resolution and address pinning for local HTTP, the 4 MiB response cap (declared and streamed),
+refused compression, refused cross-origin, same-origin and http-to-https redirects, the list-only facade,
+and transport refusal of `tools/call` and `resources/read`. They use mock resolvers, mock transports and loopback
+servers only. No Home Assistant, Grok Bot, tunnel or device was used. The remote-route recipe in
+[setup](setup.md) is documentation only and unverified. Hosted CI has not run these changes.
 
 ## Historical local alpha checkpoint — 4 October 2026
 

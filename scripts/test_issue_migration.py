@@ -457,6 +457,29 @@ class MigrationTests(unittest.TestCase):
         self.assertEqual(restored["previous_mapping_snapshot"], existing)
         self.assertEqual(restored["remote_actions"], 0)
 
+    def test_completed_migration_refuses_apply_without_force(self):
+        script = Path(__file__).with_name("migrate-github-issues.py")
+        spec = importlib.util.spec_from_file_location("migrate_github_issues", script)
+        cli = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cli)
+        plan = self.root / "completed.json"
+        plan.write_text(
+            json.dumps(
+                {"owner": "adidshaft", "activated": True, "migration_complete": True}
+            )
+        )
+        stderr = io.StringIO()
+        with (
+            patch.object(cli, "ROOT", self.root),
+            patch.object(cli, "GitHubIssueAPI", side_effect=AssertionError("no API")),
+            patch("sys.stderr", stderr),
+        ):
+            self.assertEqual(cli.main(["--plan", str(plan), "--apply"]), 1)
+        self.assertIn("already completed", stderr.getvalue())
+        with self.assertRaises(migration.MigrationError):
+            cli.refuse_completed(plan, force=False)
+        cli.refuse_completed(plan, force=True)
+
     def test_duplicate_milestone_id_and_title_reconciles_once(self):
         local = [
             {

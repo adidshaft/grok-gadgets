@@ -11,10 +11,12 @@
     "community/moderation-policy.md",
     "community/contribution-recognition.md",
     "community/reddit-setup.md",
+    "community/reddit-package.md",
     "community/platform-evaluation.md",
     "community/content-plan.md",
     "community/drafts/initial-posts.md",
     "docs/getting-started/simulator-kit.md",
+    "docs/getting-started/hosting.md",
     "SUPPORT.md",
     "GOVERNANCE.md",
     "ROADMAP.md",
@@ -151,6 +153,7 @@
     "planning/issues.json",
     "publication/project.json",
     "compatibility/tested-components.json",
-    "website/media/provenance.json"
+    "website/media/provenance.json",
+    "docs/verification/publication-sanitization.md"
   ]
 }
