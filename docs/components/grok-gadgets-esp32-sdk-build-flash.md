@@ -1,4 +1,4 @@
-Source: grok-gadgets-esp32-sdk/docs/build-flash.md at 04b35d6110c18ad590e4510e0798a0a2011521dd
+Source: grok-gadgets-esp32-sdk/docs/build-flash.md at 0c22148b49e7f4b3b80cc8cfc09f9aae8bc557a3
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -52,7 +52,9 @@ The build writes these files in `.pio/build/atoms3-lite-usb/`:
 - `bootloader.bin`
 - `partitions.bin`
 
-Git ignores build output. `tools/package_build.py` copies these files into `artifacts/c124-usb` and writes checksums. A successful compile means **build verified, hardware pending**.
+Git ignores build output. `tools/package_build.py` copies these files, plus `boot_app0.bin` and `flash_args`, into `artifacts/c124-usb` and writes checksums. A successful compile means **build verified, hardware pending**.
+
+[docs/build-checksums.json](build-checksums.json) is the only current checksum record. `firmware.bin` and `firmware.elf` follow the installed Xtensa package `system` (`darwin_arm64`, `darwin_x86_64`, or a Linux value), not only the version string `8.4.0+2021r2-patch5`. The same source built with another host variant is a different image. Builds pass `-ffile-prefix-map` so the checkout path and the PlatformIO home are outside the image hash. Bootloader and partition hashes omit those paths. Hash tables in the verification notes are historical snapshots of older commits.
 
 To create a package with source records:
 
@@ -81,20 +83,26 @@ On Linux, the port is often `/dev/ttyACM0`. Inspect the actual port before use. 
 
 The example sends no debug logs on the protocol CDC channel.
 
+`pio run -t upload` is the flash path for this environment. It writes:
+
+| File | Offset |
+| --- | --- |
+| `bootloader.bin` | `0x0` |
+| `partitions.bin` | `0x8000` |
+| `boot_app0.bin` | `0xe000` |
+| `firmware.bin` | `0x10000` |
+
+PlatformIO uploads this Arduino board as DIO, 80 MHz, 8 MB. It rewrites the board file's QIO mode to DIO. No board was flashed in this repository. `flash_args` in the local package records the same offsets for inspection.
+
 ## Connect the USB bridge
 
-The device ID is `c124-<MAC hex>`. Each boot creates a random boot ID. Credentials remain on the host.
+The device ID is `c124-` plus the MAC in the order esptool prints, lowercase hex, no separators. MAC `bc:9a:78:56:34:12` is `c124-bc9a78563412`. Each boot creates a new random boot ID. Credentials stay on the host. The USB hello has no credential.
 
-1. Open a serial monitor at 115200 briefly to inspect hello.
-2. Record the device ID for the gateway credential.
-3. Close the monitor.
-4. Set `GROK_GADGETS_DEVICE_TOKEN` in your private shell environment.
-5. Follow the [gateway USB bridge guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/local-operation.md#usb-bridge).
+The bridge reads `GROK_GADGETS_DEVICE_TOKEN` from the environment and adds that token on the loopback connection. Keep the token out of Git.
 
-The bridge command is `.venv/bin/python -m grok_gadgets_gateway.usb_bridge PORT`. The bridge supplies the token to the loopback connection. Only one process can use the serial connection at a time.
+`grok-gadgets-gateway enroll <device-id>` prints `GROK_GADGETS_DEVICE_TOKEN=...` once. `grok-gadgets-gateway serve` keeps the loopback device listener and MCP HTTP service running. Those commands exist on the gateway `simplify-and-fix` branch. They were not run for this ESP32 record, and they are not verified with Grok Bot. The USB bridge is still `python -m grok_gadgets_gateway.usb_bridge PORT` with the token set. The token protects the local device connection. It is not remote MCP authentication. Keep this device transport on the gateway computer. See the [gateway USB bridge guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/local-operation.md#usb-bridge).
 
-This token protects the local device connection. It does not provide remote MCP authentication.
-A tunnel adds reachability only. Keep this device transport local.
+Unplugging the board stops the bridge. Plugging it back in power-cycles the board, so the boot ID changes. Start the bridge again after the port returns.
 
 ## Recover the board
 
@@ -112,10 +120,10 @@ For an unreliable upload connection, reduce upload speed in `platformio.ini`. Re
 ## Restore a previous version
 
 1. Open a clean checkout of a previously tested commit.
-2. Repeat that commit's pinned build.
+2. Repeat that commit's pinned build with the same Xtensa toolchain package `system`.
 3. Upload with `pio run -t upload`.
 
-This command supplies the bootloader, partition and firmware offsets. Do not write only `firmware.bin` to a guessed address.
+That command writes the four images at the offsets above.
 
 For factory restoration, use the manufacturer's M5Burner or Easyloader route. Preserve its source and license. Verify the exact C124 target. No firmware was flashed during the recorded local phase.
 
@@ -126,8 +134,8 @@ Record SDK and gateway commits, firmware checksums, operating system, port, time
 1. Discover C124.
 2. Request green, another colour and off. Observe each result.
 3. Press and release the user button. Check the order of reported events.
-4. Unplug the board during a command. Check offline and unconfirmed status.
-5. Reconnect and check fresh state.
+4. Unplug the board during a command. The USB bridge exits. Check that the gateway shows the device offline and the command unconfirmed.
+5. Plug the board back in. USB power starts a new boot, so the boot ID changes. Start the bridge again, then check fresh state.
 6. Reboot the board and gateway. Check boot and cursor resets.
 7. Repeat through Grok only after its account and transport route is verified.
 

@@ -1,8 +1,8 @@
 # Hosting documentation verification
 
-**Date:** 5 October 2026
+**Date:** 5 October 2026. The hosting FAQ on `simplify-and-fix` was later shortened to a one-page status table. The checks below describe the earlier long form.
 
-The canonical [hosting and remote access FAQ](../getting-started/hosting.md) explains gateway and tunnel ownership, current local operation, customer and maker hosting options, future security requirements, and four distinct evidence gates. It includes three future-route diagrams and links to official Grok Bot and Cloudflare documentation. The docs keep the remote HTTPS service blocked and make no hosting product commitment.
+The canonical [hosting and remote access FAQ](../getting-started/hosting.md) explains who runs the gateway, what local `serve` is, and that Grok Bot has not used it.
 
 ## Imported component documentation
 

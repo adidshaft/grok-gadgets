@@ -38,12 +38,7 @@ uv run python -m grok_gadgets_gateway.demo</code></pre><div class="component-lin
     </details>
     <details class="component">
       <summary><span class="component-number">08</span><span>Developer &amp; release tools</span><span class="component-type">Verify + prepare</span><span class="component-toggle" aria-hidden="true">+</span></summary>
-      <div class="component-body"><p>Run acceptance checks, audit source history, export labeled issues and assemble unpublished release artifacts.</p><p class="component-evidence">Local tooling · publication requires separate approval</p><pre><code>.venv/bin/python scripts/check-all.py
-python3 scripts/audit.py
-python3 scripts/export-roadmap.py
-python3 scripts/prepare-issue-migration.py
-python3 scripts/import-component-docs.py
-python3 scripts/package-local.py</code></pre><div class="component-links"><a href="doc-docs-verification-local-handoff.html">Verification &amp; publication package ↗</a><a href="roadmap.html">Issues &amp; roadmap ↗</a></div></div>
+      <div class="component-body"><p>Hub checks are one command. Cross-repo integration is optional when the sibling clones sit next to this one.</p><p class="component-evidence">Local tooling · publication requires separate approval</p><pre><code>python3 scripts/dev.py check</code></pre><div class="component-links"><a href="doc-docs-verification-local-handoff.html">Verification &amp; publication package ↗</a><a href="roadmap.html">Issues &amp; roadmap ↗</a></div></div>
     </details>
     <details class="component">
       <summary><span class="component-number">09</span><span>Website &amp; docs</span><span class="component-type">Project hub</span><span class="component-toggle" aria-hidden="true">+</span></summary>

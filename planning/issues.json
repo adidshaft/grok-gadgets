@@ -205,7 +205,8 @@
     "acceptance": [
       "Existing signed-in Grok Bot invokes gateway MCP simulator tools",
       "Discovery, green/off state, invalid commands, button events and offline/reconnect acceptance",
-      "Record actual client/host/package/tool evidence; no physical verification claim"
+      "Evidence is operator-owned server logs plus transcript observation, correlated by command ID",
+      "No physical verification claim"
     ],
     "dependencies": [
       "HUB-GW-001"
@@ -224,7 +225,7 @@
       "docs/verification/real-grok-experiment.md",
       "docs/verification/grok-launch-evidence.md"
     ],
-    "blocker": "Exact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors. Installation-only computer evidence recorded for grok-launch-20261005-a."
+    "blocker": "No Grok Bot session has used local serve. Native tool-I/O export cannot close this gate on a personal plan. Operator HTTP logs plus transcript observation are the evidence trail once an experiment is approved."
   },
   {
     "id": "HUB-HW-001",
@@ -921,8 +922,8 @@
     "problem": "Obtain actual Grok simulator invocation evidence",
     "intended_behaviour": "Meet exact launch-plan stage acceptance; public activation remains separately gated",
     "acceptance": [
-      "Inspect native Grok requests/results or independently retrieved stdio trace for exact kit and website-exported configuration",
-      "Discovery, color/off/state, invalid/unsupported input, retry, ordered simulated events, disconnect/recovery tested through native route",
+      "Operator-owned serve HTTP logs plus transcript observation, correlated by command ID, for the exact kit and website-exported configuration",
+      "Discovery, color/off/state, invalid/unsupported input, retry, ordered simulated events, disconnect/recovery through that route",
       "Return to normal six tools; preserve unrelated connectors and real devices"
     ],
     "dependencies": [
@@ -945,7 +946,7 @@
       "docs/verification/grok-launch-evidence.md",
       "docs/verification/mcp-trace.md"
     ],
-    "blocker": "Exact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors."
+    "blocker": "No Grok Bot session has used local serve. Native stdio tool-I/O export cannot close this gate on a personal plan."
   },
   {
     "id": "DOC-GLOSSARY-001",

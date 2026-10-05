@@ -16,8 +16,9 @@ Open-source tools so you can connect gadgets to [Grok Bot](https://docs.x.ai/gro
 | Run the [local simulator kit](docs/getting-started/simulator-kit.md) on your computer. | Use a cloud Bot against a file that only exists on your Mac. Command MCP runs on Grok's cloud computer. |
 | Build the Linux agent or compile C124 firmware. | Treat compile success as a flashed, working board. |
 | Read the [hosting FAQ](docs/getting-started/hosting.md). | Point Grok Bot at `127.0.0.1`. Local `serve` exists; Grok Bot has not used it. |
+| Ask Grok about events after it is already working. | Press a gadget button and have Grok notice. Bots do not wake on MCP events. |
 
-**Experimental alpha.** Software tests pass. `grok_verified` and `hardware_verified` stay false until native Grok receipts and physical observation exist.
+**Experimental alpha.** Software tests pass. `grok_verified` and `hardware_verified` stay false until a Grok Bot session and physical observation exist.
 
 ## Start here
 
@@ -46,11 +47,10 @@ Python 3.13, uv, Node.js 22+ and Git:
 ```sh
 python3 scripts/dev.py setup
 python3 scripts/dev.py site
+python3 scripts/dev.py check
 ```
 
-Or the long form: `uv venv .venv --python 3.13`, install `website/requirements.txt`, `website/build.py`, then `python3 -m http.server 4173 --bind 127.0.0.1 --directory website/dist`. Open `http://127.0.0.1:4173/index.html#playground`.
-
-Hub checks: `python3 scripts/dev.py check` (same as CI). With pinned sibling clones, `scripts/check-all.py` runs the fourteen integration groups.
+Open `http://127.0.0.1:4173/index.html#playground`. Sibling integration is `scripts/check-all.py` when the four other repos sit next to this one.
 
 ## Contribute
 
