@@ -111,6 +111,36 @@
       "source": "docs/visuals/simulator-playground.jpg",
       "output": "media/diagrams/simulator-playground.jpg",
       "sha256": "c3215addc08a33a6d12b72727f9a034ca96c2743bd1ad26159bac70ac39a7dd2"
+    },
+    {
+      "repository": "grok-gadgets",
+      "source": "docs/visuals/project-banner.png",
+      "output": "media/diagrams/project-banner.png",
+      "sha256": "cfd861189767d4b8e970ff6dc24089467254e3d2047cb168569087fcc5e3a32c"
+    },
+    {
+      "repository": "grok-gadgets",
+      "source": "docs/visuals/badge-stage.svg",
+      "output": "media/diagrams/badge-stage.svg",
+      "sha256": "2e6428b35e330677a2521e26fa547cb68e676d0426c4df48c2a111cd74c3c3e5"
+    },
+    {
+      "repository": "grok-gadgets",
+      "source": "docs/visuals/badge-license.svg",
+      "output": "media/diagrams/badge-license.svg",
+      "sha256": "32f135584cc55be08a06835f0e90f043bd108d4a6b1778bc0bae9ec7ba2cb4ca"
+    },
+    {
+      "repository": "grok-gadgets",
+      "source": "docs/visuals/badge-checks.svg",
+      "output": "media/diagrams/badge-checks.svg",
+      "sha256": "f4776ea22541da7b6dc024764848b7fd88f47b7ae833d11adda2231743aa2f9b"
+    },
+    {
+      "repository": "grok-gadgets",
+      "source": "docs/visuals/badge-contribute.svg",
+      "output": "media/diagrams/badge-contribute.svg",
+      "sha256": "0ed2e2f25bd1e961451fc83c25fe4fd8a24725af636ee1f2fe73f672ef751455"
     }
   ],
   "hub_references": [

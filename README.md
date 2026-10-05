@@ -1,12 +1,18 @@
 # Grok Gadgets
 
+![Grok Gadgets — Open source. Real world.](docs/visuals/project-banner.png)
+
+[![Experimental alpha](docs/visuals/badge-stage.svg)](docs/public/support-matrix.md) [![Apache-2.0 license](docs/visuals/badge-license.svg)](LICENSE) [![View CI checks](docs/visuals/badge-checks.svg)](https://github.com/adidshaft/grok-gadgets/actions) [![Contributions welcome](docs/visuals/badge-contribute.svg)](CONTRIBUTING.md)
+
+**[Try the simulator](https://grok-gadgets.pages.dev/#playground)** · [Documentation](https://grok-gadgets.pages.dev/docs.html) · [Roadmap](ROADMAP.md) · [Issues](https://github.com/adidshaft/grok-gadgets/issues) · [Community](https://www.reddit.com/r/GrokGadgets/)
+
 Connect gadgets to Grok with open-source tools and separate software development kits (SDKs). Start with a virtual light. Then build with Linux or ESP32, or explore Home Assistant.
 
-Documentation uses concise technical English inspired by ASD-STE100. See our [writing guide](docs/contributing/writing-guide.md); formal compliance is not claimed.
+Documentation follows our [ASD-STE100-inspired writing guide](docs/contributing/writing-guide.md). Formal compliance is not claimed.
 
 **Experimental alpha.** Browser simulation and the local Model Context Protocol (MCP) connection pass software tests. C124 firmware compiles. Actual Grok execution, mobile use and physical operation still need verification.
 
-![Browser simulation exports a configuration for the tested MCP simulator; SDK and native Grok paths have separate evidence gates.](docs/visuals/project-overview.svg)
+## Choose your starting point
 
 | Your next step | Start here |
 | --- | --- |
@@ -20,6 +26,10 @@ Documentation uses concise technical English inspired by ASD-STE100. See our [wr
 The [public website](https://grok-gadgets.pages.dev/) is live. Its source lives here. Package releases and firmware downloads have separate release gates.
 
 The ESP32 library is reusable; C124 is the first board example. Other boards need their own hardware handlers, build configuration and verification. See the [repository and device map](docs/architecture/overview.md).
+
+## How the parts connect
+
+![Browser simulation exports settings for the local MCP simulator. SDK and native Grok paths have separate verification requirements.](docs/visuals/project-overview.svg)
 
 ## Try the website locally
 
@@ -51,6 +61,15 @@ An actual Grok experiment needs a supported MCP connection in the Bot's environm
 | Website | Static build/link tests, browser interaction and responsive checks |
 
 ## Contribute
+
+![Choose an issue, make a focused branch, run checks, then open a pull request for review.](docs/visuals/contribution.svg)
+
+| Get involved | Link |
+| --- | --- |
+| Find a small task | [Ready issues](docs/contributing/ready-issues.md) |
+| Propose a change | [Contribution guide](CONTRIBUTING.md) |
+| Review activity | [Pull requests](https://github.com/adidshaft/grok-gadgets/pulls) · [Contributors](https://github.com/adidshaft/grok-gadgets/graphs/contributors) |
+| Report a private concern | [Security](SECURITY.md) · [Code of conduct](CODE_OF_CONDUCT.md) |
 
 Run standalone hub checks with `python3 scripts/check.py`, `node --test website/test_simulator.cjs`, and `.venv/bin/python -m unittest discover -s website`. With all four pinned siblings installed, `.venv/bin/python scripts/check-all.py` runs the fourteen integration groups. See [verification matrix](docs/public/support-matrix.md), [architecture](docs/architecture/overview.md), [roadmap](ROADMAP.md), [support](SUPPORT.md), [security](SECURITY.md), [governance](GOVERNANCE.md) and [community](community/README.md).
 
