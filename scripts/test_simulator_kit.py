@@ -27,9 +27,9 @@ class KitTests(unittest.TestCase):
                 patch.object(
                     module,
                     "run",
-                    side_effect=lambda args, **kwargs: commit
-                    if args[1] == "rev-parse"
-                    else "",
+                    side_effect=lambda args, **kwargs: (
+                        commit if args[1] == "rev-parse" else ""
+                    ),
                 ),
             ):
                 yield
