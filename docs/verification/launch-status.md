@@ -6,7 +6,9 @@ All five source repositories are public under [adidshaft](https://github.com/adi
 
 The website provides an interactive architecture, a customizable virtual light, exported configuration and an inspectable simulator download. Gateway and SDK software acceptance passes, including installed-package checks. C124 firmware compiles. These checks do not establish native Grok invocation, physical LED/button operation, real-home compatibility or mobile acceptance.
 
-| Component | Published source | Verified evidence |
+The table and kit line below record the first publication on 5 October 2026. Current tested commits are in [`compatibility/tested-components.json`](../../compatibility/tested-components.json). The current kit hash and gateway commit are in [`website/downloads/simulator-kit-manifest.json`](../../website/downloads/simulator-kit-manifest.json) and its `SHA256SUMS`.
+
+| Component | Source at first publication | Verified evidence |
 | --- | --- | --- |
 | Gateway | `dc9994eee53c6ba86b011d63034516fbcf92044e` | 77 tests, local MCP and installed simulator acceptance; hosted standalone CI |
 | Linux SDK | `8a0cb488fa224e404298fd99b61fbe38e1632580` | Unit/CLI tests, installed custom applications and hosted standalone CI |
@@ -16,7 +18,7 @@ The website provides an interactive architecture, a customizable virtual light, 
 
 The first hub hosted run exposed a filesystem-order assumption in an archive regression and missing pip resolver metadata in an otherwise warmed uv cache. Commit `ae2f1935554dbc54f0d6f3efaa357056a0713ee0` selects the exact source archive and prepares pinned runtime dependencies before strictly offline installed-package acceptance. Its [hub checks](https://github.com/adidshaft/grok-gadgets/actions/runs/37260225878) and [integrated acceptance](https://github.com/adidshaft/grok-gadgets/actions/runs/37260225894) passed on GitHub. The corresponding failed runs remain available as historical diagnostics.
 
-Current simulator kit: gateway `dc9994eee53c6ba86b011d63034516fbcf92044e`, version `0.1.0a1`, SHA-256 `4c81c95fcf1efd3eb498f39f1946cfefefe4dffb5d07b52aded27f0f2aff6056`. Fresh source and installed default/custom MCP acceptance passed. The current download is separate from historical Grok-account observations.
+Simulator kit at first publication: gateway `dc9994eee53c6ba86b011d63034516fbcf92044e`, version `0.1.0a1`, SHA-256 `4c81c95fcf1efd3eb498f39f1946cfefefe4dffb5d07b52aded27f0f2aff6056`. Fresh source and installed default/custom MCP acceptance passed. The current download is separate from historical Grok-account observations.
 
 ## Cloudflare Pages
 

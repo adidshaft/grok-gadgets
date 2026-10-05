@@ -1,1 +1,1 @@
-[{"consent":true,"github_proof":{"verified":true,"immutable_id":"fixture-github-1"},"reddit_proof":{"verified":true,"immutable_id":"fixture-reddit-1"},"contributions":[{"repository":"grok-gadgets","merged":true,"author_id":"fixture-github-1","kind":"documentation"}]},{"consent":false}]
+[{"consent":true,"github_proof":{"verified":true,"immutable_id":1000001},"reddit_proof":{"verified":true,"immutable_id":"t2_fixture1"},"contributions":[{"repository":"adidshaft/grok-gadgets","merged":true,"author_id":1000001,"kind":"documentation"}]},{"consent":false}]

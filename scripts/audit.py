@@ -85,7 +85,7 @@ for repo in repos:
             commit=git("rev-parse", "HEAD"),
             branch=git("branch", "--show-current"),
             clean=not git("status", "--porcelain"),
-            remotes=git("remote"),
+            remotes=git("remote", "-v"),
             tracked_files=len(tracked),
             license_sha256=hashlib.sha256((repo / "LICENSE").read_bytes()).hexdigest(),
             secret_findings=findings,
@@ -119,8 +119,26 @@ print(
         indent=2,
     )
 )
-assert len(result) == 5, "Five repositories required"
-assert not any(r["secret_findings"] for r in result), "Review redacted secret findings"
-assert not any(r["remotes"] for r in result), (
-    "No remotes expected for authorized local phase"
+
+
+def require(condition, message):
+    if not condition:
+        raise SystemExit(message)
+
+
+def expected_remotes(record):
+    url = "https://github.com/adidshaft/" + record["repository"] + ".git"
+    return all(
+        line.split()[1] in (url, url.removesuffix(".git"))
+        for line in record["remotes"].splitlines()
+    )
+
+
+require(len(result) == 5, "Five repositories required")
+require(
+    not any(r["secret_findings"] for r in result), "Review redacted secret findings"
+)
+require(
+    all(expected_remotes(r) for r in result),
+    "Only the public adidshaft GitHub remote is expected",
 )
