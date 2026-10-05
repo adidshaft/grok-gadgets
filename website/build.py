@@ -121,6 +121,15 @@ NAVIGATION = [
 def page(name, title, body):
     home = name == "index.html"
     documentation = name == "docs.html" or name.startswith("doc-")
+    page_title = title + " · Grok Gadgets"
+    description = (
+        "Grok Gadgets is an independent open-source project building tools and SDKs "
+        "for your existing Grok Bot. "
+        + title
+        + "."
+    )
+    share_image = PUBLIC_SITE + "media/grok-gadgets-share-v1.png"
+    canonical_url = PUBLIC_SITE + name
     body = body.replace(
         "downloads/grok-gadgets-simulator-kit.zip", "downloads/" + kit_archive
     ).replace("downloads/simulator-kit-manifest.json", "downloads/" + kit_manifest)
@@ -148,19 +157,27 @@ def page(name, title, body):
     if documentation:
         scripts += '<script src="docs.js" defer></script>'
     (OUT / name).write_text(
-        '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Open source devices for Grok. Explore the local alpha."><title>'
-        + e(title)
-        + ' · Grok Gadgets</title><link rel="canonical" href="'
-        + PUBLIC_SITE
-        + name
-        + '"><meta property="og:title" content="'
-        + e(title)
-        + ' · Grok Gadgets"><meta property="og:description" content="Open-source devices for Grok. Try a simulator, explore separate SDKs and contribute to the experimental alpha."><meta property="og:image" content="'
-        + PUBLIC_SITE
-        + 'media/grok-gadgets-icon.png"><meta property="og:url" content="'
-        + PUBLIC_SITE
-        + name
-        + '"><meta name="twitter:card" content="summary"><link rel="icon" type="image/png" href="media/grok-gadgets-icon.png"><link rel="stylesheet" href="style.css">'
+        '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="'
+        + e(description, quote=True)
+        + '"><title>'
+        + e(page_title)
+        + '</title><link rel="canonical" href="'
+        + e(canonical_url, quote=True)
+        + '"><meta property="og:type" content="website"><meta property="og:site_name" content="Grok Gadgets"><meta property="og:locale" content="en_US"><meta property="og:title" content="'
+        + e(page_title, quote=True)
+        + '"><meta property="og:description" content="'
+        + e(description, quote=True)
+        + '"><meta property="og:url" content="'
+        + e(canonical_url, quote=True)
+        + '"><meta property="og:image" content="'
+        + e(share_image, quote=True)
+        + '"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Conceptual architecture illustration connecting Grok Bot to Grok Gadgets tools and maker hardware; an independent open-source project, not affiliated with xAI or SpaceXAI."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="'
+        + e(page_title, quote=True)
+        + '"><meta name="twitter:description" content="'
+        + e(description, quote=True)
+        + '"><meta name="twitter:image" content="'
+        + e(share_image, quote=True)
+        + '"><meta name="twitter:image:alt" content="Conceptual architecture illustration connecting Grok Bot to Grok Gadgets tools and maker hardware; an independent open-source project, not affiliated with xAI or SpaceXAI."><link rel="icon" type="image/png" href="media/grok-gadgets-icon.png"><link rel="stylesheet" href="style.css">'
         + ('<link rel="stylesheet" href="scene.css">' if home else "")
         + '</head><body class="'
         + (
