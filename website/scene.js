@@ -18,7 +18,7 @@
     esp32: [240, 5, 165], linux: [250, 40, -235], home: [-265, 5, 205],
   };
   const details = {
-    grok: ['Grok', 'Your existing Grok Bot. Actual connection remains pending.', 'start.html', 'The connection path'],
+    grok: ['Grok Bot', 'Your existing Grok Bot. Actual connection remains pending.', 'start.html', 'The connection path'],
     gateway: ['Gateway', 'Routes commands. Reports device state.', 'architecture.html', 'Explore the architecture'],
     esp32: ['ESP32', 'AtomS3 Lite C124. USB first. LED and button.', 'esp32.html', 'Meet the first gadget'],
     linux: ['Linux', 'Declare capabilities. Connect your own device application.', 'linux.html', 'Build with the Linux SDK'],
@@ -38,8 +38,17 @@
   let lastTime = null;
   let drawAt = 0;
   let visible = true;
-  const preference = matchMedia('(prefers-reduced-motion: reduce)');
-  let reduced = preference.matches || document.documentElement.hasAttribute('data-reduced-motion');
+  let story = 'light';
+  let storyStarted = 0;
+  let geometryDirty = true;
+  const storyRoutes = {light: 'esp32', sensor: 'linux', display: 'linux', home: 'home'};
+  const storyCopy = {
+    light: ['Virtual light', 'Conceptual route to the browser simulator. Controls below change only simulated state.', 'simulator.html', 'Try the simulator'],
+    sensor: ['Sample sensor', 'Conceptual sensor reading over the Linux SDK route. No live sensor is connected.', 'linux.html', 'Explore Linux'],
+    display: ['Pi display', 'Conceptual Raspberry Pi display route. No Pi or screen is connected.', 'linux.html', 'Explore Linux'],
+    home: ['Home Assistant', 'Conceptual route to entities exposed by Home Assistant’s own MCP server.', 'home-assistant.html', 'Explore Home Assistant'],
+  };
+  let reduced = document.documentElement.hasAttribute('data-reduced-motion');
   const buttons = [...root.querySelectorAll('[data-node]')];
   const groundPath = make('path', {fill: 'none', stroke: '#dcdcd4', 'stroke-width': '.7'}, group('scene-ground'));
   const edgePath = make('path', {fill: 'none', stroke: '#b9b9af', 'stroke-width': '.8'}, group('scene-ground'));
@@ -56,14 +65,16 @@
   }));
   const buttonPulse = make('circle', {fill: 'none', stroke: '#20201d', 'stroke-width': '1', opacity: '0'}, group('scene-packets'));
   let rect = stage.getBoundingClientRect();
+  const buttonSizes = new Map(buttons.map(button => [button, button.getBoundingClientRect().width]));
+  const curves = new Map();
 
   function project(point) {
     const [x, y, z] = point;
-    const theta = .18 + Math.sin(phase * .35) * .29;
+    const theta = .18;
     const c = Math.cos(theta), s = Math.sin(theta);
     const rx = x * c - z * s;
     const rz = x * s + z * c;
-    return [500 + rx * 1.11, 344 + rz * .48 - y * .93 + Math.sin(phase * .45) * 11];
+    return [500 + rx * 1.11, 344 + rz * .48 - y * .93];
   }
   function line(a, b) {
     const p = project(a), q = project(b);
@@ -93,11 +104,8 @@
     }
     return result;
   }
-  function activeRoute(route) {
-    if (view !== 'system') return route.to === 'esp32' || route.to === 'gateway';
-    return selected === 'grok' || selected === 'gateway' && route.to !== 'home' || route.to === selected;
-  }
   function render() {
+    if (geometryDirty) {
     let grid = '';
     for (let x = -375; x <= 375; x += 75) grid += line([x, -68, -310], [x, -68, 310]);
     for (let z = -310; z <= 310; z += 62) grid += line([-375, -68, z], [375, -68, z]);
@@ -118,7 +126,7 @@
     objectPaths.esp32.setAttribute('d', board);
     ledSurface.setAttribute('d', polygon([[e[0] + 23, 18, e[2] - 41], [e[0] + 44, 18, e[2] - 41], [e[0] + 44, 18, e[2] - 20], [e[0] + 23, 18, e[2] - 20]]));
     const output = simulator.state.rgb;
-    ledSurface.setAttribute('fill', connected && output.on ? `rgb(${output.r},${output.g},${output.b})` : palette.off);
+    ledSurface.setAttribute('fill', output.on ? `rgb(${output.r},${output.g},${output.b})` : palette.off);
     const l = positions.linux;
     let linux = wireBox(l, 90, 100, 67) + wireBox([l[0], l[1] + 15, l[2] + 35], 64, 59, 5);
     for (let y = 125; y <= 135; y += 5) linux += line([l[0] - 29, y, l[2] + 34], [l[0] + 29, y, l[2] + 34]);
@@ -137,16 +145,9 @@
       const middle = [(start[0] + end[0]) / 2, Math.max(start[1], end[1]) + 40, (start[2] + end[2]) / 2];
       const a = project(start), b = project(middle), c = project(end);
       route.path.setAttribute('d', `M${a.join(',')}Q${b.join(',')} ${c.join(',')}`);
-      const active = activeRoute(route);
-      const available = connected || route.to !== 'esp32';
-      route.path.setAttribute('stroke', active && available ? '#20201c' : '#cecec5');
-      route.path.setAttribute('stroke-width', active ? '1.3' : '.8');
-      const t = ((phase * .15 + index * .24) % 1);
-      const reverse = view === 'button' && route.to === 'esp32';
-      const u = reverse ? 1 - t : t;
-      const p = [Math.pow(1 - u, 2) * a[0] + 2 * (1 - u) * u * b[0] + u * u * c[0], Math.pow(1 - u, 2) * a[1] + 2 * (1 - u) * u * b[1] + u * u * c[1]];
-      route.packet.setAttribute('cx', p[0]); route.packet.setAttribute('cy', p[1]);
-      route.packet.setAttribute('opacity', active && available ? '.95' : '0');
+      curves.set(route.to, [a, b, c]);
+      route.path.setAttribute('stroke', '#cecec5');
+      route.path.setAttribute('stroke-width', '.8');
     });
     const scale = Math.min(rect.width / 1000, rect.height / 700);
     const dx = (rect.width - scale * 1000) / 2, dy = (rect.height - scale * 700) / 2;
@@ -154,13 +155,29 @@
       const key = button.dataset.node;
       const p = project(positions[key]);
       const offset = key === 'grok' ? -82 : key === 'linux' ? -118 : key === 'home' ? 35 : key === 'gateway' ? -105 : 53;
-      const half = button.offsetWidth / 2 + 8;
+      const half = (buttonSizes.get(button) || 44) / 2 + 8;
       const x = dx + p[0] * scale;
       button.style.left = `${Math.max(half, Math.min(rect.width - half, x))}px`;
       button.style.top = `${dy + (p[1] + offset) * scale}px`;
     });
+      geometryDirty = false;
+    }
+    const output = simulator.state.rgb;
+    ledSurface.setAttribute('fill', output.on ? `rgb(${output.r},${output.g},${output.b})` : palette.off);
+    const selectedRoute = storyRoutes[story];
+    routes.forEach(route => {
+      const active = route.to === selectedRoute;
+      const [a, b, c] = curves.get(route.to);
+      const t = active ? Math.min(1, Math.max(0, (phase - storyStarted) / 3.3)) : 0;
+      const point = [Math.pow(1-t,2)*a[0]+2*(1-t)*t*b[0]+t*t*c[0], Math.pow(1-t,2)*a[1]+2*(1-t)*t*b[1]+t*t*c[1]];
+      route.path.setAttribute('stroke', active && (connected || route.to !== 'esp32') ? '#20201c' : '#cecec5');
+      route.path.setAttribute('stroke-width', active ? '1.3' : '.8');
+      route.packet.setAttribute('cx', point[0]); route.packet.setAttribute('cy', point[1]);
+      route.packet.setAttribute('opacity', active && !reduced && phase-storyStarted < 3.3 ? '.95' : '0');
+    });
     const elapsed = phase - eventAt;
-    const pulse = project([e[0] - 34, e[1] + 14, e[2] + 32]);
+    const board = positions.esp32;
+    const pulse = project([board[0] - 34, board[1] + 14, board[2] + 32]);
     buttonPulse.setAttribute('cx', pulse[0]); buttonPulse.setAttribute('cy', pulse[1]);
     buttonPulse.setAttribute('r', 12 + Math.min(elapsed, 1) * 34);
     buttonPulse.setAttribute('opacity', !reduced && connected && elapsed >= 0 && elapsed < 1 ? 1 - elapsed : 0);
@@ -175,8 +192,23 @@
     root.querySelector('#scene-detail').textContent = detail[1];
     const link = root.querySelector('#scene-detail-link');
     link.href = detail[2]; link.textContent = `${detail[3]} ↗`;
+    geometryDirty = true;
     render();
   }
+  function selectStory(name) {
+    story = name; storyStarted = phase;
+    selected = name === 'home' ? 'home' : name === 'sensor' || name === 'display' ? 'linux' : 'esp32';
+    buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.node === selected)));
+    root.querySelectorAll('[data-story]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.story === name)));
+    const copy = storyCopy[name];
+    root.querySelector('#scene-detail-name').textContent = copy[0];
+    root.querySelector('#scene-detail').textContent = copy[1];
+    const link = root.querySelector('#scene-detail-link');
+    link.href = copy[2]; link.textContent = `${copy[3]} ↗`;
+    geometryDirty = true; render(); syncMotion();
+  }
+  root.querySelectorAll('[data-story]').forEach(button => button.addEventListener('click', () => selectStory(button.dataset.story)));
+  root.querySelector('#scene-replay').addEventListener('click', () => selectStory(story));
   function setView(name) {
     view = name;
     root.dataset.view = name;
@@ -193,7 +225,11 @@
   const phaseLabel = document.querySelector('#playground-phase');
   const configFeedback = document.querySelector('#playground-config-feedback');
   function feedback(message) {
-    root.querySelector('#scene-feedback').textContent = message || `${simulator.config.display_name} · LED ${led} · ${events} button events · ${connected ? 'connected' : 'disconnected'}`;
+    const output = simulator.state.rgb;
+    const reported = output.on ? `last reported #${[output.r,output.g,output.b].map(value => value.toString(16).padStart(2,'0')).join('')}` : 'last reported off';
+    root.querySelector('#scene-feedback').textContent = message || (connected
+      ? `${simulator.config.display_name} · LED ${led} · ${events} button events · connected`
+      : `${simulator.config.display_name} · ${reported} · disconnected · current output unknown · ${events} button events`);
   }
   function sync(message, result) {
     connected = simulator.available; events = simulator.sequence;
@@ -248,14 +284,13 @@
     setView('button');
     const result = simulator.press(); eventAt = phase;
     phaseLabel.textContent = result.ok ? 'Simulated button press → release → two events' : 'Device unavailable · no event';
-    sync(result.ok ? null : 'Device disconnected · no button event', result);
+    sync(result.ok ? null : 'Device disconnected · no button event', result); syncMotion();
   });
   root.querySelector('#scene-disconnect').addEventListener('click', () => {
     if (simulator.available) simulator.disconnect(); else simulator.reconnect();
     phaseLabel.textContent = simulator.available ? 'Reconnected · starting state restored' : 'Offline · commands will fail';
     sync();
   });
-  document.querySelector('#playground-try').addEventListener('click', () => {setView('led'); root.scrollIntoView({block: 'start', behavior: reduced ? 'instant' : 'smooth'});});
   form.addEventListener('submit', event => {
     event.preventDefault(); configAction(config => {
       document.querySelector('#playground-export-preview').hidden = true; simulator.reset(config); report.textContent = 'No command yet.'; phaseLabel.textContent = 'Restarted · your starting state';
@@ -291,18 +326,19 @@
     if (lastTime !== null) phase += Math.min((time - lastTime) / 1000, .1);
     lastTime = time;
     if (time - drawAt >= 32) {render(); drawAt = time;}
-    raf = requestAnimationFrame(tick);
+    if (phase - storyStarted < 3.3 || phase - eventAt < 1) raf = requestAnimationFrame(tick);
   }
   function syncMotion() {
     if (raf) cancelAnimationFrame(raf);
     raf = 0; lastTime = null;
     if (!reduced && !document.hidden && visible) raf = requestAnimationFrame(tick);
   }
-  document.addEventListener('grok:motion-change', (event) => {reduced = Boolean(event.detail.reduced); syncMotion();});
-  preference.addEventListener('change', () => {reduced = preference.matches || document.documentElement.hasAttribute('data-reduced-motion'); syncMotion();});
+  document.addEventListener('grok:motion-change', (event) => {reduced = !event.detail.canAnimate; syncMotion();});
   document.addEventListener('visibilitychange', syncMotion);
   if ('IntersectionObserver' in window) new IntersectionObserver(([entry]) => {visible = entry.isIntersecting; syncMotion();}, {threshold: .01}).observe(stage);
-  if ('ResizeObserver' in window) new ResizeObserver(() => {rect = stage.getBoundingClientRect(); render();}).observe(stage);
-  else window.addEventListener('resize', () => {rect = stage.getBoundingClientRect(); render();});
-  render(); syncMotion();
+  if ('ResizeObserver' in window) new ResizeObserver(() => {rect = stage.getBoundingClientRect(); buttons.forEach(button => buttonSizes.set(button, button.getBoundingClientRect().width)); geometryDirty = true; render();}).observe(stage);
+  else window.addEventListener('resize', () => {rect = stage.getBoundingClientRect(); buttons.forEach(button => buttonSizes.set(button, button.getBoundingClientRect().width)); geometryDirty = true; render();});
+  root.classList.add('scene-ready');
+  buttons.forEach(button => buttonSizes.set(button, button.getBoundingClientRect().width));
+  geometryDirty = true; selectStory('light'); sync(); syncMotion();
 })();

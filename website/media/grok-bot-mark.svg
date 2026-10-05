@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Grok Bot mark</title>
+  <desc id="desc">White sphere with two dark rounded marks on a near-black field, redrawn from the user-provided reference.</desc>
+  <rect width="512" height="512" rx="48" fill="#090909"/>
+  <circle cx="256" cy="256" r="222" fill="#fff"/>
+  <g fill="#191919" transform="rotate(28 256 190)">
+    <rect x="172" y="93" width="42" height="110" rx="21"/>
+    <rect x="271" y="101" width="54" height="126" rx="27"/>
+  </g>
+</svg>
