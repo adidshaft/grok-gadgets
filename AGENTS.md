@@ -11,3 +11,5 @@ Every research subagent must use Max reasoning; prefer current GPT-6.1/6 models.
 ## Ignore rules and publication privacy
 
 Keep `.gitignore` current whenever a new tool produces caches, build output, local device configurations, execution logs or credentials. Preserve reviewed sample configuration files and the hub's verified public simulator download. Check new patterns with `git check-ignore`, then review the staged file list before committing. Ignore rules do not remove tracked files or past history; never merge the private pre-publication history back into a public branch. Use the sanitized public checkout and a public or GitHub noreply commit email.
+
+For an authorized maintainer merge, pass `--author-email 224602646+adidshaft@users.noreply.github.com` to `gh pr merge`, preserve individual commits with `--merge`, and verify the resulting author/committer metadata. Local `git config user.email` does not control a merge commit created by GitHub. Do not change account-wide email settings. Never leave a temporary ruleset bypass enabled after an explicitly authorized history repair.
