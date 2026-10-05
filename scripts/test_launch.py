@@ -137,8 +137,8 @@ class LaunchTests(unittest.TestCase):
             (root / "index.html").write_text('<a href="/style.css">bad root</a>')
             (root / "style.css").write_text("")
             with self.assertRaisesRegex(ValueError, "prefix"):
-                checker.check(root)
+                checker.check(root, base="https://adidshaft.github.io/grok-gadgets/")
             (root / "index.html").write_text("")
-            (root / "404.html").write_text('<link href="style.css">')
+            (root / "404.html").write_text('<a href="another.html">deep link</a>')
             with self.assertRaisesRegex(ValueError, "deep link"):
-                checker.check(root)
+                checker.check(root, base="https://adidshaft.github.io/grok-gadgets/")
