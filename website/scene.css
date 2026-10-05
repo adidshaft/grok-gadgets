@@ -1,6 +1,6 @@
 /* A projected instrument, placed in an open editorial field. */
 .home-page main#main{max-width:none;padding:88px 0 0;}
-.home-scene{--scene-ink:#1b1b1a;--scene-muted:#73736e;--scene-paper:#fff;position:relative;min-height:calc(100svh - 144px);padding:0;border:0;overflow:hidden;color:var(--scene-ink);}
+.home-scene{--scene-ink:#1b1b1a;--scene-muted:#73736e;--scene-paper:#fff;position:relative;isolation:isolate;min-height:calc(100svh - 144px);padding:0;border:0;overflow:hidden;color:var(--scene-ink);}
 .scene-intro{position:absolute;z-index:3;left:5.7%;top:42%;width:30%;pointer-events:none;}
 .scene-intro>*{pointer-events:auto;}
 .scene-kicker{font:9px/1.5 'Courier New',monospace;letter-spacing:.13em;margin:0 0 24px;}

@@ -2182,7 +2182,8 @@
         ],
         "evidence": [
           "27-page static build/link checks",
-          "3 activity tests, fixture escape check, desktop/mobile visual check, keyboard/reduced-motion browser checks"
+          "3 activity tests, fixture escape check, desktop/mobile visual check, keyboard/reduced-motion browser checks",
+          "Final browser review fixed scroll-dependent Menu pointer interception by isolating scene layers; pointer open/close and Escape focus restoration verified at desktop1265px and narrow375px; LED green still works. Screens and exact final source are in the approval packet."
         ],
         "blocker": null
       },
@@ -2191,7 +2192,7 @@
       "marker": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-WEB-001 -->",
       "github_url": null,
       "source_present": true,
-      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-WEB-001 -->\n\nLocal ID: `HUB-WEB-001`\n\nStatus: **done**\n\nSource-driven website and local visual verification\n\n### Acceptance\n\n- Documented commands reproduce observed behaviour\n- Evidence identifies actual verification level\n\n### Evidence\n\n- 27-page static build/link checks\n- 3 activity tests, fixture escape check, desktop/mobile visual check, keyboard/reduced-motion browser checks\n\n### Commits\n\n- 7c76969\n- 48cadc5\n\n### Dependencies\n\n- `grok-gadgets#HUB-001` (resolve after issue creation)\n"
+      "issue_body": "<!-- grok-gadgets-local-id:adidshaft/grok-gadgets/HUB-WEB-001 -->\n\nLocal ID: `HUB-WEB-001`\n\nStatus: **done**\n\nSource-driven website and local visual verification\n\n### Acceptance\n\n- Documented commands reproduce observed behaviour\n- Evidence identifies actual verification level\n\n### Evidence\n\n- 27-page static build/link checks\n- 3 activity tests, fixture escape check, desktop/mobile visual check, keyboard/reduced-motion browser checks\n- Final browser review fixed scroll-dependent Menu pointer interception by isolating scene layers; pointer open/close and Escape focus restoration verified at desktop1265px and narrow375px; LED green still works. Screens and exact final source are in the approval packet.\n\n### Commits\n\n- 7c76969\n- 48cadc5\n\n### Dependencies\n\n- `grok-gadgets#HUB-001` (resolve after issue creation)\n"
     },
     {
       "repository": "grok-gadgets",
@@ -2966,5 +2967,5 @@
     "ready": true,
     "errors": []
   },
-  "prepared_at_utc": "2026-10-04T21:18:39.548508+00:00"
+  "prepared_at_utc": "2026-10-04T21:24:14.630341+00:00"
 }
