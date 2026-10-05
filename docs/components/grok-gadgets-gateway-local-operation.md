@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/local-operation.md at 35bd7aae7f74266c6559447c6518b78afcf0f14a
+Source: grok-gadgets-gateway/docs/local-operation.md at bd37127c640f89bb2e36fc98eb66f19feb0c1493
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -17,6 +17,19 @@ The client starts and manages the stdio process. Keep the client and host awake.
 The gateway is not a background systemd service. A stdio process cannot serve assistant requests without its client.
 A reachable MCP transport with authentication is separate future work.
 If the client exits, restart the gateway and device agent. State and history are stored in memory. Event cursors reset on restart.
+
+## Where to run it
+
+Keep the local MCP client, gateway, and device agent or USB bridge on the same host.
+The device listener accepts only `127.0.0.1` or `::1`; another computer cannot use this local transport.
+The public website provides documentation and downloads. It does not keep your gateway running.
+Local simulation needs no public endpoint, domain, or hosted service.
+
+A tunnel provides reachability. It does not turn this stdio gateway into an authenticated remote MCP service.
+Do not expose the raw device port. Remote HTTPS/OAuth and service access controls remain future work in
+[HARD-GROK-REMOTE-001](https://github.com/adidshaft/grok-gadgets/issues/4).
+Use the [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md)
+to distinguish website hosting, local processes, and the proposed remote route.
 
 ## Per-device credential enrollment
 

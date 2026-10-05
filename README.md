@@ -17,6 +17,7 @@ Documentation follows our [ASD-STE100-inspired writing guide](docs/contributing/
 | Your next step | Start here |
 | --- | --- |
 | Try without hardware | [Browser and simulator kit](docs/getting-started/simulator-kit.md) |
+| Understand gateway hosting | [Hosting and remote access FAQ](docs/getting-started/hosting.md) |
 | Develop a connection | [Gateway](https://github.com/adidshaft/grok-gadgets-gateway) |
 | Build a Linux application | [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk) |
 | Build an ESP32 gadget | [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk) |
@@ -24,6 +25,8 @@ Documentation follows our [ASD-STE100-inspired writing guide](docs/contributing/
 | Help improve the alpha | [Ready issues](docs/contributing/ready-issues.md) and [contribution guide](CONTRIBUTING.md) |
 
 The [public website](https://grok-gadgets.pages.dev/) is live. Its source lives here. Package releases and firmware downloads have separate release gates.
+
+The website serves docs, downloads and browser simulation. The gateway operator chooses and runs its host. Grok/xAI hosts Grok Bot. It does not automatically operate a gateway for your local hardware or provide a tunnel. See the [hosting FAQ](docs/getting-started/hosting.md) for current limits and future customer or maker hosting options.
 
 The ESP32 library is reusable; C124 is the first board example. Other boards need their own hardware handlers, build configuration and verification. See the [repository and device map](docs/architecture/overview.md).
 
@@ -48,7 +51,7 @@ To run the local MCP demonstration, follow the [simulator kit guide](docs/gettin
 
 Browser and local simulation need no hardware or Grok account. Kit installation needs Python 3.11+ and downloads dependencies with hash checks.
 
-An actual Grok experiment needs a supported MCP connection in the Bot's environment. A cloud Bot cannot run a file that exists only on your Mac. Remote HTTPS/OAuth access to local gadgets is not implemented.
+An actual Grok experiment needs a supported MCP connection in the Bot's environment. A cloud Bot cannot run a file that exists only on your Mac. Remote HTTPS/OAuth access to local gadgets is not implemented. A tunnel adds reachability, not gateway authentication. Do not expose the local device protocol.
 
 ## What is verified
 

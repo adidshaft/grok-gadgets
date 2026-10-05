@@ -1,6 +1,8 @@
 # Repository and device map
 
-The project provides reusable gadget libraries for Grok. C124 is the first ESP32 example. It is not the SDK boundary. Actual Grok and physical-device verification remain pending.
+The project provides reusable gadget libraries for Grok Bot. C124 is the first ESP32 example. It is not the SDK boundary. Actual Grok and physical-device verification remain pending.
+
+The gateway operator hosts the MCP server. Grok/xAI hosts Grok Bot. The static project website hosts neither the gateway nor a device connection. Read the [hosting and remote access FAQ](../getting-started/hosting.md) for operator responsibilities, tunnel ownership and future product options.
 
 | Repository | Responsibility |
 | --- | --- |
@@ -12,7 +14,9 @@ The project provides reusable gadget libraries for Grok. C124 is the first ESP32
 
 ```mermaid
 flowchart TD
-    G["Grok: verification pending"] -.-> W["Gadget gateway"]
+    G["Grok Bot: pending"] -.-> R["Remote MCP: missing"]
+    R -.-> W["Gadget gateway"]
+    C["Local MCP client"] --> W
     W --> S["Software simulator"]
     W --> L["Linux application using the Python SDK"]
     W --> U["Host USB bridge"]
@@ -21,7 +25,7 @@ flowchart TD
     H -.-> D["Existing home devices: verification pending"]
 ```
 
-Solid arrows describe implemented software interfaces. They do not establish physical operation. Dotted arrows require external verification. Home Assistant does not need our gateway for its own MCP route.
+Solid arrows describe implemented software interfaces. They do not establish physical operation. The dotted gateway path needs remote HTTPS MCP implementation and actual Grok verification. The dotted Home Assistant path needs its own client, endpoint and physical checks. Home Assistant does not need our gateway for its own MCP route.
 
 ## Reusable core, separate board examples
 
@@ -48,4 +52,6 @@ Add board examples within the ESP32 repository. Add computer examples within the
 
 The gateway owns canonical protocol 0.1.0. Loopback TCP and the USB bridge use bounded, LF-delimited JSON frames. The host handles credentials; the C124 firmware stores no network credential. Device registration includes boot identity and capabilities. Commands, acknowledgements, state and events have separate roles. Queues and retry caches have finite limits.
 
-Simulation controls require explicit opt-in and are absent from normal MCP tool discovery. A device acknowledgement does not prove a physical effect. No remote tunnel or alternative AI backend is included. A cloud Grok client cannot launch a file on the local computer; authentication and reachability require separate verification.
+Simulation controls require explicit opt-in and are absent from normal MCP tool discovery. A device acknowledgement does not prove a physical effect. No remote tunnel or alternative AI backend is included. The current gateway provides stdio MCP and authenticated loopback device transport. It has no remote HTTPS MCP/OAuth service. A tunnel does not add that service or authorize remote users. Never expose the device protocol directly.
+
+[HARD-GROK-REMOTE-001](https://github.com/adidshaft/grok-gadgets/issues/4) tracks the missing remote service. Local software acceptance, native Grok invocation, remote security and physical operation require separate evidence. The [hosting FAQ](../getting-started/hosting.md#does-a-passing-local-test-prove-the-cloud-route-works) defines those checks.

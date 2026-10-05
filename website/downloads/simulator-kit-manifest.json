@@ -1,11 +1,11 @@
 {
   "format_version": 1,
-  "gateway_commit": "35bd7aae7f74266c6559447c6518b78afcf0f14a",
-  "gateway_commit_epoch": 1791180103,
+  "gateway_commit": "bd37127c640f89bb2e36fc98eb66f19feb0c1493",
+  "gateway_commit_epoch": 1791187492,
   "package_version": "0.1.0a1",
   "build_inputs": {
     "scripts/build-simulator-kit.py": "abcec59f13480b75a75fd9eb8f8794cbc09312b9d686d32712c3960a6ed0fbd9",
-    "docs/getting-started/simulator-kit.md": "9b3357716579c3cad6e2ec18a7b1465ca60eda6a86545a8470d82af68c2c36e5",
+    "docs/getting-started/simulator-kit.md": "c78e38111713c824d5bbf3ae32959f4f563b48d774505bc29af8d02511294700",
     "scripts/simulator-kit/install.py": "9d0951e352a1b97b46eaa3e26476ced81793fc7624ddf771778ab63992b69b8e",
     "scripts/simulator-kit/try_simulator.py": "c54a4a1797ab2cd3cdec31eef93de32eeffa372ef29c1eb7c05b3555654a33cc"
   },
@@ -28,18 +28,18 @@
     },
     {
       "file": "README.md",
-      "bytes": 7073,
-      "sha256": "9b3357716579c3cad6e2ec18a7b1465ca60eda6a86545a8470d82af68c2c36e5"
+      "bytes": 7411,
+      "sha256": "c78e38111713c824d5bbf3ae32959f4f563b48d774505bc29af8d02511294700"
     },
     {
       "file": "grok_gadgets_gateway-0.1.0a1-py3-none-any.whl",
       "bytes": 27388,
-      "sha256": "0d36ae795c7f7c50dec385abb48440f9fe0b93d6c2cbdfbbee16447308192123"
+      "sha256": "d1304c76a90e0732146e05bc08734adf800fff1f08f278b13b37cd99f0150d7a"
     },
     {
       "file": "grok_gadgets_gateway-0.1.0a1.tar.gz",
-      "bytes": 98941,
-      "sha256": "8491210800ac2ab44de4bb5eb3cce54550196e88c0eb64cb1a19488b83ad21cb"
+      "bytes": 100289,
+      "sha256": "ddf3fa20991b34c564148fefbc9e43a51940084ececd37d9172fc31350baef3b"
     },
     {
       "file": "install.py",
@@ -64,7 +64,7 @@
     {
       "file": "source.tar",
       "bytes": 378880,
-      "sha256": "e96272a99cd97ddae9774583f5ef74ebae12f2cfe2546f90df10559b605411bb"
+      "sha256": "b3176a3bf7090d19cc5bfb89a92c56dc095140d2fe5662df0d55a0325208184f"
     },
     {
       "file": "try_simulator.py",
@@ -73,6 +73,6 @@
     }
   ],
   "archive": "grok-gadgets-simulator-kit.zip",
-  "archive_bytes": 254548,
-  "archive_sha256": "24356e7e854870f8a032f64069d6dcd01bb10c8fc33e28380afb4f8121437aa3"
+  "archive_bytes": 257220,
+  "archive_sha256": "72eb4f9968c4695c07a0d1b91902abe2e8833f071f740670998aa59ae4e4bccb"
 }

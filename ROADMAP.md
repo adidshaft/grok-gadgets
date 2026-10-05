@@ -1,6 +1,8 @@
 # Roadmap
 
-The software is an experimental alpha prepared locally; public activation is pending approval. [Canonical stage records](planning/launch-stages.json) and [issue ledger](planning/issues.json) describe current preparation. After activation GitHub Issues/Project become authoritative and local records are generated snapshots.
+The software is an experimental alpha. Public source repositories and the static website are active. [GitHub Issues](https://github.com/adidshaft/grok-gadgets/issues) track public work. [Stage records](planning/launch-stages.json) and the [local issue ledger](planning/issues.json) retain preparation and local-only evidence. They do not prove that a service is active.
+
+The gateway remains self-hostable and open source. A customer-hosted gateway and an optional maker-hosted service are future product choices. A self-hosted baseline with optional hosted convenience is a proposal, not a final deployment decision. Both remote designs need the service and access controls tracked by [HARD-GROK-REMOTE-001](https://github.com/adidshaft/grok-gadgets/issues/4). See the [hosting FAQ](docs/getting-started/hosting.md).
 
 | Milestone | What closes it |
 |---|---|

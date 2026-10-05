@@ -8,7 +8,7 @@
   <div class="component-list">
     <details class="component" open>
       <summary><span class="component-number">01</span><span>Gateway</span><span class="component-type">MCP + transports</span><span class="component-toggle" aria-hidden="true">+</span></summary>
-      <div class="component-body"><p>Connect Grok tools to registered devices. Discover capabilities, route commands and read execution reports.</p><p class="component-evidence">Local MCP verified · native Grok receipts pending</p><div class="component-links"><a href="doc-docs-components-grok-gadgets-gateway-README.html">Setup ↗</a><a href="doc-docs-components-grok-gadgets-gateway-architecture.html">Protocol &amp; transport ↗</a></div></div>
+      <div class="component-body"><p>Run the gateway on your computer. Local MCP tools discover devices, route commands and read execution reports. Remote HTTPS MCP is not implemented.</p><p class="component-evidence">Local MCP verified · native Grok receipts pending</p><div class="component-links"><a href="doc-docs-components-grok-gadgets-gateway-README.html">Setup ↗</a><a href="doc-docs-components-grok-gadgets-gateway-architecture.html">Protocol &amp; transport ↗</a><a href="doc-docs-getting-started-hosting.html">Hosting FAQ ↗</a></div></div>
     </details>
     <details class="component">
       <summary><span class="component-number">02</span><span>Simulator</span><span class="component-type">No hardware needed</span><span class="component-toggle" aria-hidden="true">+</span></summary>
@@ -47,7 +47,7 @@ python3 scripts/package-local.py</code></pre><div class="component-links"><a hre
     </details>
     <details class="component">
       <summary><span class="component-number">09</span><span>Website &amp; docs</span><span class="component-type">Project hub</span><span class="component-toggle" aria-hidden="true">+</span></summary>
-      <div class="component-body"><p>Build this static site from canonical component documentation and the issue ledger. Activity refresh stays inactive until approval.</p><p class="component-evidence">Local build verified · public activity unavailable</p><pre><code>uv venv .venv --python 3.13
+      <div class="component-body"><p>Cloudflare Pages hosts the static website, docs and browser simulator. It does not run a gateway or device tunnel. Repository activity uses timestamped snapshots.</p><p class="component-evidence">Static website active · no hosted gadget service</p><pre><code>uv venv .venv --python 3.13
 uv pip install --python .venv/bin/python -r website/requirements.txt
 .venv/bin/python website/build.py
 python3 -m http.server 4173 --bind 127.0.0.1 --directory website/dist</code></pre><div class="component-links"><a href="docs.html">Documentation ↗</a><a href="activity.html">Activity status ↗</a><a href="releases.html">Release preparation ↗</a></div></div>

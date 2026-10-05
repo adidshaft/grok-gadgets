@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/simulator.md at 35bd7aae7f74266c6559447c6518b78afcf0f14a
+Source: grok-gadgets-gateway/docs/simulator.md at bd37127c640f89bb2e36fc98eb66f19feb0c1493
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -27,6 +27,13 @@ It does not provide an interactive terminal or a conversation backend.
 Use a verified Grok connection when one becomes available.
 To install a locally built wheel, replace `pip install .` with
 `pip install /absolute/path/grok_gadgets_gateway-0.1.0a1-py3-none-any.whl`.
+
+Local simulation needs no domain, public port, tunnel, or hosted service.
+The simulator runs wherever its MCP client starts the process. A cloud client's executable
+and configuration paths must exist in that cloud environment; they cannot refer to files only on your computer.
+This gateway does not provide a remote HTTPS/OAuth endpoint. Read the
+[hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md)
+before choosing a host or connection method. Actual Grok execution remains unverified.
 
 The default and schema are included in the installed package. To inspect the schema,
 run `.venv/bin/python -m grok_gadgets_gateway.simulator_config --schema`.
