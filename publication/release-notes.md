@@ -1,8 +1,9 @@
-# v0.1.0-alpha.1 release notes — drafts, not published
+# v0.1.0-alpha.1 release notes
 
-Drafted 6 October 2026. No tag, GitHub release or package upload exists yet. The owner has
-approved the plan in *Release plan* below; each section is based on that repository's
-`CHANGELOG.md`.
+Updated 6 October 2026. The four component tags and GitHub pre-releases are published;
+the hub release is pending its release PR and deployment verification. No package registry
+uploads have been made. Each section is based on that repository's `CHANGELOG.md`; the
+owner-approved plan is in *Release plan* below.
 
 Every component is an experimental alpha. Evidence is software only: tests, builds and local
 MCP calls. No Grok Bot session, flashed board, real Linux peripheral, systemd service or real
@@ -17,7 +18,9 @@ Home Assistant home has been verified. See the
 - New homepage: "Let your Grok Bot control lights, buttons and sensors you build." One status
   chip and one status page; three paths (No hardware, Linux, ESP32).
 - The simulator kit is built from gateway `main`, pinned by a hash of the files it is built from.
-- Integrated acceptance runs all five `main` branches on every push and nightly.
+- Nightly integrated acceptance, hub `dev` pushes and PRs targeting `dev` test component
+  `dev` heads. Hub `main` pushes and PRs targeting `main` test component `main` heads.
+  Manual runs can select `main`, `dev` or the recorded release pins.
 - Maintainer and process records moved out of the public documentation index.
 
 ## grok-gadgets-gateway v0.1.0-alpha.1 (package 0.1.0a1)
@@ -75,3 +78,17 @@ Home Assistant home has been verified. See the
   own approval. Until the gateway is on PyPI, the Linux SDK's `[gateway]` extra installs the
   gateway from GitHub.
 - **Later alphas:** `v0.1.0-alpha.2`, and so on, each with its own changelog section.
+
+## Published component release records — 6 October 2026
+
+| Repository | Tag | Tagged commit |
+| --- | --- | --- |
+| grok-gadgets-gateway | [v0.1.0-alpha.1](https://github.com/adidshaft/grok-gadgets-gateway/releases/tag/v0.1.0-alpha.1) | `0188648110567dca4f7f460b1c5e1691d7b41b6d` |
+| grok-gadgets-linux-sdk | [v0.1.0-alpha.1](https://github.com/adidshaft/grok-gadgets-linux-sdk/releases/tag/v0.1.0-alpha.1) | `760cad9154c1291f628e21c1ded7357271930446` |
+| grok-gadgets-esp32-sdk | [v0.2.0-alpha.1](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.1) | `ef017196fc6ac7f41d389b2bdf82ae48cc526128` |
+| grok-gadgets-home-assistant | [v0.1.0-alpha.1](https://github.com/adidshaft/grok-gadgets-home-assistant/releases/tag/v0.1.0-alpha.1) | `1ce4f8a272f3ca530806baaf8903fece0ce743c9` |
+
+The hub tagged merge commit will be recorded in its GitHub release notes after the release
+PR merges, then in a follow-up record. Its existing compatibility evidence entry remains
+an earlier snapshot. These records do not add Grok Bot, hardware, systemd or real-home
+verification; evidence remains software, builds and local MCP only.
