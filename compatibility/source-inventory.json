@@ -1,7 +1,7 @@
 [
   {
     "repository": "grok-gadgets-esp32-sdk",
-    "commit": "b17a101e66f3d0fcf61c815dfc62dfb75df2db0b",
+    "commit": "c54f646f82f6a65793df43fb942763b1c1e60149",
     "files": [
       ".clang-format",
       ".github/CODEOWNERS",
@@ -34,7 +34,10 @@
       "docs/verification/launch.md",
       "examples/led-button/main.cpp",
       "examples/led-button/pio_src.py",
+      "lib/GrokGadgets/LICENSE",
+      "lib/GrokGadgets/NOTICE",
       "lib/GrokGadgets/library.json",
+      "lib/GrokGadgets/library.properties",
       "lib/GrokGadgets/src/C124.h",
       "lib/GrokGadgets/src/GrokCore.h",
       "lib/GrokGadgets/src/GrokGadgets.h",
@@ -64,12 +67,14 @@
       "tools/check.sh",
       "tools/check_contract.py",
       "tools/check_gateway.py",
+      "tools/check_package.py",
+      "tools/check_readme.py",
       "tools/package_build.py"
     ]
   },
   {
     "repository": "grok-gadgets-gateway",
-    "commit": "f807c53679a54d87d794a9ba485246471080c7f6",
+    "commit": "f7d1782cf5e173dcd1e3d9e691cd789e2e1115d0",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -92,7 +97,9 @@
       "docs/architecture.md",
       "docs/evidence/local-alpha.md",
       "docs/evidence/mcp-demo.json",
+      "docs/first-success.md",
       "docs/local-operation.md",
+      "docs/media/gateway-inspector-first-success.webp",
       "docs/release.md",
       "docs/remote-access.md",
       "docs/simulator.md",
@@ -107,6 +114,7 @@
       "protocol/0.1.0/device-response.schema.json",
       "protocol/0.1.0/fixtures/device-transcript.json",
       "pyproject.toml",
+      "scripts/check_first_success.py",
       "src/grok_gadgets_gateway/__init__.py",
       "src/grok_gadgets_gateway/cli.py",
       "src/grok_gadgets_gateway/demo.py",
@@ -122,6 +130,7 @@
       "src/grok_gadgets_gateway/transport.py",
       "src/grok_gadgets_gateway/usb_bridge.py",
       "tests/test_cli.py",
+      "tests/test_command_wait.py",
       "tests/test_domain.py",
       "tests/test_foundation.py",
       "tests/test_http.py",
@@ -133,7 +142,7 @@
   },
   {
     "repository": "grok-gadgets-home-assistant",
-    "commit": "b22ef5f8d378264952234fb86d19c4932a871687",
+    "commit": "7b79649fbd753f9f0c20ae66023bdab9f1a4df6b",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -162,6 +171,7 @@
       "planning/issues.json",
       "planning/publication.json",
       "pyproject.toml",
+      "scripts/check_readme.py",
       "src/ha_probe/__init__.py",
       "tests/test_probe.py",
       "uv.lock"
@@ -169,7 +179,7 @@
   },
   {
     "repository": "grok-gadgets-linux-sdk",
-    "commit": "cb91e5dfc5cf0dbb4c35b852552254d36166501d",
+    "commit": "002411c0c7723c5059b8dc1a84d2de6a97b382cd",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -202,13 +212,16 @@
       "planning/publication.json",
       "pyproject.toml",
       "scripts/check_onboarding.py",
+      "scripts/check_readme_quickstart.py",
       "scripts/linux_acceptance.py",
       "src/grok_gadgets_linux/__init__.py",
       "src/grok_gadgets_linux/agent.py",
       "src/grok_gadgets_linux/cli.py",
       "src/grok_gadgets_linux/contracts.py",
+      "src/grok_gadgets_linux/dev.py",
       "src/grok_gadgets_linux/device.py",
       "src/grok_gadgets_linux/examples.py",
+      "src/grok_gadgets_linux/gadget.py",
       "src/grok_gadgets_linux/protocol/0.1.0/README.md",
       "src/grok_gadgets_linux/protocol/0.1.0/device-request.schema.json",
       "src/grok_gadgets_linux/protocol/0.1.0/device-response.schema.json",
@@ -217,7 +230,9 @@
       "tests/fake_gateway.py",
       "tests/test_agent.py",
       "tests/test_cli.py",
+      "tests/test_dev.py",
       "tests/test_device.py",
+      "tests/test_gadget.py",
       "uv.lock"
     ]
   }

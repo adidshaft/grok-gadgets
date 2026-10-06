@@ -1,4 +1,4 @@
-Source: grok-gadgets-esp32-sdk/docs/protocol-recovery.md at b17a101e66f3d0fcf61c815dfc62dfb75df2db0b
+Source: grok-gadgets-esp32-sdk/docs/protocol-recovery.md at c54f646f82f6a65793df43fb942763b1c1e60149
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -52,6 +52,8 @@ A request times out after 13 seconds. That is longer than the USB bridge's 2-sec
 A reply must be one JSON object whose fields match the outstanding request. Trailing bytes, a second object, an embedded NUL, or the wrong shape starts a new session. Firmware drops the old pending acknowledgement. The gateway records dispatched commands as uncertain when their results are unknown.
 
 A permanently rejected queued event (`duplicate_conflict`, `invalid_event`, `invalid_request`, `unsupported_capability`, `invalid_state`) is dropped, counted in `history_lost`, and polling continues. Other event failures reconnect. After five failures the event is dropped.
+
+If the gateway answers an acknowledgement with `late_ack` (the command already closed as timed out or unconfirmed) or `unknown_command`, the firmware drops that acknowledgement and keeps polling on the same session. It does not resend it or reconnect. `gadget.droppedAcks()` counts these. See the [canonical protocol](../protocol/0.1.0/README.md#late-acknowledgements-late_ack).
 
 Firmware never treats an acknowledgement as a command. It does not automatically retry an action. Correct credentials or protocol settings after authorization, revocation or version errors. Then reconnect. Firmware does not print secrets.
 
