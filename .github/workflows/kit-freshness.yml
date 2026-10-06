@@ -1,0 +1,30 @@
+name: Kit freshness
+# Advisory and separate from Hub checks, so it never blocks a deploy. It flags a gateway
+# main change to kit inputs that the committed kit lacks; the deploy rebuilds the kit from
+# gateway main in that case, so the live download stays current.
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  kit-current:
+    # Advisory: flags a gateway main change to kit inputs that the committed kit lacks.
+    # The deploy rebuilds the kit from gateway main, so the live download stays current.
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: grok-gadgets
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: adidshaft/grok-gadgets-gateway
+          ref: main
+          path: grok-gadgets-gateway
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.13'
+      - name: Committed kit matches gateway main inputs
+        working-directory: grok-gadgets
+        run: python scripts/build-simulator-kit.py --check
