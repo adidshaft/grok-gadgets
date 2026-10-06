@@ -1,7 +1,7 @@
 """Export exact component SHAs for read-only integration CI.
 
-By default every component is its current GitHub main. --source pinned uses the
-release record in compatibility/tested-components.json instead.
+Resolve main or dev heads from GitHub. --source pinned uses the release record
+in compatibility/tested-components.json instead.
 """
 
 import argparse
@@ -19,8 +19,8 @@ REPOSITORIES = {
 }
 
 
-def main_heads():
-    """Read each component's main SHA from the public repository."""
+def branch_heads(branch):
+    """Read each component's selected branch SHA from the public repository."""
     heads = {}
     for repository in REPOSITORIES:
         output = subprocess.run(
@@ -28,7 +28,7 @@ def main_heads():
                 "git",
                 "ls-remote",
                 f"https://github.com/adidshaft/{repository}.git",
-                "refs/heads/main",
+                f"refs/heads/{branch}",
             ],
             check=True,
             capture_output=True,
@@ -44,8 +44,8 @@ def selected(candidate_repository="", candidate_commit="", source="pinned"):
         raise ValueError("Candidate repository and SHA must be supplied together")
     if candidate_repository and candidate_repository not in REPOSITORIES:
         raise ValueError("Unsupported candidate repository")
-    if source == "main":
-        pins = main_heads()
+    if source in {"main", "dev"}:
+        pins = branch_heads(source)
     elif source == "pinned":
         manifest = json.loads(
             (ROOT / "compatibility/tested-components.json").read_text()
@@ -56,7 +56,7 @@ def selected(candidate_repository="", candidate_commit="", source="pinned"):
             if item["repository"] in REPOSITORIES
         }
     else:
-        raise ValueError("Source must be main or pinned")
+        raise ValueError("Source must be main, dev or pinned")
     if set(pins) != set(REPOSITORIES):
         raise ValueError("Missing component pins")
     if candidate_repository:
@@ -73,7 +73,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--candidate-repository", default="")
     parser.add_argument("--candidate-commit", default="")
-    parser.add_argument("--source", choices=["main", "pinned"], default="main")
+    parser.add_argument("--source", choices=["main", "dev", "pinned"], default="main")
     args = parser.parse_args()
     chosen = selected(args.candidate_repository, args.candidate_commit, args.source)
     for name, sha in chosen.items():

@@ -1,5 +1,5 @@
 name: Integrated acceptance
-# Every component at its current main by default, on push, pull request and nightly.
+# Nightly and dev events integrate dev; main events integrate the release branches.
 # The exact pins in compatibility/tested-components.json are a release record only.
 on:
   push:
@@ -9,10 +9,10 @@ on:
   workflow_dispatch:
     inputs:
       components:
-        description: 'main: every component main branch; pinned: the recorded release pins'
+        description: 'main or dev: current component branch heads; pinned: recorded release pins'
         type: choice
         default: main
-        options: [main, pinned]
+        options: [main, dev, pinned]
       candidate_repository:
         description: 'Optional component repository; pair with exact SHA. No automatic pin promotion.'
         type: choice
@@ -51,7 +51,7 @@ jobs:
         env:
           CANDIDATE_REPOSITORY: ${{ inputs.candidate_repository || '' }}
           CANDIDATE_COMMIT: ${{ inputs.candidate_commit || '' }}
-          COMPONENTS: ${{ inputs.components || 'main' }}
+          COMPONENTS: ${{ inputs.components || ((github.event_name == 'schedule' || github.base_ref == 'dev' || github.ref == 'refs/heads/dev') && 'dev' || 'main') }}
         run: |
           python scripts/ci-component-pins.py --source "$COMPONENTS" --candidate-repository "$CANDIDATE_REPOSITORY" --candidate-commit "$CANDIDATE_COMMIT" | tee -a "$GITHUB_OUTPUT"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
