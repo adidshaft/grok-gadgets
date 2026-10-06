@@ -35,6 +35,12 @@ def check(output, base=BASE):
             if not target.path.startswith(origin.path):
                 raise ValueError("Link escapes project prefix: " + link)
             relative = unquote(target.path[len(origin.path) :]) or "index.html"
+            # Cloudflare Pages serves page.html at the extensionless /page URL too.
+            if (
+                not (output / relative).exists()
+                and (output / (relative + ".html")).is_file()
+            ):
+                relative += ".html"
             if name == "404.html" and link.startswith("#"):
                 if target.fragment not in parser.ids:
                     raise ValueError("Broken 404 fragment")

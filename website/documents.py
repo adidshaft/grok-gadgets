@@ -169,7 +169,7 @@ class Documents:
             source = self.root / image["source"]
             if (
                 image["repository"] != "grok-gadgets"
-                or source.suffix not in {".png", ".jpg", ".svg"}
+                or source.suffix not in {".png", ".jpg", ".svg", ".webp"}
                 or (
                     source.suffix == ".png"
                     and not source.read_bytes().startswith(b"\x89PNG\r\n\x1a\n")
@@ -178,6 +178,7 @@ class Documents:
                     source.suffix == ".jpg"
                     and not source.read_bytes().startswith(b"\xff\xd8\xff")
                 )
+                or (source.suffix == ".webp" and source.read_bytes()[8:12] != b"WEBP")
             ):
                 raise ValueError("Unapproved documentation image")
             if hashlib.sha256(source.read_bytes()).hexdigest() != image["sha256"]:
@@ -209,6 +210,12 @@ class Documents:
                 ) or not tree.findall("{http://www.w3.org/2000/svg}desc"):
                     raise ValueError("Documentation SVG needs title and description")
             self.images[(image["repository"], image["source"])] = image["output"]
+            # A component doc may show the same approved bytes from its own path.
+            for same in image.get("same_as", []):
+                copy = self.root.parent / same["repository"] / same["source"]
+                if copy.is_file() and copy.read_bytes() != source.read_bytes():
+                    raise ValueError("Component image differs from the approved copy")
+                self.images[(same["repository"], same["source"])] = image["output"]
         self.parser = MarkdownIt(
             "commonmark", {"html": False, "linkify": False}
         ).enable("table")
