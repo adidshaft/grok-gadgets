@@ -1,9 +1,18 @@
 name: Integrated acceptance
+# Every component at its current main by default, on push, pull request and nightly.
+# The exact pins in compatibility/tested-components.json are a release record only.
 on:
   push:
   pull_request:
+  schedule:
+    - cron: '37 4 * * *'
   workflow_dispatch:
     inputs:
+      components:
+        description: 'main: every component main branch; pinned: the recorded release pins'
+        type: choice
+        default: main
+        options: [main, pinned]
       candidate_repository:
         description: 'Optional component repository; pair with exact SHA. No automatic pin promotion.'
         type: choice
@@ -42,29 +51,35 @@ jobs:
         env:
           CANDIDATE_REPOSITORY: ${{ inputs.candidate_repository || '' }}
           CANDIDATE_COMMIT: ${{ inputs.candidate_commit || '' }}
-        run: python scripts/ci-component-pins.py --candidate-repository "$CANDIDATE_REPOSITORY" --candidate-commit "$CANDIDATE_COMMIT" >> "$GITHUB_OUTPUT"
+          COMPONENTS: ${{ inputs.components || 'main' }}
+        run: |
+          python scripts/ci-component-pins.py --source "$COMPONENTS" --candidate-repository "$CANDIDATE_REPOSITORY" --candidate-commit "$CANDIDATE_COMMIT" | tee -a "$GITHUB_OUTPUT"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: adidshaft/grok-gadgets-gateway
           ref: ${{ steps.pins.outputs.gateway }}
+          fetch-depth: 0
           path: grok-gadgets-gateway
           persist-credentials: false
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: adidshaft/grok-gadgets-linux-sdk
           ref: ${{ steps.pins.outputs.linux }}
+          fetch-depth: 0
           path: grok-gadgets-linux-sdk
           persist-credentials: false
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: adidshaft/grok-gadgets-esp32-sdk
           ref: ${{ steps.pins.outputs.esp32 }}
+          fetch-depth: 0
           path: grok-gadgets-esp32-sdk
           persist-credentials: false
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: adidshaft/grok-gadgets-home-assistant
           ref: ${{ steps.pins.outputs.ha }}
+          fetch-depth: 0
           path: grok-gadgets-home-assistant
           persist-credentials: false
       - name: Install pinned check environments
@@ -99,9 +114,9 @@ jobs:
                   component["commit"] = os.environ["CANDIDATE_COMMIT"]
           manifest.write_text(json.dumps(data, indent=2) + "\n")
           PY
-          if [ "$CANDIDATE_REPOSITORY" = grok-gadgets-gateway ]; then
-            .venv/bin/python scripts/build-simulator-kit.py
-          fi
+      - name: Rebuild the kit in this disposable checkout if gateway inputs changed
+        working-directory: grok-gadgets
+        run: .venv/bin/python scripts/build-simulator-kit.py --ensure
       - name: Verify committed or explicitly rebuilt simulator kit
         working-directory: grok-gadgets
         run: .venv/bin/python website/build.py
