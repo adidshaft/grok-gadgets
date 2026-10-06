@@ -23,7 +23,7 @@ GROUPS = (
                         "docs/getting-started/hosting.md",
                         "Hosting and remote access",
                     ),
-                    ("", "docs/public/support-matrix.md", "Supported paths and limits"),
+                    ("", "docs/public/support-matrix.md", "Project status"),
                     ("", "SUPPORT.md", "Get help"),
                 ),
             ),

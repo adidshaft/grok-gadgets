@@ -6,20 +6,21 @@
 
 **[Try the simulator](https://grok-gadgets.pages.dev/#playground)** · [Documentation](https://grok-gadgets.pages.dev/docs.html) · [Roadmap](ROADMAP.md) · [Issues](https://github.com/adidshaft/grok-gadgets/issues) · [Community](https://www.reddit.com/r/GrokGadgets/)
 
-Open-source SDKs and tools for your existing [Grok Bot](https://docs.x.ai/grok-bot). Start with a virtual light in the browser. Then build on Linux or ESP32, or explore Home Assistant.
+**Let your Grok Bot control lights, buttons and sensors you build. Open source.**
 
-## What works with Grok Bot today
+Status: works with local MCP clients today · Grok Bot connection in progress
+([project status](docs/public/support-matrix.md)).
 
-| Works locally now | Next step |
-| --- | --- |
-| Virtual light in your browser; no Bot connection | [Try it](https://grok-gadgets.pages.dev/#playground) |
-| Simulator and authenticated HTTP MCP gateway | [Run the gateway](https://github.com/adidshaft/grok-gadgets-gateway#quick-start) |
-| Linux gadget software and compiled ESP32 examples | Choose an SDK below |
+Pick a path:
 
-**Not connected to Grok Bot yet.** Local `serve` exists. A cloud Bot cannot reach
-its loopback address. The remote route, physical hardware and mobile use remain
-unverified. Button events wait for a client to read them; they do not wake the Bot.
-See the [hosting FAQ](docs/getting-started/hosting.md).
+- **No hardware:** run the gateway's simulated light and call it from MCP Inspector in
+  [five minutes](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/first-success.md).
+- **Raspberry Pi / Linux:** one install, ten lines of Python, one command with the
+  [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk#quickstart).
+- **ESP32:** an Arduino sketch with the [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk#quickstart).
+
+Already use Home Assistant? Check what it offers with the
+[read-only probe](https://github.com/adidshaft/grok-gadgets-home-assistant).
 
 ## Start here
 
