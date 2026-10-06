@@ -34,16 +34,26 @@ class DocsNavigationTests(unittest.TestCase):
         self.navigation = DocsNavigation(self.documents)
 
     def test_catalog_has_every_record_once_and_unique_section_ids(self):
-        parsed = Links(self.navigation.index())
+        public = Links(self.navigation.index())
+        maintainer = Links(self.navigation.index(maintainer=True))
+        # Every record has exactly one home across the two indexes.
         self.assertEqual(
-            Counter(link["href"] for link in parsed.links),
+            Counter(link["href"] for link in public.links + maintainer.links),
             Counter(record["page"] for record in self.documents.records),
         )
-        self.assertEqual(len(parsed.ids), len(set(parsed.ids)))
-        self.assertEqual(len(self.navigation.groups), 7)
+        self.assertEqual(len(public.ids), len(set(public.ids)))
+        self.assertEqual(len(maintainer.ids), len(set(maintainer.ids)))
+        # Maintainer and process records never appear in the public index (review M8).
+        public_pages = {link["href"] for link in public.links}
         for page, (group, _, _) in self.navigation.by_page.items():
-            if "verification" in page or "brand-provenance" in page:
-                self.assertEqual(group["title"], "Reference and verification")
+            if (
+                "verification" in page
+                or "brand-provenance" in page
+                or "reddit" in page
+                or "release" in page
+            ):
+                self.assertTrue(group["maintainer"], page)
+                self.assertNotIn(page, public_pages)
 
     def test_missing_unknown_duplicate_records_fail(self):
         self.documents.records.pop()
@@ -95,14 +105,15 @@ class DocsNavigationTests(unittest.TestCase):
         for link in Links(self.navigation.related(first)).links:
             self.assertIn("linux-sdk", link["href"])
 
-    def test_community_drafts_are_maintenance(self):
+    def test_community_drafts_are_maintainer_records(self):
         page = self.documents.lookup[
             ("grok-gadgets", "community/drafts/initial-posts.md")
         ]
-        group, subgroup, _ = self.navigation.by_page[page]
-        self.assertEqual(
-            (group["title"], subgroup["title"]), ("Community", "Community maintenance")
-        )
+        group, _, _ = self.navigation.by_page[page]
+        self.assertEqual(group["title"], "Community operations")
+        self.assertTrue(group["maintainer"])
+        self.assertIn("maintainers.html", self.navigation.sidebar(page))
+        self.assertNotIn(page, self.navigation.sidebar("docs.html"))
 
     def test_toc_matches_rendered_duplicate_and_formatted_headings(self):
         with tempfile.TemporaryDirectory() as temporary:
