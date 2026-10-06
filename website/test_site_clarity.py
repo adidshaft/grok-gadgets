@@ -63,13 +63,14 @@ class SiteClarityTests(unittest.TestCase):
         gallery = (SITE / "scene-gallery.js").read_text()
         builder = (SITE / "build.py").read_text()
         self.assertEqual(
-            re.findall(r'data-scene="([a-z]+)"', hero), ["devices", "signal", "roadmap"]
+            re.findall(r'data-scene="([a-z]+)"', hero),
+            ["devices", "signal", "hardware", "roadmap"],
         )
         self.assertIn("grok:scene-change", gallery)
         self.assertIn("scene.setActive(key === name)", gallery)
         self.assertIn("stories.hidden = name !== 'devices'", gallery)
         self.assertEqual(builder.count('href="https://x.com/adidshaft"'), 2)
-        for name in ["roadmap-scene", "signal-scene"]:
+        for name in ["roadmap-scene", "signal-scene", "hardware-scene"]:
             self.assertIn(name + ".js", builder)
             self.assertIn(name + ".css", builder)
 
