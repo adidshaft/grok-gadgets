@@ -1,6 +1,8 @@
 # Changelog
 
-## 0.1.0-alpha.1 — local candidate
+## Unreleased
+
+## v0.1.0-alpha.1 — 6 October 2026
 
 Repository foundations and source-controlled local roadmap. Publication and release tags pending final verification.
 
