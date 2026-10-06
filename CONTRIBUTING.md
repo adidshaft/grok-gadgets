@@ -32,7 +32,7 @@ Make small commits with one clear purpose. Reference the issue ID when available
 | Linux SDK | Its unittest/Ruff checks; optional gateway integration for transport changes |
 | ESP32 SDK | Host checks/contract; compile firmware for firmware changes; USB/PTY integration for transport changes |
 | Home Assistant | Locked unittest/Ruff and fixture probe; keep real-home tests separate |
-| Cross-repository contract/pins | `.venv/bin/python scripts/check-all.py` with the exact tested sibling combination |
+| Cross-repository contract | `.venv/bin/python scripts/check-all.py` with the four siblings at `main` beside the hub (CI does the same nightly) |
 | Publication/migration | Relevant integrity/fake-API regressions; no remote writes |
 
 Run hub lint with `uvx --from ruff==0.14.14 ruff check scripts website community`. Run `ruff format --check` with the same pinned package. Each component lists its requirements and commands in CONTRIBUTING.md. For text-only changes, check links and instructions. Do not invent behavior tests.
@@ -51,9 +51,7 @@ We promise no response deadline or reward. No contributor license agreement (CLA
 
 Recognition is [opt-in](community/contribution-recognition.md). Documentation and tests qualify. Matching usernames do not prove account ownership.
 
-Use a reviewed public identity for maintainer merges. GitHub-created merges need an explicit public author email. Local Git settings do not control that email.
-
-If GitHub rejects the address, do not retry with a private email. Prepare a local merge. Check its identity and exact tree. Run required checks and keep normal branch protections. Contributors should use an email they intend to publish, such as their GitHub noreply address.
+The maintainer merges reviewed PRs normally on GitHub. Commit with an email you are happy to publish, such as your GitHub noreply address.
 
 Follow [conduct](CODE_OF_CONDUCT.md), [security](SECURITY.md), [governance](GOVERNANCE.md) and [support](SUPPORT.md). Security and conduct reports go privately to adidshaft@kyokasuigetsu.xyz; GitHub private vulnerability reporting is also enabled for security reports.
 

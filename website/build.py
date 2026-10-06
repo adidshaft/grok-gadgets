@@ -32,6 +32,29 @@ kit_identity = (
     simulator_build["gateway_commit"][:8] + "-" + simulator_build["archive_sha256"][:12]
 )
 kit_archive = "grok-gadgets-simulator-kit-" + kit_identity + ".zip"
+
+
+def site_revision():
+    """The hub commit this site was built from, shown in every footer."""
+    if (R / ".git").exists():
+        try:
+            import subprocess
+
+            return subprocess.check_output(
+                ["git", "rev-parse", "--short=8", "HEAD"], cwd=R, text=True
+            ).strip()
+        except (OSError, subprocess.CalledProcessError):
+            pass
+    return "source archive"
+
+
+build_note = (
+    '<span class="build-note">Site '
+    + e(site_revision())
+    + " · kit from gateway "
+    + e(simulator_build["gateway_commit"][:8])
+    + "</span>"
+)
 kit_manifest = "simulator-kit-" + kit_identity + "-manifest.json"
 PUBLIC_SITE = os.environ.get(
     "GROK_GADGETS_PUBLIC_SITE", "https://grok-gadgets.pages.dev/"
@@ -146,7 +169,11 @@ def page(name, title, body):
         + active_links
         + '</nav><div class="menu-components"><a href="https://github.com/adidshaft/grok-gadgets">GitHub</a><a href="esp32.html">ESP32</a><a href="linux.html">Linux</a><a href="home-assistant.html">Home Assistant</a><a href="architecture.html">Architecture</a><a href="releases.html">Releases</a></div><div class="product-reference"><img src="media/spacexai-mark.svg" width="28" height="28" alt="SpaceXAI"><p>Grok is made by SpaceXAI.<br>Grok Gadgets is an independent project.</p><a href="https://x.ai/legal/brand-guidelines" aria-label="Official brand guidelines">↗</a></div></dialog>'
     )
-    footer = '<footer class="site-footer"><a href="start.html">Start building ↗</a><span class="independent-note">Independent. Open source.</span><button id="motion-toggle" aria-pressed="false">Pause motion <span>[Ⅱ]</span></button></footer>'
+    footer = (
+        '<footer class="site-footer"><a href="start.html">Start building ↗</a><span class="independent-note">Independent. Open source.</span><a class="status-link" href="doc-docs-public-support-matrix.html">Status ↗</a>'
+        + build_note
+        + '<button id="motion-toggle" aria-pressed="false">Pause motion <span>[Ⅱ]</span></button></footer>'
+    )
     scripts = '<script src="motion.js" defer></script>' + (
         '<script src="simulator.js" defer></script><script src="scene.js" defer></script>'
         if home
@@ -225,6 +252,24 @@ def path_row(number, title, description, url, link_text):
     )
 
 
+first_success = "doc-docs-components-grok-gadgets-gateway-first-success.html"
+proof_section = (
+    '<section class="home-proof" id="first-success" aria-labelledby="proof-heading">'
+    '<p class="eyebrow">SEE IT WORK IN A REAL MCP CLIENT</p>'
+    '<h2 id="proof-heading">Five minutes. No hardware.</h2>'
+    "<p>Run the gateway with its simulated light, then call the six tools from "
+    "MCP Inspector, the official model-free MCP developer tool. CI runs this path every night.</p>"
+    '<picture><source srcset="media/gateway-inspector-first-success-still.webp" '
+    'media="(prefers-reduced-motion: reduce)">'
+    '<img src="media/gateway-inspector-first-success.webp" width="800" height="580" loading="lazy" '
+    'alt="MCP Inspector connects to the local gateway, lists six tools, finds the simulated light '
+    'sim-c124 and sets it blue. The reply says executed, simulated true, physical_verified false."></picture>'
+    '<p class="quiet-note">Recorded locally on 6 October 2026 with MCP Inspector 2.9.0. '
+    "Software simulator only: no Grok Bot and no physical device.</p>"
+    '<p><a href="'
+    + first_success
+    + '">Follow the five-minute guide ↗</a></p></section>'
+)
 hosting_guide = '<p><a href="doc-docs-getting-started-hosting.html">Who runs the gateway? Hosting and remote access FAQ ↗</a></p>'
 scene_source = R / "website/home-scene.html"
 page(
@@ -236,29 +281,30 @@ page(
         .read_text()
         .replace("{{SIMULATOR_BUILD}}", e(simulator_build["gateway_commit"][:8]))
         .replace("{{SIMULATOR_VERSION}}", e(simulator_build["package_version"]))
+        + proof_section
         + '<section class="builder-paths" id="builder-paths" aria-labelledby="builder-heading"><p class="eyebrow">CHOOSE YOUR FIRST PATH</p><h2 id="builder-heading">Start building.</h2>'
         + path_row(
             "01",
-            "ESP32 / C124",
-            "Compile the RGB LED and button firmware. The physical board is still pending.",
-            "esp32.html",
-            "Build for ESP32",
+            "No hardware",
+            "Run the gateway's simulated light and call it from MCP Inspector in five minutes.",
+            first_success,
+            "First success",
         )
         + path_row(
             "02",
-            "Linux / Raspberry Pi",
-            "Use the Python SDK and agent. Linux container tested; Raspberry Pi hardware pending.",
+            "Raspberry Pi / Linux",
+            "One install, ten lines of Python, one command. Real peripherals not yet verified.",
             "linux.html",
             "Build with Linux",
         )
         + path_row(
             "03",
-            "Home Assistant",
-            "Explore the direct route through Home Assistant’s own MCP server. Live home and Grok Bot checks are pending.",
-            "home-assistant.html",
-            "Connect Home Assistant",
+            "ESP32",
+            "An Arduino sketch over USB. Both examples compile; no board flashed yet.",
+            "esp32.html",
+            "Build for ESP32",
         )
-        + '<p class="quiet-note" id="components">Local alpha. These conceptual routes do not call Grok Bot. <a href="components.html">See all project components ↗</a></p></section>'
+        + '<p class="quiet-note" id="components">Already use Home Assistant? <a href="home-assistant.html">Check what it offers with the read-only probe ↗</a> · <a href="components.html">All project components ↗</a></p></section>'
         + '<section class="home-activity" aria-labelledby="home-activity-heading"><p class="eyebrow">PROJECT / COMMUNITY</p><h2 id="home-activity-heading">Built in the open.</h2><p>Follow source, issues and contribution work.</p>'
         + activity_html(activity)
         + "".join(
@@ -285,27 +331,34 @@ page(
     + '<div class="path-list">'
     + path_row(
         "01",
+        "First success in five minutes",
+        "Run the gateway's simulated light and call it from MCP Inspector. No hardware or account.",
+        first_success,
+        "Gateway guide",
+    )
+    + path_row(
+        "02",
         "Try the simulator",
         "Customize in the browser or run the local MCP kit. No public hosting is needed.",
         "simulator.html",
         "Try both",
     )
     + path_row(
-        "02",
+        "03",
         "Build a gadget",
         "Compile the C124 example with the reusable ESP32 SDK.",
         "esp32.html",
         "ESP32",
     )
     + path_row(
-        "03",
+        "04",
         "Build a Linux application",
         "Start from a reusable Python capability and agent.",
         "linux.html",
         "Linux SDK",
     )
     + path_row(
-        "04",
+        "05",
         "Connect your home",
         "Reuse Home Assistant’s exposed Assist entities.",
         "home-assistant.html",
@@ -374,24 +427,24 @@ page(
     intro(
         "SDK / Linux",
         "Your code.<br>Connected.",
-        "Declare a capability. Handle a command. Report state.",
+        "Describe a command in one line. Write the function. Run one command.",
     )
-    + '<p class="status">Software tested on macOS and Linux container · peripherals/systemd pending</p>'
+    + '<p class="status">Software tested · peripherals and systemd not yet verified · <a href="doc-docs-public-support-matrix.html">status</a></p>'
     + path_row(
         "01",
-        "Run the agent",
-        "Independently installable Python SDK.",
+        "Quick start",
+        "One install, ten lines of Python and grok-linux-agent dev. No tokens to copy.",
         "doc-docs-components-grok-gadgets-linux-sdk-README.html",
-        "Install",
+        "Quick start",
     )
     + path_row(
         "02",
-        "Add a capability",
-        "Handlers, events and reconnect semantics.",
+        "Add commands and events",
+        "The decorator API, schemas from type hints, events and shutdown hooks.",
         "doc-docs-components-grok-gadgets-linux-sdk-development.html",
         "Developer guide",
     )
-    + '<p class="quiet-note">The agent and gateway share a host. Local HTTP MCP is available through serve. Public HTTPS and Grok Bot use remain unverified. Physical peripherals and systemd lifecycle remain pending.</p>'
+    + '<p class="quiet-note">The gadget and gateway run on the same computer. A cloud Grok Bot cannot reach it yet.</p>'
     + hosting_guide,
 )
 page(
@@ -582,8 +635,21 @@ page(
         'Start without hardware <span aria-hidden="true">↗</span></a>'
         '<nav class="docs-entry-paths" aria-label="Choose a build path"><a href="simulator.html">Simulator ↗</a><a href="esp32.html">ESP32 ↗</a><a href="linux.html">Linux / Raspberry Pi ↗</a><a href="home-assistant.html">Home Assistant ↗</a></nav>'
         '<p class="docs-note">New here? Start with the simulator. Actual Grok and physical-device verification remain pending.</p></header>'
-        + doc_navigation.index(),
+        + doc_navigation.index()
+        + '<p class="docs-note"><a href="maintainers.html">Maintainer and process records ↗</a></p>',
         "docs.html",
+    ),
+)
+page(
+    "maintainers.html",
+    "Maintainer records",
+    documentation_layout(
+        '<header class="docs-intro"><p class="eyebrow">For maintainers</p>'
+        "<h1>Process and evidence records.</h1>"
+        "<p>Release checks, dated verification records, community operations and brand "
+        'sources. For what works today, see the <a href="doc-docs-public-support-matrix.html">'
+        "project status</a>.</p></header>" + doc_navigation.index(maintainer=True),
+        "maintainers.html",
     ),
 )
 page(
@@ -681,7 +747,7 @@ shutil.copy(
     "User-agent: *\nAllow: /\nSitemap: " + PUBLIC_SITE + "sitemap.xml\n"
 )
 check_links(OUT)
-kit_builder.verify_download(OUT / "downloads", simulator_build["gateway_commit"])
+kit_builder.verify_download(OUT / "downloads", simulator_build["gateway_inputs"])
 if kit_builder.inputs() != simulator_build["build_inputs"]:
     raise ValueError(
         "Simulator kit inputs changed; run python3 scripts/build-simulator-kit.py"

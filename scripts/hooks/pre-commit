@@ -1,3 +1,0 @@
-#!/bin/sh
-# Installed by: python3 scripts/dev.py setup  (git config core.hooksPath scripts/hooks)
-exec python3 "$(git rev-parse --show-toplevel)/scripts/check-commit-emails.py"

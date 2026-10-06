@@ -23,7 +23,7 @@ GROUPS = (
                         "docs/getting-started/hosting.md",
                         "Hosting and remote access",
                     ),
-                    ("", "docs/public/support-matrix.md", "Supported paths and limits"),
+                    ("", "docs/public/support-matrix.md", "Project status"),
                     ("", "SUPPORT.md", "Get help"),
                 ),
             ),
@@ -75,10 +75,14 @@ GROUPS = (
                 None,
                 (
                     ("gateway", "README.md", "Gateway overview"),
+                    (
+                        "gateway",
+                        "docs/first-success.md",
+                        "First success in five minutes",
+                    ),
                     ("gateway", "docs/local-operation.md", "Run the gateway"),
                     ("gateway", "docs/simulator.md", "Use the gateway simulator"),
                     ("gateway", "docs/architecture.md", "Gateway architecture"),
-                    ("gateway", "docs/release.md", "Gateway release checks"),
                 ),
             ),
         ),
@@ -144,34 +148,32 @@ GROUPS = (
                     ),
                 ),
             ),
-            (
-                "Community maintenance",
-                (
-                    ("", "community/moderation-policy.md", "Moderation policy"),
-                    ("", "community/reddit-setup.md", "Reddit setup checklist"),
-                    ("", "community/reddit-package.md", "Reddit channel package"),
-                    ("", "community/platform-evaluation.md", "Platform evaluation"),
-                    ("", "community/content-plan.md", "Community content plan"),
-                    ("", "community/drafts/initial-posts.md", "Draft community posts"),
-                ),
-            ),
         ),
     ),
     (
-        "Reference and verification",
-        "Inspect the architecture, evidence and visual sources.",
+        "Reference",
+        "Inspect how the parts fit together.",
         (
             (
-                "Architecture and visuals",
-                (
-                    ("", "docs/architecture/overview.md", "Project architecture"),
-                    ("", "docs/visuals/README.md", "Visual guide"),
-                    ("", "docs/visuals/brand-provenance.md", "Brand asset provenance"),
-                ),
+                None,
+                (("", "docs/architecture/overview.md", "Project architecture"),),
             ),
+        ),
+    ),
+)
+
+
+# Maintainer and process records: published so links keep working, but listed only on
+# maintainers.html, never in the public documentation index or sidebar.
+MAINTAINER_GROUPS = (
+    (
+        "Releases and verification",
+        "Release checks and dated evidence records.",
+        (
             (
-                "Verification records",
+                None,
                 (
+                    ("gateway", "docs/release.md", "Gateway release checks"),
                     ("", "docs/public/local-status.md", "Overall verification status"),
                     ("", "docs/public/gateway-verification.md", "Gateway verification"),
                     (
@@ -193,6 +195,36 @@ GROUPS = (
             ),
         ),
     ),
+    (
+        "Community operations",
+        "Moderation and channel preparation.",
+        (
+            (
+                None,
+                (
+                    ("", "community/moderation-policy.md", "Moderation policy"),
+                    ("", "community/reddit-setup.md", "Reddit setup checklist"),
+                    ("", "community/reddit-package.md", "Reddit channel package"),
+                    ("", "community/platform-evaluation.md", "Platform evaluation"),
+                    ("", "community/content-plan.md", "Community content plan"),
+                    ("", "community/drafts/initial-posts.md", "Draft community posts"),
+                ),
+            ),
+        ),
+    ),
+    (
+        "Brand and visuals",
+        "Visual sources and asset provenance.",
+        (
+            (
+                None,
+                (
+                    ("", "docs/visuals/README.md", "Visual guide"),
+                    ("", "docs/visuals/brand-provenance.md", "Brand asset provenance"),
+                ),
+            ),
+        ),
+    ),
 )
 
 
@@ -210,12 +242,15 @@ class DocsNavigation:
         self.groups = []
         self.by_page = {}
         used = set()
-        for title, description, subgroups in GROUPS:
+        audiences = [(group, False) for group in GROUPS]
+        audiences += [(group, True) for group in MAINTAINER_GROUPS]
+        for (title, description, subgroups), maintainer in audiences:
             group = {
                 "title": title,
                 "description": description,
                 "id": slug(title),
                 "subgroups": [],
+                "maintainer": maintainer,
             }
             for subtitle, entries in subgroups:
                 subgroup = {
@@ -249,9 +284,12 @@ class DocsNavigation:
         active = ' aria-current="page"' if item["page"] == current else ""
         return f'<a href="{escape(item["page"], quote=True)}"{active}>{escape(item["title"])}</a>'
 
-    def index(self):
+    def _audience(self, maintainer):
+        return [group for group in self.groups if group["maintainer"] == maintainer]
+
+    def index(self, maintainer=False):
         parts = ['<section class="doc-catalog" aria-label="Documentation topics">']
-        for group in self.groups:
+        for group in self._audience(maintainer):
             parts.append(
                 f'<section class="doc-category" id="{escape(group["id"])}"><header><h2>{escape(group["title"])}</h2><p>{escape(group["description"])}</p></header>'
             )
@@ -272,11 +310,18 @@ class DocsNavigation:
             parts.append("</section>")
         return "".join(parts) + "</section>"
 
+    def is_maintainer(self, page):
+        found = self.by_page.get(page)
+        return bool(found and found[0]["maintainer"]) or page == "maintainers.html"
+
     def sidebar(self, current_page):
+        maintainer = self.is_maintainer(current_page)
+        home = "maintainers.html" if maintainer else "docs.html"
+        label = "Maintainer records" if maintainer else "All documentation"
         parts = [
-            '<nav class="doc-sidebar-nav" aria-label="Documentation"><a class="doc-nav-home" href="docs.html">All documentation</a>'
+            f'<nav class="doc-sidebar-nav" aria-label="Documentation"><a class="doc-nav-home" href="{home}">{label}</a>'
         ]
-        for group in self.groups:
+        for group in self._audience(maintainer):
             active = any(
                 item["page"] == current_page
                 for subgroup in group["subgroups"]
@@ -308,13 +353,18 @@ class DocsNavigation:
 
     def breadcrumbs(self, current_page):
         group, subgroup, item = self.by_page[current_page]
+        home, label = (
+            ("maintainers.html", "Maintainers")
+            if group["maintainer"]
+            else ("docs.html", "Docs")
+        )
         parts = [
-            '<nav class="doc-breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="docs.html">Docs</a></li>',
-            f'<li><a href="docs.html#{escape(group["id"])}">{escape(group["title"])}</a></li>',
+            f'<nav class="doc-breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="{home}">{label}</a></li>',
+            f'<li><a href="{home}#{escape(group["id"])}">{escape(group["title"])}</a></li>',
         ]
         if subgroup["title"]:
             parts.append(
-                f'<li><a href="docs.html#{escape(subgroup["id"])}">{escape(subgroup["title"])}</a></li>'
+                f'<li><a href="{home}#{escape(subgroup["id"])}">{escape(subgroup["title"])}</a></li>'
             )
         parts.append(f'<li aria-current="page">{escape(item["title"])}</li></ol></nav>')
         return "".join(parts)

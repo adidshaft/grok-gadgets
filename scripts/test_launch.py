@@ -53,7 +53,8 @@ class LaunchTests(unittest.TestCase):
             workflow = yaml.load(file.read_text(), Loader=yaml.BaseLoader)
             self.assertEqual(workflow["permissions"], {"contents": "read"})
             self.assertNotIn("pull_request_target", workflow["on"])
-            if file.name != "pages.yml":
+            # Only the deploy and the nightly all-main integration run on a schedule.
+            if file.name not in {"pages.yml", "integration.yml"}:
                 self.assertNotIn("schedule", workflow["on"])
             for name, job in workflow["jobs"].items():
                 self.assertIn("timeout-minutes", job)
@@ -158,3 +159,16 @@ class LaunchTests(unittest.TestCase):
             (root / "404.html").write_text('<a href="another.html">deep link</a>')
             with self.assertRaisesRegex(ValueError, "deep link"):
                 checker.check(root, base="https://adidshaft.github.io/grok-gadgets/")
+
+    def test_extensionless_page_urls_resolve_like_cloudflare_pages(self):
+        checker = load("check-pages-prefix")
+        site = "https://grok-gadgets.pages.dev/"
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / "index.html").write_text(f'<a href="{site}status">status</a>')
+            with self.assertRaisesRegex(ValueError, "deep link"):
+                checker.check(root, base=site)
+            (root / "status.html").write_text("")
+            # The page now exists; the check moves on to the kit download manifest.
+            with self.assertRaises(FileNotFoundError):
+                checker.check(root, base=site)
