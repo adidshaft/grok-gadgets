@@ -94,6 +94,7 @@ html[data-reduced-motion] .scene-node{transition:none;}
 .scene-selector{gap:12px;flex-wrap:wrap;}
 .scene-selector button{padding-inline:4px;}
 .scene-selector #scene-replay{margin-left:auto;text-decoration:underline;text-underline-offset:4px;color:var(--scene-ink);}
+.home-proof{padding:64px 5.7% 70px;border-top:1px solid #dadad3;scroll-margin-top:88px;}.home-proof h2{font-size:clamp(38px,5vw,68px);margin:10px 0 20px;}.home-proof>p{max-width:62ch;}.home-proof img{display:block;width:100%;max-width:800px;height:auto;margin:24px 0 10px;border:1px solid #dadad3;}
 .builder-paths,.home-activity{padding:64px 5.7% 90px;border-top:1px solid #dadad3;scroll-margin-top:88px;}
 .builder-paths h2,.home-activity h2{font-size:clamp(38px,5vw,68px);margin:10px 0 35px;}
 .builder-paths .path-row{grid-template-columns:56px minmax(0,1fr) auto;}
