@@ -637,8 +637,21 @@ page(
         'Start without hardware <span aria-hidden="true">↗</span></a>'
         '<nav class="docs-entry-paths" aria-label="Choose a build path"><a href="simulator.html">Simulator ↗</a><a href="esp32.html">ESP32 ↗</a><a href="linux.html">Linux / Raspberry Pi ↗</a><a href="home-assistant.html">Home Assistant ↗</a></nav>'
         '<p class="docs-note">New here? Start with the simulator. Actual Grok and physical-device verification remain pending.</p></header>'
-        + doc_navigation.index(),
+        + doc_navigation.index()
+        + '<p class="docs-note"><a href="maintainers.html">Maintainer and process records ↗</a></p>',
         "docs.html",
+    ),
+)
+page(
+    "maintainers.html",
+    "Maintainer records",
+    documentation_layout(
+        '<header class="docs-intro"><p class="eyebrow">For maintainers</p>'
+        "<h1>Process and evidence records.</h1>"
+        "<p>Release checks, dated verification records, community operations and brand "
+        'sources. For what works today, see the <a href="doc-docs-public-support-matrix.html">'
+        "project status</a>.</p></header>" + doc_navigation.index(maintainer=True),
+        "maintainers.html",
     ),
 )
 page(
