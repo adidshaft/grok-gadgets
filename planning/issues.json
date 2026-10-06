@@ -977,8 +977,10 @@
     "problem": "Add a verified simulator troubleshooting lookup",
     "intended_behaviour": "Add a verified simulator troubleshooting lookup",
     "acceptance": [
-      "Exact starting behavior, bounded criteria and focused commands in docs/contributing/ready-issues.md",
-      "Document observed results without hardware or Grok claims"
+      "Troubleshoot Python version, wrong working directory, protected-default edits, invalid custom configuration, and simulated disconnection",
+      "Preserve checksum verification and the separation of custom configuration from protected kit files",
+      "Keep Grok and physical-device limits explicit",
+      "Hub checks pass against the current pinned gateway source"
     ],
     "dependencies": [],
     "labels": [
@@ -988,10 +990,15 @@
       "P2"
     ],
     "milestone": "INDEPENDENT-SOFTWARE",
-    "stage": "ready",
-    "commits": [],
+    "stage": "in progress",
+    "commits": [
+      "771be3ef80ac87524cacb6d08632909d68e96735",
+      "99c2a6ca9675dfcde36f9409d232edd69dbe096e"
+    ],
     "evidence": [
-      "docs/contributing/ready-issues.md"
+      "docs/getting-started/simulator-kit.md#troubleshooting-the-local-kit",
+      "python3 scripts/check.py passed against gateway commit a02e8889f3936031040a67644112076e140954b1",
+      "PR #53 preserves the original contributor commit and changes only the current guide plus this ledger record"
     ],
     "blocker": null
   },

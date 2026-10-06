@@ -48,6 +48,20 @@ Omit `--config` to use the original default. Windows uses `.venv\Scripts\python.
 
 This verifies local simulation. It does not verify Grok execution or physical operation. The demonstration enables test controls explicitly. Normal configuration excludes them.
 
+## Troubleshooting the local kit
+
+Start from the extracted `grok-gadgets-simulator-kit` directory. Run `python3 install.py` again after any recovery; it verifies the kit without installing or starting anything. Do not edit hashes, bypass verification or overwrite a protected default to make a check pass.
+
+| Symptom | Check and safe recovery |
+| --- | --- |
+| `python3` is not found, or `Python 3.11 or newer is required` | Check `python3 --version`. Install Python 3.11 or newer and use that interpreter for verification and installation. On Windows, check `py -3 --version` and use `py -3 install.py` if `python3` is not available; native Windows kit installation remains unverified. |
+| Python cannot open `install.py` | Check that the current directory contains `install.py` and `manifest.json`; change into the extracted kit directory, not the ZIP's parent or the hub checkout. Retry `python3 install.py`. |
+| `Hash mismatch: simulator-config.json` after customizing | The bundled default is protected. Preserve your edited settings separately as `my-light.json`, then extract a fresh copy of the original kit into a new directory and verify it. Use `--config ./my-light.json` rather than replacing `simulator-config.json`. Never replace `SHA256SUMS` or the manifest. |
+| Your custom configuration is rejected | Edit only the separate configuration file using `simulator-config.schema.json`: RGB values must be integers 0–255, delay an integer 0–2000, and the documented boolean fields booleans. Remove unknown fields. Do not modify the protected schema; retry the demo with `.venv/bin/python try_simulator.py --config ./my-light.json`. |
+| A device is listed as unavailable or a command returns `unavailable` | Check whether your separate configuration has `start_disconnected: true`. For ordinary use, set it to `false` and restart the local simulator with that configuration. The demonstration explicitly enables test controls and can reconnect; ordinary configuration does not. This is simulated availability, not a physical-device or Grok-connection diagnosis. |
+
+The installer version/folder/integrity checks can be reproduced without installing dependencies. The existing kit integrity regression (`python3 scripts/test_simulator_kit.py` from the hub) checks rejection of modified protected files. Configuration limits are enforced by the included schema and gateway loader; `try_simulator.py` asserts the unavailable response and reconnects in its explicit test-control path. These checks are not evidence of native Windows installation, physical hardware operation or Grok invocation.
+
 ## Experimental route to your existing Grok Bot
 
 This route requires custom **Command MCP** in the Bot's cloud computer. Availability depends on the account and client. A developer-API conversation is not a substitute.
