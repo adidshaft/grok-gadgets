@@ -19,7 +19,7 @@ instead of repeating caveats.
   report, not proof of a physical effect.
 - **Grok Bot:** a cloud Bot cannot open `127.0.0.1` on your computer. A supported remote route
   is later work (tracked as `HARD-GROK-REMOTE-001`). Button events do not wake the Bot.
-- **Hardware:** needs a person to observe the board. No board was flashed for this project.
+- **Hardware:** needs a person to observe the board. Nobody has flashed a board for this project yet.
 
 Tested component versions are in the [compatibility manifest](../../compatibility/tested-components.json).
 How the parts connect and who runs what: [hosting FAQ](../getting-started/hosting.md).
