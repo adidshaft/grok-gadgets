@@ -38,6 +38,7 @@
   let lastTime = null;
   let drawAt = 0;
   let visible = true;
+  let activeScene = true;
   let story = 'light';
   let storyStarted = 0;
   let geometryDirty = true;
@@ -351,7 +352,7 @@
   simulator.reset(readConfig()); sync();
   function tick(time) {
     raf = 0;
-    if (reduced || document.hidden || !visible) {lastTime = null; return;}
+    if (reduced || document.hidden || !visible || !activeScene) {lastTime = null; return;}
     if (lastTime !== null) phase += Math.min((time - lastTime) / 1000, .1);
     lastTime = time;
     if (time - drawAt >= 32) {render(); drawAt = time;}
@@ -360,9 +361,10 @@
   function syncMotion() {
     if (raf) cancelAnimationFrame(raf);
     raf = 0; lastTime = null;
-    if (!reduced && !document.hidden && visible) raf = requestAnimationFrame(tick);
+    if (!reduced && !document.hidden && visible && activeScene) raf = requestAnimationFrame(tick);
   }
   document.addEventListener('grok:motion-change', (event) => {reduced = !event.detail.canAnimate; syncMotion();});
+  document.addEventListener('grok:scene-change', event => {activeScene = event.detail.scene === 'devices'; geometryDirty = true; if (activeScene) render(); syncMotion();});
   document.addEventListener('visibilitychange', syncMotion);
   if ('IntersectionObserver' in window) new IntersectionObserver(([entry]) => {visible = entry.isIntersecting; syncMotion();}, {threshold: .01}).observe(stage);
   if ('ResizeObserver' in window) new ResizeObserver(() => {rect = stage.getBoundingClientRect(); buttons.forEach(button => buttonSizes.set(button, button.getBoundingClientRect().width)); geometryDirty = true; render();}).observe(stage);
