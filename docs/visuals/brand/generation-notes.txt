@@ -1,0 +1,19 @@
+Grok Gadgets brand assets v1
+Generated using the built-in image generation tool; PNG exports resized/cropped with macOS sips.
+
+Files:
+logo-master-1254.png: original square raster master, 1254 x 1254.
+logo-1024.png: square logo, 1024 x 1024.
+reddit-avatar-256.png: 256 x 256 avatar.
+icon-64.png: 64 x 64 icon.
+reddit-banner-1072x128.png: exact Reddit banner dimensions.
+banner-wide-master.png: wide crop, 2032 x 243.
+banner-master.png: original banner generation.
+
+These are raster PNG assets, not vector artwork. Transparent experiments were excluded due to visible artifacts.
+
+LOGO PROMPT
+Use case: logo-brand. Create ONE final production logo for the independent open-source project "Grok Gadgets". Square 1:1 canvas, 2048x2048 if possible. Very simple, timeless, exceptionally precise flat vector-like black-and-white mark. Solid near-black #08090B square background, centered white abstract bot-device emblem with generous negative space, emblem occupies about 55% of canvas. Creative direction: the approachable two capsule eyes of a minimalist bot, combined with a single bold open rounded device outline that subtly reads as a G, and one restrained diagonal cut suggesting an orbital trajectory. The result must be a coherent single recognizable glyph, not separate floating clipart. Inspired by Grok Bot's minimal robot character and SpaceXAI's spare monochrome aerospace visual language, but create an original community identity, not their exact logo. Only two eye slots; no antenna, chip pins, wires, stars, gradients, metallic lighting, shadows, textures, 3D, mockups, watermark, or text. Clean optical balance and consistent geometry. Must stay legible at 32px. Return actual square logo artwork, not a branding presentation.
+
+BANNER PROMPT
+Use case: logo-brand. Create one matching ultra-wide Reddit community banner for r/GrokGadgets. Reference image is the approved visual identity: reproduce its white bot/G/orbit emblem accurately, do not redesign it. Final intended banner is EXACTLY 1072x128 pixels, aspect 8.375:1; preferably render a 3x master at 3216x384. Very minimal crisp flat monochrome design. Solid uniform #08090B background. Left-of-center compact white reference emblem followed by the exact text "Grok Gadgets" in beautifully kerned modern clean sans-serif, medium weight, with smaller restrained text "OPEN SOURCE. REAL WORLD." to the right, separated by generous space and one hairline vertical rule. Single horizontal row, centered vertically. Balanced high-end aerospace/editorial identity, no gradient, no texture, no glow, no fake UI, no motherboard patterns, no stars, no 3D. Keep generous outer margins, emblem about 76 pixels tall at final size, main text about 32 pixels tall, small text about 11 pixels tall. IMPORTANT if forced to render on a taller canvas, keep background uniform and place ALL artwork inside the central horizontal strip occupying only 11.94% of image width in height, so we can center-crop it to 8.375:1 without cutting anything. Do not draw a border around the strip. Deliver actual banner art only.
