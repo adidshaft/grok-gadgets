@@ -1,3 +1,5 @@
+<!-- main is the default branch for users, builders and the website. Development and testing integrate on dev. Ordinary contribution PRs target dev; main accepts release and hotfix PRs only. Verify the base branch before submitting. -->
+
 ## Problem and resulting behavior
 
 <!-- Concrete before/after behavior and scope. -->
@@ -16,6 +18,7 @@
 
 ## Review checklist
 
+- [ ] The base is `dev` for an ordinary contribution, or `main` for a release or hotfix.
 - [ ] Docs use the shared writing guide; support claims match evidence.
 - [ ] No credentials, private logs or unintended personal details are included.
 - [ ] Workflow/dependency changes and required checks are described above.
