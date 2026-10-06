@@ -49,6 +49,34 @@ In the PR, describe the behavior before and after the change. Link the issue. Li
 
 Simulation, fixtures, compilation and assistant narratives do not prove physical or native Grok operation. Remove tokens, account details and household state from shared evidence. Contributors must understand, review and test AI-assisted work. Generated code has the same review requirements.
 
+## What we merge
+
+The same bar applies in all five repositories. A pull request is merged only when every point
+holds:
+
+1. **It solves a stated problem.** It links an open issue that the maintainer has accepted, or a
+   bug you reproduced with steps, expected result and actual result. For anything beyond a typo,
+   comment on the issue first and wait until it is assigned to you.
+2. **It is small and focused.** One issue per PR. No unrelated edits, reformatting or renames.
+   Do not commit generated files (the simulator kit ZIP, manifests, lock files, `dist/`) unless
+   the issue asks for them.
+3. **It is tested.** The repository's checks pass on your machine and in CI. Changed behavior
+   comes with a regression test that fails without your change. For documentation, run every
+   command you wrote and paste the real output in the PR.
+4. **It reads like the rest of the project.** Code matches the surrounding style. Documentation
+   follows the [writing guide](docs/contributing/writing-guide.md): short sentences, no filler,
+   no longer than the issue needs.
+5. **Its claims are accurate.** Say exactly what you ran and where. Never present simulation,
+   compilation or a model's narrative as a Grok Bot or hardware result.
+6. **You understand every line.** AI-assisted work is welcome, but you must be able to explain
+   and defend each change in review. Bulk or unexplained generated changes are closed.
+7. **You follow up.** Address review comments within 14 days, or the PR is closed. You can reopen
+   it when you are ready.
+
+The maintainer may close a PR that misses this bar with a one-line reason and no detailed
+review, and may implement the issue another way. First-time contributors can have one open PR
+at a time. Merged work may later be rewritten as the project changes.
+
 @adidshaft reviews and merges contributions. With one maintainer, the policy requires zero mandatory human approvals. The maintainer still decides each merge. Passing checks do not guarantee a merge.
 
 We promise no response deadline or reward. No contributor license agreement (CLA) is required. Original contributions use Apache-2.0. Preserve notices and credit non-code work.
