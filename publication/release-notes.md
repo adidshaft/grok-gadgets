@@ -1,13 +1,63 @@
-# Grok Gadgets 0.1.0-alpha.1 — experimental, unpublished
+# v0.1.0-alpha.1 release notes — drafts, not published
 
-An independent ecosystem exclusively for Grok: configurable simulator and MCP gateway, separate Linux and ESP32 SDKs, experimental AtomS3 Lite C124 USB example, Home Assistant diagnostics, interactive browser playground and community preparation. Original code is Apache-2.0; dependency notices and trademark limits remain applicable.
+Drafted 6 October 2026 for owner review. No tag, GitHub release or package upload exists.
+Creating them is a separate, owner-approved step: tag each repository's reviewed `main`
+commit, then paste its section below into the GitHub release. Each section is based on that
+repository's `CHANGELOG.md`.
 
-Begin without hardware in the browser, export your configuration, or inspect/install the source-backed simulator kit. Each website build checks the selected gateway source and kit inputs, runs source plus installed default/custom MCP acceptance before refresh, validates its ZIP/manifest pair and publishes content-addressed download URLs only after site checks. Failed promotion keeps the prior download/site. Already downloaded files remain versioned snapshots; upgrade into a fresh folder with your separate configuration.
+Every component is an experimental alpha. Evidence is software only: tests, builds and local
+MCP calls. No Grok Bot session, flashed board, real Linux peripheral, systemd service or real
+Home Assistant home has been verified. See the
+[project status](../docs/public/support-matrix.md).
 
-Local evidence includes73 gateway tests,20 Linux source tests,13 Home Assistant tests,3 ESP32 host suites plus canonical-contract/actual firmware-consumer USB PTY tests and C124 cross-compilation. macOS and isolated Linux installed custom factories pass. Website15 tests,6 browser tests,6 kit regressions,23 migration fixtures,4 launch-safety tests and5 history-audit tests pass. Final fourteen-group integration, fresh-checkout and package manifests identify their exact sources and results; no public hosted run is claimed.
+## grok-gadgets (hub) v0.1.0-alpha.1
 
-A dedicated Grok computer installation/config checksum was independently observed. Exact current native Grok invocations remain gated on an inspectable scoped connector reload and receipts. Browser/local MCP simulation, compilation, actual Grok invocation, mobile and physical observation are separate. Real C124 flashing/LED/button, household entities, systemd/peripherals and another human reproducing setup remain open. Remote HTTPS/OAuth and Wi-Fi/provisioning are future work; ACKs do not prove physical effects or durable exactly-once execution.
+- Website at <https://grok-gadgets.pages.dev/>, always deployed from `main`, with the site and
+  kit builds in the footer. Component guides on the site are imported from each component's
+  `main` at deploy time.
+- New homepage: "Let your Grok Bot control lights, buttons and sensors you build." One status
+  chip and one status page; three paths (No hardware, Linux, ESP32).
+- The simulator kit is built from gateway `main`, pinned by a hash of the files it is built from.
+- Integrated acceptance runs all five `main` branches on every push and nightly.
+- Maintainer and process records moved out of the public documentation index.
 
-Proposed public assets include selected source archives, gateway/Linux/HA packages, simulator kit/provenance and static website. Recovery Git bundles, raw account evidence and firmware binaries are excluded; binaries require corresponding-source/relinking/license material. Histories retain reviewed local paths and personal author metadata, requiring explicit disclosure approval. Working names and official reference marks need a recorded branding disposition.
+## grok-gadgets-gateway v0.1.0-alpha.1 (package 0.1.0a1)
 
-No public repository, tag, release, package upload, site, Reddit change or automation exists. Version is unchanged because earlier candidates were never published. Read component READMEs, the support matrix and activation guide before using the alpha.
+- Six MCP tools for any MCP client, over stdio or authenticated HTTP on `127.0.0.1`.
+- `gadgets_command` waits up to 3 seconds for the device and returns the final status.
+- Capability descriptions reach the model (`capability_descriptions`).
+- Real subcommands, pasteable `init` settings with absolute paths, `enroll --rotate` and
+  `--token-file`, clean shutdown on SIGTERM, no OAuth metadata in static-bearer mode.
+- Five-minute first success with MCP Inspector, checked by CI every night.
+- Protocol 0.1.0 README in sections, including `late_ack`. Wire format unchanged.
+
+## grok-gadgets-linux-sdk v0.1.0-alpha.1 (package 0.1.0a1)
+
+- `@gadget.command("What it does")` decorator API with schemas from type hints.
+  `Device.capability` keeps working.
+- `grok-linux-agent dev ./my_gadget.py`: an in-process gateway with loopback trust, no tokens
+  to copy (`[gateway]` extra).
+- `--token-file` is re-read on every connection, so a rotated token needs no restart.
+- A slow handler gets a failed ACK and keeps the session; `late_ack` is non-fatal.
+- CI runs the gateway integration tests against gateway `main` and the README quick start.
+
+## grok-gadgets-esp32-sdk v0.1.0-alpha.1 (library 0.2.0)
+
+- `grok::Gadget` for Arduino sketches; C124 and generic ESP32-S3 LED/button examples compile.
+- `late_ack` and `unknown_command` no longer reset the USB session.
+- PlatformIO and Arduino library manifests are prepared and checked in CI.
+- CI runs the README quick start and the simulated USB link to gateway `main`.
+- Open question for the owner: the library version is 0.2.0, so the tag could instead be
+  `v0.2.0-alpha.1`.
+
+## grok-gadgets-home-assistant v0.1.0-alpha.1 (package 0.1.0a1)
+
+- `ha-probe`: read-only discovery of Home Assistant's own MCP server. It never calls a tool.
+- CI checks the README quick start output field by field.
+
+## Before tagging (owner steps)
+
+1. Confirm all five `main` CI runs and the deploy are green.
+2. Record each commit SHA here, then create the tags and draft releases.
+3. Package uploads (PyPI, PlatformIO, Arduino) are a separate approval. Until the gateway is
+   on PyPI, the Linux SDK's `[gateway]` extra installs the gateway from GitHub.
