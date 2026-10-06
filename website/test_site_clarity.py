@@ -62,6 +62,14 @@ class SiteClarityTests(unittest.TestCase):
         self.assertIn("current output unknown", scene)
         self.assertIn("error.code", scene)
 
+    def test_projected_nodes_stay_inside_scene_vertical_bounds(self):
+        scene = (SITE / "scene.js").read_text()
+        self.assertIn(
+            "const halfY = button.getBoundingClientRect().height / 2 + 8;", scene
+        )
+        self.assertIn("const centerY = dy + (p[1] + offset) * scale;", scene)
+        self.assertIn("Math.max(halfY, Math.min(rect.height - halfY, centerY))", scene)
+
 
 if __name__ == "__main__":
     unittest.main()
