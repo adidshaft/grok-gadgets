@@ -41,7 +41,8 @@
     "docs/protocol-recovery.md",
     "docs/setup.md",
     "docs/feasibility.md",
-    "docs/simulator.md"
+    "docs/simulator.md",
+    "docs/first-success.md"
   ],
   "aliases": [
     {
@@ -143,6 +144,18 @@
       "source": "docs/visuals/badge-contribute.svg",
       "output": "media/diagrams/badge-contribute.svg",
       "sha256": "0ed2e2f25bd1e961451fc83c25fe4fd8a24725af636ee1f2fe73f672ef751455"
+    },
+    {
+      "repository": "grok-gadgets",
+      "source": "website/media/gateway-inspector-first-success.webp",
+      "output": "media/gateway-inspector-first-success.webp",
+      "sha256": "e22aefabfe97bf3c890c1fe8fbc6a77fef1419bb1532897e80e1572b64a70004",
+      "same_as": [
+        {
+          "repository": "grok-gadgets-gateway",
+          "source": "docs/media/gateway-inspector-first-success.webp"
+        }
+      ]
     }
   ],
   "hub_references": [
