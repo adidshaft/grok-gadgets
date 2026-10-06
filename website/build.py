@@ -252,6 +252,26 @@ def path_row(number, title, description, url, link_text):
     )
 
 
+first_success = (
+    "https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/first-success.md"
+)
+proof_section = (
+    '<section class="home-proof" id="first-success" aria-labelledby="proof-heading">'
+    '<p class="eyebrow">SEE IT WORK IN A REAL MCP CLIENT</p>'
+    '<h2 id="proof-heading">Five minutes. No hardware.</h2>'
+    "<p>Run the gateway with its simulated light, then call the six tools from "
+    "MCP Inspector, the official model-free MCP developer tool. CI runs this path every night.</p>"
+    '<picture><source srcset="media/gateway-inspector-first-success-still.webp" '
+    'media="(prefers-reduced-motion: reduce)">'
+    '<img src="media/gateway-inspector-first-success.webp" width="800" height="580" loading="lazy" '
+    'alt="MCP Inspector connects to the local gateway, lists six tools, finds the simulated light '
+    'sim-c124 and sets it blue. The reply says executed, simulated true, physical_verified false."></picture>'
+    '<p class="quiet-note">Recorded locally on 6 October 2026 with MCP Inspector 2.9.0. '
+    "Software simulator only: no Grok Bot and no physical device.</p>"
+    '<p><a href="'
+    + first_success
+    + '">Follow the five-minute guide ↗</a></p></section>'
+)
 hosting_guide = '<p><a href="doc-docs-getting-started-hosting.html">Who runs the gateway? Hosting and remote access FAQ ↗</a></p>'
 scene_source = R / "website/home-scene.html"
 page(
@@ -263,6 +283,7 @@ page(
         .read_text()
         .replace("{{SIMULATOR_BUILD}}", e(simulator_build["gateway_commit"][:8]))
         .replace("{{SIMULATOR_VERSION}}", e(simulator_build["package_version"]))
+        + proof_section
         + '<section class="builder-paths" id="builder-paths" aria-labelledby="builder-heading"><p class="eyebrow">CHOOSE YOUR FIRST PATH</p><h2 id="builder-heading">Start building.</h2>'
         + path_row(
             "01",
@@ -312,27 +333,34 @@ page(
     + '<div class="path-list">'
     + path_row(
         "01",
+        "First success in five minutes",
+        "Run the gateway's simulated light and call it from MCP Inspector. No hardware or account.",
+        first_success,
+        "Gateway guide",
+    )
+    + path_row(
+        "02",
         "Try the simulator",
         "Customize in the browser or run the local MCP kit. No public hosting is needed.",
         "simulator.html",
         "Try both",
     )
     + path_row(
-        "02",
+        "03",
         "Build a gadget",
         "Compile the C124 example with the reusable ESP32 SDK.",
         "esp32.html",
         "ESP32",
     )
     + path_row(
-        "03",
+        "04",
         "Build a Linux application",
         "Start from a reusable Python capability and agent.",
         "linux.html",
         "Linux SDK",
     )
     + path_row(
-        "04",
+        "05",
         "Connect your home",
         "Reuse Home Assistant’s exposed Assist entities.",
         "home-assistant.html",
