@@ -3,6 +3,7 @@
 from pathlib import Path
 from html import escape as e
 import json
+import hashlib
 import shutil
 import os
 import importlib.util
@@ -167,18 +168,18 @@ def page(name, title, body):
     menu = (
         '<dialog id="site-menu" aria-labelledby="menu-title"><div class="menu-top"><p id="menu-title">Explore</p><button id="menu-close" aria-label="Close menu">Close <span>[esc]</span></button></div><nav aria-label="Main navigation">'
         + active_links
-        + '</nav><div class="menu-components"><a href="https://github.com/adidshaft/grok-gadgets">GitHub</a><a href="esp32.html">ESP32</a><a href="linux.html">Linux</a><a href="home-assistant.html">Home Assistant</a><a href="architecture.html">Architecture</a><a href="releases.html">Releases</a></div><div class="product-reference"><img src="media/spacexai-mark.svg" width="28" height="28" alt="SpaceXAI"><p>Grok is made by SpaceXAI.<br>Grok Gadgets is an independent project.</p><a href="https://x.ai/legal/brand-guidelines" aria-label="Official brand guidelines">↗</a></div></dialog>'
+        + '</nav><div class="menu-components"><a href="https://github.com/adidshaft/grok-gadgets">GitHub</a><a href="esp32.html">ESP32</a><a href="linux.html">Linux</a><a href="home-assistant.html">Home Assistant</a><a href="architecture.html">Architecture</a><a href="releases.html">Releases</a></div><p class="creator-credit">Made by <a href="https://x.com/adidshaft">@adidshaft ↗</a></p><div class="product-reference"><img src="media/spacexai-mark.svg" width="28" height="28" alt="SpaceXAI"><p>Grok is made by SpaceXAI.<br>Grok Gadgets is an independent project.</p><a href="https://x.ai/legal/brand-guidelines" aria-label="Official brand guidelines">↗</a></div></dialog>'
     )
     footer = (
         '<footer class="site-footer" data-site-revision="'
         + e(build_revision)
         + '" title="'
         + e(build_note)
-        + '"><span class="independent-note">Independent open source. Not affiliated with xAI or SpaceXAI.</span><a href="https://github.com/adidshaft/grok-gadgets">GitHub ↗</a><a class="status-link" href="doc-docs-public-support-matrix.html">Status ↗</a>'
+        + '"><span class="independent-note">Independent open source. Not affiliated with xAI or SpaceXAI.<span class="footer-credit">Made by <a href="https://x.com/adidshaft">@adidshaft ↗</a></span></span><a href="https://github.com/adidshaft/grok-gadgets">GitHub ↗</a><a class="status-link" href="doc-docs-public-support-matrix.html">Status ↗</a>'
         + '<button id="motion-toggle" aria-pressed="false">Pause motion <span>[Ⅱ]</span></button></footer>'
     )
     scripts = '<script src="motion.js" defer></script>' + (
-        '<script src="simulator.js" defer></script><script src="scene.js" defer></script>'
+        '<script src="simulator.js" defer></script><script src="scene.js" defer></script><script src="roadmap-scene.js" defer></script><script src="signal-scene.js" defer></script><script src="scene-gallery.js" defer></script>'
         if home
         else ""
     )
@@ -206,7 +207,11 @@ def page(name, title, body):
         + '"><meta name="twitter:image" content="'
         + e(share_image, quote=True)
         + '"><meta name="twitter:image:alt" content="Large Grok Gadgets logo and name beside a conceptual wireframe hardware scene, with an oversized outline Grok Bot face in the background; open-source project, not affiliated with xAI or SpaceXAI."><link rel="icon" type="image/png" href="media/grok-gadgets-icon.png"><link rel="stylesheet" href="style.css">'
-        + ('<link rel="stylesheet" href="scene.css">' if home else "")
+        + (
+            '<link rel="stylesheet" href="scene.css"><link rel="stylesheet" href="roadmap-scene.css"><link rel="stylesheet" href="signal-scene.css">'
+            if home
+            else ""
+        )
         + '</head><body class="'
         + (
             "home-page"
@@ -690,7 +695,19 @@ page(
     )
     + activity_html(activity),
 )
-for f in ["style.css", "motion.js", "scene.css", "simulator.js", "scene.js", "docs.js"]:
+for f in [
+    "style.css",
+    "motion.js",
+    "scene.css",
+    "simulator.js",
+    "scene.js",
+    "docs.js",
+    "roadmap-scene.js",
+    "roadmap-scene.css",
+    "signal-scene.js",
+    "signal-scene.css",
+    "scene-gallery.js",
+]:
     source = R / "website" / f
     if source.is_file():
         shutil.copy(source, OUT / f)
@@ -740,6 +757,23 @@ shutil.copy(
 (OUT / "robots.txt").write_text(
     "User-agent: *\nAllow: /\nSitemap: " + PUBLIC_SITE + "sitemap.xml\n"
 )
+# Content fingerprints keep repeat visitors on the current styles and behavior.
+asset_versions = {
+    path.name: hashlib.sha256(path.read_bytes()).hexdigest()[:12]
+    for pattern in ("*.css", "*.js")
+    for path in OUT.glob(pattern)
+}
+for html_page in OUT.glob("*.html"):
+    html_page.write_text(
+        re.sub(
+            r'(?:href|src)="([^"/?]+\.(?:css|js))"',
+            lambda match: match.group(0)[:-1]
+            + "?v="
+            + asset_versions[match.group(1)]
+            + '"',
+            html_page.read_text(),
+        )
+    )
 check_links(OUT)
 kit_builder.verify_download(OUT / "downloads", simulator_build["gateway_inputs"])
 if kit_builder.inputs() != simulator_build["build_inputs"]:
