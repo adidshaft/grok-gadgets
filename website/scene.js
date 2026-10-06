@@ -158,7 +158,9 @@
       const half = (buttonSizes.get(button) || 44) / 2 + 8;
       const x = dx + p[0] * scale;
       button.style.left = `${Math.max(half, Math.min(rect.width - half, x))}px`;
-      button.style.top = `${dy + (p[1] + offset) * scale}px`;
+      const halfY = button.getBoundingClientRect().height / 2 + 8;
+      const centerY = dy + (p[1] + offset) * scale;
+      button.style.top = `${Math.max(halfY, Math.min(rect.height - halfY, centerY))}px`;
     });
       geometryDirty = false;
     }
