@@ -263,7 +263,7 @@ proof_section = (
     "MCP Inspector, the official model-free MCP developer tool. CI runs this path every night.</p>"
     '<picture><source srcset="media/gateway-inspector-first-success-still.webp" '
     'media="(prefers-reduced-motion: reduce)">'
-    '<img src="media/gateway-inspector-first-success.webp" width="800" height="556" loading="lazy" '
+    '<img src="media/gateway-inspector-first-success.webp" width="800" height="580" loading="lazy" '
     'alt="MCP Inspector connects to the local gateway, lists six tools, finds the simulated light '
     'sim-c124 and sets it blue. The reply says executed, simulated true, physical_verified false."></picture>'
     '<p class="quiet-note">Recorded locally on 6 October 2026 with MCP Inspector 2.9.0. '
