@@ -1,4 +1,4 @@
-Source: grok-gadgets-linux-sdk/docs/development.md at 9cb6c43ee4ef1b7c6a9ed8ae2a48327e8c46f851
+Source: grok-gadgets-linux-sdk/docs/development.md at 4edc2994b8c546effacf68f40516bd920a533621
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -38,6 +38,44 @@ def create():
     return device
 ```
 
+
+## Decorator API
+
+`Gadget` is a `Device` with a decorator. Each command states what it does; its JSON schema
+comes from the function's type hints, and the description reaches the assistant through
+`gadgets_list_devices`.
+
+```python
+from typing import Annotated, Literal
+
+from grok_gadgets_linux import Gadget, Range
+
+lamp = Gadget("desk-lamp", "Desk lamp", state={"on": False, "level": 0})
+
+
+@lamp.command("Turn the desk lamp on or off")
+def set_light(on: bool) -> dict:
+    return {"on": on}  # Updates the reported state.
+
+
+@lamp.command("Set the brightness from 0 to 100", name="level.set")
+def level(level: Annotated[int, Range(0, 100)], mode: Literal["warm", "cool"] = "warm"):
+    return {"level": level}
+
+
+lamp.event("motion", "Someone moved in front of the lamp")
+```
+
+- The command name is the function name with underscores as dots (`set.light`), or `name=`.
+- Supported hints: `bool`, `int`, `float`, `str`, `Literal[...]`, `list[...]`,
+  `X | None` and `Annotated[..., "description", Range(min, max)]`. Parameters with a default
+  are optional. Unknown arguments are rejected.
+- The returned dict is merged into the reported state; return `None` to leave it unchanged.
+- `Gadget` is simulated by default. Pass `simulated=False` only when your code controls hardware.
+- `Device.capability(..., description=...)` adds a description with the original API.
+- Descriptions are 1–300 characters. A TCP hello may be up to 16 KiB, so all 16 capabilities
+  can carry schemas and descriptions.
+
 ## Install and start the agent
 
 Follow the [README quickstart](../README.md#quickstart) to install both packages and
@@ -70,7 +108,8 @@ A handler receives the arguments and returns a complete state object. It can be 
 The handler timeout (5 seconds) bounds the wait for a result. Python cannot stop a thread,
 so a timed-out plain function keeps running until it returns. The SDK does not start the
 next plain-function handler until the previous thread has finished. A timed-out command
-never gets a success acknowledgement.
+gets a `failed` acknowledgement with code `handler_timeout`, never a success, and the
+session stays open for the next command. Its outcome is unknown: check state before acting again.
 
 GPIO-style example (this code is not tested on hardware):
 
