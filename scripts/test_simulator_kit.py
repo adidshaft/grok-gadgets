@@ -17,20 +17,15 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class KitTests(unittest.TestCase):
     @contextmanager
-    def mocked_source(self, module, commit):
+    def mocked_source(self, module, gateway_inputs):
         # Exercise clean-source rebuild branches in a standalone hub checkout too.
         with tempfile.TemporaryDirectory() as folder:
             gateway = Path(folder)
             (gateway / ".git").mkdir()
             with (
                 patch.object(module, "GATEWAY", gateway),
-                patch.object(
-                    module,
-                    "run",
-                    side_effect=lambda args, **kwargs: (
-                        commit if args[1] == "rev-parse" else ""
-                    ),
-                ),
+                patch.object(module, "gateway_inputs", return_value=gateway_inputs),
+                patch.object(module, "run", return_value=""),
             ):
                 yield
 
@@ -89,7 +84,7 @@ class KitTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Malformed"):
                 module.verify_download(scratch)
             with (
-                self.mocked_source(module, record["gateway_commit"]),
+                self.mocked_source(module, record["gateway_inputs"]),
                 patch.object(module, "build") as build,
                 patch.object(
                     module,
@@ -100,7 +95,7 @@ class KitTests(unittest.TestCase):
                 self.assertEqual(module.ensure_current(scratch), record)
                 build.assert_called_once_with(scratch)
         with (
-            self.mocked_source(module, record["gateway_commit"]),
+            self.mocked_source(module, record["gateway_inputs"]),
             patch.object(
                 module, "verify_download", side_effect=[ValueError("stale"), record]
             ),
@@ -109,38 +104,75 @@ class KitTests(unittest.TestCase):
             self.assertEqual(module.ensure_current(output), record)
             build.assert_called_once_with(output)
         with (
-            self.mocked_source(module, record["gateway_commit"]),
+            self.mocked_source(module, record["gateway_inputs"]),
             patch.object(module, "verify_download", side_effect=ValueError("stale")),
             patch.object(module, "build", side_effect=RuntimeError("tests failed")),
         ):
             with self.assertRaisesRegex(RuntimeError, "tests failed"):
                 module.ensure_current(output)
         with (
-            self.mocked_source(module, record["gateway_commit"]),
+            self.mocked_source(module, record["gateway_inputs"]),
             patch.object(module, "run", return_value=" M src/change.py"),
         ):
-            with self.assertRaisesRegex(ValueError, "uncommitted"):
-                module.ensure_current(output)
+            with self.assertRaisesRegex(ValueError, "clean committed checkout"):
+                module.build(output)
 
     def test_clean_source_advancing_during_verification_is_rejected(self):
         module = self.builder()
-        commit = "a" * 40
-        record = {"gateway_commit": commit}
+        record = {"gateway_inputs": "a" * 64}
         with (
-            self.mocked_source(module, record["gateway_commit"]),
-            patch.object(module, "run", side_effect=["", commit, "", "b" * 40]),
+            self.mocked_source(module, record["gateway_inputs"]),
+            patch.object(module, "gateway_inputs", side_effect=["a" * 64, "b" * 64]),
             patch.object(module, "verify_download", return_value=record),
         ):
             with self.assertRaisesRegex(ValueError, "changed during verification"):
                 module.ensure_current(ROOT / "website/downloads", rebuild=False)
         with (
-            self.mocked_source(module, record["gateway_commit"]),
+            self.mocked_source(module, record["gateway_inputs"]),
             patch.object(module, "inputs", side_effect=[{}, {"changed": "digest"}]),
-            patch.object(module, "run", side_effect=["", commit]),
             patch.object(module, "verify_download", return_value=record),
         ):
             with self.assertRaisesRegex(ValueError, "inputs changed during"):
                 module.ensure_current(ROOT / "website/downloads", rebuild=False)
+
+    def test_gateway_ci_only_commits_keep_the_kit_current(self):
+        module = self.builder()
+        with tempfile.TemporaryDirectory() as folder:
+            gateway = Path(folder)
+
+            def git(*args):
+                subprocess.run(
+                    [
+                        "git",
+                        "-c",
+                        "user.name=t",
+                        "-c",
+                        "user.email=t@example.com",
+                        *args,
+                    ],
+                    cwd=gateway,
+                    check=True,
+                    capture_output=True,
+                )
+
+            git("init", "-q")
+            (gateway / "src").mkdir()
+            (gateway / "src/app.py").write_text("print('v1')\n")
+            (gateway / "planning").mkdir()
+            (gateway / "planning/issues.json").write_text("[]\n")
+            git("add", ".")
+            git("commit", "-qm", "first")
+            with patch.object(module, "GATEWAY", gateway):
+                first = module.gateway_inputs()
+                (gateway / "planning/issues.json").write_text("[1]\n")
+                (gateway / ".github").mkdir()
+                (gateway / ".github/ci.yml").write_text("on: push\n")
+                git("add", ".")
+                git("commit", "-qm", "ci only")
+                self.assertEqual(first, module.gateway_inputs())
+                (gateway / "src/app.py").write_text("print('v2')\n")
+                git("commit", "-qam", "source")
+                self.assertNotEqual(first, module.gateway_inputs())
 
     def test_download_integrity_contents_and_tamper_detection(self):
         directory = ROOT / "website/downloads"
@@ -240,7 +272,10 @@ class KitTests(unittest.TestCase):
                     raise OSError("injected manifest promotion failure")
                 return original_replace(path, destination)
 
-            with patch.object(Path, "replace", interrupted):
+            with (
+                patch.object(Path, "replace", interrupted),
+                patch.object(module, "GATEWAY", ROOT / "absent-gateway"),
+            ):
                 with self.assertRaisesRegex(OSError, "injected manifest"):
                     module.promote_download(output, source / module.ARCHIVE, record)
             self.assertEqual(
