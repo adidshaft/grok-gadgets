@@ -1,6 +1,11 @@
 <section class="home-scene" data-view="system" aria-labelledby="scene-heading">
   <div class="scene-intro">
     <h1 id="scene-heading">Open-source tools and SDKs<br>for your Grok Bot.</h1>
+    <div class="scene-gallery-nav" role="group" aria-label="Choose a motion scene" hidden>
+      <button type="button" data-scene="devices" aria-pressed="true">01 Devices</button>
+      <button type="button" data-scene="signal" aria-pressed="false">02 Signal</button>
+      <button type="button" data-scene="roadmap" aria-pressed="false">03 Roadmap</button>
+    </div>
   </div>
 
   <div class="scene-stage" data-frame="0" data-phase="0">
@@ -26,6 +31,9 @@
 
   </div>
 
+  <div id="signal-stage" class="alternate-stage" hidden></div>
+  <div id="roadmap-stage" class="alternate-stage" hidden></div>
+
   <div class="scene-toolbar">
     <div class="scene-selector" role="group" aria-label="Choose a conceptual route story">
       <button data-story="light" aria-pressed="true">Light</button>
@@ -34,6 +42,7 @@
       <button data-story="home" aria-pressed="false" aria-label="Home Assistant">Home</button>
 
     </div>
+    <p class="scene-gallery-hint" hidden></p>
     <a class="scene-build" href="start.html">Start building <span aria-hidden="true">↗</span></a>
     <button id="scene-inspect" type="button" aria-haspopup="dialog" aria-controls="scene-inspector">Explore <span aria-hidden="true">[+]</span></button>
   </div>
