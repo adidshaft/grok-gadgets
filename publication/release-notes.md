@@ -1,9 +1,9 @@
 # v0.1.0-alpha.1 release notes
 
-Updated 6 October 2026. The four component tags and GitHub pre-releases are published;
-the hub release is pending its release PR and deployment verification. No package registry
-uploads have been made. Each section is based on that repository's `CHANGELOG.md`; the
-owner-approved plan is in *Release plan* below.
+Updated 6 October 2026. All five repository tags and GitHub pre-releases are published.
+The hub release deployment succeeded and the live footer shows site `c0bdd325` and gateway
+kit `01886481`. No package registry uploads have been made. Each section is based on that
+repository's `CHANGELOG.md`; the owner-approved plan is in *Release plan* below.
 
 Every component is an experimental alpha. Evidence is software only: tests, builds and local
 MCP calls. No Grok Bot session, flashed board, real Linux peripheral, systemd service or real
@@ -79,7 +79,7 @@ Home Assistant home has been verified. See the
   gateway from GitHub.
 - **Later alphas:** `v0.1.0-alpha.2`, and so on, each with its own changelog section.
 
-## Published component release records — 6 October 2026
+## Published release records — 6 October 2026
 
 | Repository | Tag | Tagged commit |
 | --- | --- | --- |
@@ -87,8 +87,8 @@ Home Assistant home has been verified. See the
 | grok-gadgets-linux-sdk | [v0.1.0-alpha.1](https://github.com/adidshaft/grok-gadgets-linux-sdk/releases/tag/v0.1.0-alpha.1) | `760cad9154c1291f628e21c1ded7357271930446` |
 | grok-gadgets-esp32-sdk | [v0.2.0-alpha.1](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.1) | `ef017196fc6ac7f41d389b2bdf82ae48cc526128` |
 | grok-gadgets-home-assistant | [v0.1.0-alpha.1](https://github.com/adidshaft/grok-gadgets-home-assistant/releases/tag/v0.1.0-alpha.1) | `1ce4f8a272f3ca530806baaf8903fece0ce743c9` |
+| grok-gadgets (hub) | [v0.1.0-alpha.1](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.0-alpha.1) | `c0bdd325d83be10094366df1dc95ae16f14f0f15` |
 
-The hub tagged merge commit will be recorded in its GitHub release notes after the release
-PR merges, then in a follow-up record. Its existing compatibility evidence entry remains
-an earlier snapshot. These records do not add Grok Bot, hardware, systemd or real-home
-verification; evidence remains software, builds and local MCP only.
+The hub tagged merge commit is also recorded in its GitHub release notes. Its existing
+compatibility evidence entry remains an earlier snapshot. These records do not add Grok
+Bot, hardware, systemd or real-home verification; evidence remains software, builds and local MCP only.
