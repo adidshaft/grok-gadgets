@@ -287,26 +287,26 @@ page(
         + '<section class="builder-paths" id="builder-paths" aria-labelledby="builder-heading"><p class="eyebrow">CHOOSE YOUR FIRST PATH</p><h2 id="builder-heading">Start building.</h2>'
         + path_row(
             "01",
-            "ESP32 / C124",
-            "Compile the RGB LED and button firmware. The physical board is still pending.",
-            "esp32.html",
-            "Build for ESP32",
+            "No hardware",
+            "Run the gateway's simulated light and call it from MCP Inspector in five minutes.",
+            first_success,
+            "First success",
         )
         + path_row(
             "02",
-            "Linux / Raspberry Pi",
-            "Use the Python SDK and agent. Linux container tested; Raspberry Pi hardware pending.",
+            "Raspberry Pi / Linux",
+            "One install, ten lines of Python, one command. Real peripherals not yet verified.",
             "linux.html",
             "Build with Linux",
         )
         + path_row(
             "03",
-            "Home Assistant",
-            "Explore the direct route through Home Assistant’s own MCP server. Live home and Grok Bot checks are pending.",
-            "home-assistant.html",
-            "Connect Home Assistant",
+            "ESP32",
+            "An Arduino sketch over USB. Both examples compile; no board flashed yet.",
+            "esp32.html",
+            "Build for ESP32",
         )
-        + '<p class="quiet-note" id="components">Local alpha. These conceptual routes do not call Grok Bot. <a href="components.html">See all project components ↗</a></p></section>'
+        + '<p class="quiet-note" id="components">Already use Home Assistant? <a href="home-assistant.html">Check what it offers with the read-only probe ↗</a> · <a href="components.html">All project components ↗</a></p></section>'
         + '<section class="home-activity" aria-labelledby="home-activity-heading"><p class="eyebrow">PROJECT / COMMUNITY</p><h2 id="home-activity-heading">Built in the open.</h2><p>Follow source, issues and contribution work.</p>'
         + activity_html(activity)
         + "".join(
@@ -429,24 +429,24 @@ page(
     intro(
         "SDK / Linux",
         "Your code.<br>Connected.",
-        "Declare a capability. Handle a command. Report state.",
+        "Describe a command in one line. Write the function. Run one command.",
     )
-    + '<p class="status">Software tested on macOS and Linux container · peripherals/systemd pending</p>'
+    + '<p class="status">Software tested · peripherals and systemd not yet verified · <a href="doc-docs-public-support-matrix.html">status</a></p>'
     + path_row(
         "01",
-        "Run the agent",
-        "Independently installable Python SDK.",
+        "Quick start",
+        "One install, ten lines of Python and grok-linux-agent dev. No tokens to copy.",
         "doc-docs-components-grok-gadgets-linux-sdk-README.html",
-        "Install",
+        "Quick start",
     )
     + path_row(
         "02",
-        "Add a capability",
-        "Handlers, events and reconnect semantics.",
+        "Add commands and events",
+        "The decorator API, schemas from type hints, events and shutdown hooks.",
         "doc-docs-components-grok-gadgets-linux-sdk-development.html",
         "Developer guide",
     )
-    + '<p class="quiet-note">The agent and gateway share a host. Local HTTP MCP is available through serve. Public HTTPS and Grok Bot use remain unverified. Physical peripherals and systemd lifecycle remain pending.</p>'
+    + '<p class="quiet-note">The gadget and gateway run on the same computer. A cloud Grok Bot cannot reach it yet.</p>'
     + hosting_guide,
 )
 page(
