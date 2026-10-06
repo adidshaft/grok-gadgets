@@ -15,6 +15,7 @@ Reviewed with the Codex in-app Chromium browser on the local generated site:
 | 1024 × 768 | Complete illustration; page dimensions equal viewport |
 | 768 × 1024 | Tablet portrait composition; page dimensions equal viewport |
 | 390 × 844 | Complete phone composition; page dimensions equal viewport; all five node bounds inside the stage |
+| 844 × 390 and 667 × 375 | Landscape-phone canvas, toolbar and footer fit entirely; page dimensions equal viewport |
 | 320 × 568 | Small-phone composition; page dimensions equal viewport; no wrapped primary action or cropped artwork |
 
 Local screenshots are saved under the ignored `artifacts/design-review/` directory. Browser viewport overrides were reset after review. These are browser viewport checks, not physical mobile-device verification.
