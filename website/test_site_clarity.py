@@ -12,16 +12,12 @@ SITE = ROOT / "website"
 class SiteClarityTests(unittest.TestCase):
     def test_homepage_states_existing_grok_bot_and_pending_verification(self):
         hero = (SITE / "home-scene.html").read_text()
-        # Review M11: say what it does in plain words, with one honest status chip.
-        self.assertIn(
-            "Let your Grok Bot control lights, buttons and sensors you build.", hero
-        )
-        self.assertIn("<span>Open source.</span>", hero)
-        self.assertIn(
-            "Works with local MCP clients today · Grok Bot connection in progress", hero
-        )
+        self.assertIn("your Grok Bot.", hero)
+        self.assertIn("Open-source tools and SDKs", hero)
+        self.assertIn("Grok Bot and hardware connection tests are still ahead.", hero)
         self.assertIn('href="doc-docs-public-support-matrix.html"', hero)
-        self.assertIn('href="#scene-demo"', hero)
+        self.assertIn('id="scene-demo"', hero)
+        self.assertIn('href="start.html"', hero)
 
     def test_three_build_paths_and_legacy_component_anchor_are_preserved(self):
         builder = (SITE / "build.py").read_text()
@@ -45,7 +41,7 @@ class SiteClarityTests(unittest.TestCase):
         self.assertEqual(len(re.findall(r'<details class="component', inventory)), 10)
         self.assertIn('href="index.html#playground"', inventory)
 
-    def test_finite_concept_stories_and_static_no_script_fallback_exist(self):
+    def test_concept_stories_and_static_no_script_fallback_exist(self):
         hero = (SITE / "home-scene.html").read_text()
         stories = re.findall(r'data-story="([a-z]+)"', hero)
         self.assertEqual(stories, ["light", "sensor", "display", "home"])
@@ -61,6 +57,14 @@ class SiteClarityTests(unittest.TestCase):
         self.assertIn("document.hidden", motion)
         self.assertIn("current output unknown", scene)
         self.assertIn("error.code", scene)
+
+    def test_projected_nodes_stay_inside_scene_vertical_bounds(self):
+        scene = (SITE / "scene.js").read_text()
+        self.assertIn(
+            "const halfY = button.getBoundingClientRect().height / 2 + 8;", scene
+        )
+        self.assertIn("const centerY = dy + (p[1] + offset) * scale;", scene)
+        self.assertIn("Math.max(halfY, Math.min(rect.height - halfY, centerY))", scene)
 
 
 if __name__ == "__main__":
