@@ -42,6 +42,16 @@
       "file": "spacexai-mark.svg",
       "sha256": "435f412250a243399c6af46c83dbbc720d55e29dc4570fc046d9bec254d998a2",
       "origin": "Official downloadable SpaceXAI_Grok_Assets.zip; bytes unchanged"
+    },
+    {
+      "file": "gateway-inspector-first-success.webp",
+      "sha256": "3a7c2372f3ab28b06d484815194a291afe5ba8b63c2d15040717bd5b42913872",
+      "origin": "Original project recording: six browser screenshots of a real local MCP Inspector 2.9.0 session against grok-gadgets-gateway serve --simulator on 127.0.0.1, taken 6 October 2026, captioned and assembled with Pillow. Software simulator only; not evidence of Grok Bot use or a physical effect."
+    },
+    {
+      "file": "gateway-inspector-first-success-still.webp",
+      "sha256": "9cfb018b594be23873c5a2b9b822f805073f66e2a4c0f6bbfc68bef0f119490e",
+      "origin": "Final frame of gateway-inspector-first-success.webp, used when the viewer prefers reduced motion."
     }
   ]
 }
