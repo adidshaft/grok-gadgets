@@ -32,6 +32,29 @@ kit_identity = (
     simulator_build["gateway_commit"][:8] + "-" + simulator_build["archive_sha256"][:12]
 )
 kit_archive = "grok-gadgets-simulator-kit-" + kit_identity + ".zip"
+
+
+def site_revision():
+    """The hub commit this site was built from, shown in every footer."""
+    if (R / ".git").exists():
+        try:
+            import subprocess
+
+            return subprocess.check_output(
+                ["git", "rev-parse", "--short=8", "HEAD"], cwd=R, text=True
+            ).strip()
+        except (OSError, subprocess.CalledProcessError):
+            pass
+    return "source archive"
+
+
+build_note = (
+    '<span class="build-note">Site '
+    + e(site_revision())
+    + " · kit from gateway "
+    + e(simulator_build["gateway_commit"][:8])
+    + "</span>"
+)
 kit_manifest = "simulator-kit-" + kit_identity + "-manifest.json"
 PUBLIC_SITE = os.environ.get(
     "GROK_GADGETS_PUBLIC_SITE", "https://grok-gadgets.pages.dev/"
@@ -146,7 +169,11 @@ def page(name, title, body):
         + active_links
         + '</nav><div class="menu-components"><a href="https://github.com/adidshaft/grok-gadgets">GitHub</a><a href="esp32.html">ESP32</a><a href="linux.html">Linux</a><a href="home-assistant.html">Home Assistant</a><a href="architecture.html">Architecture</a><a href="releases.html">Releases</a></div><div class="product-reference"><img src="media/spacexai-mark.svg" width="28" height="28" alt="SpaceXAI"><p>Grok is made by SpaceXAI.<br>Grok Gadgets is an independent project.</p><a href="https://x.ai/legal/brand-guidelines" aria-label="Official brand guidelines">↗</a></div></dialog>'
     )
-    footer = '<footer class="site-footer"><a href="start.html">Start building ↗</a><span class="independent-note">Independent. Open source.</span><button id="motion-toggle" aria-pressed="false">Pause motion <span>[Ⅱ]</span></button></footer>'
+    footer = (
+        '<footer class="site-footer"><a href="start.html">Start building ↗</a><span class="independent-note">Independent. Open source.</span>'
+        + build_note
+        + '<button id="motion-toggle" aria-pressed="false">Pause motion <span>[Ⅱ]</span></button></footer>'
+    )
     scripts = '<script src="motion.js" defer></script>' + (
         '<script src="simulator.js" defer></script><script src="scene.js" defer></script>'
         if home
@@ -681,7 +708,7 @@ shutil.copy(
     "User-agent: *\nAllow: /\nSitemap: " + PUBLIC_SITE + "sitemap.xml\n"
 )
 check_links(OUT)
-kit_builder.verify_download(OUT / "downloads", simulator_build["gateway_commit"])
+kit_builder.verify_download(OUT / "downloads", simulator_build["gateway_inputs"])
 if kit_builder.inputs() != simulator_build["build_inputs"]:
     raise ValueError(
         "Simulator kit inputs changed; run python3 scripts/build-simulator-kit.py"

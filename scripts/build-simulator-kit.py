@@ -14,6 +14,19 @@ import tomllib
 ROOT = Path(__file__).resolve().parents[1]
 GATEWAY = ROOT.parent / "grok-gadgets-gateway"
 ARCHIVE = "grok-gadgets-simulator-kit.zip"
+# Gateway paths that shape the kit. CI-only or planning commits leave the kit current.
+GATEWAY_INPUTS = (
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+    "SECURITY.md",
+    "THIRD_PARTY_NOTICES.md",
+    "protocol",
+    "pyproject.toml",
+    "src",
+    "tests",
+    "uv.lock",
+)
 
 
 def run(args, cwd=None, env=None):
@@ -36,7 +49,16 @@ def inputs():
     return {str(path.relative_to(ROOT)): digest(path) for path in paths}
 
 
-def verify_download(output, expected_commit=None):
+def gateway_inputs(revision="HEAD"):
+    """Hash the committed gateway files that the kit is built from."""
+    listing = run(
+        ["git", "ls-tree", "-r", "--full-tree", revision, "--", *GATEWAY_INPUTS],
+        cwd=GATEWAY,
+    )
+    return hashlib.sha256(listing.encode()).hexdigest()
+
+
+def verify_download(output, expected_gateway_inputs=None):
     record = json.loads((output / "simulator-kit-manifest.json").read_text())
     if (
         not isinstance(record, dict)
@@ -53,7 +75,10 @@ def verify_download(output, expected_commit=None):
         raise ValueError("Malformed simulator kit manifest")
     if record.get("build_inputs") != inputs():
         raise ValueError("Simulator kit inputs changed; rebuild required")
-    if expected_commit and record.get("gateway_commit") != expected_commit:
+    if (
+        expected_gateway_inputs
+        and record.get("gateway_inputs") != expected_gateway_inputs
+    ):
         raise ValueError("Simulator kit gateway source changed; rebuild required")
     if record.get("verification") != {
         "gateway_tests": "passed",
@@ -74,6 +99,7 @@ def verify_download(output, expected_commit=None):
             for key in [
                 "files",
                 "gateway_commit",
+                "gateway_inputs",
                 "package_version",
                 "build_inputs",
                 "verification",
@@ -98,48 +124,33 @@ def verify_download(output, expected_commit=None):
     return record
 
 
-def assert_source_unchanged(commit, captured_inputs):
+def assert_source_unchanged(expected_gateway_inputs, captured_inputs):
     if inputs() != captured_inputs:
         raise ValueError(
             "Simulator kit inputs changed during verification; retry the build"
         )
-    if (GATEWAY / ".git").exists():
-        if (
-            run(["git", "status", "--porcelain"], cwd=GATEWAY)
-            or run(["git", "rev-parse", "HEAD"], cwd=GATEWAY) != commit
-        ):
-            raise ValueError(
-                "Gateway source changed during verification; retry the build"
-            )
+    if (GATEWAY / ".git").exists() and gateway_inputs() != expected_gateway_inputs:
+        raise ValueError("Gateway source changed during verification; retry the build")
 
 
 def ensure_current(output, rebuild=True):
+    """Verify the kit against the sibling gateway's HEAD, rebuilding when allowed.
+
+    Without a gateway checkout only the download's own integrity is checked.
+    """
     captured_inputs = inputs()
-    if (GATEWAY / ".git").exists():
-        if run(["git", "status", "--porcelain"], cwd=GATEWAY):
-            raise ValueError(
-                "Gateway has uncommitted work; build a tested committed kit first"
-            )
-        commit = run(["git", "rev-parse", "HEAD"], cwd=GATEWAY)
-    else:
-        compatibility = json.loads(
-            (ROOT / "compatibility/tested-components.json").read_text()
-        )
-        commit = next(
-            item["commit"]
-            for item in compatibility["components"]
-            if item["repository"] == "grok-gadgets-gateway"
-        )
+    expected = gateway_inputs() if (GATEWAY / ".git").exists() else None
     try:
-        record = verify_download(output, commit)
+        record = verify_download(output, expected)
     except (ValueError, OSError, KeyError, zipfile.BadZipFile):
-        if not rebuild or not (GATEWAY / ".git").exists():
+        if not rebuild or expected is None:
             raise ValueError(
-                "Current verified simulator kit unavailable; checkout the gateway and rebuild"
+                "Current verified simulator kit unavailable; "
+                "run python3 scripts/build-simulator-kit.py with the gateway beside the hub"
             ) from None
         build(output)
-        record = verify_download(output, commit)
-    assert_source_unchanged(commit, captured_inputs)
+        record = verify_download(output, expected)
+    assert_source_unchanged(record["gateway_inputs"], captured_inputs)
     return record
 
 
@@ -157,8 +168,8 @@ def promote_download(output, staged_archive, record):
         backup.mkdir()
         shutil.copyfile(staged_archive, candidate / ARCHIVE)
         (candidate / names[1]).write_text(json.dumps(record, indent=2) + "\n")
-        verify_download(candidate, record["gateway_commit"])
-        assert_source_unchanged(record["gateway_commit"], record["build_inputs"])
+        verify_download(candidate, record["gateway_inputs"])
+        assert_source_unchanged(record["gateway_inputs"], record["build_inputs"])
         previous = set()
         for name in names:
             if (output / name).exists():
@@ -185,15 +196,20 @@ def build(output):
             "Gateway must have a clean committed checkout before kit generation"
         )
     commit = run(["git", "rev-parse", "HEAD"], cwd=GATEWAY)
+    source_inputs = gateway_inputs(commit)
     epoch = run(["git", "show", "-s", "--format=%ct", "HEAD"], cwd=GATEWAY)
     with tempfile.TemporaryDirectory(prefix="grok-simulator-kit-") as tmp:
         work = Path(tmp)
         source = work / "source"
         source.mkdir()
-        # A separate exact committed snapshot; no .git, ignored/private/untracked files.
+        # Only the committed kit inputs; no .git, CI, planning or untracked files.
         archive = work / "source.tar"
+        present = run(
+            ["git", "ls-tree", "--name-only", commit, "--", *GATEWAY_INPUTS],
+            cwd=GATEWAY,
+        ).splitlines()
         subprocess.run(
-            ["git", "archive", "--format=tar", f"--output={archive}", commit],
+            ["git", "archive", "--format=tar", f"--output={archive}", commit, *present],
             cwd=GATEWAY,
             check=True,
         )
@@ -259,6 +275,7 @@ def build(output):
             "format_version": 1,
             "gateway_commit": commit,
             "gateway_commit_epoch": int(epoch),
+            "gateway_inputs": source_inputs,
             "package_version": tomllib.loads((source / "pyproject.toml").read_text())[
                 "project"
             ]["version"],
@@ -342,7 +359,7 @@ def build(output):
                 info.compress_type = zipfile.ZIP_DEFLATED
                 info.external_attr = 0o100644 << 16
                 bundle.writestr(info, path.read_bytes())
-        assert_source_unchanged(commit, captured_inputs)
+        assert_source_unchanged(source_inputs, captured_inputs)
         record = {
             **manifest,
             "archive": ARCHIVE,
@@ -366,14 +383,24 @@ def build(output):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "website/downloads")
-    parser.add_argument(
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument(
         "--check",
         action="store_true",
         help="Fail if the kit is stale, unverified or corrupt; do not rebuild",
     )
+    mode.add_argument(
+        "--ensure",
+        action="store_true",
+        help="Keep a current kit; rebuild only when the gateway inputs changed",
+    )
     args = parser.parse_args()
-    if args.check:
-        ensure_current(args.output.resolve(), rebuild=False)
-        print("Simulator kit is current, verified and hash checked")
+    if args.check or args.ensure:
+        record = ensure_current(args.output.resolve(), rebuild=args.ensure)
+        print(
+            "Simulator kit is current, verified and hash checked (gateway "
+            + record["gateway_commit"][:8]
+            + ")"
+        )
     else:
         build(args.output.resolve())
