@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import Mock, patch
 
 import yaml
 
@@ -40,6 +41,76 @@ class LaunchTests(unittest.TestCase):
             with self.subTest(repo=repo, sha=sha), self.assertRaises(ValueError):
                 pins.selected(repo, sha)
 
+    def test_branch_sources_resolve_exact_refs_and_reject_missing_or_bad_heads(self):
+        pins = load("ci-component-pins")
+        for source in ("main", "dev"):
+            with (
+                self.subTest(source=source),
+                patch.object(
+                    pins.subprocess,
+                    "run",
+                    return_value=Mock(
+                        stdout="a" * 40 + "\trefs/heads/" + source + "\n"
+                    ),
+                ) as remote,
+            ):
+                self.assertEqual(set(pins.selected(source=source).values()), {"a" * 40})
+                self.assertEqual(remote.call_count, len(pins.REPOSITORIES))
+                for call in remote.call_args_list:
+                    self.assertEqual(call.args[0][-1], "refs/heads/" + source)
+                    self.assertTrue(call.kwargs["check"])
+            for output in ("", "invalid\trefs/heads/" + source + "\n"):
+                with (
+                    self.subTest(source=source, output=output),
+                    patch.object(
+                        pins.subprocess, "run", return_value=Mock(stdout=output)
+                    ),
+                    self.assertRaisesRegex(ValueError, "exact forty-character"),
+                ):
+                    pins.selected(source=source)
+        with self.assertRaisesRegex(ValueError, "Source must"):
+            pins.selected(source="feature")
+
+    def test_integration_selects_dev_for_schedule_and_dev_events_only(self):
+        workflow = yaml.load(
+            (ROOT / ".github/workflows/integration.yml").read_text(),
+            Loader=yaml.BaseLoader,
+        )
+        self.assertEqual(
+            workflow["on"]["workflow_dispatch"]["inputs"]["components"]["options"],
+            ["main", "dev", "pinned"],
+        )
+        steps = workflow["jobs"]["integration"]["steps"]
+        source = next(step for step in steps if step.get("id") == "pins")["env"][
+            "COMPONENTS"
+        ]
+        # Exercise the Actions expression for each release/integration event.
+        expression = source.removeprefix("${{ ").removesuffix(" }}")
+        expression = expression.replace("||", "or").replace("&&", "and")
+        cases = [
+            ("schedule", "", "refs/heads/dev", "", "dev"),
+            ("schedule", "", "refs/heads/main", "", "dev"),
+            ("push", "", "refs/heads/dev", "", "dev"),
+            ("push", "", "refs/heads/main", "", "main"),
+            ("pull_request", "dev", "refs/pull/1/merge", "", "dev"),
+            ("pull_request", "main", "refs/pull/2/merge", "", "main"),
+            ("workflow_dispatch", "", "refs/heads/dev", "main", "main"),
+            ("workflow_dispatch", "", "refs/heads/main", "dev", "dev"),
+            ("workflow_dispatch", "", "refs/heads/main", "pinned", "pinned"),
+        ]
+        for event, base, ref, manual, expected in cases:
+            with self.subTest(event=event, base=base, ref=ref, manual=manual):
+                values = {
+                    "github.event_name": repr(event),
+                    "github.base_ref": repr(base),
+                    "github.ref": repr(ref),
+                    "inputs.components": repr(manual),
+                }
+                chosen = expression
+                for name, value in values.items():
+                    chosen = chosen.replace(name, value)
+                self.assertEqual(eval(chosen, {"__builtins__": {}}), expected)
+
     def test_workflows_are_readonly_except_manual_deployment_and_use_verified_pins(
         self,
     ):
@@ -53,7 +124,7 @@ class LaunchTests(unittest.TestCase):
             workflow = yaml.load(file.read_text(), Loader=yaml.BaseLoader)
             self.assertEqual(workflow["permissions"], {"contents": "read"})
             self.assertNotIn("pull_request_target", workflow["on"])
-            # Only the deploy and the nightly all-main integration run on a schedule.
+            # Only the deploy and nightly integration run on a schedule.
             if file.name not in {"pages.yml", "integration.yml"}:
                 self.assertNotIn("schedule", workflow["on"])
             for name, job in workflow["jobs"].items():
