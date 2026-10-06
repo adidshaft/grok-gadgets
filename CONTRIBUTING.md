@@ -1,5 +1,8 @@
 # Contributing
 
+`main` is the default branch for users, builders and the website. Use `dev` for
+integration development and testing; ordinary contribution PRs target `dev`.
+
 Everyday path: pick a [ready issue](docs/contributing/ready-issues.md), branch from `dev`, run `python3 scripts/dev.py check`, open a small pull request into `dev`.
 
 Use the shared [writing guide](docs/contributing/writing-guide.md) and [review and privacy rules](docs/contributing/review-and-privacy.md). Keep explanations short and use diagrams where they clarify a connection.
@@ -60,8 +63,8 @@ All five repositories use the same two long-lived branches:
 
 | Branch | Holds | Who writes to it |
 | --- | --- | --- |
-| `dev` | The next release. Default branch; every feature and fix PR targets it. CI tests all five `dev` branches together every night. | Squash-merged PRs once required checks pass |
-| `main` | The latest stable release only. Every commit is tagged. The website and the simulator download are built from the hub's and gateway's `main`. | Release and hotfix PRs only |
+| `main` | Default branch for users, builders and the website; the latest tagged release. The website and simulator download are built from the hub's and gateway's `main`. | Release and hotfix PRs only, merged with a merge commit and tagged |
+| `dev` | Integration development and testing for the next release. Every ordinary feature, fix, documentation and test PR targets it. CI tests all five `dev` branches together every night. | Squash-merged PRs once required checks pass |
 
 Short-lived branches start from `dev` and are named `<type>/<ISSUE-ID>-<short-slug>`, for example `fix/GW-021-command-waits-for-ack`. Types are `feat`, `fix`, `docs`, `test`, `ci` and `chore`. Name the change, not the tool that wrote it. Keep a branch to one issue and a few days at most; update it from `dev` before merging.
 
