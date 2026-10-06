@@ -32,7 +32,7 @@ Make small commits with one clear purpose. Reference the issue ID when available
 | Linux SDK | Its unittest/Ruff checks; optional gateway integration for transport changes |
 | ESP32 SDK | Host checks/contract; compile firmware for firmware changes; USB/PTY integration for transport changes |
 | Home Assistant | Locked unittest/Ruff and fixture probe; keep real-home tests separate |
-| Cross-repository contract/pins | `.venv/bin/python scripts/check-all.py` with the exact tested sibling combination |
+| Cross-repository contract | `.venv/bin/python scripts/check-all.py` with the four siblings at `main` beside the hub (CI does the same nightly) |
 | Publication/migration | Relevant integrity/fake-API regressions; no remote writes |
 
 Run hub lint with `uvx --from ruff==0.14.14 ruff check scripts website community`. Run `ruff format --check` with the same pinned package. Each component lists its requirements and commands in CONTRIBUTING.md. For text-only changes, check links and instructions. Do not invent behavior tests.

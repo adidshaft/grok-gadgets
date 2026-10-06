@@ -53,7 +53,8 @@ class LaunchTests(unittest.TestCase):
             workflow = yaml.load(file.read_text(), Loader=yaml.BaseLoader)
             self.assertEqual(workflow["permissions"], {"contents": "read"})
             self.assertNotIn("pull_request_target", workflow["on"])
-            if file.name != "pages.yml":
+            # Only the deploy and the nightly all-main integration run on a schedule.
+            if file.name not in {"pages.yml", "integration.yml"}:
                 self.assertNotIn("schedule", workflow["on"])
             for name, job in workflow["jobs"].items():
                 self.assertIn("timeout-minutes", job)
