@@ -92,7 +92,7 @@ All five repositories use the same two long-lived branches:
 | Branch | Holds | Who writes to it |
 | --- | --- | --- |
 | `main` | Default branch for users, builders and the website; the latest tagged release. The website and simulator download are built from the hub's and gateway's `main`. | Release and hotfix PRs only, merged with a merge commit and tagged |
-| `dev` | Integration development and testing for the next release. Every ordinary feature, fix, documentation and test PR targets it. CI tests all five `dev` branches together every night. | Squash-merged PRs once required checks pass |
+| `dev` | Integration development and testing for the next release. Every ordinary feature, fix, documentation and test PR targets it. CI tests all five `dev` branches together every night. | Squash-merged PRs once required checks pass; `main`-into-`dev` sync PRs use a merge commit |
 
 Short-lived branches start from `dev` and are named `<type>/<ISSUE-ID>-<short-slug>`, for example `fix/GW-021-command-waits-for-ack`. Types are `feat`, `fix`, `docs`, `test`, `ci` and `chore`. Name the change, not the tool that wrote it. Keep a branch to one issue and a few days at most; update it from `dev` before merging.
 
@@ -105,7 +105,8 @@ flowchart LR
 
 - **Feature or fix:** branch from `dev`, open a PR into `dev`, squash-merge when checks are green. The PR title becomes the commit message, for example `fix(gateway): wait for ACK in gadgets_command (GW-021)`.
 - **Release:** when `dev` is green across all five repositories, open a `release: vX.Y.Z` PR from `dev` into `main` and merge it with a merge commit, never a squash, so `dev` and `main` stay related. Tag that commit `vX.Y.Z` (pre-releases use `vX.Y.Z-alpha.N`). Release components in dependency order: gateway, then the Linux and ESP32 SDKs and Home Assistant, then the hub, whose `compatibility/tested-components.json` records the tested tag set.
-- **Hotfix:** for an urgent problem in a release or on the live website, branch `hotfix/<ISSUE-ID>-<slug>` from `main`, open a PR into `main`, merge, tag a patch version, then merge `main` back into `dev`.
+- **Hotfix:** for an urgent problem in a release or on the live website, branch `hotfix/<ISSUE-ID>-<slug>` from `main`, open a PR into `main`, merge, tag a patch version. Then sync `dev`: branch `chore/<ISSUE-ID>-sync-main-into-dev` from `main`, merge `dev` into it, open a PR into `dev` and merge it with a **merge commit, never a squash**. A squash would hide that `main`'s commits are already in `dev` and cause false conflicts at the next release.
+- **Branch hygiene:** only `main` and `dev` live long. Merged branches are deleted automatically; delete abandoned ones.
 - **Cross-repository changes:** use the same issue ID and branch name in each repository. Merge the gateway first and keep it compatible with the previous SDK release. Each repository's `dev` must stay green on its own. A breaking protocol change needs a new protocol version.
 - **Never:** force-push or commit directly to `dev` or `main`, bypass required checks, or merge the private pre-publication history.
 
