@@ -2,17 +2,19 @@
 (() => {
   'use strict';
   const root = document.querySelector('.home-scene');
-  if (!root || !window.GrokRoadmapScene || !window.GrokSignalScene) return;
+  if (!root || !window.GrokRoadmapScene || !window.GrokSignalScene || !window.GrokHardwareScene) return;
   const nav = root.querySelector('.scene-gallery-nav');
   const buttons = [...nav.querySelectorAll('[data-scene]')];
   const stages = {
     devices: root.querySelector('.scene-stage'),
     signal: root.querySelector('#signal-stage'),
     roadmap: root.querySelector('#roadmap-stage'),
+    hardware: root.querySelector('#hardware-stage'),
   };
   const scenes = {
     signal: GrokSignalScene.mount(stages.signal),
     roadmap: GrokRoadmapScene.mount(stages.roadmap),
+    hardware: GrokHardwareScene.mount(stages.hardware),
   };
   const stories = root.querySelector('.scene-selector');
   const hint = root.querySelector('.scene-gallery-hint');
@@ -26,7 +28,7 @@
     buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.scene === name)));
     stories.hidden = name !== 'devices';
     hint.hidden = name === 'devices';
-    hint.textContent = name === 'roadmap' ? 'Select a milestone to explore' : 'Send a conceptual signal';
+    hint.textContent = {roadmap: 'Select a milestone to explore', signal: 'Explore a hardware connection', hardware: 'Try an LED, button or USB story'}[name] || '';
     document.dispatchEvent(new CustomEvent('grok:scene-change', {detail: {scene: name}}));
   }
   buttons.forEach(button => button.addEventListener('click', () => select(button.dataset.scene)));

@@ -179,7 +179,7 @@ def page(name, title, body):
         + '<button id="motion-toggle" aria-pressed="false">Pause motion <span>[Ⅱ]</span></button></footer>'
     )
     scripts = '<script src="motion.js" defer></script>' + (
-        '<script src="simulator.js" defer></script><script src="scene.js" defer></script><script src="roadmap-scene.js" defer></script><script src="signal-scene.js" defer></script><script src="scene-gallery.js" defer></script>'
+        '<script src="simulator.js" defer></script><script src="scene.js" defer></script><script src="roadmap-scene.js" defer></script><script src="signal-scene.js" defer></script><script src="hardware-scene.js" defer></script><script src="scene-gallery.js" defer></script>'
         if home
         else ""
     )
@@ -208,7 +208,7 @@ def page(name, title, body):
         + e(share_image, quote=True)
         + '"><meta name="twitter:image:alt" content="Large Grok Gadgets logo and name beside a conceptual wireframe hardware scene, with an oversized outline Grok Bot face in the background; open-source project, not affiliated with xAI or SpaceXAI."><link rel="icon" type="image/png" href="media/grok-gadgets-icon.png"><link rel="stylesheet" href="style.css">'
         + (
-            '<link rel="stylesheet" href="scene.css"><link rel="stylesheet" href="roadmap-scene.css"><link rel="stylesheet" href="signal-scene.css">'
+            '<link rel="stylesheet" href="scene.css"><link rel="stylesheet" href="roadmap-scene.css"><link rel="stylesheet" href="signal-scene.css"><link rel="stylesheet" href="hardware-scene.css">'
             if home
             else ""
         )
@@ -707,6 +707,8 @@ for f in [
     "signal-scene.js",
     "signal-scene.css",
     "scene-gallery.js",
+    "hardware-scene.js",
+    "hardware-scene.css",
 ]:
     source = R / "website" / f
     if source.is_file():
