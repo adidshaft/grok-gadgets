@@ -12,17 +12,22 @@ SITE = ROOT / "website"
 class SiteClarityTests(unittest.TestCase):
     def test_homepage_states_existing_grok_bot_and_pending_verification(self):
         hero = (SITE / "home-scene.html").read_text()
+        # Review M11: say what it does in plain words, with one honest status chip.
         self.assertIn(
-            "Open-source SDKs for building hardware that your existing Grok Bot can use.",
-            hero,
+            "Let your Grok Bot control lights, buttons and sensors you build.", hero
         )
+        self.assertIn("<span>Open source.</span>", hero)
         self.assertIn(
-            "Grok Bot connection and physical hardware tests are still pending.", hero
+            "Works with local MCP clients today · Grok Bot connection in progress", hero
         )
+        self.assertIn('href="doc-docs-public-support-matrix.html"', hero)
         self.assertIn('href="#scene-demo"', hero)
 
     def test_three_build_paths_and_legacy_component_anchor_are_preserved(self):
         builder = (SITE / "build.py").read_text()
+        for title in ['"No hardware"', '"Raspberry Pi / Linux"', '"ESP32"']:
+            self.assertIn(title, builder)
+        self.assertIn("Already use Home Assistant?", builder)
         for target in ["esp32.html", "linux.html", "home-assistant.html"]:
             self.assertIn(target, builder)
         self.assertIn('id="components"', builder)
