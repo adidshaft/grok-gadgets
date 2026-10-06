@@ -9,7 +9,7 @@
 
   const update = () => {
     const systemReduced = media.matches;
-    const menuOpen = menu.open;
+    const menuOpen = menu.open || Boolean(document.querySelector('#scene-inspector')?.open);
     const canAnimate = !userPaused && !systemReduced && !document.hidden && !menuOpen;
     document.documentElement.toggleAttribute('data-reduced-motion', !canAnimate);
     document.body.toggleAttribute('data-reduced-motion', !canAnimate);
@@ -32,5 +32,6 @@
     if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeMenu();
   });
   document.addEventListener('visibilitychange', update);
+  document.addEventListener('grok:panel-change', update);
   update();
 })();

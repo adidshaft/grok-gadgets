@@ -35,7 +35,7 @@ kit_archive = "grok-gadgets-simulator-kit-" + kit_identity + ".zip"
 
 
 def site_revision():
-    """The hub commit this site was built from, shown in every footer."""
+    """The hub commit recorded in every footer for deployment evidence."""
     if (R / ".git").exists():
         try:
             import subprocess
@@ -48,12 +48,12 @@ def site_revision():
     return "source archive"
 
 
+build_revision = site_revision()
 build_note = (
-    '<span class="build-note">Site '
-    + e(site_revision())
+    "Site "
+    + build_revision
     + " · kit from gateway "
-    + e(simulator_build["gateway_commit"][:8])
-    + "</span>"
+    + simulator_build["gateway_commit"][:8]
 )
 kit_manifest = "simulator-kit-" + kit_identity + "-manifest.json"
 PUBLIC_SITE = os.environ.get(
@@ -170,8 +170,11 @@ def page(name, title, body):
         + '</nav><div class="menu-components"><a href="https://github.com/adidshaft/grok-gadgets">GitHub</a><a href="esp32.html">ESP32</a><a href="linux.html">Linux</a><a href="home-assistant.html">Home Assistant</a><a href="architecture.html">Architecture</a><a href="releases.html">Releases</a></div><div class="product-reference"><img src="media/spacexai-mark.svg" width="28" height="28" alt="SpaceXAI"><p>Grok is made by SpaceXAI.<br>Grok Gadgets is an independent project.</p><a href="https://x.ai/legal/brand-guidelines" aria-label="Official brand guidelines">↗</a></div></dialog>'
     )
     footer = (
-        '<footer class="site-footer"><a href="start.html">Start building ↗</a><span class="independent-note">Independent open source · not affiliated with SpaceXAI or xAI</span><a class="community-link" href="https://www.reddit.com/r/GrokGadgets/">r/GrokGadgets ↗</a><a class="status-link" href="doc-docs-public-support-matrix.html">Status ↗</a>'
-        + build_note
+        '<footer class="site-footer" data-site-revision="'
+        + e(build_revision)
+        + '" title="'
+        + e(build_note)
+        + '"><span class="independent-note">Independent open source. Not affiliated with xAI or SpaceXAI.</span><a href="https://github.com/adidshaft/grok-gadgets">GitHub ↗</a><a class="status-link" href="doc-docs-public-support-matrix.html">Status ↗</a>'
         + '<button id="motion-toggle" aria-pressed="false">Pause motion <span>[Ⅱ]</span></button></footer>'
     )
     scripts = '<script src="motion.js" defer></script>' + (
@@ -276,48 +279,38 @@ page(
     "index.html",
     "Home",
     (
-        scene_source.read_text()
-        + (R / "website/playground.html")
-        .read_text()
-        .replace("{{SIMULATOR_BUILD}}", e(simulator_build["gateway_commit"][:8]))
-        .replace("{{SIMULATOR_VERSION}}", e(simulator_build["package_version"]))
-        + proof_section
-        + '<section class="builder-paths" id="builder-paths" aria-labelledby="builder-heading"><p class="eyebrow">CHOOSE YOUR FIRST PATH</p><h2 id="builder-heading">Start building.</h2>'
-        + path_row(
-            "01",
-            "No hardware",
-            "Run the gateway's simulated light and call it from MCP Inspector in five minutes.",
-            first_success,
-            "First success",
+        scene_source.read_text().replace(
+            "{{HOME_DETAILS}}",
+            '<details class="home-workbench" id="playground"><summary>Customize the virtual light <span aria-hidden="true">+</span></summary>'
+            + (R / "website/playground.html")
+            .read_text()
+            .replace("{{SIMULATOR_BUILD}}", e(simulator_build["gateway_commit"][:8]))
+            .replace("{{SIMULATOR_VERSION}}", e(simulator_build["package_version"]))
+            + "</details>"
+            + '<section class="builder-paths" id="builder-paths" aria-labelledby="builder-heading"><p class="eyebrow">CHOOSE YOUR FIRST PATH</p><h2 id="builder-heading">Start building.</h2>'
+            + path_row(
+                "01",
+                "No hardware",
+                "Try a simulated light on your computer.",
+                first_success,
+                "First success",
+            )
+            + path_row(
+                "02",
+                "Raspberry Pi / Linux",
+                "Build a device with the Python SDK.",
+                "linux.html",
+                "Build with Linux",
+            )
+            + path_row(
+                "03",
+                "ESP32",
+                "Start with an Arduino sketch and USB.",
+                "esp32.html",
+                "Build for ESP32",
+            )
+            + '<p class="quiet-note" id="components">Already use Home Assistant? <a href="home-assistant.html">Explore the integration ↗</a> · <a href="components.html">All components ↗</a></p></section>',
         )
-        + path_row(
-            "02",
-            "Raspberry Pi / Linux",
-            "One install, ten lines of Python, one command. Real peripherals not yet verified.",
-            "linux.html",
-            "Build with Linux",
-        )
-        + path_row(
-            "03",
-            "ESP32",
-            "An Arduino sketch over USB. Both examples compile; no board flashed yet.",
-            "esp32.html",
-            "Build for ESP32",
-        )
-        + '<p class="quiet-note" id="components">Already use Home Assistant? <a href="home-assistant.html">Check what it offers with the read-only probe ↗</a> · <a href="components.html">All project components ↗</a></p></section>'
-        + '<section class="home-activity" aria-labelledby="home-activity-heading"><p class="eyebrow">PROJECT / COMMUNITY</p><h2 id="home-activity-heading">Built in the open.</h2><p>Follow source, issues and contribution work.</p>'
-        + activity_html(activity)
-        + "".join(
-            f'<a href="https://github.com/adidshaft/{repo}">{repo} ↗</a>'
-            for repo in [
-                "grok-gadgets",
-                "grok-gadgets-gateway",
-                "grok-gadgets-linux-sdk",
-                "grok-gadgets-esp32-sdk",
-                "grok-gadgets-home-assistant",
-            ]
-        )
-        + '<a href="roadmap.html">Project issues ↗</a><a href="activity.html">Activity source and refresh status ↗</a><a href="community.html">Community ↗</a><a class="home-reddit" href="https://www.reddit.com/r/GrokGadgets/">Join r/GrokGadgets ↗</a></section>'
     )
     if scene_source.is_file()
     else "<h1>Grok, meet the real world.</h1><p>Interactive architecture is being assembled locally.</p>",
@@ -393,6 +386,7 @@ page(
     + '<p><a href="doc-docs-getting-started-simulator-kit.html">Step-by-step setup &amp; customization ↗</a></p>'
     + '<p><a href="downloads/simulator-kit-manifest.json">Source commit, contents &amp; SHA256 hashes ↗</a></p>'
     + '<p class="status">Browser simulated · local MCP tested · Grok Bot, physical and mobile checks pending</p>'
+    + proof_section
     + hosting_guide,
 )
 page(

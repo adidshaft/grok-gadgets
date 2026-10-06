@@ -1,10 +1,6 @@
 <section class="home-scene" data-view="system" aria-labelledby="scene-heading">
   <div class="scene-intro">
-    <p class="scene-kicker">OPEN SOURCE / LOCAL ALPHA</p>
-    <h1 id="scene-heading">Let your Grok Bot control lights, buttons and sensors you build. <span>Open source.</span></h1>
-    <a class="scene-chip" href="doc-docs-public-support-matrix.html"><span aria-hidden="true"></span>Works with local MCP clients today · Grok Bot connection in progress</a>
-    <a class="scene-start" href="#scene-demo">Try the virtual light <span aria-hidden="true">↓</span></a>
-    <a class="scene-secondary" href="#builder-paths">Start building <span aria-hidden="true">↘</span></a>
+    <h1 id="scene-heading">Open-source tools and SDKs<br>for your Grok Bot.</h1>
   </div>
 
   <div class="scene-stage" data-frame="0" data-phase="0">
@@ -22,28 +18,36 @@
     </svg>
     <div class="scene-node-layer" role="group" aria-label="Explore the architecture">
       <button class="scene-node scene-node-grok" data-node="grok" aria-pressed="false" aria-label="Existing Grok Bot; connection pending"><img class="node-grok-mark" src="media/grok-bot-mark.svg" alt=""><span>Grok Bot</span></button>
-      <button class="scene-node" data-node="gateway" aria-pressed="true"><span class="node-index">02</span><span>Gateway</span><span class="node-arrow" aria-hidden="true">↗</span></button>
-      <button class="scene-node" data-node="esp32" aria-pressed="false"><span class="node-index">03</span><span>ESP32</span><span class="node-arrow" aria-hidden="true">↗</span></button>
-      <button class="scene-node" data-node="linux" aria-pressed="false"><span class="node-index">04</span><span>Linux</span><span class="node-arrow" aria-hidden="true">↗</span></button>
-      <button class="scene-node" data-node="home" aria-pressed="false"><span class="node-index">05</span><span>Home Assistant</span><span class="node-arrow" aria-hidden="true">↗</span></button>
+      <button class="scene-node" data-node="gateway" aria-pressed="true"><span>Gateway</span><span class="node-arrow" aria-hidden="true">↗</span></button>
+      <button class="scene-node" data-node="esp32" aria-pressed="false"><span>ESP32</span><span class="node-arrow" aria-hidden="true">↗</span></button>
+      <button class="scene-node" data-node="linux" aria-pressed="false"><span>Linux</span><span class="node-arrow" aria-hidden="true">↗</span></button>
+      <button class="scene-node" data-node="home" aria-pressed="false"><span>Home Assistant</span><span class="node-arrow" aria-hidden="true">↗</span></button>
     </div>
-    <span class="scene-axis" aria-hidden="true">CONCEPTUAL ROUTES · NO GROK CALLS · HARDWARE UNVERIFIED</span>
+
   </div>
 
-  <div class="scene-console">
+  <div class="scene-toolbar">
     <div class="scene-selector" role="group" aria-label="Choose a conceptual route story">
       <button data-story="light" aria-pressed="true">Light</button>
       <button data-story="sensor" aria-pressed="false">Sensor</button>
-      <button data-story="display" aria-pressed="false">Pi display</button>
-      <button data-story="home" aria-pressed="false">Home Assistant</button>
-      <button id="scene-replay" type="button">Replay</button>
+      <button data-story="display" aria-pressed="false" aria-label="Pi display">Display</button>
+      <button data-story="home" aria-pressed="false" aria-label="Home Assistant">Home</button>
+
     </div>
+    <a class="scene-build" href="start.html">Start building <span aria-hidden="true">↗</span></a>
+    <button id="scene-inspect" type="button" aria-haspopup="dialog" aria-controls="scene-inspector">Explore <span aria-hidden="true">[+]</span></button>
+  </div>
+  <dialog id="scene-inspector" aria-labelledby="inspector-title">
+    <div class="inspector-header"><h2 id="inspector-title">Explore Grok Gadgets</h2><button id="scene-close" type="button" aria-label="Close exploration panel">Close [×]</button></div>
+    <p class="inspector-status">Try the local simulator today. <a href="doc-docs-public-support-matrix.html">Grok Bot and hardware connection tests are still ahead.</a></p>
+    <div class="scene-console">
     <div class="scene-caption">
       <span id="scene-detail-name">Gateway</span>
       <p id="scene-detail">A conceptual route to the virtual light. No Grok Bot connection.</p>
       <a id="scene-detail-link" href="architecture.html">Explore the architecture <span aria-hidden="true">↗</span></a>
     </div>
-    <div class="scene-demo" id="scene-demo" aria-label="Local simulated device controls">
+    <details class="scene-controls" id="scene-demo"><summary>Try the virtual light <span aria-hidden="true">+</span></summary>
+    <div class="scene-demo" aria-label="Local simulated device controls">
       <div class="scene-demo-controls" role="group" aria-label="Simulated device actions">
         <span class="demo-label">TRY IT</span>
         <button class="led-choice" data-led="green" aria-label="Set simulated LED green" aria-pressed="false"><span style="--swatch:#55866c"></span></button>
@@ -56,7 +60,11 @@
       <p id="scene-feedback" role="status" aria-live="polite" aria-atomic="true">LED off · 0 button events · connected</p>
     </div>
     <a class="scene-customize-link" href="#playground">Customize the virtual light ↗</a>
-    <p class="scene-evidence"><span class="simulation-mark" aria-hidden="true"></span> Browser simulation · no Grok calls <span class="scene-pending">No physical device connected.</span></p>
+    </details>
+    <button id="scene-replay" type="button">Replay illustration ↻</button>
+    <p class="scene-evidence"><span class="simulation-mark" aria-hidden="true"></span> Interactive illustration · simulated devices</p>
   </div>
+    {{HOME_DETAILS}}
+  </dialog>
   <noscript><p class="scene-noscript">Static conceptual routes are shown above. JavaScript enables the browser light controls. <a href="simulator.html">Download and run the local simulator kit ↗</a></p></noscript>
 </section>
