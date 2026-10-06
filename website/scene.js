@@ -43,10 +43,10 @@
   let geometryDirty = true;
   const storyRoutes = {light: 'esp32', sensor: 'linux', display: 'linux', home: 'home'};
   const storyCopy = {
-    light: ['Virtual light', 'Conceptual route to the browser simulator. Controls below change only simulated state.', 'simulator.html', 'Try the simulator'],
-    sensor: ['Sample sensor', 'Conceptual sensor reading over the Linux SDK route. No live sensor is connected.', 'linux.html', 'Explore Linux'],
-    display: ['Pi display', 'Conceptual Raspberry Pi display route. No Pi or screen is connected.', 'linux.html', 'Explore Linux'],
-    home: ['Home Assistant', 'Conceptual route to entities exposed by Home Assistant’s own MCP server.', 'home-assistant.html', 'Explore Home Assistant'],
+    light: ['Virtual light', 'A light, a button, and a first idea to build.', 'simulator.html', 'Simulator guide'],
+    sensor: ['Sample sensor', 'Explore how a Linux gadget could share a sensor reading.', 'linux.html', 'Explore Linux'],
+    display: ['Pi display', 'Give a Raspberry Pi display a role in your next project.', 'linux.html', 'Explore Linux'],
+    home: ['Home Assistant', 'Explore the route through Home Assistant’s MCP server.', 'home-assistant.html', 'Explore Home Assistant'],
   };
   let reduced = document.documentElement.hasAttribute('data-reduced-motion');
   const buttons = [...root.querySelectorAll('[data-node]')];
@@ -70,7 +70,7 @@
 
   function project(point) {
     const [x, y, z] = point;
-    const theta = .18;
+    const theta = .18 + Math.sin(phase / 14) * .08;
     const c = Math.cos(theta), s = Math.sin(theta);
     const rx = x * c - z * s;
     const rz = x * s + z * c;
@@ -105,13 +105,13 @@
     return result;
   }
   function render() {
-    if (geometryDirty) {
+    if (geometryDirty || !reduced) {
     let grid = '';
     for (let x = -375; x <= 375; x += 75) grid += line([x, -68, -310], [x, -68, 310]);
     for (let z = -310; z <= 310; z += 62) grid += line([-375, -68, z], [375, -68, z]);
     groundPath.setAttribute('d', grid);
     edgePath.setAttribute('d', polygon([[-375, -68, -310], [375, -68, -310], [375, -68, 310], [-375, -68, 310]]) + line([-375, -75, 310], [-375, -105, 310]) + line([375, -75, 310], [375, -105, 310]) + line([375, -75, -310], [375, -105, -310]));
-    orbitalPath.setAttribute('d', ring([0, -68, 0], 440) + ring([0, -68, 0], 457));
+    orbitalPath.setAttribute('d', ring([0, -68, 0], 410) + ring([0, -68, 0], 430));
     const g = positions.grok;
     objectPaths.grok.setAttribute('d', ring(g, 64) + ring(g, 64, 'x') + ring(g, 64, 'z') + ring([g[0], g[1] - 34, g[2]], 52) + ring([g[0], g[1] + 34, g[2]], 52) + line([g[0], g[1] - 64, g[2]], [g[0], -68, g[2]]));
     const w = positions.gateway;
@@ -170,12 +170,12 @@
     routes.forEach(route => {
       const active = route.to === selectedRoute;
       const [a, b, c] = curves.get(route.to);
-      const t = active ? Math.min(1, Math.max(0, (phase - storyStarted) / 3.3)) : 0;
+      const t = active ? Math.min(1, Math.max(0, ((phase - storyStarted) % 5.5) / 3.3)) : 0;
       const point = [Math.pow(1-t,2)*a[0]+2*(1-t)*t*b[0]+t*t*c[0], Math.pow(1-t,2)*a[1]+2*(1-t)*t*b[1]+t*t*c[1]];
       route.path.setAttribute('stroke', active && (connected || route.to !== 'esp32') ? '#20201c' : '#cecec5');
       route.path.setAttribute('stroke-width', active ? '1.3' : '.8');
       route.packet.setAttribute('cx', point[0]); route.packet.setAttribute('cy', point[1]);
-      route.packet.setAttribute('opacity', active && !reduced && phase-storyStarted < 3.3 ? '.95' : '0');
+      route.packet.setAttribute('opacity', active && !reduced && (phase-storyStarted) % 5.5 < 3.3 ? '.95' : '0');
     });
     const elapsed = phase - eventAt;
     const board = positions.esp32;
@@ -210,7 +210,7 @@
     geometryDirty = true; render(); syncMotion();
   }
   root.querySelectorAll('[data-story]').forEach(button => button.addEventListener('click', () => selectStory(button.dataset.story)));
-  root.querySelector('#scene-replay').addEventListener('click', () => selectStory(story));
+  root.querySelector('#scene-replay').addEventListener('click', () => {selectStory(story); inspector.close();});
   function setView(name) {
     view = name;
     root.dataset.view = name;
@@ -221,6 +221,33 @@
       root.querySelector('#scene-detail').textContent = name === 'led' ? 'Set a colour. See a simulated execution report.' : 'Press once. Read a simulated press and release.';
     }
   }
+  const inspector = document.querySelector('#scene-inspector');
+  const inspectButton = document.querySelector('#scene-inspect');
+  function openInspector() {
+    if (!inspector.open) inspector.showModal();
+    document.dispatchEvent(new Event('grok:panel-change'));
+  }
+  inspectButton.addEventListener('click', openInspector);
+  document.querySelector('#scene-close').addEventListener('click', () => inspector.close());
+  inspector.addEventListener('close', () => {
+    document.dispatchEvent(new Event('grok:panel-change'));
+    inspectButton.focus();
+  });
+  function revealTarget() {
+    const target = document.getElementById(location.hash.slice(1));
+    if (!target) return;
+    const disclosure = target.closest('details');
+    if (disclosure) disclosure.open = true;
+    if (target.closest('#scene-inspector')) {
+      openInspector();
+      requestAnimationFrame(() => target.scrollIntoView({block: 'start', behavior: 'instant'}));
+    }
+  }
+  window.addEventListener('hashchange', revealTarget);
+  document.querySelectorAll('a[href="#playground"], a[href="#scene-demo"]').forEach(link => link.addEventListener('click', () => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target?.tagName === 'DETAILS') target.open = true;
+  }));
   const form = document.querySelector('#playground-config');
   const stateOutput = document.querySelector('#playground-state');
   const report = document.querySelector('#playground-report');
@@ -274,7 +301,7 @@
     sync(result.ok ? null : `Command ${result.error.code} · LED unchanged`, result);
     if (result.ok && label) feedback(`${simulator.config.display_name} · LED ${label} · ${events} button events · connected`);
   }
-  buttons.forEach(button => button.addEventListener('click', () => {view = 'system'; root.dataset.view = 'system'; root.querySelectorAll('[data-view]').forEach(control => control.setAttribute('aria-pressed', String(control.dataset.view === 'system'))); setDetail(button.dataset.node);}));
+  buttons.forEach(button => button.addEventListener('click', () => {view = 'system'; root.dataset.view = 'system'; root.querySelectorAll('[data-view]').forEach(control => control.setAttribute('aria-pressed', String(control.dataset.view === 'system'))); setDetail(button.dataset.node); openInspector();}));
   root.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => setView(button.dataset.view)));
   root.querySelectorAll('[data-led]').forEach(button => button.addEventListener('click', () => {
     const choice = button.dataset.led;
@@ -328,7 +355,7 @@
     if (lastTime !== null) phase += Math.min((time - lastTime) / 1000, .1);
     lastTime = time;
     if (time - drawAt >= 32) {render(); drawAt = time;}
-    if (phase - storyStarted < 3.3 || phase - eventAt < 1) raf = requestAnimationFrame(tick);
+    raf = requestAnimationFrame(tick);
   }
   function syncMotion() {
     if (raf) cancelAnimationFrame(raf);
@@ -342,5 +369,5 @@
   else window.addEventListener('resize', () => {rect = stage.getBoundingClientRect(); buttons.forEach(button => buttonSizes.set(button, button.getBoundingClientRect().width)); geometryDirty = true; render();});
   root.classList.add('scene-ready');
   buttons.forEach(button => buttonSizes.set(button, button.getBoundingClientRect().width));
-  geometryDirty = true; selectStory('light'); sync(); syncMotion();
+  geometryDirty = true; selectStory('light'); sync(); revealTarget(); syncMotion();
 })();
