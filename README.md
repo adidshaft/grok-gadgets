@@ -4,12 +4,13 @@
 
 [![Experimental alpha](docs/visuals/badge-stage.svg)](docs/public/support-matrix.md) [![Apache-2.0 license](docs/visuals/badge-license.svg)](LICENSE) [![View CI checks](docs/visuals/badge-checks.svg)](https://github.com/adidshaft/grok-gadgets/actions) [![Contributions welcome](docs/visuals/badge-contribute.svg)](CONTRIBUTING.md)
 
-**[Try the simulator](https://grok-gadgets.pages.dev/#playground)** · [Documentation](https://grok-gadgets.pages.dev/docs.html) · [Roadmap](ROADMAP.md) · [Issues](https://github.com/adidshaft/grok-gadgets/issues) · [Community](https://www.reddit.com/r/GrokGadgets/)
+**[Website](https://grok-gadgets.pages.dev/)** · [Documentation](https://grok-gadgets.pages.dev/docs.html) · [Roadmap](ROADMAP.md) · [Issues](https://github.com/adidshaft/grok-gadgets/issues) · **[Join r/GrokGadgets](https://www.reddit.com/r/GrokGadgets/)**
 
 **Let your Grok Bot control lights, buttons and sensors you build. Open source.**
 
 Status: works with local MCP clients today · Grok Bot connection in progress
 ([project status](docs/public/support-matrix.md)).
+Independent project, not affiliated with SpaceXAI or xAI.
 
 Pick a path:
 
@@ -26,25 +27,38 @@ Already use Home Assistant? Check what it offers with the
 
 | If you want to… | Open |
 | --- | --- |
-| Try it without hardware | [Browser playground](https://grok-gadgets.pages.dev/#playground) then the [simulator kit](docs/getting-started/simulator-kit.md) |
-| Understand why the cloud Bot cannot see your desk | [Hosting FAQ](docs/getting-started/hosting.md) |
-| Run the local gateway | [Gateway](https://github.com/adidshaft/grok-gadgets-gateway) |
-| Write a Linux gadget | [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk) |
-| Flash an ESP32 (C124 is the first example) | [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk) |
-| Probe Home Assistant (read-only) | [Home Assistant](https://github.com/adidshaft/grok-gadgets-home-assistant) |
-| Fix something small | [Ready issues](docs/contributing/ready-issues.md) |
-
-The [website](https://grok-gadgets.pages.dev/) is live. Package and firmware downloads are a separate release step.
+| See it work in five minutes, no hardware | [Gateway first success](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/first-success.md) |
+| Play with a virtual light in your browser | [Browser playground](https://grok-gadgets.pages.dev/#playground), then the [simulator kit](docs/getting-started/simulator-kit.md) |
+| Build a Raspberry Pi or Linux gadget | [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk) |
+| Build an ESP32 gadget | [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk) |
+| Run the local MCP gateway | [Gateway](https://github.com/adidshaft/grok-gadgets-gateway) |
+| Check what Home Assistant offers (read-only) | [Home Assistant probe](https://github.com/adidshaft/grok-gadgets-home-assistant) |
+| Understand why a cloud Bot cannot see your desk yet | [Hosting FAQ](docs/getting-started/hosting.md) |
 
 ## How the parts connect
 
 ![Browser simulation exports settings for the local MCP simulator. SDK and native Grok paths have separate verification requirements.](docs/visuals/project-overview.svg)
 
-Grok Bot runs in the cloud. The gateway and gadgets run on a computer you operate. A tunnel only moves packets; it does not log anyone in. Do not expose the local device port.
+Grok Bot runs in the cloud. The gateway and your gadgets run on a computer you operate. Each
+repository installs on its own; the SDKs talk to the gateway, and the gateway never depends
+on an SDK. A tunnel only moves packets; it does not log anyone in. Never expose the device port.
 
-## Build the website locally
+## Community
 
-Python 3.13, uv, Node.js 22+ and Git:
+Join [r/GrokGadgets](https://www.reddit.com/r/GrokGadgets/) to show what you built, ask
+questions and share ideas. Follow the [community guidelines](community/guidelines.md) and the
+[Code of Conduct](CODE_OF_CONDUCT.md); keep tokens and household details out of posts.
+Bugs and proposals go to [GitHub Issues](https://github.com/adidshaft/grok-gadgets/issues).
+
+## Contribute
+
+![Choose an issue, make a focused branch, run checks, then open a pull request for review.](docs/visuals/contribution.svg)
+
+Every repository has its own starter issues: see [ready issues](docs/contributing/ready-issues.md).
+Then read the [contribution guide](CONTRIBUTING.md). Help: [support](SUPPORT.md). Security:
+[security policy](SECURITY.md).
+
+To build this website locally (Python 3.13, uv, Node.js 22+ and Git):
 
 ```sh
 python3 scripts/dev.py setup
@@ -52,14 +66,14 @@ python3 scripts/dev.py check
 python3 scripts/dev.py site
 ```
 
-Open `http://127.0.0.1:4173/index.html#playground`. Sibling integration is `scripts/check-all.py` when the four other repos sit next to this one.
+Open `http://127.0.0.1:4173/index.html`. With the four other repositories beside this one,
+`scripts/check-all.py` runs the cross-repository integration.
 
-## Contribute
+## License and affiliation
 
-![Choose an issue, make a focused branch, run checks, then open a pull request for review.](docs/visuals/contribution.svg)
-
-[Ready issues](docs/contributing/ready-issues.md) · [contribution guide](CONTRIBUTING.md) · [support](SUPPORT.md) · [security](SECURITY.md) · [community](community/README.md)
-
-Apache-2.0. Independent project, not affiliated with xAI, M5Stack or Home Assistant.
-
-Public history used reconstructed commit dates; see [publication sanitization](docs/verification/publication-sanitization.md).
+Apache-2.0; see [LICENSE](LICENSE) and [NOTICE](NOTICE). Grok Gadgets is an independent
+open-source project. It is **not affiliated with, endorsed by or sponsored by SpaceXAI or
+xAI**, which make Grok and Grok Bot, nor with M5Stack or Home Assistant. Grok and SpaceXAI
+marks shown on the website follow their [brand guidelines](https://x.ai/legal/brand-guidelines)
+and are not covered by this project's license. Public history used reconstructed commit
+dates; see [publication sanitization](docs/verification/publication-sanitization.md).
