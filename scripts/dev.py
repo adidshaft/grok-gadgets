@@ -38,9 +38,6 @@ def setup():
         run(uv, "pip", "install", "--python", PY, "-r", requirements, RUFF)
     else:
         run(PY, "-m", "pip", "install", "-r", requirements, RUFF)
-    if (ROOT / ".git").exists():
-        # Hooks refuse commits and pushes that would publish a private email.
-        run("git", "config", "core.hooksPath", "scripts/hooks")
     if not shutil.which("node"):
         print("Optional: install Node.js 22+ to run the browser simulator tests.")
     print("Ready. Next: python3 scripts/dev.py check")
