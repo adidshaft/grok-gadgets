@@ -51,9 +51,7 @@ We promise no response deadline or reward. No contributor license agreement (CLA
 
 Recognition is [opt-in](community/contribution-recognition.md). Documentation and tests qualify. Matching usernames do not prove account ownership.
 
-Use a reviewed public identity for maintainer merges. GitHub-created merges need an explicit public author email. Local Git settings do not control that email.
-
-If GitHub rejects the address, do not retry with a private email. Prepare a local merge. Check its identity and exact tree. Run required checks and keep normal branch protections. Contributors should use an email they intend to publish, such as their GitHub noreply address.
+The maintainer merges reviewed PRs normally on GitHub. Commit with an email you are happy to publish, such as your GitHub noreply address.
 
 Follow [conduct](CODE_OF_CONDUCT.md), [security](SECURITY.md), [governance](GOVERNANCE.md) and [support](SUPPORT.md). Security and conduct reports go privately to adidshaft@kyokasuigetsu.xyz; GitHub private vulnerability reporting is also enabled for security reports.
 
