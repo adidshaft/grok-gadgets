@@ -80,7 +80,7 @@ pre.document { white-space:pre-wrap; overflow-wrap:anywhere; font:15px/1.9 monos
  .path-row a { grid-column:2; justify-self:start; }.path-row h2 { font-size:30px; }
  .issue { grid-template-columns:1fr auto; gap:12px; }.issue h3 { grid-column:1/-1; grid-row:2; }.issue>p:last-child { grid-column:1/-1; }
  .flow { flex-direction:column; align-items:flex-start; gap:20px; }
- .site-footer { margin:45px 20px 0; gap:15px; }.site-footer .independent-note, .site-footer .build-note { display:none; }
+ .site-footer { margin:45px 20px 0; gap:15px; }.site-footer .independent-note, .site-footer .build-note, .site-footer .community-link { display:none; }
  .home-page .site-footer { inset:auto 20px 0; height:58px; }
  #site-menu { padding:22px 28px; }.menu-top { margin-bottom:42px; }#site-menu nav a { font-size:42px; }.menu-components { margin:38px 0 50px; }
  pre.document { font-size:13px; }
