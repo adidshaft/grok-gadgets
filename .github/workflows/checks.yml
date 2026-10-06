@@ -14,15 +14,6 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - name: Reject private commit emails
-        env:
-          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
-          HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-        run: |
-          if [ -z "$BASE" ] || [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
-            BASE=origin/main
-          fi
-          python3 scripts/check-commit-emails.py "$BASE..$HEAD"
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.13'

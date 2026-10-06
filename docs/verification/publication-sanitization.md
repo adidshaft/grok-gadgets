@@ -16,6 +16,8 @@ A second independent literal scan checks the known private identity and machine 
 
 The first GitHub-created publication merge used the account email rather than the local checkout's noreply identity. A post-merge check caught it. That one merge commit was corrected to the noreply identity without changing its tree, parents, message or timestamps; its original signature cannot survive a metadata rewrite. A narrowly scoped owner bypass was removed immediately after the correction, and the original active rules were verified again. This repairs current branch history; it does not establish deletion of the old object from GitHub's pull-request or cached references. Future maintainer merges verify a public author/committer identity. GitHub rejected the explicit noreply address for the server-created follow-up merge, so the fallback is a locally authored merge with the same reviewed tree and required checks under the existing protection; the private default email is never a fallback. Account-wide settings remain unchanged.
 
+From 6 October 2026 the owner treats the account Gmail address as public; commits `b642401` (hub) and `e2468b0` (Linux SDK) carry it, and no rewrite is planned. The private-email commit check and its local hooks were retired the same day; GitHub secret scanning with push protection still guards real secrets.
+
 The first source push and issue setup are authorized. Pages deployment, package/prerelease uploads, firmware downloads, Reddit changes and recurring automation remain separate operations. The published project is an experimental software alpha with native Grok receipts, physical hardware, real-home and mobile acceptance still pending.
 
 ## Reconstructed timeline
