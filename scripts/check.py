@@ -85,6 +85,16 @@ def steps(py):
         ("Website build", [py, "website/build.py"]),
         ("Build from a ZIP download", [py, "scripts/check-archive-build.py"]),
         ("Public URL prefix", [py, "scripts/check-pages-prefix.py"]),
+        (
+            "Plain language (ASD-STE100 sentence limit)",
+            [
+                py,
+                "scripts/check_ste.py",
+                "README.md",
+                "docs/public/support-matrix.md",
+                "docs/getting-started/simulator-kit.md",
+            ],
+        ),
         ("Lint", [*ruff, "check", "scripts", "website", "community"]),
         ("Format", [*ruff, "format", "--check", "scripts", "website", "community"]),
     ]

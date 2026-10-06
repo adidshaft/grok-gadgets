@@ -29,14 +29,14 @@ Installation uses isolated pip and needs matching binary wheels. It stops if tho
 You can also copy the bundled default to `my-light.json` and edit that copy with the included schema. Keep all original kit files unchanged for hash checks. Do not replace `simulator-config.json` with your export.
 
 - Device ID and display name identify your virtual light.
-- Starting RGB channels are integers 0–255; `on` is a boolean. Website brightness is converted into these channels; physical LED brightness is not being calibrated.
+- Starting RGB channels are integers 0–255; `on` is a boolean. The website converts brightness into these channels. Nobody has calibrated physical LED brightness.
 - Response delay is 0–2000 ms, applied before a simulated command acknowledgement.
 - Offline startup lets you test an unavailable device. Reconnect resets the starting RGB/button state and creates a new session.
 - No executable commands, credentials, network addresses or arbitrary capabilities belong in configuration.
 
 ## Try locally
 
-Use Python 3.11+. The clean kit installation is tested with native Apple Silicon Python 3.11.15; Windows and Intel Mac kit installation remain unverified. In the extracted kit:
+Use Python 3.11+. We tested a clean kit installation with native Apple Silicon Python 3.11.15. Windows and Intel Mac installations remain unverified. In the extracted kit:
 
 ```sh
 python3 install.py
@@ -52,14 +52,14 @@ This verifies local simulation. It does not verify Grok execution or physical op
 
 This route requires custom **Command MCP** in the Bot's cloud computer. Availability depends on the account and client. A developer-API conversation is not a substitute.
 
-The dedicated desktop Bot reported simulator success on an earlier gateway build. A later installation of the configurable kit on the Bot's computer was observed. Neither a Bot-written report nor an installation record proves native tool invocation. Local MCP tests passed. Actual invocation records and mobile verification remain pending.
+The dedicated desktop Bot reported simulator success on an earlier gateway build. Later, we observed an installation of the configurable kit on the Bot's computer. Neither a Bot-written report nor an installation record proves native tool invocation. Local MCP tests passed. Actual invocation records and mobile verification remain pending.
 
 1. Inspect the kit.
 2. Upload the ZIP, separate website hash manifest and exported configuration to the intended Bot.
 3. Ask the Bot to unpack into a dedicated directory on its cloud computer, compare the ZIP hash, then run `python3 install.py` to verify contents. It must stop on a mismatch.
-4. Ask it to install there with `python3 install.py --install --config /absolute/cloud/path/my-light.json`. This downloads hashed binary dependencies. Python 3.11+ and package access are required. The local Mac path cannot be used by the cloud computer.
-5. Register only the simulator as a Command MCP server using the **absolute cloud executable path** printed by the installer, arguments `--simulator --simulator-config /absolute/cloud/path/my-light.json`, and empty environment. No listener, tunnel, account credentials or broader permissions are needed for the simulator. Do not weaken approval protections.
-6. Ask for `gadgets_list_devices`, then `gadgets_get_state` using your configured ID. Ask: “Use the simulator connector to set my virtual light blue and read its command status and state.” Look for `simulated: true`, executed status and the matching blue state. Command receipts/diagnostics report `physical_verified: false`. Preserve actual tool evidence where the client exposes it; a Bot-written narrative alone is not independent verification.
+4. Ask it to install there with `python3 install.py --install --config /absolute/cloud/path/my-light.json`. This downloads hashed binary dependencies. You need Python 3.11+ and access to the package index. The cloud computer cannot use the local Mac path.
+5. Register only the simulator as a Command MCP server. Use the **absolute cloud executable path** that the installer prints, the arguments `--simulator --simulator-config /absolute/cloud/path/my-light.json`, and an empty environment. The simulator needs no listener, tunnel, account credentials or broader permissions. Do not weaken approval protections.
+6. Ask for `gadgets_list_devices`, then `gadgets_get_state` using your configured ID. Ask: “Use the simulator connector to set my virtual light blue and read its command status and state.” Then look for `simulated: true`, executed status and the matching blue state. Command receipts/diagnostics report `physical_verified: false`. Preserve actual tool evidence where the client exposes it; a Bot-written narrative alone is not independent verification.
 
 The normal tools are:
 
@@ -90,10 +90,10 @@ python3 scripts/build-simulator-kit.py --check
 .venv/bin/python website/build.py
 ```
 
-`--check` fails if the sibling gateway HEAD, kit inputs or archive no longer match the stored kit. Uncommitted gateway changes are rejected. The rebuild runs the gateway tests and installs the kit in a fresh environment. It tests default and custom settings through the official MCP client.
+`--check` fails if the sibling gateway HEAD, kit inputs or archive no longer match the stored kit. The build rejects uncommitted gateway changes. The rebuild runs the gateway tests and installs the kit in a fresh environment. It tests default and custom settings through the official MCP client.
 
 Run these maintainer commands from the hub, not from the extracted kit.
 
 A standalone hub checkout can use the stored kit if the archive and input hashes still match. Otherwise, use the gateway checkout to rebuild it. Rebuilds need internet access for dependencies. The build ID identifies the tested gateway source. The separate manifest lists artifact hashes.
 
-The public website is deployed through the approved CI workflow. A gateway change does not update a downloaded copy or automatically change the hub's compatibility pin. Downloaded kits are fixed snapshots. They do not update or run code silently.
+The approved CI workflow deploys the public website. A gateway change does not update a downloaded copy or automatically change the hub's compatibility pin. A downloaded kit is a fixed snapshot. They do not update or run code silently.
