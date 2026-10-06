@@ -170,7 +170,7 @@ def page(name, title, body):
         + '</nav><div class="menu-components"><a href="https://github.com/adidshaft/grok-gadgets">GitHub</a><a href="esp32.html">ESP32</a><a href="linux.html">Linux</a><a href="home-assistant.html">Home Assistant</a><a href="architecture.html">Architecture</a><a href="releases.html">Releases</a></div><div class="product-reference"><img src="media/spacexai-mark.svg" width="28" height="28" alt="SpaceXAI"><p>Grok is made by SpaceXAI.<br>Grok Gadgets is an independent project.</p><a href="https://x.ai/legal/brand-guidelines" aria-label="Official brand guidelines">↗</a></div></dialog>'
     )
     footer = (
-        '<footer class="site-footer"><a href="start.html">Start building ↗</a><span class="independent-note">Independent. Open source.</span><a class="status-link" href="doc-docs-public-support-matrix.html">Status ↗</a>'
+        '<footer class="site-footer"><a href="start.html">Start building ↗</a><span class="independent-note">Independent open source · not affiliated with SpaceXAI or xAI</span><a class="community-link" href="https://www.reddit.com/r/GrokGadgets/">r/GrokGadgets ↗</a><a class="status-link" href="doc-docs-public-support-matrix.html">Status ↗</a>'
         + build_note
         + '<button id="motion-toggle" aria-pressed="false">Pause motion <span>[Ⅱ]</span></button></footer>'
     )
@@ -317,7 +317,7 @@ page(
                 "grok-gadgets-home-assistant",
             ]
         )
-        + '<a href="roadmap.html">Project issues ↗</a><a href="activity.html">Activity source and refresh status ↗</a><a href="community.html">Community ↗</a></section>'
+        + '<a href="roadmap.html">Project issues ↗</a><a href="activity.html">Activity source and refresh status ↗</a><a href="community.html">Community ↗</a><a class="home-reddit" href="https://www.reddit.com/r/GrokGadgets/">Join r/GrokGadgets ↗</a></section>'
     )
     if scene_source.is_file()
     else "<h1>Grok, meet the real world.</h1><p>Interactive architecture is being assembled locally.</p>",
