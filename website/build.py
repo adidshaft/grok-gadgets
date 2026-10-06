@@ -252,9 +252,7 @@ def path_row(number, title, description, url, link_text):
     )
 
 
-first_success = (
-    "https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/first-success.md"
-)
+first_success = "doc-docs-components-grok-gadgets-gateway-first-success.html"
 proof_section = (
     '<section class="home-proof" id="first-success" aria-labelledby="proof-heading">'
     '<p class="eyebrow">SEE IT WORK IN A REAL MCP CLIENT</p>'

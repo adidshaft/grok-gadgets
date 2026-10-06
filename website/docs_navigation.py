@@ -75,6 +75,11 @@ GROUPS = (
                 None,
                 (
                     ("gateway", "README.md", "Gateway overview"),
+                    (
+                        "gateway",
+                        "docs/first-success.md",
+                        "First success in five minutes",
+                    ),
                     ("gateway", "docs/local-operation.md", "Run the gateway"),
                     ("gateway", "docs/simulator.md", "Use the gateway simulator"),
                     ("gateway", "docs/architecture.md", "Gateway architecture"),
