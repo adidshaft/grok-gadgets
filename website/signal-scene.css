@@ -1,0 +1,114 @@
+.signal-scene {
+  --signal-ink: #272724;
+  --signal-line: #b8b8b0;
+  --signal-accent: #aa6754;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: var(--signal-ink);
+  contain: layout paint;
+}
+
+.signal-scene[hidden] {display: none;}
+.signal-canvas {display: block; width: 100%; height: 100%; overflow: hidden;}
+.signal-canvas :is(path, circle) {vector-effect: non-scaling-stroke;}
+.signal-orbit {stroke: var(--signal-line); stroke-width: .75;}
+.signal-orbit-0 {stroke: #d0d0c9; stroke-width: .65;}
+.signal-orbit-2 {stroke: #797972;}
+.signal-orbit-3 {stroke: #d2d2ca;}
+.signal-ticks {stroke: #aaa9a1; stroke-width: .65;}
+.signal-route {stroke: #c5c4bc; stroke-width: .7; stroke-dasharray: 2 6;}
+.signal-ambient {fill: #45453f;}
+.signal-source-halo {stroke: #cecec6; stroke-width: .7;}
+.signal-pulse {stroke: var(--signal-accent); stroke-width: .8;}
+.signal-target-ring {stroke: #bbbcb2; stroke-width: .7;}
+.signal-target-dot {fill: #51524b;}
+.signal-target-ring.is-selected {stroke: var(--signal-accent);}
+.signal-target-dot.is-selected, .signal-packet, .signal-trail {fill: var(--signal-accent);}
+.signal-response {stroke: var(--signal-accent); stroke-width: .8;}
+
+.signal-scene button {
+  box-sizing: border-box;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--signal-ink);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  font: 10px/1.3 'Courier New', monospace;
+  transform: translate(-50%, -50%);
+}
+
+.signal-scene .signal-source {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: clamp(54px, 9%, 78px);
+  min-height: 54px;
+  aspect-ratio: 1;
+  padding: 4px;
+  border: 1px solid var(--signal-ink);
+  border-radius: 50%;
+  background: #fff;
+  font-size: clamp(9px, 1.1vw, 11px);
+  white-space: nowrap;
+}
+
+.signal-source-action {font-size: 9px; color: #77776f;}
+.signal-scene .signal-source:hover {background: #f5f5f1;}
+.signal-scene[data-transmitting] .signal-source-action {color: var(--signal-accent);}
+.signal-scene .signal-target {min-width: 64px; min-height: 44px;}
+.signal-target span {
+  position: absolute;
+  top: calc(50% + 12px);
+  left: 50%;
+  display: block;
+  transform: translateX(-50%);
+  padding: 2px 4px;
+  background: #fff;
+  white-space: nowrap;
+}
+.signal-target[aria-pressed='true'] span {text-decoration: underline; text-underline-offset: 4px;}
+.signal-target:hover span {color: var(--signal-accent);}
+.signal-scene button:focus-visible {outline: 2px solid var(--signal-ink); outline-offset: 5px;}
+.signal-scene .signal-target:focus-visible {outline-offset: 3px;}
+
+.signal-caption {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 3.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  pointer-events: none;
+  color: #73736c;
+  font: 10px/1.4 'Courier New', monospace;
+}
+.signal-phase {text-align: right;}
+.signal-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 600px), (max-height: 500px) {
+  .signal-caption {font-size: 9px; left: 3%; right: 3%; bottom: 2.5%; gap: 6px;}
+  .signal-scene button {font-size: 9px;}
+  .signal-target span {top: calc(50% + 9px);}
+  .signal-scene .signal-source {gap: 2px;}
+  .signal-source-action {font-size: 8px;}
+}
