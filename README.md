@@ -55,6 +55,7 @@ Bugs and proposals go to [GitHub Issues](https://github.com/adidshaft/grok-gadge
 ![Choose an issue, make a focused branch, run checks, then open a pull request for review.](docs/visuals/contribution.svg)
 
 Every repository has its own starter issues: see [ready issues](docs/contributing/ready-issues.md).
+Branch from `dev` and open your PR into `dev`; `main` only holds tagged stable releases ([branches and releases](CONTRIBUTING.md#branches-and-releases)).
 Then read the [contribution guide](CONTRIBUTING.md). Help: [support](SUPPORT.md). Security:
 [security policy](SECURITY.md).
 

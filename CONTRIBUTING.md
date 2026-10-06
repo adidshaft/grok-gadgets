@@ -1,6 +1,6 @@
 # Contributing
 
-Everyday path: pick a [ready issue](docs/contributing/ready-issues.md), branch from `main`, run `python3 scripts/dev.py check`, open a small pull request.
+Everyday path: pick a [ready issue](docs/contributing/ready-issues.md), branch from `dev`, run `python3 scripts/dev.py check`, open a small pull request into `dev`.
 
 Use the shared [writing guide](docs/contributing/writing-guide.md) and [review and privacy rules](docs/contributing/review-and-privacy.md). Keep explanations short and use diagrams where they clarify a connection.
 
@@ -12,17 +12,18 @@ Choose the repository that owns the change. Use the [repository map](docs/archit
 
 Discuss protocol/schema changes, cross-repository interfaces and substantial features in an issue first. A typo fix needs no issue ceremony. Reproduce a bug before changing code; state the expected behavior, observed result and evidence level. GitHub Issues are authoritative after the initial migration. The local planning ledgers preserve pre-publication history; the website consumes a timestamped GitHub snapshot. The separate GitHub Project board remains pending.
 
-Fork the repository under your account, clone your fork and branch from main:
+Fork the repository under your account, clone your fork and branch from `dev`:
 
 ```sh
 git clone https://github.com/YOUR_ACCOUNT/grok-gadgets.git
 cd grok-gadgets
-git switch -c docs/your-focused-change
+git switch dev
+git switch -c docs/HUB-123-your-focused-change
 python3 scripts/dev.py setup
 python3 scripts/dev.py check
 ```
 
-Make small commits with one clear purpose. Reference the issue ID when available. Do not change global Git identity. Push your contribution branch. Open a focused pull request (PR) against main with the template.
+Make small commits with one clear purpose. Reference the issue ID when available. Do not change global Git identity. Push your contribution branch. Open a focused pull request (PR) against `dev` with the template.
 
 | Change | Focused checks |
 | --- | --- |
@@ -32,7 +33,7 @@ Make small commits with one clear purpose. Reference the issue ID when available
 | Linux SDK | Its unittest/Ruff checks; optional gateway integration for transport changes |
 | ESP32 SDK | Host checks/contract; compile firmware for firmware changes; USB/PTY integration for transport changes |
 | Home Assistant | Locked unittest/Ruff and fixture probe; keep real-home tests separate |
-| Cross-repository contract | `.venv/bin/python scripts/check-all.py` with the four siblings at `main` beside the hub (CI does the same nightly) |
+| Cross-repository contract | `.venv/bin/python scripts/check-all.py` with the four siblings on the same branch as the hub (`dev`, or `main` for a release) |
 | Publication/migration | Relevant integrity/fake-API regressions; no remote writes |
 
 Run hub lint with `uvx --from ruff==0.14.14 ruff check scripts website community`. Run `ruff format --check` with the same pinned package. Each component lists its requirements and commands in CONTRIBUTING.md. For text-only changes, check links and instructions. Do not invent behavior tests.
@@ -51,7 +52,33 @@ We promise no response deadline or reward. No contributor license agreement (CLA
 
 Recognition is [opt-in](community/contribution-recognition.md). Documentation and tests qualify. Matching usernames do not prove account ownership.
 
-The maintainer merges reviewed PRs normally on GitHub. Commit with an email you are happy to publish, such as your GitHub noreply address.
+Commit with an email you are happy to publish, such as your GitHub noreply address.
+
+## Branches and releases
+
+All five repositories use the same two long-lived branches:
+
+| Branch | Holds | Who writes to it |
+| --- | --- | --- |
+| `dev` | The next release. Default branch; every feature and fix PR targets it. CI tests all five `dev` branches together every night. | Squash-merged PRs once required checks pass |
+| `main` | The latest stable release only. Every commit is tagged. The website and the simulator download are built from the hub's and gateway's `main`. | Release and hotfix PRs only |
+
+Short-lived branches start from `dev` and are named `<type>/<ISSUE-ID>-<short-slug>`, for example `fix/GW-021-command-waits-for-ack`. Types are `feat`, `fix`, `docs`, `test`, `ci` and `chore`. Name the change, not the tool that wrote it. Keep a branch to one issue and a few days at most; update it from `dev` before merging.
+
+```mermaid
+flowchart LR
+    F["feature branch"] -->|"squash PR"| D["dev: nightly cross-repo CI"]
+    D -->|"release PR + tag"| M["main: stable, deployed"]
+    H["hotfix branch"] -->|"PR + patch tag, then merge main into dev"| M
+```
+
+- **Feature or fix:** branch from `dev`, open a PR into `dev`, squash-merge when checks are green. The PR title becomes the commit message, for example `fix(gateway): wait for ACK in gadgets_command (GW-021)`.
+- **Release:** when `dev` is green across all five repositories, open a `release: vX.Y.Z` PR from `dev` into `main` and merge it with a merge commit, never a squash, so `dev` and `main` stay related. Tag that commit `vX.Y.Z` (pre-releases use `vX.Y.Z-alpha.N`). Release components in dependency order: gateway, then the Linux and ESP32 SDKs and Home Assistant, then the hub, whose `compatibility/tested-components.json` records the tested tag set.
+- **Hotfix:** for an urgent problem in a release or on the live website, branch `hotfix/<ISSUE-ID>-<slug>` from `main`, open a PR into `main`, merge, tag a patch version, then merge `main` back into `dev`.
+- **Cross-repository changes:** use the same issue ID and branch name in each repository. Merge the gateway first and keep it compatible with the previous SDK release. Each repository's `dev` must stay green on its own. A breaking protocol change needs a new protocol version.
+- **Never:** force-push or commit directly to `dev` or `main`, bypass required checks, or merge the private pre-publication history.
+
+Versions are independent per repository (SemVer). There are no release branches; if an old release ever needs a patch, create `release/X.Y` from its tag at that time.
 
 Follow [conduct](CODE_OF_CONDUCT.md), [security](SECURITY.md), [governance](GOVERNANCE.md) and [support](SUPPORT.md). Security and conduct reports go privately to adidshaft@kyokasuigetsu.xyz; GitHub private vulnerability reporting is also enabled for security reports.
 
