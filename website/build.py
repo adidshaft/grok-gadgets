@@ -332,7 +332,7 @@ page(
     + path_row(
         "01",
         "First success in five minutes",
-        "Run the gateway's simulated light and call it from MCP Inspector. No hardware or account.",
+        "Run the gateway's simulated light and rehearse the Grok Bot calls. No hardware or account.",
         first_success,
         "Gateway guide",
     )
@@ -385,7 +385,7 @@ page(
     + path_row(
         "02",
         "On your computer",
-        "Download, inspect and run a virtual light with the local MCP client. No Bot account required.",
+        "Run the gateway's rehearsal command with its simulated light. No Bot account required.",
         "downloads/grok-gadgets-simulator-kit.zip",
         "Download kit",
     )
