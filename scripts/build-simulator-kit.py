@@ -285,7 +285,7 @@ def build(output):
                 "installed_mcp_default": "passed",
                 "installed_mcp_custom": "passed",
             },
-            "status": "Unpublished local simulator kit; no hardware or independently verified Grok claim",
+            "status": "Public simulator kit built from gateway main; software simulation only, no hardware or Grok Bot verification",
             "files": records,
         }
         (kit / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")

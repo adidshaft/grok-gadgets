@@ -5,7 +5,7 @@
   "gateway_inputs": "e1eb2f8f3d72b91e0b1ed41b562f781e50b5cfaaeb3ee5efc3b0ae5671f835b9",
   "package_version": "0.1.0a2",
   "build_inputs": {
-    "scripts/build-simulator-kit.py": "134a5c21bd06106a4dceb23a9ecce1677a71a28e67df2295fd4423d624d68796",
+    "scripts/build-simulator-kit.py": "5133b8e914923a67129b91aceeb221b207c1d30783aaa4242e920cfcbaa1364e",
     "scripts/simulator-kit/README.md": "fbfad9922dd75d50c7c8d5b2b7801a5544ceffa02a30ddff178144205e0efcd5",
     "scripts/simulator-kit/install.py": "9d0951e352a1b97b46eaa3e26476ced81793fc7624ddf771778ab63992b69b8e",
     "scripts/simulator-kit/try_simulator.py": "0b2bed54b71fc5aa6817ae763783bc556fb8ad20490ac35db47fde5adba21f47"
@@ -15,7 +15,7 @@
     "installed_mcp_default": "passed",
     "installed_mcp_custom": "passed"
   },
-  "status": "Unpublished local simulator kit; no hardware or independently verified Grok claim",
+  "status": "Public simulator kit built from gateway main; software simulation only, no hardware or Grok Bot verification",
   "files": [
     {
       "file": "LICENSE",
@@ -74,6 +74,6 @@
     }
   ],
   "archive": "grok-gadgets-simulator-kit.zip",
-  "archive_bytes": 289028,
-  "archive_sha256": "ce229377b39f116233da1d0afc56066697ed466c9274779a2c80af478950cf4b"
+  "archive_bytes": 289041,
+  "archive_sha256": "a2ba075d3bb0cef6c44a9c5c98f7b0cfb008d42572444bdd32faf1e3583a76aa"
 }

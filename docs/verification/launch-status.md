@@ -37,7 +37,7 @@ Main-branch policy requires pull requests, resolved review conversations and the
 - Native Grok Bot invocation. Tool-I/O export does not cover stdio servers on a personal plan. Installation or model narration is not invocation evidence.
 - C124 hardware, flashing, USB enumeration and physical LED/button observations.
 - Real Home Assistant entities, Linux peripherals/systemd, mobile and independent human reproduction.
-- Package/prerelease publication and firmware redistribution materials.
-- GitHub Project activation, Reddit configuration, opt-in identity linking and unattended contributor-flair automation.
+- Package-registry uploads and firmware redistribution materials. All five repositories published GitHub releases on 6 and 7 October 2026.
+- GitHub Project activation, Reddit post and user flairs, opt-in identity linking and unattended contributor-flair automation.
 
 Use [the support matrix](../public/support-matrix.md) and each component README for the tested environments. Local macOS checks do not establish every platform. Historical build/account observations remain in [the launch journal](launch-journal.md) and [Grok evidence record](grok-launch-evidence.md).
