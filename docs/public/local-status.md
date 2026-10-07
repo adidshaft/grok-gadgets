@@ -8,7 +8,7 @@ Grok Gadgets is an alpha for your existing Grok Bot. The public site provides do
 | Linux SDK | Installed-wheel acceptance on macOS and an isolated Linux container | Physical peripherals and systemd lifecycle |
 | ESP32 SDK / AtomS3 Lite C124 | Host consumer tests and ESP32-S3 compilation | Physical USB, LED/button and flashing |
 | Home Assistant | Fixtures and local MCP transport checks | Actual home installation and Grok Bot |
-| Website and community | Public static site, fixtures and offline recognition | Release uploads, a hosted gateway and automatic recognition |
+| Website and community | Public static site, fixtures and offline recognition | Package-registry uploads, a hosted gateway and automatic recognition |
 
 ## Run locally
 
@@ -41,4 +41,4 @@ The [hosting FAQ](../getting-started/hosting.md) describes three separate paths:
 
 **M5 — Actual Grok is blocked.** It needs supported invocation and reload evidence for the exact kit, plus a supported remote route. **M8 — Physical and independent verification is blocked.** It needs a real Pi/device setup, observed peripheral behavior and independent reproduction. Mobile clients and actual Home Assistant devices need separate evidence.
 
-The public website does not run the gateway or a tunnel. Future service deployment, release uploads and live recognition require their own approval. Firmware binary redistribution needs dependency/license review. These local instructions do not activate an account or device.
+The public website does not run the gateway or a tunnel. All five repositories have published GitHub releases. Future service deployment, package-registry uploads and live recognition require their own approval. Firmware binary redistribution needs dependency/license review. These local instructions do not activate an account or device.
