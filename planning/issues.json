@@ -578,7 +578,7 @@
       "docs/verification/real-grok-test-plan.md",
       "docs/getting-started/hosting.md"
     ],
-    "blocker": "Local serve (loopback HTTP + bearer) is on the gateway simplify-and-fix branch (a9be0db). A public tunnel, hosted service, or Grok Bot experiment still needs owner approval. Native stdio tool-I/O export cannot close this gate."
+    "blocker": "Loopback serve with bearer authentication is implemented. Secure remote TLS/authentication and approved, verified Grok Bot invocation remain incomplete. M5 needs supported exact-kit invocation/reload evidence and the remote route. M8 needs real Pi/device peripheral observation and independent reproduction. Enabled and approved Mac local execution with configured LAN SSH is a possible manual experiment only, not packaged MCP support. No activation is authorized."
   },
   {
     "id": "HUB-DEMO-001",
