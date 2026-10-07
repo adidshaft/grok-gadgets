@@ -4,7 +4,7 @@
 
 [![Experimental alpha](docs/visuals/badge-stage.svg)](docs/public/support-matrix.md) [![Apache-2.0 license](docs/visuals/badge-license.svg)](LICENSE) [![View CI checks](docs/visuals/badge-checks.svg)](https://github.com/adidshaft/grok-gadgets/actions) [![Contributions welcome](docs/visuals/badge-contribute.svg)](CONTRIBUTING.md)
 
-**[Website](https://grok-gadgets.pages.dev/)** · [Documentation](https://grok-gadgets.pages.dev/docs.html) · [Roadmap](ROADMAP.md) · [Issues](https://github.com/adidshaft/grok-gadgets/issues) · **[Join r/GrokGadgets](https://www.reddit.com/r/GrokGadgets/)**
+**[Website](https://grokgadgets.org/)** · [Documentation](https://grokgadgets.org/docs.html) · [Roadmap](ROADMAP.md) · [Issues](https://github.com/adidshaft/grok-gadgets/issues) · **[Join r/GrokGadgets](https://www.reddit.com/r/GrokGadgets/)**
 
 **Let your Grok Bot control lights, buttons and sensors you build. Open source.**
 
@@ -28,7 +28,7 @@ Already use Home Assistant? Check what it offers with the
 | If you want to… | Open |
 | --- | --- |
 | See it work in five minutes, no hardware | [Gateway first success](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/first-success.md) |
-| Play with a virtual light in your browser | [Browser playground](https://grok-gadgets.pages.dev/#playground), then the [simulator kit](docs/getting-started/simulator-kit.md) |
+| Play with a virtual light in your browser | [Browser playground](https://grokgadgets.org/#playground), then the [simulator kit](docs/getting-started/simulator-kit.md) |
 | Build a Raspberry Pi or Linux gadget | [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk) |
 | Build an ESP32 gadget | [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk) |
 | Run the local MCP gateway | [Gateway](https://github.com/adidshaft/grok-gadgets-gateway) |

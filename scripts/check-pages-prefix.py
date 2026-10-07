@@ -11,9 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "website"))
 from documents import PageLinks  # noqa: E402
 
-BASE = os.environ.get(
-    "GROK_GADGETS_PUBLIC_SITE", "https://grok-gadgets.pages.dev/"
-).strip()
+BASE = os.environ.get("GROK_GADGETS_PUBLIC_SITE", "https://grokgadgets.org/").strip()
 
 
 def check(output, base=BASE):

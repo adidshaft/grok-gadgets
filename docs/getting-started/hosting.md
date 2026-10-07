@@ -17,7 +17,7 @@ A cloud Bot cannot open `127.0.0.1`. A tunnel only moves packets. Keep the beare
 
 ## What you can do now
 
-1. Try the [browser light](https://grok-gadgets.pages.dev/#playground).
+1. Try the [browser light](https://grokgadgets.org/#playground).
 2. Run the [simulator kit](simulator-kit.md) or `grok-gadgets-gateway serve --simulator`.
 3. Build a Linux or ESP32 gadget against a gateway on the same computer.
 
