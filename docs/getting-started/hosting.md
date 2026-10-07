@@ -10,7 +10,7 @@ Grok Bot normally works on its cloud computer. Its internet connection does not 
 
 Grok Bot has a separate **Execution on Local Computer** capability. If you enable it and approve a command, Grok Bot can run that command on your Mac.
 
-If the Mac can reach your Raspberry Pi over the home network, and SSH is set up, a command on the Mac can connect to the Pi through SSH. Both computers must be available. The SSH user must have permission to do the requested work.
+A command on the Mac can connect to your Raspberry Pi through SSH. For this, the Mac must reach the Pi over the home network, and you must set up SSH. Both computers must be available. The SSH user must have permission to do the requested work.
 
 This is a possible manual experiment. It is not verified Grok Gadgets product support. It is not a ready-to-use MCP integration. Connecting a USB cable alone does not create this route.
 
