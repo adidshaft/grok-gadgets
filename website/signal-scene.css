@@ -1,0 +1,142 @@
+/* Three proposed hardware paths around the user's existing Grok Bot. */
+.signal-scene {
+  --signal-ink: #252523;
+  --signal-muted: #70706a;
+  --signal-accent: #6c8270;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: var(--signal-ink);
+  container-type: inline-size;
+  contain: layout paint;
+}
+.signal-scene[hidden] {display: none;}
+.signal-canvas {display: block; width: 100%; height: 100%;}
+.signal-canvas :is(path, circle), .signal-device-icon * {vector-effect: non-scaling-stroke;}
+.signal-wire {fill: none; stroke: #bdbdb5; stroke-width: .8; stroke-dasharray: 3 6;}
+.signal-wire.is-selected {stroke: #5f6159; stroke-width: 1;}
+.signal-packet, .signal-trail {fill: var(--signal-accent);}
+
+.signal-scene button {
+  box-sizing: border-box;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--signal-ink);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transform: translate(-50%, -50%);
+  font: 11px/1.3 'Courier New', monospace;
+}
+.signal-scene button:focus-visible {outline: 2px solid var(--signal-ink); outline-offset: 5px;}
+.signal-scene .signal-bot {
+  left: 50%;
+  top: 39.2857%;
+  width: clamp(64px, 19cqw, 172px);
+  height: clamp(64px, 19cqw, 172px);
+}
+.signal-bot img {display: block; width: 100%; height: 100%; object-fit: contain;}
+.signal-bot > span {
+  position: absolute;
+  top: calc(100% + 9px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background: #fff;
+  padding: 0 3px;
+}
+.signal-bot:hover > span {text-decoration: underline; text-underline-offset: 4px;}
+
+.signal-scene .signal-device {
+  --device-size: clamp(32px, 9cqw, 84px);
+  display: grid;
+  place-items: center;
+  width: calc(var(--device-size) + 16px);
+  height: calc(var(--device-size) + 16px);
+  min-width: 44px;
+  min-height: 44px;
+}
+.signal-device-icon {
+  display: block;
+  width: var(--device-size);
+  height: var(--device-size);
+  overflow: visible;
+  fill: #fff;
+  stroke: #74766d;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.signal-device[aria-pressed='true'] .signal-device-icon, .signal-device:hover .signal-device-icon {stroke: var(--signal-ink);}
+.signal-device-indicator {fill: #eeeee7;}
+.signal-device-indicator.is-lit {fill: var(--signal-accent); stroke: var(--signal-accent);}
+.signal-device-name {
+  position: absolute;
+  top: calc(50% + var(--device-size) / 2 + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 3px;
+  white-space: nowrap;
+  background: #fff;
+}
+.signal-device[aria-pressed='true'] .signal-device-name {text-decoration: underline; text-underline-offset: 4px;}
+.signal-port {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  color: #8a8b83;
+  padding: 2px 4px;
+  pointer-events: none;
+  white-space: nowrap;
+  font: 9px/1.3 'Courier New', monospace;
+}
+.signal-port.is-selected {color: #62655b;}
+
+.signal-detail {position: absolute; left: 6%; right: 6%; bottom: 3.5%;}
+.signal-detail-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  color: var(--signal-ink);
+  font-size: clamp(11px, 1.7cqw, 16px);
+  line-height: 1.4;
+  text-decoration: none;
+}
+.signal-detail-link > span:last-child {font-size: 11px;}
+.signal-detail-link:hover > span:first-child {text-decoration: underline; text-underline-offset: 4px;}
+.signal-detail-link:focus-visible {outline: 2px solid var(--signal-ink); outline-offset: 4px;}
+.signal-detail-route {margin: 5px 0 0; color: #686b62; font: 11px/1.4 'Courier New', monospace;}
+.signal-evidence {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 8px;
+  color: var(--signal-muted);
+  font: 10px/1.4 'Courier New', monospace;
+}
+.signal-phase {white-space: nowrap; text-align: right;}
+.signal-sr-only {position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;}
+
+@container (max-width: 580px) {
+  .signal-scene button {font-size: 10px;}
+  .signal-bot > span {top: calc(100% + 6px);}
+  .signal-device-name {top: calc(50% + var(--device-size) / 2 + 6px);}
+  .signal-detail {left: 4%; right: 4%; bottom: 2%;}
+  .signal-detail-route {font-size: 10px; margin-top: 3px;}
+  .signal-evidence {font-size: 9px; margin-top: 5px;}
+}
+@container (max-width: 390px) {
+  .signal-scene button {font-size: 9px;}
+  .signal-port {font-size: 8px; padding: 1px 2px;}
+  .signal-bot > span {top: calc(100% + 5px);}
+  .signal-device-name {top: calc(50% + var(--device-size) / 2 + 5px);}
+  .signal-detail {bottom: 1%;}
+  .signal-detail-link {font-size: 11px; gap: 6px;}
+  .signal-detail-route {font-size: 9px; margin-top: 2px;}
+  .signal-evidence {font-size: 8px; margin-top: 3px; gap: 5px;}
+}

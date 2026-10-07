@@ -12,14 +12,13 @@ SITE = ROOT / "website"
 class SiteClarityTests(unittest.TestCase):
     def test_homepage_states_existing_grok_bot_and_pending_verification(self):
         hero = (SITE / "home-scene.html").read_text()
-        # Review M11: say what it does in plain words, with one honest status chip.
-        self.assertIn(
-            "Let your Grok Bot control lights, buttons and sensors you build.", hero
-        )
-        self.assertIn("<span>Open source.</span>", hero)
-        self.assertIn("Grok Bot connection in progress · test it locally today", hero)
+        self.assertIn("your Grok Bot.", hero)
+        self.assertIn('id="donate-open"', hero)
+        self.assertIn("Open-source tools and SDKs", hero)
+        self.assertIn("Grok Bot and hardware connection tests are still ahead.", hero)
         self.assertIn('href="doc-docs-public-support-matrix.html"', hero)
-        self.assertIn('href="#scene-demo"', hero)
+        self.assertIn('id="scene-demo"', hero)
+        self.assertIn('href="start.html"', hero)
 
     def test_three_build_paths_and_legacy_component_anchor_are_preserved(self):
         builder = (SITE / "build.py").read_text()
@@ -43,7 +42,7 @@ class SiteClarityTests(unittest.TestCase):
         self.assertEqual(len(re.findall(r'<details class="component', inventory)), 10)
         self.assertIn('href="index.html#playground"', inventory)
 
-    def test_finite_concept_stories_and_static_no_script_fallback_exist(self):
+    def test_concept_stories_and_static_no_script_fallback_exist(self):
         hero = (SITE / "home-scene.html").read_text()
         stories = re.findall(r'data-story="([a-z]+)"', hero)
         self.assertEqual(stories, ["light", "sensor", "display", "home"])
@@ -59,6 +58,22 @@ class SiteClarityTests(unittest.TestCase):
         self.assertIn("document.hidden", motion)
         self.assertIn("current output unknown", scene)
         self.assertIn("error.code", scene)
+
+    def test_scene_gallery_and_author_credit_are_available(self):
+        hero = (SITE / "home-scene.html").read_text()
+        gallery = (SITE / "scene-gallery.js").read_text()
+        builder = (SITE / "build.py").read_text()
+        self.assertEqual(
+            re.findall(r'data-scene="([a-z]+)"', hero),
+            ["devices", "signal", "hardware", "roadmap"],
+        )
+        self.assertIn("grok:scene-change", gallery)
+        self.assertIn("scene.setActive(key === name)", gallery)
+        self.assertIn("stories.hidden = name !== 'devices'", gallery)
+        self.assertEqual(builder.count('href="https://x.com/adidshaft"'), 2)
+        for name in ["roadmap-scene", "signal-scene", "hardware-scene"]:
+            self.assertIn(name + ".js", builder)
+            self.assertIn(name + ".css", builder)
 
     def test_projected_nodes_stay_inside_scene_vertical_bounds(self):
         scene = (SITE / "scene.js").read_text()
