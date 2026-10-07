@@ -16,4 +16,4 @@ Put the issue's ID (for example `GW-GFI-001`) in your branch name and commits. E
 its acceptance criteria and the checks to run.
 
 Physical C124 boards, real Linux services, real Home Assistant homes and Windows are separate
-opportunities with extra prerequisites; their issues are labelled `needs hardware` or say so.
+opportunities. They have extra prerequisites. Their issues are labelled `needs hardware` or say so.

@@ -55,8 +55,8 @@ Simulation, fixtures, compilation and assistant narratives do not prove physical
 The same bar applies in all five repositories. A pull request is merged only when every point
 holds:
 
-1. **It solves a stated problem.** It links an open issue that the maintainer has accepted, or a
-   bug you reproduced with steps, expected result and actual result. For anything beyond a typo,
+1. **It solves a stated problem.** It links an open issue that the maintainer has accepted. Or it
+   fixes a bug you reproduced, with steps, the expected result and the actual result. For anything beyond a typo,
    comment on the issue first and wait until it is assigned to you.
 2. **It is small and focused.** One issue per PR. No unrelated edits, reformatting or renames.
    Do not commit generated files (the simulator kit ZIP, manifests, lock files, `dist/`) unless
@@ -105,8 +105,8 @@ flowchart LR
 ```
 
 - **Feature or fix:** branch from `dev`, open a PR into `dev`, squash-merge when checks are green. The PR title becomes the commit message, for example `fix(gateway): wait for ACK in gadgets_command (GW-021)`.
-- **Release:** when `dev` is green across all five repositories, open a `release: vX.Y.Z` PR from `dev` into `main` and merge it with a merge commit, never a squash, so `dev` and `main` stay related. Tag that commit `vX.Y.Z` (pre-releases use `vX.Y.Z-alpha.N`). Release components in dependency order: gateway, then the Linux and ESP32 SDKs and Home Assistant, then the hub, whose `compatibility/tested-components.json` records the tested tag set.
-- **Hotfix:** for an urgent problem in a release or on the live website, branch `hotfix/<ISSUE-ID>-<slug>` from `main`, open a PR into `main`, merge, tag a patch version. Then sync `dev`: branch `chore/<ISSUE-ID>-sync-main-into-dev` from `main`, merge `dev` into it, open a PR into `dev` and merge it with a **merge commit, never a squash**. A squash would hide that `main`'s commits are already in `dev` and cause false conflicts at the next release.
+- **Release:** when `dev` is green across all five repositories, open a `release: vX.Y.Z` PR from `dev` into `main`. Merge it with a merge commit, never a squash, so `dev` and `main` stay related. Tag that commit `vX.Y.Z` (pre-releases use `vX.Y.Z-alpha.N`). Release components in dependency order: gateway, then the Linux and ESP32 SDKs and Home Assistant, then the hub, whose `compatibility/tested-components.json` records the tested tag set.
+- **Hotfix:** for an urgent problem in a release or on the live website, branch `hotfix/<ISSUE-ID>-<slug>` from `main`. Open a PR into `main`, merge it and tag a patch version. Then sync `dev`: branch `chore/<ISSUE-ID>-sync-main-into-dev` from `main` and merge `dev` into it. Open a PR into `dev` and merge it with a **merge commit, never a squash**. A squash would hide that `main`'s commits are already in `dev` and cause false conflicts at the next release.
 - **Branch hygiene:** only `main` and `dev` live long. Merged branches are deleted automatically; delete abandoned ones.
 - **Cross-repository changes:** use the same issue ID and branch name in each repository. Merge the gateway first and keep it compatible with the previous SDK release. Each repository's `dev` must stay green on its own. A breaking protocol change needs a new protocol version.
 - **Never:** force-push or commit directly to `dev` or `main`, bypass required checks, or merge the private pre-publication history.

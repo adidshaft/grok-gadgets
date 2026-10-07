@@ -41,10 +41,10 @@ Already use Home Assistant? Check what it offers with the
 
 Grok Bot normally runs on its cloud computer. This does not expose your home network.
 With local execution enabled and a command approved, it can run a Mac command. If the Mac
-can reach a Pi and SSH is configured, that command can reach the Pi. This is a possible
+can reach a Pi and you have set up SSH, that command can reach the Pi. This is a possible
 manual experiment, not verified Grok Gadgets support. USB alone does not create the route.
 
-The gateway's local `serve` is implemented on loopback. Packaged remote MCP and a verified
+The gateway's local `serve` works on loopback today. Packaged remote MCP and a verified
 Grok Bot invocation are incomplete. A tunnel adds reachability, not authentication.
 See the [three-path hosting FAQ](docs/getting-started/hosting.md) before planning a connection.
 
