@@ -1,5 +1,6 @@
 """Static, escaped, source-driven documentation and roadmap builder."""
 
+from datetime import datetime, timezone
 from pathlib import Path
 from html import escape as e
 import json
@@ -86,22 +87,42 @@ if activity.get("state") not in ["fixture", "unavailable", "cached", "live"]:
     raise ValueError("Unknown activity state")
 
 
+# The page is static, so a fresh fetch is shown as a dated snapshot, never as "live".
+ACTIVITY_LABELS = {
+    "live": "SNAPSHOT",
+    "cached": "CACHED",
+    "fixture": "FIXTURE",
+    "unavailable": "UNAVAILABLE",
+}
+ACTIVITY_REFRESH = (
+    "<p>This is a snapshot, not a live feed. The site fetches it once a day at 06:17 UTC "
+    "and after each successful hub build on main. A commit in a component repository "
+    "appears after the next refresh.</p>"
+)
+
+
 def activity_html(record):
     state = record["state"]
     body = (
         '<p class="status">'
-        + e(state.upper())
+        + ACTIVITY_LABELS[state]
         + " — "
         + e(record.get("reason", "GitHub project activity"))
         + "</p>"
     )
     if state == "unavailable":
         return body
-    body += (
-        "<p>Last successful refresh: "
-        + e(record.get("last_successful_refresh", "Not a live refresh; fixture"))
-        + "</p>"
-    )
+    if "last_successful_refresh" in record:
+        stamp = datetime.fromisoformat(record["last_successful_refresh"])
+        body += (
+            '<p>Fetched at: <time datetime="'
+            + e(stamp.isoformat())
+            + '">'
+            + stamp.astimezone(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+            + "</time></p>"
+        )
+    else:
+        body += "<p>Fetched at: never; synthetic fixture</p>"
     data = record.get("data", {})
     for key, label in [
         ("aggregate_stars", "Aggregate stars (sum, not unique people)"),
@@ -130,6 +151,8 @@ def activity_html(record):
         body += "<p>Synthetic development fixture. These numbers are not real project activity.</p>"
     if state == "cached":
         body += "<p>Cached result: refresh failed or overdue. Last successful timestamp shown; not current live activity.</p>"
+    if state in ["live", "cached"]:
+        body += ACTIVITY_REFRESH
     return body
 
 
@@ -698,7 +721,7 @@ page(
     intro(
         "Source records",
         "Activity.",
-        "Always labeled: live, cached, fixture or unavailable.",
+        "Always labeled: snapshot, cached, fixture or unavailable.",
     )
     + activity_html(activity),
 )
