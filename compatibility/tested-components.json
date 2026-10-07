@@ -1,14 +1,14 @@
 {
-  "status": "Public source alpha and website live; v0.1.0-alpha.2 release candidate verified",
+  "status": "Public source alpha; v0.1.0-alpha.2 published",
   "protocol": "0.1.0",
   "components": [
     {
       "repository": "grok-gadgets",
       "path": "grok-gadgets",
       "version": "0.1.0-alpha.2",
-      "commit": "5775ea5ef817c8e72b8b0fa994dd12368eaeb9ae",
-      "evidence_level": "Public source alpha; simulator kit and Grok Bot rehearsal verified",
-      "checks": "Hub local check suite passed on the release candidate, including website generation, donation modal checks, simulator kit tests and the full integration suite. GitHub required release checks provide the protected publication evidence. No Grok Bot connection or physical hardware operation is claimed.",
+      "commit": "1540fa16b00d4630d9e8664d8e0f53fda1e0eac3",
+      "evidence_level": "Published source alpha; simulator kit and rehearsal verified",
+      "checks": "Full local hub check suite and all required corrected-release PR checks passed. The tagged commit is 1540fa16b00d4630d9e8664d8e0f53fda1e0eac3. No Grok Bot connection or physical hardware operation is claimed.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
