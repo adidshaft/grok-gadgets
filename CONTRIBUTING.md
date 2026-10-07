@@ -15,18 +15,19 @@ Choose the repository that owns the change. Use the [repository map](docs/archit
 
 Discuss protocol/schema changes, cross-repository interfaces and substantial features in an issue first. A typo fix needs no issue ceremony. Reproduce a bug before changing code; state the expected behavior, observed result and evidence level. GitHub Issues are authoritative after the initial migration. The local planning ledgers preserve pre-publication history; the website consumes a timestamped GitHub snapshot. The separate GitHub Project board remains pending.
 
-Fork the repository under your account, clone your fork and branch from `dev`:
+Fork the repository under your account and clone your fork. A fork can hold only `main`, so start your branch from the upstream `dev`:
 
 ```sh
 git clone https://github.com/YOUR_ACCOUNT/grok-gadgets.git
 cd grok-gadgets
-git switch dev
-git switch -c docs/HUB-123-your-focused-change
+git remote add upstream https://github.com/adidshaft/grok-gadgets.git
+git fetch upstream dev
+git switch -c docs/HUB-123-your-focused-change upstream/dev
 python3 scripts/dev.py setup
 python3 scripts/dev.py check
 ```
 
-Make small commits with one clear purpose. Reference the issue ID when available. Do not change global Git identity. Push your contribution branch. Open a focused pull request (PR) against `dev` with the template.
+Make small commits with one clear purpose. Reference the issue ID when available. Do not change global Git identity. Push the branch to your fork with `git push -u origin docs/HUB-123-your-focused-change`. Open a focused pull request (PR) into `adidshaft/grok-gadgets` `dev` with the template. The GitHub PR form selects `main` by default. Change the base branch to `dev`, because the PR-target check rejects other PRs into `main`.
 
 | Change | Focused checks |
 | --- | --- |
