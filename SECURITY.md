@@ -22,3 +22,13 @@ Development services use the local loopback interface. A networked device deploy
 Enable simulation test controls only for the test. Remove them afterward. A cloud Grok Bot cannot run a local Mac file. Remote authenticated HTTPS/OAuth access is not implemented and needs review.
 
 An MCP execution result does not prove that a physical device changed.
+
+## Dependency alerts
+
+All five repositories have Dependabot vulnerability alerts and security updates turned on. The maintainer triages alerts in each repository's Security tab.
+
+- Each repository's `.github/dependabot.yml` opens weekly grouped update PRs into `dev`. They cover Python packages (uv or pip) and GitHub Actions.
+- Security-update PRs open against `main`. The PR-target check rejects them. Change the base branch to `dev`, then review and merge them like any other PR.
+- Nothing merges automatically. Normal `dev` and `main` review rules apply.
+- Dependabot does not read PlatformIO, the ESP-IDF toolchain or the ESP32 `requirements.lock`. Pinned versions in `platformio.ini` and the lock file change by hand. The ESP32 `requirements.txt` pins are covered.
+- The hub's npm deploy tool (`.github/deploy`) gets alerts but no scheduled update PRs.
