@@ -12,7 +12,7 @@ Historical local-alpha completion predates six audit findings. The correction cy
 | `<workspace>/grok-gadgets-gateway` | `d2b1008c` | 13 tests; official stdio MCP demo; authenticated TCP/USB PTY |
 | `<workspace>/grok-gadgets-linux-sdk` | `2fea71b6` | 15 tests macOS and Linux installed wheel/CLI; actual gateway TCP |
 | `<workspace>/grok-gadgets-esp32-sdk` | `41ee9635` | 3 CTest suites; canonical frames; actual consumer PTY incl overflow/restart/revocation; ESP32-S3 compile |
-| `<workspace>/grok-gadgets-home-assistant` | `5c81ebe9` | 13tests incl loopback HTTP official MCP client; clean wheel; no actions |
+| `<workspace>/grok-gadgets-home-assistant` | `5c81ebe9` | 13 tests including loopback HTTP transport; clean wheel; no actions |
 
 Full commit histories are in publication/commit-summary.md. All repositories have Apache-2.0 original code, contribution foundations, pinned toolchains/dependencies where needed, feature-branch commits and local issue records. Canonical shared policies live in hub. Component docs are pinned by commit/hash in compatibility/documentation-sources.json.
 
@@ -34,7 +34,7 @@ uv sync --locked
 uv run python -m grok_gadgets_gateway.demo
 ```
 
-Normal MCP server: `uv run grok-gadgets-gateway --simulator`. Simulator test controls require `--test-controls`; absent by default. The demo uses an actual official MCP ClientSession over stdio and asserts discovery, colour/off, button edges, disconnect/offline error, reconnect and honest simulation flags. This is not actual Grok connectivity.
+Normal MCP server: `uv run grok-gadgets-gateway --simulator`. Simulator test controls require `--test-controls`; absent by default. The demo uses the gateway rehearsal over stdio and checks discovery, colour/off, button edges, disconnect/offline error, reconnect and honest simulation flags. This is not actual Grok connectivity.
 
 Linux software example, service template and credential setup: sibling Linux README/docs/operation.md. HA diagnostics: `uv sync --frozen`, then `uv run ha-probe --fixture fixtures/assist.json` in its repository. C124 build: sibling ESP README/docs/build-flash.md; `.venv/bin/pio run -e atoms3-lite-usb`. Do not flash until hardware and authorization are available.
 
