@@ -179,7 +179,7 @@ def page(name, title, body):
         + '<button id="motion-toggle" aria-pressed="false">Pause motion <span>[Ⅱ]</span></button></footer>'
     )
     scripts = '<script src="motion.js" defer></script>' + (
-        '<script src="simulator.js" defer></script><script src="scene.js" defer></script><script src="roadmap-scene.js" defer></script><script src="signal-scene.js" defer></script><script src="hardware-scene.js" defer></script><script src="scene-gallery.js" defer></script>'
+        '<script src="simulator.js" defer></script><script src="scene.js" defer></script><script src="donate.js" defer></script><script src="roadmap-scene.js" defer></script><script src="signal-scene.js" defer></script><script src="hardware-scene.js" defer></script><script src="scene-gallery.js" defer></script>'
         if home
         else ""
     )
@@ -222,6 +222,7 @@ def page(name, title, body):
         )
         + '"><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="identity" href="index.html" aria-label="Grok Gadgets home"><img src="media/grok-gadgets-icon.png" width="36" height="36" alt=""><span>Grok Gadgets</span></a><a class="header-contribute" href="contribute.html">Contribute ↗</a><button id="menu-open" aria-haspopup="dialog" aria-controls="site-menu">Menu <span>[+]</span></button></header>'
         + menu
+        + ((R / "website/donate.html").read_text() if home else "")
         + '<main id="main">'
         + body
         + "</main>"
@@ -263,21 +264,21 @@ def path_row(number, title, description, url, link_text):
 first_success = "doc-docs-components-grok-gadgets-gateway-first-success.html"
 proof_section = (
     '<section class="home-proof" id="first-success" aria-labelledby="proof-heading">'
-    '<p class="eyebrow">SEE IT WORK IN A REAL MCP CLIENT</p>'
+    '<p class="eyebrow">REHEARSE WHAT GROK BOT WILL DO</p>'
     '<h2 id="proof-heading">Five minutes. No hardware.</h2>'
-    "<p>Run the gateway with its simulated light, then call the six tools from "
-    "MCP Inspector, the official model-free MCP developer tool. CI runs this path every night.</p>"
-    '<picture><source srcset="media/gateway-inspector-first-success-still.webp" '
-    'media="(prefers-reduced-motion: reduce)">'
-    '<img src="media/gateway-inspector-first-success.webp" width="800" height="580" loading="lazy" '
-    'alt="MCP Inspector connects to the local gateway, lists six tools, finds the simulated light '
-    'sim-c124 and sets it blue. The reply says executed, simulated true, physical_verified false."></picture>'
-    '<p class="quiet-note">Recorded locally on 6 October 2026 with MCP Inspector 2.9.0. '
-    "Software simulator only: no Grok Bot and no physical device.</p>"
+    "<p>Run the gateway with its simulated light, then rehearse the Grok Bot calls: "
+    "the same six tools, in the same order, on your computer. CI runs this path every night.</p>"
+    '<pre class="proof-output"><code>$ grok-gadgets-gateway rehearse\n'
+    "ok  http://127.0.0.1:8766/mcp offers the six tools Grok Bot will use\n"
+    "ok  gadget sim-c124 (simulated); commands: rgb.set\n"
+    "ok  gadgets_command rgb.set {&quot;r&quot;:0,&quot;g&quot;:120,&quot;b&quot;:255,&quot;on&quot;:true} -&gt; executed\n"
+    "Rehearsal passed</code></pre>"
+    '<p class="quiet-note">Software simulator only: no Grok Bot connection and no physical device.</p>'
     '<p><a href="'
     + first_success
     + '">Follow the five-minute guide ↗</a></p></section>'
 )
+
 hosting_guide = '<p><a href="doc-docs-getting-started-hosting.html">Who runs the gateway? Hosting and remote access FAQ ↗</a></p>'
 scene_source = R / "website/home-scene.html"
 page(
@@ -292,6 +293,7 @@ page(
             .replace("{{SIMULATOR_BUILD}}", e(simulator_build["gateway_commit"][:8]))
             .replace("{{SIMULATOR_VERSION}}", e(simulator_build["package_version"]))
             + "</details>"
+            + proof_section
             + '<section class="builder-paths" id="builder-paths" aria-labelledby="builder-heading"><p class="eyebrow">CHOOSE YOUR FIRST PATH</p><h2 id="builder-heading">Start building.</h2>'
             + path_row(
                 "01",
@@ -701,6 +703,7 @@ for f in [
     "scene.css",
     "simulator.js",
     "scene.js",
+    "donate.js",
     "docs.js",
     "roadmap-scene.js",
     "roadmap-scene.css",

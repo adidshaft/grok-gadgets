@@ -467,7 +467,7 @@ Review at least:
 | --- | --- |
 | Current tracked files | Remove private paths, chat-only instructions, account evidence, and accidental fixture credentials |
 | Reachable main history | Inspect deleted files, commit messages, binary/media history, author/committer identities, and large blobs |
-| Other local refs | Keep agent turn-diff refs, experiment branches, and unrelated work private |
+| Other local refs | Keep agent checkpoint refs, experiment branches, and unrelated work private |
 | Untracked assets | Preserve; selectively include only reviewed assets with provenance if needed |
 | Ignored evidence | Keep raw Grok captures, household data, private mappings, and host logs out of public release uploads |
 | Public manifests | Use portable source identities and hashes instead of private absolute paths |
@@ -566,7 +566,7 @@ Use the existing HUB-PUBLISH-001 as a parent or equivalent activation tracker. K
 
 The lead integrates and reviews; bounded subagents own disjoint files or repositories. Keep ownership explicit and avoid concurrent edits to shared ledgers/manifests.
 
-Use the effort each task needs, and the strongest available reasoning for research. Record the actual delegation in handoffs. Development tooling is not named in the repository.
+Use the effort each task needs, and the strongest available reasoning for research. Report a gap before substituting.
 
 Progress records should capture the issue/stage, source commits, changed files, commands and results, decisions, unresolved gates, and next action. Record useful evidence, not private internal deliberation. Keep raw account/host logs private and public status summaries readable.
 
@@ -664,7 +664,7 @@ Also perform authorized stage G1: use computer automation with the actual signed
 
 Use owner adidshaft, retain all current names, and use adidshaft@kyokasuigetsu.xyz for private conduct reports. Naming is deferred and must not stall local preparation. Preserve existing history, unrelated assets, and the Grok-only product scope. Make coherent tested commits throughout and maintain issues, stages, decisions, process notes, and evidence.
 
-Use bounded subagents with explicit file ownership. Any research subagent uses the strongest available reasoning. Distinguish local simulation/MCP/build evidence from actual Grok, mobile, and physical verification.
+Use bounded subagents with explicit file ownership. Research uses the strongest available reasoning. Distinguish local simulation/MCP/build evidence from actual Grok, mobile, and physical verification.
 
 Continue until all independently achievable preparation and the authorized simulation check are complete or accurately gated. Then present the exact publication packet, commits, verification evidence, and remaining external gates. Apart from the explicitly authorized Grok simulation, do not create repositories, push, publish releases/packages, deploy, spend money, activate automation, operate other live accounts or real devices, or modify Reddit without explicit scope authorization. Never open Brave, Safari, or Passwords. Do not claim public launch, native invocation, or physical success from prepared files or model assertions alone.
 ```

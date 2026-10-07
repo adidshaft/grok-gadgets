@@ -8,7 +8,7 @@ Choose a labeled issue in the owning repository, agree on acceptance criteria, r
 
 ## Prototype update
 
-The local alpha includes simulator and MCP client acceptance, reusable device SDK work, C124 compilation evidence, upstream Home Assistant fixture checks, and a source-driven website. Exact results and commits must be inserted from the final verification manifest before publication. These results do not establish hardware operation or actual Grok desktop/mobile connectivity.
+The local alpha includes simulator and Grok Bot tool-call rehearsal acceptance, reusable device SDK work, C124 compilation evidence, upstream Home Assistant fixture checks, and a source-driven website. Exact results and commits must be inserted from the final verification manifest before publication. These results do not establish hardware operation or actual Grok Bot desktop/mobile connectivity.
 
 ## First build / help thread
 

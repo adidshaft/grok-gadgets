@@ -2,7 +2,7 @@
 
 Historical proposal: the user subsequently authorized the desktop cloud simulator experiment and requested a new dedicated Bot. See [recorded experiment and evidence gate](real-grok-experiment.md). The authorization statements below describe the original proposal, not the current approval state.
 
-Checked official docs on4October2026: [Grok Bot overview](https://docs.x.ai/grok-bot/overview) describes its persistent cloud computer; [Team Bot plugins](https://docs.x.ai/grok-bot/team-bots#plugins) lists Command and Remote HTTPS custom MCP routes. Availability must be confirmed in the actual account/client before configuration. Nothing here configures an account or grants approval.
+Checked official docs on 4 October 2026: [Grok Bot overview](https://docs.x.ai/grok-bot/overview) describes its persistent cloud computer; [Team Bot plugins](https://docs.x.ai/grok-bot/team-bots#plugins) lists Command and Remote HTTPS custom MCP routes. Availability must be confirmed in the actual account/client before configuration. Nothing here configures an account or grants approval.
 
 ## Proposed first route
 
@@ -21,10 +21,14 @@ If Command custom MCP is absent for the selected account, stop this experiment a
 
 Pass means an actual existing Grok Bot invoked the corrected simulator tools. Physical C124, local Linux peripherals and actual Home Assistant remain separate gates. No API charges, deployment, new Bot/team publication or account changes are currently authorized.
 
-## Future physical connection
+## Current connection paths and remaining gates
 
-The current [hosting FAQ](../getting-started/hosting.md) explains gateway operators, tunnel ownership and future deployment options. A tunnel supplies reachability only. It does not implement remote MCP or gateway authorization.
+The [hosting FAQ](../getting-started/hosting.md) defines three separate paths:
 
-The gateway currently supports local stdio MCP plus authenticated loopback device transport. It has no authenticated remote HTTPS MCP/OAuth service for the cloud Bot to reach devices on this Mac. HARD-GROK-REMOTE-001 tracks the missing implementation: route/access design, OAuth or scoped credential lifecycle, TLS, authorization and isolation, bounded connections/commands, negative auth tests, redacted diagnostics and revocation. Do not expose raw loopback device frames or substitute an unauthenticated tunnel. Service development/activation must be approved separately.
+1. **Cloud computer:** Grok Bot normally runs commands on its cloud computer. Its internet connection does not expose the user's private LAN. The cloud simulator experiment above cannot prove access to a Mac or Pi at home.
+2. **Manual Mac → SSH → Pi experiment:** **Execution on Local Computer** is a separate capability. If the user enables it and approves a command, Grok Bot can run that command on the Mac. The command can reach a Pi if the Mac can reach it over the home network and SSH is set up. USB alone does not create the route. This possible experiment is not verified Grok Gadgets support or a packaged MCP integration.
+3. **Packaged remote MCP:** The gateway implements stdio MCP, bearer-authenticated local HTTP MCP at `127.0.0.1:8766/mcp`, and authenticated loopback device transport. An authenticated remote MCP endpoint with TLS and approved, verified Grok Bot invocation are not complete. Do not point Grok Bot at the alpha as a ready-to-use remote service.
 
-Next decision: authorize the existing-account cloud Command simulator experiment above, or choose a separately scoped authenticated remote transport design. The prepared local release does not depend on either decision.
+`HARD-GROK-REMOTE-001` tracks the remote route, authentication and access controls, credential revocation, and actual Grok Bot evidence. The local `serve` listener already exists. A tunnel adds reachability, not authentication. Do not expose raw device frames. Service activation needs separate approval.
+
+**M5 — Actual Grok is blocked** on supported invocation and reload evidence for the exact kit, plus the remote route. **M8 — Physical and independent verification is blocked** pending a real Pi/device setup, observed peripheral behavior and independent reproduction. A successful manual SSH experiment would not, by itself, complete either gate.

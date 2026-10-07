@@ -20,7 +20,6 @@ fresh-run.jsonl
 
 # Environments, caches and generated output.
 .venv
-.venv/
 venv/
 __pycache__/
 *.py[cod]

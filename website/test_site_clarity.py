@@ -13,6 +13,7 @@ class SiteClarityTests(unittest.TestCase):
     def test_homepage_states_existing_grok_bot_and_pending_verification(self):
         hero = (SITE / "home-scene.html").read_text()
         self.assertIn("your Grok Bot.", hero)
+        self.assertIn('id="donate-open"', hero)
         self.assertIn("Open-source tools and SDKs", hero)
         self.assertIn("Grok Bot and hardware connection tests are still ahead.", hero)
         self.assertIn('href="doc-docs-public-support-matrix.html"', hero)
