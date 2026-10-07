@@ -10,7 +10,7 @@
 
 Status: Grok Bot connection in progress · test it locally today
 ([project status](docs/public/support-matrix.md)).
-Independent project, not affiliated with SpaceXAI or xAI.
+Independent project, not affiliated with SpaceXAI.
 
 Pick a path:
 
@@ -75,11 +75,20 @@ python3 scripts/dev.py site
 Open `http://127.0.0.1:4173/index.html`. With the four other repositories beside this one,
 `scripts/check-all.py` runs the cross-repository integration.
 
+## Support the project
+
+Grok Gadgets is open source. If you’d like to support its development, you can send a
+voluntary contribution to one of these addresses:
+
+- **Ethereum (ETH):** `0xD571210016e5AB4206D27f24bE128916E1C91047`
+- **Solana (SOL):** `D2jV1NkjuHHmvkuZ48Woc29v5NDeKLmHeLkUcN4fDg68`
+- **Bitcoin (BTC):** `bc1qal92xr892akwxgqrnkjhld7ar04hlld06uqyq5`
+- **Zcash (shielded):** `u10hkzg65lgz6eq3arsylenag78jracfpguc3m4p6ptz8fkjlgxy6668yrjdgj2p704wp2f2wykrqv88tg9zu7fjuc9tk5s6vazvzmw5cvt5qkyzr32wqymesmcymja9zxpcwc6vcswa88yae023yj7jhypvn6n592t6z7nxqu4s59sdf9`
+
 ## License and affiliation
 
 Apache-2.0; see [LICENSE](LICENSE) and [NOTICE](NOTICE). Grok Gadgets is an independent
-open-source project. It is **not affiliated with, endorsed by or sponsored by SpaceXAI or
-xAI**, which make Grok and Grok Bot, nor with M5Stack or Home Assistant. Grok and SpaceXAI
-marks shown on the website follow their [brand guidelines](https://x.ai/legal/brand-guidelines)
-and are not covered by this project's license. Public history used reconstructed commit
-dates; see [publication sanitization](docs/verification/publication-sanitization.md).
+open-source project. It is **not affiliated with, endorsed by or sponsored by SpaceXAI**, nor
+with M5Stack or Home Assistant. Grok Bot and SpaceXAI marks shown on the website are not
+covered by this project's license. Public history used reconstructed commit dates; see
+[publication sanitization](docs/verification/publication-sanitization.md).
