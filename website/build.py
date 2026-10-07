@@ -58,7 +58,7 @@ build_note = (
 )
 kit_manifest = "simulator-kit-" + kit_identity + "-manifest.json"
 PUBLIC_SITE = os.environ.get(
-    "GROK_GADGETS_PUBLIC_SITE", "https://grok-gadgets.pages.dev/"
+    "GROK_GADGETS_PUBLIC_SITE", "https://grokgadgets.org/"
 ).strip()
 if not re.fullmatch(r"https://[A-Za-z0-9.-]+/", PUBLIC_SITE):
     raise ValueError("GROK_GADGETS_PUBLIC_SITE must be an HTTPS site root URL")

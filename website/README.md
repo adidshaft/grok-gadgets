@@ -1,6 +1,6 @@
 # Static website
 
-From the hub, run `python3 scripts/dev.py setup`, then `python3 scripts/dev.py site`. Open http://127.0.0.1:4173. The public site is at `https://grok-gadgets.pages.dev/`. These commands build a local preview; they do not deploy it.
+From the hub, run `python3 scripts/dev.py setup`, then `python3 scripts/dev.py site`. Open http://127.0.0.1:4173. The public site is at `https://grokgadgets.org/`. These commands build a local preview; they do not deploy it.
 
 Pinned markdown-it-py renders safe canonical docs and the issue-ledger roadmap. The homepage opens on a wireframe motion canvas with a centered identity, a short Grok Bot description, a separate Devices / Connections / Workbench / Roadmap scene selector, Start building and Explore. Light, Sensor, Display and Home stay inside the Devices scene. Connections places the supplied Grok Bot mark among meaningful platform routes: ESP32, Linux/Raspberry Pi and Home Assistant. Workbench illustrates LED commands, button events and USB availability on a conceptual C124 gadget. Roadmap presents selectable evidence gates with links to the canonical documentation. Explore opens a native dialog containing connection status, simulated light controls, a collapsible customization workbench and three builder paths. Existing `#scene-demo`, `#playground`, `#builder-paths` and `#components` links reveal their destination in the dialog. The homepage has no activity statistics, release list or repository directory. The separate Project components page holds the ten-item inventory. Documentation exposes simulator, ESP32, Linux/Raspberry Pi and Home Assistant paths directly. Menu opens the docs, roadmap and community paths; Escape closes the dialog and restores focus. The footer and menu credit @adidshaft with a link to the X profile. No framework, remote font or animation library is required.
 
@@ -26,7 +26,7 @@ The hub repository is the website source. `.github/workflows/pages.yml` deploys 
 
 Successful main deployments refresh issues and activity across the five `adidshaft` repositories. A daily run at 06:17 UTC (11:47 IST) refreshes activity such as star counts that has no dependable event trigger. If the issue snapshot cannot be fully refreshed, deployment stops and the prior site remains live. Activity failures show timestamped cached or unavailable data. Neither snapshot refresh changes tested component pins or commits generated data back to `main`.
 
-For a local rehearsal, set `GROK_GADGETS_PUBLIC_SITE` to the intended HTTPS site root before running `website/build.py` and `scripts/check-pages-prefix.py`; the default is `https://grok-gadgets.pages.dev/`.
+For a local rehearsal, set `GROK_GADGETS_PUBLIC_SITE` to the intended HTTPS site root before running `website/build.py` and `scripts/check-pages-prefix.py`; the default is `https://grokgadgets.org/`.
 
 The customization workbench inside the homepage Explore dialog shares a strict configuration format with the gateway simulator. Customize a name/ID, starting RGB/brightness, response delay and offline startup, then export JSON. Browser controls are local simulation. The inspectable downloadable kit contains exact source, wheel, hashed dependencies and license notices; setup is in docs/getting-started/simulator-kit.md.
 

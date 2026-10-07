@@ -30,8 +30,8 @@ def check(site):
         metadata = Metadata()
         metadata.feed(page.read_text())
         values = metadata.meta
-        base = f"https://grok-gadgets.pages.dev/{page.name}"
-        image = "https://grok-gadgets.pages.dev/media/grok-gadgets-share-v3.png"
+        base = f"https://grokgadgets.org/{page.name}"
+        image = "https://grokgadgets.org/media/grok-gadgets-share-v3.png"
         expected = {
             "description": None,
             "og:type": "website",

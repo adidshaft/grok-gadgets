@@ -16,6 +16,10 @@ The static build reads the five public GitHub repositories through bounded API r
 
 This process updates issue state and activity data separately from the pinned compatibility manifest. A component repository changing does not silently upgrade the tested protocol or documentation pins. Activity may reflect newer source activity while runtime compatibility remains pinned to an explicitly tested version.
 
+## Custom domain — 7 October 2026
+
+The owner purchased `grokgadgets.org` in Cloudflare and authorized connecting it to the existing Pages project. Use `https://grokgadgets.org/` as the canonical site root for page metadata, share images, sitemap and current website links. Keep the original `grok-gadgets.pages.dev` hostname available. The Pages deployment project and checks-gated workflow remain the same. Custom-domain activation and certificate delivery are separate Cloudflare setup steps; the deployment token still requires no DNS permissions.
+
 ## Security and operational boundaries
 
 - The free static host contains no device credentials, user account data, persistent device service, or Grok backend.
