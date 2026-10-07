@@ -485,6 +485,11 @@ page(
     + '<div class="flow"><a href="https://x.ai/bot"><img src="media/grok-mark.svg" width="40" height="40" alt="Grok"><span>Grok Bot</span><small>Run by Grok/xAI</small></a><b>↕ Remote MCP: future</b><span>Your gateway<small>Run by its operator</small></span><b>↕ USB / local TCP</b><span>Your device<small>Execute and observe</small></span></div><p class="status">Requested → accepted → execution reported → physically observed</p><p><a href="doc-docs-architecture-overview.html">Architecture reference ↗</a></p><p class="quiet-note">The gateway provides stdio MCP and authenticated HTTP MCP on loopback. Public access also needs operator HTTPS. A tunnel does not replace authentication. Home Assistant can use its own upstream MCP route. Local tests, Grok Bot invocation, remote security and physical effects need separate evidence.</p>'
     + hosting_guide,
 )
+roadmap_issues = [
+    issue
+    for issue in issues
+    if issue.get("state", "open") == "open" and issue.get("stage", "ready") != "done"
+]
 rows = "".join(
     '<article class="issue"><span>'
     + e(i["id"])
@@ -505,7 +510,7 @@ rows = "".join(
         else ""
     )
     + "</article>"
-    for i in issues
+    for i in roadmap_issues
 )
 page(
     "roadmap.html",

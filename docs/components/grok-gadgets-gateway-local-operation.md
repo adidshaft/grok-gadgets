@@ -89,7 +89,7 @@ Physical USB operation remains unverified. Local software tests with a pseudo-te
 - Stale state: received state older than 10s. Heartbeat proves connection, not fresh sensor state; periodically report state.
 - Unconfirmed/timed_out: do not blindly resend a physical action under a fresh command ID. Inspect state or device safely.
 - Retry protection: use the same command ID and arguments within 10 minutes of the first request, in the same gateway process. An evicted receipt returns `stale_command_id` without dispatch. At 1024 recent IDs, new commands return `busy` until the oldest ID leaves the window. A restart or an older ID has no replay guarantee. Inspect state before acting again.
-- Cursor reset/history_lost: read with null cursor to establish retained baseline. Initial read reports dropped history honestly.
+- Event history reset/history_lost: read with a null cursor to establish a retained baseline. The initial read reports dropped history honestly.
 - Port busy: choose a free --device-port and configure SDK/bridge to match.
 - USB failed: verify data cable, port permissions and firmware model. Unplug/reconnect is a pending physical test.
 
