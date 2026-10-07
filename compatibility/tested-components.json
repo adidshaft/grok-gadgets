@@ -1,14 +1,14 @@
 {
-  "status": "Public source alpha; v0.1.0-alpha.2 published",
+  "status": "Public source patch prerelease and website live; v0.1.1-alpha.1 published",
   "protocol": "0.1.0",
   "components": [
     {
       "repository": "grok-gadgets",
       "path": "grok-gadgets",
-      "version": "0.1.0-alpha.2",
-      "commit": "1540fa16b00d4630d9e8664d8e0f53fda1e0eac3",
-      "evidence_level": "Published source alpha; simulator kit and rehearsal verified",
-      "checks": "Full local hub check suite and all required corrected-release PR checks passed. The tagged commit is 1540fa16b00d4630d9e8664d8e0f53fda1e0eac3. No Grok Bot connection or physical hardware operation is claimed.",
+      "version": "0.1.1-alpha.1",
+      "commit": "b4557dd88e0b45943b202e2aa13c1ceacf72d7c9",
+      "evidence_level": "Public source patch prerelease; website roadmap hotfix deployed",
+      "checks": "Full local hub check suite and all required main-branch checks passed; Cloudflare production deployment succeeded; 65 pages on each live domain returned 200 with no prohibited assistant, model or coding-tool names. No Grok Bot connection or physical hardware operation is claimed.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
@@ -78,7 +78,7 @@
     "build_command": ".venv/bin/pio run -e atoms3-lite-usb",
     "toolchain": {
       "platformio_core": "PlatformIO Core, version 6.1.18",
-      "resolved_packages": "Resolving atoms3-lite-usb dependencies...\nPlatform espressif32 @ 6.10.0 (required: espressif32 @ 6.10.0)\n\u251c\u2500\u2500 framework-arduinoespressif32 @ 3.20017.0 (required: platformio/framework-arduinoespressif32 @ 3.20017.0)\n\u251c\u2500\u2500 tool-esptoolpy @ 1.40501.0 (required: platformio/tool-esptoolpy @ 1.40501.0)\n\u251c\u2500\u2500 tool-scons @ 4.40801.0 (required: platformio/tool-scons @ 4.40801.0)\n\u251c\u2500\u2500 toolchain-riscv32-esp @ 8.4.0+2021r2-patch5 (required: espressif/toolchain-riscv32-esp @ 8.4.0+2021r2-patch5)\n\u2514\u2500\u2500 toolchain-xtensa-esp32s3 @ 8.4.0+2021r2-patch5 (required: espressif/toolchain-xtensa-esp32s3 @ 8.4.0+2021r2-patch5)\n\nLibraries\n\u251c\u2500\u2500 Adafruit NeoPixel @ 1.12.3 (required: adafruit/Adafruit NeoPixel @ 1.12.3)\n\u2514\u2500\u2500 ArduinoJson @ 6.21.5 (required: bblanchon/ArduinoJson @ 6.21.5)"
+      "resolved_packages": "Resolving atoms3-lite-usb dependencies...\nPlatform espressif32 @ 6.10.0 (required: espressif32 @ 6.10.0)\n├── framework-arduinoespressif32 @ 3.20017.0 (required: platformio/framework-arduinoespressif32 @ 3.20017.0)\n├── tool-esptoolpy @ 1.40501.0 (required: platformio/tool-esptoolpy @ 1.40501.0)\n├── tool-scons @ 4.40801.0 (required: platformio/tool-scons @ 4.40801.0)\n├── toolchain-riscv32-esp @ 8.4.0+2021r2-patch5 (required: espressif/toolchain-riscv32-esp @ 8.4.0+2021r2-patch5)\n└── toolchain-xtensa-esp32s3 @ 8.4.0+2021r2-patch5 (required: espressif/toolchain-xtensa-esp32s3 @ 8.4.0+2021r2-patch5)\n\nLibraries\n├── Adafruit NeoPixel @ 1.12.3 (required: adafruit/Adafruit NeoPixel @ 1.12.3)\n└── ArduinoJson @ 6.21.5 (required: bblanchon/ArduinoJson @ 6.21.5)"
     },
     "files": {
       "firmware.bin": {

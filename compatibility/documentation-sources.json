@@ -73,7 +73,7 @@
     "repository": "grok-gadgets-gateway",
     "source": "docs/local-operation.md",
     "commit": "6c3523ac3ff2e361a40d4745b6025895a1ecd7cd",
-    "sha256": "1cc1fa48713bf687c196ff46336133f139b7cd87a2359a1bbe2b1876a4dcf8e6",
+    "sha256": "143cf278b8a8f9c6fca623f7cd488942f8ea6102abaccdfc694edae76a4d6a31",
     "snapshot": "docs/components/grok-gadgets-gateway-local-operation.md"
   },
   {

@@ -75,6 +75,12 @@ class SiteClarityTests(unittest.TestCase):
             self.assertIn(name + ".js", builder)
             self.assertIn(name + ".css", builder)
 
+    def test_roadmap_hides_closed_and_completed_issues(self):
+        builder = (SITE / "build.py").read_text()
+        self.assertIn('issue.get("state", "open") == "open"', builder)
+        self.assertIn('issue.get("stage", "ready") != "done"', builder)
+        self.assertIn("for i in roadmap_issues", builder)
+
     def test_projected_nodes_stay_inside_scene_vertical_bounds(self):
         scene = (SITE / "scene.js").read_text()
         self.assertIn(
