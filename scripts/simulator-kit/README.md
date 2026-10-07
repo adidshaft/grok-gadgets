@@ -1,7 +1,6 @@
 # Grok Gadgets simulator kit
 
-Run a virtual light and button on your computer. This kit tests the Grok Gadgets
-MCP tools. It does not connect to Grok Bot or operate hardware.
+Run a virtual light and button on your computer. This kit checks Grok Gadgets locally. It does not connect to Grok Bot or operate hardware.
 
 ## Run it
 
@@ -17,8 +16,21 @@ python3 install.py --install
 
 The first command checks the included files. It does not install anything.
 The second command downloads dependencies with hash checks into a new `.venv`.
-The last command tests discovery, light control, button events and recovery
-through a local MCP client. It prints simulated results.
+Initialize the gateway, then start the simulated light:
+
+```sh
+.venv/bin/grok-gadgets-gateway init
+.venv/bin/grok-gadgets-gateway serve --simulator --simulator-config ./simulator-config.json
+```
+
+In a second terminal, rehearse the calls that Grok Bot will make:
+
+```sh
+.venv/bin/grok-gadgets-gateway rehearse
+```
+
+The rehearsal checks discovery, light control, button events and recovery. It prints
+simulated results. It does not connect to Grok Bot or operate hardware.
 
 On Windows, use `.venv\Scripts\python.exe` for the last command. Windows and Intel
 Mac installation remain unverified. On Apple Silicon, use native Python.
@@ -42,7 +54,7 @@ checks. `source.tar` contains the committed gateway source. The wheel, source
 distribution, hashed dependencies, installer and simulator configuration are
 included. Original code is Apache-2.0; read the included license notices.
 
-A cloud Bot cannot reach a file or loopback server on your Mac. Grok Bot
+A Grok Bot cloud computer cannot reach a file or loopback server on your Mac. Grok Bot
 compatibility, remote access and physical operation need separate verification.
 No account connection or network exposure happens automatically.
 
