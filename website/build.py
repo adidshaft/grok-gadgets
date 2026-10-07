@@ -175,7 +175,7 @@ def page(name, title, body):
         + '<button id="motion-toggle" aria-pressed="false">Pause motion <span>[Ⅱ]</span></button></footer>'
     )
     scripts = '<script src="motion.js" defer></script>' + (
-        '<script src="simulator.js" defer></script><script src="scene.js" defer></script>'
+        '<script src="simulator.js" defer></script><script src="scene.js" defer></script><script src="donate.js" defer></script>'
         if home
         else ""
     )
@@ -214,6 +214,7 @@ def page(name, title, body):
         )
         + '"><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="identity" href="index.html" aria-label="Grok Gadgets home"><img src="media/grok-gadgets-icon.png" width="36" height="36" alt=""><span>Grok Gadgets</span></a><a class="header-contribute" href="contribute.html">Contribute ↗</a><button id="menu-open" aria-haspopup="dialog" aria-controls="site-menu">Menu <span>[+]</span></button></header>'
         + menu
+        + ((R / "website/donate.html").read_text() if home else "")
         + '<main id="main">'
         + body
         + "</main>"
@@ -695,7 +696,15 @@ page(
     )
     + activity_html(activity),
 )
-for f in ["style.css", "motion.js", "scene.css", "simulator.js", "scene.js", "docs.js"]:
+for f in [
+    "style.css",
+    "motion.js",
+    "scene.css",
+    "simulator.js",
+    "scene.js",
+    "docs.js",
+    "donate.js",
+]:
     source = R / "website" / f
     if source.is_file():
         shutil.copy(source, OUT / f)

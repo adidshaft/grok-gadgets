@@ -1,0 +1,26 @@
+<dialog id="donate-dialog" aria-labelledby="donate-title" aria-describedby="donate-description">
+  <div class="donate-heading">
+    <h2 id="donate-title">Support Grok Gadgets.</h2>
+    <button id="donate-close" type="button" aria-label="Close donation addresses" autofocus>Close <span aria-hidden="true">[esc]</span></button>
+  </div>
+  <p id="donate-description">Choose a network and copy its donation address.</p>
+  <ul class="donate-addresses">
+    <li>
+      <div class="donate-network"><h3 id="donate-eth-label">ETH <span>Ethereum</span></h3><button type="button" data-copy-address="donate-eth" data-network="ETH" aria-label="Copy ETH address">Copy</button></div>
+      <code id="donate-eth" tabindex="0" aria-labelledby="donate-eth-label">0xD571210016e5AB4206D27f24bE128916E1C91047</code>
+    </li>
+    <li>
+      <div class="donate-network"><h3 id="donate-sol-label">Solana <span>Solana</span></h3><button type="button" data-copy-address="donate-sol" data-network="Solana" aria-label="Copy Solana address">Copy</button></div>
+      <code id="donate-sol" tabindex="0" aria-labelledby="donate-sol-label">D2jV1NkjuHHmvkuZ48Woc29v5NDeKLmHeLkUcN4fDg68</code>
+    </li>
+    <li>
+      <div class="donate-network"><h3 id="donate-btc-label">Bitcoin <span>Bitcoin</span></h3><button type="button" data-copy-address="donate-btc" data-network="Bitcoin" aria-label="Copy Bitcoin address">Copy</button></div>
+      <code id="donate-btc" tabindex="0" aria-labelledby="donate-btc-label">bc1qal92xr892akwxgqrnkjhld7ar04hlld06uqyq5</code>
+    </li>
+    <li>
+      <div class="donate-network"><h3 id="donate-zec-label">ZEC (Shielded) <span>Zcash</span></h3><button type="button" data-copy-address="donate-zec" data-network="ZEC (Shielded)" aria-label="Copy ZEC shielded address">Copy</button></div>
+      <code id="donate-zec" tabindex="0" aria-labelledby="donate-zec-label">u10hkzg65lgz6eq3arsylenag78jracfpguc3m4p6ptz8fkjlgxy6668yrjdgj2p704wp2f2wykrqv88tg9zu7fjuc9tk5s6vazvzmw5cvt5qkyzr32wqymesmcymja9zxpcwc6vcswa88yae023yj7jhypvn6n592t6z7nxqu4s59sdf9</code>
+    </li>
+  </ul>
+  <p id="donate-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+</dialog>
