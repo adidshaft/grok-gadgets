@@ -2,7 +2,7 @@
 
 **Prepared:** 4 October 2026
 **Status:** Continuation plan; none of these corrections has been implemented by the planning chat.
-**Execution:** A separate Codex chat using the accompanying `/goal` prompt.
+**Execution:** A separate agent session using the accompanying goal prompt.
 **Workspace:** `<workspace>/grok-gadgets` and its four existing sibling repositories.
 **Outcome:** Correct the six audited problems, demonstrate the corrected behavior, preserve incremental history, and deliver an accurately documented local alpha candidate.
 
@@ -23,7 +23,7 @@ The existing external boundaries still apply:
 - Do not access Grok/Reddit accounts, flash hardware, or operate real household devices merely because test preparation is complete. Use the existing separate authorization gates.
 - Use Chrome or the permitted built-in browser. Never open Brave, Safari, or Passwords. Stop the affected step and ask if it would require Passwords.
 - Do not create additional user-visible chats. Use bounded collaboration subagents within the goal chat.
-- Do not change global Codex settings or add another AI backend to the product.
+- Do not change global development-tool settings. Grok Bot stays the only assistant platform.
 
 Account, physical hardware, independent human testing, and public activation are outside the mandatory completion criteria for this local correction goal. Prepare concrete next steps for them. Do not represent them as accomplished or wait indefinitely for them while useful local work remains.
 
@@ -297,19 +297,7 @@ Suggested initial waves:
 - When capacity frees, assign the two website issues to one owner or separate non-overlapping files under an agreed interface. Coordinator retains shared status and final integration ownership.
 - Use a bounded independent reviewer after fixes; the reviewer should inspect implementation and evidence, reproduce important cases, and report findings without editing another agent's files.
 
-Model settings inherit the original project's approved policy:
-
-| Work | Preferred model | Effort |
-| --- | --- | --- |
-| Coordinator and ordinary implementation | `gpt-6.1-sol` | Medium |
-| Firmware retry semantics, event retention and protocol changes | `gpt-6.1-sol` | High |
-| Linux onboarding and website implementation | `gpt-6.1-sol` | Medium; raise to High for difficult failures or unsafe rendering questions |
-| Independent correctness/integration review | `gpt-6-astra` | Medium |
-| Bounded documentation/inventory assistance | `gpt-6-luna` | High, when useful and supported |
-
-Allowed models: `gpt-6.1-sol`, `gpt-6-astra`, `gpt-6-sol`, `gpt-6-luna`, `gpt-5.6-sol`, `gpt-5.6-terra`. Prefer current 6.1/6 models. GPT-5.6 Terra is the lowest permitted fallback; do not use 5.6 Luna, 5.5 or earlier models.
-
-These are project assignments, not benchmark claims. Verify supported tool identifiers and effort combinations. Select them explicitly where supported, report substitutions, and record the actual settings. Respect bounded-context/full-context fork restrictions and never silently downgrade outside the allowlist. No global settings edits.
+Use the effort each task needs, and the strongest available reasoning for research. Record the actual delegation in handoffs. Development tooling is not named in the repository.
 
 Agent handoffs must contain owned files/repository, issue and acceptance criteria, starting/refined interfaces, branch/commit IDs, commands/results, limitations, and the next dependency. A subagent's assertion of completion does not replace coordinator verification. Keep user-owned additional chats separate from collaboration agents; do not create or message them without explicit permission.
 
@@ -364,7 +352,7 @@ Obey the runtime's goal lifecycle and any user/system pause, interruption or bud
 
 Do not implement recurrence, cron, a heartbeat, perpetual polling or a monitoring service to make this goal run longer. The user requested a long-running build goal, not ongoing community automation.
 
-The goal-writing approach follows [official OpenAI guidance on persistent goals](https://developers.openai.com/cookbook/examples/codex/using_goals_in_codex): a verifiable outcome with constraints, progress evidence and explicit stopping conditions. This plan adds project-specific execution requirements; it does not promise unlimited unattended runtime.
+The goal states a verifiable outcome with constraints, progress evidence and explicit stopping conditions. This plan adds project-specific execution requirements; it does not promise unlimited unattended runtime.
 
 ## 10. Expected commit and review sequence
 
@@ -422,12 +410,12 @@ Do not claim that Grok controls hardware merely because every local stage has pa
 
 ## 13. Compact goal prompt
 
-Paste the following into a new Codex chat attached to `<workspace>/grok-gadgets`:
+Paste the following into a new agent session attached to `<workspace>/grok-gadgets`:
 
 ```text
 /goal Complete the Grok Gadgets local correction cycle using docs/hardening-plan.md. Read it fully, the original docs/implementation-plan.md and each repository's AGENTS.md, then execute H0–H7 across the five existing repositories. Fix all six audit findings, add meaningful regressions, verify clean installation and cross-repository behavior, rebuild affected firmware/packages/site, obtain independent review, and refresh the local release candidate.
 
-Keep working across goal turns until the required local acceptance is met; do not stop at a plan or the first passing suite. Use bounded subagents with the plan's approved models. Commit every coherent tested increment on short-lived branches, preserve history, update labeled local issues, and maintain the stage tracker, execution journal and resumable checkpoint throughout. Before accepting each next commit, run checks protecting previous work. Record failures and decisions as well as successes.
+Keep working across goal turns until the required local acceptance is met; do not stop at a plan or the first passing suite. Use bounded subagents with explicit file ownership. Commit every coherent tested increment on short-lived branches, preserve history, update labeled local issues, and maintain the stage tracker, execution journal and resumable checkpoint throughout. Before accepting each next commit, run checks protecting previous work. Record failures and decisions as well as successes.
 
 Preserve unrelated files, keep the product Grok-exclusive, and obey the existing no-publish/push/deploy/spend/live-account/hardware/automation boundaries. Never open Brave, Safari or Passwords. Complete independent local work while recording external gates honestly. Finish with verified commit/artifact evidence, corrected run instructions, and the concrete next real-Grok test. If required local work is genuinely blocked, report the exact blocker and checkpoint instead of claiming completion.
 ```

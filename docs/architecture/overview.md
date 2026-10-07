@@ -16,7 +16,7 @@ The gateway operator hosts the MCP server. Grok/xAI hosts Grok Bot. The website 
 flowchart TD
     G["Grok Bot: unverified"] -.-> T["Operator HTTPS"]
     T -.-> W["Gateway serve on 127.0.0.1:8766"]
-    C["Local MCP client"] --> W
+    C["rehearse: local check"] --> W
     W --> S["Software simulator"]
     W --> L["Linux application using the Python SDK"]
     W --> U["Host USB bridge"]

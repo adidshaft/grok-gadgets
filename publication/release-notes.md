@@ -25,12 +25,12 @@ Home Assistant home has been verified. See the
 
 ## grok-gadgets-gateway v0.1.0-alpha.1 (package 0.1.0a1)
 
-- Six MCP tools for any MCP client, over stdio or authenticated HTTP on `127.0.0.1`.
+- Six MCP tools for Grok Bot, over stdio or authenticated HTTP on `127.0.0.1`.
 - `gadgets_command` waits up to 3 seconds for the device and returns the final status.
 - Capability descriptions reach the model (`capability_descriptions`).
 - Real subcommands, pasteable `init` settings with absolute paths, `enroll --rotate` and
   `--token-file`, clean shutdown on SIGTERM, no OAuth metadata in static-bearer mode.
-- Five-minute first success with MCP Inspector, checked by CI every night.
+- Five-minute first success that rehearses the Grok Bot tool calls, checked by CI every night.
 - Protocol 0.1.0 README in sections, including `late_ack`. Wire format unchanged.
 
 ## grok-gadgets-linux-sdk v0.1.0-alpha.1 (package 0.1.0a1)

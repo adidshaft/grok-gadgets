@@ -7,7 +7,7 @@ Grok Bot runs in Grok's cloud. The gateway runs on a computer you operate. The p
 | Path | Status |
 | --- | --- |
 | Browser playground | Works. Does not call Grok. |
-| Local stdio MCP | Works with a local MCP client. |
+| Local check | `grok-gadgets-gateway rehearse` calls the six tools as Grok Bot will. |
 | `serve` at `http://127.0.0.1:8766/mcp` | Implemented. File bearer token. Loopback only. Not used with Grok Bot. |
 | Your HTTPS in front of `serve` | You supply TLS. This project does not. Unverified with Grok Bot. |
 | Device port `127.0.0.1:8765` | Loopback only. Never publish it. |

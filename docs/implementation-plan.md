@@ -21,7 +21,7 @@ Its audiences are:
 
 The reference experience is Muse Gadgets: separately usable Linux and ESP32 SDKs, working examples, clear setup, and a public community. This is a reference for the breadth and usability of the project, not a promise of identical native pairing, avatar, voice, or conversation features. Those depend on separately verified Grok capabilities.
 
-Do not add other AI model backends. Siri and Google's assistant may later become entry points **into Grok** if a supported route exists; they are not substitute backends or first-release dependencies.
+Grok Bot is the only assistant platform. Do not add other AI model backends, entry points or integrations; use only Grok Bot and SpaceXAI technology.
 
 ### First concrete example
 
@@ -63,10 +63,8 @@ Start with a software simulation while the user arranges the board. The first ph
 | Hosting later | Optional hosted connection remains a future product direction |
 | Git workflow | `main`, short-lived feature branches, and release tags |
 | Commit policy | Small, coherent, tested increments; no one-commit project dump |
-| Codex model policy | GPT-6.1 Sol Medium by default; task-specific subagent efforts and the model allowlist in Section 12 |
 | Community source of truth | GitHub, with Reddit pointing to canonical material |
 | Contributor flair | Opt-in account linking, verified merged contribution, automatic award through an approved route |
-| Siri/Google | Later feasibility investigation |
 | Publication | Ask before public repository creation, pushing, package/release publication, deployment, or community changes |
 
 ### Authorized in the local build chat
@@ -90,7 +88,7 @@ Start with a software simulation while the user arranges the board. The first ph
 - Making paid developer-API calls without separate authorization.
 - Changing subreddit settings, awarding live flair, posting, commenting, or sending messages.
 - Installing a live Reddit app or activating unattended automation.
-- Creating recurring Codex tasks or user-visible additional chats.
+- Creating recurring agent tasks or additional user-visible sessions.
 
 Prepare external actions fully enough to review before asking for authorization. Do not stop independent local work simply because a later external step needs approval. Conversely, do not treat a prepared configuration as an activated service.
 
@@ -697,11 +695,11 @@ Prepare, but do not publish:
 
 Do not advertise an untested firmware build as working hardware, or an unverified Grok route as supported.
 
-### Ongoing Codex-assisted operations
+### Ongoing agent-assisted operations
 
 Document future duties: issue triage, broken-link checks, contributor recognition, release-draft preparation, community questions, and moderation escalation.
 
-An ongoing service needs a defined runtime, schedule, credentials, permissions, failure reporting, and human escalation. Codex does not continue working merely because a chat contains a plan. Do not create automations now.
+An ongoing service needs a defined runtime, schedule, credentials, permissions, failure reporting, and human escalation. An agent does not continue working merely because a session contains a plan. Do not create automations now.
 
 Distinguish routine administrative actions from posts, user contact, bans, or other consequential moderation. The latter need explicit operational authorization and policy. Avoid unsolicited outreach or automated promotional spam.
 
@@ -736,62 +734,11 @@ Each handoff must report repository, branch, commit IDs, changes, tests, interfa
 
 The coordinator remains responsible for verifying integration and completion claims. A subagent saying "done" is not a substitute for acceptance evidence.
 
-### Model and reasoning policy
+### Agent reasoning policy
 
-**Recommended main-chat setting: GPT-6.1 Sol, Medium.** This is a project-specific starting recommendation, not a claim that every model comparison or reasoning level has been benchmarked on this codebase. Use High selectively for difficult work rather than automatically running every agent at the highest effort.
+Choose the effort a task needs. Use high effort for cross-repository contracts, authentication, concurrency, recovery and unresolved failures. Research tasks use the strongest available reasoning and cite primary sources. More reasoning never replaces tests, physical evidence or current documentation.
 
-The user explicitly authorizes choosing different allowed models and reasoning efforts for subagents according to this policy. This concerns the Codex development agents, not the Grok-exclusive product backend.
-
-#### Allowed models and generation floor
-
-Prefer current GPT-6.1/GPT-6 models. The permitted model identifiers are:
-
-- `gpt-6.1-sol`
-- `gpt-6-astra`
-- `gpt-6-sol`
-- `gpt-6-luna`
-- `gpt-5.6-sol`
-- `gpt-5.6-terra`
-
-GPT-5.6 Terra is the lowest permitted fallback tier. Do not use GPT-5.6 Luna, GPT-5.5, earlier models, or automatically chosen legacy defaults. Prefer GPT-6.1 Sol over older Sol/Terra models when it is available. The allowed list is a restriction, not a requirement to use every listed model.
-
-Check which models and effort values the actual subagent tool exposes. Availability in the main chat's model picker does not prove that the subagent tool supports the same model. If a requested combination is unavailable, choose another allowed, supported combination that suits the task and report the substitution. Never silently fall below the allowed set. If none is available, ask the user.
-
-#### Initial assignments
-
-| Work | Preferred model | Reasoning | Reason |
-| --- | --- | --- | --- |
-| Main coordinator, backlog, integration sequencing | GPT-6.1 Sol | Medium | Balance coordination, implementation follow-through, and usage |
-| Protocol design, authentication, reconnect/retry semantics | GPT-6.1 Sol | High | Changes affect several repositories and require edge-case analysis |
-| ESP32 SDK, transport logic, firmware debugging | GPT-6.1 Sol | High | Hardware constraints and failure modes need careful checking |
-| Linux SDK and well-specified Home Assistant integration work | GPT-6.1 Sol | Medium | Most implementation can follow agreed contracts; raise to High for difficult faults |
-| Website implementation and community tooling | GPT-6.1 Sol | Medium | Use High for demanding visual/motion design or account-linking security |
-| Independent architecture/security/integration review | GPT-6 Astra | Medium | Focus the strongest review on consequential decisions and unresolved risks |
-| Narrow source lookup, inventory, link checks, routine documentation updates | GPT-6 Luna | High | A bounded task with explicit sources and acceptance criteria |
-| Simple fallback work when preferred models are unavailable | GPT-5.6 Sol or GPT-5.6 Terra | Medium | Permitted fallback only; do not downgrade the coordinator or difficult architecture work by default |
-
-These are starting assignments. Role names alone do not determine complexity: raise effort for an actual hard task, not every file in a repository. Routine execution of known commands does not need the same model work as diagnosing a new failure.
-
-#### Escalation and usage rules
-
-1. Start ordinary implementation with GPT-6.1 Sol Medium and a concrete acceptance test.
-2. Move to High when work involves cross-repository contracts, authentication/identity, concurrency, recovery, ambiguous failures, or repeated unresolved test failures.
-3. Use a bounded GPT-6 Astra Medium review or investigation when the issue remains unresolved or a second perspective is valuable. Supply evidence, failed approaches, and the exact question; avoid restarting the entire project.
-4. Use Astra High or Extra High only for a specific difficult issue or consequential review with a stated reason. Do not make Max/Ultra the routine setting.
-5. Return to ordinary settings after the hard part is resolved. Extra reasoning does not replace tests, physical evidence, current documentation, or independent verification.
-6. Track the actual model and reasoning effort in agent assignments and handoffs. Do not claim an override was applied unless supported by the tool/configuration used.
-
-Medium is compatible with explicitly requested subagent work; Ultra is not required merely to delegate. Unless explicitly configured, subagents may inherit the parent's settings. Therefore select model and effort explicitly where the runtime supports it, or use supported project-scoped agent configurations during the authorized build. Do not assume a prose role name automatically changes the model.
-
-Some runtimes restrict model overrides on full-context forks. Follow the tool's actual rules. For a supported bounded-context spawn, include the relevant plan requirements, task contract, repository ownership, and validation requirements in the handoff. Do not drop constraints just to select a different model.
-
-Do not edit the user's global Codex settings to implement this policy. The user selects the main chat model; use supported subagent settings for delegated work. If changing the main chat's setting would materially help and cannot be done through supported controls, recommend the change rather than pretending it happened.
-
-Current official guidance reviewed on 4 October 2026:
-
-- [Model selection](https://learn.chatgpt.com/docs/model-selection): GPT-6.1 Sol Medium is a starting point for complex technical work; Astra Medium is suited to ambitious work requiring broad context.
-- [Codex models](https://learn.chatgpt.com/docs/models): GPT-6.1 Sol is recommended for complex coding when available; higher effort can increase latency and token usage, and settings are model-dependent.
-- [Subagent models and reasoning](https://learn.chatgpt.com/docs/agent-configuration/subagents): subagents can use different supported settings; inheritance and explicit configuration must be accounted for.
+Record the actual delegation in handoffs. Development tooling is not part of the product and is not named in the repository.
 
 ## 13. Implementation decisions the build chat should make
 

@@ -12,7 +12,7 @@ Local, unpublished acceptance. Gateway source `08f0f127205d23a75ed768cc6372d1329
 
 ## Browser and extracted kit
 
-Tested in the Codex in-app browser at 1280×800 and 390×844. The mobile document has no horizontal overflow (390 viewport / 375 document). Native disclosures opened and closed with Enter. Whitespace-only names were rejected without replacing simulator state. LED controls visibly changed state; resetting clears prior session reports. Pause produced identical frame 938 across observations; resume advances motion. Existing offscreen/hidden/menu/reduced-motion handling is retained. No browser console errors were recorded.
+Tested in an in-app browser at 1280×800 and 390×844. The mobile document has no horizontal overflow (390 viewport / 375 document). Native disclosures opened and closed with Enter. Whitespace-only names were rejected without replacing simulator state. LED controls visibly changed state; resetting clears prior session reports. Pause produced identical frame 938 across observations; resume advances motion. Existing offscreen/hidden/menu/reduced-motion handling is retained. No browser console errors were recorded.
 
 The original config-content test manually used a separate custom filename; it did not catch the automatic export filename collision. That onboarding claim is superseded by HARD-SIM-EXPORT-001 and [corrected actual browser-to-kit acceptance](simulator-export-onboarding.md).
 

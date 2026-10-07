@@ -2,12 +2,12 @@
 
 Coordinator read the entire implementation plan before bootstrap. Repository ownership prevented concurrent writes. Gateway established protocol before dependent SDK transport work; all consume canonical0.1.0 schema artifacts and record source hashes.
 
-| Agent | Tool-selected model | Effort | Ownership |
-| --- | --- | --- | --- |
-| Gateway | gpt-6.1-sol | high | Gateway/protocol/simulator/MCP/USB |
-| ESP32 | gpt-6.1-sol | high | ESP32 reusable SDK/C124 compilation |
-| HA then Linux | gpt-6.1-sol | medium | HA investigation/probe, then Linux SDK |
-| Independent review | gpt-6-astra | medium | Read-only bounded architecture/security/integration review |
+| Agent | Effort | Ownership |
+| --- | --- | --- |
+| Gateway | high | Gateway/protocol/simulator/MCP/USB |
+| ESP32 | high | ESP32 reusable SDK/C124 compilation |
+| HA then Linux | medium | HA investigation/probe, then Linux SDK |
+| Independent review | medium | Read-only bounded architecture/security/integration review |
 
 At most three subagents plus coordinator ran concurrently. A review spawn initially hit the active-agent limit; retry after workstreams completed succeeded. No extra user-visible chats or global settings changes were made.
 

@@ -1,4 +1,4 @@
-Source: grok-gadgets-linux-sdk/docs/development.md at 4edc2994b8c546effacf68f40516bd920a533621
+Source: grok-gadgets-linux-sdk/docs/development.md at d254c6056fb0dede7b33cd11075ce6e51a31abc1
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -9,7 +9,7 @@ Use Python 3.11 or later. Install the source with `uv sync --frozen`, or install
 The SDK implements your device. The gateway provides the tools intended for your existing Grok Bot. The SDK does not call a model or backend.
 
 Develop and simulate on one host without public hosting. The agent connects to the gateway's
-authenticated loopback device port. Local MCP clients use stdio. These are different interfaces.
+authenticated loopback device port. Grok Bot's connector uses MCP. These are different interfaces.
 The gateway also has authenticated HTTP MCP on loopback through `serve`. It does not
 supply public HTTPS or OAuth. Do not expose the device port through a tunnel.
 See the [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md)

@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/remote-access.md at 6a2e7ec89a25c7decc461edfd8e86e646799598b
+Source: grok-gadgets-gateway/docs/remote-access.md at 268ee7e8d801ad92bd7f82d1a31ec97469abf97a
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -9,7 +9,7 @@ This is a pinned documentation snapshot. Relative filesystem paths describe the 
 - MCP: `http://127.0.0.1:8766/mcp`
 - Devices: `127.0.0.1:8765`
 
-The MCP client sends `Authorization: Bearer <token>`. The token is the single line in `~/.config/grok-gadgets/mcp-token` (or `$XDG_CONFIG_HOME/grok-gadgets/mcp-token`), mode 0600. `rotate-mcp-token` replaces it and prints `GROK_GADGETS_MCP_TOKEN=...` once on stdout. Update the client's saved token and reconnect. The server reads the file on each request; no gateway restart is needed.
+Grok Bot's connector (and `rehearse`) sends `Authorization: Bearer <token>`. The token is the single line in `~/.config/grok-gadgets/mcp-token` (or `$XDG_CONFIG_HOME/grok-gadgets/mcp-token`), mode 0600. `rotate-mcp-token` replaces it and prints `GROK_GADGETS_MCP_TOKEN=...` once on stdout. Update the connector's saved token and reconnect. The server reads the file on each request; no gateway restart is needed.
 
 This package does not terminate public TLS and it does not speak OAuth. It has not been verified with Grok Bot. A cloud Bot cannot open `127.0.0.1` on your computer. If you want a Bot to reach the gateway, you run `serve` on the gadget host and you publish HTTPS yourself.
 
@@ -25,7 +25,7 @@ uv run grok-gadgets-gateway serve --allowed-host your-name.example
 
 That flag adds the hostname, `hostname:*`, and `http`/`https` origins for it. It does not change the bind address. The process still listens on `127.0.0.1` only. Requests with any other Host are rejected.
 
-Keep the bearer token in the client configuration. A tunnel without that token is not access. Do not put the token in the URL, a screenshot, or a support report.
+Keep the bearer token in the connector configuration. A tunnel without that token is not access. Do not put the token in the URL, a screenshot, or a support report.
 
 ## Process supervisors
 
@@ -33,7 +33,7 @@ Keep the bearer token in the client configuration. A tunnel without that token i
 
 ## What this does not prove
 
-Local tests use the official MCP Streamable HTTP client against `127.0.0.1`. They check a missing token, a wrong token, a matching token, a simulator command, the absence of test controls, and a rejected Host. They do not open a public URL and they do not talk to Grok Bot or a board.
+Local tests call `serve` over Streamable HTTP on `127.0.0.1`. They check a missing token, a wrong token, a matching token, a simulator command, the absence of test controls, and a rejected Host. They do not open a public URL and they do not talk to Grok Bot or a board.
 
 ## Security checklist
 
@@ -43,7 +43,7 @@ This path is implemented locally. It is not verified with Grok Bot or on hardwar
 - Publish the MCP port only. Leave device port 8765 on loopback.
 - `mcp-token` and `credentials.json` are mode 0600 and stay out of Git.
 - Pass the tunnel hostname with `--allowed-host`. Any other Host is rejected.
-- The client sends `Authorization: Bearer`. The token is not in the URL.
+- The connector sends `Authorization: Bearer`. The token is not in the URL.
 - Run `init` as the same user that will run `serve`.
-- `init` prints client JSON and hides the MCP token unless you pass `--show-token`.
-- A local MCP client test is not a Grok Bot session and not physical proof.
+- `init` prints connector JSON and hides the MCP token unless you pass `--show-token`.
+- A local test or `rehearse` run is not a Grok Bot session and not physical proof.

@@ -467,7 +467,7 @@ Review at least:
 | --- | --- |
 | Current tracked files | Remove private paths, chat-only instructions, account evidence, and accidental fixture credentials |
 | Reachable main history | Inspect deleted files, commit messages, binary/media history, author/committer identities, and large blobs |
-| Other local refs | Keep Codex turn-diff refs, experiment branches, and unrelated work private |
+| Other local refs | Keep agent checkpoint refs, experiment branches, and unrelated work private |
 | Untracked assets | Preserve; selectively include only reviewed assets with provenance if needed |
 | Ignored evidence | Keep raw Grok captures, household data, private mappings, and host logs out of public release uploads |
 | Public manifests | Use portable source identities and hashes instead of private absolute paths |
@@ -483,7 +483,7 @@ The current package includes complete Git bundles created with `--all`. They are
 | Keep private | Eligible for a reviewed public release |
 | --- | --- |
 | Complete recovery .bundle files | GitHub source archive for the approved tag |
-| Codex/internal refs and experiment branches | Reviewed Python wheels/source packages |
+| Agent/internal refs and experiment branches | Reviewed Python wheels/source packages |
 | Raw local/account verification evidence | Inspectable simulator ZIP and checksum manifest |
 | Unredacted machine inventories and paths | Public compatibility/evidence summary |
 | Personal identity-linking records | Firmware only after redistribution review |
@@ -562,18 +562,11 @@ Suggested local launch tracker IDs, to reconcile with existing issues rather tha
 
 Use the existing HUB-PUBLISH-001 as a parent or equivalent activation tracker. Keep real Grok, hardware, mobile, and remote-transport issues distinct.
 
-### Delegation and model policy
+### Delegation
 
 The lead integrates and reviews; bounded subagents own disjoint files or repositories. Keep ownership explicit and avoid concurrent edits to shared ledgers/manifests.
 
-| Work | Suggested model/effort |
-| --- | --- |
-| Orchestration and routine documentation/implementation | GPT-6.1 Sol, Medium |
-| Complex protocol, release, or migration implementation | GPT-6.1 Sol or GPT-6 Astra, High as needed |
-| Any research subagent, including platform or evidence research | Current GPT-6.1/GPT-6 model, **Max** |
-| Independent code/UX review | High; **Max** when the assignment includes research |
-
-Use current 6.1/6 models by preference. Do not silently downgrade below the user's allowed model floor. If a requested model/effort is unavailable, report it before substituting a materially different configuration.
+Use the effort each task needs, and the strongest available reasoning for research. Report a gap before substituting.
 
 Progress records should capture the issue/stage, source commits, changed files, commands and results, decisions, unresolved gates, and next action. Record useful evidence, not private internal deliberation. Keep raw account/host logs private and public status summaries readable.
 
@@ -671,7 +664,7 @@ Also perform authorized stage G1: use computer automation with the actual signed
 
 Use owner adidshaft, retain all current names, and use adidshaft@kyokasuigetsu.xyz for private conduct reports. Naming is deferred and must not stall local preparation. Preserve existing history, unrelated assets, and the Grok-only product scope. Make coherent tested commits throughout and maintain issues, stages, decisions, process notes, and evidence.
 
-Use bounded subagents with explicit file ownership. Any research subagent must use Max reasoning; prefer current GPT-6.1/6 models. Distinguish local simulation/MCP/build evidence from actual Grok, mobile, and physical verification.
+Use bounded subagents with explicit file ownership. Research uses the strongest available reasoning. Distinguish local simulation/MCP/build evidence from actual Grok, mobile, and physical verification.
 
 Continue until all independently achievable preparation and the authorized simulation check are complete or accurately gated. Then present the exact publication packet, commits, verification evidence, and remaining external gates. Apart from the explicitly authorized Grok simulation, do not create repositories, push, publish releases/packages, deploy, spend money, activate automation, operate other live accounts or real devices, or modify Reddit without explicit scope authorization. Never open Brave, Safari, or Passwords. Do not claim public launch, native invocation, or physical success from prepared files or model assertions alone.
 ```

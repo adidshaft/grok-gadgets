@@ -255,17 +255,16 @@ def path_row(number, title, description, url, link_text):
 first_success = "doc-docs-components-grok-gadgets-gateway-first-success.html"
 proof_section = (
     '<section class="home-proof" id="first-success" aria-labelledby="proof-heading">'
-    '<p class="eyebrow">SEE IT WORK IN A REAL MCP CLIENT</p>'
+    '<p class="eyebrow">REHEARSE WHAT GROK BOT WILL DO</p>'
     '<h2 id="proof-heading">Five minutes. No hardware.</h2>'
-    "<p>Run the gateway with its simulated light, then call the six tools from "
-    "MCP Inspector, the official model-free MCP developer tool. CI runs this path every night.</p>"
-    '<picture><source srcset="media/gateway-inspector-first-success-still.webp" '
-    'media="(prefers-reduced-motion: reduce)">'
-    '<img src="media/gateway-inspector-first-success.webp" width="800" height="580" loading="lazy" '
-    'alt="MCP Inspector connects to the local gateway, lists six tools, finds the simulated light '
-    'sim-c124 and sets it blue. The reply says executed, simulated true, physical_verified false."></picture>'
-    '<p class="quiet-note">Recorded locally on 6 October 2026 with MCP Inspector 2.9.0. '
-    "Software simulator only: no Grok Bot and no physical device.</p>"
+    "<p>Run the gateway with its simulated light, then rehearse the Grok Bot calls: "
+    "the same six tools, in the same order, on your computer. CI runs this path every night.</p>"
+    '<pre class="proof-output"><code>$ grok-gadgets-gateway rehearse\n'
+    "ok  http://127.0.0.1:8766/mcp offers the six tools Grok Bot will use\n"
+    "ok  gadget sim-c124 (simulated); commands: rgb.set\n"
+    "ok  gadgets_command rgb.set {&quot;r&quot;:0,&quot;g&quot;:120,&quot;b&quot;:255,&quot;on&quot;:true} -&gt; executed\n"
+    "Rehearsal passed</code></pre>"
+    '<p class="quiet-note">Software simulator only: no Grok Bot connection and no physical device.</p>'
     '<p><a href="'
     + first_success
     + '">Follow the five-minute guide ↗</a></p></section>'
@@ -286,7 +285,7 @@ page(
         + path_row(
             "01",
             "No hardware",
-            "Run the gateway's simulated light and call it from MCP Inspector in five minutes.",
+            "Run the gateway's simulated light and rehearse the Grok Bot calls in five minutes.",
             first_success,
             "First success",
         )
@@ -332,7 +331,7 @@ page(
     + path_row(
         "01",
         "First success in five minutes",
-        "Run the gateway's simulated light and call it from MCP Inspector. No hardware or account.",
+        "Run the gateway's simulated light and rehearse the Grok Bot calls. No hardware or account.",
         first_success,
         "Gateway guide",
     )
@@ -385,7 +384,7 @@ page(
     + path_row(
         "02",
         "On your computer",
-        "Download, inspect and run a virtual light with the local MCP client. No Bot account required.",
+        "Download, inspect and run a virtual light on your computer. No Bot account required.",
         "downloads/grok-gadgets-simulator-kit.zip",
         "Download kit",
     )

@@ -51,7 +51,7 @@ class AuditTests(unittest.TestCase):
         self.git("checkout", "-q", "--detach", first)
         (self.repo / "extra.txt").write_text("private extra ref\n")
         extra = self.commit("recovery checkpoint")
-        self.git("update-ref", "refs/codex/turns/fixture", extra)
+        self.git("update-ref", "refs/checkpoints/turns/fixture", extra)
         self.git("checkout", "-q", "main")
         result = audit.audit_repository(self.repo)
         encoded = json.dumps(result)
@@ -68,22 +68,26 @@ class AuditTests(unittest.TestCase):
         self.assertEqual(result["summary"]["binary_blobs"], 1)
         self.assertEqual(result["summary"]["extra_ref_only_blobs"], 1)
         self.assertEqual(self.git("rev-parse", "HEAD").decode().strip(), current)
-        self.assertIn("refs/codex/turns/fixture", {r["ref"] for r in result["refs"]})
+        self.assertIn(
+            "refs/checkpoints/turns/fixture", {r["ref"] for r in result["refs"]}
+        )
 
-    def test_codex_direct_tree_ref_is_scanned_without_commit(self):
+    def test_checkpoint_direct_tree_ref_is_scanned_without_commit(self):
         current = self.commit("baseline")
         secret = "ghp_" + "R" * 36
         (self.repo / "tree-only.txt").write_text(secret)
         self.git("add", "tree-only.txt")
         tree_oid = self.git("write-tree").decode().strip()
-        self.git("update-ref", "refs/codex/tree-only", tree_oid)
+        self.git("update-ref", "refs/checkpoints/tree-only", tree_oid)
         self.git("reset", "--hard", current)
         result = audit.audit_repository(self.repo)
         self.assertEqual(result["commits_all_refs"], 1)
         self.assertEqual(result["summary"]["extra_ref_only_blobs"], 1)
         self.assertEqual(result["summary"]["history_findings"]["github_token"], 1)
         self.assertNotIn(secret, json.dumps(result))
-        ref = next(r for r in result["refs"] if r["ref"] == "refs/codex/tree-only")
+        ref = next(
+            r for r in result["refs"] if r["ref"] == "refs/checkpoints/tree-only"
+        )
         self.assertEqual(ref["object_type"], "tree")
 
     def test_large_batch_request_avoids_pipe_deadlock(self):

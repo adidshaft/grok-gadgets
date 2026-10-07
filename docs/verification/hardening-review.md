@@ -1,6 +1,6 @@
 # Independent correction review
 
-Reviewer: bounded GPT-6 Astra Medium agent, read-only source review and independently executed tests. This is independent agent review, not independent human reproduction.
+Reviewer: bounded medium-effort agent, read-only source review and independently executed tests. This is independent agent review, not independent human reproduction.
 
 | Finding / acceptance | Disposition | Corrected commits / evidence |
 | --- | --- | --- |
@@ -25,6 +25,6 @@ An exploratory combined environment for allthree Python wheels failed because ex
 
 ## S1 export-to-kit independent review
 
-Read-only GPT-6.1 Sol High reviewed24729e0 for HARD-SIM-EXPORT-001. Node6/6, kit4/4, freshness gate and actual scene.js VM export/copy/denied-clipboard/unavailable-download probes passed. Independently matched all six acceptance.json file hashes/sizes; custom236-byte my-light.json equals actualbrowserdownload and is outside protected inventory; default bytes match both ZIP and inner manifest. Fresh installed -B -I probe validates actual custom file and resolves package from kitvenvsite-packages. Parsed MCP evidence confirms offline rejection, reconnect restored state/new boot/session, blue/status/readback,125ms requested delay/130.612msobserved, button edges/cursor, off, physical/Grokfalse. No material functional findings.
+A read-only high-effort reviewer checked24729e0 for HARD-SIM-EXPORT-001. Node6/6, kit4/4, freshness gate and actual scene.js VM export/copy/denied-clipboard/unavailable-download probes passed. Independently matched all six acceptance.json file hashes/sizes; custom236-byte my-light.json equals actualbrowserdownload and is outside protected inventory; default bytes match both ZIP and inner manifest. Fresh installed -B -I probe validates actual custom file and resolves package from kitvenvsite-packages. Parsed MCP evidence confirms offline rejection, reconnect restored state/new boot/session, blue/status/readback,125ms requested delay/130.612msobserved, button edges/cursor, off, physical/Grokfalse. No material functional findings.
 
 Dispositions: test dry-run ignores --config; documented that it proves filename/default integrity only, supplemented with actual fresh --install/MCP run. Stale inprogress verification note replaced by complete simulator-export-onboarding.md. Optional suggestion to extract UI transport for lighter fallback tests was not required for this filename bug; browserused pure export regression and VM/manual UI evidence retained. Agentreview is not independent human reproduction. Final currentHEADpublication certification follows closure commit.

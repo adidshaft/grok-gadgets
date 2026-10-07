@@ -40,7 +40,7 @@ Raw local evidence: artifacts/verification/export-onboarding/acceptance.json con
 
 ## Independent review and limits
 
-Bounded read-only GPT-6.1 Sol High reviewer found no material functional defect in2f20398. It reran Node/kit/freshness checks; evaluated actual scene export/copy/fallback handlers with a lightweight VM; independently matched extracted defaults/customfile/evidence hashes and parsed MCP lifecycle. Dry-run regression scope was documented accurately; a stale inprogress verification note was replaced with this record. Review is another agent, not independent human installation.
+A bounded read-only high-effort reviewer found no material functional defect in2f20398. It reran Node/kit/freshness checks; evaluated actual scene export/copy/fallback handlers with a lightweight VM; independently matched extracted defaults/customfile/evidence hashes and parsed MCP lifecycle. Dry-run regression scope was documented accurately; a stale inprogress verification note was replaced with this record. Review is another agent, not independent human installation.
 
 No live Grok accounts operated, and no public push/publish/deployment/spending/automation/Reddit or physical-device action occurred. Actual Grok invocation receipts and mobile, hardware C124, real homes/peripherals/systemd, another human and public CI/deployment remain external gates. Downloaded copies remain snapshots; website builds run freshness gates and public cross-repository CI/deployment stays inactive.
 
