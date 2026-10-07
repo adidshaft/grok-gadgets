@@ -16,7 +16,7 @@
     {
       "file": "grok-gadgets-share-v2.png",
       "sha256": "3aea25841c1e0bc2107963f5ef40fb8323975ff2007b1af68bf0429e2f0e4fea",
-      "origin": "Built-in image generation for the background; composed with the unchanged Grok Bot app icon of the Grok Bot desktop app and original Grok Gadgets mark. Conceptual architecture route only, not evidence of a live connection."
+      "origin": "Built-in image generation for the background; composed with the unchanged Grok Bot desktop app icon and original Grok Gadgets mark. Conceptual architecture route only, not evidence of a live connection."
     },
     {
       "file": "grok-gadgets-icon.png",
@@ -42,16 +42,6 @@
       "file": "spacexai-mark.svg",
       "sha256": "435f412250a243399c6af46c83dbbc720d55e29dc4570fc046d9bec254d998a2",
       "origin": "Official downloadable SpaceXAI_Grok_Assets.zip; bytes unchanged"
-    },
-    {
-      "file": "gateway-inspector-first-success.webp",
-      "sha256": "e22aefabfe97bf3c890c1fe8fbc6a77fef1419bb1532897e80e1572b64a70004",
-      "origin": "Original project recording: six browser screenshots of a real local MCP Inspector 2.9.0 session against grok-gadgets-gateway serve --simulator on 127.0.0.1, taken 6 October 2026. The Inspector's own footer bar is cropped; a Grok Gadgets title bar (project icon) and caption are added with Pillow. MCP Inspector is a third-party tool from the Model Context Protocol project and is named in the caption. Software simulator only; not evidence of Grok Bot use or a physical effect."
-    },
-    {
-      "file": "gateway-inspector-first-success-still.webp",
-      "sha256": "d29ef14a7509e470b9458b5fee85886e4361abb45ea29a8796ed2f168452bb56",
-      "origin": "Final frame of gateway-inspector-first-success.webp, used when the viewer prefers reduced motion."
     }
   ]
 }

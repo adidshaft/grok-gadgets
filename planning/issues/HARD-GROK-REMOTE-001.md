@@ -18,4 +18,10 @@ Acceptance:
 
 Dependencies: none (does not wait on HUB-GROK-001)
 
-Blocker: Local `serve` (loopback Streamable HTTP + bearer) is implemented on the gateway `simplify-and-fix` branch (`a9be0db`). A public tunnel, hosted service, or Grok Bot experiment still needs owner approval. Native stdio tool-I/O export cannot close this gate.
+Blocker: Local `serve` is implemented with bearer authentication on loopback. Secure remote access is not complete. It needs an approved route, TLS, suitable credentials or OAuth, and independently verified Grok Bot invocation evidence. A tunnel provides reachability, not authentication. Do not point Grok Bot at this alpha yet.
+
+The separate Execution on Local Computer capability can run a Mac command when enabled and approved. If the Mac can reach a Pi over the home network and SSH is configured, that command can reach the Pi. This is a possible manual experiment, not shipped or accepted Grok Gadgets support. USB alone does not create this route.
+
+M5 remains blocked on supported exact-kit invocation/reload evidence and the remote route. M8 remains blocked on a real Pi/device setup, peripheral observation and independent reproduction. See [hosting FAQ](../../docs/getting-started/hosting.md).
+
+Documentation does not activate an account, tunnel or remote service. Those actions need separate approval.

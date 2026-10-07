@@ -49,6 +49,34 @@ In the PR, describe the behavior before and after the change. Link the issue. Li
 
 Simulation, fixtures, compilation and assistant narratives do not prove physical or native Grok operation. Remove tokens, account details and household state from shared evidence. Contributors must understand, review and test AI-assisted work. Generated code has the same review requirements.
 
+## What we merge
+
+The same bar applies in all five repositories. A pull request is merged only when every point
+holds:
+
+1. **It solves a stated problem.** It links an open issue that the maintainer has accepted, or a
+   bug you reproduced with steps, expected result and actual result. For anything beyond a typo,
+   comment on the issue first and wait until it is assigned to you.
+2. **It is small and focused.** One issue per PR. No unrelated edits, reformatting or renames.
+   Do not commit generated files (the simulator kit ZIP, manifests, lock files, `dist/`) unless
+   the issue asks for them.
+3. **It is tested.** The repository's checks pass on your machine and in CI. Changed behavior
+   comes with a regression test that fails without your change. For documentation, run every
+   command you wrote and paste the real output in the PR.
+4. **It reads like the rest of the project.** Code matches the surrounding style. Documentation
+   follows the [writing guide](docs/contributing/writing-guide.md): short sentences, no filler,
+   no longer than the issue needs.
+5. **Its claims are accurate.** Say exactly what you ran and where. Never present simulation,
+   compilation or a model's narrative as a Grok Bot or hardware result.
+6. **You understand every line.** AI-assisted work is welcome, but you must be able to explain
+   and defend each change in review. Bulk or unexplained generated changes are closed.
+7. **You follow up.** Address review comments within 14 days, or the PR is closed. You can reopen
+   it when you are ready.
+
+The maintainer may close a PR that misses this bar with a one-line reason and no detailed
+review, and may implement the issue another way. First-time contributors can have one open PR
+at a time. Merged work may later be rewritten as the project changes.
+
 @adidshaft reviews and merges contributions. With one maintainer, the policy requires zero mandatory human approvals. The maintainer still decides each merge. Passing checks do not guarantee a merge.
 
 We promise no response deadline or reward. No contributor license agreement (CLA) is required. Original contributions use Apache-2.0. Preserve notices and credit non-code work.
@@ -64,7 +92,7 @@ All five repositories use the same two long-lived branches:
 | Branch | Holds | Who writes to it |
 | --- | --- | --- |
 | `main` | Default branch for users, builders and the website; the latest tagged release. The website and simulator download are built from the hub's and gateway's `main`. | Release and hotfix PRs only, merged with a merge commit and tagged |
-| `dev` | Integration development and testing for the next release. Every ordinary feature, fix, documentation and test PR targets it. CI tests all five `dev` branches together every night. | Squash-merged PRs once required checks pass |
+| `dev` | Integration development and testing for the next release. Every ordinary feature, fix, documentation and test PR targets it. CI tests all five `dev` branches together every night. | Squash-merged PRs once required checks pass; `main`-into-`dev` sync PRs use a merge commit |
 
 Short-lived branches start from `dev` and are named `<type>/<ISSUE-ID>-<short-slug>`, for example `fix/GW-021-command-waits-for-ack`. Types are `feat`, `fix`, `docs`, `test`, `ci` and `chore`. Name the change, not the tool that wrote it. Keep a branch to one issue and a few days at most; update it from `dev` before merging.
 
@@ -77,7 +105,8 @@ flowchart LR
 
 - **Feature or fix:** branch from `dev`, open a PR into `dev`, squash-merge when checks are green. The PR title becomes the commit message, for example `fix(gateway): wait for ACK in gadgets_command (GW-021)`.
 - **Release:** when `dev` is green across all five repositories, open a `release: vX.Y.Z` PR from `dev` into `main` and merge it with a merge commit, never a squash, so `dev` and `main` stay related. Tag that commit `vX.Y.Z` (pre-releases use `vX.Y.Z-alpha.N`). Release components in dependency order: gateway, then the Linux and ESP32 SDKs and Home Assistant, then the hub, whose `compatibility/tested-components.json` records the tested tag set.
-- **Hotfix:** for an urgent problem in a release or on the live website, branch `hotfix/<ISSUE-ID>-<slug>` from `main`, open a PR into `main`, merge, tag a patch version, then merge `main` back into `dev`.
+- **Hotfix:** for an urgent problem in a release or on the live website, branch `hotfix/<ISSUE-ID>-<slug>` from `main`, open a PR into `main`, merge, tag a patch version. Then sync `dev`: branch `chore/<ISSUE-ID>-sync-main-into-dev` from `main`, merge `dev` into it, open a PR into `dev` and merge it with a **merge commit, never a squash**. A squash would hide that `main`'s commits are already in `dev` and cause false conflicts at the next release.
+- **Branch hygiene:** only `main` and `dev` live long. Merged branches are deleted automatically; delete abandoned ones.
 - **Cross-repository changes:** use the same issue ID and branch name in each repository. Merge the gateway first and keep it compatible with the previous SDK release. Each repository's `dev` must stay green on its own. A breaking protocol change needs a new protocol version.
 - **Never:** force-push or commit directly to `dev` or `main`, bypass required checks, or merge the private pre-publication history.
 

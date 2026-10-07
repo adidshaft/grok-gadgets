@@ -8,13 +8,13 @@
 
 **Let your Grok Bot control lights, buttons and sensors you build. Open source.**
 
-Status: works with local MCP clients today · Grok Bot connection in progress
+Status: Grok Bot connection in progress · test it locally today
 ([project status](docs/public/support-matrix.md)).
-Independent project, not affiliated with SpaceXAI or xAI.
+Independent project, not affiliated with SpaceXAI.
 
 Pick a path:
 
-- **No hardware:** run the gateway's simulated light and call it from MCP Inspector in
+- **No hardware:** run the gateway's simulated light and rehearse the Grok Bot calls in
   [five minutes](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/first-success.md).
 - **Raspberry Pi / Linux:** one install, ten lines of Python, one command with the
   [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk#quickstart).
@@ -33,15 +33,20 @@ Already use Home Assistant? Check what it offers with the
 | Build an ESP32 gadget | [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk) |
 | Run the local MCP gateway | [Gateway](https://github.com/adidshaft/grok-gadgets-gateway) |
 | Check what Home Assistant offers (read-only) | [Home Assistant probe](https://github.com/adidshaft/grok-gadgets-home-assistant) |
-| Understand why a cloud Bot cannot see your desk yet | [Hosting FAQ](docs/getting-started/hosting.md) |
+| Compare cloud, Mac-to-Pi and remote MCP paths | [Hosting FAQ](docs/getting-started/hosting.md) |
 
 ## How the parts connect
 
 ![Browser simulation exports settings for the local MCP simulator. SDK and native Grok paths have separate verification requirements.](docs/visuals/project-overview.svg)
 
-Grok Bot runs in the cloud. The gateway and your gadgets run on a computer you operate. Each
-repository installs on its own; the SDKs talk to the gateway, and the gateway never depends
-on an SDK. A tunnel only moves packets; it does not log anyone in. Never expose the device port.
+Grok Bot normally runs on its cloud computer. This does not expose your home network.
+With local execution enabled and a command approved, it can run a Mac command. If the Mac
+can reach a Pi and SSH is configured, that command can reach the Pi. This is a possible
+manual experiment, not verified Grok Gadgets support. USB alone does not create the route.
+
+The gateway's local `serve` is implemented on loopback. Packaged remote MCP and a verified
+Grok Bot invocation are incomplete. A tunnel adds reachability, not authentication.
+See the [three-path hosting FAQ](docs/getting-started/hosting.md) before planning a connection.
 
 ## Community
 
@@ -70,11 +75,20 @@ python3 scripts/dev.py site
 Open `http://127.0.0.1:4173/index.html`. With the four other repositories beside this one,
 `scripts/check-all.py` runs the cross-repository integration.
 
+## Support the project
+
+Grok Gadgets is open source. If you’d like to support its development, you can send a
+voluntary contribution to one of these addresses:
+
+- **Ethereum (ETH):** `0xD571210016e5AB4206D27f24bE128916E1C91047`
+- **Solana (SOL):** `D2jV1NkjuHHmvkuZ48Woc29v5NDeKLmHeLkUcN4fDg68`
+- **Bitcoin (BTC):** `bc1qal92xr892akwxgqrnkjhld7ar04hlld06uqyq5`
+- **ZEC (Shielded):** `u10hkzg65lgz6eq3arsylenag78jracfpguc3m4p6ptz8fkjlgxy6668yrjdgj2p704wp2f2wykrqv88tg9zu7fjuc9tk5s6vazvzmw5cvt5qkyzr32wqymesmcymja9zxpcwc6vcswa88yae023yj7jhypvn6n592t6z7nxqu4s59sdf9`
+
 ## License and affiliation
 
 Apache-2.0; see [LICENSE](LICENSE) and [NOTICE](NOTICE). Grok Gadgets is an independent
-open-source project. It is **not affiliated with, endorsed by or sponsored by SpaceXAI or
-xAI**, which make Grok and Grok Bot, nor with M5Stack or Home Assistant. Grok and SpaceXAI
-marks shown on the website follow their [brand guidelines](https://x.ai/legal/brand-guidelines)
-and are not covered by this project's license. Public history used reconstructed commit
-dates; see [publication sanitization](docs/verification/publication-sanitization.md).
+open-source project. It is **not affiliated with, endorsed by or sponsored by SpaceXAI**, nor
+with M5Stack or Home Assistant. Grok Bot and SpaceXAI marks shown on the website are not
+covered by this project's license. Public history used reconstructed commit dates; see
+[publication sanitization](docs/verification/publication-sanitization.md).
