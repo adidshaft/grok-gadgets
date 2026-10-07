@@ -245,7 +245,8 @@ A standard MCP implementation is necessary evidence, but it is not proof of real
 ### Local and remote operation
 
 - A local test client may use stdio or a loopback network server.
-- A cloud Bot cannot launch a path that exists only on the user's Mac.
+- A cloud command cannot launch a path that exists only on the user's Mac. The cloud computer's internet connection does not expose a private LAN.
+- Separate Execution on Local Computer can run an enabled, approved Mac command. With LAN reachability and configured SSH, it can reach a Pi. This is a possible manual experiment, not accepted Grok Gadgets support or packaged MCP. USB alone does not create the route.
 - A remote connection requires an authenticated, reachable endpoint or another explicitly supported route.
 - Do not silently expose local ports to the internet to make a demo work.
 - A gateway running on a Mac or Pi must remain on for that path to work. Closing a Grok client does not necessarily stop the gateway; shutting down the gateway host does.
@@ -455,6 +456,8 @@ Gate: firmware compiles and integration logic passes applicable tests. Label the
 
 ### M5 — Real Grok and cross-device integration
 
+Current stage: **blocked**. M5 Actual Grok needs supported invocation and reload evidence for the exact kit, plus the authenticated remote route. Local `serve` is implemented; secure remote access and verified Grok Bot invocation remain incomplete.
+
 Run this as soon as M2 permits; it should not wait for all other SDK work.
 
 Deliver:
@@ -489,6 +492,8 @@ Deliver:
 Gate: website checks pass, local preview is reviewed at desktop/mobile sizes, and all external-facing changes are ready to review. Nothing is published or modified on Reddit during this phase.
 
 ### M8 — Physical verification and independent installation
+
+Current stage: **blocked**. M8 Physical and independent verification needs a real Pi or device setup, observed peripheral operation, and independent reproduction.
 
 Requires hardware and a second tester; prepare the procedure during local development.
 

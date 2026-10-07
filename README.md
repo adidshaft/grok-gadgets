@@ -33,15 +33,20 @@ Already use Home Assistant? Check what it offers with the
 | Build an ESP32 gadget | [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk) |
 | Run the local MCP gateway | [Gateway](https://github.com/adidshaft/grok-gadgets-gateway) |
 | Check what Home Assistant offers (read-only) | [Home Assistant probe](https://github.com/adidshaft/grok-gadgets-home-assistant) |
-| Understand why a cloud Bot cannot see your desk yet | [Hosting FAQ](docs/getting-started/hosting.md) |
+| Compare cloud, Mac-to-Pi and remote MCP paths | [Hosting FAQ](docs/getting-started/hosting.md) |
 
 ## How the parts connect
 
 ![Browser simulation exports settings for the local MCP simulator. SDK and native Grok paths have separate verification requirements.](docs/visuals/project-overview.svg)
 
-Grok Bot runs in the cloud. The gateway and your gadgets run on a computer you operate. Each
-repository installs on its own; the SDKs talk to the gateway, and the gateway never depends
-on an SDK. A tunnel only moves packets; it does not log anyone in. Never expose the device port.
+Grok Bot normally runs on its cloud computer. This does not expose your home network.
+With local execution enabled and a command approved, it can run a Mac command. If the Mac
+can reach a Pi and SSH is configured, that command can reach the Pi. This is a possible
+manual experiment, not verified Grok Gadgets support. USB alone does not create the route.
+
+The gateway's local `serve` is implemented on loopback. Packaged remote MCP and a verified
+Grok Bot invocation are incomplete. A tunnel adds reachability, not authentication.
+See the [three-path hosting FAQ](docs/getting-started/hosting.md) before planning a connection.
 
 ## Community
 

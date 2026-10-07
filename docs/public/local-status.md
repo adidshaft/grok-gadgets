@@ -29,12 +29,16 @@ uv sync --locked
 uv run python -m grok_gadgets_gateway.demo
 ```
 
-These operations prove software behavior. They do not prove physical effects or that Grok has called the tools.
+These operations prove software behavior. They do not prove physical effects or that Grok Bot has called the tools.
 
 ## Remaining gates
 
-The Grok Bot needs a supported authenticated route to the gateway for local gadgets. Local HTTP MCP is implemented with a bearer token. Public TLS, OAuth and a hosted service are not supplied. An operator route to Grok Bot remains unverified. A tunnel supplies reachability, not authorization. A cloud command cannot execute a private path on a user's computer. See the [hosting FAQ](../getting-started/hosting.md) for operator responsibilities and future hosting choices.
+The [hosting FAQ](../getting-started/hosting.md) describes three separate paths:
 
-Local software acceptance, native Grok invocation, remote security and physical verification are separate checks. Mobile clients, actual Home Assistant devices and independent human reproduction need their own evidence.
+- **Cloud computer:** Grok Bot normally runs commands on its cloud computer. Its internet connection does not give it access to your private home network.
+- **Manual Mac → SSH → Pi experiment:** With **Execution on Local Computer** enabled and your approval for a command, Grok Bot can run that command on your Mac. The command can reach a Pi if the Mac can reach the Pi on the home network and SSH is set up. USB alone does not create this route. This possible experiment is not verified Grok Gadgets support or a packaged MCP integration.
+- **Packaged remote MCP:** The local `serve` command is implemented at `127.0.0.1:8766/mcp` with bearer-token authentication. The authenticated remote MCP endpoint with TLS and an approved, verified Grok Bot invocation are not complete. A tunnel adds reachability, not authentication. Do not connect Grok Bot to the alpha as a ready-to-use remote service.
+
+**M5 — Actual Grok is blocked.** It needs supported invocation and reload evidence for the exact kit, plus a supported remote route. **M8 — Physical and independent verification is blocked.** It needs a real Pi/device setup, observed peripheral behavior and independent reproduction. Mobile clients and actual Home Assistant devices need separate evidence.
 
 The public website does not run the gateway or a tunnel. Future service deployment, release uploads and live recognition require their own approval. Firmware binary redistribution needs dependency/license review. These local instructions do not activate an account or device.
