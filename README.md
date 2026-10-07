@@ -8,13 +8,13 @@
 
 **Let your Grok Bot control lights, buttons and sensors you build. Open source.**
 
-Status: works with local MCP clients today · Grok Bot connection in progress
+Status: Grok Bot connection in progress · test it locally today
 ([project status](docs/public/support-matrix.md)).
 Independent project, not affiliated with SpaceXAI or xAI.
 
 Pick a path:
 
-- **No hardware:** run the gateway's simulated light and call it from MCP Inspector in
+- **No hardware:** run the gateway's simulated light and rehearse the Grok Bot calls in
   [five minutes](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/first-success.md).
 - **Raspberry Pi / Linux:** one install, ten lines of Python, one command with the
   [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk#quickstart).

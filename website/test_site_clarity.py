@@ -17,9 +17,7 @@ class SiteClarityTests(unittest.TestCase):
             "Let your Grok Bot control lights, buttons and sensors you build.", hero
         )
         self.assertIn("<span>Open source.</span>", hero)
-        self.assertIn(
-            "Works with local MCP clients today · Grok Bot connection in progress", hero
-        )
+        self.assertIn("Grok Bot connection in progress · test it locally today", hero)
         self.assertIn('href="doc-docs-public-support-matrix.html"', hero)
         self.assertIn('href="#scene-demo"', hero)
 

@@ -90,7 +90,7 @@ python3 scripts/build-simulator-kit.py --check
 .venv/bin/python website/build.py
 ```
 
-`--check` fails if the sibling gateway HEAD, kit inputs or archive no longer match the stored kit. The build rejects uncommitted gateway changes. The rebuild runs the gateway tests and installs the kit in a fresh environment. It tests default and custom settings through the official MCP client.
+`--check` fails if the sibling gateway HEAD, kit inputs or archive no longer match the stored kit. The build rejects uncommitted gateway changes. The rebuild runs the gateway tests and installs the kit in a fresh environment. It tests default and custom settings through a real MCP session.
 
 Run these maintainer commands from the hub, not from the extracted kit.
 

@@ -216,7 +216,7 @@ def audit_repository(repo: Path) -> dict:
                 "commit_in_head_history": peeled in head_set,
             }
         )
-        # agent recovery refs can point directly to trees, not commits.
+        # Agent checkpoint refs can point directly to trees, not commits.
         if kind == "tree":
             for path, blob in tree(repo, peeled).items():
                 paths[blob].add(path)
@@ -439,7 +439,7 @@ def main() -> None:
         "pattern_kinds": sorted(PATTERNS),
         "repositories": records,
         "local_assets_and_packages": local_assets(root),
-        "private_recovery": "All --all Git bundles are private recovery only. Publish only an explicitly reviewed branch and selected artifacts; never bundle refs/agent, other local refs, account evidence or raw logs wholesale.",
+        "private_recovery": "All --all Git bundles are private recovery only. Publish only an explicitly reviewed branch and selected artifacts; never bundle agent checkpoint refs, other local refs, account evidence or raw logs wholesale.",
     }
     output = args.output or root / "artifacts/launch-audit" / (
         datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ") + ".json"

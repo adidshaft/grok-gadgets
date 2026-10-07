@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/local-operation.md at f7d1782cf5e173dcd1e3d9e691cd789e2e1115d0
+Source: grok-gadgets-gateway/docs/local-operation.md at 6c3523ac3ff2e361a40d4745b6025895a1ecd7cd
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -9,17 +9,17 @@ This is a pinned documentation snapshot. Relative filesystem paths describe the 
 1. Run `uv sync --locked`.
 2. Run `uv run python -m grok_gadgets_gateway.demo`.
 
-To configure a local MCP test client, use the absolute uv path and this repository as the working directory.
-Set the arguments to `run`, `--directory`, `/absolute/path/grok-gadgets-gateway`, `grok-gadgets-gateway`, `--simulator`.
-These instructions configure a local MCP client. They are not a verified Grok Bot configuration.
+For a connector that starts the gateway itself (stdio), use the absolute uv path and this repository as the working directory.
+Set the arguments to `run`, `--directory`, `/absolute/path/grok-gadgets-gateway`, `grok-gadgets-gateway`, `stdio`, `--simulator`.
+These are local settings. They are not a verified Grok Bot configuration. Check a running `serve` with `grok-gadgets-gateway rehearse`.
 
-The client starts and manages the stdio process. Keep the client and host awake.
-A stdio process stops when that client exits. `grok-gadgets-gateway serve` is the long-running process: it keeps the device listener and Streamable HTTP MCP up without an MCP client. See [remote access](remote-access.md) for the URL, the bearer token, and the rule against publishing the device port.
+The connector starts and manages the stdio process. Keep it and the host awake.
+A stdio process stops when its connector exits. `grok-gadgets-gateway serve` is the long-running process: it keeps the device listener and Streamable HTTP MCP up on its own. See [remote access](remote-access.md) for the URL, the bearer token, and the rule against publishing the device port.
 State and history are stored in memory. Event cursors reset when the process restarts.
 
 ## Where to run it
 
-Keep the local MCP client, gateway, and device agent or USB bridge on the same host.
+Keep the gateway and the device agent or USB bridge on the same host.
 The device listener accepts only `127.0.0.1` or `::1`; another computer cannot use this local transport.
 The public website provides documentation and downloads. It does not keep your gateway running.
 Local simulation needs no public endpoint, domain, or hosted service.

@@ -88,7 +88,7 @@ Start with a software simulation while the user arranges the board. The first ph
 - Making paid developer-API calls without separate authorization.
 - Changing subreddit settings, awarding live flair, posting, commenting, or sending messages.
 - Installing a live Reddit app or activating unattended automation.
-- Creating recurring agent tasks or user-visible additional chats.
+- Creating recurring agent tasks or additional user-visible sessions.
 
 Prepare external actions fully enough to review before asking for authorization. Do not stop independent local work simply because a later external step needs approval. Conversely, do not treat a prepared configuration as an activated service.
 
