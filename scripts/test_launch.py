@@ -163,9 +163,7 @@ class LaunchTests(unittest.TestCase):
         self.assertIn(
             "scripts/check-pages-prefix.py", str(pages["jobs"]["build"]["steps"])
         )
-        self.assertIn(
-            "https://grok-gadgets.pages.dev/", str(pages["jobs"]["build"]["steps"])
-        )
+        self.assertIn("https://grokgadgets.org/", str(pages["jobs"]["build"]["steps"]))
         self.assertEqual(
             pages["jobs"]["deploy"]["permissions"],
             {"contents": "read", "deployments": "write"},
@@ -233,7 +231,7 @@ class LaunchTests(unittest.TestCase):
 
     def test_extensionless_page_urls_resolve_like_cloudflare_pages(self):
         checker = load("check-pages-prefix")
-        site = "https://grok-gadgets.pages.dev/"
+        site = "https://grokgadgets.org/"
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             (root / "index.html").write_text(f'<a href="{site}status">status</a>')
