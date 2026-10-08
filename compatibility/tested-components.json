@@ -1,14 +1,14 @@
 {
-  "status": "Public source patch prerelease and website live; v0.1.3-alpha.1 release candidate verified",
+  "status": "Public source patch prerelease and website live; v0.1.4-alpha.1 release candidate verified",
   "protocol": "0.1.0",
   "components": [
     {
       "repository": "grok-gadgets",
       "path": "grok-gadgets",
-      "version": "0.1.3-alpha.1",
-      "commit": "1624a908f925c9d33a3e303a63667246f566f4e1",
-      "evidence_level": "Public source patch prerelease; mcp 2 gateway and kit verified",
-      "checks": "Full local hub check suite, kit freshness and integrated acceptance passed on the release candidate with gateway v0.1.0-alpha.4 (mcp 2.3.0). The simulator kit is rebuilt from gateway v0.1.0-alpha.4, and its client accepts mcp 1.x and 2.x results. No Grok Bot connection or physical hardware operation is claimed.",
+      "version": "0.1.4-alpha.1",
+      "commit": "1c7a97466fef3e30f2d73f7716312363fcca0960",
+      "evidence_level": "Public source patch prerelease; tested set at every component's latest release",
+      "checks": "Full local hub check suite, kit freshness and integrated acceptance passed on the release candidate with gateway and Linux SDK v0.1.0-alpha.4, ESP32 SDK v0.2.0-alpha.4 and Home Assistant v0.1.0-alpha.4. The simulator kit is unchanged from v0.1.3-alpha.1 (gateway v0.1.0-alpha.4). No Grok Bot connection or physical hardware operation is claimed.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
