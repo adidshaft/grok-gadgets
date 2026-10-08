@@ -26,6 +26,10 @@ import asyncio, json, pathlib, sys
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
+# mcp 2 renamed result fields to snake_case; accept both so the probe runs on either.
+def _field(result, name, old_name):
+    return getattr(result, name) if hasattr(result, name) else getattr(result, old_name)
+
 async def run():
     script, config, manifest, folder = map(pathlib.Path, sys.argv[1:])
     settings = json.loads(config.read_text())
@@ -43,8 +47,10 @@ async def run():
                 await client.initialize()
                 async def call(name, arguments=None):
                     result = await client.call_tool(name, arguments or {})
-                    assert not result.isError, result.content
-                    return result.structuredContent or json.loads(result.content[0].text)
+                    assert not _field(result, "is_error", "isError"), result.content
+                    return _field(result, "structured_content", "structuredContent") or json.loads(
+                        result.content[0].text
+                    )
                 names = {tool.name for tool in (await client.list_tools()).tools}
                 assert ("test_simulator_control" in names) is controls
                 device = (await call("gadgets_list_devices"))["devices"][0]
