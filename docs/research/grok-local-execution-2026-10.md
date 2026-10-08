@@ -1,6 +1,6 @@
 # Grok Bot Execution on Local Computer: what it allows (October 2026)
 
-Research for [LAUNCH-GROK-001 (#31)](https://github.com/adidshaft/grok-gadgets/issues/31) and [HARD-GROK-REMOTE-001 (#4)](https://github.com/adidshaft/grok-gadgets/issues/4). Question: can the owner's existing Grok Bot reach a gateway on the owner's Mac through **Execution on Local Computer**, or do we need a remote HTTPS route?
+Research for [LAUNCH-GROK-001 (#31)](https://github.com/adidshaft/grok-gadgets/issues/31) and [HARD-GROK-REMOTE-001 (#4)](https://github.com/adidshaft/grok-gadgets/issues/4). Question: can the owner's existing Grok Bot reach a gateway on the owner's Mac through **Execution on Local Computer**? If not, we need a remote HTTPS route.
 
 Sources are official SpaceXAI Grok Bot pages only, read on 8 October 2026. None of the pages shows a last-updated date. Quotations are short; read the linked page for context. Third-party guides and forum posts were seen during the search but are not used as evidence.
 
@@ -42,9 +42,9 @@ Inference, not documented: a command that runs on the Mac uses the Mac's network
 
 - Setting: "**Settings → General → Bot → Execution on Local Computer**", with **Ask every time**, **Always allow** or **Never allow**. The default is **Ask every time** ([approvals page](https://docs.x.ai/grok-bot/approvals-security-and-privacy)).
 - After the account has registered computers, the choice moves to **Settings → Computer → Computers**. Each computer then has its own **Execution on this computer** setting (same page).
-- First use shows the prompt "Allow Grok Bot and all Bots to run commands on your local computer?" with **Always allow**, **Allow once**, **Never** and **Deny once**. **Always allow** and **Never** change the setting for every Bot (same page).
+- First use shows the prompt "Allow Grok Bot and all Bots to run commands on your local computer?" The choices are **Always allow**, **Allow once**, **Never** and **Deny once**. **Always allow** and **Never** change the setting for every Bot (same page).
 - A team admin can cap the setting. The stricter of the team and member settings applies ([approvals page](https://docs.x.ai/grok-bot/approvals-security-and-privacy), [security page](https://docs.x.ai/grok-bot/security)).
-- Plans: the [get-started page](https://docs.x.ai/grok-bot/get-started) lists the plans that include Grok Bot: paid individual plans, the Teams plan, or a linked SuperGrok, SuperGrok Plus or SuperGrok Heavy subscription. **Unconfirmed:** any plan limit on local execution itself. None is documented.
+- Plans: the [get-started page](https://docs.x.ai/grok-bot/get-started) lists the plans that include Grok Bot. They are paid individual plans, the Teams plan, or a linked SuperGrok, SuperGrok Plus or SuperGrok Heavy subscription. **Unconfirmed:** any plan limit on local execution itself. None is documented.
 - Platforms: the desktop app runs on macOS, Windows and Linux ([get-started page](https://docs.x.ai/grok-bot/get-started), [overview](https://docs.x.ai/grok-bot)). Local execution works "through the desktop app" ([security page](https://docs.x.ai/grok-bot/security)). **Unconfirmed:** whether a chat on iPhone or Android can run a command on a registered desktop.
 
 ## 4. Approvals and logs
