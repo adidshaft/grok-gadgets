@@ -29,10 +29,10 @@
     {
       "repository": "grok-gadgets-linux-sdk",
       "path": "grok-gadgets-linux-sdk",
-      "version": "0.1.0-alpha.3",
-      "commit": "85a84eef88e8a12a45c8eae8e1118218fa75d028",
+      "version": "0.1.0-alpha.4",
+      "commit": "2b17a37a761761e92e921efbfe105cd799155501",
       "evidence_level": "Simulated; macOS gateway integration verified",
-      "checks": "54 tests, Ruff, package builds and the README quick start passed. The gateway integration used v0.1.0-alpha.3 with mcp 1.28.1. No fresh Linux container, systemd or Raspberry Pi run in this release.",
+      "checks": "54 tests, Ruff, package builds and the README quick start passed. The gateway integration used v0.1.0-alpha.4 with mcp 2.3.0. No fresh Linux container, systemd or Raspberry Pi run in this release.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
