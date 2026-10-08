@@ -1,14 +1,14 @@
 {
-  "status": "Public source patch prerelease and website live; v0.1.2-alpha.1 release candidate verified",
+  "status": "Public source patch prerelease and website live; v0.1.3-alpha.1 release candidate verified",
   "protocol": "0.1.0",
   "components": [
     {
       "repository": "grok-gadgets",
       "path": "grok-gadgets",
-      "version": "0.1.2-alpha.1",
-      "commit": "13f29733af6f80acc3b63760af8966b9bf6a389d",
-      "evidence_level": "Public source patch prerelease; dependency security fixes verified",
-      "checks": "Full local hub check suite, kit freshness and integrated acceptance passed on the release candidate with gateway and Linux SDK v0.1.0-alpha.3. The simulator kit is rebuilt from gateway v0.1.0-alpha.3. No Grok Bot connection or physical hardware operation is claimed.",
+      "version": "0.1.3-alpha.1",
+      "commit": "1624a908f925c9d33a3e303a63667246f566f4e1",
+      "evidence_level": "Public source patch prerelease; mcp 2 gateway and kit verified",
+      "checks": "Full local hub check suite, kit freshness and integrated acceptance passed on the release candidate with gateway v0.1.0-alpha.4 (mcp 2.3.0). The simulator kit is rebuilt from gateway v0.1.0-alpha.4, and its client accepts mcp 1.x and 2.x results. No Grok Bot connection or physical hardware operation is claimed.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
@@ -17,10 +17,10 @@
     {
       "repository": "grok-gadgets-gateway",
       "path": "grok-gadgets-gateway",
-      "version": "0.1.0-alpha.3",
-      "commit": "ba9c1ff96f5e282b10d3d0de90e903a83b2acfcb",
+      "version": "0.1.0-alpha.4",
+      "commit": "ecad5e3f1a645e5d99ef5e527bdc2ef03141ac64",
       "evidence_level": "Simulated; Grok Bot rehearsal verified",
-      "checks": "143 tests, Ruff, package builds and the README first-success rehearsal passed with mcp 1.28.1. No Grok Bot or physical hardware operation is claimed.",
+      "checks": "143 tests, Ruff, package builds and the README first-success rehearsal passed with mcp 2.3.0; an mcp 1.28.1 client still negotiates protocol 2025-11-25. No Grok Bot or physical hardware operation is claimed.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
