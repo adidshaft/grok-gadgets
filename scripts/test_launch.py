@@ -2,7 +2,9 @@
 
 import importlib.util
 import json
+import os
 from pathlib import Path
+import subprocess
 import tempfile
 import unittest
 from unittest.mock import Mock, patch
@@ -178,6 +180,61 @@ class LaunchTests(unittest.TestCase):
             "pages deploy website/dist --project-name=grok-gadgets --branch=main",
             str(pages["jobs"]["deploy"]),
         )
+
+    def test_production_deploys_are_serialized_and_gated_on_current_main(self):
+        pages = yaml.load(
+            (ROOT / ".github/workflows/pages.yml").read_text(), Loader=yaml.BaseLoader
+        )
+        # One group for every revision, so an older run cannot overlap a newer one.
+        self.assertEqual(pages["concurrency"]["group"], "cloudflare-pages-production")
+        self.assertEqual(pages["concurrency"]["cancel-in-progress"], "false")
+        steps = pages["jobs"]["deploy"]["steps"]
+        names = [step.get("name", step.get("uses", "")) for step in steps]
+        gate = "Recheck current main immediately before upload"
+        upload = "Deploy the tested site to Cloudflare Pages"
+        self.assertEqual(names.index(gate) + 1, names.index(upload))
+        self.assertIn("check-current-main.sh", steps[names.index(gate)]["run"])
+        self.assertEqual(
+            steps[names.index(upload)]["if"], "steps.recheck.outputs.current == 'true'"
+        )
+
+    def run_current_main_check(self, main_sha, deploy_sha, gh_exit=0):
+        with tempfile.TemporaryDirectory() as folder:
+            fake = Path(folder) / "gh"
+            fake.write_text(f"#!/bin/sh\necho '{main_sha}'\nexit {gh_exit}\n")
+            fake.chmod(0o755)
+            output = Path(folder) / "output"
+            env = {
+                **os.environ,
+                "PATH": f"{folder}:{os.environ['PATH']}",
+                "GITHUB_OUTPUT": str(output),
+            }
+            result = subprocess.run(
+                [
+                    "bash",
+                    ROOT / ".github/deploy/check-current-main.sh",
+                    "adidshaft/grok-gadgets",
+                    deploy_sha,
+                ],
+                env=env,
+                capture_output=True,
+                text=True,
+            )
+            written = output.read_text() if output.exists() else ""
+        return result.returncode, written
+
+    def test_only_current_main_deploys_and_unknown_main_fails_closed(self):
+        new, old = "b" * 40, "a" * 40
+        self.assertEqual(self.run_current_main_check(new, new), (0, "current=true\n"))
+        # A late older run, or a rerun of an old run: skip, keep newer production.
+        self.assertEqual(self.run_current_main_check(new, old), (0, "current=false\n"))
+        # GitHub unavailable or an unexpected answer: fail, never deploy.
+        code, written = self.run_current_main_check(new, new, gh_exit=1)
+        self.assertNotEqual(code, 0)
+        self.assertEqual(written, "")
+        code, written = self.run_current_main_check("Not Found", new)
+        self.assertNotEqual(code, 0)
+        self.assertEqual(written, "")
 
     def test_rules_preserve_history_and_solo_maintainer_can_merge(self):
         repositories = json.loads((ROOT / "publication/repositories.json").read_text())

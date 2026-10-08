@@ -8,7 +8,7 @@ Wait until the board is available. Obtain the owner's authorization before flash
 
 Run the local gateway and USB bridge on the host computer. A hardware test needs no public tunnel. The packaged remote MCP route for Grok Bot is not ready. Local `serve` listens only on `127.0.0.1:8766/mcp` and uses a bearer token. An authenticated remote MCP endpoint with TLS and approved, verified Grok Bot invocation are still needed. A tunnel adds reachability, not authentication.
 
-Grok Bot's normal cloud computer cannot reach your private LAN through its internet connection alone. A separate possible experiment uses **Execution on Local Computer**: enable it, approve a Mac command, then use SSH from the Mac to a reachable Pi with SSH set up. USB alone does not create this route. This is not verified Grok Gadgets support or a packaged MCP integration. Read the [hosting FAQ](hosting.md) for the three paths. Do not expose the device protocol directly.
+Grok Bot's normal cloud computer cannot reach your private LAN through its internet connection alone. A separate possible experiment uses **Execution on Local Computer**. Enable it and approve a Mac command. Then use SSH from the Mac to a reachable Pi with SSH set up. USB alone does not create this route. This is not verified Grok Gadgets support or a packaged MCP integration. Read the [hosting FAQ](hosting.md) for the three paths. Do not expose the device protocol directly.
 
 Record the board model C124, USB-C data cable, firmware SHA-256, gateway and SDK commits, host operating system, port, time and tester. Do not record tokens.
 

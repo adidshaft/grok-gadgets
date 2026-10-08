@@ -6,7 +6,7 @@ import subprocess
 import sys
 from unittest.mock import patch
 from pathlib import Path
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from urllib.error import URLError
 from activity import summarize, refresh
 
@@ -231,6 +231,69 @@ class ActivityTests(unittest.TestCase):
                         self.assertNotIn(
                             "Aggregate stars (sum, not unique people): 41", html
                         )
+            finally:
+                env = dict(os.environ)
+                env.pop("GROK_ACTIVITY_FILE", None)
+                subprocess.run(
+                    [sys.executable, "website/build.py"],
+                    cwd=root,
+                    env=env,
+                    check=True,
+                    capture_output=True,
+                )
+
+    def test_snapshot_wording_before_and_after_expiry_and_failed_refresh(self):
+        root = Path(__file__).resolve().parents[1]
+        now = datetime.now(timezone.utc)
+        data = dict(
+            aggregate_stars=1,
+            open_issues=2,
+            contributors=3,
+            active_contributors=1,
+            releases=[],
+        )
+
+        def record(minutes_old, **extra):
+            stamp = (now - timedelta(minutes=minutes_old)).isoformat()
+            return dict(
+                owner="adidshaft", last_successful_refresh=stamp, data=data, **extra
+            )
+
+        cases = [
+            # Just before the one-hour expiry: a dated snapshot, never "live".
+            (record(59, state="live"), "SNAPSHOT —"),
+            # Just after expiry, with no new refresh: cached.
+            (record(61, state="live"), "CACHED —"),
+            # A failed refresh keeps the old data as cached.
+            (
+                record(
+                    5,
+                    state="cached",
+                    refresh_error="Refresh failed; timestamped cached data",
+                ),
+                "CACHED —",
+            ),
+        ]
+        with tempfile.TemporaryDirectory() as d:
+            cache = Path(d) / "cache.json"
+            try:
+                for item, label in cases:
+                    cache.write_text(json.dumps(item))
+                    subprocess.run(
+                        [sys.executable, "website/build.py"],
+                        cwd=root,
+                        env={**os.environ, "GROK_ACTIVITY_FILE": str(cache)},
+                        check=True,
+                        capture_output=True,
+                    )
+                    html = (root / "website/dist/activity.html").read_text()
+                    self.assertIn(label, html)
+                    self.assertNotIn("LIVE", html)
+                    stamp = datetime.fromisoformat(item["last_successful_refresh"])
+                    self.assertIn("Fetched at: <time datetime=", html)
+                    self.assertIn(stamp.strftime("%Y-%m-%d %H:%M UTC"), html)
+                    self.assertIn("This is a snapshot, not a live feed.", html)
+                    self.assertIn("once a day at 06:17 UTC", html)
             finally:
                 env = dict(os.environ)
                 env.pop("GROK_ACTIVITY_FILE", None)

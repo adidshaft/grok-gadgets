@@ -49,4 +49,4 @@ Use one term for each meaning. Technical names and identifiers must remain exact
 
 Preserve commands, API identifiers, units, numerical limits, license text and quotations. Do not rewrite historical test records to imply a newer result. Review current guides and public copy separately from those records.
 
-CI checks the README and the main newcomer pages in every repository with `check_ste.py`: a sentence of more than 25 words fails the check, and a passive-looking sentence prints a note. A style review is not a compliance audit. Formal ASD-STE100 compliance requires checking the full applicable standard, its dictionary and permitted technical terminology.
+CI runs `check_ste.py` on the README and the main newcomer pages in every repository. A sentence of more than 25 words fails the check. A passive-looking sentence prints a note. A style review is not a compliance audit. Formal ASD-STE100 compliance requires checking the full applicable standard, its dictionary and permitted technical terminology.
