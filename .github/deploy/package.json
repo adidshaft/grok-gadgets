@@ -1,8 +1,11 @@
 {
   "name": "grok-gadgets-deploy",
   "private": true,
-  "description": "Pinned Cloudflare Pages deploy tool. Installed with npm ci from the lockfile.",
+  "description": "Pinned Cloudflare Pages deploy tool. Installed with npm ci from the lockfile. The sharp override applies GHSA-wq5f-xc86-pv6w (fixed in 0.35.5) until miniflare updates its exact pin.",
   "dependencies": {
     "wrangler": "4.147.0"
+  },
+  "overrides": {
+    "sharp": "0.35.5"
   }
 }
