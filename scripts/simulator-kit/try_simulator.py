@@ -11,6 +11,11 @@ from mcp.client.stdio import stdio_client
 from grok_gadgets_gateway.simulator_config import load_config
 
 
+def _field(result, name, old_name):
+    """mcp 2 renamed result fields to snake_case; accept both so the kit runs on either."""
+    return getattr(result, name) if hasattr(result, name) else getattr(result, old_name)
+
+
 async def demo(path):
     config = load_config(path)
     device_id = config["device_id"]
@@ -31,8 +36,10 @@ async def demo(path):
 
             async def call(name, arguments=None):
                 result = await client.call_tool(name, arguments or {})
-                assert not result.isError, result.content
-                value = result.structuredContent or json.loads(result.content[0].text)
+                assert not _field(result, "is_error", "isError"), result.content
+                value = _field(
+                    result, "structured_content", "structuredContent"
+                ) or json.loads(result.content[0].text)
                 print(
                     json.dumps(
                         {"tool": name, "arguments": arguments or {}, "result": value}
