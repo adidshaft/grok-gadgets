@@ -1,5 +1,7 @@
 # Corrected local alpha handoff —4October2026
 
+> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](../getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+
 All six audit corrections are implemented and locally tested. Twelve integrated acceptance groups passed on committed clean tracked inputs at hub5f3dedc, gateway221f73f, Linuxbe66ea4, ESPe78fb1c and Home Assistantb06eb07. Independent agent correctness review is closed. Independent assembled candidate certification passed; H0–H7 local acceptance is complete. Final current-HEAD candidate is generated after this evidence commit and identified by artifacts/publication/latest.json.
 
 ## Corrections and evidence

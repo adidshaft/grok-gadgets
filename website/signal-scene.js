@@ -6,10 +6,10 @@
   const mounted = new WeakMap();
   const platforms = [
     {
-      id: 'esp32', label: 'C124 · ESP32', x: 165, y: 275,
-      title: 'C124 · RGB light + button', href: 'esp32.html',
+      id: 'esp32', label: 'ESP32-S3', x: 165, y: 275,
+      title: 'ESP32-S3 · breadboard + OLED', href: 'esp32.html',
       route: 'Gateway + USB · proposed HTTPS',
-      description: 'C124 LED and button example. Proposed route: Grok Bot, operator HTTPS, gateway, host USB bridge, ESP32 firmware. Firmware compiles; physical C124 and Grok Bot tests are pending.',
+      description: 'Ordered ESP32-S3 kit with breadboard and OLED. Proposed route: Grok Bot, operator HTTPS, gateway, host USB bridge, firmware. Board pins, OLED controller, physical operation and Grok Bot tests are pending.',
       port: 'Gateway', portX: 302, portY: 308,
       points: [[430, 275], [350, 275], [255, 275], [165, 275]],
     },

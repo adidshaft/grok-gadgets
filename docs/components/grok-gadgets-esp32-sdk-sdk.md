@@ -1,10 +1,11 @@
-Source: grok-gadgets-esp32-sdk/docs/sdk.md at e032c0c0b8b4cfa4fa4b62b12e840d6578aadb1c
+Source: grok-gadgets-esp32-sdk/docs/sdk.md at 894c827417de5433f908a0429df6f00527645548
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
 # Use the library in another gadget
 
-The C124 sketch and `examples/led-button` both use `grok::Gadget`. A second board still needs its own pins, a PlatformIO environment, and its own hardware check. This library has no Wi-Fi transport and no hosted service. The gateway device port stays on loopback. See the [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md).
+The [ordered OLED kit](first-experiment.md) is the first physical experiment. Its
+pins, display controller and firmware profile remain provisional. The optional C124 sketch and `examples/led-button` both use `grok::Gadget`. A second board still needs its own pins, a PlatformIO environment, and its own hardware check. This library has no Wi-Fi transport and no hosted service. The gateway device port stays on loopback. See the [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md).
 
 | Header | Purpose |
 | --- | --- |

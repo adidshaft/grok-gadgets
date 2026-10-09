@@ -1,5 +1,7 @@
 # Local alpha handoff — 4 October 2026
 
+> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](../getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+
 Historical record only. The corrected current handoff is [hardening-handoff.md](hardening-handoff.md); the old counts/hashes below are superseded.
 
 Historical local-alpha completion predates six audit findings. The correction cycle is active; see [current hardening checkpoint](hardening-status.md) and [hardening plan](../hardening-plan.md). It is exclusively for Grok and remains unpublished. Actual existing Grok Bot use, physical hardware and independent reproduction are not verified.

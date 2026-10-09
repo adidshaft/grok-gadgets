@@ -1,5 +1,7 @@
 # Configurable simulator acceptance
 
+> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](../getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+
 Local, unpublished acceptance. Gateway source `08f0f127205d23a75ed768cc6372d1329719a03c` includes configurable simulation and offline button guards. The browser reuses the existing architecture animation; no Grok requests or physical operations occur in the browser.
 
 ## Automated checks

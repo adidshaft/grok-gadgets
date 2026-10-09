@@ -25,7 +25,7 @@ Use concise technical English inspired by [ASD-STE100](https://www.asd-ste100.or
 | Issue | Problem, evidence, acceptance criteria and dependencies |
 | Pull request | User-visible change, linked issue, validation and limitations |
 
-Use “reusable ESP32 library; C124 example” instead of implying that the SDK supports only one board. Do not replace that claim with “works on every ESP32.” Supported boards need evidence.
+Use “reusable ESP32 library; ordered ESP32-S3/OLED experiment” instead of implying that the SDK supports only one board. Do not replace that claim with “works on every ESP32.” Supported boards need evidence.
 
 Before review, remove repeated background, verify commands and links, and check that a beginner can identify the next step. This guide applies to all five repositories and public project copy.
 

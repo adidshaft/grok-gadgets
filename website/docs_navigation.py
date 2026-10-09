@@ -45,11 +45,21 @@ GROUPS = (
                 "ESP32 SDK",
                 (
                     ("esp32-sdk", "README.md", "ESP32 SDK overview"),
+                    (
+                        "",
+                        "docs/getting-started/experiment-kit.md",
+                        "First experiment: ordered kit",
+                    ),
+                    (
+                        "esp32-sdk",
+                        "docs/first-experiment.md",
+                        "Rehearse the OLED experiment",
+                    ),
                     ("esp32-sdk", "docs/sdk.md", "Use the firmware library"),
                     (
                         "esp32-sdk",
                         "docs/build-flash.md",
-                        "Build and flash the C124 example",
+                        "Prepare and flash ESP32 firmware",
                     ),
                     (
                         "esp32-sdk",
@@ -61,7 +71,7 @@ GROUPS = (
                     (
                         "",
                         "docs/getting-started/physical-test.md",
-                        "Test the physical C124",
+                        "Test the ESP32-S3 kit",
                     ),
                 ),
             ),
@@ -81,6 +91,11 @@ GROUPS = (
                         "First success in five minutes",
                     ),
                     ("gateway", "docs/local-operation.md", "Run the gateway"),
+                    (
+                        "gateway",
+                        "docs/experiment-kit.md",
+                        "Connect the ordered kit after inspection",
+                    ),
                     ("gateway", "docs/simulator.md", "Use the gateway simulator"),
                     ("gateway", "docs/architecture.md", "Gateway architecture"),
                 ),

@@ -15,5 +15,5 @@ you start.
 Put the issue's ID (for example `GW-GFI-001`) in your branch name and commits. Each issue lists
 its acceptance criteria and the checks to run.
 
-Physical C124 boards, real Linux services, real Home Assistant homes and Windows are separate
+The ordered ESP32-S3/OLED kit, real Linux services, real Home Assistant homes and Windows are separate
 opportunities. They have extra prerequisites. Their issues are labelled `needs hardware` or say so.

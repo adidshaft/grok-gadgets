@@ -1,4 +1,4 @@
-/* Conceptual C124 workbench; no device or network access.
+/* Conceptual ESP32-S3 breadboard and OLED workbench; no device or network access.
  * Behavior follows docs/architecture/overview.md, the current support matrix,
  * and docs/getting-started/physical-test.md. Geometry is not a board pinout. */
 (() => {
@@ -65,7 +65,7 @@
     root.inert = true;
     root.dataset.active = 'false';
     root.dataset.online = 'true';
-    root.dataset.mode = 'led';
+    root.dataset.mode = 'oled';
     root.dataset.frame = '0';
     root.dataset.phase = '0.000';
     root.innerHTML = `
@@ -76,16 +76,18 @@
         <span class="hardware-label hardware-future-label">Future link</span>
         <span class="hardware-label hardware-gateway-label">Gateway<span>USB bridge</span></span>
         <span class="hardware-label hardware-usb-label">USB</span>
-        <span class="hardware-label hardware-board-label">C124 concept</span>
+        <span class="hardware-label hardware-board-label">ESP32-S3 kit concept</span>
       </div>
       <div class="hardware-console">
         <div class="hardware-controls" role="group" aria-label="Explore the hardware stories">
-          <button type="button" data-hardware-action="led" aria-pressed="true" aria-label="Illustrate an LED command; press again to change color"><span class="hardware-control-icon hardware-led-icon" aria-hidden="true"></span>LED</button>
-          <button type="button" data-hardware-action="button" aria-pressed="false" aria-label="Illustrate a button press and release"><span class="hardware-control-icon hardware-button-icon" aria-hidden="true"></span>Button</button>
+          <button type="button" data-hardware-action="oled" aria-pressed="true" aria-label="Illustrate a planned OLED message"><span class="hardware-control-icon hardware-display-icon" aria-hidden="true"></span>Show message</button>
+          <button type="button" data-hardware-action="clear" aria-pressed="false" aria-label="Illustrate clearing the planned OLED">Clear</button>
+          <button type="button" data-hardware-action="led" aria-pressed="false" aria-label="Illustrate an optional LED command; colors are conceptual"><span class="hardware-control-icon hardware-led-icon" aria-hidden="true"></span>LED*</button>
+          <button type="button" data-hardware-action="button" aria-pressed="false" aria-label="Illustrate an optional button press and release"><span class="hardware-control-icon hardware-button-icon" aria-hidden="true"></span>Button*</button>
           <button type="button" data-hardware-action="usb" aria-pressed="false" aria-label="Unplug the illustrated USB cable"><span class="hardware-control-icon hardware-usb-icon" aria-hidden="true"></span>USB</button>
         </div>
-        <p class="hardware-readout" role="status" aria-live="polite" aria-atomic="true">LED command → device report.</p>
-        <a class="hardware-caption" href="doc-docs-public-support-matrix.html">Illustration · Grok Bot + hardware unverified.</a>
+        <p class="hardware-readout" role="status" aria-live="polite" aria-atomic="true">Illustrated OLED message → device report.</p>
+        <a class="hardware-caption" href="doc-docs-public-support-matrix.html">Illustration only · OLED integration pending · * optional parts.</a>
       </div>`;
     container.append(root);
 
@@ -118,54 +120,27 @@
     element('path', {d: 'M241 399l17 9M264 412l13 7'}, eventMarks);
     element('path', {d: 'M313 414l16-9M333 403l9-5', class: 'hardware-gateway-ports'}, gateway);
 
-    const guides = element('g', {class: 'hardware-layer-guides'}, svg);
-    [[-100, -100], [100, -100], [100, 100], [-100, 100]].forEach(([u, v]) => {
-      element('path', {d: segment([iso(u, v, 0), iso(u, v, 176)])}, guides);
-    });
-
+    // Conceptual kit only. These shapes and jumper lines do not assign pins.
     const base = element('g', {class: 'hardware-base'}, svg);
-    element('polygon', {points: square(100, 0), class: 'hardware-base-bottom'}, base);
-    element('polygon', {points: polygon([iso(-100, 100, 0), iso(100, 100, 0), iso(100, 100, 51), iso(-100, 100, 51)]), class: 'hardware-base-face'}, base);
-    element('polygon', {points: polygon([iso(100, -100, 0), iso(100, 100, 0), iso(100, 100, 51), iso(100, -100, 51)]), class: 'hardware-base-face'}, base);
-    element('polygon', {points: square(100, 51), class: 'hardware-base-rim'}, base);
-    element('polygon', {points: square(87, 51), class: 'hardware-base-inner'}, base);
-    element('path', {d: segment([iso(-100, 100, 7), iso(100, 100, 7), iso(100, -100, 7)]), class: 'hardware-case-seam'}, base);
-
-    const pcb = element('g', {class: 'hardware-pcb'}, svg);
-    element('polygon', {points: square(88, 107), class: 'hardware-pcb-plane'}, pcb);
-    element('path', {d: segment([iso(-88, 88, 107), iso(-88, 88, 101), iso(88, 88, 101), iso(88, -88, 101), iso(88, -88, 107)]), class: 'hardware-pcb-edge'}, pcb);
-    const chip = element('g', {class: 'hardware-chip'}, pcb);
-    element('polygon', {points: square(32, 113, 5, -5)}, chip);
-    element('polygon', {points: square(23, 113, 5, -5), class: 'hardware-chip-inner'}, chip);
-    // These traces and pads are illustrative; their placement is not a pin map.
-    for (let index = 0; index < 6; index += 1) {
-      const offset = -23 + index * 10;
-      element('path', {d: segment([iso(offset, -41, 112), iso(offset, -32, 112)])}, chip);
-      element('path', {d: segment([iso(offset + 10, 23, 112), iso(offset + 10, 32, 112)])}, chip);
-      element('path', {d: segment([iso(-31, offset - 5, 112), iso(-40, offset - 5, 112)])}, chip);
-      element('path', {d: segment([iso(37, offset - 5, 112), iso(46, offset - 5, 112)])}, chip);
+    element('polygon', {points: square(132, 0), class: 'hardware-base-rim'}, base);
+    for (let row = -110; row <= 110; row += 20) {
+      for (let column = -110; column <= 110; column += 20) {
+        const point = iso(row, column, 1);
+        element('ellipse', {cx: point.x, cy: point.y, rx: 1.5, ry: .7}, base);
+      }
     }
-    const traces = [
-      [[-40, -20], [-66, -20], [-66, -61], [-77, -61]],
-      [[-40, 0], [-55, 0], [-55, 57], [-77, 57]],
-      [[46, 12], [68, 12], [68, 64], [77, 64]],
-      [[18, -41], [18, -66], [63, -66], [63, -76]],
-      [[5, 32], [5, 59], [44, 59], [44, 76]],
-    ];
-    traces.forEach(trace => element('path', {d: segment(trace.map(([u, v]) => iso(u, v, 109))), class: 'hardware-trace'}, pcb));
-    [[-72, -68], [72, -68], [72, 68], [-72, 68]].forEach(([u, v]) => {
-      const center = iso(u, v, 108);
-      element('ellipse', {cx: center.x, cy: center.y, rx: 7, ry: 3.1, class: 'hardware-pcb-hole'}, pcb);
-    });
-
+    const pcb = element('g', {class: 'hardware-pcb'}, svg);
+    element('polygon', {points: polygon([iso(-110,-10,30),iso(-15,-10,30),iso(-15,95,30),iso(-110,95,30)]), class: 'hardware-pcb-plane'}, pcb);
+    element('polygon', {points: square(23,32,-60,28), class: 'hardware-chip-inner'}, pcb);
     const lid = element('g', {class: 'hardware-lid'}, svg);
-    element('polygon', {points: square(100, 176), class: 'hardware-lid-top'}, lid);
-    element('path', {d: segment([iso(-100, 100, 176), iso(-100, 100, 165), iso(100, 100, 165), iso(100, -100, 165), iso(100, -100, 176)]), class: 'hardware-lid-edge'}, lid);
-    element('path', {d: segment([iso(100, 100, 165), iso(100, 100, 176)]), class: 'hardware-lid-edge'}, lid);
-    element('polygon', {points: square(78, 177), class: 'hardware-button-plate'}, lid);
-    const ledSurface = element('polygon', {points: square(56, 178), class: 'hardware-led-surface'}, lid);
-    const ledInner = element('polygon', {points: square(38, 179), class: 'hardware-led-inner'}, lid);
-    element('path', {d: segment([iso(-63, -63, 178), iso(-63, -44, 178)]) + ' ' + segment([iso(63, 63, 178), iso(63, 44, 178)]), class: 'hardware-button-detail'}, lid);
+    element('polygon', {points: polygon([iso(5,-105,35),iso(110,-105,35),iso(110,-15,35),iso(5,-15,35)]), class: 'hardware-lid-top'}, lid);
+    element('polygon', {points: polygon([iso(15,-95,36),iso(100,-95,36),iso(100,-25,36),iso(15,-25,36)]), class: 'hardware-button-plate'}, lid);
+    const screenText = element('text', {x: 804, y: 309, 'font-size': 12, fill: 'currentColor', 'text-anchor': 'middle'}, lid);
+    screenText.textContent = 'OLED';
+    [-10, 0, 10, 20].forEach(offset => element('path', {d: segment([iso(-25,10+offset,30),iso(25,10+offset,3),iso(45+offset,-20,35)]), class:'hardware-trace'}, base));
+    const ledSurface = element('polygon', {points: square(10, 10, 65, 55), class: 'hardware-led-surface'}, base);
+    const ledInner = element('polygon', {points: square(6, 11, 65, 55), class: 'hardware-led-inner'}, base);
+    element('polygon', {points: square(12, 8, 100, 75), class: 'hardware-button-plate'}, base);
 
     const port = element('g', {class: 'hardware-port'}, svg);
     element('polygon', {points: polygon([iso(-80, 101, 13), iso(-36, 101, 13), iso(-36, 101, 35), iso(-80, 101, 35)])}, port);
@@ -189,11 +164,13 @@
     let permitted = !document.documentElement.hasAttribute('data-reduced-motion')
       && !document.body?.hasAttribute('data-reduced-motion');
     let online = true;
-    let mode = 'led';
+    let mode = 'oled';
+    let displayText = '';
+    const isDisplay = kind => kind === 'oled' || kind === 'clear';
     let colorIndex = 0;
     let ledOn = false;
     let retainedEvents = false;
-    let journey = {kind: 'led', elapsed: 0};
+    let journey = {kind: 'oled', elapsed: 0};
     let phase = 0;
     let unplug = 0;
     let raf = 0;
@@ -223,9 +200,13 @@
 
     function finishJourney() {
       if (!journey) return;
-      if (journey.kind === 'led') {
+      if (isDisplay(journey.kind)) {
+        displayText = journey.kind === 'clear' ? '' : 'Hello!';
+        readout.textContent = journey.kind === 'clear'
+          ? 'Illustrated clear · no physical result.' : 'Illustrated message · no physical result.';
+      } else if (journey.kind === 'led') {
         ledOn = true;
-        readout.textContent = 'Execution reported · physical check pending.';
+        readout.textContent = 'Illustrated report · physical check pending.';
       } else {
         retainedEvents = true;
         readout.textContent = 'Button → gateway · no Bot wake.';
@@ -247,6 +228,9 @@
       const hover = Math.sin(phase * .8) * 4;
       lid.setAttribute('transform', `translate(0 ${(hover + press).toFixed(2)})`);
       pcb.setAttribute('transform', `translate(0 ${(Math.sin(phase * .8 + 1.2) * 2).toFixed(2)})`);
+      screenText.textContent = !online ? 'Offline'
+        : journey && isDisplay(journey.kind) && journey.elapsed >= 2.6
+          ? (journey.kind === 'clear' ? '' : 'Hello!') : displayText;
       const light = online && (ledOn || (journey?.kind === 'led' && journey.elapsed >= 2.6));
       ledSurface.setAttribute('fill-opacity', light ? .17 : .025);
       ledInner.setAttribute('fill-opacity', light ? .45 : .025);
@@ -255,7 +239,7 @@
       packets.forEach(packet => packet.setAttribute('opacity', 0));
       if (journey && online) {
         const time = journey.elapsed;
-        if (journey.kind === 'led') {
+        if (journey.kind !== 'button') {
           if (time <= 1.15) placePacket(0, remoteRoute, time / 1.15);
           else if (time >= 1.4 && time <= 2.6) placePacket(0, route, (time - 1.4) / 1.2);
           else if (time >= 2.9 && time <= 4.1) placePacket(0, route, (time - 2.9) / 1.2, true);
@@ -287,11 +271,12 @@
       if (!active || destroyed) return;
       mode = action;
       if (action === 'usb') {
-        const interruptedCommand = online && journey?.kind === 'led'
+        const interruptedCommand = online && journey && journey.kind !== 'button'
           && journey.elapsed >= 1.4 && journey.elapsed < 4.1;
         online = !online;
         journey = null;
         ledOn = false;
+        displayText = '';
         root.dataset.transmitting = 'false';
         readout.textContent = online ? 'USB restored · send a new command.'
           : interruptedCommand ? 'USB offline · command unconfirmed.' : 'USB offline · commands unavailable.';
@@ -299,7 +284,11 @@
         journey = null;
         readout.textContent = action === 'button' ? 'USB offline · no button event reaches the gateway.' : 'USB offline · commands unavailable.';
       } else {
-        if (action === 'led') {
+        if (isDisplay(action)) {
+          readout.textContent = action === 'clear'
+            ? 'Illustrating OLED clear · no device access.'
+            : 'Illustrating OLED message · no device access.';
+        } else if (action === 'led') {
           colorIndex = (colorIndex + 1) % colors.length;
           ledOn = false;
           readout.textContent = `LED ${colors[colorIndex].name} → device report.`;
@@ -328,7 +317,7 @@
       if (journey) {
         journey.elapsed += elapsed;
         if (journey.kind === 'button' && journey.elapsed >= 1.5) retainedEvents = true;
-        if (journey.elapsed >= (journey.kind === 'led' ? 5.5 : 2.05)) finishJourney();
+        if (journey.elapsed >= (journey.kind === 'button' ? 2.05 : 5.5)) finishJourney();
       }
       if (time - lastDraw >= 32) {
         frame += 1;

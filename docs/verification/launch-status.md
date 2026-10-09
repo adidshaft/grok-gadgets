@@ -1,5 +1,7 @@
 # Public source alpha — 5 October 2026
 
+> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](../getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+
 All five source repositories are public under [adidshaft](https://github.com/adidshaft/grok-gadgets). Each has an Apache-2.0 license, README, contribution/security/conduct guidance, issue templates, repository description and topics. Private vulnerability reporting is enabled and verified. The static site is live on free Cloudflare Pages; package releases and firmware downloads remain separate operations.
 
 ## What works now

@@ -11,7 +11,7 @@
   const milestones = [
     {
       name: 'Local software', label: 'Software', status: 'Checked', evidence: 'checked',
-      detail: 'Gateway and SDK software checked. C124 firmware compiles.',
+      detail: 'Gateway and SDK software checked. New kit validation is pending.',
       href: 'doc-docs-public-support-matrix.html', linkLabel: 'Read the software status', t: .07,
     },
     {
@@ -25,8 +25,8 @@
       href: 'doc-docs-getting-started-hosting.html', linkLabel: 'Read about the Grok Bot connection', t: .5,
     },
     {
-      name: 'C124 hardware', label: 'Hardware', status: 'Pending', evidence: 'pending',
-      detail: 'Flash a C124. Observe its LED, button and USB recovery.',
+      name: 'ESP32-S3 kit', label: 'Hardware', status: 'Pending', evidence: 'pending',
+      detail: 'Inspect the kit. Confirm pins and OLED controller, then test display, input and USB recovery.',
       href: 'doc-docs-getting-started-physical-test.html', linkLabel: 'Read the physical test procedure', t: .715,
     },
     {

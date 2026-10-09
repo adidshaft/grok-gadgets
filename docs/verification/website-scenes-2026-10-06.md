@@ -1,5 +1,7 @@
 # Interactive website scenes — 6 October 2026
 
+> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](../getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+
 Issue: HUB-WEB-007 / #106.
 
 Three bounded max-effort agent subagents implemented the Roadmap and Signal scenes and audited website links. The parent integrated them with the existing Devices scene. Light, Sensor, Display and Home remain device-route choices, separate from the scene selector. The footer and menu credit the owner with a link to https://x.com/adidshaft.

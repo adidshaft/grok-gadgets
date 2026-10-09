@@ -1,8 +1,12 @@
-Source: grok-gadgets-esp32-sdk/docs/build-flash.md at e032c0c0b8b4cfa4fa4b62b12e840d6578aadb1c
+Source: grok-gadgets-esp32-sdk/docs/build-flash.md at 894c827417de5433f908a0429df6f00527645548
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
-# Build, flash and recover C124
+# Optional example: build, flash and recover C124
+
+**This is not the ordered kit.** The first experiment uses the AYWHP ESP32-S3
+DevKitC-style board and a separate OLED. Use [first experiment](first-experiment.md).
+Do not transfer these pins, flash settings or recovery steps to that board.
 
 This example uses the reusable library in `lib/GrokGadgets`. It is standalone Arduino firmware, not an ESPHome integration.
 
@@ -26,7 +30,7 @@ The pinned tools and libraries are:
 
 | Dependency | Version |
 | --- | --- |
-| PlatformIO | 6.1.18 |
+| PlatformIO | 6.2.0 |
 | espressif32 | 6.10.0 |
 | Arduino-ESP32 | 2.0.17 |
 | Xtensa compiler | 8.4.0+2021r2-patch5 |
@@ -126,7 +130,7 @@ That command writes the four images at the offsets above.
 
 For factory restoration, use the manufacturer's M5Burner or Easyloader route. Preserve its source and license. Verify the exact C124 target. No firmware was flashed during the recorded local phase.
 
-## First physical acceptance
+## Optional C124 physical acceptance
 
 Record SDK and gateway commits, firmware checksums, operating system, port, timestamps and observations.
 

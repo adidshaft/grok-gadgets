@@ -1,5 +1,7 @@
 # REVIEW-DEV-001 — developer handoff review
 
+> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](../../docs/getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+
 Date: 5 October 2026. Scope: the five public-lineage `simplify-and-fix` branches.
 This is a local software review. No push, deployment, tunnel, Grok Bot session,
 physical device action or Reddit change was performed.

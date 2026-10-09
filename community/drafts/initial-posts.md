@@ -13,3 +13,6 @@ The local alpha includes simulator and Grok Bot tool-call rehearsal acceptance, 
 ## First build / help thread
 
 Share your board model, host OS, component versions, transport, expected result, observed result, and redacted error. Say whether the evidence is simulated, compiled, actual Grok, or physical. Never post tokens. Beginners can begin with the software simulator before buying hardware.
+
+
+Hardware plan update, 9 October 2026: the owner ordered the ESP32-S3, breadboard and OLED kit. See the [current experiment plan](../../docs/getting-started/experiment-kit.md). Earlier C124 compile evidence does not verify the new kit. Delivery and inspection remain pending.
