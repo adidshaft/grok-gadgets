@@ -1,4 +1,4 @@
-Source: grok-gadgets-esp32-sdk/README.md at 894c827417de5433f908a0429df6f00527645548
+Source: grok-gadgets-esp32-sdk/README.md at 2540b51fb9464a9616e7bc25004929ea01994df4
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -12,10 +12,9 @@ Independent project, not affiliated with SpaceXAI.
 
 ## First physical experiment
 
-The ordered kit is an **AYWHP ESP32-S3 DevKitC-style board** with
-**ESP32-S3-WROOM-1-N16R8 and USB-C**, an **ApTechDeals 840-point breadboard
-and jumper-wire set**, and a **Robocraze 0.96-inch 128×64 OLED**, advertised
-as **SPI/I²C, 4-pin**. Start with simulation. Inspect the board and OLED after
+The ordered board is an **AYWHP ESP32-S3 DevKitC-style board** with **ESP32-S3-WROOM-1-N16R8 and USB-C**.
+The order includes an **ApTechDeals 840-point breadboard and jumper-wire set**.
+The display is a **Robocraze 0.96-inch 128×64 OLED**, advertised as **SPI/I²C, 4-pin**. Start with simulation. Inspect the board and OLED after
 delivery before selecting pins, a display driver or a flash profile.
 See the [first experiment](docs/first-experiment.md) for parts, wiring gates and acceptance.
 AtomS3 Lite is an optional example, not the first experiment.
