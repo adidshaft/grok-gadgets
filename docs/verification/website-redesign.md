@@ -1,5 +1,7 @@
 # Interactive website verification — 4 October 2026
 
+> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](../getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+
 Core implementation snapshot: 494b8d4, following identity/provenance commit 165ba85. Parent and scene subagent coordinated separate file ownership; parent integrated and tested the finished layout. Earlier website.md describes the initial design and is retained as historical evidence.
 
 The in-app browser at http://127.0.0.1:4173/index.html was reviewed at the default 1280×720 viewport and at 390×844. The explicit mobile viewport was reset after testing. Screenshots website-redesign-desktop.jpg and website-redesign-mobile.jpg record the final composition. Mobile document width equals viewport width390; all five node controls measured44px tall, with visible bounds inside the viewport. The title has correct word spacing and does not collide with the scene.

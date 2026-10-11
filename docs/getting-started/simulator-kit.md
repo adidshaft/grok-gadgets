@@ -1,6 +1,6 @@
 # Grok Gadgets simulator kit
 
-Use a virtual C124 RGB LED and button through the local Model Context Protocol (MCP) gateway. You do not need hardware, an API key, an exposed port or a hosted service. Original code uses Apache-2.0. This independent project is for your existing Grok Bot.
+Use a virtual RGB light and button through the local Model Context Protocol (MCP) gateway. You do not need hardware, an API key, an exposed port or a hosted service. Original code uses Apache-2.0. This independent project is for your existing Grok Bot.
 
 The [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md) explains who runs the gateway and tunnel. The kit demo uses local stdio MCP. The included gateway also provides local HTTP `serve`, but the kit does not configure public HTTPS or connect to Grok Bot. Do not expose its device port through a tunnel.
 
@@ -74,7 +74,7 @@ The normal tools are:
 
 Start connected for normal use. Commands fail when the simulator starts disconnected. To test button, disconnect and reconnect operations, enable `--test-controls` explicitly. Remove it after the test. Button events do not promise automatic Bot activation.
 
-Downloading the ZIP does not install a connector or change your account. The kit is not a hosted endpoint for Remote HTTPS MCP. A public authenticated gadget service, physical C124, Linux peripherals and Home Assistant need separate verification.
+Downloading the ZIP does not install a connector or change your account. The kit is not a hosted endpoint for Remote HTTPS MCP. A public authenticated gadget service, the ordered ESP32-S3/OLED kit, Linux peripherals and Home Assistant need separate verification.
 
 ## Keeping the download current
 

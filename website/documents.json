@@ -6,6 +6,7 @@
     "SECURITY.md",
     "docs/architecture/overview.md",
     "docs/getting-started/physical-test.md",
+    "docs/getting-started/experiment-kit.md",
     "community/README.md",
     "community/guidelines.md",
     "community/moderation-policy.md",
@@ -42,7 +43,9 @@
     "docs/setup.md",
     "docs/feasibility.md",
     "docs/simulator.md",
-    "docs/first-success.md"
+    "docs/first-success.md",
+    "docs/experiment-kit.md",
+    "docs/first-experiment.md"
   ],
   "aliases": [
     {
@@ -75,9 +78,9 @@
     },
     {
       "repository": "grok-gadgets",
-      "source": "docs/visuals/c124-reference.svg",
-      "output": "media/diagrams/c124-reference.svg",
-      "sha256": "40b8ceed62fd5e27e977ddf70e5a4b456e05fab358d443615906c52bfbc20f6e"
+      "source": "docs/visuals/esp32-s3-kit-reference.svg",
+      "output": "media/diagrams/esp32-s3-kit-reference.svg",
+      "sha256": "fcfbde341af01faa6432b22cec05026c185ce3adcb6d25aa0f414b44a7b4f710"
     },
     {
       "repository": "grok-gadgets",
@@ -101,13 +104,13 @@
       "repository": "grok-gadgets",
       "source": "docs/visuals/project-overview.svg",
       "output": "media/diagrams/project-overview.svg",
-      "sha256": "095414e8ddad1967d5c94034482d6b02a0d0253bd0515c0f9cc15b4385952a91"
+      "sha256": "f11bf9a06c56e5b147f6520a03d9c15eefd141610b8974b4e562eb975af3d3ca"
     },
     {
       "repository": "grok-gadgets",
       "source": "docs/visuals/responsibilities.svg",
       "output": "media/diagrams/responsibilities.svg",
-      "sha256": "a3227d95f4f347395639ffe25d29ed2ec3ff3faf453fb1ea250154922e19905f"
+      "sha256": "2df4f00ef5f564ea9e6c1966f1e1f6d0b6ae7cad5604f6a5870889d504cb91f5"
     },
     {
       "repository": "grok-gadgets",

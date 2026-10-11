@@ -1,4 +1,4 @@
-Source: grok-gadgets-esp32-sdk/README.md at e032c0c0b8b4cfa4fa4b62b12e840d6578aadb1c
+Source: grok-gadgets-esp32-sdk/README.md at 2540b51fb9464a9616e7bc25004929ea01994df4
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -8,7 +8,16 @@ Build USB gadgets for your Grok Bot in an Arduino sketch: declare commands and e
 `grok::Gadget` talks to the local [Grok Gadgets gateway](https://github.com/adidshaft/grok-gadgets-gateway).
 Two examples compile; nobody has flashed either of them yet. Experimental alpha: see the
 [project status](https://grok-gadgets.pages.dev/doc-docs-public-support-matrix).
-Independent project, not affiliated with SpaceXAI or xAI.
+Independent project, not affiliated with SpaceXAI.
+
+## First physical experiment
+
+The ordered board is an **AYWHP ESP32-S3 DevKitC-style board** with **ESP32-S3-WROOM-1-N16R8 and USB-C**.
+The order includes an **ApTechDeals 840-point breadboard and jumper-wire set**.
+The display is a **Robocraze 0.96-inch 128×64 OLED**, advertised as **SPI/I²C, 4-pin**. Start with simulation. Inspect the board and OLED after
+delivery before selecting pins, a display driver or a flash profile.
+See the [first experiment](docs/first-experiment.md) for parts, wiring gates and acceptance.
+AtomS3 Lite is an optional example, not the first experiment.
 
 ## Quickstart
 
@@ -26,7 +35,7 @@ sh tools/check.sh
 ```
 
 Expected: four host test suites pass, both sketch transcripts pass the contract check, and the
-C124 firmware compiles: **build verified, hardware pending**. Next,
+optional C124 firmware compiles: **build verified, hardware pending**. Next,
 [create your own gadget](docs/sdk.md).
 
 ## What a gadget looks like
@@ -62,14 +71,15 @@ names, events and limits are in the [library guide](docs/sdk.md).
 ## Flash a board
 
 The gadget talks over USB to a bridge on your computer, and the bridge talks to the
-[gateway](https://github.com/adidshaft/grok-gadgets-gateway). [Build, flash and recovery](docs/build-flash.md)
+[gateway](https://github.com/adidshaft/grok-gadgets-gateway). The [first experiment](docs/first-experiment.md) defines the ordered kit.
+[Optional C124 build, flash and recovery](docs/build-flash.md)
 covers flash offsets, the device ID, `grok-gadgets-gateway enroll`, `usb-bridge` and unplug
 recovery. Nobody has flashed a board for this project yet, so we welcome hardware results.
 
 ## Grok Bot today
 
-Today you test the gateway locally. A cloud Grok Bot cannot reach
-your computer yet, Wi-Fi is not built ([#5](https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/5)),
+Run `grok-gadgets-gateway rehearse` to check the local simulated path for Grok Bot. A cloud
+Grok Bot cannot reach your computer yet, Wi-Fi is not built ([#5](https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/5)),
 and a button press does not wake the Bot. See the
 [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md).
 
@@ -79,7 +89,7 @@ and a button press does not wake the Bot. See the
 | --- | --- |
 | Commands, events and limits | [Library](docs/sdk.md) |
 | Retries, loss reports and reconnects | [Protocol and recovery](docs/protocol-recovery.md) |
-| C124 pins, and the GPIO48 `RGB_BUILTIN` trap | [Board sources](docs/board-sources.md) |
+| Optional C124 pins, and the GPIO48 `RGB_BUILTIN` trap | [Board sources](docs/board-sources.md) |
 | What was checked, and what is still open | [Verification](docs/verification.md) and [build-checksums.json](docs/build-checksums.json) |
 | Dependency licenses before you share firmware | [Dependencies](docs/dependencies.md) and [NOTICE](NOTICE) |
 

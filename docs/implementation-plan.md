@@ -1,5 +1,7 @@
 # Grok Gadgets — implementation and launch plan
 
+> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+
 **Plan date:** 4 October 2026  
 **Status:** Historical implementation handoff; the local alpha is now built. See [current verification](verification/launch-status.md) and [publication sanitization](verification/publication-sanitization.md).
 **Current authorized phase:** Local development, testing, and incremental Git commits in a separate build chat.  
@@ -25,13 +27,13 @@ Grok Bot is the only assistant platform. Do not add other AI model backends, ent
 
 ### First concrete example
 
-The target is **M5Stack AtomS3 Lite, model C124**, plus a USB-C **data** cable. The user has not purchased it yet.
+The target is the ordered **AYWHP ESP32-S3 DevKitC-style ESP32-S3-WROOM-1-N16R8 USB-C board**, **ApTechDeals 840-point breadboard and jumper-wire set**, and **Robocraze 0.96-inch 128×64 four-pin OLED advertised as SPI/I²C**. See the [current kit plan](getting-started/experiment-kit.md). The items await delivery and inspection.
 
 The example must eventually let the user:
 
-- Ask Grok Bot to change the built-in RGB LED colour or turn it off.
+- Ask Grok Bot to show or clear a message on the OLED, after the display command and driver are implemented.
 - Ask Grok Bot for device availability and current reported state.
-- Read real button presses through the integration.
+- Read real button presses and control an LED if suitable onboard parts or optional external parts are fitted.
 - Understand when the device is disconnected or an action is unconfirmed.
 
 Start with a software simulation while the user arranges the board. The first physical path should use USB to reduce setup complexity; Wi-Fi is the next transport milestone. Both are within the eventual ESP32 SDK direction.
@@ -57,7 +59,7 @@ Start with a software simulation while the user arranges the board. The first ph
 | SDK structure | Separate Linux and ESP32 SDK repositories |
 | Website location | Main project repository |
 | Original code license | Apache-2.0 |
-| First hardware | M5Stack AtomS3 Lite C124, built-in RGB LED and button |
+| First hardware | Ordered AYWHP ESP32-S3, ApTechDeals breadboard/jumpers and Robocraze OLED; pins/controller provisional |
 | First testing | Software simulation; hardware not yet available |
 | Infrastructure now | Local and self-hosted; no paid infrastructure |
 | Hosting later | Optional hosted connection remains a future product direction |
@@ -195,12 +197,12 @@ Start with a small example that a developer can modify. Do not declare a general
 Owns:
 
 - Reusable firmware interfaces for capabilities, commands, state, and events.
-- C124 board definition and the RGB LED/button example.
+- Retained C124 reference example plus the ordered ESP32-S3/OLED experiment, with board-specific pins and drivers isolated.
 - USB transport first, with networked operation developed as a subsequent slice.
 - Buildable firmware, toolchain pinning, and recovery/flashing instructions.
 - Unit or host tests for logic where practical, firmware compilation, and contract fixtures.
 
-Verify pins and component details from M5Stack documentation. Do not confuse the AtomS3 Lite C124 with ATOM Lite or the display-equipped AtomS3.
+Inspect the delivered board and OLED. Confirm controller, interface, pin labels, supply and board settings before wiring or selecting a display driver. Follow the [ordered kit guide](getting-started/experiment-kit.md).
 
 Reuse ESPHome or manufacturer-supported libraries where they help, while still delivering the separately usable SDK the user requested. Document whether an example is an ESPHome recipe, a library consumer, or standalone firmware.
 
@@ -225,7 +227,7 @@ flowchart TD
     W <--> E[ESP32 SDK and firmware]
     W <--> L[Linux SDK and device agent]
     W <--> H[Home Assistant integration]
-    E <--> A[AtomS3 Lite RGB LED and button]
+    E <--> A[ESP32-S3 and OLED: physical checks pending]
     L <--> P[Linux peripherals and custom applications]
     H <--> D[Supported existing smart-home devices]
 ```
@@ -499,8 +501,8 @@ Requires hardware and a second tester; prepare the procedure during local develo
 
 Deliver:
 
-- Exact C124 firmware and host version record.
-- Visible LED changes and real button-event results.
+- Exact delivered ESP32-S3/OLED configuration, wiring, firmware and host version record.
+- Observed OLED message/clear results. LED/button checks apply only if suitable parts are fitted.
 - Unplug/reconnect, reboot, and stale-state tests.
 - Another person's installation report using their own account/device.
 
@@ -552,10 +554,10 @@ Tests should verify behaviour and failure modes, not merely mirror implementatio
 ### First physical demo script
 
 1. Confirm the model and firmware build.
-2. Discover the C124 through the integration.
-3. Request green LED output and visibly verify it.
-4. Change colour, then turn it off.
-5. Press and release the physical button and inspect the returned events.
+2. Discover the inspected ESP32-S3 through the integration.
+3. After the OLED capability is implemented, request a short message and observe the display.
+4. Change the message, then clear it. Check optional LED output only if fitted.
+5. If a suitable button is fitted, press and release it and inspect the returned events.
 6. Disconnect the board and request another command; verify an honest error/unconfirmed result.
 7. Reconnect and verify recovery without reinstalling.
 8. Restart the relevant host/device and verify documented state/event behaviour.
@@ -795,7 +797,7 @@ These are not blockers to local implementation:
 - Website domain choice, if any; no domain purchase is implied.
 - Grok Bot account access for end-to-end testing.
 - An authenticated remote connection route if the real Bot cannot use the local path.
-- Physical C124 availability and flashing authorization.
+- Ordered ESP32-S3/OLED delivery, inspection, wiring review and flashing authorization.
 - A real Home Assistant installation and selected test devices.
 - A second tester for independent reproduction.
 - Logged-in Reddit moderator access and approval of concrete changes.

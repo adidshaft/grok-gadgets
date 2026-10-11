@@ -1,5 +1,7 @@
 # Homepage component directory — 4 October 2026
 
+> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](../getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+
 The homepage now lists ten interactive entries: gateway, simulator, USB bridge, Linux SDK, ESP32 SDK/C124 firmware, Home Assistant diagnostics, protocol contracts, developer/release tools, website/docs and community. All five repositories are represented; developer commands and release preparation are visible within disclosures. A coordinated read-only component review identified the USB bridge and explicit ha-probe, grok-linux-agent and offline recognition names for inclusion.
 
 Native details/summary disclosures support mouse, keyboard and touch and require no JavaScript. Every component name remains visible when collapsed. Expanding reveals only a short description, local evidence status, canonical documentation links and relevant runnable commands. SDK/firmware compilation, simulation, actual Grok and physical hardware states remain distinct. Grok connectivity and physical C124 verification are pending.

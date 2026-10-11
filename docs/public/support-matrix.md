@@ -1,15 +1,15 @@
 # Project status
 
-Updated 7 October 2026. This is the one place that says what works. Other pages link here
+Updated 9 October 2026. This is the one place that says what works. Other pages link here
 instead of repeating caveats.
 
-**The Grok Bot connection is in progress. You can test every part locally today.**
+**The Grok Bot connection is in progress. You can test the gateway and existing SDK examples locally.**
 
 | Part | Works today (software, checked in CI every night) | Not verified yet |
 | --- | --- | --- |
 | Gateway and simulated light | Six MCP tools for Grok Bot over stdio or authenticated HTTP on `127.0.0.1`; `rehearse` first success; simulator kit | Grok Bot use; Windows and Intel Mac installs |
 | Linux SDK | `grok-linux-agent dev ./my_gadget.py` with the decorator API, against the gateway's `main` | Real peripherals, systemd, Raspberry Pi hardware |
-| ESP32 SDK | Host tests, both firmware examples compile, simulated USB link to the gateway | Flashing, a physical C124 board, its LED and button |
+| ESP32 SDK | Host tests, both firmware examples compile, simulated USB link to the gateway | Ordered ESP32-S3/OLED kit: display implementation, flashing, wiring and physical operation |
 | Home Assistant probe | Read-only discovery against fixtures | A real Home Assistant home |
 | Browser playground | Local JavaScript model of the light | — (it never calls Grok) |
 

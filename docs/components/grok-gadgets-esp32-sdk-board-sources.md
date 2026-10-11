@@ -1,8 +1,11 @@
-Source: grok-gadgets-esp32-sdk/docs/board-sources.md at e032c0c0b8b4cfa4fa4b62b12e840d6578aadb1c
+Source: grok-gadgets-esp32-sdk/docs/board-sources.md at 2540b51fb9464a9616e7bc25004929ea01994df4
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
-# C124 source verification
+# Optional C124 source verification
+
+These sources apply only to the optional C124 example. See the
+[first experiment](first-experiment.md) for the ordered AYWHP board and OLED.
 
 Verified on 4 October 2026 from manufacturer sources:
 

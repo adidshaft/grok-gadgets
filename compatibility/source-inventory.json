@@ -1,7 +1,7 @@
 [
   {
     "repository": "grok-gadgets-esp32-sdk",
-    "commit": "e032c0c0b8b4cfa4fa4b62b12e840d6578aadb1c",
+    "commit": "2540b51fb9464a9616e7bc25004929ea01994df4",
     "files": [
       ".clang-format",
       ".github/CODEOWNERS",
@@ -11,6 +11,7 @@
       ".github/ISSUE_TEMPLATE/feature.yml",
       ".github/ISSUE_TEMPLATE/hardware.yml",
       ".github/PULL_REQUEST_TEMPLATE.md",
+      ".github/dependabot.yml",
       ".github/protection-proposal.json",
       ".github/workflows/checks.yml",
       ".github/workflows/pr-target.yml",
@@ -28,6 +29,7 @@
       "docs/build-checksums.json",
       "docs/build-flash.md",
       "docs/dependencies.md",
+      "docs/first-experiment.md",
       "docs/protocol-recovery.md",
       "docs/sdk.md",
       "docs/verification.md",
@@ -35,6 +37,9 @@
       "docs/verification/launch.md",
       "examples/led-button/main.cpp",
       "examples/led-button/pio_src.py",
+      "examples/oled-kit/README.md",
+      "examples/oled-kit/rehearse.py",
+      "examples/oled-kit/test_rehearse.py",
       "lib/GrokGadgets/LICENSE",
       "lib/GrokGadgets/NOTICE",
       "lib/GrokGadgets/library.json",
@@ -76,7 +81,7 @@
   },
   {
     "repository": "grok-gadgets-gateway",
-    "commit": "6c3523ac3ff2e361a40d4745b6025895a1ecd7cd",
+    "commit": "8effd8bd3c973f40ec1366cc70d2ae3920bc0109",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -84,6 +89,7 @@
       ".github/ISSUE_TEMPLATE/documentation.yml",
       ".github/ISSUE_TEMPLATE/feature.yml",
       ".github/ISSUE_TEMPLATE/hardware.yml",
+      ".github/dependabot.yml",
       ".github/pull_request_template.md",
       ".github/workflows/checks.yml",
       ".github/workflows/pr-target.yml",
@@ -100,6 +106,7 @@
       "docs/architecture.md",
       "docs/evidence/local-alpha.md",
       "docs/evidence/mcp-demo.json",
+      "docs/experiment-kit.md",
       "docs/first-success.md",
       "docs/local-operation.md",
       "docs/release.md",
@@ -140,6 +147,7 @@
       "tests/test_http.py",
       "tests/test_mcp.py",
       "tests/test_rehearse.py",
+      "tests/test_request_log.py",
       "tests/test_simulator_config.py",
       "tests/test_transports.py",
       "uv.lock"

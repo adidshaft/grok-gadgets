@@ -1,5 +1,7 @@
 # H7 requirement audit —4October2026
 
+> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](../getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+
 The local scope is complete. This checklist follows hardening-plan section11; final evidence-only source commit is packaged after recording this audit. Goal closure additionally requires the final latest candidate's --require-current verification. The external manifest resolves exact finalHEADs without a self-referential tracked hash.
 
 - [x] H0–H7 stage/issue tracking: planning/hardening-stages.json with coherent source commits/evidence; local authoritativeledgers and43record migration maintained.

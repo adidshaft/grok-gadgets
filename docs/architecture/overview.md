@@ -1,6 +1,6 @@
 # Repository and device map
 
-The project provides reusable gadget libraries for Grok Bot. C124 is the first ESP32 example. It is not the SDK boundary. Actual Grok Bot and physical-device verification remain pending.
+The project provides reusable gadget libraries for Grok Bot. The ordered ESP32-S3/OLED kit is the first physical experiment. Retained C124 and generic examples are not the SDK boundary. Actual Grok Bot and physical-device verification remain pending.
 
 The gateway operator hosts the MCP server. SpaceXAI hosts Grok Bot. The website hosts neither. Read the [hosting FAQ](../getting-started/hosting.md).
 
@@ -46,7 +46,7 @@ flowchart LR
     B -.-> P["Board pins, drivers and transport"]
 ```
 
-The current ESP32 capability library has no board or serial dependency. `GrokGadgets.h` handles capabilities and bounded command results. `GrokCore.h` provides shared utilities. `C124.h` and the example application supply the first board's hardware behavior. The configured firmware build targets C124; Wi-Fi remains future work.
+The current ESP32 capability library has no board or serial dependency. `GrokGadgets.h` handles capabilities and bounded command results. `GrokCore.h` provides shared utilities. `C124.h` and the example application supply the retained reference board's hardware behavior. The retained C124 and generic builds do not verify the ordered kit. Its display driver, pins and board configuration need inspection and implementation. Wi-Fi remains future work.
 
 For each new board:
 

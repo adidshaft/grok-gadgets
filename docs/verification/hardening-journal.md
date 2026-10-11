@@ -1,5 +1,7 @@
 # Hardening execution journal
 
+> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](../getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+
 ## H0 — 2026-10-04T16:12:47.482114+00:00
 
 Coordinator read both complete plans and all five AGENTS.md files. External and repository original plans compare equal. No website agent remains active; all recent homepage/branding/component directory work is integrated at hub2e8d8df. Coordinator owns hub tracking/integration and subsequent website corrections; component ownership will be delegated exclusively. Main-chat settings are inherited; no model override claimed.

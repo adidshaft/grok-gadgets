@@ -1,5 +1,7 @@
 # LAUNCH-FIRMWARE-DIST-001 — Prepare the required third-party redistribution material before firmware binary uploads
 
+> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](../../docs/getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+
 Owner: grok-gadgets
 
 Stage: blocked · PUBLIC-ALPHA

@@ -1,5 +1,7 @@
 # Independent correction review
 
+> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](../getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+
 Reviewer: bounded medium-effort agent, read-only source review and independently executed tests. This is independent agent review, not independent human reproduction.
 
 | Finding / acceptance | Disposition | Corrected commits / evidence |

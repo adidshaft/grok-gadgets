@@ -20,7 +20,7 @@
   const details = {
     grok: ['Grok Bot', 'Your existing Grok Bot. Actual connection remains pending.', 'start.html', 'The connection path'],
     gateway: ['Gateway', 'Routes commands. Reports device state.', 'architecture.html', 'Explore the architecture'],
-    esp32: ['ESP32', 'AtomS3 Lite C124. USB first. LED and button.', 'esp32.html', 'Meet the first gadget'],
+    esp32: ['ESP32', 'ESP32-S3. Breadboard and OLED. Hardware checks pending.', 'esp32.html', 'Meet the first gadget'],
     linux: ['Linux', 'Declare capabilities. Connect your own device application.', 'linux.html', 'Build with the Linux SDK'],
     home: ['Home Assistant', 'A direct upstream MCP route for exposed entities.', 'home-assistant.html', 'Connect an existing home'],
   };

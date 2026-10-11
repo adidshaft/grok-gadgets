@@ -16,8 +16,8 @@
   },
   {
     "id": "PHYSICAL-C124",
-    "title": "First physical C124 build",
-    "description": "Flash, LED, button, lifecycle and physical observations recorded"
+    "title": "First physical ESP32-S3/OLED experiment",
+    "description": "Inspect the ordered kit, confirm wiring/controller, and record OLED text/clear, fitted LED/button and USB recovery observations. Historical milestone ID retained."
   },
   {
     "id": "REAL-HOSTS",

@@ -1,5 +1,7 @@
 # Simulator export-to-kit correction
 
+> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](../getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+
 HARD-SIM-EXPORT-001 / S1. Reproduction/tracking: 7536de4; implementation and regression: ad602e6. Local functional acceptance and bounded independent review passed. Corrected25-artifact candidate20261004T194005-1791142805602319000 was certified against dc346bc. Final evidence-only HEAD certification is required before goal closure; exact source HEADs/hashes live in artifacts/publication/latest.json and the referenced manifest.
 
 ## Failure and correction
