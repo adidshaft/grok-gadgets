@@ -194,8 +194,12 @@ MAINTAINER_GROUPS = (
                 None,
                 (
                     ("gateway", "docs/release.md", "Gateway release checks"),
-                    ("linux-sdk", "docs/release.md", "Linux SDK releases"),
-                    ("home-assistant", "docs/release.md", "Home Assistant releases"),
+                    ("linux-sdk", "docs/release.md", "Linux SDK release checks"),
+                    (
+                        "home-assistant",
+                        "docs/release.md",
+                        "Home Assistant release checks",
+                    ),
                     ("", "docs/public/local-status.md", "Overall verification status"),
                     ("", "docs/public/gateway-verification.md", "Gateway verification"),
                     (
@@ -249,6 +253,13 @@ MAINTAINER_GROUPS = (
     ),
 )
 
+# Component release guides were added after the last checked-in docs snapshot.
+# Pages imports them from current component main before rendering the live site.
+OPTIONAL_COMPONENT_RECORDS = {
+    ("grok-gadgets-linux-sdk", "docs/release.md"),
+    ("grok-gadgets-home-assistant", "docs/release.md"),
+}
+
 
 class DocsNavigation:
     def __init__(self, documents):
@@ -285,6 +296,8 @@ class DocsNavigation:
                     if key in used:
                         raise ValueError("Duplicate navigation entry: " + str(key))
                     if key not in records:
+                        if key in OPTIONAL_COMPONENT_RECORDS:
+                            continue
                         raise ValueError("Missing documentation record: " + str(key))
                     used.add(key)
                     item = {
