@@ -11,6 +11,8 @@ There are two possible outcomes:
 
 The docs confirm (b). They do not document (a). Part A tests (a); Part B tests (b).
 
+The first run, on 12 October 2026, gave outcome (b). See the [result](verification/grok-local-execution-2026-10-12.md).
+
 ## 0. Prepare the gateway (2 minutes)
 
 The request log is on the gateway `dev` branch. It is not released yet.
@@ -71,11 +73,11 @@ The docs name two MCP server types, **Remote HTTPS** and **Command**. They do no
 
 ### A2. Command server on this Mac
 
-Do A2 even if A1 fails.
+Do A2 even if A1 fails. The `--device-port 18765` argument keeps it clear of the running `serve`, which uses port 8765.
 
 1. Type in the chat, with your real home path:
 
-   > Add a Command MCP server named grok-gadgets-stdio. Command: /Users/YOU/projects/grok-gadgets-gateway/.venv/bin/grok-gadgets-gateway. Arguments: stdio --simulator --request-log /Users/YOU/grok-gadgets-stdio.jsonl
+   > Add a Command MCP server named grok-gadgets-stdio. Command: /Users/YOU/projects/grok-gadgets-gateway/.venv/bin/grok-gadgets-gateway. Arguments: stdio --simulator --device-port 18765 --request-log /Users/YOU/grok-gadgets-stdio.jsonl
 
 2. If the Bot adds it, repeat the three prompts with "Using the grok-gadgets-stdio tools".
 3. In a terminal, run `ls -l ~/grok-gadgets-stdio.jsonl`. If the file exists, the server ran on this Mac. If it does not exist, the server did not run on this Mac.
@@ -101,7 +103,7 @@ If no new lines appear, the Bot did not reach this gateway, whatever the Bot say
 
    > List my gadgets: run this command on my Mac and show me the output: /Users/YOU/projects/grok-gadgets-gateway/.venv/bin/grok-gadgets-gateway rehearse
 
-3. Check the approval card. It must show that exact command. Select **Allow once**.
+3. Check the approval card. It must show that exact command. Select **Allow once**. Keep `serve` running while the card waits; a stopped gateway makes the command fail.
 4. Type:
 
    > Set the light blue: run /Users/YOU/projects/grok-gadgets-gateway/.venv/bin/grok-gadgets-gateway rehearse --device sim-c124 --command rgb.set --args '{"r":0,"g":120,"b":255,"on":true}'

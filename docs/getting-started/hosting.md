@@ -14,6 +14,8 @@ A command on the Mac can connect to your Raspberry Pi through SSH. For this, the
 
 This is a possible manual experiment. It is not verified Grok Gadgets product support. It is not a ready-to-use MCP integration. Connecting a USB cable alone does not create this route.
 
+On 12 October 2026 the owner's Grok Bot ran two approved `grok-gadgets-gateway rehearse` commands on the owner's Mac. The gateway request log recorded the matching tool calls against the simulated light. In the same test, Grok Bot did not add the gateway as an MCP server. The approved command is therefore a working manual route, not a native tool connection. The [test record](https://github.com/adidshaft/grok-gadgets/issues/31) has the details.
+
 ## 3. Grok Gadgets remote MCP
 
 The gateway's local `serve` mode is implemented. It provides Streamable HTTP MCP at `http://127.0.0.1:8766/mcp`, with a bearer token read from a file. It listens on loopback only.
@@ -40,7 +42,7 @@ Product goal: Grok Bot → authenticated remote MCP endpoint with TLS
 | Gate | Current stage | Evidence needed |
 | --- | --- | --- |
 | Local gateway `serve` | Implemented on loopback | Local software evidence does not prove a Grok Bot connection. |
-| M5 — Actual Grok | Blocked | Supported invocation and reload evidence for the exact simulator kit, plus the authenticated remote route. |
+| M5 — Actual Grok | Partly done | Approved local `rehearse` commands work. Native tool calls need the authenticated remote route. |
 | M8 — Physical and independent verification | Blocked | A real Pi or device setup, observed peripheral operation, and independent reproduction. |
 
 [HARD-GROK-REMOTE-001](https://github.com/adidshaft/grok-gadgets/issues/4) tracks secure remote access. The existing loopback listener is separate from that unfinished work. See the [roadmap](../../ROADMAP.md) and gateway [remote access guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/remote-access.md).
@@ -53,7 +55,7 @@ Product goal: Grok Bot → authenticated remote MCP endpoint with TLS
 
 **Does USB make the Mac a bridge?** No. A cable does not configure local execution, network access, SSH, or MCP.
 
-**Does enabling local execution install Grok Gadgets MCP?** No. Local command execution and MCP configuration are separate.
+**Does enabling local execution install Grok Gadgets MCP?** No. Local command execution and MCP configuration are separate. In the 12 October test, Grok Bot declined to add the gateway as a Remote HTTPS server at `127.0.0.1` or as a Command server on the Mac.
 
 **Who runs the MCP server?** The gateway operator runs it. SpaceXAI runs Grok Bot. A Home Assistant operator runs Home Assistant's own MCP server.
 

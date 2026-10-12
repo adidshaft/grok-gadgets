@@ -458,7 +458,7 @@ Gate: firmware compiles and integration logic passes applicable tests. Label the
 
 ### M5 — Real Grok and cross-device integration
 
-Current stage: **blocked**. M5 Actual Grok needs supported invocation and reload evidence for the exact kit, plus the authenticated remote route. Local `serve` is implemented; secure remote access and verified Grok Bot invocation remain incomplete.
+Current stage: **partly done**. On 12 October 2026 Grok Bot ran approved local `rehearse` commands, and the gateway request log recorded the simulator calls (`docs/verification/grok-local-execution-2026-10-12.md`). Grok Bot declined to add the gateway as an MCP server, so native tool discovery needs the authenticated remote route in ADR 004 (`docs/decisions/004-grok-bot-route.md`). Secure remote access and native Grok Bot invocation remain incomplete.
 
 Run this as soon as M2 permits; it should not wait for all other SDK work.
 
