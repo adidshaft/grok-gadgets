@@ -41,10 +41,10 @@
     {
       "repository": "grok-gadgets-esp32-sdk",
       "path": "grok-gadgets-esp32-sdk",
-      "version": "0.2.0-alpha.4",
-      "commit": "ef396049a39a65db330a6f8d0a3ca27193e5d50e",
+      "version": "0.2.0-alpha.6",
+      "commit": "56f94ccfd2c42e84bf3755922d7dac45f8bdf6e0",
       "evidence_level": "Host simulated; both firmware examples compiled",
-      "checks": "Host suites, generated C124/generic sketch contracts and simulated PTY USB integration against gateway v0.1.0-alpha.4 passed with PlatformIO 6.2.0 and clang-format 23.1.2. Both atoms3-lite-usb and esp32s3-led-button compile. Firmware-image redistribution remains gated on source and license-bundle review. No flashing, physical USB, LED or button observation.",
+      "checks": "tools/check.sh host suites, both firmware builds (atoms3-lite-usb, esp32s3-led-button), the package check, the README Quickstart and simulated PTY USB integration against gateway v0.1.0-alpha.5 passed. Adds the compile-time ACK cache size and the ordered ESP32-S3/OLED kit docs. No physical hardware or Grok Bot operation is claimed.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
