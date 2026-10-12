@@ -1,6 +1,6 @@
 # Grok Gadgets — implementation and launch plan
 
-> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+> Hardware plan update — 12 October 2026: the [delivered ESP32-S3/OLED kit](getting-started/experiment-kit.md) passed physical acceptance ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/dev/docs/verification/oled-kit-2026-10-12.md)). The 9 October order details below are historical; see the current kit guide for actual parts, tested wiring and remaining gates. C124 results describe the retained reference example only.
 
 **Plan date:** 4 October 2026  
 **Status:** Historical implementation handoff; the local alpha is now built. See [current verification](verification/launch-status.md) and [publication sanitization](verification/publication-sanitization.md).
@@ -495,7 +495,7 @@ Gate: website checks pass, local preview is reviewed at desktop/mobile sizes, an
 
 ### M8 — Physical verification and independent installation
 
-Current stage: **blocked**. M8 Physical and independent verification needs a real Pi or device setup, observed peripheral operation, and independent reproduction.
+Current stage: **partly done**. The owner's ESP32-S3 + OLED kit passed physical acceptance on 12 October 2026 ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/dev/docs/verification/oled-kit-2026-10-12.md)). Independent reproduction and a real Pi setup remain.
 
 Requires hardware and a second tester; prepare the procedure during local development.
 

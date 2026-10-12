@@ -1,11 +1,12 @@
-Source: grok-gadgets-esp32-sdk/docs/first-experiment.md at 2540b51fb9464a9616e7bc25004929ea01994df4
+Source: grok-gadgets-esp32-sdk/docs/first-experiment.md at e9b5279825f779691af87e8cb1cb09ba7668fd7f
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
 # First experiment: ESP32-S3 and OLED
 
 Use this plan for the first physical experiment. Keep the simulator-first stage.
-The kit is ordered. No physical result is recorded yet.
+The owner's kit passed physical acceptance on 12 October 2026. See the
+[verification record](verification/oled-kit-2026-10-12.md) for the inspected parts and wiring.
 
 ## Parts
 

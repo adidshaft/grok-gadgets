@@ -1,4 +1,4 @@
-Source: grok-gadgets-linux-sdk/README.md at c5f61b0c7ace2bf774689b8c70007dde34aab650
+Source: grok-gadgets-linux-sdk/README.md at 2b17a37a761761e92e921efbfe105cd799155501
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -8,7 +8,7 @@ Turn Python functions into gadgets your Grok Bot can call through the
 [Grok Gadgets gateway](https://github.com/adidshaft/grok-gadgets-gateway). Start with a
 software lamp; add your hardware code later. Experimental alpha: Grok Bot and hardware are
 not verified yet ([project status](https://grok-gadgets.pages.dev/doc-docs-public-support-matrix)).
-Independent project, not affiliated with SpaceXAI or xAI.
+Independent project, not affiliated with SpaceXAI.
 
 ## Quickstart
 
@@ -42,8 +42,11 @@ uv run grok-linux-agent dev ./my_gadget.py
 ```
 
 `dev` starts a local gateway, connects your gadget with no token to copy, and prints the
-connector settings Grok Bot will use. The next gateway release adds a rehearsal of the Grok
-Bot call: `uv run grok-gadgets-gateway rehearse --device desk-lamp --command set.light --args '{"on": true}'`.
+connector settings Grok Bot will use. Run the local rehearsal:
+
+```sh
+uv run grok-gadgets-gateway rehearse --device desk-lamp --command set.light --args '{"on": true}'
+```
 
 ## How it works
 
@@ -128,8 +131,7 @@ Contribute on the `dev` branch; `main` holds tagged stable releases ([branches](
 ## License and affiliation
 
 Apache-2.0; see [LICENSE](LICENSE) and [NOTICE](NOTICE). Grok Gadgets is an independent
-open-source project. It is **not affiliated with, endorsed by or sponsored by SpaceXAI or
-xAI**, which make Grok and Grok Bot. We reconstructed the pre-publication commit dates; see the
+open-source project. It is **not affiliated with, endorsed by or sponsored by SpaceXAI**. We reconstructed the pre-publication commit dates; see the
 [history record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/publication-sanitization.md).
 Detailed verification records: [launch verification](docs/verification/launch-docs.md) and
 [historical record](docs/verification.md).

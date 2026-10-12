@@ -1,7 +1,7 @@
 [
   {
     "repository": "grok-gadgets-esp32-sdk",
-    "commit": "2540b51fb9464a9616e7bc25004929ea01994df4",
+    "commit": "e9b5279825f779691af87e8cb1cb09ba7668fd7f",
     "files": [
       ".clang-format",
       ".github/CODEOWNERS",
@@ -35,9 +35,12 @@
       "docs/verification.md",
       "docs/verification/hardening.md",
       "docs/verification/launch.md",
+      "docs/verification/oled-kit-2026-10-12.md",
       "examples/led-button/main.cpp",
       "examples/led-button/pio_src.py",
       "examples/oled-kit/README.md",
+      "examples/oled-kit/main.cpp",
+      "examples/oled-kit/pio_src.py",
       "examples/oled-kit/rehearse.py",
       "examples/oled-kit/test_rehearse.py",
       "lib/GrokGadgets/LICENSE",
@@ -60,6 +63,7 @@
       "requirements.lock",
       "requirements.txt",
       "src/main.cpp",
+      "tests/ack_cache_tests.cpp",
       "tests/core_tests.cpp",
       "tests/device_tests.cpp",
       "tests/firmware_tests.cpp",
@@ -67,6 +71,8 @@
       "tests/session_tests.cpp",
       "tests/stubs/Adafruit_NeoPixel.h",
       "tests/stubs/Arduino.h",
+      "tests/stubs/U8x8lib.h",
+      "tests/stubs/Wire.h",
       "tests/stubs/esp_system.h",
       "tests/stubs/host_board.h",
       "tests/transcript.cpp",
@@ -81,7 +87,7 @@
   },
   {
     "repository": "grok-gadgets-gateway",
-    "commit": "8effd8bd3c973f40ec1366cc70d2ae3920bc0109",
+    "commit": "4dc9c15fe746ac6ef7683ddc0ba84cb67c2a4ab2",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -112,6 +118,7 @@
       "docs/release.md",
       "docs/remote-access.md",
       "docs/simulator.md",
+      "docs/tunnel.md",
       "docs/verification/hardening.md",
       "docs/verification/launch-docs.md",
       "docs/verification/simulator-config.md",
@@ -145,7 +152,9 @@
       "tests/test_domain.py",
       "tests/test_foundation.py",
       "tests/test_http.py",
+      "tests/test_limits.py",
       "tests/test_mcp.py",
+      "tests/test_mcp_tokens.py",
       "tests/test_rehearse.py",
       "tests/test_request_log.py",
       "tests/test_simulator_config.py",
@@ -155,7 +164,7 @@
   },
   {
     "repository": "grok-gadgets-home-assistant",
-    "commit": "fc99ff98368ec822d7c49d9eddaa7d09f27367c3",
+    "commit": "f969f5cd19878f4f702a8aa365f77108e4907d1e",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -164,6 +173,7 @@
       ".github/ISSUE_TEMPLATE/documentation.yml",
       ".github/ISSUE_TEMPLATE/feature.yml",
       ".github/ISSUE_TEMPLATE/hardware.yml",
+      ".github/dependabot.yml",
       ".github/pull_request_template.md",
       ".github/workflows/checks.yml",
       ".github/workflows/pr-target.yml",
@@ -194,7 +204,7 @@
   },
   {
     "repository": "grok-gadgets-linux-sdk",
-    "commit": "c5f61b0c7ace2bf774689b8c70007dde34aab650",
+    "commit": "2b17a37a761761e92e921efbfe105cd799155501",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -203,6 +213,7 @@
       ".github/ISSUE_TEMPLATE/documentation.yml",
       ".github/ISSUE_TEMPLATE/feature.yml",
       ".github/ISSUE_TEMPLATE/hardware.yml",
+      ".github/dependabot.yml",
       ".github/pull_request_template.md",
       ".github/workflows/checks.yml",
       ".github/workflows/pr-target.yml",
