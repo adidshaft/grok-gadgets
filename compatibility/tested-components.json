@@ -1,14 +1,14 @@
 {
-  "status": "Public source patch prerelease and website live; v0.1.4-alpha.1 release candidate verified",
+  "status": "Public source patch prerelease and website live; v0.1.5-alpha.1 release candidate verified",
   "protocol": "0.1.0",
   "components": [
     {
       "repository": "grok-gadgets",
       "path": "grok-gadgets",
-      "version": "0.1.4-alpha.1",
-      "commit": "1c7a97466fef3e30f2d73f7716312363fcca0960",
-      "evidence_level": "Public source patch prerelease; tested set at every component's latest release",
-      "checks": "Full local hub check suite, kit freshness and integrated acceptance passed on the release candidate with gateway and Linux SDK v0.1.0-alpha.4, ESP32 SDK v0.2.0-alpha.4 and Home Assistant v0.1.0-alpha.4. The simulator kit is unchanged from v0.1.3-alpha.1 (gateway v0.1.0-alpha.4). No Grok Bot connection or physical hardware operation is claimed.",
+      "version": "0.1.5-alpha.1",
+      "commit": "f6130e8c9da172530716fcb37fd8a82edb34998b",
+      "evidence_level": "Public source patch prerelease; Grok Bot local-command route recorded",
+      "checks": "Full local hub check suite and kit freshness passed on the release candidate with gateway v0.1.0-alpha.5, Linux SDK v0.1.0-alpha.4, ESP32 SDK main (601a7ce) and Home Assistant v0.1.0-alpha.4. The simulator kit is rebuilt from gateway v0.1.0-alpha.5. On 12 October Grok Bot ran approved local rehearse commands and the gateway request log recorded them; native Grok Bot MCP calls and physical hardware operation are not claimed.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
