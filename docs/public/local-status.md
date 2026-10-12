@@ -8,7 +8,7 @@ Grok Gadgets is an alpha for your existing Grok Bot. The public site provides do
 | Linux SDK | Installed-wheel acceptance on macOS and an isolated Linux container | Physical peripherals and systemd lifecycle |
 | ESP32 SDK / retained reference examples | Host consumer tests, ESP32-S3 compilation, and USB/Wi-Fi physical acceptance of the owner's ESP32-S3 + OLED kit | Independent reproduction, other boards, disconnect during a command |
 | Home Assistant | Fixtures and local MCP transport checks | Actual home installation and Grok Bot |
-| Website and community | Public static site, fixtures and offline recognition | Package-registry uploads, a hosted gateway and automatic recognition |
+| Website and community | Public static site, fixtures and offline recognition | A hosted gateway and automatic recognition |
 
 ## Run locally
 
@@ -41,4 +41,4 @@ The [hosting FAQ](../getting-started/hosting.md) describes three separate paths:
 
 **M5 — Actual Grok is partly done.** Approved local `rehearse` commands work. Native Grok Bot tool calls need the authenticated remote route ([ADR 004](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/004-grok-bot-route.md), [#4](https://github.com/adidshaft/grok-gadgets/issues/4)). **M8 — Physical and independent verification is partly done.** The owner's ESP32-S3 + OLED kit passed. It still needs independent reproduction and a real Pi setup. Mobile clients and actual Home Assistant devices need separate evidence.
 
-The public website does not run the gateway or a tunnel. All five repositories have published GitHub releases. Future service deployment, package-registry uploads and live recognition require their own approval. Firmware binary redistribution needs dependency/license review. These local instructions do not activate an account or device.
+The public website does not run the gateway or a tunnel. All five repositories have published GitHub releases. The gateway, Linux SDK and Home Assistant packages are on PyPI ([gateway](https://pypi.org/project/grok-gadgets-gateway/), [Linux SDK](https://pypi.org/project/grok-gadgets-linux-sdk/), [Home Assistant](https://pypi.org/project/grok-gadgets-home-assistant/)). Future service deployment and live recognition require their own approval. Firmware binary redistribution needs dependency/license review. These local instructions do not activate an account or device.

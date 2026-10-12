@@ -1,11 +1,11 @@
-Source: grok-gadgets-gateway/docs/release.md at e18d84d5199e78f56637f7fff591804a9a397614
+Source: grok-gadgets-gateway/docs/release.md at 79ad881b6dbc0f78fa4d9a118f98acfbbad32f5a
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
 # Alpha release checks
 
 The gateway has public alpha releases on [GitHub](https://github.com/adidshaft/grok-gadgets-gateway/releases).
-The Python package is not on PyPI. Protocol version is `0.1.0`.
+The Python package is on [PyPI](https://pypi.org/project/grok-gadgets-gateway/) from v0.1.0-alpha.10. Protocol version is `0.1.0`.
 
 ## Prepare a release
 
