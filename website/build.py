@@ -201,10 +201,13 @@ def page(name, title, body):
         + '"><span class="independent-note">Independent open source. Not affiliated with SpaceXSI.<span class="footer-credit">Made by <a href="https://x.com/adidshaft">@adidshaft ↗</a></span></span><a href="https://github.com/adidshaft/grok-gadgets">GitHub ↗</a><a class="status-link" href="doc-docs-public-support-matrix.html">Status ↗</a>'
         + '<button id="motion-toggle" aria-pressed="false">Pause motion <span>[Ⅱ]</span></button></footer>'
     )
-    scripts = '<script src="motion.js" defer></script>' + (
-        '<script src="simulator.js" defer></script><script src="scene.js" defer></script><script src="donate.js" defer></script><script src="roadmap-scene.js" defer></script><script src="signal-scene.js" defer></script><script src="hardware-scene.js" defer></script><script src="scene-gallery.js" defer></script>'
-        if home
-        else ""
+    scripts = (
+        '<script src="motion.js" defer></script><script src="donate.js" defer></script>'
+        + (
+            '<script src="simulator.js" defer></script><script src="scene.js" defer></script><script src="roadmap-scene.js" defer></script><script src="signal-scene.js" defer></script><script src="hardware-scene.js" defer></script><script src="scene-gallery.js" defer></script>'
+            if home
+            else ""
+        )
     )
     if documentation:
         scripts += '<script src="docs.js" defer></script>'
@@ -243,9 +246,9 @@ def page(name, title, body):
             if documentation
             else "content-page"
         )
-        + '"><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="identity" href="index.html" aria-label="Grok Gadgets home"><img src="media/grok-gadgets-icon.png" width="36" height="36" alt=""><span>Grok Gadgets</span></a><a class="header-contribute" href="contribute.html">Contribute ↗</a><button id="menu-open" aria-haspopup="dialog" aria-controls="site-menu">Menu <span>[+]</span></button></header>'
+        + '"><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="identity" href="index.html" aria-label="Grok Gadgets home"><img src="media/grok-gadgets-icon.png" width="36" height="36" alt=""><span>Grok Gadgets</span></a><a class="header-contribute" href="contribute.html">Contribute ↗</a><div class="header-actions"><button id="donate-open" type="button" aria-haspopup="dialog" aria-controls="donate-dialog">Donate</button><button id="menu-open" aria-haspopup="dialog" aria-controls="site-menu">Menu <span>[+]</span></button></div></header>'
         + menu
-        + ((R / "website/donate.html").read_text() if home else "")
+        + (R / "website/donate.html").read_text()
         + '<main id="main">'
         + body
         + "</main>"
