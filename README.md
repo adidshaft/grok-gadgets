@@ -23,6 +23,8 @@ Pick a path:
 Already use Home Assistant? Check what it offers with the
 [read-only probe](https://github.com/adidshaft/grok-gadgets-home-assistant).
 
+The first physical experiment uses the [ordered ESP32-S3 and OLED kit](docs/getting-started/experiment-kit.md). Start with simulation. Wiring, display controller and hardware verification await delivery.
+
 ## Start here
 
 | If you want to… | Open |

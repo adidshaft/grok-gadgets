@@ -230,11 +230,12 @@
   {
     "id": "HUB-HW-001",
     "repository": "grok-gadgets",
-    "problem": "Physical LED/button/recovery verification",
-    "intended_behaviour": "Physical LED/button/recovery verification",
+    "problem": "First ordered ESP32-S3/OLED physical experiment",
+    "intended_behaviour": "First ordered ESP32-S3/OLED physical experiment",
     "acceptance": [
-      "Documented commands reproduce observed behaviour",
-      "Evidence identifies actual verification level"
+      "Follow docs/getting-started/experiment-kit.md for exact ordered parts, setup and acceptance",
+      "Inspect controller, interface and pins after delivery; keep simulation and physical evidence separate",
+      "Observe OLED text/clear and USB recovery; test optional suitable LED/button only if fitted"
     ],
     "dependencies": [
       "HUB-ESP-001"
@@ -249,7 +250,7 @@
     "stage": "blocked",
     "commits": [],
     "evidence": [],
-    "blocker": "C124 hardware unavailable",
+    "blocker": "Ordered kit delivery, inspection, reviewed wiring and OLED implementation",
     "component_repository": "grok-gadgets-esp32-sdk"
   },
   {
@@ -1206,5 +1207,32 @@
       "2026-10-06: brand masters reviewed individually and published under docs/visuals/brand/"
     ],
     "blocker": "Owner action from community/reddit-package.md: add https://grok-gadgets.pages.dev/ to the Community Guide and welcome post (Reddit was set up while the site was wrongly recorded as unavailable)"
+  },
+  {
+    "id": "HW-KIT-001",
+    "repository": "grok-gadgets",
+    "problem": "Replace first experiment assumptions with the ordered ESP32-S3 breadboard OLED kit",
+    "intended_behaviour": "Plans, examples, website and acceptance identify the exact ordered kit and provisional hardware details",
+    "acceptance": [
+      "Exact ordered parts documented across active first-experiment guidance",
+      "Separate existing light simulation from OLED logical rehearsal and physical evidence",
+      "Keep inspected pins/controller/driver/firmware and actual Grok Bot tests as open gates",
+      "Update relevant public issues without closing physical acceptance"
+    ],
+    "dependencies": [
+      "HUB-ESP-001"
+    ],
+    "labels": [
+      "maintenance",
+      "esp32",
+      "P1"
+    ],
+    "milestone": "M8",
+    "stage": "done",
+    "commits": [],
+    "evidence": [
+      "docs/verification/ordered-kit-2026-10-09.md"
+    ],
+    "blocker": null
   }
 ]

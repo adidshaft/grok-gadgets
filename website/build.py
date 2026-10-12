@@ -369,7 +369,7 @@ page(
     + path_row(
         "03",
         "Build a gadget",
-        "Compile the C124 example with the reusable ESP32 SDK.",
+        "Prepare the ordered ESP32-S3 kit with the reusable SDK.",
         "esp32.html",
         "ESP32",
     )
@@ -423,11 +423,11 @@ page(
     "esp32.html",
     "ESP32",
     intro(
-        "Hardware / C124",
-        "One board.<br>Two possibilities.",
-        "An RGB LED. A button. AtomS3 Lite C124.",
+        "Hardware / ESP32-S3",
+        "One kit.<br>Start building.",
+        "An ESP32-S3. A breadboard. A small OLED.",
     )
-    + '<p class="status">Firmware compiled · hardware pending</p>'
+    + '<p class="status">Software first · kit and OLED checks pending</p>'
     + path_row(
         "01",
         "Build over USB",
@@ -442,7 +442,7 @@ page(
         "doc-docs-components-grok-gadgets-esp32-sdk-sdk.html",
         "SDK reference",
     )
-    + '<p class="quiet-note">Target: M5Stack AtomS3 Lite C124 + USB-C data cable. The local gateway and USB bridge run on your computer. <a href="doc-docs-components-grok-gadgets-esp32-sdk-verification.html">Verification record ↗</a></p>'
+    + '<p class="quiet-note">Ordered: AYWHP ESP32-S3 DevKitC-style board (ESP32-S3-WROOM-1-N16R8, USB-C), ApTechDeals 840-point breadboard and jumper-wire set, and Robocraze 0.96-inch 128×64 OLED advertised as SPI/I²C with four pins. Pin mapping and the OLED controller remain provisional. Confirm a USB-C data cable is available. Use an external LED and button if suitable built-in parts are absent. The current simulator rehearses light commands and input events; OLED support must be verified separately. The local gateway and USB bridge run on your computer. <a href="doc-docs-components-grok-gadgets-esp32-sdk-verification.html">Verification record ↗</a></p>'
     + hosting_guide,
 )
 page(

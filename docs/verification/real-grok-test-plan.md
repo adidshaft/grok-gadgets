@@ -1,5 +1,7 @@
 # Real Grok simulator experiment — original proposal
 
+> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](../getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+
 Historical proposal: the user subsequently authorized the desktop cloud simulator experiment and requested a new dedicated Bot. See [recorded experiment and evidence gate](real-grok-experiment.md). The authorization statements below describe the original proposal, not the current approval state.
 
 Checked official docs on 4 October 2026: [Grok Bot overview](https://docs.x.ai/grok-bot/overview) describes its persistent cloud computer; [Team Bot plugins](https://docs.x.ai/grok-bot/team-bots#plugins) lists Command and Remote HTTPS custom MCP routes. Availability must be confirmed in the actual account/client before configuration. Nothing here configures an account or grants approval.
@@ -19,7 +21,7 @@ If Command custom MCP is absent for the selected account, stop this experiment a
 5. Explicit disconnect, command failure/offline state, reconnect, discovery and successful command after reconnect. Keep test controls opt-in and remove them from ordinary configuration afterward.
 6. Record client version, source/package hash, command IDs, timestamps, tool errors, before/after state and any consent prompts. Redact credentials and account identifiers. Repeat selected discovery/read/command in the existing mobile client after separate approval; do not infer mobile behavior from desktop.
 
-Pass means an actual existing Grok Bot invoked the corrected simulator tools. Physical C124, local Linux peripherals and actual Home Assistant remain separate gates. No API charges, deployment, new Bot/team publication or account changes are currently authorized.
+Pass means an actual existing Grok Bot invoked the corrected simulator tools. The ordered ESP32-S3/OLED physical experiment, local Linux peripherals and actual Home Assistant remain separate gates. No API charges, deployment, new Bot/team publication or account changes are currently authorized.
 
 ## Current connection paths and remaining gates
 

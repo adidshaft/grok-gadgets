@@ -1,5 +1,7 @@
 # Real Grok simulator experiment — reported results, receipt gate
 
+> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](../getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+
 > Historical account observation: the source IDs and archive hashes below identify the exact pre-publication artifacts used in that experiment. They are intentionally not rewritten to sanitized commit IDs and do not verify the new public kit.
 
 User authorized the proposed existing-account simulator connection test on 4 October 2026. Scope: inspect current MCP availability, install the reviewed gateway in the Bot environment, configure the simulator connection and request the concrete tools/tests. No physical hardware, public repository, deployment, purchase, Reddit action or broad unrelated Bot operation is included. Earlier local H0–H7 goal remains complete; this is the separately authorized next experiment.

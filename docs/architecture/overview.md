@@ -1,6 +1,6 @@
 # Repository and device map
 
-The project provides reusable gadget libraries for Grok Bot. C124 is the first ESP32 example. It is not the SDK boundary. Actual Grok Bot and physical-device verification remain pending.
+The project provides reusable gadget libraries for Grok Bot. The ordered ESP32-S3/OLED kit is the first physical experiment. Retained C124 and generic examples are not the SDK boundary. Actual Grok Bot and physical-device verification remain pending.
 
 The gateway operator hosts the MCP server. SpaceXAI hosts Grok Bot. The website hosts neither. Read the [hosting FAQ](../getting-started/hosting.md).
 
@@ -46,7 +46,7 @@ flowchart LR
     B -.-> P["Board pins, drivers and transport"]
 ```
 
-The current ESP32 capability library has no board or serial dependency. `GrokGadgets.h` handles capabilities and bounded command results. `GrokCore.h` provides shared utilities. `C124.h` and the example application supply the first board's hardware behavior. The configured firmware build targets C124; Wi-Fi remains future work.
+The current ESP32 capability library has no board or serial dependency. `GrokGadgets.h` handles capabilities and bounded command results. `GrokCore.h` provides shared utilities. `C124.h` and the example application supply the retained reference board's hardware behavior. The retained C124 and generic builds do not verify the ordered kit. Its display driver, pins and board configuration need inspection and implementation. Wi-Fi remains future work.
 
 For each new board:
 
@@ -62,6 +62,6 @@ Add board examples within the ESP32 repository. Add computer examples within the
 
 The gateway owns canonical protocol 0.1.0. Loopback TCP and the USB bridge use bounded, LF-delimited JSON frames. The host handles credentials; the C124 firmware stores no network credential. Device registration includes boot identity and capabilities. Commands, acknowledgements, state and events have separate roles. Queues and retry caches have finite limits.
 
-Simulation controls require explicit opt-in and are absent from normal MCP tool discovery. A device acknowledgement does not prove a physical effect. The gateway provides stdio MCP, optional loopback HTTP MCP (`serve` at `127.0.0.1:8766/mcp` with a bearer token), and authenticated loopback device transport. It does not terminate public TLS and has not been used with Grok Bot. Never expose the device protocol.
+Simulation controls require explicit opt-in and are absent from normal MCP tool discovery. A device acknowledgement does not prove a physical effect. The gateway provides stdio MCP, optional loopback HTTP MCP (`serve` at `127.0.0.1:8766/mcp` with a bearer token), and authenticated loopback device transport. It does not terminate public TLS. Grok Bot has reached it only through approved local `rehearse` commands, not as an MCP client. Never expose the device protocol.
 
 [HARD-GROK-REMOTE-001](https://github.com/adidshaft/grok-gadgets/issues/4) tracks the future secure remote route and its Grok Bot evidence. The local HTTP listener already exists. Local software acceptance, Grok invocation, remote security and physical operation require separate evidence. The [hosting FAQ](../getting-started/hosting.md) defines those checks.

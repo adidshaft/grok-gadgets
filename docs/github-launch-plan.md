@@ -1,5 +1,7 @@
 > Internal execution plan. Public activation is pending. Host paths are normalized; current status is in verification/launch-status.md.
 
+> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+
 # Grok Gadgets — GitHub launch and contributor experience
 
 **Prepared:** 5 October 2026, Asia/Kolkata  
@@ -87,7 +89,7 @@ The first public release should say **experimental alpha**. Publication can happ
 
 | Required before a public alpha | Can remain open with clear labeling |
 | --- | --- |
-| Audited publishable history and files | Physical C124 acceptance |
+| Audited publishable history and files | Ordered ESP32-S3/OLED acceptance |
 | Accurate README, install commands, limitations, and license | Actual Grok invocation receipts and mobile checks |
 | Working public links and contact routes | Real Home Assistant installation/device evidence |
 | Reproducible tests and release artifacts | Real Linux service/peripheral acceptance |
@@ -305,7 +307,7 @@ Preserve historical M0–M9/MH identifiers in migrated evidence. Give new public
 | Public alpha launch | Public docs, checks, issues, accurate prereleases, website, and support routes verified |
 | First independent software setup | Another person reproduces the documented simulator and contributor setup |
 | Verified Grok connection | Inspectable native invocation evidence for the exact supported route |
-| First physical C124 build | Flash, LED, button, disconnect/reconnect, recovery, and observation recorded |
+| First ordered ESP32-S3/OLED build | Inspect parts and wiring; verify flash, display message/clear, optional LED/button, disconnect/reconnect and recovery |
 | Real Linux and Home Assistant | Selected real host/service/peripheral/home paths verified |
 | Remote connection and provisioning | Reviewed authenticated HTTPS/OAuth/provisioning design and tested implementation |
 
@@ -328,7 +330,7 @@ The current done/blocked inventory does not give a newcomer enough ready work. D
 
 Do not invent defects or reopen finished work to fill a quota. Each chosen issue needs an exact starting file, reproducible current behavior, expected result, acceptance criteria, and check command.
 
-Track Windows/Intel Mac install verification, real C124 acceptance, real systemd, and real Home Assistant as separate contributor opportunities with their actual prerequisites.
+Track Windows/Intel Mac install verification, ordered ESP32-S3/OLED acceptance, real systemd, and real Home Assistant as separate contributor opportunities with their actual prerequisites.
 
 ### Issue and PR forms
 

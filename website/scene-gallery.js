@@ -28,7 +28,7 @@
     buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.scene === name)));
     stories.hidden = name !== 'devices';
     hint.hidden = name === 'devices';
-    hint.textContent = {roadmap: 'Select a milestone to explore', signal: 'Explore a hardware connection', hardware: 'Try an LED, button or USB story'}[name] || '';
+    hint.textContent = {roadmap: 'Select a milestone to explore', signal: 'Explore a hardware connection', hardware: 'Try an OLED message, clear or USB story'}[name] || '';
     document.dispatchEvent(new CustomEvent('grok:scene-change', {detail: {scene: name}}));
   }
   buttons.forEach(button => button.addEventListener('click', () => select(button.dataset.scene)));
