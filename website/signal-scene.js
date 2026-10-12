@@ -207,7 +207,7 @@
       detailTitle.textContent = selected.title;
       detailLink.href = selected.href;
       detailRoute.textContent = selected.route;
-      bot.setAttribute('aria-label', `Grok Bot. Replay the conceptual ${selected.label} route. Bot connection is pending.`);
+      bot.setAttribute('aria-label', `Grok Bot. Replay the conceptual ${selected.label} route. Native MCP connection is pending.`);
       status.textContent = selected.description;
       if (replay) {
         sequence = canAnimate() ? 0 : null;

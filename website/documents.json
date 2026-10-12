@@ -105,7 +105,7 @@
       "repository": "grok-gadgets",
       "source": "docs/visuals/project-overview.svg",
       "output": "media/diagrams/project-overview.svg",
-      "sha256": "f11bf9a06c56e5b147f6520a03d9c15eefd141610b8974b4e562eb975af3d3ca"
+      "sha256": "a1a33be612accb8c9abd23c390d8e2249048c3e048af9b77764d7008f9ad17fd"
     },
     {
       "repository": "grok-gadgets",
