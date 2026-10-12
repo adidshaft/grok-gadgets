@@ -1262,5 +1262,33 @@
       "https://github.com/adidshaft/grok-gadgets/issues/168"
     ],
     "blocker": null
+  },
+  {
+    "id": "HUB-REL-017",
+    "repository": "grok-gadgets",
+    "problem": "Ship Phase 4: the ESP32-S3 OLED kit over Wi-Fi",
+    "intended_behaviour": "The hub records gateway v0.1.0-alpha.6 and ESP32 SDK v0.2.0-alpha.8 with the Wi-Fi physical acceptance",
+    "acceptance": [
+      "Status page and ADR 005 match the Wi-Fi evidence",
+      "Tested set and component documentation snapshots pin each released main",
+      "Simulator kit rebuilt from gateway v0.1.0-alpha.6",
+      "Release v0.1.7-alpha.1 and sync main into dev"
+    ],
+    "dependencies": [
+      "HUB-WIFI-ADR-005"
+    ],
+    "labels": [
+      "maintenance",
+      "esp32",
+      "gateway"
+    ],
+    "milestone": "M9",
+    "stage": "review",
+    "commits": [],
+    "evidence": [
+      "https://github.com/adidshaft/grok-gadgets/issues/170",
+      "https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md"
+    ],
+    "blocker": null
   }
 ]

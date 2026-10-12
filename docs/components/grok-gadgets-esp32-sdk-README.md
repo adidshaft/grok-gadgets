@@ -1,4 +1,4 @@
-Source: grok-gadgets-esp32-sdk/README.md at e9b5279825f779691af87e8cb1cb09ba7668fd7f
+Source: grok-gadgets-esp32-sdk/README.md at a760e076558c7ab4cc6ee1e136603507b925e044
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -79,8 +79,10 @@ recovery. Nobody has flashed a board for this project yet, so we welcome hardwar
 ## Grok Bot today
 
 Run `grok-gadgets-gateway rehearse` to check the local simulated path for Grok Bot. A cloud
-Grok Bot cannot reach your computer yet, Wi-Fi is not built ([#5](https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/5)),
-and a button press does not wake the Bot. See the
+Grok Bot cannot reach your computer yet, and a button press does not wake the Bot. The OLED
+kit also runs over Wi-Fi ([examples/oled-kit](examples/oled-kit/README.md#wi-fi-build)); it
+passed physical acceptance on the owner's kit on 12 October 2026
+([record](docs/verification/oled-kit-wifi-2026-10-12.md)). See the
 [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md).
 
 ## Learn more

@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/README.md at 4dc9c15fe746ac6ef7683ddc0ba84cb67c2a4ab2
+Source: grok-gadgets-gateway/README.md at 997876bdce4edbf4d1f83064f82e506d24a7cb9b
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -63,6 +63,8 @@ uv run grok-gadgets-gateway enroll desk-lamp --token-file desk-lamp.token
 [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk) or the
 [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk); the Linux SDK's `dev`
 command needs no token at all. Both ports are loopback only.
+A Wi-Fi gadget on your home network can use the opt-in TLS listener on one private
+address, `serve --lan-listen`; see [Wi-Fi devices](docs/wifi-devices.md).
 
 ## Grok Bot today
 

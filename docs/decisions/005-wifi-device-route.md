@@ -1,7 +1,7 @@
 # ADR 005 — Secure Wi-Fi route from an ESP32 device to the gateway
 
 **Date:** 12 October 2026  
-**Status:** Accepted on 12 October 2026 for implementation. Physical acceptance is pending.  
+**Status:** Accepted on 12 October 2026. Physical acceptance passed the same day ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)).  
 **Owner:** Grok Gadgets hub (`adidshaft/grok-gadgets`)  
 **Issues:** [#168](https://github.com/adidshaft/grok-gadgets/issues/168), gateway [#79](https://github.com/adidshaft/grok-gadgets-gateway/issues/79) (GW-LAN-001), ESP32 [#5](https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/5) (ESP-005)
 
