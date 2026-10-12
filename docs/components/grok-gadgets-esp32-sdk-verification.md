@@ -1,10 +1,11 @@
-Source: grok-gadgets-esp32-sdk/docs/verification.md at 2540b51fb9464a9616e7bc25004929ea01994df4
+Source: grok-gadgets-esp32-sdk/docs/verification.md at 71ef86092c60b258264824d243098e7b65f4e8f6
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
 # Verification
 
 **Current first experiment:** [AYWHP ESP32-S3 and OLED kit](first-experiment.md).
+**Physical acceptance passed on the owner's kit on 12 October 2026:** [record](verification/oled-kit-2026-10-12.md).
 The C124 results below are historical software/build evidence for an optional
 example. They do not verify the ordered board, OLED controller, pins or wiring.
 

@@ -495,7 +495,7 @@ Gate: website checks pass, local preview is reviewed at desktop/mobile sizes, an
 
 ### M8 — Physical verification and independent installation
 
-Current stage: **blocked**. M8 Physical and independent verification needs a real Pi or device setup, observed peripheral operation, and independent reproduction.
+Current stage: **partly done**. The owner's ESP32-S3 + OLED kit passed physical acceptance on 12 October 2026 ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/dev/docs/verification/oled-kit-2026-10-12.md)). Independent reproduction and a real Pi setup remain.
 
 Requires hardware and a second tester; prepare the procedure during local development.
 
