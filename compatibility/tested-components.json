@@ -29,10 +29,10 @@
     {
       "repository": "grok-gadgets-linux-sdk",
       "path": "grok-gadgets-linux-sdk",
-      "version": "0.1.0-alpha.5",
-      "commit": "5094f050f6266a3bdad8e2b645536d6318a89798",
+      "version": "0.1.0-alpha.6",
+      "commit": "3d2cf7b24aa42e7cf5705642f2c5220f0b2a0a47",
       "evidence_level": "Simulated; macOS gateway integration verified",
-      "checks": "55 tests passed, including the gateway integration tests against gateway v0.1.0-alpha.7; Ruff, package builds and twine check passed. Adds --version and the release workflow; the gateway extra pins v0.1.0-alpha.7. No fresh Linux container, systemd or Raspberry Pi run in this release.",
+      "checks": "55 tests passed, including the gateway integration tests against gateway v0.1.0-alpha.10; Ruff, package builds and twine check passed. The gateway extra pins gateway v0.1.0-alpha.10, so the SDK and its gateway install from PyPI. No fresh Linux container, systemd or Raspberry Pi run in this release.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
