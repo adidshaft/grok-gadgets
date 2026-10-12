@@ -162,11 +162,12 @@ NAVIGATION = [
     ("roadmap.html", "Roadmap"),
     ("community.html", "Community"),
     ("contribute.html", "Contribute"),
+    ("donate.html", "Donate"),
 ]
 
 
 def page(name, title, body):
-    home = name == "index.html"
+    home = name in ("index.html", "donate.html")
     documentation = name == "docs.html" or name.startswith("doc-")
     page_title = title + " · Grok Gadgets"
     description = (
@@ -174,7 +175,9 @@ def page(name, title, body):
         "for your existing Grok Bot. " + title + "."
     )
     share_image = PUBLIC_SITE + "media/grok-gadgets-share-v4.png"
-    canonical_url = PUBLIC_SITE + name
+    canonical_url = PUBLIC_SITE + (
+        "" if name == "index.html" else name.removesuffix(".html")
+    )
     body = body.replace(
         "downloads/grok-gadgets-simulator-kit.zip", "downloads/" + kit_archive
     ).replace("downloads/simulator-kit-manifest.json", "downloads/" + kit_manifest)
@@ -246,7 +249,11 @@ def page(name, title, body):
             if documentation
             else "content-page"
         )
-        + '"><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="identity" href="index.html" aria-label="Grok Gadgets home"><img src="media/grok-gadgets-icon.png" width="36" height="36" alt=""><span>Grok Gadgets</span></a><a class="header-contribute" href="contribute.html">Contribute ↗</a><div class="header-actions"><button id="donate-open" type="button" aria-haspopup="dialog" aria-controls="donate-dialog">Donate</button><button id="menu-open" aria-haspopup="dialog" aria-controls="site-menu">Menu <span>[+]</span></button></div></header>'
+        + '"'
+        + (" data-donate-route" if name == "donate.html" else "")
+        + '><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="identity" href="index.html" aria-label="Grok Gadgets home"><img src="media/grok-gadgets-icon.png" width="36" height="36" alt=""><span>Grok Gadgets</span></a><a class="header-contribute" href="contribute.html">Contribute ↗</a><div class="header-actions"><a id="donate-open" href="donate.html"'
+        + (' aria-current="page"' if name == "donate.html" else "")
+        + '>Donate</a><button id="menu-open" aria-haspopup="dialog" aria-controls="site-menu">Menu <span>[+]</span></button></div></header>'
         + menu
         + (R / "website/donate.html").read_text()
         + '<main id="main">'
@@ -307,47 +314,45 @@ proof_section = (
 
 hosting_guide = '<p><a href="doc-docs-getting-started-hosting.html">Who runs the gateway? Hosting and remote access FAQ ↗</a></p>'
 scene_source = R / "website/home-scene.html"
-page(
-    "index.html",
-    "Home",
-    (
-        scene_source.read_text().replace(
-            "{{HOME_DETAILS}}",
-            '<details class="home-workbench" id="playground"><summary>Customize the virtual light <span aria-hidden="true">+</span></summary>'
-            + (R / "website/playground.html")
-            .read_text()
-            .replace("{{SIMULATOR_BUILD}}", e(simulator_build["gateway_commit"][:8]))
-            .replace("{{SIMULATOR_VERSION}}", e(simulator_build["package_version"]))
-            + "</details>"
-            + proof_section
-            + '<section class="builder-paths" id="builder-paths" aria-labelledby="builder-heading"><p class="eyebrow">CHOOSE YOUR FIRST PATH</p><h2 id="builder-heading">Start building.</h2>'
-            + path_row(
-                "01",
-                "No hardware",
-                "Try a simulated light on your computer.",
-                first_success,
-                "First success",
-            )
-            + path_row(
-                "02",
-                "Raspberry Pi / Linux",
-                "Build a device with the Python SDK.",
-                "linux.html",
-                "Build with Linux",
-            )
-            + path_row(
-                "03",
-                "ESP32",
-                "Start with an Arduino sketch and USB.",
-                "esp32.html",
-                "Build for ESP32",
-            )
-            + '<p class="quiet-note" id="components">Already use Home Assistant? <a href="home-assistant.html">Explore the integration ↗</a> · <a href="components.html">All components ↗</a></p></section>',
+home_body = (
+    scene_source.read_text().replace(
+        "{{HOME_DETAILS}}",
+        '<details class="home-workbench" id="playground"><summary>Customize the virtual light <span aria-hidden="true">+</span></summary>'
+        + (R / "website/playground.html")
+        .read_text()
+        .replace("{{SIMULATOR_BUILD}}", e(simulator_build["gateway_commit"][:8]))
+        .replace("{{SIMULATOR_VERSION}}", e(simulator_build["package_version"]))
+        + "</details>"
+        + proof_section
+        + '<section class="builder-paths" id="builder-paths" aria-labelledby="builder-heading"><p class="eyebrow">CHOOSE YOUR FIRST PATH</p><h2 id="builder-heading">Start building.</h2>'
+        + path_row(
+            "01",
+            "No hardware",
+            "Try a simulated light on your computer.",
+            first_success,
+            "First success",
         )
+        + path_row(
+            "02",
+            "Raspberry Pi / Linux",
+            "Build a device with the Python SDK.",
+            "linux.html",
+            "Build with Linux",
+        )
+        + path_row(
+            "03",
+            "ESP32",
+            "Start with an Arduino sketch and USB.",
+            "esp32.html",
+            "Build for ESP32",
+        )
+        + '<p class="quiet-note" id="components">Already use Home Assistant? <a href="home-assistant.html">Explore the integration ↗</a> · <a href="components.html">All components ↗</a></p></section>',
     )
     if scene_source.is_file()
-    else "<h1>Grok, meet the real world.</h1><p>Interactive architecture is being assembled locally.</p>",
+    else "<h1>Grok, meet the real world.</h1><p>Interactive architecture is being assembled locally.</p>"
 )
+page("index.html", "Home", home_body)
+page("donate.html", "Donate", home_body)
 page(
     "start.html",
     "Get started",

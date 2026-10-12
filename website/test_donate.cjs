@@ -16,7 +16,7 @@ const destinations = [
 // Exercise the event handlers without a browser dependency. Native focus trapping
 // and Escape dismissal are checked separately in the browser preview.
 function setup(clipboard) {
-  const state = {active: null, selected: null, events: [], classes: new Set()};
+  const state = {active: null, selected: null, events: [], classes: new Set(), url: 'https://grokgadgets.org/donate'};
   function element() {
     return {
       textContent: '', listeners: {},
@@ -45,13 +45,15 @@ function setup(clipboard) {
   const document = {
     querySelector: selector => nodes[selector],
     getElementById: id => addresses[id],
-    body: {classList: {add: name => state.classes.add(name), remove: name => state.classes.delete(name)}},
+    body: {hasAttribute: name => name === 'data-donate-route', classList: {add: name => state.classes.add(name), remove: name => state.classes.delete(name)}},
     dispatchEvent: event => state.events.push(event.type),
     createRange: () => ({selectNodeContents(address) { this.address = address; }}),
   };
   const selection = {removeAllRanges() { state.selected = null; }, addRange(range) { state.selected = range.address; }};
   vm.runInNewContext(source, {
     document, navigator: {clipboard}, window: {getSelection: () => selection},
+    location: {href: state.url}, URL,
+    history: {pushState(_state, _title, url) { state.url = String(url); }, replaceState(_state, _title, url) { state.url = String(url); }},
     CustomEvent: class { constructor(type) { this.type = type; } },
   });
   return {state, trigger, close, feedback, dialog, addresses, buttons};
@@ -71,7 +73,7 @@ test('each copy action writes the exact full address and reports its network', a
   const copied = [];
   const ui = setup({writeText: async value => copied.push(value)});
   assert.equal(ui.trigger.hidden, false);
-  ui.trigger.fire('click');
+  assert.equal(ui.dialog.open, true);
   for (let i = 0; i < destinations.length; i++) {
     await ui.buttons[i].fire('click');
     assert.equal(copied[i], destinations[i][2]);
@@ -86,7 +88,6 @@ for (const [name, clipboard] of [
 ]) {
   test(`${name} selects the complete address and explains manual copying`, async () => {
     const ui = setup(clipboard);
-    ui.trigger.fire('click');
     await ui.buttons[3].fire('click');
     assert.equal(ui.state.active, ui.addresses['donate-zec']);
     assert.equal(ui.state.selected.textContent, destinations[3][2]);
@@ -97,7 +98,6 @@ for (const [name, clipboard] of [
 
 test('closing unlocks scrolling, restores the trigger and clears stale copy feedback', async () => {
   const ui = setup({writeText: async () => {}});
-  ui.trigger.fire('click');
   assert.equal(ui.dialog.open, true);
   assert.equal(ui.state.classes.has('donation-is-open'), true);
   await ui.buttons[0].fire('click');
@@ -106,6 +106,7 @@ test('closing unlocks scrolling, restores the trigger and clears stale copy feed
   assert.equal(ui.state.classes.has('donation-is-open'), false);
   assert.equal(ui.state.active, ui.trigger);
   assert.equal(ui.feedback.textContent, '');
+  assert.equal(ui.state.url, 'https://grokgadgets.org/');
   assert.deepEqual(ui.state.events, ['grok:dialog-change', 'grok:dialog-change']);
   ui.trigger.fire('click');
   assert.equal(ui.buttons[0].textContent, 'Copy');
@@ -114,7 +115,6 @@ test('closing unlocks scrolling, restores the trigger and clears stale copy feed
 test('a clipboard promise settling after close and reopen cannot change the new dialog', async () => {
   let rejectCopy;
   const ui = setup({writeText: () => new Promise((resolve, reject) => { rejectCopy = reject; })});
-  ui.trigger.fire('click');
   const copy = ui.buttons[0].fire('click');
   ui.close.fire('click');
   ui.trigger.fire('click');

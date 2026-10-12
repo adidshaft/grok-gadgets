@@ -13,20 +13,33 @@
     buttons.forEach(button => { button.textContent = 'Copy'; });
   };
 
-  trigger.hidden = false;
-  trigger.addEventListener('click', () => {
+  const donationRoute = document.body.hasAttribute('data-donate-route');
+  const openDialog = () => {
     if (dialog.open) return;
     resetCopy();
     dialog.showModal();
     document.body.classList.add('donation-is-open');
     notifyMotion();
-  });
+  };
+  trigger.hidden = false;
+  if (donationRoute) {
+    openDialog();
+    trigger.addEventListener('click', event => {
+      event?.preventDefault?.();
+      history.pushState(null, '', new URL('donate', location.href));
+      openDialog();
+    });
+  }
   close.addEventListener('click', () => dialog.close());
   // Native dialog supplies Escape dismissal and keeps keyboard focus inside it.
   dialog.addEventListener('close', () => {
     resetCopy();
     document.body.classList.remove('donation-is-open');
     notifyMotion();
+    if (donationRoute) {
+      history.replaceState(null, '', new URL('.', location.href));
+      document.title = 'Home · Grok Gadgets';
+    }
     trigger.focus();
   });
 
