@@ -1,14 +1,14 @@
 {
-  "status": "Public source patch prerelease and website live; v0.1.10-alpha.1 release candidate verified",
+  "status": "Public source patch prerelease and website live; v0.1.10-alpha.2 release candidate verified",
   "protocol": "0.1.0",
   "components": [
     {
       "repository": "grok-gadgets",
       "path": "grok-gadgets",
-      "version": "0.1.10-alpha.1",
-      "commit": "6e9fc7792b0e19fbff5b0615b64eece1bd57ddcd",
+      "version": "0.1.10-alpha.2",
+      "commit": "8072f4283f8518fbd0b3cfa2e3d0e60e62d2bbc1",
       "evidence_level": "Public source patch prerelease; OLED kit verified over USB and Wi-Fi",
-      "checks": "The v0.1.10-alpha.1 hub release candidate pins gateway v0.1.0-alpha.10 and ESP32 SDK v0.2.0-alpha.12 (hub ADR 006), with Linux SDK and Home Assistant v0.1.0-alpha.5. The kit guide uses the Mac's .local name and the gateway service. On 12-13 October 2026 the owner's Mac and OLED kit passed name, two address-change and restart checks; Linux systemd, native Grok Bot MCP calls and independent reproduction are not claimed.",
+      "checks": "The v0.1.10-alpha.2 hub release candidate records the PyPI packages: gateway 0.1.0a10, Linux SDK 0.1.0a6 and Home Assistant 0.1.0a5, published 13 October 2026 by owner-approved trusted publishing, with files byte-identical to each GitHub release's SHA256SUMS. pip install --pre worked from PyPI for all three, including the Linux SDK gateway extra. It pins Linux SDK v0.1.0-alpha.6 with gateway v0.1.0-alpha.10 and ESP32 SDK v0.2.0-alpha.12. The owner's Mac and OLED kit passed the Phase 6 checks; Linux systemd, native Grok Bot MCP calls and independent reproduction are not claimed.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
