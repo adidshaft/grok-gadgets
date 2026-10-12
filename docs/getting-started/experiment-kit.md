@@ -1,23 +1,26 @@
 # First physical experiment: ESP32-S3 and OLED
 
-Updated 9 October 2026. **Ordered; not inspected, flashed or physically verified.**
-This kit replaces the AtomS3 Lite C124 as the first physical experiment. The ESP32
-SDK remains reusable. Existing C124 builds and test records remain valid for that
-example only. They do not verify this kit.
+Updated 12 October 2026. **Board and display inspected; USB enumeration observed.
+Headers, wiring, firmware and display operation remain pending.** This kit replaces
+the AtomS3 Lite C124 as the first physical experiment. Existing C124 builds and
+test records apply to that example only.
 
 ## Parts
 
-| Part | Ordered item | Check after delivery |
+| Part | Delivered and observed | Still to confirm |
 | --- | --- | --- |
-| Board | AYWHP ESP32-S3 DevKitC-style board, ESP32-S3-WROOM-1-N16R8, USB-C | Module marking, board revision, pin labels, USB ports, memory configuration and available LED/button |
-| Wiring | ApTechDeals 840-point breadboard and jumper-wire set | Rail continuity, board fit and usable jumper connections |
-| Display | Robocraze 0.96-inch 128×64 OLED, advertised as SPI/I²C, 4-pin | Controller, actual interface, pin order, supply rating and bus address |
-| USB connection | A USB-C data cable is required; ownership is not confirmed | Data transfer and stable board enumeration |
+| Board | YD-ESP32-23 v1.3; module marked ESP32-S3-N16R8; USB-C ports marked `COM` and `USB`; exposed `3V3`, `GND`, GPIO8 and GPIO9 pads; no fitted edge headers | Flash/PSRAM configuration, GPIO electrical checks, reliable headers and firmware |
+| Wiring | ApTechDeals 840-point breadboard and jumper wires; loose header pins are available | Solder suitable headers, then check rail continuity and board fit |
+| Display | Electrifier 1.3-inch 128×64 I²C OLED; PCB marked `RG1.30 IIC V2.2`; four unpopulated pads labelled `VCC`, `GND`, `SCK`, `SDA` | Controller, I²C address, actual supply and electrical behavior |
+| USB connection | The board's `USB` port enumerated on macOS 27.0 as Espressif USB VID `303A`, PID `4001`, with a `/dev/cu.usbmodem*` port | Firmware identity, command transport and unplug/reconnect recovery |
 | Optional output/input | External LED, suitable current-limiting resistor and momentary button, if onboard parts are unsuitable | Select values and wiring after board inspection; these parts are not in the confirmed order |
 
-A four-pin listing does not establish the interface or controller. Do not assume
-SSD1306, SH1106, an I²C address or a GPIO assignment. Do not copy C124 GPIO numbers.
-Do not treat a reset or boot button as an application input without checking it.
+The display PCB establishes its I²C interface and pin labels, but not its
+controller or address. Do not assume SSD1306 or SH1106. The [seller listing](https://electrifier.in/product/electrifier-1-3-inch-oled-display-module-128x64-i2c-blue-pack-of-2-two-matched-panels-for-dual-readouts-or-a-ready-spare-3-3v-5v-input-onboard-regulator-4-mounting-holes-each/)
+advertises a 3.3–5 V input; use the board's 3.3 V supply for the first test so
+the I²C lines stay in the ESP32's 3.3 V domain. Do not copy C124 GPIO numbers.
+The visible RGB LED, `BOOT` and `RST` controls are not yet verified as demo
+peripherals.
 
 ## Demo goal
 
@@ -31,8 +34,8 @@ The actual Grok Bot route remains a separate verification gate.
 flowchart LR
     G["Grok Bot: connection verification pending"] -.-> H["Host gateway and USB bridge"]
     H --> B["ESP32-S3 board"]
-    B -.-> W["Breadboard wiring: inspect first"]
-    W -.-> O["128x64 OLED: controller and interface pending"]
+    B -.-> W["Breadboard wiring: headers pending"]
+    W -.-> O["1.3-inch I²C OLED: controller pending"]
     W -.-> I["Optional LED and button"]
 ```
 
@@ -58,34 +61,69 @@ driver. Its successful results are software evidence only. A real OLED command
 contract, driver and USB/gateway integration remain pending. Simulated button
 events do not wake Grok Bot.
 
-## Stage 2: inspect and configure after delivery
+## Stage 2: prepare and connect the inspected kit
 
-1. Record photographs and exact markings of the board and display.
-2. Identify the board's USB connector roles and verify the data cable.
-3. Find documentation for the delivered revisions. Confirm display supply and
-   logic levels, pin order, controller and actual interface.
-4. Select free, suitable GPIOs. Check board and module restrictions. Record the
-   reviewed wiring table before connecting anything. No fixed pins are specified here.
-5. Disconnect power. Check breadboard rails and wire common ground, the confirmed
-   supply and the confirmed bus pins. If the module is I²C, record SDA/SCL and
-   its observed address; if SPI, document its actual required signals instead.
-6. Choose a suitable onboard LED/button or add the optional external parts. Record
-   resistor value and button pull configuration. Verify wiring before power-on.
-7. Select and build the delivered board configuration. Record USB, flash and PSRAM
-   settings. Obtain authorization before flashing. Do not flash a C124 image.
-8. Test the display locally with the confirmed driver. Then test through the SDK
-   and gateway. Record firmware and source hashes and the host environment.
+Both boards arrived without soldered pin headers. Ordinary loose pins held by a
+breadboard do not make reliable contact with these holes. Fit and solder straight
+2.54 mm headers, or use another mechanically secure, electrically verified
+connection, before powering the wired kit. The board's USB-only enumeration
+test needed no headers and did not drive the display.
+
+This is the **planned wiring**, read from the printed pin labels. It has not been
+connected or powered. `SCK` is the display's I²C clock label (`SCL`). Use **one**
+of the two displays.
+
+| Display pad | Board pad | Purpose |
+| --- | --- | --- |
+| `VCC` | `3V3` | 3.3 V supply; do not use `5Vin` for the first test |
+| `GND` | `GND` | Common ground |
+| `SCK` | `9` (GPIO9) | I²C clock |
+| `SDA` | `8` (GPIO8) | I²C data |
+
+```mermaid
+flowchart LR
+    B3["Board 3V3"] --> OV["Display VCC"]
+    BG["Board GND"] --> OG["Display GND"]
+    B9["Board GPIO9"] --> OC["Display SCK / I2C clock"]
+    B8["Board GPIO8"] --> OD["Display SDA / I2C data"]
+```
+
+1. Disconnect USB power before fitting headers or moving any wires. Inspect
+   solder joints and check the breadboard's actual rail continuity.
+2. Connect one display by the **printed labels**, using the table above. Do not
+   infer pins from board orientation or jumper colors. Review the finished
+   connections before reconnecting USB.
+3. Identify the display controller and scan the observed I²C address with
+   board-specific firmware. Confirm the delivered board's 16 MB flash and 8 MB
+   PSRAM settings before creating and building that firmware.
+4. Choose a verified LED/button or fit optional external parts with a suitable
+   LED resistor and defined button pull configuration.
+5. Obtain authorization for the exact board and firmware image before flashing.
+   Then test local text and clear, the SDK and gateway, and recovery. Record
+   firmware/source hashes, commands and observed behavior separately.
+
+## Observed USB evidence
+
+On 12 October 2026, the owner supplied photos of the delivered board and display.
+The photos establish the markings and visible lack of headers described above;
+they are not published in this repository. On macOS 27.0 arm64, a read-only
+`ioreg -p IOUSB -w 0` check showed `Espressif Device` after connecting the
+board's `USB` port. The USB vendor and product IDs were `0x303A` and `0x4001`.
+`ls /dev/cu.*` showed `/dev/cu.usbmodem1234561`. No serial command or flash was
+sent. This is a **Pass for USB enumeration only**. The display, I²C address,
+driver, firmware and unplug/reconnect recovery are **Not tested**. An earlier
+board was not detected; its cause was not diagnosed.
 
 ## Stage 3: acceptance
 
 | Check | Evidence needed | Current state |
 | --- | --- | --- |
-| Ordered kit identified | Board/display markings and reviewed pin table | Awaiting delivery |
+| Delivered kit identified | Board/display markings and planned pin table | Pass for visible markings; controller and electrical behavior pending |
 | Local simulation | Tool results, simulated state and recovery evidence | Existing light/button path plus separate OLED Python rehearsal; display integration pending |
-| Build for delivered board | Configuration, dependency versions and build log | Pending inspection |
+| Build for delivered board | Configuration, dependency versions and build log | Not tested; profile and driver pending |
 | OLED operation | Requested message/clear action, device report and observed display agree | Pending |
 | LED/button, if fitted | Observed output and ordered press/release events | Pending; parts choice not final |
-| USB and recovery | Enumeration, offline rejection, reconnect, board/gateway restart and no stale replay | Pending |
+| USB and recovery | Enumeration, offline rejection, reconnect, board/gateway restart and no stale replay | USB enumeration Pass on one Mac; command and recovery checks Not tested |
 | Existing Grok Bot | Actual invocation receipts and independently retrieved execution evidence | Separate gate; pending |
 | Independent reproduction | Another person repeats the documented setup | Pending |
 

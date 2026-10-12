@@ -1,18 +1,28 @@
 # Test the ordered ESP32-S3 and OLED kit
 
-**Status: physical verification pending.** Compilation and simulated board tests do not complete this procedure.
+**Status: kit inspected and USB enumeration observed; display operation and
+physical acceptance pending.** Compilation and simulated board tests do not
+complete this procedure. See the [inspection and USB evidence](experiment-kit.md#observed-usb-evidence).
 
 ## Before the test
 
-Follow the [exact kit, inspection and wiring plan](experiment-kit.md). Wait until the board and OLED are available. Do not use C124 pin assignments or its firmware image. Obtain the owner's authorization before flashing it. Use the ESP32 SDK's pinned build and recovery instructions.
+Follow the [inspected kit and planned wiring](experiment-kit.md). The YD-ESP32-23
+v1.3 board and RG1.30 IIC v2.2 display have no fitted headers; establish secure
+connections before powering the display. Do not use C124 pin assignments or its
+firmware image. Obtain the owner's authorization before flashing the identified
+board and image. Use the ESP32 SDK's pinned build and recovery instructions.
 
 Run the local gateway and USB bridge on the host computer. A hardware test needs no public tunnel. The packaged remote MCP route for Grok Bot is not ready. Local `serve` listens only on `127.0.0.1:8766/mcp` and uses a bearer token. An authenticated remote MCP endpoint with TLS and approved, verified Grok Bot invocation are still needed. A tunnel adds reachability, not authentication.
 
 Grok Bot's normal cloud computer cannot reach your private LAN through its internet connection alone. A separate possible experiment uses **Execution on Local Computer**. Enable it and approve a Mac command. Then use SSH from the Mac to a reachable Pi with SSH set up. USB alone does not create this route. This is not verified Grok Gadgets support or a packaged MCP integration. Read the [hosting FAQ](hosting.md) for the three paths. Do not expose the device protocol directly.
 
-Record the AYWHP board and module markings, Robocraze OLED controller/interface, ApTechDeals breadboard wiring, reviewed pin table and USB-C data cable. Record firmware SHA-256, gateway and SDK commits, host operating system, port, time and tester. Do not record tokens. Pins, display driver and board configuration are provisional until inspection.
+Record the YD-ESP32-23 v1.3 board and ESP32-S3-N16R8 module markings. Record the
+Electrifier RG1.30 IIC v2.2 display, actual controller/address, breadboard wiring,
+pin table and USB-C data cable. Record firmware SHA-256, gateway and SDK
+commits, host operating system, port, time and tester. Do not record tokens. The
+3.3 V GPIO8/GPIO9 wiring is planned, not yet connected or electrically tested.
 
-**M5 — Actual Grok remains blocked** on supported exact-kit invocation/reload evidence and the remote route. **M8 — Physical and independent verification remains blocked** until the ordered kit is inspected, peripheral operation is observed and independent reproduction is recorded. A Pi is not required for this ESP32-S3 experiment.
+**M5 — Actual Grok remains blocked** on supported exact-kit invocation/reload evidence and the remote route. **M8 — Physical and independent verification remains blocked** until headers are secured, peripheral operation is observed and independent reproduction is recorded. A Pi is not required for this ESP32-S3 experiment.
 
 ## Procedure
 

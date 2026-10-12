@@ -1,6 +1,6 @@
 # Grok Gadgets — implementation and launch plan
 
-> Hardware plan update — 9 October 2026: the [ordered ESP32-S3/OLED kit](getting-started/experiment-kit.md) replaces C124 as the first physical experiment. C124 build commands and results below describe the retained reference example, not verification of the ordered kit. Controller, interface and pins remain provisional until inspection.
+> Hardware plan update — 12 October 2026: the [delivered ESP32-S3/OLED kit](getting-started/experiment-kit.md) has been visually identified and its USB port enumerated. The 9 October order details below are historical; see the current kit guide for actual parts, planned wiring and remaining gates. C124 results describe the retained reference example only.
 
 **Plan date:** 4 October 2026  
 **Status:** Historical implementation handoff; the local alpha is now built. See [current verification](verification/launch-status.md) and [publication sanitization](verification/publication-sanitization.md).
