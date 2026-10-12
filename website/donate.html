@@ -1,7 +1,10 @@
-<section id="donate-page" class="donate-page" aria-labelledby="donate-title" aria-describedby="donate-description">
-  <p class="eyebrow">Independent open source</p>
-  <h1 id="donate-title">Support Grok Gadgets.</h1>
-  <p id="donate-description" class="lede">Choose a network and copy its donation address. Send only on the matching network.</p>
+<dialog id="donate-dialog" aria-labelledby="donate-title" aria-describedby="donate-description">
+  <div class="donate-heading">
+    <h2 id="donate-title">Support Grok Gadgets.</h2>
+    <button id="donate-close" type="button" aria-label="Close donation addresses" autofocus>Close <span aria-hidden="true">[esc]</span></button>
+  </div>
+  <p id="donate-description">Choose a network and copy its donation address.</p>
+  <p class="donate-maintainer-note">Grok Gadgets is maintained by one person. If this project is useful to you, you can help support the work.</p>
   <ul class="donate-addresses">
     <li>
       <div class="donate-network"><h3 id="donate-eth-label">ETH <span>Ethereum</span></h3><button type="button" data-copy-address="donate-eth" data-network="ETH" aria-label="Copy ETH address">Copy</button></div>
@@ -21,4 +24,4 @@
     </li>
   </ul>
   <p id="donate-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
-</section>
+</dialog>

@@ -37,14 +37,14 @@ class SiteClarityTests(unittest.TestCase):
         )
         self.assertIn('(R / "website/donate.html").read_text()', builder)
         self.assertIn('<script src="donate.js" defer></script>', builder)
-        self.assertIn('"donate.html",\n    "Donate",', builder)
+        self.assertIn('page("donate.html", "Donate", home_body)', builder)
 
     def test_component_inventory_is_rendered_on_docs_page(self):
         builder = (SITE / "build.py").read_text()
         self.assertIn('"components.html",\n    "Project components"', builder)
-        home_page = builder.split('page(\n    "index.html",', 1)[1].split(
-            'page(\n    "start.html",', 1
-        )[0]
+        home_page = builder.split("home_body = (", 1)[1].split('page("index.html",', 1)[
+            0
+        ]
         self.assertNotIn("website/components.html", home_page)
         inventory = (SITE / "components.html").read_text()
         self.assertEqual(len(re.findall(r'<details class="component', inventory)), 10)
