@@ -13,7 +13,6 @@ class SiteClarityTests(unittest.TestCase):
     def test_homepage_states_existing_grok_bot_and_open_verification_gate(self):
         hero = (SITE / "home-scene.html").read_text()
         self.assertIn("your Grok Bot.", hero)
-        self.assertIn('id="donate-open"', hero)
         self.assertIn("Open-source tools and SDKs", hero)
         self.assertIn(
             "One kit passed USB and Wi-Fi tests; native Grok Bot MCP calls remain open.",
@@ -33,6 +32,9 @@ class SiteClarityTests(unittest.TestCase):
         self.assertIn('id="components"', builder)
         self.assertIn('href="components.html"', builder)
         self.assertIn('"components.html"', builder)
+        self.assertIn('class="header-actions"><button id="donate-open"', builder)
+        self.assertIn('(R / "website/donate.html").read_text()', builder)
+        self.assertIn('<script src="donate.js" defer></script>', builder)
 
     def test_component_inventory_is_rendered_on_docs_page(self):
         builder = (SITE / "build.py").read_text()
