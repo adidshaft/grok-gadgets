@@ -32,9 +32,12 @@ class SiteClarityTests(unittest.TestCase):
         self.assertIn('id="components"', builder)
         self.assertIn('href="components.html"', builder)
         self.assertIn('"components.html"', builder)
-        self.assertIn('class="header-actions"><button id="donate-open"', builder)
+        self.assertIn(
+            'class="header-actions"><a id="donate-open" href="donate.html"', builder
+        )
         self.assertIn('(R / "website/donate.html").read_text()', builder)
         self.assertIn('<script src="donate.js" defer></script>', builder)
+        self.assertIn('"donate.html",\n    "Donate",', builder)
 
     def test_component_inventory_is_rendered_on_docs_page(self):
         builder = (SITE / "build.py").read_text()

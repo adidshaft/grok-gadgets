@@ -13,10 +13,8 @@ const destinations = [
   ['donate-zec', 'ZEC (Shielded)', 'u10hkzg65lgz6eq3arsylenag78jracfpguc3m4p6ptz8fkjlgxy6668yrjdgj2p704wp2f2wykrqv88tg9zu7fjuc9tk5s6vazvzmw5cvt5qkyzr32wqymesmcymja9zxpcwc6vcswa88yae023yj7jhypvn6n592t6z7nxqu4s59sdf9'],
 ];
 
-// Exercise the event handlers without a browser dependency. Native focus trapping
-// and Escape dismissal are checked separately in the browser preview.
 function setup(clipboard) {
-  const state = {active: null, selected: null, events: [], classes: new Set()};
+  const state = {active: null, selected: null};
   function element() {
     return {
       textContent: '', listeners: {},
@@ -25,8 +23,6 @@ function setup(clipboard) {
       focus() { state.active = this; },
     };
   }
-  const trigger = Object.assign(element(), {hidden: true});
-  const close = element();
   const feedback = element();
   const addresses = {};
   const buttons = destinations.map(([id, network]) => {
@@ -35,31 +31,23 @@ function setup(clipboard) {
     addresses[id] = address;
     return Object.assign(element(), {dataset: {copyAddress: id, network}});
   });
-  const dialog = Object.assign(element(), {
-    open: false,
-    showModal() { this.open = true; close.focus(); },
-    close() { this.open = false; this.fire('close'); },
-    querySelectorAll() { return buttons; },
-  });
-  const nodes = {'#donate-dialog': dialog, '#donate-open': trigger, '#donate-close': close, '#donate-feedback': feedback};
+  const page = {querySelectorAll() { return buttons; }};
   const document = {
-    querySelector: selector => nodes[selector],
-    getElementById: id => addresses[id],
-    body: {classList: {add: name => state.classes.add(name), remove: name => state.classes.delete(name)}},
-    dispatchEvent: event => state.events.push(event.type),
+    querySelector(selector) { return {'#donate-page': page, '#donate-feedback': feedback}[selector]; },
+    getElementById(id) { return addresses[id]; },
     createRange: () => ({selectNodeContents(address) { this.address = address; }}),
   };
   const selection = {removeAllRanges() { state.selected = null; }, addRange(range) { state.selected = range.address; }};
   vm.runInNewContext(source, {
     document, navigator: {clipboard}, window: {getSelection: () => selection},
-    CustomEvent: class { constructor(type) { this.type = type; } },
   });
-  return {state, trigger, close, feedback, dialog, addresses, buttons};
+  return {state, feedback, addresses, buttons};
 }
 
-test('donation markup retains exactly the four supplied destinations and named controls', () => {
+test('standalone donation page retains exactly the four supplied destinations', () => {
   assert.equal((markup.match(/<code /g) || []).length, 4);
-  assert.match(markup, /<dialog[^>]+aria-labelledby="donate-title"[^>]+aria-describedby="donate-description"/);
+  assert.match(markup, /<section id="donate-page"[^>]+aria-labelledby="donate-title"/);
+  assert.match(markup, /<h1 id="donate-title">Support Grok Gadgets\.<\/h1>/);
   assert.match(markup, /id="donate-feedback" role="status"/);
   for (const [id, , expected] of destinations) {
     assert.equal(markup.match(new RegExp(`<code id="${id}"[^>]*>([^<]+)</code>`))[1], expected);
@@ -70,8 +58,6 @@ test('donation markup retains exactly the four supplied destinations and named c
 test('each copy action writes the exact full address and reports its network', async () => {
   const copied = [];
   const ui = setup({writeText: async value => copied.push(value)});
-  assert.equal(ui.trigger.hidden, false);
-  ui.trigger.fire('click');
   for (let i = 0; i < destinations.length; i++) {
     await ui.buttons[i].fire('click');
     assert.equal(copied[i], destinations[i][2]);
@@ -86,7 +72,6 @@ for (const [name, clipboard] of [
 ]) {
   test(`${name} selects the complete address and explains manual copying`, async () => {
     const ui = setup(clipboard);
-    ui.trigger.fire('click');
     await ui.buttons[3].fire('click');
     assert.equal(ui.state.active, ui.addresses['donate-zec']);
     assert.equal(ui.state.selected.textContent, destinations[3][2]);
@@ -95,32 +80,15 @@ for (const [name, clipboard] of [
   });
 }
 
-test('closing unlocks scrolling, restores the trigger and clears stale copy feedback', async () => {
-  const ui = setup({writeText: async () => {}});
-  ui.trigger.fire('click');
-  assert.equal(ui.dialog.open, true);
-  assert.equal(ui.state.classes.has('donation-is-open'), true);
-  await ui.buttons[0].fire('click');
-  ui.close.fire('click');
-  assert.equal(ui.dialog.open, false);
-  assert.equal(ui.state.classes.has('donation-is-open'), false);
-  assert.equal(ui.state.active, ui.trigger);
-  assert.equal(ui.feedback.textContent, '');
-  assert.deepEqual(ui.state.events, ['grok:dialog-change', 'grok:dialog-change']);
-  ui.trigger.fire('click');
-  assert.equal(ui.buttons[0].textContent, 'Copy');
-});
-
-test('a clipboard promise settling after close and reopen cannot change the new dialog', async () => {
+test('a stale clipboard request cannot change the latest copy feedback', async () => {
   let rejectCopy;
-  const ui = setup({writeText: () => new Promise((resolve, reject) => { rejectCopy = reject; })});
-  ui.trigger.fire('click');
-  const copy = ui.buttons[0].fire('click');
-  ui.close.fire('click');
-  ui.trigger.fire('click');
+  const ui = setup({writeText: value => value === destinations[0][2]
+    ? new Promise((resolve, reject) => { rejectCopy = reject; })
+    : Promise.resolve()});
+  const first = ui.buttons[0].fire('click');
+  await ui.buttons[1].fire('click');
   rejectCopy(new Error('Permission denied'));
-  await copy;
-  assert.equal(ui.feedback.textContent, '');
-  assert.equal(ui.state.active, ui.close);
+  await first;
+  assert.equal(ui.feedback.textContent, 'Solana address copied.');
   assert.equal(ui.state.selected, null);
 });

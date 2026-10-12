@@ -162,6 +162,7 @@ NAVIGATION = [
     ("roadmap.html", "Roadmap"),
     ("community.html", "Community"),
     ("contribute.html", "Contribute"),
+    ("donate.html", "Donate"),
 ]
 
 
@@ -174,7 +175,9 @@ def page(name, title, body):
         "for your existing Grok Bot. " + title + "."
     )
     share_image = PUBLIC_SITE + "media/grok-gadgets-share-v4.png"
-    canonical_url = PUBLIC_SITE + name
+    canonical_url = PUBLIC_SITE + (
+        "" if name == "index.html" else name.removesuffix(".html")
+    )
     body = body.replace(
         "downloads/grok-gadgets-simulator-kit.zip", "downloads/" + kit_archive
     ).replace("downloads/simulator-kit-manifest.json", "downloads/" + kit_manifest)
@@ -202,7 +205,8 @@ def page(name, title, body):
         + '<button id="motion-toggle" aria-pressed="false">Pause motion <span>[Ⅱ]</span></button></footer>'
     )
     scripts = (
-        '<script src="motion.js" defer></script><script src="donate.js" defer></script>'
+        '<script src="motion.js" defer></script>'
+        + ('<script src="donate.js" defer></script>' if name == "donate.html" else "")
         + (
             '<script src="simulator.js" defer></script><script src="scene.js" defer></script><script src="roadmap-scene.js" defer></script><script src="signal-scene.js" defer></script><script src="hardware-scene.js" defer></script><script src="scene-gallery.js" defer></script>'
             if home
@@ -246,9 +250,10 @@ def page(name, title, body):
             if documentation
             else "content-page"
         )
-        + '"><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="identity" href="index.html" aria-label="Grok Gadgets home"><img src="media/grok-gadgets-icon.png" width="36" height="36" alt=""><span>Grok Gadgets</span></a><a class="header-contribute" href="contribute.html">Contribute ↗</a><div class="header-actions"><button id="donate-open" type="button" aria-haspopup="dialog" aria-controls="donate-dialog">Donate</button><button id="menu-open" aria-haspopup="dialog" aria-controls="site-menu">Menu <span>[+]</span></button></div></header>'
+        + '"><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="identity" href="index.html" aria-label="Grok Gadgets home"><img src="media/grok-gadgets-icon.png" width="36" height="36" alt=""><span>Grok Gadgets</span></a><a class="header-contribute" href="contribute.html">Contribute ↗</a><div class="header-actions"><a id="donate-open" href="donate.html"'
+        + (' aria-current="page"' if name == "donate.html" else "")
+        + '>Donate</a><button id="menu-open" aria-haspopup="dialog" aria-controls="site-menu">Menu <span>[+]</span></button></div></header>'
         + menu
-        + (R / "website/donate.html").read_text()
         + '<main id="main">'
         + body
         + "</main>"
@@ -707,6 +712,11 @@ page(
         "Contribution guide",
     )
     + '<p><a href="https://github.com/adidshaft/grok-gadgets">Contribute on GitHub ↗</a></p><p class="quiet-note">GitHub Issues track contributions and bugs. The roadmap shows a timestamped snapshot; a separate Project board remains pending.</p>',
+)
+page(
+    "donate.html",
+    "Donate",
+    (R / "website/donate.html").read_text(),
 )
 page(
     "404.html",
