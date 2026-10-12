@@ -4,6 +4,10 @@
 
 [![Experimental alpha](docs/visuals/badge-stage.svg)](docs/public/support-matrix.md) [![Apache-2.0 license](docs/visuals/badge-license.svg)](LICENSE) [![View CI checks](docs/visuals/badge-checks.svg)](https://github.com/adidshaft/grok-gadgets/actions) [![Contributions welcome](docs/visuals/badge-contribute.svg)](CONTRIBUTING.md)
 
+![Grok Gadgets shown on a small OLED display mounted on a breadboard.](docs/visuals/esp32-s3-oled-display.jpg)
+
+<p align="center"><sub>Display lettering enhanced for readability.</sub></p>
+
 **[Website](https://grokgadgets.org/)** · [Documentation](https://grokgadgets.org/docs.html) · [Roadmap](ROADMAP.md) · [Issues](https://github.com/adidshaft/grok-gadgets/issues) · **[Join r/GrokGadgets](https://www.reddit.com/r/GrokGadgets/)**
 
 **Let your Grok Bot control lights, buttons and sensors you build. Open source.**
