@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/README.md at 1042edd949a421966a0d7254485d1580e13d5bf5
+Source: grok-gadgets-gateway/README.md at d2a3f4dcc49398c4ca5581693e457e773d714e0d
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -35,7 +35,7 @@ has a wheel and `SHA256SUMS`. Install the wheel into a virtual environment with 
 
 ```sh
 python3 -m venv .venv
-.venv/bin/python -m pip install https://github.com/adidshaft/grok-gadgets-gateway/releases/download/v0.1.0-alpha.8/grok_gadgets_gateway-0.1.0a8-py3-none-any.whl
+.venv/bin/python -m pip install https://github.com/adidshaft/grok-gadgets-gateway/releases/download/v0.1.0-alpha.9/grok_gadgets_gateway-0.1.0a9-py3-none-any.whl
 .venv/bin/grok-gadgets-gateway --help
 ```
 
