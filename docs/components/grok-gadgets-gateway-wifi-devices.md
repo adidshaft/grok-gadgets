@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/wifi-devices.md at d2a3f4dcc49398c4ca5581693e457e773d714e0d
+Source: grok-gadgets-gateway/docs/wifi-devices.md at e18d84d5199e78f56637f7fff591804a9a397614
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -44,6 +44,20 @@ uv run grok-gadgets-gateway serve --lan-listen 192.168.1.20 --request-log ~/grok
 
 macOS may ask whether Python may accept incoming network connections. Allow it, or the
 device cannot connect.
+
+### Use a name instead of an address
+
+`lan-cert`, `serve --lan-listen` and `wifi-provision --lan` also accept this computer's mDNS
+name, for example `my-mac.local`. On macOS, `scutil --get LocalHostName` prints the name; add
+`.local`. The certificate then names only the name, so it stays valid when the address changes.
+`serve` binds the name's current private address and checks it again every 30 seconds. When the
+address changes, it moves the Wi-Fi listener and logs `lan_rebound`. The board needs firmware
+that looks up `.local` names
+([ESP32 SDK #99](https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/99)); until then,
+provision it with the IPv4 address.
+
+When the board shows **Online**, you can [run the gateway as a background service](always-on.md)
+so it comes back after a reboot.
 
 ## Provision a device over USB
 

@@ -1,7 +1,7 @@
 [
   {
     "repository": "grok-gadgets-esp32-sdk",
-    "commit": "f7bb9483e5a2911415029c86a8e624fc612aaa10",
+    "commit": "20363fdb3f1f12c4e57b45ad5dfe65361b10708f",
     "files": [
       ".clang-format",
       ".github/CODEOWNERS",
@@ -75,6 +75,7 @@
       "tests/session_tests.cpp",
       "tests/stubs/Adafruit_NeoPixel.h",
       "tests/stubs/Arduino.h",
+      "tests/stubs/ESPmDNS.h",
       "tests/stubs/Preferences.h",
       "tests/stubs/U8x8lib.h",
       "tests/stubs/WiFi.h",
@@ -85,6 +86,7 @@
       "tests/transcript.cpp",
       "tests/wifi_console_tests.cpp",
       "tests/wifi_link_tests.cpp",
+      "tests/wifi_mdns_tests.cpp",
       "tools/check.sh",
       "tools/check_contract.py",
       "tools/check_gateway.py",
@@ -96,7 +98,7 @@
   },
   {
     "repository": "grok-gadgets-gateway",
-    "commit": "d2a3f4dcc49398c4ca5581693e457e773d714e0d",
+    "commit": "e18d84d5199e78f56637f7fff591804a9a397614",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -119,6 +121,7 @@
       "README.md",
       "SECURITY.md",
       "SUPPORT.md",
+      "docs/always-on.md",
       "docs/architecture.md",
       "docs/evidence/local-alpha.md",
       "docs/evidence/mcp-demo.json",
@@ -129,6 +132,7 @@
       "docs/remote-access.md",
       "docs/simulator.md",
       "docs/tunnel.md",
+      "docs/verification/always-on-2026-10-13.md",
       "docs/verification/hardening.md",
       "docs/verification/launch-docs.md",
       "docs/verification/simulator-config.md",
@@ -144,6 +148,7 @@
       "scripts/check_first_success.py",
       "scripts/check_ste.py",
       "src/grok_gadgets_gateway/__init__.py",
+      "src/grok_gadgets_gateway/background.py",
       "src/grok_gadgets_gateway/cli.py",
       "src/grok_gadgets_gateway/demo.py",
       "src/grok_gadgets_gateway/domain.py",
@@ -161,6 +166,7 @@
       "src/grok_gadgets_gateway/usb_bridge.py",
       "src/grok_gadgets_gateway/wifi_provision.py",
       "tests/conftest.py",
+      "tests/test_background.py",
       "tests/test_cli.py",
       "tests/test_command_wait.py",
       "tests/test_domain.py",

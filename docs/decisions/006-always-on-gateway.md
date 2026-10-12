@@ -1,7 +1,7 @@
 # ADR 006 — Always-on gateway and a stable device address
 
 **Date:** 12 October 2026  
-**Status:** Accepted by the owner on 12 October 2026. Phase 6 "Always-on gadget".  
+**Status:** Accepted by the owner on 12 October 2026. On 12–13 October the owner's Mac and OLED kit passed name, address-change and restart checks ([record](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/verification/always-on-2026-10-13.md)). Linux systemd is not yet tested on a real host.  
 **Owner:** Grok Gadgets hub (`adidshaft/grok-gadgets`)  
 **Issues:** hub [#212](https://github.com/adidshaft/grok-gadgets/issues/212), [#22](https://github.com/adidshaft/grok-gadgets/issues/22) (HUB-SERVICE-001), gateway [#109](https://github.com/adidshaft/grok-gadgets-gateway/issues/109) (GW-SVC-001), gateway [#110](https://github.com/adidshaft/grok-gadgets-gateway/issues/110) (GW-LAN-002), ESP32 [#99](https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/99) (ESP-MDNS-001)
 
@@ -43,7 +43,7 @@ peers only, per-device tokens, never forwarded or tunnelled.
 - `lan-cert NAME` accepts a `.local` mDNS name as well as an IPv4 address. The certificate's
   subject alternative names hold the name; the CA and its pinning do not change.
 - `serve --lan-listen NAME[:PORT]` resolves the name to this computer's current private
-  address when it starts, applies the ADR 005 address rules to the result, and re-checks the
+  address when it starts. It applies the ADR 005 address rules to the result and re-checks the
   address periodically. When the address changes, it closes the LAN listener and binds the new
   address. The service restarts it if it exits.
 - `wifi-provision --lan NAME[:PORT]` stores the name. The firmware resolves it with mDNS
@@ -72,6 +72,6 @@ OAuth (gateway #71) stay parked. Nothing is exposed beyond the home network.
   text); `lan-cert`, `serve --lan-listen` and `wifi-provision` accept a `.local` name; tests.
 - ESP32: provisioning stores a name; the firmware resolves it with mDNS and verifies TLS by
   name; host tests.
-- Owner check on the kit: reboot the Mac, log in, and the board shows **Online** without a
-  manual `serve`; change the Mac's address (for example switch Wi-Fi band) and the board
-  returns to **Online** without new certificates or provisioning.
+- Owner check on the kit: reboot the Mac and log in. The board shows **Online** without a manual
+  `serve`. Then change the Mac's address, for example by switching Wi-Fi band. The board returns
+  to **Online** without new certificates or provisioning.
