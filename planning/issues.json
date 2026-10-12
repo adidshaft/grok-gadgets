@@ -1385,10 +1385,62 @@
       "esp32"
     ],
     "milestone": "M9",
-    "stage": "review",
+    "stage": "done",
     "commits": [],
     "evidence": [
       "https://github.com/adidshaft/grok-gadgets/issues/189"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "HUB-KIT-005",
+    "repository": "grok-gadgets",
+    "problem": "The kit guide missed the clone and tool-setup steps",
+    "intended_behaviour": "A stranger can get the code at the release tags and set up both tools from the guide alone",
+    "acceptance": [
+      "Clone commands pinned to the guide's release tags",
+      "One-time ESP32 and gateway tool setup",
+      "Flash commands inline; every added command run from fresh clones"
+    ],
+    "dependencies": [],
+    "labels": [
+      "docs",
+      "esp32",
+      "gateway"
+    ],
+    "milestone": "M9",
+    "stage": "done",
+    "commits": [],
+    "evidence": [
+      "https://github.com/adidshaft/grok-gadgets/issues/202",
+      "https://github.com/adidshaft/grok-gadgets/pull/203"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "HUB-REL-019",
+    "repository": "grok-gadgets",
+    "problem": "Ship gateway alpha.8, ESP32 alpha.11 and the guide setup steps",
+    "intended_behaviour": "The hub records gateway v0.1.0-alpha.8 and ESP32 SDK v0.2.0-alpha.11 and the live guide includes the setup steps",
+    "acceptance": [
+      "Tested set and documentation snapshots pin each released main",
+      "Simulator kit rebuilt from gateway v0.1.0-alpha.8",
+      "Release v0.1.9-alpha.1 and sync main into dev"
+    ],
+    "dependencies": [
+      "HUB-REL-018",
+      "HUB-KIT-005"
+    ],
+    "labels": [
+      "maintenance",
+      "gateway",
+      "esp32"
+    ],
+    "milestone": "M9",
+    "stage": "review",
+    "commits": [],
+    "evidence": [
+      "https://github.com/adidshaft/grok-gadgets/issues/204"
     ],
     "blocker": null
   }

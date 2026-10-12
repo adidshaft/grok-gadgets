@@ -5,8 +5,8 @@ YD-ESP32-23 v1.3 board with an ESP32-S3-N16R8 module and one 1.3-inch SH1106
 OLED at I²C address `0x3C`. The owner passed USB and Wi-Fi acceptance with this
 kit. Your results are new evidence; do not assume your board will pass.
 
-Use the released [ESP32 SDK v0.2.0-alpha.10](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.10)
-and [gateway v0.1.0-alpha.7](https://github.com/adidshaft/grok-gadgets-gateway/releases/tag/v0.1.0-alpha.7).
+Use the released [ESP32 SDK v0.2.0-alpha.11](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.11)
+and [gateway v0.1.0-alpha.8](https://github.com/adidshaft/grok-gadgets-gateway/releases/tag/v0.1.0-alpha.8).
 Firmware binaries are not published. Build the firmware from source.
 
 ## Before you start: get the code
@@ -17,19 +17,19 @@ repositories at the release tags and install their tools once. Git reports a
 "detached HEAD" for a tag; that is expected.
 
 ```sh
-git clone --branch v0.2.0-alpha.10 https://github.com/adidshaft/grok-gadgets-esp32-sdk.git
+git clone --branch v0.2.0-alpha.11 https://github.com/adidshaft/grok-gadgets-esp32-sdk.git
 cd grok-gadgets-esp32-sdk
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.lock
 .venv/bin/pio pkg install
 cd ..
-git clone --branch v0.1.0-alpha.7 https://github.com/adidshaft/grok-gadgets-gateway.git
+git clone --branch v0.1.0-alpha.8 https://github.com/adidshaft/grok-gadgets-gateway.git
 cd grok-gadgets-gateway
 uv sync --locked
 uv run grok-gadgets-gateway --version
 ```
 
-The last command prints `grok-gadgets-gateway 0.1.0a7`. The first PlatformIO run
+The last command prints `grok-gadgets-gateway 0.1.0a8`. The first PlatformIO run
 downloads the ESP32 toolchain, which takes several minutes.
 
 ## 1. Check the parts
@@ -68,13 +68,13 @@ In the ESP32 SDK checkout, build and flash the Wi-Fi build. Use
 ```
 
 For the first flash, hold BOOT while you connect the cable to **USB**, then release it.
-See the kit's [README](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/v0.2.0-alpha.10/examples/oled-kit/README.md)
+See the kit's [README](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/v0.2.0-alpha.11/examples/oled-kit/README.md)
 for the commands and status messages.
 Restart the board after you change any display wire. The firmware checks for the
 OLED at startup.
 
 For a USB run, start the gateway and its USB bridge by following the
-[gateway kit guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/v0.1.0-alpha.7/docs/experiment-kit.md).
+[gateway kit guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/v0.1.0-alpha.8/docs/experiment-kit.md).
 Check a short `display.text` command, `display.clear`, the RGB light, a BOOT
 press and recovery after unplugging and reconnecting. Record the command reply
 and what you saw on the board as separate results. A reply does not prove a
@@ -83,7 +83,7 @@ physical effect.
 ## 3. Provision and check Wi-Fi
 
 For Wi-Fi, use the ESP32 SDK's `esp32s3-oled-kit-wifi` build. In the gateway
-checkout, follow the [Wi-Fi devices guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/v0.1.0-alpha.7/docs/wifi-devices.md).
+checkout, follow the [Wi-Fi devices guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/v0.1.0-alpha.8/docs/wifi-devices.md).
 Keep the gateway on the Mac and start its private LAN TLS listener by hand.
 There is no installed service. Reserve the Mac's address on your router; if it
 changes, issue a new listener certificate and provision the board again.
