@@ -30,6 +30,8 @@ the owner's first attempt. The passing test used jumpers directly on the pins.
 | `SCK` | GPIO9 |
 | `SDA` | GPIO8 |
 
+![Four wires: board 3V3 to OLED VCC, GND to GND, GPIO9 to SCK, GPIO8 to SDA. The Mac connects to the board's USB port.](../visuals/esp32-s3-oled-wiring.svg)
+
 The onboard RGB light uses GPIO48. The BOOT button uses GPIO0. Check printed pad
 labels; do not infer pin position from a photo or wire color.
 
@@ -58,7 +60,9 @@ changes, issue a new listener certificate and provision the board again.
 
 1. Run `uv run grok-gadgets-gateway init` and `uv run grok-gadgets-gateway lan-cert PRIVATE_ADDRESS` for the Mac's private address.
 2. Run `uv run grok-gadgets-gateway enroll DEVICE` once. Use the same device ID that
-   the board reports.
+   the board reports: `oledkit-` and the board's MAC address in lower case without
+   colons. The flash log prints the MAC. The serial console also replies to
+   `{"type":"status"}` with the device ID.
 3. Stop the USB bridge. Run `uv run grok-gadgets-gateway wifi-provision PORT --device
    DEVICE --lan PRIVATE_ADDRESS` while the board is on the USB data cable. Type
    the Wi-Fi name and password at the local prompts. Do not paste them into a
@@ -77,7 +81,17 @@ port on your router or put it behind a tunnel.
 Holding BOOT for 10 seconds erases the board's Wi-Fi settings. The display
 counts down after 3 seconds. Release BOOT before zero to keep the settings.
 
-## 4. Record the result
+## 4. Optional: ask Grok Bot
+
+With the gateway running, ask Grok Bot in its desktop app to run
+`uv run grok-gadgets-gateway rehearse` in the gateway checkout on your Mac. This uses
+**Execution on Local Computer**. Approve the command when Grok Bot asks. Set that
+permission to ask every time, not always allow; the owner's setting was **Always
+allow**, so no approval card appeared. Check the gateway request log and the OLED.
+Native Grok Bot MCP tool calls are not verified. See the
+[hosting FAQ](hosting.md).
+
+## 5. Record the result
 
 Copy this table into a new [GitHub issue](https://github.com/adidshaft/grok-gadgets/issues).
 Remove private addresses, Wi-Fi names, tokens, passwords, serial numbers and
@@ -99,3 +113,21 @@ The owner's [USB record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blo
 and [Wi-Fi record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)
 show the evidence level to use. Grok Bot ran an approved local command in the
 owner's setup; native MCP tool calls remain unverified.
+
+## Troubleshooting
+
+These come from the owner's USB and Wi-Fi tests on 12 October 2026.
+
+| What you see | Try this |
+| --- | --- |
+| No `/dev/cu.usbmodem*` port, or the first flash fails | Use a data cable on the **USB** port. Hold BOOT while you plug in, then flash. After the kit firmware is on the board, later flashes reset it without buttons. |
+| Flash says the port is busy | Stop `usb-bridge` first. The port name changes when you use another Mac port; run `ls /dev/cu.usbmodem*` again. |
+| The board resets again and again | Loose jumpers on the breadboard caused this. Put the jumpers directly on the pins, or solder headers. |
+| Blank OLED | Check the four wires against the table, then restart the board. The firmware looks for the display only at startup. |
+| A lit column at the right edge | The firmware was built for an SSD1306. This display is an SH1106; use the default build. |
+| **Not provisioned** | The board has no Wi-Fi settings, or BOOT was held for 10 seconds. Run `wifi-provision` again. |
+| **WiFi...** stays on | The board cannot join the network. Use a 2.4 GHz network; the ESP32-S3 has no 5 GHz radio. Type the Wi-Fi name exactly, including upper and lower case. Check the password. |
+| **Gateway...** stays on | Wi-Fi works, but the gateway does not answer. Check that `serve --lan-listen` runs with the Mac's current address. If the Mac's address changed, run `lan-cert` for the new address and provision the board again. Reserve the address on your router. |
+| **TLS rejected** | The board does not trust the gateway's certificate. Use the certificate from the same `init`, or provision the board again with the current CA. |
+| **Token rejected** | The device token was revoked or rotated. Run `enroll DEVICE --rotate`, then `wifi-provision` again. |
+| Grok Bot ran a command without asking | Its local execution permission is set to always allow. Change it to ask every time. |

@@ -5,6 +5,7 @@ import asyncio
 import json
 from pathlib import Path
 import sys
+import tempfile
 
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
@@ -17,6 +18,12 @@ def _field(result, name, old_name):
 
 
 async def demo(path):
+    # A simulator demo must not read the host's device registry or bind its port.
+    with tempfile.TemporaryDirectory(prefix="grok-kit-demo-") as config_home:
+        await _exercise(path, config_home)
+
+
+async def _exercise(path, config_home):
     config = load_config(path)
     device_id = config["device_id"]
     params = StdioServerParameters(
@@ -29,6 +36,7 @@ async def demo(path):
             str(path),
             "--test-controls",
         ],
+        env={"XDG_CONFIG_HOME": config_home},
     )
     async with stdio_client(params) as (read, write):
         async with ClientSession(read, write) as client:
