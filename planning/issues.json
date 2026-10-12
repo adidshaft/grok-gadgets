@@ -1513,10 +1513,36 @@
       "esp32"
     ],
     "milestone": "M9",
-    "stage": "review",
+    "stage": "done",
     "commits": [],
     "evidence": [
       "https://github.com/adidshaft/grok-gadgets/issues/220"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "HUB-REL-022",
+    "repository": "grok-gadgets",
+    "problem": "The website did not show the PyPI install",
+    "intended_behaviour": "The hub records the PyPI packages and Linux SDK v0.1.0-alpha.6",
+    "acceptance": [
+      "Status page links the PyPI projects",
+      "Tested set pins Linux SDK v0.1.0-alpha.6",
+      "Release and sync main into dev"
+    ],
+    "dependencies": [
+      "HUB-REL-021"
+    ],
+    "labels": [
+      "maintenance",
+      "python",
+      "linux"
+    ],
+    "milestone": "M9",
+    "stage": "review",
+    "commits": [],
+    "evidence": [
+      "https://github.com/adidshaft/grok-gadgets/issues/226"
     ],
     "blocker": null
   }
