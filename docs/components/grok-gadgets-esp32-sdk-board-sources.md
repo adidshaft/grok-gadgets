@@ -1,11 +1,11 @@
-Source: grok-gadgets-esp32-sdk/docs/board-sources.md at a3d62c3b94a0afabe009a60f026b94c67d299911
+Source: grok-gadgets-esp32-sdk/docs/board-sources.md at b95ba940034b6855bd2cb4fff7d59fd51c1e3491
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
 # Optional C124 source verification
 
 These sources apply only to the optional C124 example. See the
-[first experiment](first-experiment.md) for the ordered AYWHP board and OLED.
+[first experiment](first-experiment.md) for the delivered YD-ESP32-23 board and SH1106 OLED.
 
 Verified on 4 October 2026 from manufacturer sources:
 
@@ -15,6 +15,6 @@ Verified on 4 October 2026 from manufacturer sources:
 | RGB data | GPIO35, one pixel | [M5AtomS3 LedDisplay.h](https://github.com/m5stack/M5AtomS3/blob/main/src/utility/LedDisplay.h) and [M5Unified 0.2.5 pin table](https://github.com/m5stack/M5Unified/blob/0.2.5/src/M5Unified.cpp) |
 | User button | GPIO41, active-low | [M5Unified 0.2.5 button sampling](https://github.com/m5stack/M5Unified/blob/0.2.5/src/M5Unified.cpp) cases board_M5AtomS3Lite in setup and update |
 
-Firmware uses NeoPixel's supported WS2812 driver and this explicit board header rather than pulling in display/IMU libraries irrelevant to C124. Pin verification is documentation evidence, not physical verification. The product page's schematic link is shared AtomS3 family material and includes display circuitry; the explicit C124 manufacturer library is used to resolve its LED/button pins.
+Firmware uses NeoPixel's supported WS2812 driver and this explicit board header rather than pulling in display/IMU libraries irrelevant to C124. Pin verification is documentation evidence, not physical verification. The product page links to a shared AtomS3 family schematic with display circuitry. Use the explicit C124 manufacturer library to identify its LED/button pins.
 
 `RGB_BUILTIN` and `LED_BUILTIN` are GPIO48 in the generic `esp32s3` variant and in `m5stack_atoms3`. C124's RGB data pin is GPIO35 (`grok::c124::RgbPin`). `neopixelWrite(RGB_BUILTIN, ...)` drives the wrong pin on this board. The generic [LED and button example](../examples/led-button/main.cpp) uses GPIO4 and GPIO0 on purpose and is a different, unverified board.

@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/remote-access.md at 997876bdce4edbf4d1f83064f82e506d24a7cb9b
+Source: grok-gadgets-gateway/docs/remote-access.md at ff068b509ad8afae78746e295042edb734fecf63
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -39,7 +39,7 @@ grok-gadgets-gateway mcp-token revoke grok-bot
 
 A rejected call does not count toward the limit. The windows reset when `serve` restarts. HTTP rejections are written to the logs as `http_rejected` lines with the status, the reason and the token name. They never contain the token or the body. `stdio` has no token and no limits.
 
-This package does not terminate public TLS and it does not speak OAuth. It has not been verified with Grok Bot. A cloud Bot cannot open `127.0.0.1` on your computer. If you want a Bot to reach the gateway, you run `serve` on the gadget host and you publish HTTPS yourself.
+This package does not terminate public TLS and it does not speak OAuth. Native remote MCP access with Grok Bot remains unverified. A cloud Bot cannot open `127.0.0.1` on your computer. If you want a Bot to reach the gateway, you run `serve` on the gadget host and you publish HTTPS yourself.
 
 ## What you may publish
 
@@ -65,7 +65,7 @@ Local tests call `serve` over Streamable HTTP on `127.0.0.1`. They check a missi
 
 ## Security checklist
 
-This path is implemented locally. It is not verified with Grok Bot or on hardware.
+The public tunnel path remains unverified. The owner tested hardware through local commands; that result does not verify a tunnel.
 
 - `serve` binds `127.0.0.1` only. There is no flag for a public address.
 - Publish the MCP port only. Leave device port 8765 on loopback.
