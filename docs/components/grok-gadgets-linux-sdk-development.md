@@ -1,4 +1,4 @@
-Source: grok-gadgets-linux-sdk/docs/development.md at 2b17a37a761761e92e921efbfe105cd799155501
+Source: grok-gadgets-linux-sdk/docs/development.md at 5094f050f6266a3bdad8e2b645536d6318a89798
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -161,9 +161,7 @@ The SDK serializes concurrent calls. See the retry limits below before you use a
 ## Make outputs safe on shutdown
 
 Register cleanup with `device.on_shutdown(callback)`. The callback can be a plain or async
-function. When the agent stops (SIGTERM from `systemctl stop`, Ctrl-C, a fatal error or an
-exhausted reconnect budget), the agent first cancels the running handler, so its
-`finally` blocks run. Then it calls the shutdown callbacks in reverse registration order.
+function. The agent can stop after SIGTERM, Ctrl-C, a fatal error or an exhausted reconnect budget. It first cancels the running handler, so its `finally` blocks run. Then it calls the shutdown callbacks in reverse registration order.
 Each callback has the handler timeout. Exceptions in callbacks are suppressed.
 
 ## Publish state and events
