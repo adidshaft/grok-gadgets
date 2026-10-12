@@ -6,11 +6,10 @@ tests do not complete this procedure.
 
 ## Before the test
 
-Follow the [inspected kit and planned wiring](experiment-kit.md). The YD-ESP32-23
+Follow the [kit parts and tested wiring](experiment-kit.md). The YD-ESP32-23
 v1.3 board and RG1.30 IIC v2.2 display have no fitted headers; establish secure
 connections before powering the display. Do not use C124 pin assignments or its
-firmware image. Obtain the owner's authorization before flashing the identified
-board and image. Use the ESP32 SDK's pinned build and recovery instructions.
+firmware image. Flash only a board you own, with the image built for it. Use the ESP32 SDK's pinned build and recovery instructions.
 
 Run the local gateway and USB bridge on the host computer. A hardware test needs no public tunnel. The packaged remote MCP route for Grok Bot is not ready. Local `serve` listens only on `127.0.0.1:8766/mcp` and uses a bearer token. An authenticated remote MCP endpoint with TLS and approved, verified Grok Bot invocation are still needed. A tunnel adds reachability, not authentication.
 
@@ -27,7 +26,7 @@ commits, host operating system, port, time and tester. Do not record tokens. The
 ## Procedure
 
 1. Discover the device. Check its model, boot identity, capabilities, firmware version and `simulated: false` value.
-2. After the display capability and confirmed driver are implemented, request a short OLED message. Observe the 128×64 display, change the message and clear it. Record command results and physical observations separately. Check invalid or oversized text fails without an unintended change. If a suitable LED is fitted, test its declared output capability; a plain LED has no RGB capability.
+2. Request a short OLED message. Observe the 128×64 display, change the message and clear it. Record command results and physical observations separately. Check invalid or oversized text fails without an unintended change. If a suitable LED is fitted, test its declared output capability; a plain LED has no RGB capability.
 3. If a suitable onboard or optional external button is fitted, press and release it. If none is fitted, record this check as skipped; do not claim a pass. Check event order and reported state. Repeat the reads and check for duplicate events.
 4. Unplug the board. Try a command. Check that the result reports offline or unconfirmed status.
 5. Reconnect the board. Check state recovery.

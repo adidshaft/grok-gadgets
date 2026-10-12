@@ -74,7 +74,7 @@ The normal tools are:
 
 Start connected for normal use. Commands fail when the simulator starts disconnected. To test button, disconnect and reconnect operations, enable `--test-controls` explicitly. Remove it after the test. Button events do not promise automatic Bot activation.
 
-Downloading the ZIP does not install a connector or change your account. The kit is not a hosted endpoint for Remote HTTPS MCP. A public authenticated gadget service, the ordered ESP32-S3/OLED kit, Linux peripherals and Home Assistant need separate verification.
+Downloading the ZIP does not install a connector or change your account. The kit is not a hosted endpoint for Remote HTTPS MCP. A public authenticated gadget service, Linux peripherals and Home Assistant need separate verification. The ESP32-S3/OLED kit has its own physical records.
 
 ## Keeping the download current
 

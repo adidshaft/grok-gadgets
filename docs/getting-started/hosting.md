@@ -20,7 +20,9 @@ On 12 October 2026 the owner's Grok Bot ran two approved `grok-gadgets-gateway r
 
 The gateway's local `serve` mode is implemented. It provides Streamable HTTP MCP at `http://127.0.0.1:8766/mcp`, with a bearer token read from a file. It listens on loopback only.
 
-A packaged, authenticated remote endpoint with TLS, suitable credentials or OAuth, and an approved, verified Grok Bot invocation is not complete. A tunnel can make a service reachable. It does not add authentication. Do not point Grok Bot at this alpha yet. Do not publish the device port at `127.0.0.1:8765`.
+A packaged, authenticated remote endpoint with TLS, suitable credentials or OAuth, and an approved, verified Grok Bot invocation is not complete. A tunnel can make a service reachable. It does not add authentication. Do not add this alpha to Grok Bot as a remote MCP server yet. Do not publish the device port at `127.0.0.1:8765`.
+
+**Wi-Fi devices are a separate listener.** `serve --lan-listen <private address>` lets an ESP32 board on your home network reach the gateway over TLS ([ADR 005](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/005-wifi-device-route.md)). It carries device traffic only. It is not an MCP endpoint for Grok Bot. Never forward its port or put it behind a tunnel.
 
 ## Connection diagram
 
@@ -43,7 +45,7 @@ Product goal: Grok Bot → authenticated remote MCP endpoint with TLS
 | --- | --- | --- |
 | Local gateway `serve` | Implemented on loopback | Local software evidence does not prove a Grok Bot connection. |
 | M5 — Actual Grok | Partly done | Approved local `rehearse` commands work. Native tool calls need the authenticated remote route. |
-| M8 — Physical and independent verification | Blocked | A real Pi or device setup, observed peripheral operation, and independent reproduction. |
+| M8 — Physical and independent verification | Partly done | The owner's ESP32-S3 + OLED kit passed over USB and Wi-Fi. Still needed: independent reproduction and a real Pi setup. |
 
 [HARD-GROK-REMOTE-001](https://github.com/adidshaft/grok-gadgets/issues/4) tracks secure remote access. The existing loopback listener is separate from that unfinished work. See the [roadmap](../../ROADMAP.md) and gateway [remote access guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/remote-access.md).
 

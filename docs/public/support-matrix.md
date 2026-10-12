@@ -7,7 +7,7 @@ instead of repeating caveats.
 
 | Part | Works today (software, checked in CI every night) | Not verified yet |
 | --- | --- | --- |
-| Gateway and simulated light | Six MCP tools for Grok Bot over stdio or authenticated HTTP on `127.0.0.1`; `rehearse` first success; simulator kit; opt-in TLS listener for Wi-Fi devices on one private address | Grok Bot use; Windows and Intel Mac installs |
+| Gateway and simulated light | Six MCP tools for Grok Bot over stdio or authenticated HTTP on `127.0.0.1`; `rehearse` first success; simulator kit; opt-in TLS listener for Wi-Fi devices on one private address | Native Grok Bot tool calls (approved `rehearse` commands work); Windows and Intel Mac installs |
 | Linux SDK | `grok-linux-agent dev ./my_gadget.py` with the decorator API, against the gateway's `main` | Real peripherals, systemd, Raspberry Pi hardware |
 | ESP32 SDK | Host tests, three firmware examples compile, simulated USB link to the gateway. The ESP32-S3 + OLED kit passed physical tests on the owner's board over USB ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-2026-10-12.md)) and over Wi-Fi from a USB charger ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)) | Another person's reproduction; other boards and routers; setup without a USB cable ([#72](https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/72)) |
 | Home Assistant probe | Read-only discovery against fixtures | A real Home Assistant home |
