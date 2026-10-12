@@ -27,7 +27,7 @@ Pick a path:
 Already use Home Assistant? Check what it offers with the
 [read-only probe](https://github.com/adidshaft/grok-gadgets-home-assistant).
 
-The first physical experiment uses the [tested ESP32-S3 and OLED kit](docs/getting-started/experiment-kit.md). The owner's board passed USB and Wi-Fi acceptance. Follow the [repeatable kit guide](docs/getting-started/repeat-the-kit.md) to try the same setup. Another person's reproduction is still needed.
+The first physical experiment uses the [tested ESP32-S3 and OLED kit](docs/getting-started/experiment-kit.md). The owner's board passed USB and Wi-Fi acceptance, and an approved Grok Bot local command showed text on it. Follow the [repeatable kit guide](docs/getting-started/repeat-the-kit.md). Another person's reproduction is still needed.
 
 ## Start here
 
@@ -51,8 +51,9 @@ logs matched the commands, including a display command to the physical OLED. Thi
 a verified **local command route**. Grok Bot did not call the gateway's MCP tools
 natively. A Mac-to-Pi route through SSH remains an untested possibility.
 
-The gateway's local `serve` works on loopback today. Packaged remote MCP and native
-Grok Bot tool calls remain unverified. A tunnel adds reachability, not authentication.
+The gateway's local `serve` works on loopback today. The owner's Grok Bot used an
+approved local command ([ADR 004](https://github.com/adidshaft/grok-gadgets/blob/dev/docs/decisions/004-grok-bot-route.md)). Packaged
+remote MCP and native Grok Bot tool calls remain unverified. A tunnel adds reachability, not authentication.
 See the [three-path hosting FAQ](docs/getting-started/hosting.md) before planning a connection.
 
 ## Community

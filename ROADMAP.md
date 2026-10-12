@@ -14,7 +14,7 @@ Grok Bot normally runs on its cloud computer. This does not expose your private 
 | Milestone | What closes it |
 |---|---|
 | Honest local alpha | Website, checks, and docs that say what Grok Bot can and cannot do |
-| Local HTTP gateway (`serve`) | Implemented and software-tested on loopback; approved Grok Bot local commands reached it |
+| Local HTTP gateway (`serve`) | Implemented and software-tested on loopback; the approved local Grok Bot commands used `rehearse`, not this HTTP endpoint |
 | Bounded Grok experiment | Owner-approved local command and matching gateway log; native MCP still unverified |
 | First physical ESP32-S3/OLED experiment | Owner observed text, clear, RGB, BOOT, USB recovery and Wi-Fi recovery; independent reproduction remains open |
 | Remote connection and provisioning | Tunnel or relay, pairing, and separately approved activation |

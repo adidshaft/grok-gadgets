@@ -24,6 +24,8 @@ The gateway's local `serve` mode is implemented. It provides Streamable HTTP MCP
 
 A packaged public route and native Grok Bot MCP calls have not passed acceptance. A tunnel can make a service reachable; it does not add authentication. Do not expose the device port at `127.0.0.1:8765` or publish the gateway as an accepted public MCP service.
 
+**Wi-Fi devices use a separate listener.** `serve --lan-listen <private address>` carries device traffic over private LAN TLS ([ADR 005](https://github.com/adidshaft/grok-gadgets/blob/dev/docs/decisions/005-wifi-device-route.md)). It is not a Grok Bot MCP endpoint. Never forward its port or put it behind a tunnel.
+
 ## Connection diagram
 
 ```text

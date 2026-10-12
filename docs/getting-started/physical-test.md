@@ -1,6 +1,6 @@
 # Repeat the tested ESP32-S3 and OLED checks
 
-**Status: passed on the owner's kit on 12 October 2026** ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/dev/docs/verification/oled-kit-2026-10-12.md)).
+**Status: passed on the owner's kit on 12 October 2026** ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/v0.2.0-alpha.9/docs/verification/oled-kit-2026-10-12.md)).
 Another person's reproduction is still needed. Compilation and simulated board
 tests do not complete this procedure.
 
@@ -9,8 +9,8 @@ tests do not complete this procedure.
 Follow the [inspected kit and tested wiring](experiment-kit.md). The YD-ESP32-23
 v1.3 board and RG1.30 IIC v2.2 display have no fitted headers; establish secure
 connections before powering the display. Do not use C124 pin assignments or its
-firmware image. Obtain the owner's authorization before flashing the identified
-board and image. Use the [released ESP32 SDK v0.2.0-alpha.9](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.9) build and recovery instructions. See the concise [repeat-the-kit guide](repeat-the-kit.md).
+firmware image. Flash only a board you own, with an image built for it. Use the
+[released ESP32 SDK v0.2.0-alpha.9](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.9) build and recovery instructions. See the concise [repeat-the-kit guide](repeat-the-kit.md).
 
 Run the local gateway and USB bridge on the host computer for the USB test. A hardware test needs no public tunnel. The gateway also has an opt-in private LAN TLS listener for the Wi-Fi test. The packaged remote MCP route for Grok Bot is not ready. An authenticated remote MCP endpoint with TLS and native Grok Bot invocation are still needed. A tunnel adds reachability, not authentication.
 
@@ -32,7 +32,7 @@ commits, host operating system, port, time and tester. Do not record tokens. The
 4. Unplug the board. Try a command. Check that the result reports offline or unconfirmed status.
 5. Reconnect the board. Check state recovery.
 6. Restart the board and gateway separately. Check boot and session changes, cursor reset and stale state. Check that old actions do not run again.
-7. Repeat through the existing Grok Bot after authentication and connection requirements pass. Test each available client separately.
+7. For native Grok Bot MCP, repeat after the remote route passes authentication and connection checks. Record it separately from the approved local-command route.
 8. Ask a second tester to follow the procedure. Record any differences.
 
 Do not mark a failed or unavailable step as passed. Record its blocker and supporting evidence.

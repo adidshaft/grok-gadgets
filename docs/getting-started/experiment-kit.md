@@ -3,7 +3,9 @@
 Updated 12 October 2026. **Physical acceptance passed on the owner's kit.** The
 [kit firmware](https://github.com/adidshaft/grok-gadgets-esp32-sdk/tree/dev/examples/oled-kit) showed text on the OLED, cleared it, set the RGB light, reported
 BOOT presses and recovered from unplug and gateway restart. See the
-[verification record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/dev/docs/verification/oled-kit-2026-10-12.md). This kit replaces
+[verification record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-2026-10-12.md). The same day it passed
+over Wi-Fi from a USB charger ([Wi-Fi record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)). This covers one kit; nobody else has
+repeated it yet. This kit replaces
 the AtomS3 Lite C124 as the first physical experiment. Existing C124 builds and
 test records apply to that example only.
 
