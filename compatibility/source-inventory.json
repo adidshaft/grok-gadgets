@@ -1,7 +1,7 @@
 [
   {
     "repository": "grok-gadgets-esp32-sdk",
-    "commit": "a3d62c3b94a0afabe009a60f026b94c67d299911",
+    "commit": "b95ba940034b6855bd2cb4fff7d59fd51c1e3491",
     "files": [
       ".clang-format",
       ".github/CODEOWNERS",
@@ -37,6 +37,7 @@
       "docs/verification/launch.md",
       "docs/verification/oled-kit-2026-10-12.md",
       "docs/verification/oled-kit-wifi-2026-10-12.md",
+      "docs/verification/wifi-join-failure-2026-10-12.md",
       "examples/led-button/main.cpp",
       "examples/led-button/pio_src.py",
       "examples/oled-kit/README.md",
@@ -94,7 +95,7 @@
   },
   {
     "repository": "grok-gadgets-gateway",
-    "commit": "997876bdce4edbf4d1f83064f82e506d24a7cb9b",
+    "commit": "ff068b509ad8afae78746e295042edb734fecf63",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -106,6 +107,7 @@
       ".github/pull_request_template.md",
       ".github/workflows/checks.yml",
       ".github/workflows/pr-target.yml",
+      ".github/workflows/release.yml",
       ".gitignore",
       "AGENTS.md",
       "CHANGELOG.md",
@@ -157,6 +159,7 @@
       "src/grok_gadgets_gateway/transport.py",
       "src/grok_gadgets_gateway/usb_bridge.py",
       "src/grok_gadgets_gateway/wifi_provision.py",
+      "tests/conftest.py",
       "tests/test_cli.py",
       "tests/test_command_wait.py",
       "tests/test_domain.py",
@@ -175,7 +178,7 @@
   },
   {
     "repository": "grok-gadgets-home-assistant",
-    "commit": "f969f5cd19878f4f702a8aa365f77108e4907d1e",
+    "commit": "20ac015fff093393dfd67868dd40807292b94749",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -188,6 +191,7 @@
       ".github/pull_request_template.md",
       ".github/workflows/checks.yml",
       ".github/workflows/pr-target.yml",
+      ".github/workflows/release.yml",
       ".gitignore",
       "AGENTS.md",
       "CHANGELOG.md",
@@ -198,6 +202,7 @@
       "SECURITY.md",
       "SUPPORT.md",
       "docs/feasibility.md",
+      "docs/release.md",
       "docs/setup.md",
       "docs/verification.md",
       "docs/verification/launch.md",
@@ -215,7 +220,7 @@
   },
   {
     "repository": "grok-gadgets-linux-sdk",
-    "commit": "2b17a37a761761e92e921efbfe105cd799155501",
+    "commit": "5094f050f6266a3bdad8e2b645536d6318a89798",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -228,6 +233,7 @@
       ".github/pull_request_template.md",
       ".github/workflows/checks.yml",
       ".github/workflows/pr-target.yml",
+      ".github/workflows/release.yml",
       ".gitignore",
       "AGENTS.md",
       "CHANGELOG.md",
@@ -240,6 +246,7 @@
       "SUPPORT.md",
       "docs/development.md",
       "docs/operation.md",
+      "docs/release.md",
       "docs/verification.md",
       "docs/verification/hardening.md",
       "docs/verification/launch-docs.md",
