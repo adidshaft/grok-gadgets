@@ -5,8 +5,8 @@ YD-ESP32-23 v1.3 board with an ESP32-S3-N16R8 module and one 1.3-inch SH1106
 OLED at I²C address `0x3C`. The owner passed USB and Wi-Fi acceptance with this
 kit. Your results are new evidence; do not assume your board will pass.
 
-Use the released [ESP32 SDK v0.2.0-alpha.9](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.9)
-and [gateway v0.1.0-alpha.6](https://github.com/adidshaft/grok-gadgets-gateway/releases/tag/v0.1.0-alpha.6).
+Use the released [ESP32 SDK v0.2.0-alpha.10](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.10)
+and [gateway v0.1.0-alpha.7](https://github.com/adidshaft/grok-gadgets-gateway/releases/tag/v0.1.0-alpha.7).
 Read each repository's setup guide before running its commands. Firmware binaries
 are not published. Build the firmware from source.
 
@@ -37,14 +37,14 @@ labels; do not infer pin position from a photo or wire color.
 
 ## 2. Flash and check USB
 
-In the ESP32 SDK checkout, follow [Build and flash](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/v0.2.0-alpha.9/examples/oled-kit/README.md).
+In the ESP32 SDK checkout, follow [Build and flash](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/v0.2.0-alpha.10/examples/oled-kit/README.md).
 Build `esp32s3-oled-kit` for USB or `esp32s3-oled-kit-wifi` for Wi-Fi. For the
 first flash, hold BOOT while you connect the cable to **USB**, then release it.
 Restart the board after you change any display wire. The firmware checks for the
 OLED at startup.
 
 For a USB run, start the gateway and its USB bridge by following the
-[gateway kit guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/v0.1.0-alpha.6/docs/experiment-kit.md).
+[gateway kit guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/v0.1.0-alpha.7/docs/experiment-kit.md).
 Check a short `display.text` command, `display.clear`, the RGB light, a BOOT
 press and recovery after unplugging and reconnecting. Record the command reply
 and what you saw on the board as separate results. A reply does not prove a
@@ -53,7 +53,7 @@ physical effect.
 ## 3. Provision and check Wi-Fi
 
 For Wi-Fi, use the ESP32 SDK's `esp32s3-oled-kit-wifi` build. In the gateway
-checkout, follow the [Wi-Fi devices guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/v0.1.0-alpha.6/docs/wifi-devices.md).
+checkout, follow the [Wi-Fi devices guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/v0.1.0-alpha.7/docs/wifi-devices.md).
 Keep the gateway on the Mac and start its private LAN TLS listener by hand.
 There is no installed service. Reserve the Mac's address on your router; if it
 changes, issue a new listener certificate and provision the board again.
@@ -126,7 +126,11 @@ These come from the owner's USB and Wi-Fi tests on 12 October 2026.
 | Blank OLED | Check the four wires against the table, then restart the board. The firmware looks for the display only at startup. |
 | A lit column at the right edge | The firmware was built for an SSD1306. This display is an SH1106; use the default build. |
 | **Not provisioned** | The board has no Wi-Fi settings, or BOOT was held for 10 seconds. Run `wifi-provision` again. |
-| **WiFi...** stays on | The board cannot join the network. Use a 2.4 GHz network; the ESP32-S3 has no 5 GHz radio. Type the Wi-Fi name exactly, including upper and lower case. Check the password. |
+| **WiFi...** stays on | The board is still trying to join. Within about 20 seconds the top row shows a reason. |
+| **No network** / **2.4GHz? Name?** | The board cannot see the network. Use a 2.4 GHz network; the ESP32-S3 has no 5 GHz radio. Type the Wi-Fi name exactly, including upper and lower case, and run `wifi-provision` again. |
+| **Wrong password** / **Check password** | The network refused the password. Run `wifi-provision` again with the right password. |
+| **Join timeout** / **Check router** | The network did not answer. Check that the router is on and the board is in range. |
+| `wifi-provision` says "The device did not answer" | Use the Wi-Fi build on the **USB** port and stop `usb-bridge`. With `v0.2.0-alpha.10` or later, a provisioning line no longer restarts the board. |
 | **Gateway...** stays on | Wi-Fi works, but the gateway does not answer. Check that `serve --lan-listen` runs with the Mac's current address. If the Mac's address changed, run `lan-cert` for the new address and provision the board again. Reserve the address on your router. |
 | **TLS rejected** | The board does not trust the gateway's certificate. Use the certificate from the same `init`, or provision the board again with the current CA. |
 | **Token rejected** | The device token was revoked or rotated. Run `enroll DEVICE --rotate`, then `wifi-provision` again. |
