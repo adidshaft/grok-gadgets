@@ -1,4 +1,4 @@
-Source: grok-gadgets-linux-sdk/docs/development.md at c5f61b0c7ace2bf774689b8c70007dde34aab650
+Source: grok-gadgets-linux-sdk/docs/development.md at 2b17a37a761761e92e921efbfe105cd799155501
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -30,10 +30,16 @@ def create():
         # Replace with authorized peripheral code, then read/report its current state.
         return {"text": arguments["text"]}
 
-    device.capability("display.set", display, schema={
-        "type": "object", "properties": {"text": {"type": "string", "maxLength": 100}},
-        "required": ["text"], "additionalProperties": False,
-    })
+    device.capability(
+        "display.set",
+        display,
+        schema={
+            "type": "object",
+            "properties": {"text": {"type": "string", "maxLength": 100}},
+            "required": ["text"],
+            "additionalProperties": False,
+        },
+    )
     device.event_capability("button")
     return device
 ```
@@ -130,10 +136,16 @@ def create():
             led.off()
         return {"on": led.is_lit}
 
-    device.capability("led.set", set_led, schema={
-        "type": "object", "properties": {"on": {"type": "boolean"}},
-        "required": ["on"], "additionalProperties": False,
-    })
+    device.capability(
+        "led.set",
+        set_led,
+        schema={
+            "type": "object",
+            "properties": {"on": {"type": "boolean"}},
+            "required": ["on"],
+            "additionalProperties": False,
+        },
+    )
     device.on_shutdown(led.off)  # Make the output safe when the agent stops.
     return device
 ```
