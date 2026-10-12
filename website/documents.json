@@ -147,6 +147,12 @@
       "source": "docs/visuals/badge-contribute.svg",
       "output": "media/diagrams/badge-contribute.svg",
       "sha256": "0ed2e2f25bd1e961451fc83c25fe4fd8a24725af636ee1f2fe73f672ef751455"
+    },
+    {
+      "repository": "grok-gadgets",
+      "source": "docs/visuals/esp32-s3-oled-display.jpg",
+      "output": "media/diagrams/esp32-s3-oled-display.jpg",
+      "sha256": "bda905fff8fc1f6787ec7bfb88b752ee393d0978ac98c125a93cb981e9ba9ec2"
     }
   ],
   "hub_references": [
