@@ -12,9 +12,9 @@
 
 **Let your Grok Bot control lights, buttons and sensors you build. Open source.**
 
-Status: Grok Bot connection in progress · test it locally today
+Status: one ESP32-S3/OLED kit passed USB and Wi-Fi acceptance; native Grok Bot MCP calls remain unverified
 ([project status](docs/public/support-matrix.md)).
-Independent project, not affiliated with SpaceXAI.
+Independent project, not affiliated with SpaceXSI.
 
 Pick a path:
 
@@ -27,7 +27,7 @@ Pick a path:
 Already use Home Assistant? Check what it offers with the
 [read-only probe](https://github.com/adidshaft/grok-gadgets-home-assistant).
 
-The first physical experiment uses the [ordered ESP32-S3 and OLED kit](docs/getting-started/experiment-kit.md). Start with simulation. Wiring, display controller and hardware verification await delivery.
+The first physical experiment uses the [tested ESP32-S3 and OLED kit](docs/getting-started/experiment-kit.md). The owner's board passed USB and Wi-Fi acceptance. Follow the [repeatable kit guide](docs/getting-started/repeat-the-kit.md) to try the same setup. Another person's reproduction is still needed.
 
 ## Start here
 
@@ -46,12 +46,13 @@ The first physical experiment uses the [ordered ESP32-S3 and OLED kit](docs/gett
 ![Browser simulation exports settings for the local MCP simulator. SDK and native Grok paths have separate verification requirements.](docs/visuals/project-overview.svg)
 
 Grok Bot normally runs on its cloud computer. This does not expose your home network.
-With local execution enabled and a command approved, it can run a Mac command. If the Mac
-can reach a Pi and you have set up SSH, that command can reach the Pi. This is a possible
-manual experiment, not verified Grok Gadgets support. USB alone does not create the route.
+On 12 October, the owner's Grok Bot ran approved gateway commands on the Mac. Gateway
+logs matched the commands, including a display command to the physical OLED. This is
+a verified **local command route**. Grok Bot did not call the gateway's MCP tools
+natively. A Mac-to-Pi route through SSH remains an untested possibility.
 
-The gateway's local `serve` works on loopback today. Packaged remote MCP and a verified
-Grok Bot invocation are incomplete. A tunnel adds reachability, not authentication.
+The gateway's local `serve` works on loopback today. Packaged remote MCP and native
+Grok Bot tool calls remain unverified. A tunnel adds reachability, not authentication.
 See the [three-path hosting FAQ](docs/getting-started/hosting.md) before planning a connection.
 
 ## Community
@@ -94,7 +95,7 @@ voluntary contribution to one of these addresses:
 ## License and affiliation
 
 Apache-2.0; see [LICENSE](LICENSE) and [NOTICE](NOTICE). Grok Gadgets is an independent
-open-source project. It is **not affiliated with, endorsed by or sponsored by SpaceXAI**, nor
-with M5Stack or Home Assistant. Grok Bot and SpaceXAI marks shown on the website are not
+open-source project. It is **not affiliated with, endorsed by or sponsored by SpaceXSI**, nor
+with M5Stack or Home Assistant. The Grok mark shown on the website is not
 covered by this project's license. Public history used reconstructed commit dates; see
 [publication sanitization](docs/verification/publication-sanitization.md).

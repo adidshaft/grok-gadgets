@@ -305,7 +305,9 @@ class Documents:
                 or (commit and origin["commit"] != commit)
                 or not re.fullmatch(r"[0-9a-f]{40}", origin["commit"])
             ):
-                raise ValueError("Unverified component source reference")
+                raise ValueError(
+                    f"Unverified component source reference: {repo}/{source} at {commit}"
+                )
             commit = origin["commit"]
         key = (
             slug(repo + "-" + source)
@@ -327,6 +329,7 @@ class Documents:
         # Public content deliberately excludes journals, private host records and broad recursive imports.
         text = re.sub(r"/Users/[^/\s]+/projects/", "$WORKSPACE/", text)
         tokens = self.parser.parse(text)
+        pinned = bool(record.get("sha256"))
         used = {}
         for i, token in enumerate(tokens):
             if token.type == "heading_open":
@@ -340,6 +343,9 @@ class Documents:
                 token.type = "html_block"
                 token.content = static_diagram(token.content)
             for child in token.children or []:
+                if pinned and child.type == "text":
+                    # Keep the hashed source snapshot intact. Update visible prose only.
+                    child.content = child.content.replace("SpaceXAI", "SpaceXSI")
                 if child.type == "link_open":
                     child.attrSet("href", self.resolve(child.attrGet("href"), record))
                 if child.type == "image":
@@ -348,6 +354,12 @@ class Documents:
                     )
         return (
             '<article class="document">'
+            + (
+                '<aside class="doc-snapshot-note"><strong>Pinned release guide.</strong> '
+                'Current terminology appears in prose. Check <a href="doc-docs-public-support-matrix.html">project status</a> for new evidence.</aside>'
+                if pinned
+                else ""
+            )
             + self.parser.renderer.render(tokens, self.parser.options, {})
             + "</article>"
         )

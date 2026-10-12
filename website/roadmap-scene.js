@@ -11,7 +11,7 @@
   const milestones = [
     {
       name: 'Local software', label: 'Software', status: 'Checked', evidence: 'checked',
-      detail: 'Gateway and SDK software checked. New kit validation is pending.',
+      detail: 'Gateway and SDK software checked. One OLED kit passed USB and Wi-Fi tests.',
       href: 'doc-docs-public-support-matrix.html', linkLabel: 'Read the software status', t: .07,
     },
     {
@@ -20,13 +20,13 @@
       href: 'components.html', linkLabel: 'Explore the source repositories', t: .285,
     },
     {
-      name: 'Grok Bot', label: 'Grok Bot', status: 'Pending', evidence: 'pending',
-      detail: 'Connect your existing Grok Bot. Native tool calls need evidence.',
+      name: 'Grok Bot', label: 'Grok Bot', status: 'Local route', evidence: 'open',
+      detail: 'Approved local commands reached the gateway. Native MCP calls remain open.',
       href: 'doc-docs-getting-started-hosting.html', linkLabel: 'Read about the Grok Bot connection', t: .5,
     },
     {
-      name: 'ESP32-S3 kit', label: 'Hardware', status: 'Pending', evidence: 'pending',
-      detail: 'Inspect the kit. Confirm pins and OLED controller, then test display, input and USB recovery.',
+      name: 'ESP32-S3 kit', label: 'Hardware', status: 'Owner tested', evidence: 'open',
+      detail: 'One delivered kit passed USB and Wi-Fi tests. Another person must repeat them.',
       href: 'doc-docs-getting-started-physical-test.html', linkLabel: 'Read the physical test procedure', t: .715,
     },
     {

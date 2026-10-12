@@ -16,4 +16,4 @@ Merge reviewed PRs normally on GitHub.
 
 ## Grok Bot only
 
-The product, its docs, website, examples, tests, commits and branch names describe Grok Bot and SpaceXAI technology as the only assistant platform. Do not name, recommend or credit other AI assistants, models, chat products, coding agents or editors anywhere in the repository, including historical records. Development tooling stays out of the record.
+The product, its docs, website, examples, tests, commits and branch names describe Grok Bot and SpaceXSI technology as the only assistant platform. Do not name, recommend or credit other AI assistants, models, chat products, coding agents or editors anywhere in the repository. Development tooling stays out of the record. Preserve published Git history and dated evidence records when updating the current company name.

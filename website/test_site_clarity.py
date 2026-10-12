@@ -10,12 +10,15 @@ SITE = ROOT / "website"
 
 
 class SiteClarityTests(unittest.TestCase):
-    def test_homepage_states_existing_grok_bot_and_pending_verification(self):
+    def test_homepage_states_existing_grok_bot_and_open_verification_gate(self):
         hero = (SITE / "home-scene.html").read_text()
         self.assertIn("your Grok Bot.", hero)
         self.assertIn('id="donate-open"', hero)
         self.assertIn("Open-source tools and SDKs", hero)
-        self.assertIn("Grok Bot and hardware connection tests are still ahead.", hero)
+        self.assertIn(
+            "One kit passed USB and Wi-Fi tests; native Grok Bot MCP calls remain open.",
+            hero,
+        )
         self.assertIn('href="doc-docs-public-support-matrix.html"', hero)
         self.assertIn('id="scene-demo"', hero)
         self.assertIn('href="start.html"', hero)

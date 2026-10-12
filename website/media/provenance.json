@@ -4,6 +4,11 @@
   "usage_terms": "https://x.ai/legal/brand-guidelines",
   "files": [
     {
+      "file": "grok-gadgets-share-v4.png",
+      "sha256": "c009b79694872bf0603173b9150edeccf806a2245776994411f6d5722d33a876",
+      "origin": "Built-in image edit of the v3 social card to update the lower-left non-affiliation note to SpaceXSI. The original Grok Gadgets logo, large name, Grok Bot outline and conceptual hardware scene remain. Normalized to 1200x630 with macOS sips. This artwork is not evidence of an operational connection."
+    },
+    {
       "file": "grok-gadgets-share-v3.png",
       "sha256": "74aed0723ba3dd5a7109a5f18b401d05f64f133dcc67dfc0ae02ab5db3cf2bdf",
       "origin": "Built-in image generation edited the user-supplied website screenshot with the original Grok Gadgets project mark and two user-supplied Grok Bot round-face references. The project name and logo are foregrounded; one oversized outline Bot face sits behind the conceptual wireframe hardware scene. Normalized to 1200x630 with macOS sips. The round-face reference supersedes the desktop app icon used in v2; no claim of official asset provenance or verified hardware operation."
