@@ -1,6 +1,6 @@
 # Grok Gadgets — implementation and launch plan
 
-> Hardware plan update — 12 October 2026: the [delivered ESP32-S3/OLED kit](getting-started/experiment-kit.md) passed physical acceptance ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/dev/docs/verification/oled-kit-2026-10-12.md)). The 9 October order details below are historical; see the current kit guide for actual parts, tested wiring and remaining gates. C124 results describe the retained reference example only.
+> Current status — 12 October 2026: the [delivered ESP32-S3/OLED kit](getting-started/experiment-kit.md) passed USB and Wi-Fi acceptance. See the [repeatable kit guide](getting-started/repeat-the-kit.md) and [project status](public/support-matrix.md). The order details and earlier gates below are historical. The current company name is SpaceXSI; historical names in dated source records remain as recorded.
 
 **Plan date:** 4 October 2026  
 **Status:** Historical implementation handoff; the local alpha is now built. See [current verification](verification/launch-status.md) and [publication sanitization](verification/publication-sanitization.md).
@@ -23,20 +23,20 @@ Its audiences are:
 
 The reference experience is Muse Gadgets: separately usable Linux and ESP32 SDKs, working examples, clear setup, and a public community. This is a reference for the breadth and usability of the project, not a promise of identical native pairing, avatar, voice, or conversation features. Those depend on separately verified Grok capabilities.
 
-Grok Bot is the only assistant platform. Do not add other AI model backends, entry points or integrations; use only Grok Bot and SpaceXAI technology.
+Grok Bot is the only assistant platform. Do not add other AI model backends, entry points or integrations; use only Grok Bot and SpaceXSI technology.
 
 ### First concrete example
 
-The target is the ordered **AYWHP ESP32-S3 DevKitC-style ESP32-S3-WROOM-1-N16R8 USB-C board**, **ApTechDeals 840-point breadboard and jumper-wire set**, and **Robocraze 0.96-inch 128×64 four-pin OLED advertised as SPI/I²C**. See the [current kit plan](getting-started/experiment-kit.md). The items await delivery and inspection.
+The first kit is a **YD-ESP32-23 v1.3 board (ESP32-S3-N16R8)**, an **ApTechDeals 840-point breadboard and jumper-wire set**, and an **Electrifier 1.3-inch 128×64 I²C OLED with an SH1106 controller**. The order named a different board and a 0.96-inch display; these are the parts that arrived. See the [kit page](getting-started/experiment-kit.md). The owner's kit passed USB and Wi-Fi acceptance on 12 October 2026. Independent reproduction is pending.
 
 The example must eventually let the user:
 
-- Ask Grok Bot to show or clear a message on the OLED, after the display command and driver are implemented.
+- Ask Grok Bot to show or clear a message on the OLED (done on the owner's kit through approved `rehearse` commands).
 - Ask Grok Bot for device availability and current reported state.
 - Read real button presses and control an LED if suitable onboard parts or optional external parts are fitted.
 - Understand when the device is disconnected or an action is unconfirmed.
 
-Start with a software simulation while the user arranges the board. The first physical path should use USB to reduce setup complexity; Wi-Fi is the next transport milestone. Both are within the eventual ESP32 SDK direction. ADR 005 (`docs/decisions/005-wifi-device-route.md`) decides the secure Wi-Fi route.
+Start with a software simulation while the user arranges the board. The first physical path used USB to reduce setup complexity; the Wi-Fi transport followed and passed on the same kit. Both are within the eventual ESP32 SDK direction. ADR 005 (`docs/decisions/005-wifi-device-route.md`) decides the secure Wi-Fi route.
 
 ### Product promises and limits
 

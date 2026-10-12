@@ -3,7 +3,9 @@
 Updated 12 October 2026. **Physical acceptance passed on the owner's kit.** The
 [kit firmware](https://github.com/adidshaft/grok-gadgets-esp32-sdk/tree/dev/examples/oled-kit) showed text on the OLED, cleared it, set the RGB light, reported
 BOOT presses and recovered from unplug and gateway restart. See the
-[verification record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/dev/docs/verification/oled-kit-2026-10-12.md). This kit replaces
+[verification record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-2026-10-12.md). The same day it passed
+over Wi-Fi from a USB charger ([Wi-Fi record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)). This covers one kit; nobody else has
+repeated it yet. This kit replaces
 the AtomS3 Lite C124 as the first physical experiment. Existing C124 builds and
 test records apply to that example only.
 
@@ -25,11 +27,11 @@ The RGB pixel and `BOOT` button work as demo peripherals. Never use `RST` as an 
 
 ## Demo goal
 
-Ask Grok Bot to show a short message or status on the OLED. Read the reported
-state. If a suitable LED and button are available, set the LED and read a button
-press. A plain external LED supports on/off; it does not support RGB colour.
+Ask Grok Bot to show a short message or status on the OLED through an approved
+local command. Read the reported state. Set the onboard RGB light on GPIO48 and
+read a press of the BOOT button on GPIO0.
 Use disconnect, reconnect and restart checks to show when an action is unconfirmed.
-The actual Grok Bot route remains a separate verification gate.
+The local-command route passed on the owner's kit. Native MCP calls remain a separate gate.
 
 ```mermaid
 flowchart LR
@@ -37,15 +39,15 @@ flowchart LR
     H --> B["ESP32-S3 board"]
     B -.-> W["Four jumpers"]
     W -.-> O["1.3-inch I²C OLED: SH1106 at 0x3c"]
-    W -.-> I["Optional LED and button"]
+    B --> I["Onboard RGB GPIO48 and BOOT GPIO0"]
 ```
 
 ## Stage 1: keep simulation first
 
 Run the existing simulator and `grok-gadgets-gateway rehearse`. The current RGB
 light/button simulation checks discovery, commands, state, events and recovery.
-It does not emulate this OLED or verify the ordered board. Keep its virtual
-capabilities explicit; do not present RGB as a feature of the ordered kit.
+It does not emulate this OLED or verify the physical board. Keep its virtual
+capabilities explicit; do not treat its virtual RGB as evidence for the tested kit's onboard RGB pixel.
 
 The ESP32 SDK also provides a separate, controller-independent OLED software
 rehearsal. From that repository, run:
@@ -57,10 +59,9 @@ python3 -m unittest discover -s examples/oled-kit -p 'test_*.py' -v
 
 This Python model checks bounded printable ASCII text (up to 32 characters), clear,
 logical state, injected button edges, offline errors, reconnect and restart. It
-registers no gateway display capability and does not run firmware or a display
-driver. Its successful results are software evidence only. A real OLED command
-contract, driver and USB/gateway integration remain pending. Simulated button
-events do not wake Grok Bot.
+runs no firmware or display driver. Its results are software evidence only; the
+separate physical acceptance records cover the real OLED and USB/Wi-Fi routes.
+Simulated button events do not wake Grok Bot.
 
 ## Stage 2: prepare and connect the inspected kit
 
@@ -97,11 +98,12 @@ flowchart LR
 4. Run the gateway and `usb-bridge`, then test text, clear, the RGB light, `BOOT` and
    recovery. Record firmware/source hashes, commands and observations separately.
 
-## Observed USB evidence (before flashing)
+## Earlier USB inspection, before flashing
 
 On 12 October 2026, the owner supplied photos of the delivered board and display.
 The photos establish the markings and visible lack of headers described above;
-they are not published in this repository. On macOS 27.0 arm64, a read-only
+they are not published in this repository. This paragraph records an earlier step,
+not the current kit status. On macOS 27.0 arm64, a read-only
 `ioreg -p IOUSB -w 0` check showed `Espressif Device` after connecting the
 board's `USB` port. The USB vendor and product IDs were `0x303A` and `0x4001`.
 `ls /dev/cu.*` showed `/dev/cu.usbmodem1234561`. No serial command or flash was
@@ -126,6 +128,9 @@ Results from 12 October 2026 ([record](https://github.com/adidshaft/grok-gadgets
 
 Keep command acknowledgement and physical observation separate. Record failures
 and skipped steps. Never promote compilation or simulation to hardware verification.
-Follow the [physical test procedure](physical-test.md) and the
+Wi-Fi acceptance also passed on the owner's kit while it drew power from a USB charger.
+The gateway ran on the Mac and used a private LAN TLS listener. See the
+[Wi-Fi record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)
+and the [repeatable kit guide](repeat-the-kit.md). Follow the [physical test procedure](physical-test.md) and the
 [connection paths](hosting.md). A Raspberry Pi is not required for this first
 ESP32-S3 experiment. Linux peripheral verification remains a separate experiment.

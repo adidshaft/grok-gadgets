@@ -8,7 +8,7 @@
       "version": "0.1.7-alpha.1",
       "commit": "077baec2b54bd00ef454f915f2f2d7d96eb2ed2b",
       "evidence_level": "Public source patch prerelease; OLED kit verified over USB and Wi-Fi",
-      "checks": "Full local hub check suite and kit freshness passed on the release candidate with gateway v0.1.0-alpha.6, Linux SDK v0.1.0-alpha.4, ESP32 SDK v0.2.0-alpha.8 and Home Assistant v0.1.0-alpha.4. The simulator kit is rebuilt from gateway v0.1.0-alpha.6. ADR 005 decides the Wi-Fi route. On 12 October the owner's ESP32-S3 OLED kit passed physical acceptance over Wi-Fi from a USB charger, and Grok Bot showed text on it through local shell execution; native Grok Bot MCP calls are not claimed.",
+      "checks": "The v0.1.7-alpha.1 hub release candidate passed its recorded checks with ESP32 SDK v0.2.0-alpha.8. The tested set now also pins the released ESP32 SDK v0.2.0-alpha.9, which adds a physically checked BOOT reset countdown. Gateway v0.1.0-alpha.6, Linux SDK v0.1.0-alpha.4 and Home Assistant v0.1.0-alpha.4 remain pinned. ADR 005 decides the Wi-Fi route. The owner's OLED kit passed Wi-Fi acceptance from a USB charger, and Grok Bot showed text through approved local shell execution; native Grok Bot MCP calls are not claimed.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
@@ -41,10 +41,10 @@
     {
       "repository": "grok-gadgets-esp32-sdk",
       "path": "grok-gadgets-esp32-sdk",
-      "version": "0.2.0-alpha.8",
-      "commit": "a760e076558c7ab4cc6ee1e136603507b925e044",
+      "version": "0.2.0-alpha.9",
+      "commit": "a3d62c3b94a0afabe009a60f026b94c67d299911",
       "evidence_level": "Host simulated; four firmware builds compiled; OLED kit physically accepted on one board over USB and Wi-Fi",
-      "checks": "tools/check.sh host suites (including wifi_console and wifi_link), the four firmware builds (atoms3-lite-usb, esp32s3-led-button, esp32s3-oled-kit, esp32s3-oled-kit-wifi) and the contract transcripts passed. On 12 October 2026 the owner observed the Wi-Fi build on a USB charger: connect on boot, text and clear, BOOT events, Wi-Fi loss and recovery (after the rejoin fix), gateway restart, revoke and re-enroll, wrong-CA rejection and power cycle (docs/verification/oled-kit-wifi-2026-10-12.md). One kit; not independently reproduced.",
+      "checks": "The released alpha.8 USB/Wi-Fi acceptance baseline passed the recorded host suites and four firmware builds. Alpha.9 adds a BOOT-hold reset countdown; its release notes report a physical owner check on 12 October 2026. The owner observed one Wi-Fi build on a USB charger: connect on boot, text and clear, BOOT events, Wi-Fi loss and recovery, gateway restart, revoke and re-enroll, wrong-CA rejection and power cycle (ESP32 SDK docs/verification/oled-kit-wifi-2026-10-12.md). One kit; not independently reproduced.",
       "grok_verified": false,
       "hardware_verified": true,
       "independently_reproduced": false,
@@ -99,5 +99,5 @@
       }
     }
   },
-  "note": "Component commits identify locally checked simplify-and-fix sources after removing automated coauthor trailers. Published history is unchanged. The firmware object is an earlier unpublished build, not the latest compiled ESP32 source. The hub commit is an earlier evidence snapshot; current hub checks are recorded in planning/issues/REVIEW-DEV-001.md. Hardware verification covers the owner's ESP32-S3 OLED kit only (ESP32 SDK v0.2.0-alpha.7); native Grok Bot verification is not claimed."
+  "note": "Component entries pin released commits. Published history is unchanged. The firmware object is an earlier unpublished C124 build, not the tested OLED-kit image. The hub commit is an earlier release evidence snapshot; current hub checks are recorded in planning/issues/REVIEW-DEV-001.md. Owner-observed hardware verification covers one ESP32-S3 OLED kit over USB and Wi-Fi. Grok Bot used an approved local command; native MCP calls are not claimed. Independent reproduction remains open."
 }

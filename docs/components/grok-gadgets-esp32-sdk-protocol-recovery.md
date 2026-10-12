@@ -1,4 +1,4 @@
-Source: grok-gadgets-esp32-sdk/docs/protocol-recovery.md at a760e076558c7ab4cc6ee1e136603507b925e044
+Source: grok-gadgets-esp32-sdk/docs/protocol-recovery.md at a3d62c3b94a0afabe009a60f026b94c67d299911
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 

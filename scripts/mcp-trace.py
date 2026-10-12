@@ -492,7 +492,7 @@ def write_all(descriptor, data):
         view = view[count:]
 
 
-def relay(command, trace):
+def relay(command, trace, private_home):
     """Pipe exact bytes; daemon input reader cannot hold shutdown on an open parent stdin."""
     try:
         environment = {
@@ -513,6 +513,14 @@ def relay(command, trace):
                 "PYTHONUNBUFFERED",
             }
         }
+        # Keep automatic credential lookup inside the private simulator directory.
+        environment.update(
+            HOME=str(private_home),
+            USERPROFILE=str(private_home),
+            XDG_CONFIG_HOME=str(private_home / ".config"),
+            APPDATA=str(private_home / "AppData" / "Roaming"),
+            LOCALAPPDATA=str(private_home / "AppData" / "Local"),
+        )
         child = subprocess.Popen(
             command,
             stdin=subprocess.PIPE,
@@ -663,7 +671,9 @@ def main():
                 os.chmod(snapshot, 0o600)
                 handle.write(config_bytes)
             command[command.index("--simulator-config") + 1] = str(snapshot)
-            result = relay(command, trace)
+            private_home = Path(temporary) / "home"
+            private_home.mkdir(mode=0o700)
+            result = relay(command, trace, private_home)
     except OSError:
         if not trace.closed:
             trace.close(

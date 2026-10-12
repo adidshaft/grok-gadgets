@@ -51,6 +51,11 @@ GROUPS = (
                         "First experiment: tested kit",
                     ),
                     (
+                        "",
+                        "docs/getting-started/repeat-the-kit.md",
+                        "Repeat the tested OLED kit",
+                    ),
+                    (
                         "esp32-sdk",
                         "docs/first-experiment.md",
                         "Rehearse the OLED experiment",
@@ -59,7 +64,7 @@ GROUPS = (
                     (
                         "esp32-sdk",
                         "docs/build-flash.md",
-                        "Prepare and flash ESP32 firmware",
+                        "C124 reference: build and flash",
                     ),
                     (
                         "esp32-sdk",
@@ -71,7 +76,7 @@ GROUPS = (
                     (
                         "",
                         "docs/getting-started/physical-test.md",
-                        "Test the ESP32-S3 kit",
+                        "Repeat the physical checks",
                     ),
                 ),
             ),
@@ -94,7 +99,7 @@ GROUPS = (
                     (
                         "gateway",
                         "docs/experiment-kit.md",
-                        "Connect the ordered kit after inspection",
+                        "Repeat the tested OLED kit checks",
                     ),
                     ("gateway", "docs/simulator.md", "Use the gateway simulator"),
                     ("gateway", "docs/architecture.md", "Gateway architecture"),

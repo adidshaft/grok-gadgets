@@ -1,4 +1,5 @@
 import json
+import hashlib
 import os
 from pathlib import Path
 import subprocess
@@ -111,6 +112,31 @@ print("<script>code only</script>")
         )
         with self.assertRaises(ValueError):
             documents.resolve("../../outside/private", record)
+
+    def test_pinned_snapshot_updates_visible_name_only(self):
+        marker = "This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.\n\n"
+        body = "# Guide\n\nSpaceXAI prose and [source](https://example.com/SpaceXAI).\n\n`SpaceXAI`\n\n```text\nSpaceXAI\n```\n"
+        with tempfile.TemporaryDirectory() as folder:
+            snapshot = Path(folder) / "component.md"
+            snapshot.write_text(
+                "Source: example/README.md at " + "a" * 40 + "\n\n" + marker + body
+            )
+            record = {
+                "repository": "grok-gadgets",
+                "source": "README.md",
+                "snapshot": str(snapshot),
+                "sha256": hashlib.sha256(body.encode()).hexdigest(),
+                "page": "component.html",
+            }
+            html = Documents(ROOT).render(record)
+            self.assertIn("SpaceXSI prose", html)
+            self.assertIn('href="https://example.com/SpaceXAI"', html)
+            self.assertIn("<code>SpaceXAI</code>", html)
+            self.assertIn('<pre><code class="language-text">SpaceXAI', html)
+            self.assertIn("Pinned release guide", html)
+            record["sha256"] = "0" * 64
+            with self.assertRaisesRegex(ValueError, "hash mismatch"):
+                Documents(ROOT).render(record)
 
     def test_diagram_accessibility_and_rejection(self):
         html = static_diagram(

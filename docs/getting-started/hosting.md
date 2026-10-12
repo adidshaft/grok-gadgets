@@ -1,6 +1,6 @@
 # Hosting and remote access
 
-There are three separate paths. Only local gateway software is implemented in Grok Gadgets. The website serves documentation and a browser simulator. It does not run your gateway.
+There are three separate paths. The website serves documentation and a browser simulator. It does not run your gateway. The owner's Grok Bot used an approved local command to reach the gateway; native MCP calls remain unverified.
 
 ## 1. Grok Bot on its cloud computer
 
@@ -12,15 +12,19 @@ Grok Bot has a separate **Execution on Local Computer** capability. If you enabl
 
 A command on the Mac can connect to your Raspberry Pi through SSH. For this, the Mac must reach the Pi over the home network, and you must set up SSH. Both computers must be available. The SSH user must have permission to do the requested work.
 
-This is a possible manual experiment. It is not verified Grok Gadgets product support. It is not a ready-to-use MCP integration. Connecting a USB cable alone does not create this route.
+The Mac-to-Pi SSH path is a possible manual experiment. It has not been tested as Grok Gadgets support. USB alone does not create this route.
 
-On 12 October 2026 the owner's Grok Bot ran two approved `grok-gadgets-gateway rehearse` commands on the owner's Mac. The gateway request log recorded the matching tool calls against the simulated light. In the same test, Grok Bot did not add the gateway as an MCP server. The approved command is therefore a working manual route, not a native tool connection. The [test record](https://github.com/adidshaft/grok-gadgets/issues/31) has the details.
+On 12 October 2026 the owner's Grok Bot ran two approved `grok-gadgets-gateway rehearse` commands on the owner's Mac. The gateway request log recorded the matching calls against a simulated light. Later, the same local-command route showed text on the owner's physical OLED over USB and Wi-Fi. Grok Bot did not add the gateway as an MCP server. The approved command is a working local route, not a native tool connection. See the [local-command issue](https://github.com/adidshaft/grok-gadgets/issues/31) and [Wi-Fi kit record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md).
+
+For Wi-Fi, the board can draw power from a USB charger. The gateway must still run on the Mac. Start its private LAN TLS listener by hand. It is not installed as a service. Reserve the Mac's address on the router or provision the board again if that address changes. Follow the [kit guide](repeat-the-kit.md).
 
 ## 3. Grok Gadgets remote MCP
 
 The gateway's local `serve` mode is implemented. It provides Streamable HTTP MCP at `http://127.0.0.1:8766/mcp`, with a bearer token read from a file. It listens on loopback only.
 
-A packaged, authenticated remote endpoint with TLS, suitable credentials or OAuth, and an approved, verified Grok Bot invocation is not complete. A tunnel can make a service reachable. It does not add authentication. Do not point Grok Bot at this alpha yet. Do not publish the device port at `127.0.0.1:8765`.
+A packaged public route and native Grok Bot MCP calls have not passed acceptance. A tunnel can make a service reachable; it does not add authentication. Do not expose the device port at `127.0.0.1:8765` or publish the gateway as an accepted public MCP service.
+
+**Wi-Fi devices use a separate listener.** `serve --lan-listen <private address>` carries device traffic over private LAN TLS ([ADR 005](https://github.com/adidshaft/grok-gadgets/blob/dev/docs/decisions/005-wifi-device-route.md)). It is not a Grok Bot MCP endpoint. Never forward its port or put it behind a tunnel.
 
 ## Connection diagram
 
@@ -43,7 +47,7 @@ Product goal: Grok Bot → authenticated remote MCP endpoint with TLS
 | --- | --- | --- |
 | Local gateway `serve` | Implemented on loopback | Local software evidence does not prove a Grok Bot connection. |
 | M5 — Actual Grok | Partly done | Approved local `rehearse` commands work. Native tool calls need the authenticated remote route. |
-| M8 — Physical and independent verification | Blocked | A real Pi or device setup, observed peripheral operation, and independent reproduction. |
+| M8 — Physical and independent verification | Partly done | The owner's ESP32-S3/OLED kit passed USB and Wi-Fi tests. Independent reproduction and a real Pi setup remain open. |
 
 [HARD-GROK-REMOTE-001](https://github.com/adidshaft/grok-gadgets/issues/4) tracks secure remote access. The existing loopback listener is separate from that unfinished work. See the [roadmap](../../ROADMAP.md) and gateway [remote access guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/remote-access.md).
 
@@ -57,9 +61,9 @@ Product goal: Grok Bot → authenticated remote MCP endpoint with TLS
 
 **Does enabling local execution install Grok Gadgets MCP?** No. Local command execution and MCP configuration are separate. In the 12 October test, Grok Bot declined both MCP server types for the gateway on the Mac.
 
-**Who runs the MCP server?** The gateway operator runs it. SpaceXAI runs Grok Bot. A Home Assistant operator runs Home Assistant's own MCP server.
+**Who runs the MCP server?** The gateway operator runs it. SpaceXSI runs Grok Bot. A Home Assistant operator runs Home Assistant's own MCP server.
 
-**What can I use now?** Use the [browser simulator](https://grokgadgets.org/#playground), the [simulator kit](simulator-kit.md), or the local gateway with `grok-gadgets-gateway rehearse`. These do not prove that Grok Bot can control a physical device.
+**What can I use now?** Use the [browser simulator](https://grokgadgets.org/#playground), the [simulator kit](simulator-kit.md), or the [tested ESP32-S3/OLED kit](repeat-the-kit.md). The owner's Grok Bot used the approved local-command route to show text on that kit. Native MCP support and another person's reproduction remain open.
 
 **Does a button wake Grok Bot?** No. Events wait in the gateway until a client calls `gadgets_read_events`.
 

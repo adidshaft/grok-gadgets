@@ -9,7 +9,7 @@
       id: 'esp32', label: 'ESP32-S3', x: 165, y: 275,
       title: 'ESP32-S3 · breadboard + OLED', href: 'esp32.html',
       route: 'Gateway + USB · proposed HTTPS',
-      description: 'Ordered ESP32-S3 kit with breadboard and OLED. Proposed route: Grok Bot, operator HTTPS, gateway, host USB bridge, firmware. Board pins, OLED controller, physical operation and Grok Bot tests are pending.',
+      description: 'One ESP32-S3 kit passed USB and Wi-Fi acceptance with a SH1106 OLED. Grok Bot displayed text through an approved local command. The illustrated remote HTTPS route and native MCP calls remain unverified.',
       port: 'Gateway', portX: 302, portY: 308,
       points: [[430, 275], [350, 275], [255, 275], [165, 275]],
     },
@@ -130,7 +130,7 @@
 
     const detail = document.createElement('div');
     detail.className = 'signal-detail';
-    detail.innerHTML = '<a class="signal-detail-link"><span></span><span aria-hidden="true">↗</span></a><p class="signal-detail-route"></p><div class="signal-evidence"><span>Bot + hardware pending</span><span class="signal-phase">Conceptual</span></div>';
+    detail.innerHTML = '<a class="signal-detail-link"><span></span><span aria-hidden="true">↗</span></a><p class="signal-detail-route"></p><div class="signal-evidence"><span>Route evidence varies by device</span><span class="signal-phase">Conceptual</span></div>';
     root.appendChild(detail);
     const detailLink = detail.querySelector('.signal-detail-link');
     const detailTitle = detailLink.firstElementChild;
@@ -207,7 +207,7 @@
       detailTitle.textContent = selected.title;
       detailLink.href = selected.href;
       detailRoute.textContent = selected.route;
-      bot.setAttribute('aria-label', `Grok Bot. Replay the conceptual ${selected.label} route. Bot connection is pending.`);
+      bot.setAttribute('aria-label', `Grok Bot. Replay the conceptual ${selected.label} route. Native MCP connection is pending.`);
       status.textContent = selected.description;
       if (replay) {
         sequence = canAnimate() ? 0 : null;

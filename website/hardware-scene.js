@@ -87,7 +87,7 @@
           <button type="button" data-hardware-action="usb" aria-pressed="false" aria-label="Unplug the illustrated USB cable"><span class="hardware-control-icon hardware-usb-icon" aria-hidden="true"></span>USB</button>
         </div>
         <p class="hardware-readout" role="status" aria-live="polite" aria-atomic="true">Illustrated OLED message → device report.</p>
-        <a class="hardware-caption" href="doc-docs-public-support-matrix.html">Illustration only · OLED integration pending · * optional parts.</a>
+        <a class="hardware-caption" href="doc-docs-public-support-matrix.html">Illustration only · owner's OLED kit passed USB and Wi-Fi tests.</a>
       </div>`;
     container.append(root);
 
@@ -206,7 +206,7 @@
           ? 'Illustrated clear · no physical result.' : 'Illustrated message · no physical result.';
       } else if (journey.kind === 'led') {
         ledOn = true;
-        readout.textContent = 'Illustrated report · physical check pending.';
+        readout.textContent = 'Illustrated report · no device command sent.';
       } else {
         retainedEvents = true;
         readout.textContent = 'Button → gateway · no Bot wake.';
