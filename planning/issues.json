@@ -1437,10 +1437,36 @@
       "esp32"
     ],
     "milestone": "M9",
-    "stage": "review",
+    "stage": "done",
     "commits": [],
     "evidence": [
       "https://github.com/adidshaft/grok-gadgets/issues/204"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "HUB-REL-020",
+    "repository": "grok-gadgets",
+    "problem": "Ship the simulator-only gateway fix in the hub",
+    "intended_behaviour": "The hub records gateway v0.1.0-alpha.9 and the guide names it",
+    "acceptance": [
+      "Tested set and documentation snapshots pin gateway's released main",
+      "Simulator kit rebuilt from gateway v0.1.0-alpha.9",
+      "Release v0.1.9-alpha.2 and sync main into dev"
+    ],
+    "dependencies": [
+      "HUB-REL-019"
+    ],
+    "labels": [
+      "maintenance",
+      "gateway",
+      "simulator"
+    ],
+    "milestone": "M9",
+    "stage": "review",
+    "commits": [],
+    "evidence": [
+      "https://github.com/adidshaft/grok-gadgets/issues/208"
     ],
     "blocker": null
   }

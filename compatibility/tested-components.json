@@ -1,14 +1,14 @@
 {
-  "status": "Public source patch prerelease and website live; v0.1.9-alpha.1 release candidate verified",
+  "status": "Public source patch prerelease and website live; v0.1.9-alpha.2 release candidate verified",
   "protocol": "0.1.0",
   "components": [
     {
       "repository": "grok-gadgets",
       "path": "grok-gadgets",
-      "version": "0.1.9-alpha.1",
-      "commit": "e870f975653368eb88007c50867a87eeb9b27d3d",
+      "version": "0.1.9-alpha.2",
+      "commit": "f6c8206adda65cb96e4ea3184efcfca944ec5cd1",
       "evidence_level": "Public source patch prerelease; OLED kit verified over USB and Wi-Fi",
-      "checks": "The v0.1.9-alpha.1 hub release candidate pins gateway v0.1.0-alpha.8 and ESP32 SDK v0.2.0-alpha.11 with Linux SDK v0.1.0-alpha.5 and Home Assistant v0.1.0-alpha.5. The repeat-the-kit guide adds clone and tool-setup steps found missing in a fresh-clone walk-through on 12 October 2026; that walk-through ran every command up to flashing. The owner's OLED kit passed USB and Wi-Fi acceptance; native Grok Bot MCP calls and independent reproduction are not claimed.",
+      "checks": "The v0.1.9-alpha.2 hub release candidate pins gateway v0.1.0-alpha.9, whose --simulator mode never reads device credentials, with ESP32 SDK v0.2.0-alpha.11 and Linux SDK and Home Assistant v0.1.0-alpha.5. On 12 October 2026 the public guide's commands ran from fresh clones, and the gateway first-success path ran beside a running gateway. The owner's OLED kit passed USB and Wi-Fi acceptance and now runs released alpha.11 firmware; native Grok Bot MCP calls and independent reproduction are not claimed.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
@@ -17,10 +17,10 @@
     {
       "repository": "grok-gadgets-gateway",
       "path": "grok-gadgets-gateway",
-      "version": "0.1.0-alpha.8",
-      "commit": "1042edd949a421966a0d7254485d1580e13d5bf5",
+      "version": "0.1.0-alpha.9",
+      "commit": "d2a3f4dcc49398c4ca5581693e457e773d714e0d",
       "evidence_level": "Simulated; Wi-Fi device listener used by one physical kit; Grok Bot local-command route observed",
-      "checks": "199 tests, Ruff, plain-language checks, package builds and twine check passed; the release workflow's fresh-download SHA256SUMS check passed. Adds a clear error for a taken device port, an isolated simulator demo, and wifi-provision board checks before any prompt (checked on the owner's kit). The LAN listener is unchanged from alpha.6. Native Grok Bot MCP calls and the tunnel route are not verified.",
+      "checks": "201 tests, Ruff, plain-language checks, the first-success check, package builds and twine check passed; the release workflow's fresh-download SHA256SUMS check passed. --simulator without --credentials reads no device registry and opens no device port; alpha.8's port-in-use message and wifi-provision board check stand. The LAN listener is unchanged from alpha.6. Native Grok Bot MCP calls and the tunnel route are not verified.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
