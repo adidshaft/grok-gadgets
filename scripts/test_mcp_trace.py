@@ -290,7 +290,7 @@ class TraceTests(unittest.TestCase):
     def test_credential_environment_stripped_and_config_snapshot_is_exact(self):
         original = self.config.read_bytes()
         self.console(
-            "import os,sys,pathlib,json\nos.write(1,b'ready\\n')\nsys.stdin.buffer.read(1)\nassert 'GROK_DEVICE_TOKEN' not in os.environ\nassert 'PYTHONPATH' not in os.environ\np=pathlib.Path(sys.argv[sys.argv.index('--simulator-config')+1])\nassert p.stat().st_mode & 0o777 == 0o600\nos.write(1,p.read_bytes())\n"
+            "import os,sys,pathlib,json\nos.write(1,b'ready\\n')\nsys.stdin.buffer.read(1)\nassert 'GROK_DEVICE_TOKEN' not in os.environ\nassert 'PYTHONPATH' not in os.environ\nhome=pathlib.Path.home()\nassert home.is_dir() and not list(home.iterdir())\nassert pathlib.Path(os.environ['USERPROFILE']) == home\nassert pathlib.Path(os.environ['XDG_CONFIG_HOME']) == home / '.config'\nassert pathlib.Path(os.environ['APPDATA']).is_relative_to(home)\nassert pathlib.Path(os.environ['LOCALAPPDATA']).is_relative_to(home)\np=pathlib.Path(sys.argv[sys.argv.index('--simulator-config')+1])\nassert p.stat().st_mode & 0o777 == 0o600\nos.write(1,p.read_bytes())\n"
         )
         environment = {
             **os.environ,
