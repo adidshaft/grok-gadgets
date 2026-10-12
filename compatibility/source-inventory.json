@@ -1,7 +1,7 @@
 [
   {
     "repository": "grok-gadgets-esp32-sdk",
-    "commit": "b95ba940034b6855bd2cb4fff7d59fd51c1e3491",
+    "commit": "f7bb9483e5a2911415029c86a8e624fc612aaa10",
     "files": [
       ".clang-format",
       ".github/CODEOWNERS",
@@ -40,6 +40,7 @@
       "docs/verification/wifi-join-failure-2026-10-12.md",
       "examples/led-button/main.cpp",
       "examples/led-button/pio_src.py",
+      "examples/oled-kit/OnlineLogo.h",
       "examples/oled-kit/README.md",
       "examples/oled-kit/main.cpp",
       "examples/oled-kit/pio_src.py",
@@ -95,7 +96,7 @@
   },
   {
     "repository": "grok-gadgets-gateway",
-    "commit": "ff068b509ad8afae78746e295042edb734fecf63",
+    "commit": "1042edd949a421966a0d7254485d1580e13d5bf5",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
