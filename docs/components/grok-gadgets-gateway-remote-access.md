@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/remote-access.md at ff068b509ad8afae78746e295042edb734fecf63
+Source: grok-gadgets-gateway/docs/remote-access.md at 1042edd949a421966a0d7254485d1580e13d5bf5
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
