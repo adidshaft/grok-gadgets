@@ -115,7 +115,7 @@ If no new lines appear, the Bot did not reach this gateway, whatever the Bot say
 
 ### What the log shows if (b) works
 
-Each approved command adds three lines with `"client":"grok-gadgets-rehearse/0.1.0a4"`: `gadgets_list_devices`, `gadgets_command` with `"status":"executed"`, and `gadgets_get_state` with the state. Their times must follow your approval by a few seconds. The command output in the chat ends with `Rehearsal passed`.
+Each approved command adds three lines with `"client":"grok-gadgets-rehearse/<gateway version>"`: `gadgets_list_devices`, `gadgets_command` with `"status":"executed"`, and `gadgets_get_state` with the state. Their times must follow your approval by a few seconds. The command output in the chat ends with `Rehearsal passed`.
 
 ### What (b) does not give you
 
