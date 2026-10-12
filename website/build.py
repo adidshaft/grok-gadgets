@@ -369,7 +369,7 @@ page(
     + path_row(
         "03",
         "Build a gadget",
-        "Prepare the ordered ESP32-S3 kit with the reusable SDK.",
+        "Build the ESP32-S3 + OLED kit with the reusable SDK.",
         "esp32.html",
         "ESP32",
     )
@@ -387,7 +387,7 @@ page(
         "home-assistant.html",
         "Home Assistant",
     )
-    + '</div><p class="quiet-note">Local alpha. Authenticated HTTP MCP runs on loopback. Public HTTPS, Grok Bot use and physical operation remain unverified.</p>'
+    + '</div><p class="quiet-note">Local alpha. Authenticated HTTP MCP runs on loopback. Grok Bot runs approved local commands; native tool calls and public HTTPS are not verified. One owner kit passed physical tests.</p>'
     + hosting_guide,
 )
 page(

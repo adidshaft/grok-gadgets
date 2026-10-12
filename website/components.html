@@ -8,7 +8,7 @@
   <div class="component-list">
     <details class="component" open>
       <summary><span class="component-number">01</span><span>Gateway</span><span class="component-type">MCP + transports</span><span class="component-toggle" aria-hidden="true">+</span></summary>
-      <div class="component-body"><p>Run the gateway on your computer. Stdio MCP and local <code>serve</code> on loopback. Gadgets stay on 127.0.0.1. Public HTTPS and Grok Bot use are unverified.</p><p class="component-evidence">Local MCP verified · Grok Bot unverified</p><div class="component-links"><a href="doc-docs-components-grok-gadgets-gateway-README.html">Setup ↗</a><a href="doc-docs-components-grok-gadgets-gateway-architecture.html">Protocol &amp; transport ↗</a><a href="doc-docs-getting-started-hosting.html">Hosting FAQ ↗</a></div></div>
+      <div class="component-body"><p>Run the gateway on your computer. Stdio MCP and local <code>serve</code> on loopback. Gadgets stay on 127.0.0.1, or one private address for Wi-Fi devices. Grok Bot runs approved local <code>rehearse</code> commands; native tool calls and public HTTPS are not verified.</p><p class="component-evidence">Local MCP verified · Grok Bot local commands verified · native calls pending</p><div class="component-links"><a href="doc-docs-components-grok-gadgets-gateway-README.html">Setup ↗</a><a href="doc-docs-components-grok-gadgets-gateway-architecture.html">Protocol &amp; transport ↗</a><a href="doc-docs-getting-started-hosting.html">Hosting FAQ ↗</a></div></div>
     </details>
     <details class="component">
       <summary><span class="component-number">02</span><span>Simulator</span><span class="component-type">No hardware needed</span><span class="component-toggle" aria-hidden="true">+</span></summary>
@@ -18,7 +18,7 @@ uv run python -m grok_gadgets_gateway.demo</code></pre><div class="component-lin
     </details>
     <details class="component">
       <summary><span class="component-number">03</span><span>USB bridge</span><span class="component-type">Serial → gateway</span><span class="component-toggle" aria-hidden="true">+</span></summary>
-      <div class="component-body"><p>Forward bounded USB serial frames to the authenticated loopback gateway. Credentials stay on the host, outside firmware.</p><p class="component-evidence">Pseudo-terminal integration tested · physical USB pending</p><div class="component-links"><a href="doc-docs-components-grok-gadgets-gateway-local-operation.html">Bridge setup &amp; recovery ↗</a><a href="doc-docs-components-grok-gadgets-esp32-sdk-build-flash.html">ESP32 connection guide ↗</a></div></div>
+      <div class="component-body"><p>Forward bounded USB serial frames to the authenticated loopback gateway. Credentials stay on the host, outside firmware.</p><p class="component-evidence">Pseudo-terminal integration tested · physical USB passed on the owner's kit</p><div class="component-links"><a href="doc-docs-components-grok-gadgets-gateway-local-operation.html">Bridge setup &amp; recovery ↗</a><a href="doc-docs-components-grok-gadgets-esp32-sdk-build-flash.html">ESP32 connection guide ↗</a></div></div>
     </details>
     <details class="component">
       <summary><span class="component-number">04</span><span>Linux SDK</span><span class="component-type">Library + device agent</span><span class="component-toggle" aria-hidden="true">+</span></summary>
@@ -26,7 +26,7 @@ uv run python -m grok_gadgets_gateway.demo</code></pre><div class="component-lin
     </details>
     <details class="component">
       <summary><span class="component-number">05</span><span>ESP32 SDK</span><span class="component-type">Reusable firmware</span><span class="component-toggle" aria-hidden="true">+</span></summary>
-      <div class="component-body"><p>A reusable capability SDK. The first physical experiment uses an ESP32-S3, breadboard and OLED. Confirm the board pins and display controller after delivery.</p><p class="component-evidence">SDK software checked · new kit and OLED validation pending</p><div class="component-links"><a href="esp32.html">Explore SDK ↗</a><a href="doc-docs-components-grok-gadgets-esp32-sdk-sdk.html">SDK reference ↗</a><a href="doc-docs-components-grok-gadgets-esp32-sdk-build-flash.html">Build &amp; flash guide ↗</a></div></div>
+      <div class="component-body"><p>A reusable capability SDK. The first physical experiment uses an ESP32-S3 board and a 1.3-inch SH1106 OLED, over USB or Wi-Fi.</p><p class="component-evidence">Owner's kit passed over USB and Wi-Fi · independent reproduction pending</p><div class="component-links"><a href="esp32.html">Explore SDK ↗</a><a href="doc-docs-components-grok-gadgets-esp32-sdk-sdk.html">SDK reference ↗</a><a href="doc-docs-components-grok-gadgets-esp32-sdk-build-flash.html">Build &amp; flash guide ↗</a></div></div>
     </details>
     <details class="component">
       <summary><span class="component-number">06</span><span>Home Assistant</span><span class="component-type">Integration diagnostics</span><span class="component-toggle" aria-hidden="true">+</span></summary>

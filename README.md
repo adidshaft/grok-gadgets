@@ -23,7 +23,7 @@ Pick a path:
 Already use Home Assistant? Check what it offers with the
 [read-only probe](https://github.com/adidshaft/grok-gadgets-home-assistant).
 
-The first physical experiment uses the [ordered ESP32-S3 and OLED kit](docs/getting-started/experiment-kit.md). Start with simulation. Wiring, display controller and hardware verification await delivery.
+The first physical experiment uses an [ESP32-S3 board and a 1.3-inch OLED](docs/getting-started/experiment-kit.md). On 12 October 2026 the owner's kit passed physical tests over USB and over Wi-Fi. Grok Bot showed text on it through an approved local command. That is one kit on one network; nobody else has repeated it yet.
 
 ## Start here
 
@@ -46,8 +46,9 @@ With local execution enabled and a command approved, it can run a Mac command. I
 can reach a Pi and you have set up SSH, that command can reach the Pi. This is a possible
 manual experiment, not verified Grok Gadgets support. USB alone does not create the route.
 
-The gateway's local `serve` works on loopback today. Packaged remote MCP and a verified
-Grok Bot invocation are incomplete. A tunnel adds reachability, not authentication.
+Today Grok Bot can run approved `grok-gadgets-gateway rehearse` commands on your Mac
+([ADR 004](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/004-grok-bot-route.md)). Native Grok Bot tool calls need packaged
+remote MCP, which is incomplete. A tunnel adds reachability, not authentication.
 See the [three-path hosting FAQ](docs/getting-started/hosting.md) before planning a connection.
 
 ## Community

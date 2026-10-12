@@ -27,16 +27,16 @@ Grok Bot is the only assistant platform. Do not add other AI model backends, ent
 
 ### First concrete example
 
-The target is the ordered **AYWHP ESP32-S3 DevKitC-style ESP32-S3-WROOM-1-N16R8 USB-C board**, **ApTechDeals 840-point breadboard and jumper-wire set**, and **Robocraze 0.96-inch 128×64 four-pin OLED advertised as SPI/I²C**. See the [current kit plan](getting-started/experiment-kit.md). The items await delivery and inspection.
+The first kit is a **YD-ESP32-23 v1.3 board (ESP32-S3-N16R8)**, an **ApTechDeals 840-point breadboard and jumper-wire set**, and an **Electrifier 1.3-inch 128×64 I²C OLED with an SH1106 controller**. The order named a different board and a 0.96-inch display; these are the parts that arrived. See the [kit page](getting-started/experiment-kit.md). The owner's kit passed USB and Wi-Fi acceptance on 12 October 2026. Independent reproduction is pending.
 
 The example must eventually let the user:
 
-- Ask Grok Bot to show or clear a message on the OLED, after the display command and driver are implemented.
+- Ask Grok Bot to show or clear a message on the OLED (done on the owner's kit through approved `rehearse` commands).
 - Ask Grok Bot for device availability and current reported state.
 - Read real button presses and control an LED if suitable onboard parts or optional external parts are fitted.
 - Understand when the device is disconnected or an action is unconfirmed.
 
-Start with a software simulation while the user arranges the board. The first physical path should use USB to reduce setup complexity; Wi-Fi is the next transport milestone. Both are within the eventual ESP32 SDK direction. ADR 005 (`docs/decisions/005-wifi-device-route.md`) decides the secure Wi-Fi route.
+Start with a software simulation while the user arranges the board. The first physical path used USB to reduce setup complexity; the Wi-Fi transport followed and passed on the same kit. Both are within the eventual ESP32 SDK direction. ADR 005 (`docs/decisions/005-wifi-device-route.md`) decides the secure Wi-Fi route.
 
 ### Product promises and limits
 
