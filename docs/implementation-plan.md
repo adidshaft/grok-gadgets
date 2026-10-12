@@ -1,6 +1,6 @@
 # Grok Gadgets — implementation and launch plan
 
-> Hardware plan update — 12 October 2026: the [delivered ESP32-S3/OLED kit](getting-started/experiment-kit.md) has been visually identified and its USB port enumerated. The 9 October order details below are historical; see the current kit guide for actual parts, planned wiring and remaining gates. C124 results describe the retained reference example only.
+> Hardware plan update — 12 October 2026: the [delivered ESP32-S3/OLED kit](getting-started/experiment-kit.md) passed physical acceptance ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/dev/docs/verification/oled-kit-2026-10-12.md)). The 9 October order details below are historical; see the current kit guide for actual parts, tested wiring and remaining gates. C124 results describe the retained reference example only.
 
 **Plan date:** 4 October 2026  
 **Status:** Historical implementation handoff; the local alpha is now built. See [current verification](verification/launch-status.md) and [publication sanitization](verification/publication-sanitization.md).

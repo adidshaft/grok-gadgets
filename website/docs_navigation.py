@@ -48,7 +48,7 @@ GROUPS = (
                     (
                         "",
                         "docs/getting-started/experiment-kit.md",
-                        "First experiment: inspected kit",
+                        "First experiment: tested kit",
                     ),
                     (
                         "esp32-sdk",

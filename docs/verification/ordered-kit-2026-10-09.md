@@ -1,7 +1,8 @@
 # Ordered kit update — 9 October 2026
 
 This record starts with the 9 October order. The delivered parts and USB
-inspection are documented in the 12 October section below.
+inspection are documented in the 12 October section below. Physical acceptance
+passed later the same day: see the [ESP32 SDK record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/dev/docs/verification/oled-kit-2026-10-12.md).
 
 The owner ordered the first [ESP32-S3 and OLED kit](../getting-started/experiment-kit.md).
 The order replaces the AtomS3 Lite first-experiment plan. Earlier build evidence still

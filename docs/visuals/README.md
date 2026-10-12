@@ -4,7 +4,7 @@ Original project vectors, created from maintained architecture and board records
 
 The overview lists the browser, export, kit, gateway and SDK software. Grok native receipts, the authenticated cloud-to-local route and real Home Assistant remain separate pending paths; Home Assistant can connect directly to Grok using upstream MCP. The command lifecycle ends with a distinct physical observation that cannot be inferred from an ACK.
 
-[ESP32-S3 kit reference](esp32-s3-kit-reference.svg) is an original conceptual illustration of the inspected YD-ESP32-23 v1.3 board with ESP32-S3-N16R8, ApTechDeals 840-point breadboard and jumper wires, and Electrifier 1.3-inch 128×64 I²C OLED marked RG1.30 IIC v2.2. The display pads are labeled VCC, GND, SCK and SDA. The board's native USB port enumerated on a Mac. Both boards have bare holes without soldered headers. This illustration is not a wiring guide; see the getting-started hardware guide for the planned connection diagram. OLED controller, address, driver and physical operation remain unverified. The current light simulator does not prove OLED operation.
+[ESP32-S3 kit reference](esp32-s3-kit-reference.svg) is an original conceptual illustration of the inspected YD-ESP32-23 v1.3 board with ESP32-S3-N16R8, ApTechDeals 840-point breadboard and jumper wires, and Electrifier 1.3-inch 128×64 I²C OLED marked RG1.30 IIC v2.2. The display pads are labeled VCC, GND, SCK and SDA. The board's native USB port enumerated on a Mac. The display is an SH1106 at I²C address 0x3c. This illustration is not a wiring guide; see the getting-started hardware guide for the tested wiring table. The current light simulator does not prove OLED operation.
 
 ![Actual browser customization/export panel.](simulator-playground.jpg)
 

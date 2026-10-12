@@ -1,8 +1,8 @@
 # Test the ordered ESP32-S3 and OLED kit
 
-**Status: kit inspected and USB enumeration observed; display operation and
-physical acceptance pending.** Compilation and simulated board tests do not
-complete this procedure. See the [inspection and USB evidence](experiment-kit.md#observed-usb-evidence).
+**Status: passed on the owner's kit on 12 October 2026** ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/dev/docs/verification/oled-kit-2026-10-12.md)).
+Another person's reproduction is still needed. Compilation and simulated board
+tests do not complete this procedure.
 
 ## Before the test
 
@@ -20,9 +20,9 @@ Record the YD-ESP32-23 v1.3 board and ESP32-S3-N16R8 module markings. Record the
 Electrifier RG1.30 IIC v2.2 display, actual controller/address, breadboard wiring,
 pin table and USB-C data cable. Record firmware SHA-256, gateway and SDK
 commits, host operating system, port, time and tester. Do not record tokens. The
-3.3 V GPIO8/GPIO9 wiring is planned, not yet connected or electrically tested.
+3.3 V GPIO8/GPIO9 wiring passed on the owner's kit.
 
-**M5 — Actual Grok remains blocked** on supported exact-kit invocation/reload evidence and the remote route. **M8 — Physical and independent verification remains blocked** until headers are secured, peripheral operation is observed and independent reproduction is recorded. A Pi is not required for this ESP32-S3 experiment.
+**M5 — Actual Grok is partly done:** Grok Bot showed text on this kit through local shell execution; native tool calls need the remote route. **M8 — Physical and independent verification is partly done:** the owner's kit passed; independent reproduction is still needed. A Pi is not required for this ESP32-S3 experiment.
 
 ## Procedure
 
