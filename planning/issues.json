@@ -1302,7 +1302,9 @@
     ],
     "dependencies": [],
     "labels": [
-      "docs"
+      "docs",
+      "website",
+      "P1"
     ],
     "milestone": "M9",
     "stage": "done",
@@ -1326,7 +1328,8 @@
     "dependencies": [],
     "labels": [
       "docs",
-      "esp32"
+      "esp32",
+      "needs hardware"
     ],
     "milestone": "M9",
     "stage": "done",
@@ -1351,7 +1354,8 @@
     ],
     "labels": [
       "community",
-      "esp32"
+      "esp32",
+      "help wanted"
     ],
     "milestone": "M9",
     "stage": "in progress",

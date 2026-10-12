@@ -6,7 +6,7 @@
       "repository": "grok-gadgets",
       "path": "grok-gadgets",
       "version": "0.1.8-alpha.1",
-      "commit": "70b795ac546eed98b63d4e9ac6b92eae9803d3c9",
+      "commit": "da898567dac53b9d39b14a0293038096978afc38",
       "evidence_level": "Public source patch prerelease; OLED kit verified over USB and Wi-Fi",
       "checks": "The v0.1.8-alpha.1 hub release candidate pins the components released on 12 October 2026: gateway v0.1.0-alpha.7, Linux SDK v0.1.0-alpha.5, ESP32 SDK v0.2.0-alpha.10 and Home Assistant v0.1.0-alpha.5. The repeat-the-kit guide gains a label-based wiring diagram and troubleshooting, and points at these releases. The owner's OLED kit passed USB and Wi-Fi acceptance, and Grok Bot showed text through approved local shell execution; native Grok Bot MCP calls and independent reproduction are not claimed.",
       "grok_verified": false,
