@@ -1,7 +1,7 @@
 # ADR 006 — Always-on gateway and a stable device address
 
 **Date:** 12 October 2026  
-**Status:** Proposed. Phase 6 "Always-on gadget".  
+**Status:** Accepted by the owner on 12 October 2026. Phase 6 "Always-on gadget".  
 **Owner:** Grok Gadgets hub (`adidshaft/grok-gadgets`)  
 **Issues:** hub [#212](https://github.com/adidshaft/grok-gadgets/issues/212), [#22](https://github.com/adidshaft/grok-gadgets/issues/22) (HUB-SERVICE-001), gateway [#109](https://github.com/adidshaft/grok-gadgets-gateway/issues/109) (GW-SVC-001), gateway [#110](https://github.com/adidshaft/grok-gadgets-gateway/issues/110) (GW-LAN-002), ESP32 [#99](https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/99) (ESP-MDNS-001)
 
