@@ -427,7 +427,7 @@ page(
         "One kit.<br>Start building.",
         "An ESP32-S3. A breadboard. A small OLED.",
     )
-    + '<p class="status">Software first · kit and OLED checks pending</p>'
+    + '<p class="status">ESP32-S3 + OLED kit passed physical tests · 12 October 2026</p>'
     + path_row(
         "01",
         "Build over USB",
@@ -442,7 +442,7 @@ page(
         "doc-docs-components-grok-gadgets-esp32-sdk-sdk.html",
         "SDK reference",
     )
-    + '<p class="quiet-note">Ordered: AYWHP ESP32-S3 DevKitC-style board (ESP32-S3-WROOM-1-N16R8, USB-C), ApTechDeals 840-point breadboard and jumper-wire set, and Robocraze 0.96-inch 128×64 OLED advertised as SPI/I²C with four pins. Pin mapping and the OLED controller remain provisional. Confirm a USB-C data cable is available. Use an external LED and button if suitable built-in parts are absent. The current simulator rehearses light commands and input events; OLED support must be verified separately. The local gateway and USB bridge run on your computer. <a href="doc-docs-components-grok-gadgets-esp32-sdk-verification.html">Verification record ↗</a></p>'
+    + '<p class="quiet-note">Inspected hardware: YD-ESP32-23 v1.3 with an ESP32-S3-N16R8 module, an ApTechDeals 840-point breadboard and jumper-wire set, and an Electrifier 1.3-inch 128×64 I²C OLED marked RG1.30 IIC v2.2. The display pads read VCC, GND, SCK and SDA. The display is an SH1106 at I²C address 0x3c, wired 3V3–VCC, GND–GND, GPIO9–SCK and GPIO8–SDA. On the owner’s kit, the kit firmware showed and cleared text, set the onboard RGB light, reported BOOT presses and recovered from unplug and gateway restart. Grok Bot showed text on it through local shell execution. Another person’s reproduction is still needed. The local gateway and USB bridge run on your computer. <a href="doc-docs-components-grok-gadgets-esp32-sdk-verification.html">Verification record ↗</a></p>'
     + hosting_guide,
 )
 page(

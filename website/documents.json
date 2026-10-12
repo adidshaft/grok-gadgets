@@ -80,7 +80,7 @@
       "repository": "grok-gadgets",
       "source": "docs/visuals/esp32-s3-kit-reference.svg",
       "output": "media/diagrams/esp32-s3-kit-reference.svg",
-      "sha256": "fcfbde341af01faa6432b22cec05026c185ce3adcb6d25aa0f414b44a7b4f710"
+      "sha256": "e08760248c19a30590a73b4f7604bf3ba9cf70c79bd2144acaf0bb90fcf1200c"
     },
     {
       "repository": "grok-gadgets",
