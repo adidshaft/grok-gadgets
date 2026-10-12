@@ -55,7 +55,7 @@ Product goal: Grok Bot → authenticated remote MCP endpoint with TLS
 
 **Does USB make the Mac a bridge?** No. A cable does not configure local execution, network access, SSH, or MCP.
 
-**Does enabling local execution install Grok Gadgets MCP?** No. Local command execution and MCP configuration are separate. In the 12 October test, Grok Bot declined to add the gateway as a Remote HTTPS server at `127.0.0.1` or as a Command server on the Mac.
+**Does enabling local execution install Grok Gadgets MCP?** No. Local command execution and MCP configuration are separate. In the 12 October test, Grok Bot declined both MCP server types for the gateway on the Mac.
 
 **Who runs the MCP server?** The gateway operator runs it. SpaceXAI runs Grok Bot. A Home Assistant operator runs Home Assistant's own MCP server.
 

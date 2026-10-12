@@ -45,3 +45,6 @@ Thumbs.db
 /website/dist/
 /assets/
 .github/deploy/node_modules/
+
+# Local marketing video work: sources, narration and large rendered videos (not committed).
+/community/drafts/explainer-video/
