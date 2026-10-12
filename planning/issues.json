@@ -455,7 +455,7 @@
     "problem": "Complete six audit corrections and release acceptance",
     "intended_behaviour": "Complete six audit corrections and release acceptance",
     "acceptance": [
-      "H0\u2013H7 evidence",
+      "H0–H7 evidence",
       "Six regressions and independent review",
       "Fresh artifacts and real-Grok test plan"
     ],
@@ -761,7 +761,7 @@
       "CONTRIBUTING.md",
       "compatibility/documentation-sources.json",
       "docs/public/support-matrix.md",
-      "docs/verification/launch-journal.md \u2014 5 October fresh audit: narrow-screen documentation table correction; 15 website tests and 59 pages/1632 project-prefix links pass; actual 390px browser table scroll verified"
+      "docs/verification/launch-journal.md — 5 October fresh audit: narrow-screen documentation table correction; 15 website tests and 59 pages/1632 project-prefix links pass; actual 390px browser table scroll verified"
     ],
     "blocker": null
   },
@@ -884,7 +884,7 @@
     "evidence": [
       "publication/history-and-assets-review.md",
       "scripts/test_audit_launch.py",
-      "docs/verification/publication-sanitization.md \u2014 user-authorized sanitized copies retain all99 original commits, maintain ignore exclusions/examples and regenerate source/download provenance"
+      "docs/verification/publication-sanitization.md — user-authorized sanitized copies retain all99 original commits, maintain ignore exclusions/examples and regenerate source/download provenance"
     ],
     "blocker": null
   },
@@ -1232,6 +1232,34 @@
     "commits": [],
     "evidence": [
       "docs/verification/ordered-kit-2026-10-09.md"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "HUB-WIFI-ADR-005",
+    "repository": "grok-gadgets",
+    "problem": "The ESP32-S3 OLED kit reaches the gateway only over a USB data cable",
+    "intended_behaviour": "ADR 005 decides a secure, opt-in LAN TLS route, provisioning and revocation before code",
+    "acceptance": [
+      "Opt-in LAN listener on one private address with TLS from a local CA pinned on the device",
+      "Existing device token, immediate revocation, rate and connection limits",
+      "USB serial provisioning into NVS with factory reset; protocol 0.1.0 unchanged",
+      "Primary-source design note on waking Grok Bot from a device event; nothing hosted"
+    ],
+    "dependencies": [
+      "HW-KIT-001"
+    ],
+    "labels": [
+      "docs",
+      "research",
+      "esp32"
+    ],
+    "milestone": "M9",
+    "stage": "done",
+    "commits": [],
+    "evidence": [
+      "docs/decisions/005-wifi-device-route.md",
+      "https://github.com/adidshaft/grok-gadgets/issues/168"
     ],
     "blocker": null
   }
