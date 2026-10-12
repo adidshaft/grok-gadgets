@@ -85,6 +85,12 @@
     },
     {
       "repository": "grok-gadgets",
+      "source": "docs/visuals/esp32-s3-oled-wiring.svg",
+      "output": "media/diagrams/esp32-s3-oled-wiring.svg",
+      "sha256": "da06f36d34abce7b22b10e3a704709075a3b98f6f1f0ef1669b26ef06cac586e"
+    },
+    {
+      "repository": "grok-gadgets",
       "source": "docs/visuals/command-lifecycle.svg",
       "output": "media/diagrams/command-lifecycle.svg",
       "sha256": "4cc680a59a284b323be15d4069b1fc557a74b63cdbddff0d4aa796c8b8410ab6"
