@@ -1,6 +1,7 @@
 <section class="home-scene" data-view="system" aria-labelledby="scene-heading">
   <div class="scene-intro">
     <h1 id="scene-heading">Open-source tools and SDKs<br>for your Grok Bot.</h1>
+    <p>Build gadgets for Grok Bot. Start with the simulator, then explore ESP32, Linux, or Home Assistant.</p>
     <button class="scene-donate" id="donate-open" type="button" aria-haspopup="dialog" aria-controls="donate-dialog">Donate</button>
     <div class="scene-gallery-nav" role="group" aria-label="Choose a motion scene" hidden>
       <button type="button" data-scene="devices" aria-pressed="true"><span class="scene-index">01 </span>Devices</button>
@@ -24,7 +25,7 @@
       </g>
     </svg>
     <div class="scene-node-layer" role="group" aria-label="Explore the architecture">
-      <button class="scene-node scene-node-grok" data-node="grok" aria-pressed="false" aria-label="Existing Grok Bot; connection pending"><img class="node-grok-mark" src="media/grok-bot-mark.svg" alt=""><span>Grok Bot</span></button>
+      <button class="scene-node scene-node-grok" data-node="grok" aria-pressed="false" aria-label="Existing Grok Bot; local command route observed"><img class="node-grok-mark" src="media/grok-bot-mark.svg" alt=""><span>Grok Bot</span></button>
       <button class="scene-node" data-node="gateway" aria-pressed="true"><span>Gateway</span><span class="node-arrow" aria-hidden="true">↗</span></button>
       <button class="scene-node" data-node="esp32" aria-pressed="false"><span>ESP32</span><span class="node-arrow" aria-hidden="true">↗</span></button>
       <button class="scene-node" data-node="linux" aria-pressed="false"><span>Linux</span><span class="node-arrow" aria-hidden="true">↗</span></button>
@@ -51,7 +52,7 @@
   </div>
   <dialog id="scene-inspector" aria-labelledby="inspector-title">
     <div class="inspector-header"><h2 id="inspector-title">Explore Grok Gadgets</h2><button id="scene-close" type="button" aria-label="Close exploration panel">Close [×]</button></div>
-    <p class="inspector-status">Try the local simulator today. <a href="doc-docs-public-support-matrix.html">Grok Bot and hardware connection tests are still ahead.</a></p>
+    <p class="inspector-status">Try the local simulator today. <a href="doc-docs-public-support-matrix.html">One kit passed USB and Wi-Fi tests; native Grok Bot MCP calls remain open.</a></p>
     <div class="scene-console">
     <div class="scene-caption">
       <span id="scene-detail-name">Gateway</span>

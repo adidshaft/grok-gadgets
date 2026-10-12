@@ -18,7 +18,7 @@ uv run python -m grok_gadgets_gateway.demo</code></pre><div class="component-lin
     </details>
     <details class="component">
       <summary><span class="component-number">03</span><span>USB bridge</span><span class="component-type">Serial → gateway</span><span class="component-toggle" aria-hidden="true">+</span></summary>
-      <div class="component-body"><p>Forward bounded USB serial frames to the authenticated loopback gateway. Credentials stay on the host, outside firmware.</p><p class="component-evidence">Pseudo-terminal integration tested · physical USB passed on the owner's kit</p><div class="component-links"><a href="doc-docs-components-grok-gadgets-gateway-local-operation.html">Bridge setup &amp; recovery ↗</a><a href="doc-docs-components-grok-gadgets-esp32-sdk-build-flash.html">ESP32 connection guide ↗</a></div></div>
+      <div class="component-body"><p>Forward bounded USB serial frames to the authenticated loopback gateway. Credentials stay on the host for this USB path.</p><p class="component-evidence">Owner's OLED kit passed USB tests · 12 October 2026</p><div class="component-links"><a href="doc-docs-components-grok-gadgets-gateway-local-operation.html">Bridge setup &amp; recovery ↗</a><a href="doc-docs-getting-started-repeat-the-kit.html">ESP32 connection guide ↗</a></div></div>
     </details>
     <details class="component">
       <summary><span class="component-number">04</span><span>Linux SDK</span><span class="component-type">Library + device agent</span><span class="component-toggle" aria-hidden="true">+</span></summary>
@@ -26,7 +26,7 @@ uv run python -m grok_gadgets_gateway.demo</code></pre><div class="component-lin
     </details>
     <details class="component">
       <summary><span class="component-number">05</span><span>ESP32 SDK</span><span class="component-type">Reusable firmware</span><span class="component-toggle" aria-hidden="true">+</span></summary>
-      <div class="component-body"><p>A reusable capability SDK. The first physical experiment uses an ESP32-S3 board and a 1.3-inch SH1106 OLED, over USB or Wi-Fi.</p><p class="component-evidence">Owner's kit passed over USB and Wi-Fi · independent reproduction pending</p><div class="component-links"><a href="esp32.html">Explore SDK ↗</a><a href="doc-docs-components-grok-gadgets-esp32-sdk-sdk.html">SDK reference ↗</a><a href="doc-docs-components-grok-gadgets-esp32-sdk-build-flash.html">Build &amp; flash guide ↗</a></div></div>
+      <div class="component-body"><p>A reusable capability SDK. The tested kit uses a YD-ESP32-23 v1.3 board and a 1.3-inch SH1106 OLED. The Wi-Fi path uses a pinned local CA and device token.</p><p class="component-evidence">Owner's kit passed USB and Wi-Fi tests · independent reproduction pending</p><div class="component-links"><a href="esp32.html">Explore SDK ↗</a><a href="doc-docs-getting-started-repeat-the-kit.html">Repeat the kit ↗</a><a href="doc-docs-components-grok-gadgets-esp32-sdk-build-flash.html">C124 build reference ↗</a></div></div>
     </details>
     <details class="component">
       <summary><span class="component-number">06</span><span>Home Assistant</span><span class="component-type">Integration diagnostics</span><span class="component-toggle" aria-hidden="true">+</span></summary>

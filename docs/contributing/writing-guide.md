@@ -1,6 +1,6 @@
 # Writing guide
 
-Use concise technical English inspired by [ASD-STE100](https://www.asd-ste100.org/STE_faq.html). The standard includes writing rules and a controlled dictionary. This project does not claim formal compliance. The rules below are our project guidance, not a replacement for the standard.
+Use concise technical English inspired by [ASD-STE100](https://www.asd-ste100.org/about_STE.html). The standard has writing rules and a controlled dictionary. It permits subject-specific technical terms under its rules. This project uses its principles for clear instructions; it does not claim formal compliance. The rules below are project guidance, not a replacement for the standard.
 
 ## Help the reader complete one task
 
@@ -25,7 +25,7 @@ Use concise technical English inspired by [ASD-STE100](https://www.asd-ste100.or
 | Issue | Problem, evidence, acceptance criteria and dependencies |
 | Pull request | User-visible change, linked issue, validation and limitations |
 
-Use “reusable ESP32 library; ordered ESP32-S3/OLED experiment” instead of implying that the SDK supports only one board. Do not replace that claim with “works on every ESP32.” Supported boards need evidence.
+Use “reusable ESP32 library; tested YD-ESP32-23 v1.3/OLED kit” instead of implying that the SDK supports only one board. Do not replace that claim with “works on every ESP32.” Supported boards need evidence.
 
 Before review, remove repeated background, verify commands and links, and check that a beginner can identify the next step. This guide applies to all five repositories and public project copy.
 
@@ -43,10 +43,11 @@ Use one term for each meaning. Technical names and identifiers must remain exact
 | Acknowledgement | Device report about command execution; not physical proof |
 | State | Values reported by a device or simulator |
 | Physical verification | Recorded observation of real hardware behavior |
-| Grok verification | Actual native invocation records or independently retrieved execution logs |
+| Grok Bot local-command verification | Approved command on the owner's Mac plus independently retrieved gateway logs and observed result |
+| Native Grok Bot MCP verification | Grok Bot calls the gateway's MCP tools itself, with independently retrieved tool records |
 
 ## Review limits
 
 Preserve commands, API identifiers, units, numerical limits, license text and quotations. Do not rewrite historical test records to imply a newer result. Review current guides and public copy separately from those records.
 
-CI runs `check_ste.py` on the README and the main newcomer pages in every repository. A sentence of more than 25 words fails the check. A passive-looking sentence prints a note. A style review is not a compliance audit. Formal ASD-STE100 compliance requires checking the full applicable standard, its dictionary and permitted technical terminology.
+CI runs `check_ste.py` on the README and the main newcomer pages in every repository. A sentence of more than 25 words fails the check. A passive-looking sentence prints a note. A style review is not a compliance audit. Formal ASD-STE100 compliance requires checking the full applicable standard, its dictionary and permitted technical terminology. See the [official overview](https://www.asd-ste100.org/about_STE.html) and [FAQ](https://www.asd-ste100.org/faq.html).

@@ -213,6 +213,8 @@ body.donation-is-open{overflow:hidden;}
 .doc-pagination a { flex:1; text-decoration:none; font-size:15px; }
 .doc-pagination small { display:block; font-size:12px; color:var(--muted); margin-bottom:6px; }
 .doc-source { font-size:12px; color:var(--muted); overflow-wrap:anywhere; margin:30px 0 0; }
+.doc-snapshot-note { border-left:2px solid var(--ink); padding:10px 16px; margin:0 0 28px; color:var(--muted); font-size:13px; line-height:1.55; max-width:68ch; }
+.doc-snapshot-note strong { color:var(--ink); }
 @media(max-width:850px) {
   .documentation-page main { padding:12px 6% 40px; }
   .docs-layout { grid-template-columns:minmax(0,1fr); gap:26px; }

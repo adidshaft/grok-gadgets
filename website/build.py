@@ -173,7 +173,7 @@ def page(name, title, body):
         "Grok Gadgets is an independent open-source project building tools and SDKs "
         "for your existing Grok Bot. " + title + "."
     )
-    share_image = PUBLIC_SITE + "media/grok-gadgets-share-v3.png"
+    share_image = PUBLIC_SITE + "media/grok-gadgets-share-v4.png"
     canonical_url = PUBLIC_SITE + name
     body = body.replace(
         "downloads/grok-gadgets-simulator-kit.zip", "downloads/" + kit_archive
@@ -191,14 +191,14 @@ def page(name, title, body):
     menu = (
         '<dialog id="site-menu" aria-labelledby="menu-title"><div class="menu-top"><p id="menu-title">Explore</p><button id="menu-close" aria-label="Close menu">Close <span>[esc]</span></button></div><nav aria-label="Main navigation">'
         + active_links
-        + '</nav><div class="menu-components"><a href="https://github.com/adidshaft/grok-gadgets">GitHub</a><a href="esp32.html">ESP32</a><a href="linux.html">Linux</a><a href="home-assistant.html">Home Assistant</a><a href="architecture.html">Architecture</a><a href="releases.html">Releases</a></div><p class="creator-credit">Made by <a href="https://x.com/adidshaft">@adidshaft ↗</a></p><div class="product-reference"><img src="media/spacexai-mark.svg" width="28" height="28" alt="SpaceXAI"><p>Grok is made by SpaceXAI.<br>Grok Gadgets is an independent project.</p><a href="https://x.ai/legal/brand-guidelines" aria-label="Official brand guidelines">↗</a></div></dialog>'
+        + '</nav><div class="menu-components"><a href="https://github.com/adidshaft/grok-gadgets">GitHub</a><a href="esp32.html">ESP32</a><a href="linux.html">Linux</a><a href="home-assistant.html">Home Assistant</a><a href="architecture.html">Architecture</a><a href="releases.html">Releases</a></div><p class="creator-credit">Made by <a href="https://x.com/adidshaft">@adidshaft ↗</a></p><div class="product-reference"><p>Grok Bot is made by SpaceXSI.<br>Grok Gadgets is an independent project.</p><a href="https://x.ai/legal/brand-guidelines" aria-label="Official brand guidelines">↗</a></div></dialog>'
     )
     footer = (
         '<footer class="site-footer" data-site-revision="'
         + e(build_revision)
         + '" title="'
         + e(build_note)
-        + '"><span class="independent-note">Independent open source. Not affiliated with xAI or SpaceXAI.<span class="footer-credit">Made by <a href="https://x.com/adidshaft">@adidshaft ↗</a></span></span><a href="https://github.com/adidshaft/grok-gadgets">GitHub ↗</a><a class="status-link" href="doc-docs-public-support-matrix.html">Status ↗</a>'
+        + '"><span class="independent-note">Independent open source. Not affiliated with SpaceXSI.<span class="footer-credit">Made by <a href="https://x.com/adidshaft">@adidshaft ↗</a></span></span><a href="https://github.com/adidshaft/grok-gadgets">GitHub ↗</a><a class="status-link" href="doc-docs-public-support-matrix.html">Status ↗</a>'
         + '<button id="motion-toggle" aria-pressed="false">Pause motion <span>[Ⅱ]</span></button></footer>'
     )
     scripts = '<script src="motion.js" defer></script>' + (
@@ -223,13 +223,13 @@ def page(name, title, body):
         + e(canonical_url, quote=True)
         + '"><meta property="og:image" content="'
         + e(share_image, quote=True)
-        + '"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Large Grok Gadgets logo and name beside a conceptual wireframe hardware scene, with an oversized outline Grok Bot face in the background; open-source project, not affiliated with xAI or SpaceXAI."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="'
+        + '"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Large Grok Gadgets logo and name beside a conceptual wireframe hardware scene, with an oversized outline Grok Bot face in the background; open-source project, not affiliated with SpaceXSI."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="'
         + e(page_title, quote=True)
         + '"><meta name="twitter:description" content="'
         + e(description, quote=True)
         + '"><meta name="twitter:image" content="'
         + e(share_image, quote=True)
-        + '"><meta name="twitter:image:alt" content="Large Grok Gadgets logo and name beside a conceptual wireframe hardware scene, with an oversized outline Grok Bot face in the background; open-source project, not affiliated with xAI or SpaceXAI."><link rel="icon" type="image/png" href="media/grok-gadgets-icon.png"><link rel="stylesheet" href="style.css">'
+        + '"><meta name="twitter:image:alt" content="Large Grok Gadgets logo and name beside a conceptual wireframe hardware scene, with an oversized outline Grok Bot face in the background; open-source project, not affiliated with SpaceXSI."><link rel="icon" type="image/png" href="media/grok-gadgets-icon.png"><link rel="stylesheet" href="style.css">'
         + (
             '<link rel="stylesheet" href="scene.css"><link rel="stylesheet" href="roadmap-scene.css"><link rel="stylesheet" href="signal-scene.css"><link rel="stylesheet" href="hardware-scene.css">'
             if home
@@ -369,7 +369,7 @@ page(
     + path_row(
         "03",
         "Build a gadget",
-        "Build the ESP32-S3 + OLED kit with the reusable SDK.",
+        "Build the tested ESP32-S3/OLED kit with the reusable SDK.",
         "esp32.html",
         "ESP32",
     )
@@ -387,7 +387,7 @@ page(
         "home-assistant.html",
         "Home Assistant",
     )
-    + '</div><p class="quiet-note">Local alpha. Authenticated HTTP MCP runs on loopback. Grok Bot runs approved local commands; native tool calls and public HTTPS are not verified. One owner kit passed physical tests.</p>'
+    + '</div><p class="quiet-note">Local alpha. Approved Grok Bot commands reached the owner’s gateway and OLED kit. Native MCP calls and public access remain unverified.</p>'
     + hosting_guide,
 )
 page(
@@ -415,7 +415,7 @@ page(
     + '<p class="quiet-note">The kit includes readable source, the wheel, locked hashed runtime dependencies, configuration schema and Apache-2.0 notices. Installation downloads the dependencies. No account connection happens automatically.</p>'
     + '<p><a href="doc-docs-getting-started-simulator-kit.html">Step-by-step setup &amp; customization ↗</a></p>'
     + '<p><a href="downloads/simulator-kit-manifest.json">Source commit, contents &amp; SHA256 hashes ↗</a></p>'
-    + '<p class="status">Browser simulated · local MCP tested · Grok Bot, physical and mobile checks pending</p>'
+    + '<p class="status">Browser simulated · one physical OLED kit tested separately · native MCP and mobile checks pending</p>'
     + proof_section
     + hosting_guide,
 )
@@ -505,7 +505,7 @@ page(
         "An action.<br>An observation.",
         "The assistant, connection point and device have separate jobs.",
     )
-    + '<div class="flow"><a href="https://x.ai/bot"><img src="media/grok-mark.svg" width="40" height="40" alt="Grok"><span>Grok Bot</span><small>Run by Grok/xAI</small></a><b>↕ Remote MCP: future</b><span>Your gateway<small>Run by its operator</small></span><b>↕ USB / local TCP</b><span>Your device<small>Execute and observe</small></span></div><p class="status">Requested → accepted → execution reported → physically observed</p><p><a href="doc-docs-architecture-overview.html">Architecture reference ↗</a></p><p class="quiet-note">The gateway provides stdio MCP and authenticated HTTP MCP on loopback. Public access also needs operator HTTPS. A tunnel does not replace authentication. Home Assistant can use its own upstream MCP route. Local tests, Grok Bot invocation, remote security and physical effects need separate evidence.</p>'
+    + '<div class="flow"><a href="https://x.ai/bot"><img src="media/grok-mark.svg" width="40" height="40" alt="Grok"><span>Grok Bot</span><small>Run by SpaceXSI</small></a><b>↕ Approved local command</b><span>Your gateway<small>Run by its operator</small></span><b>↕ USB / private LAN TLS</b><span>Your device<small>Execute and observe</small></span></div><p class="status">Requested → accepted → execution reported → physically observed</p><p><a href="doc-docs-architecture-overview.html">Architecture reference ↗</a></p><p class="quiet-note">The owner’s approved local commands reached the gateway and OLED kit. Native MCP calls and a public remote route remain unverified. A tunnel does not replace authentication. Home Assistant can use its own upstream MCP route.</p>'
     + hosting_guide,
 )
 roadmap_issues = [
@@ -584,11 +584,11 @@ page(
     "releases.html",
     "Releases",
     intro(
-        "Source alpha · package releases pending",
-        "0.1.0-alpha.1",
+        "Public source · alpha releases",
+        "Released alpha builds",
         "Simulation, separate SDKs, firmware builds and integration recipes.",
     )
-    + '<p class="status">Actual Grok · physical hardware · independent reproduction pending</p>'
+    + '<p class="status">Approved local Grok Bot route and one physical kit checked · native MCP and independent reproduction pending</p>'
     + path_row(
         "01",
         "What passed",
@@ -663,7 +663,7 @@ page(
         '<a class="docs-start" href="doc-docs-getting-started-simulator-kit.html">'
         'Start without hardware <span aria-hidden="true">↗</span></a>'
         '<nav class="docs-entry-paths" aria-label="Choose a build path"><a href="simulator.html">Simulator ↗</a><a href="esp32.html">ESP32 ↗</a><a href="linux.html">Linux / Raspberry Pi ↗</a><a href="home-assistant.html">Home Assistant ↗</a></nav>'
-        '<p class="docs-note">New here? Start with the simulator. Actual Grok and physical-device verification remain pending.</p></header>'
+        '<p class="docs-note">New here? Start with the simulator. One owner kit passed USB and Wi-Fi tests; native MCP and independent reproduction remain open.</p></header>'
         + doc_navigation.index()
         + '<p class="docs-note"><a href="maintainers.html">Maintainer and process records ↗</a></p>',
         "docs.html",
