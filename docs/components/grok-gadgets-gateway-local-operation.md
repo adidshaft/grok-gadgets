@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/local-operation.md at 1042edd949a421966a0d7254485d1580e13d5bf5
+Source: grok-gadgets-gateway/docs/local-operation.md at d2a3f4dcc49398c4ca5581693e457e773d714e0d
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -32,6 +32,10 @@ Local simulation needs no public endpoint, domain, or hosted service.
 
 For an installable configurable software device instead, see [simulator settings](simulator.md).
 `--simulator-config` only works with `--simulator` and never enables test controls implicitly.
+
+`--simulator` on its own serves only the simulated light. It never reads your device registry
+and opens no device port, so it runs beside a gateway you already use. To serve enrolled
+devices as well, add `--credentials ~/.config/grok-gadgets/credentials.json`.
 
 Config lives in `$XDG_CONFIG_HOME/grok-gadgets` or `~/.config/grok-gadgets` when `XDG_CONFIG_HOME` is unset.
 
