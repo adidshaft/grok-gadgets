@@ -194,12 +194,8 @@ MAINTAINER_GROUPS = (
                 None,
                 (
                     ("gateway", "docs/release.md", "Gateway release checks"),
-                    ("linux-sdk", "docs/release.md", "Linux SDK release checks"),
-                    (
-                        "home-assistant",
-                        "docs/release.md",
-                        "Home Assistant release checks",
-                    ),
+                    ("linux-sdk", "docs/release.md", "Linux SDK releases"),
+                    ("home-assistant", "docs/release.md", "Home Assistant releases"),
                     ("", "docs/public/local-status.md", "Overall verification status"),
                     ("", "docs/public/gateway-verification.md", "Gateway verification"),
                     (

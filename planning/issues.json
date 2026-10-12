@@ -1283,11 +1283,112 @@
       "gateway"
     ],
     "milestone": "M9",
-    "stage": "review",
+    "stage": "done",
     "commits": [],
     "evidence": [
       "https://github.com/adidshaft/grok-gadgets/issues/170",
       "https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "AUDIT-DOC-002",
+    "repository": "grok-gadgets",
+    "problem": "Public docs lagged the 12 October kit evidence",
+    "intended_behaviour": "Hub docs and website claim exactly one owner kit, the approved rehearse route and nothing more",
+    "acceptance": [
+      "README, ROADMAP, hosting, status, plan and website copy match the records",
+      "No claim of independent reproduction or native Grok Bot MCP calls"
+    ],
+    "dependencies": [],
+    "labels": [
+      "docs",
+      "website",
+      "P1"
+    ],
+    "milestone": "M9",
+    "stage": "done",
+    "commits": [],
+    "evidence": [
+      "https://github.com/adidshaft/grok-gadgets/issues/177",
+      "https://github.com/adidshaft/grok-gadgets/pull/180"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "HUB-KIT-003",
+    "repository": "grok-gadgets",
+    "problem": "The repeat-the-kit guide had no diagram or troubleshooting",
+    "intended_behaviour": "A stranger can wire, flash, provision and recover the kit from the guide alone",
+    "acceptance": [
+      "Label-based wiring diagram matching the tested table",
+      "Troubleshooting from the Phase 3 and 4 lessons",
+      "Optional approved Grok Bot rehearse step"
+    ],
+    "dependencies": [],
+    "labels": [
+      "docs",
+      "esp32",
+      "needs hardware"
+    ],
+    "milestone": "M9",
+    "stage": "done",
+    "commits": [],
+    "evidence": [
+      "https://github.com/adidshaft/grok-gadgets/issues/183",
+      "https://github.com/adidshaft/grok-gadgets/pull/184"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "HUB-TEST-CALL-001",
+    "repository": "grok-gadgets",
+    "problem": "Nobody but the owner has repeated the kit",
+    "intended_behaviour": "Testers with the same parts can find the guide and report results",
+    "acceptance": [
+      "Call-for-testers issue lists the exact parts and links the guide",
+      "No Reddit post without the owner's approval"
+    ],
+    "dependencies": [
+      "HUB-KIT-003"
+    ],
+    "labels": [
+      "community",
+      "esp32",
+      "help wanted"
+    ],
+    "milestone": "M9",
+    "stage": "in progress",
+    "commits": [],
+    "evidence": [
+      "https://github.com/adidshaft/grok-gadgets/issues/185"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "HUB-REL-018",
+    "repository": "grok-gadgets",
+    "problem": "Ship Phase 5 component releases in the hub",
+    "intended_behaviour": "The hub records gateway v0.1.0-alpha.7, Linux SDK v0.1.0-alpha.5, ESP32 SDK v0.2.0-alpha.10 and Home Assistant v0.1.0-alpha.5",
+    "acceptance": [
+      "Tested set and documentation snapshots pin each released main",
+      "Simulator kit rebuilt from gateway v0.1.0-alpha.7",
+      "Release v0.1.8-alpha.1 and sync main into dev after owner approval"
+    ],
+    "dependencies": [
+      "HUB-REL-017",
+      "HUB-KIT-003"
+    ],
+    "labels": [
+      "maintenance",
+      "gateway",
+      "esp32"
+    ],
+    "milestone": "M9",
+    "stage": "review",
+    "commits": [],
+    "evidence": [
+      "https://github.com/adidshaft/grok-gadgets/issues/189"
     ],
     "blocker": null
   }
