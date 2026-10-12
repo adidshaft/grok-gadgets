@@ -1463,10 +1463,60 @@
       "simulator"
     ],
     "milestone": "M9",
-    "stage": "review",
+    "stage": "done",
     "commits": [],
     "evidence": [
       "https://github.com/adidshaft/grok-gadgets/issues/208"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "HUB-ADR-006",
+    "repository": "grok-gadgets",
+    "problem": "The gateway ran only in a terminal and devices stored a raw IPv4 address",
+    "intended_behaviour": "A per-user gateway service and a .local name keep the kit online across restarts and address changes",
+    "acceptance": [
+      "ADR 006 accepted before code",
+      "Owner check: restart and address change without manual steps"
+    ],
+    "dependencies": [],
+    "labels": [
+      "docs",
+      "gateway",
+      "esp32"
+    ],
+    "milestone": "M9",
+    "stage": "done",
+    "commits": [],
+    "evidence": [
+      "https://github.com/adidshaft/grok-gadgets/issues/212",
+      "https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/verification/always-on-2026-10-13.md"
+    ],
+    "blocker": null
+  },
+  {
+    "id": "HUB-REL-021",
+    "repository": "grok-gadgets",
+    "problem": "Ship the Phase 6 always-on gateway in the hub",
+    "intended_behaviour": "The hub records gateway v0.1.0-alpha.10 and ESP32 SDK v0.2.0-alpha.12 and the guide uses the name and the service",
+    "acceptance": [
+      "Tested set and documentation snapshots pin each released main",
+      "Simulator kit rebuilt from gateway v0.1.0-alpha.10",
+      "Release and sync main into dev"
+    ],
+    "dependencies": [
+      "HUB-ADR-006"
+    ],
+    "labels": [
+      "maintenance",
+      "gateway",
+      "esp32"
+    ],
+    "milestone": "M9",
+    "stage": "review",
+    "commits": [],
+    "evidence": [
+      "https://github.com/adidshaft/grok-gadgets/issues/220"
     ],
     "blocker": null
   }
