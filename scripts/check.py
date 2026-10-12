@@ -83,6 +83,7 @@ def steps(py):
             [py, "-m", "unittest", "discover", "-s", "website", "-p", "test_*.py"],
         ),
         ("Website build", [py, "website/build.py"]),
+        ("Social preview", [py, "scripts/check-social-preview.py", "website/dist"]),
         ("Build from a ZIP download", [py, "scripts/check-archive-build.py"]),
         ("Public URL prefix", [py, "scripts/check-pages-prefix.py"]),
         (

@@ -30,7 +30,9 @@ def check(site):
         metadata = Metadata()
         metadata.feed(page.read_text())
         values = metadata.meta
-        base = f"https://grokgadgets.org/{page.name}"
+        # Cloudflare Pages serves page.html at /page and redirects .html URLs.
+        slug = "" if page.name == "index.html" else page.stem
+        base = f"https://grokgadgets.org/{slug}"
         image = "https://grokgadgets.org/media/grok-gadgets-share-v4.png"
         expected = {
             "description": None,
