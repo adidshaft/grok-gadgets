@@ -7,8 +7,30 @@ kit. Your results are new evidence; do not assume your board will pass.
 
 Use the released [ESP32 SDK v0.2.0-alpha.10](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.10)
 and [gateway v0.1.0-alpha.7](https://github.com/adidshaft/grok-gadgets-gateway/releases/tag/v0.1.0-alpha.7).
-Read each repository's setup guide before running its commands. Firmware binaries
-are not published. Build the firmware from source.
+Firmware binaries are not published. Build the firmware from source.
+
+## Before you start: get the code
+
+You need a Mac or Linux computer with Git, Python 3.11 or later and
+[uv](https://docs.astral.sh/uv/getting-started/installation/). Clone both
+repositories at the release tags and install their tools once. Git reports a
+"detached HEAD" for a tag; that is expected.
+
+```sh
+git clone --branch v0.2.0-alpha.10 https://github.com/adidshaft/grok-gadgets-esp32-sdk.git
+cd grok-gadgets-esp32-sdk
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.lock
+.venv/bin/pio pkg install
+cd ..
+git clone --branch v0.1.0-alpha.7 https://github.com/adidshaft/grok-gadgets-gateway.git
+cd grok-gadgets-gateway
+uv sync --locked
+uv run grok-gadgets-gateway --version
+```
+
+The last command prints `grok-gadgets-gateway 0.1.0a7`. The first PlatformIO run
+downloads the ESP32 toolchain, which takes several minutes.
 
 ## 1. Check the parts
 
@@ -37,9 +59,17 @@ labels; do not infer pin position from a photo or wire color.
 
 ## 2. Flash and check USB
 
-In the ESP32 SDK checkout, follow [Build and flash](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/v0.2.0-alpha.10/examples/oled-kit/README.md).
-Build `esp32s3-oled-kit` for USB or `esp32s3-oled-kit-wifi` for Wi-Fi. For the
-first flash, hold BOOT while you connect the cable to **USB**, then release it.
+In the ESP32 SDK checkout, build and flash the Wi-Fi build. Use
+`esp32s3-oled-kit` instead for a USB-only run.
+
+```sh
+.venv/bin/pio run -e esp32s3-oled-kit-wifi
+.venv/bin/pio run -e esp32s3-oled-kit-wifi -t upload
+```
+
+For the first flash, hold BOOT while you connect the cable to **USB**, then release it.
+See the kit's [README](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/v0.2.0-alpha.10/examples/oled-kit/README.md)
+for the commands and status messages.
 Restart the board after you change any display wire. The firmware checks for the
 OLED at startup.
 
