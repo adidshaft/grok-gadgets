@@ -36,7 +36,7 @@ The example must eventually let the user:
 - Read real button presses and control an LED if suitable onboard parts or optional external parts are fitted.
 - Understand when the device is disconnected or an action is unconfirmed.
 
-Start with a software simulation while the user arranges the board. The first physical path should use USB to reduce setup complexity; Wi-Fi is the next transport milestone. Both are within the eventual ESP32 SDK direction.
+Start with a software simulation while the user arranges the board. The first physical path should use USB to reduce setup complexity; Wi-Fi is the next transport milestone. Both are within the eventual ESP32 SDK direction. ADR 005 (`docs/decisions/005-wifi-device-route.md`) decides the secure Wi-Fi route.
 
 ### Product promises and limits
 
