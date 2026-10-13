@@ -66,7 +66,7 @@ The gateway stays one Python package. The relay is `grok-gadgets-gateway serve` 
 
 ### 5. Privacy and logs
 
-The relay sees device IDs, capabilities, commands, reported state and events. Provisioning must not send Wi-Fi credentials to the relay. Custom gadget payloads need their own privacy review. The request log keeps an argument hash, never arguments or state. Retention follows the existing rotation (5 MiB, 5 files). A builder's page shows only usage counts per device.
+The relay sees device IDs, capabilities, commands, reported state and events. Provisioning must not send Wi-Fi credentials to the relay. Custom gadget payloads need their own privacy review. The request log file is for the operator: it records command arguments with secret fields redacted, and the state that a state read returned. It never records tokens. A multi-tenant relay must review this before stage 3. Retention follows the existing rotation (5 MiB, 5 files). A builder's page shows only usage counts per device.
 
 ### 6. Stages
 
@@ -100,7 +100,7 @@ The relay sees device IDs, capabilities, commands, reported state and events. Pr
 | R4 | OAuth floods, stolen or refreshed tokens, abuse with a live sign-in | ADR 008 T1–T8, applied per account | 1, 3 |
 | R5 | Claim-code guessing | 7+ characters from a 32-character alphabet; new code per boot; 10-minute expiry; per-address and per-device limits; the code stops working once claimed | 3 |
 | R6 | Cross-tenant read or command | Account scope checked in every tool; a regression test per tool | 3 |
-| R7 | Relay host or operator compromise | Hashed device tokens; no Wi-Fi secrets; argument hashes only; short retention; released versions; OS updates; the operator's view is documented | 1, 3 |
+| R7 | Relay host or operator compromise | Hashed device tokens; no Wi-Fi secrets; redacted arguments in the operator's log; short retention; released versions; OS updates; the operator's view is documented | 1, 3 |
 | R8 | Lost or opened gadget | The token grants that device only; `revoke`; flash encryption off is documented (ADR 005) | 1 |
 | R9 | Relay outage | No queueing; gadget backoff with jitter; honest status; `remote off` and `revoke` still work | 1 |
 | R10 | Shared relay cost and abuse | Per-account limits; owner decision; not built | 5 |
