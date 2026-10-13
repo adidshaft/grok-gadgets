@@ -1,7 +1,8 @@
 <section class="home-scene" data-view="system" aria-labelledby="scene-heading">
   <div class="scene-intro">
-    <h1 id="scene-heading">Open-source tools and SDKs<br>for your Grok Bot.</h1>
-    <p>Build gadgets for Grok Bot. Start with the simulator, then explore ESP32, Linux, or Home Assistant.</p>
+    <h1 id="scene-heading">Your Grok Bot.<br>In the real world.</h1>
+    <p>Show text, set a light and read a button on a small Wi-Fi board you build.</p>
+    <a class="scene-status" href="doc-docs-public-support-matrix.html">Alpha · one kit verified · native Grok Bot calls next ↗</a>
     <div class="scene-gallery-nav" role="group" aria-label="Choose a motion scene" hidden>
       <button type="button" data-scene="devices" aria-pressed="true"><span class="scene-index">01 </span>Devices</button>
       <button type="button" data-scene="signal" aria-pressed="false"><span class="scene-index">02 </span>Connections</button>
@@ -51,7 +52,7 @@
   </div>
   <dialog id="scene-inspector" aria-labelledby="inspector-title">
     <div class="inspector-header"><h2 id="inspector-title">Explore Grok Gadgets</h2><button id="scene-close" type="button" aria-label="Close exploration panel">Close [×]</button></div>
-    <p class="inspector-status">Try the local simulator today. <a href="doc-docs-public-support-matrix.html">One kit passed USB and Wi-Fi tests; native Grok Bot MCP calls remain open.</a></p>
+    <p class="inspector-status">Explore the illustrated connections and try the local light simulation.</p>
     <div class="scene-console">
     <div class="scene-caption">
       <span id="scene-detail-name">Gateway</span>
@@ -71,12 +72,13 @@
       </div>
       <p id="scene-feedback" role="status" aria-live="polite" aria-atomic="true">LED off · 0 button events · connected</p>
     </div>
-    <a class="scene-customize-link" href="#playground">Customize the virtual light ↗</a>
+    <a class="scene-customize-link" href="playground.html">Customize the virtual light ↗</a>
     </details>
     <button id="scene-replay" type="button">Replay illustration ↻</button>
     <p class="scene-evidence"><span class="simulation-mark" aria-hidden="true"></span> Interactive illustration · simulated devices</p>
   </div>
-    {{HOME_DETAILS}}
+    {{PLAYGROUND_DETAILS}}
   </dialog>
   <noscript><p class="scene-noscript">Static conceptual routes are shown above. JavaScript enables the browser light controls. <a href="simulator.html">Download and run the local simulator kit ↗</a></p></noscript>
 </section>
+{{HOME_DETAILS}}

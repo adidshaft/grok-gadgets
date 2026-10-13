@@ -1,6 +1,6 @@
 # Hosting and remote access
 
-There are three separate paths. The website serves documentation and a browser simulator. It does not run your gateway. The owner's Grok Bot used an approved local command to reach the gateway; native MCP calls remain unverified.
+There are three separate paths. The website serves documentation and a browser simulator. It does not run your gateway. The owner's Grok Bot used an approved local command to reach the gateway; native MCP calls remain unverified. The Wi-Fi kit can use the gateway's optional per-user service, which starts after Mac login or under a Linux user session.
 
 ## 1. Grok Bot on its cloud computer
 
@@ -16,7 +16,7 @@ The Mac-to-Pi SSH path is a possible manual experiment. It has not been tested a
 
 On 12 October 2026 the owner's Grok Bot ran two approved `grok-gadgets-gateway rehearse` commands on the owner's Mac. The gateway request log recorded the matching calls against a simulated light. Later, the same local-command route showed text on the owner's physical OLED over USB and Wi-Fi. Grok Bot did not add the gateway as an MCP server. The approved command is a working local route, not a native tool connection. See the [local-command issue](https://github.com/adidshaft/grok-gadgets/issues/31) and [Wi-Fi kit record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md).
 
-For Wi-Fi, the board can draw power from a USB charger. The gateway must still run on the Mac. Start its private LAN TLS listener by hand. It is not installed as a service. Reserve the Mac's address on the router or provision the board again if that address changes. Follow the [kit guide](repeat-the-kit.md).
+For Wi-Fi, the board can draw power from a USB charger. The gateway must still run on the Mac. Its optional per-user service can start the private LAN TLS listener at login. Provisioning with the Mac's `.local` name lets the gateway re-resolve and rebind after an address change. The owner's board recovered after two address changes without a new certificate or provisioning. One restart/login run took about 90 seconds to return Online; faster recovery needs a retest. Follow the [kit guide](repeat-the-kit.md) and [always-on guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/always-on.md).
 
 ## 3. Grok Gadgets remote MCP
 
@@ -63,7 +63,7 @@ Product goal: Grok Bot → authenticated remote MCP endpoint with TLS
 
 **Who runs the MCP server?** The gateway operator runs it. SpaceXSI runs Grok Bot. A Home Assistant operator runs Home Assistant's own MCP server.
 
-**What can I use now?** Use the [browser simulator](https://grokgadgets.org/#playground), the [simulator kit](simulator-kit.md), or the [tested ESP32-S3/OLED kit](repeat-the-kit.md). The owner's Grok Bot used the approved local-command route to show text on that kit. Native MCP support and another person's reproduction remain open.
+**What can I use now?** Build the [tested ESP32-S3/OLED kit](repeat-the-kit.md), or use the [browser playground](https://grokgadgets.org/playground) and [simulator kit](simulator-kit.md) without hardware. The owner's Grok Bot used the approved local-command route to show text on that kit. Native MCP support and another person's reproduction remain open.
 
 **Does a button wake Grok Bot?** No. Events wait in the gateway until a client calls `gadgets_read_events`.
 

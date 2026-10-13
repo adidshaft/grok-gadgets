@@ -229,6 +229,11 @@
     document.dispatchEvent(new Event('grok:panel-change'));
   }
   inspectButton.addEventListener('click', openInspector);
+  if (document.body.hasAttribute('data-playground-route')) {
+    const workbench = document.querySelector('#playground');
+    if (workbench) workbench.open = true;
+    requestAnimationFrame(openInspector);
+  }
   document.querySelector('#scene-close').addEventListener('click', () => inspector.close());
   inspector.addEventListener('close', () => {
     document.dispatchEvent(new Event('grok:panel-change'));

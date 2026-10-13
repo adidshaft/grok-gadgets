@@ -12,7 +12,7 @@ This document is the standalone handoff for the build chat. Read the whole plan 
 
 ## 1. Product definition
 
-Grok Gadgets is an independent, entirely open-source hardware ecosystem **exclusively for Grok**, especially the user's existing Grok Bot. It provides SDKs and integrations through which people connect physical devices, read their state, and operate their supported capabilities.
+Grok Gadgets is an independent, entirely open-source hardware ecosystem **for the user's existing Grok Bot**. It provides SDKs and integrations through which people connect physical devices, read their state, and operate their supported capabilities.
 
 Its audiences are:
 
@@ -21,7 +21,7 @@ Its audiences are:
 3. Existing Home Assistant users connecting supported devices they already own.
 4. Beginners following a small set of tested, well-documented hardware examples.
 
-The reference experience is Muse Gadgets: separately usable Linux and ESP32 SDKs, working examples, clear setup, and a public community. This is a reference for the breadth and usability of the project, not a promise of identical native pairing, avatar, voice, or conversation features. Those depend on separately verified Grok capabilities.
+The target experience is a small, repeatable kit, separately usable Linux and ESP32 SDKs, clear setup and a public community. Native pairing, voice and conversation features depend on separately verified Grok Bot capabilities.
 
 Grok Bot is the only assistant platform. Do not add other AI model backends, entry points or integrations; use only Grok Bot and SpaceXSI technology.
 
@@ -54,7 +54,7 @@ Start with a software simulation while the user arranges the board. The first ph
 | Decision | Agreed direction |
 | --- | --- |
 | Name | Grok Gadgets |
-| AI integration | Exclusively Grok; existing Grok Bot is the primary target |
+| Bot integration | The user's existing Grok Bot is the only target |
 | Repository count | Five independent repositories |
 | SDK structure | Separate Linux and ESP32 SDK repositories |
 | Website location | Main project repository |
@@ -810,7 +810,6 @@ Ask for these when the dependent action is ready, with a concrete explanation. D
 
 These are reference links, not evidence that an integration has passed tests. Re-check current documentation before relying on changing product behaviour.
 
-- [Muse Gadgets](https://gadgets.muse.ai/)
 - [Muse gadget SDK source](https://github.com/facebookincubator/muse-gadget-sdk)
 - [M5Stack AtomS3 Lite](https://docs.m5stack.com/en/core/AtomS3-Lite)
 - [Grok Bot overview](https://docs.x.ai/grok-bot/overview)

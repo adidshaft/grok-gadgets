@@ -1,14 +1,28 @@
 # Project status
 
-Updated 12 October 2026. This is the one place that says what works. Other pages link here
+Updated 13 October 2026. This is the one place that says what works. Other pages link here
 instead of repeating caveats.
 
-**The Grok Bot connection is in progress. You can test the gateway and existing SDK examples locally.**
+**Alpha · one kit verified · native Grok Bot calls next.** The owner's kit works through approved local commands. Native Grok Bot MCP calls are not yet verified.
 
-| Part | Works today (software, checked in CI every night) | Not verified yet |
+## Current releases
+
+| Component | Release | Package |
 | --- | --- | --- |
-| Gateway and simulated light | Six MCP tools for Grok Bot over stdio or authenticated HTTP on `127.0.0.1`; `rehearse` first success; approved Grok Bot local commands; simulator kit; opt-in TLS listener for Wi-Fi devices on one private address | Native Grok Bot MCP calls; Windows and Intel Mac installs |
-| Linux SDK | `grok-linux-agent dev ./my_gadget.py` with the decorator API, against the gateway's `main` | Real peripherals, systemd, Raspberry Pi hardware |
+| Hub | `v0.1.10-alpha.2` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.10-alpha.2) |
+| Gateway | `v0.1.0-alpha.10` | [PyPI `0.1.0a10`](https://pypi.org/project/grok-gadgets-gateway/) |
+| ESP32 SDK | `v0.2.0-alpha.12` | [GitHub release](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.12) |
+| Linux SDK | `v0.1.0-alpha.6` | [PyPI `0.1.0a6`](https://pypi.org/project/grok-gadgets-linux-sdk/) |
+| Home Assistant | `v0.1.0-alpha.5` | [PyPI `0.1.0a5`](https://pypi.org/project/grok-gadgets-home-assistant/) |
+
+## What comes next
+
+Phases 1–6 covered the local software, one physical USB/Wi-Fi kit and the optional per-user always-on gateway service. [Another person's kit run](https://github.com/adidshaft/grok-gadgets/issues/185) remains an open acceptance gate. **Phase 7** is a native Grok Bot tool call from Mac and phone through a separately approved authenticated remote HTTPS route. **Phase 8** is setup without the initial USB cable. **Phase 9** may add an optional hosted relay, pending an owner service decision. A button event does not wake Grok Bot.
+
+| Part | What works today | Not verified yet |
+| --- | --- | --- |
+| Gateway and simulated light | Six MCP tools over stdio or authenticated HTTP on `127.0.0.1`; `rehearse` first success; approved Grok Bot local commands; simulator kit; private LAN TLS for Wi-Fi devices; optional per-user launchd/systemd service | Native Grok Bot MCP calls; Windows and Intel Mac installs; slow post-login recovery retest |
+| Linux SDK | PyPI `0.1.0a6` and `grok-linux-agent dev ./my_gadget.py` with the decorator API | Real peripherals, systemd on a physical Linux host, Raspberry Pi hardware |
 | ESP32 SDK | Host tests, three firmware examples compile, simulated USB link to the gateway. The ESP32-S3 + OLED kit passed physical tests on the owner's board over USB ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-2026-10-12.md)) and over Wi-Fi from a USB charger ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)) | Another person's reproduction; other boards and routers; setup without a USB cable ([#72](https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/72)) |
 | Home Assistant probe | Read-only discovery against fixtures | A real Home Assistant home |
 | Browser playground | Local JavaScript model of the light | — (it never calls Grok) |
@@ -27,5 +41,6 @@ instead of repeating caveats.
 **M8 — Physical and independent verification: partly done.** The owner's ESP32-S3 + OLED kit passed. An independent reproduction and a real Raspberry Pi setup are still needed.
 
 Tested component versions are in the [compatibility manifest](../../compatibility/tested-components.json).
+See [how we verify](how-we-verify.md) for the local command log and physical observations.
 How the parts connect and who runs what: [hosting FAQ](../getting-started/hosting.md).
 Dated evidence for maintainers starts at the [verification record](local-status.md).

@@ -4,8 +4,8 @@ Grok Gadgets is an alpha for your existing Grok Bot. The public site provides do
 
 | Component | Local evidence | Still pending |
 | --- | --- | --- |
-| Gateway and simulator | Local rehearsal command, authenticated loopback and simulation tests; Grok Bot ran approved `rehearse` commands, recorded in the gateway request log | Supported remote route and native Grok Bot tool calls |
-| Linux SDK | Installed-wheel acceptance on macOS and an isolated Linux container | Physical peripherals and systemd lifecycle |
+| Gateway and simulator | Local rehearsal command, authenticated loopback and simulation tests; Grok Bot ran approved `rehearse` commands, recorded in the gateway request log; optional per-user service and private LAN name route passed on the owner's kit | Supported remote route and native Grok Bot tool calls; faster post-login recovery retest |
+| Linux SDK | Released PyPI wheel and installed-wheel acceptance on macOS and an isolated Linux container | Physical peripherals and systemd lifecycle on a real Linux host |
 | ESP32 SDK / retained reference examples | Host consumer tests, ESP32-S3 compilation, and USB/Wi-Fi physical acceptance of the owner's ESP32-S3 + OLED kit | Independent reproduction, other boards, disconnect during a command |
 | Home Assistant | Fixtures and local MCP transport checks | Actual home installation and Grok Bot |
 | Website and community | Public static site, fixtures and offline recognition | A hosted gateway and automatic recognition |
