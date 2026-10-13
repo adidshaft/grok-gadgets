@@ -176,6 +176,16 @@ Every `mcp_tool_call` with `"token":"grok-bot"` in the window. The `client` fiel
 
 Each prompt gave exactly one tool call: 9 calls, 0 errors, 2 commands. Prompt 5 differs from the checklist: nobody pressed BOOT, so the call returned no events.
 
+## Screenshots
+
+Cropped to the chat; no account details, other Bots, hostname or token. Taken after the test from the same chat.
+
+![Grok Bot desktop app: grok-gadgets connected, then the gadget list and the "Hello from Grok Bot" command](grok-remote-https-2026-10-13-mac.jpg)
+
+![Grok Bot iPhone app: the "Hello from my phone" command and a state read through grok-gadgets](grok-remote-https-2026-10-13-phone.jpg)
+
+The screenshots show Grok Bot's replies. The log lines above are the evidence that the calls reached the gateway.
+
 ## Physical check
 
 The owner looked at the OLED after prompt 2 and saw "Hello from Grok Bot". After prompt 8 the device reported "Hello from my phone"; the owner did not report a second look.
