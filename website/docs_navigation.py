@@ -17,6 +17,8 @@ GROUPS = (
                 None,
                 (
                     ("", "README.md", "Project overview"),
+                    ("", "docs/index.md", "Choose a documentation path"),
+                    ("", "docs/getting-started/troubleshooting.md", "Troubleshooting"),
                     (
                         "",
                         "docs/getting-started/repeat-the-kit.md",
@@ -188,7 +190,11 @@ GROUPS = (
         (
             (
                 None,
-                (("", "docs/architecture/overview.md", "Project architecture"),),
+                (
+                    ("", "docs/architecture/overview.md", "Project architecture"),
+                    ("", "docs/reference/glossary.md", "Glossary"),
+                    ("", "docs/decisions/009-relay-route.md", "Proposed relay design"),
+                ),
             ),
         ),
     ),
