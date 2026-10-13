@@ -3,7 +3,7 @@
 Updated 13 October 2026. This is the one place that says what works. Other pages link here
 instead of repeating caveats.
 
-**Alpha · one kit verified · native Grok Bot calls next.** The owner's kit works through approved local commands. Native Grok Bot MCP calls are not yet verified.
+**Alpha · one kit verified · native Grok Bot calls verified on the owner's setup.** On 13 October 2026 the owner's Grok Bot called the six tools itself from the Mac and the iPhone, through an owner-run tunnel with sign-in ([ADR 007](../decisions/007-grok-bot-remote-https.md)). [Connect your Grok Bot](../getting-started/connect-grok-bot.md).
 
 ## Current releases
 
@@ -17,11 +17,11 @@ instead of repeating caveats.
 
 ## What comes next
 
-Phases 1–6 covered the local software, one physical USB/Wi-Fi kit and the optional per-user always-on gateway service. [Another person's kit run](https://github.com/adidshaft/grok-gadgets/issues/185) remains an open acceptance gate. **Phase 7** is a native Grok Bot tool call from Mac and phone through a separately approved authenticated remote HTTPS route. **Phase 8** is setup without the initial USB cable. **Phase 9** may add an optional hosted relay, pending an owner service decision. A button event does not wake Grok Bot.
+Phases 1–6 covered the local software, one physical USB/Wi-Fi kit and the optional per-user always-on gateway service. [Another person's kit run](https://github.com/adidshaft/grok-gadgets/issues/185) remains an open acceptance gate. **Phase 7** is done on the owner's setup: native Grok Bot tool calls from Mac and phone through an owner-run tunnel with OAuth sign-in, plus [usage tracking](../getting-started/track-usage.md). **Phase 8** is setup without the initial USB cable. **Phase 9** may add an optional hosted relay, pending an owner service decision. A button event does not wake Grok Bot.
 
 | Part | What works today | Not verified yet |
 | --- | --- | --- |
-| Gateway and simulated light | Six MCP tools over stdio or authenticated HTTP on `127.0.0.1`; `rehearse` first success; approved Grok Bot local commands; simulator kit; private LAN TLS for Wi-Fi devices; optional per-user launchd/systemd service | Native Grok Bot MCP calls; Windows and Intel Mac installs; slow post-login recovery retest |
+| Gateway and simulated light | Six MCP tools over stdio or authenticated HTTP on `127.0.0.1`; `rehearse` first success; approved Grok Bot local commands; native Grok Bot calls from Mac and iPhone through an owner-run tunnel with OAuth sign-in (gateway `0.1.0a11`, on `dev`); usage summary and hook; simulator kit; private LAN TLS for Wi-Fi devices; optional per-user launchd/systemd service | Another person's native connection; Team Bots; Windows and Intel Mac installs; slow post-login recovery retest |
 | Linux SDK | PyPI `0.1.0a6` and `grok-linux-agent dev ./my_gadget.py` with the decorator API | Real peripherals, systemd on a physical Linux host, Raspberry Pi hardware |
 | ESP32 SDK | Host tests, three firmware examples compile, simulated USB link to the gateway. The ESP32-S3 + OLED kit passed physical tests on the owner's board over USB ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-2026-10-12.md)) and over Wi-Fi from a USB charger ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)) | Another person's reproduction; other boards and routers; setup without a USB cable ([#72](https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/72)) |
 | Home Assistant probe | Read-only discovery against fixtures | A real Home Assistant home |
@@ -31,12 +31,12 @@ Phases 1–6 covered the local software, one physical USB/Wi-Fi kit and the opti
 
 - **Software:** tests, builds and local MCP calls. A device acknowledgement is the device's
   report, not proof of a physical effect.
-- **Grok Bot:** its normal cloud computer cannot reach your private LAN through its internet connection alone. The owner's Grok Bot ran approved local commands on a Mac. Gateway logs matched those commands, and one command showed text on the physical OLED. This verifies that local-command route on the owner's setup. Native MCP calls remain unverified. Mac-to-Pi SSH remains a conditional, untested route. See the [three connection paths](../getting-started/hosting.md).
-- **Remote MCP:** local `serve` is implemented at `127.0.0.1:8766/mcp` with bearer-token authentication. An authenticated remote MCP endpoint with TLS and approved Grok Bot invocation remain incomplete (`HARD-GROK-REMOTE-001`). A tunnel does not add authentication. Button events do not wake the Bot.
+- **Grok Bot:** its cloud computer cannot reach your private LAN on its own. Two routes are verified on the owner's setup. Approved local commands ran on the Mac (12 October). Native tool calls came through an owner-run HTTPS tunnel with sign-in, from the desktop and phone apps (13 October): the gateway log recorded nine calls with the `grok-bot` sign-in, and the owner saw the text on the OLED ([record](../verification/grok-remote-https-2026-10-13.md)). Mac-to-Pi SSH remains a conditional, untested route. See the [connection paths](../getting-started/hosting.md).
+- **Remote MCP:** `serve` listens on `127.0.0.1:8766/mcp`. With `--allowed-host` and `--oauth`, an owner-run tunnel gives Grok Bot an HTTPS endpoint, and the owner approves each sign-in on the Mac. The project runs no public endpoint. A tunnel does not add authentication; the sign-in does. Button events do not wake the Bot.
 - **Hardware:** needs a person to observe the board. On 12 October 2026 the owner flashed the ESP32-S3 + OLED kit. They observed text, clear, the RGB light, the BOOT button, replug and gateway restart ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-2026-10-12.md)).
   The same day the kit ran over Wi-Fi from a USB charger. The owner observed boot, text, clear, BOOT, Wi-Fi loss and recovery, gateway restart, revocation, wrong-CA rejection and power cycle ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)).
 
-**M5 — Actual Grok: partly done.** Grok Bot runs `rehearse` on the owner's Mac through local execution. It showed text on the real OLED, over USB and over Wi-Fi. Native Grok Bot tool calls need the remote route ([#4](https://github.com/adidshaft/grok-gadgets/issues/4)).
+**M5 — Actual Grok: done on the owner's setup.** Grok Bot runs `rehearse` on the owner's Mac through local execution, and calls the tools natively from the Mac and phone apps through the remote route ([#4](https://github.com/adidshaft/grok-gadgets/issues/4), [ADR 007](../decisions/007-grok-bot-remote-https.md)). Both showed text on the real OLED. Another person's reproduction is still open.
 
 **M8 — Physical and independent verification: partly done.** The owner's ESP32-S3 + OLED kit passed. An independent reproduction and a real Raspberry Pi setup are still needed.
 
