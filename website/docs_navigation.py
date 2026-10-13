@@ -29,6 +29,7 @@ GROUPS = (
             (
                 None,
                 (
+                    ("", "docs/getting-started/how-it-works.md", "How it works"),
                     (
                         "",
                         "docs/getting-started/hosting.md",
