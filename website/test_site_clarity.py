@@ -14,8 +14,12 @@ class SiteClarityTests(unittest.TestCase):
         hero = (SITE / "home-scene.html").read_text()
         self.assertIn("Your Grok Bot.", hero)
         self.assertIn("In the real world.", hero)
-        self.assertIn("Alpha · one kit verified · native Grok Bot calls next", hero)
-        self.assertIn('href="doc-docs-public-support-matrix.html"', hero)
+        self.assertNotIn("Alpha · one kit verified · native Grok Bot calls next", hero)
+        self.assertNotIn("Today: approved local commands on Mac.", hero)
+        self.assertIn(
+            'class="status-link" href="doc-docs-public-support-matrix.html"',
+            (SITE / "build.py").read_text(),
+        )
         self.assertIn('id="scene-demo"', hero)
         self.assertIn('href="start.html"', hero)
 
