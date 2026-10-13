@@ -41,6 +41,11 @@ GROUPS = (
                     ),
                     ("", "docs/getting-started/troubleshooting.md", "Troubleshooting"),
                     ("", "docs/getting-started/track-usage.md", "Track usage"),
+                    (
+                        "",
+                        "docs/getting-started/mac-free-route.md",
+                        "Run the gateway away from your Mac",
+                    ),
                     ("", "SUPPORT.md", "Get help"),
                 ),
             ),
