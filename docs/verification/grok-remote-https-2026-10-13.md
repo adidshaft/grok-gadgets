@@ -1,4 +1,4 @@
-# Grok Bot Remote HTTPS test, runs 1 and 2 — 13 October 2026
+# Grok Bot Remote HTTPS test, runs 1 to 3 — 13 October 2026
 
 Run of the [owner checklist](../grok-remote-test.md) on the owner's Mac, 13 October 2026, Asia/Kolkata (UTC+05:30). The owner authorized it and delegated the on-screen steps to a computer-use session on the Mac. Screen observations below are that session's narrative unless the gateway log confirms them.
 
@@ -82,3 +82,34 @@ Row-only screenshots are kept privately on the owner's Mac. They show the same v
 ## Next step
 
 The only registration path Grok Bot offered puts the token in its tool history. Run 3 needs the owner's decision on that.
+
+# Run 3 — 13 October 2026
+
+Same Mac, app versions, gateway build and tunnel type. The owner accepted that a new, single-run token could enter Grok Bot's setup tool history. **Result: Grok Bot could not add the server with a fixed token.** No server was added and Grok Bot made no tool calls.
+
+## What the gateway log shows
+
+| Time (UTC) | Line | Meaning |
+| --- | --- | --- |
+| 08:07:47 | `serve_started` `0.1.0a11` | Service reinstalled from `dev` with the tunnel name |
+| 08:08:11, 08:08:19 | `http_rejected` 401 `invalid_token` | Requests without a token refused |
+| 08:08:11 | `http_rejected` 403 `named_token_required`, token `default` | Local token refused for a tunnel Host |
+| 08:08:33 | `http_rejected` 503 `remote_disabled` | Kill switch refused a remote request |
+| — | No `mcp_tool_call` with `"token":"grok-bot"` | Grok Bot never called a tool |
+| 08:16:03 | `serve_started` `0.1.0a10` | Service restored to `main` |
+
+## What Grok Bot said (narrative)
+
+The token was pasted into Grok Bot's masked secure prompt at 13:42:30 local time. At 13:43:35 Grok Bot replied that the token arrived, that its computer blanks the token in anything shown to it, and that the server setup step does not accept a reference to the saved value. It said the only ways around that would bypass a safeguard, so it would not. It suggested adding the server in the app with the header, or a gateway sign-in method that needs no fixed token. It corrected its run 2 statement that it could read the token back. No setup step or log line shows the token in its tool history. The session again found no custom-server form in the Bot's info pane or **Connect apps**, and no OAuth offer. The token was revoked by 13:45:24.
+
+## Usage
+
+R0 desktop **Weekly usage limit** "1% used", "Resets in 4 days" (13:39:48); phone **Weekly usage** "1%" (13:40:28); on-demand monthly limit "None". Row-only screenshots on the owner's Mac show the same values. No gadget prompts were sent.
+
+## Clean-up, checked independently
+
+Token revoked, token file deleted, no tunnel process, service on `main` with no `--allowed-host`. The owner saw "Online Grok Bot" on the OLED.
+
+## Finding after three runs
+
+On this personal Grok Bot (desktop 0.70.2), a Remote HTTPS server with a fixed bearer header could not be added: no form for it was found, and Grok Bot will not place a fixed token in the setup step. The Team Bots page names the other documented credential: "each person's sign-in if the server uses OAuth". The gateway does not offer OAuth yet ([gateway #71](https://github.com/adidshaft/grok-gadgets-gateway/issues/71)).
