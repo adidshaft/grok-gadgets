@@ -20,8 +20,8 @@
       href: 'components.html', linkLabel: 'Explore the source repositories', t: .285,
     },
     {
-      name: 'Grok Bot', label: 'Grok Bot', status: 'Native calls', evidence: 'open',
-      detail: 'Grok Bot called the tools from Mac and phone through an owner-run tunnel with sign-in.',
+      name: 'Grok Bot', label: 'Grok Bot', status: 'Daily use', evidence: 'open',
+      detail: 'Grok Bot calls the tools from Mac and phone, at home and on cellular, through an owner-run tunnel with sign-in.',
       href: 'doc-docs-getting-started-connect-grok-bot.html', linkLabel: 'Connect your Grok Bot', t: .5,
     },
     {

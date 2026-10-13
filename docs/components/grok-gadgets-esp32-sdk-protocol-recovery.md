@@ -1,4 +1,4 @@
-Source: grok-gadgets-esp32-sdk/docs/protocol-recovery.md at 20363fdb3f1f12c4e57b45ad5dfe65361b10708f
+Source: grok-gadgets-esp32-sdk/docs/protocol-recovery.md at c41f50b441a5d4d686e09fbd31e51d8a6baed65c
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -28,7 +28,7 @@ The USB hello contains no credentials. The local bridge adds the host's per-devi
 Run the bridge and gateway on the same host. The device protocol is not an HTTPS MCP endpoint.
 Do not expose it through a tunnel. A tunnel does not add gateway authentication.
 The gateway's separate `serve` command provides authenticated HTTP MCP on loopback.
-Public HTTPS and native Grok Bot MCP calls remain unverified; see `HARD-GROK-REMOTE-001` and the
+Grok Bot calls the MCP tools natively through an owner-run tunnel to the MCP port only ([guide](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/connect-grok-bot.md)); see the
 [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md).
 
 ## Startup and identity

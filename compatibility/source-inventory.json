@@ -1,7 +1,7 @@
 [
   {
     "repository": "grok-gadgets-esp32-sdk",
-    "commit": "20363fdb3f1f12c4e57b45ad5dfe65361b10708f",
+    "commit": "c41f50b441a5d4d686e09fbd31e51d8a6baed65c",
     "files": [
       ".clang-format",
       ".github/CODEOWNERS",
@@ -98,7 +98,7 @@
   },
   {
     "repository": "grok-gadgets-gateway",
-    "commit": "1234c1939131d03fd562c5de394c625af76ab240",
+    "commit": "17f51f5114ec1aefc522bb4c93ff8277b716dbe4",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -123,6 +123,7 @@
       "SUPPORT.md",
       "docs/always-on.md",
       "docs/architecture.md",
+      "docs/daily-use.md",
       "docs/evidence/local-alpha.md",
       "docs/evidence/mcp-demo.json",
       "docs/experiment-kit.md",
@@ -140,6 +141,7 @@
       "docs/wifi-devices.md",
       "examples/launchd/xyz.kyokasuigetsu.grok-gadgets-gateway.plist",
       "examples/systemd/grok-gadgets-gateway.service",
+      "examples/usage-hooks/macos-notify.py",
       "planning/issues.json",
       "protocol/0.1.0/README.md",
       "protocol/0.1.0/device-request.schema.json",
@@ -154,6 +156,7 @@
       "src/grok_gadgets_gateway/demo.py",
       "src/grok_gadgets_gateway/domain.py",
       "src/grok_gadgets_gateway/lan.py",
+      "src/grok_gadgets_gateway/logfiles.py",
       "src/grok_gadgets_gateway/mcp_server.py",
       "src/grok_gadgets_gateway/oauth.py",
       "src/grok_gadgets_gateway/operator.py",
@@ -177,9 +180,12 @@
       "tests/test_http.py",
       "tests/test_lan.py",
       "tests/test_limits.py",
+      "tests/test_logfiles.py",
       "tests/test_mcp.py",
       "tests/test_mcp_tokens.py",
+      "tests/test_notify_hook.py",
       "tests/test_oauth.py",
+      "tests/test_oauth_floods.py",
       "tests/test_rehearse.py",
       "tests/test_remote.py",
       "tests/test_request_log.py",

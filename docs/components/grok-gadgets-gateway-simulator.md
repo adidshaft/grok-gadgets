@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/simulator.md at 1234c1939131d03fd562c5de394c625af76ab240
+Source: grok-gadgets-gateway/docs/simulator.md at 17f51f5114ec1aefc522bb4c93ff8277b716dbe4
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -32,9 +32,9 @@ To install a locally built wheel, replace `pip install .` with
 Local simulation needs no domain, public port, tunnel, or hosted service.
 The simulator runs wherever its connector starts the process. A cloud Grok Bot's executable
 and configuration paths must exist in that cloud environment; they cannot refer to files only on your computer.
-This gateway does not provide a remote HTTPS/OAuth endpoint. Read the
+Behind a tunnel you run, `serve --oauth` is a Remote HTTPS endpoint with sign-in; see the [tunnel guide](tunnel.md). Read the
 [hosting FAQ](https://github.com/adidshaft/grok-gadgets/blob/main/docs/getting-started/hosting.md)
-before choosing a host or connection method. Native Grok Bot MCP execution remains unverified. The tested local route uses `rehearse` on the Mac.
+before choosing a host or connection method. Grok Bot calls the tools natively through that route, or runs `rehearse` on the Mac through local execution.
 
 The default and schema are included in the installed package. To inspect the schema,
 run `.venv/bin/python -m grok_gadgets_gateway.simulator_config --schema`.
