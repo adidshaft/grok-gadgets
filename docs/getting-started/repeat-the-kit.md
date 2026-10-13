@@ -138,8 +138,8 @@ with the enrolled board ID:
 This uses **Execution on Local Computer**. Approve the command when Grok Bot asks. Set that
 permission to ask every time, not always allow; the owner's setting was **Always
 allow**, so no approval card appeared. Check the gateway request log and the OLED.
-Native Grok Bot MCP tool calls are not verified. See the
-[hosting FAQ](hosting.md).
+For native tool calls from the desktop and phone apps, see
+[Connect your Grok Bot](connect-grok-bot.md).
 
 ## 5. Record the result
 
@@ -161,8 +161,8 @@ household details before posting.
 
 The owner's [USB record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-2026-10-12.md)
 and [Wi-Fi record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)
-show the evidence level to use. Grok Bot ran an approved local command in the
-owner's setup; native MCP tool calls remain unverified.
+show the evidence level to use. In the owner's setup Grok Bot ran an approved local
+command and, through the remote route, called the tools natively.
 
 ## Troubleshooting
 
