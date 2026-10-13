@@ -1,6 +1,6 @@
 # Repository and device map
 
-The project provides reusable gadget libraries for Grok Bot. The delivered ESP32-S3/OLED kit is the first physical experiment. The owner's kit passed USB and Wi-Fi acceptance. Approved local Grok Bot commands reached the gateway and showed text on the OLED. Native MCP calls and independent reproduction remain open. Retained C124 and generic examples are not the SDK boundary.
+The project provides reusable gadget libraries for Grok Bot. The delivered ESP32-S3/OLED kit is the first physical experiment. The owner's kit passed USB and Wi-Fi acceptance. Native Grok Bot calls from Mac and iPhone reached the owner’s gateway and OLED. Independent reproduction remains open. Retained C124 and generic examples are not the SDK boundary.
 
 The gateway operator hosts the MCP server. SpaceXSI hosts Grok Bot. The website hosts neither. Read the [hosting FAQ](../getting-started/hosting.md).
 
@@ -14,8 +14,9 @@ The gateway operator hosts the MCP server. SpaceXSI hosts Grok Bot. The website 
 
 ```mermaid
 flowchart TD
-    G["Grok Bot cloud computer"] -.-> T["Future secure remote MCP: not ready"]
-    T -.-> W["Local serve: 127.0.0.1:8766/mcp + bearer token"]
+    G["Grok Bot: Mac or iPhone"] --> T["Owner-run HTTPS tunnel with OAuth"]
+    T --> W["Gateway on the Mac: 127.0.0.1:8766/mcp"]
+    G -.-> Y["Proposed Phase 9: relay on a Linux host"]
     G -->|"Approved local command on Mac"| C["rehearse: observed local route"]
     C --> W
     W --> S["Software simulator"]
@@ -28,7 +29,7 @@ flowchart TD
     H -.-> D["Existing home devices: verification pending"]
 ```
 
-Solid arrows describe implemented interfaces. The owner observed physical operation on one ESP32-S3/OLED kit over USB and Wi-Fi. The dotted remote gateway path still needs an accepted secure endpoint and native Grok Bot MCP calls. The private LAN TLS listener serves Wi-Fi devices; it is not a public Grok Bot endpoint. A tunnel adds reachability, not authentication. The dotted Home Assistant path needs its own client, endpoint and physical checks. Home Assistant does not need our gateway for its own MCP route.
+Solid arrows describe implemented interfaces. The owner observed physical operation on one ESP32-S3/OLED kit over USB and Wi-Fi. The native remote route passed on the owner’s setup. The dotted relay path is proposed Phase 9. The private LAN TLS listener serves Wi-Fi devices; it is not a public Grok Bot endpoint. A tunnel adds reachability, not authentication. The dotted Home Assistant path needs its own client, endpoint and physical checks. Home Assistant does not need our gateway for its own MCP route.
 
 ## Separate manual Mac route
 
@@ -65,6 +66,6 @@ Add board examples within the ESP32 repository. Add computer examples within the
 
 The gateway owns canonical protocol 0.1.0. Loopback TCP, the USB bridge and the private LAN TLS listener use bounded, LF-delimited JSON frames. For USB, the host handles credentials; C124 firmware stores no network credential. The Wi-Fi OLED kit stores its Wi-Fi password, device token and pinned CA certificate in unencrypted board flash. Device registration includes boot identity and capabilities. Commands, acknowledgements, state and events have separate roles. Queues and retry caches have finite limits.
 
-Simulation controls require explicit opt-in and are absent from normal MCP tool discovery. A device acknowledgement does not prove a physical effect. The gateway provides stdio MCP, optional loopback HTTP MCP (`serve` at `127.0.0.1:8766/mcp` with a bearer token), authenticated loopback device transport and an opt-in private LAN TLS device listener. It does not terminate public Grok Bot TLS. Grok Bot has reached it through approved local `rehearse` commands, not as a native MCP client. Never expose the device protocol.
+Simulation controls require explicit opt-in and are absent from normal MCP tool discovery. A device acknowledgement does not prove a physical effect. The gateway provides stdio and loopback HTTP MCP, with authentication. It also provides authenticated local device transport and an optional private LAN TLS listener. It does not terminate public Grok Bot TLS. Grok Bot reached it through both approved local commands and native OAuth tool calls via the owner’s HTTPS tunnel. Never expose the device protocol.
 
-[HARD-GROK-REMOTE-001](https://github.com/adidshaft/grok-gadgets/issues/4) tracks the future secure remote route and its Grok Bot evidence. The local HTTP listener already exists. Local software acceptance, Grok invocation, remote security and physical operation require separate evidence. The [hosting FAQ](../getting-started/hosting.md) defines those checks.
+[ADR 007](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/007-grok-bot-remote-https.md) records the native connection. [ADR 009](../decisions/009-relay-route.md) proposes the next relay route. The local HTTP listener already exists. Local software acceptance, Grok invocation, remote security and physical operation require separate evidence. The [hosting FAQ](../getting-started/hosting.md) defines those checks.
