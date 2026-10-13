@@ -458,7 +458,7 @@ Gate: firmware compiles and integration logic passes applicable tests. Label the
 
 ### M5 — Real Grok and cross-device integration
 
-Current stage: **partly done**. On 12 October 2026 Grok Bot ran approved local `rehearse` commands, and the gateway request log recorded the simulator calls (`docs/verification/grok-local-execution-2026-10-12.md`). Grok Bot declined to add the gateway as an MCP server, so native tool discovery needs the authenticated remote route in ADR 004 (`docs/decisions/004-grok-bot-route.md`). Secure remote access and native Grok Bot invocation remain incomplete.
+On 12 October 2026 Grok Bot ran approved local `rehearse` commands, and the gateway request log recorded the simulator calls (`docs/verification/grok-local-execution-2026-10-12.md`). On 13 October 2026 Grok Bot added the gateway as a Remote HTTPS server with owner-approved OAuth sign-in and called the six tools from the Mac and the iPhone (`docs/verification/grok-remote-https-2026-10-13.md`, ADR 007). Current stage: **done on the owner's setup**. Daily use is Phase 8 (#251).
 
 Run this as soon as M2 permits; it should not wait for all other SDK work.
 
