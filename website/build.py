@@ -366,45 +366,52 @@ page(
     intro(
         "Choose a path",
         "Start small.",
-        "Build the owner-tested kit, or begin with software.",
+        "Use a gadget with Grok Bot, or build one from the tested paths.",
     )
     + '<div class="path-list">'
     + path_row(
         "01",
+        "Use your gadget with Grok Bot",
+        "Connect through the gateway on your Mac. This route works on the owner's setup.",
+        "doc-docs-getting-started-connect-grok-bot.html",
+        "Connect guide",
+    )
+    + path_row(
+        "02",
         "Build the tested OLED kit",
         "Parts, wiring, Wi-Fi setup and the optional always-on gateway service.",
         "doc-docs-getting-started-repeat-the-kit.html",
         "Kit guide",
     )
     + path_row(
-        "02",
+        "03",
         "First success without hardware",
         "Install the gateway and rehearse a simulated light in five minutes.",
         first_success,
         "Gateway guide",
     )
     + path_row(
-        "03",
+        "04",
         "Explore the simulator",
         "Customize a virtual light in the browser or download the local kit.",
         "simulator.html",
         "Try both",
     )
     + path_row(
-        "04",
+        "05",
         "Build a Linux application",
         "Start from a reusable Python capability and agent.",
         "linux.html",
         "Linux SDK",
     )
     + path_row(
-        "05",
+        "06",
         "Connect your home",
         "Reuse Home Assistant’s exposed Assist entities.",
         "home-assistant.html",
         "Home Assistant",
     )
-    + '</div><p class="quiet-note"><a href="doc-docs-public-support-matrix.html">Alpha status and open connection gate ↗</a></p>'
+    + '</div><p class="quiet-note"><a href="doc-docs-public-support-matrix.html">Alpha status and what comes next ↗</a></p>'
     + hosting_guide,
 )
 page(
@@ -522,7 +529,7 @@ page(
         "An action.<br>An observation.",
         "The assistant, connection point and device have separate jobs.",
     )
-    + '<div class="flow"><a href="https://x.ai/bot"><img src="media/grok-mark.svg" width="40" height="40" alt="Grok"><span>Grok Bot</span><small>Run by SpaceXSI</small></a><b>↕ HTTPS sign-in or approved local command</b><span>Your gateway<small>Run by its operator</small></span><b>↕ USB / private LAN TLS</b><span>Your device<small>Execute and observe</small></span></div><p class="status">Requested → accepted → execution reported → physically observed</p><p><a href="doc-docs-architecture-overview.html">Architecture reference ↗</a></p><p class="quiet-note">The owner’s Grok Bot called the tools natively from Mac and iPhone through an owner-run tunnel with sign-in, and showed text on the OLED kit. Approved local commands work without a tunnel. A tunnel does not replace authentication. Home Assistant can use its own upstream MCP route.</p>'
+    + '<div class="flow"><a href="https://x.ai/bot"><img src="media/grok-mark.svg" width="40" height="40" alt="Grok"><span>Grok Bot</span><small>Run by SpaceXSI</small></a><b>↕ HTTPS sign-in or approved local command</b><span>Your gateway<small>Run by its operator</small></span><b>↕ USB / private LAN TLS</b><span>Your device<small>Execute and observe</small></span></div><p class="status">Requested → accepted → execution reported → physically observed</p><p><a href="doc-docs-architecture-overview.html">Architecture reference ↗</a></p><p class="quiet-note">The owner’s Grok Bot called the tools natively from Mac and iPhone through an owner-run tunnel with sign-in, and showed text on the OLED kit. Approved local commands work without a tunnel. A tunnel does not replace authentication. Next, a gateway on a small host away from the Mac could let the Mac sleep. Home Assistant can use its own upstream MCP route.</p>'
     + hosting_guide,
 )
 roadmap_issues = [
@@ -567,7 +574,7 @@ page(
         if issue_snapshot
         else ""
     )
-    + '<section class="roadmap-summary"><h2>Now, next, later.</h2><p><strong>Now:</strong> repeat the owner-tested OLED kit and share results in <a href="https://github.com/adidshaft/grok-gadgets/issues/185">tester issue #185</a>.</p><p><strong>Done:</strong> native Grok Bot tool calls from Mac and phone, with usage tracking. <a href="doc-docs-getting-started-connect-grok-bot.html">Connect your Grok Bot ↗</a></p><p><strong>Later:</strong> setup without the first USB cable, then consider an optional hosted relay.</p><p><a href="doc-docs-public-support-matrix.html">Current releases and verification ↗</a></p></section>'
+    + '<section class="roadmap-summary"><h2>Today, next, later.</h2><p><strong>Today:</strong> Grok Bot on Mac and iPhone controls a Wi-Fi gadget through a gateway on the Mac. The owner observed this on one day.</p><p><strong>Next:</strong> move the gateway to a small always-on host you choose, so the Mac can sleep. This is Phase 9.</p><p><strong>Later:</strong> phone-only setup without a cable, a claim code for each gadget, and a kit for builders who give gadgets to others.</p><p><strong>Help:</strong> repeat the owner-tested kit and share results in <a href="https://github.com/adidshaft/grok-gadgets/issues/185">tester issue #185</a>.</p><p>The project hosts no relay. <a href="doc-docs-getting-started-connect-grok-bot.html">Connect your Grok Bot ↗</a> · <a href="doc-docs-public-support-matrix.html">Current releases and verification ↗</a></p></section>'
     + '<div class="issue-list">'
     + rows
     + "</div>",
@@ -606,7 +613,7 @@ page(
         "Released alpha builds",
         "Simulation, separate SDKs, firmware builds and integration recipes.",
     )
-    + '<p class="status">Native Grok Bot calls from Mac and phone and one physical kit checked on the owner’s setup · independent reproduction pending</p>'
+    + '<p class="status">Alpha · one owner-tested kit · native Grok Bot calls from Mac and iPhone through a gateway on the owner’s Mac</p>'
     + path_row(
         "01",
         "What passed",
@@ -676,11 +683,9 @@ page(
     "Documentation",
     documentation_layout(
         '<header class="docs-intro"><p class="eyebrow">Open source / Local alpha</p>'
-        "<h1>Start small.<br>Build your gadget.</h1>"
-        "<p>Follow the owner-tested OLED kit or start without hardware.</p>"
-        '<a class="docs-start" href="doc-docs-getting-started-repeat-the-kit.html">'
-        'Build the tested kit <span aria-hidden="true">↗</span></a>'
-        '<nav class="docs-entry-paths" aria-label="Choose a build path"><a href="esp32.html">Tested OLED kit ↗</a><a href="simulator.html">No hardware ↗</a><a href="linux.html">Linux / Raspberry Pi ↗</a><a href="home-assistant.html">More: Home Assistant ↗</a></nav>'
+        "<h1>Use it.<br>Build it.</h1>"
+        "<p>Connect Grok Bot through the owner-tested Mac route, or build a gadget from the tested paths.</p>"
+        '<nav class="docs-entry-paths" aria-label="Choose a path"><a href="doc-docs-getting-started-connect-grok-bot.html">Use a gadget ↗</a><a href="doc-docs-getting-started-repeat-the-kit.html">Build a gadget ↗</a></nav>'
         '<p class="docs-note"><a href="doc-docs-public-support-matrix.html">Project status and open gates ↗</a></p></header>'
         + doc_navigation.index()
         + '<p class="docs-note"><a href="maintainers.html">Maintainer and process records ↗</a></p>',

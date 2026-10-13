@@ -10,11 +10,34 @@ from documents import slug
 # An empty suffix identifies the hub. URLs come from Documents, never this map.
 GROUPS = (
     (
-        "Start here",
-        "Choose a path and check what is verified.",
+        "Use a gadget",
+        "Connect Grok Bot through the owner-tested Mac gateway route.",
         (
             (
                 None,
+                (
+                    (
+                        "",
+                        "docs/getting-started/hosting.md",
+                        "Hosting and remote access",
+                    ),
+                    (
+                        "",
+                        "docs/getting-started/connect-grok-bot.md",
+                        "Connect your Grok Bot",
+                    ),
+                    ("", "docs/getting-started/track-usage.md", "Track usage"),
+                    ("", "SUPPORT.md", "Get help"),
+                ),
+            ),
+        ),
+    ),
+    (
+        "Build a gadget",
+        "Start with a tested kit, a simulator or an SDK.",
+        (
+            (
+                "Start building",
                 (
                     ("", "README.md", "Project overview"),
                     (
@@ -28,28 +51,8 @@ GROUPS = (
                         "First success without hardware",
                     ),
                     ("", "docs/getting-started/simulator-kit.md", "Try the simulator"),
-                    (
-                        "",
-                        "docs/getting-started/hosting.md",
-                        "Hosting and remote access",
-                    ),
-                    (
-                        "",
-                        "docs/getting-started/connect-grok-bot.md",
-                        "Connect your Grok Bot",
-                    ),
-                    ("", "docs/getting-started/track-usage.md", "Track usage"),
-                    ("", "docs/public/support-matrix.md", "Project status"),
-                    ("", "docs/public/how-we-verify.md", "How we verify"),
-                    ("", "SUPPORT.md", "Get help"),
                 ),
             ),
-        ),
-    ),
-    (
-        "Build a gadget",
-        "Use the SDK for your device.",
-        (
             (
                 "Linux SDK",
                 (
@@ -158,7 +161,6 @@ GROUPS = (
                     ),
                     ("", "SECURITY.md", "Report a security issue"),
                     ("", "GOVERNANCE.md", "Project governance"),
-                    ("", "ROADMAP.md", "Project roadmap"),
                 ),
             ),
         ),
@@ -178,6 +180,20 @@ GROUPS = (
                         "community/contribution-recognition.md",
                         "Contributor recognition",
                     ),
+                ),
+            ),
+        ),
+    ),
+    (
+        "Status and roadmap",
+        "Separate current evidence from future plans.",
+        (
+            (
+                None,
+                (
+                    ("", "docs/public/support-matrix.md", "Project status"),
+                    ("", "ROADMAP.md", "Project roadmap"),
+                    ("", "docs/public/how-we-verify.md", "How we verify"),
                 ),
             ),
         ),
