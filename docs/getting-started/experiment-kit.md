@@ -31,7 +31,7 @@ Ask Grok Bot to show a short message or status on the OLED through an approved
 local command. Read the reported state. Set the onboard RGB light on GPIO48 and
 read a press of the BOOT button on GPIO0.
 Use disconnect, reconnect and restart checks to show when an action is unconfirmed.
-The local-command route passed on the owner's kit. Native MCP calls remain a separate gate.
+The local-command route passed on the owner's kit. Native Grok Bot tool calls through the [remote route](connect-grok-bot.md) passed on 13 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/grok-remote-https-2026-10-13.md)).
 
 ```mermaid
 flowchart LR
@@ -123,7 +123,7 @@ Results from 12 October 2026 ([record](https://github.com/adidshaft/grok-gadgets
 | OLED operation | Requested message/clear action, device report and observed display agree | Pass |
 | LED/button | Observed output and ordered press/release events | Pass (onboard RGB pixel and `BOOT`) |
 | USB and recovery | Offline handling, reconnect, board/gateway restart and no stale replay | Pass; disconnect during a command not tested |
-| Existing Grok Bot | Gateway log plus observed result | Pass through local shell execution; native tool calls not tested |
+| Existing Grok Bot | Gateway log plus observed result | Pass through local shell execution; pass through native tool calls from Mac and iPhone (13 October 2026) |
 | Independent reproduction | Another person repeats the documented setup | Pending |
 
 Keep command acknowledgement and physical observation separate. Record failures

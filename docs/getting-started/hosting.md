@@ -1,6 +1,6 @@
 # Hosting and remote access
 
-There are three separate paths. The website serves documentation and a browser simulator. It does not run your gateway. The owner's Grok Bot used an approved local command to reach the gateway; native MCP calls remain unverified. The Wi-Fi kit can use the gateway's optional per-user service, which starts after Mac login or under a Linux user session.
+There are three separate paths. The website serves documentation and a browser simulator. It does not run your gateway. The owner's Grok Bot reached the gateway through an approved local command and, through an owner-run tunnel with sign-in, called the tools natively ([guide](connect-grok-bot.md)). The Wi-Fi kit can use the gateway's optional per-user service, which starts after Mac login or under a Linux user session.
 
 ## 1. Grok Bot on its cloud computer
 
@@ -48,10 +48,10 @@ Product goal: Grok Bot → authenticated remote MCP endpoint with TLS
 | Gate | Current stage | Evidence needed |
 | --- | --- | --- |
 | Local gateway `serve` | Implemented on loopback | Local software evidence does not prove a Grok Bot connection. |
-| M5 — Actual Grok | Partly done | Approved local `rehearse` commands work. Native tool calls need the authenticated remote route. |
+| M5 — Actual Grok | Done on the owner's setup | Approved local `rehearse` commands work. Native tool calls work through an owner-run tunnel with sign-in ([guide](connect-grok-bot.md)). |
 | M8 — Physical and independent verification | Partly done | The owner's ESP32-S3/OLED kit passed USB and Wi-Fi tests. Independent reproduction and a real Pi setup remain open. |
 
-[HARD-GROK-REMOTE-001](https://github.com/adidshaft/grok-gadgets/issues/4) tracks secure remote access. The existing loopback listener is separate from that unfinished work. See the [roadmap](../../ROADMAP.md) and gateway [remote access guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/remote-access.md).
+[Connect your Grok Bot](connect-grok-bot.md) sets up the remote route; [#251](https://github.com/adidshaft/grok-gadgets/issues/251) makes it safe for daily use. See the [roadmap](../../ROADMAP.md) and gateway [remote access guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/remote-access.md).
 
 ## Simple FAQ
 
