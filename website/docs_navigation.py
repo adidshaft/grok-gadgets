@@ -10,6 +10,19 @@ from documents import slug
 # An empty suffix identifies the hub. URLs come from Documents, never this map.
 GROUPS = (
     (
+        "Start here",
+        "Choose a path and see how the project fits together.",
+        (
+            (
+                None,
+                (
+                    ("", "docs/index.md", "Choose a documentation path"),
+                    ("", "README.md", "Project overview"),
+                ),
+            ),
+        ),
+    ),
+    (
         "Use a gadget",
         "Connect Grok Bot through the owner-tested Mac gateway route.",
         (
@@ -26,6 +39,7 @@ GROUPS = (
                         "docs/getting-started/connect-grok-bot.md",
                         "Connect your Grok Bot",
                     ),
+                    ("", "docs/getting-started/troubleshooting.md", "Troubleshooting"),
                     ("", "docs/getting-started/track-usage.md", "Track usage"),
                     ("", "SUPPORT.md", "Get help"),
                 ),
@@ -39,9 +53,6 @@ GROUPS = (
             (
                 "Start building",
                 (
-                    ("", "README.md", "Project overview"),
-                    ("", "docs/index.md", "Choose a documentation path"),
-                    ("", "docs/getting-started/troubleshooting.md", "Troubleshooting"),
                     (
                         "",
                         "docs/getting-started/repeat-the-kit.md",

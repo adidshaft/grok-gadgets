@@ -134,7 +134,7 @@
     [-48, 48].forEach(side => {
       svgElement('path', {d: pathFor(0, 1, side, 22), class: 'roadmap-lower-rail'}, ribbon);
       svgElement('path', {d: pathFor(0, 1, side), class: 'roadmap-upper-rail'}, ribbon);
-      svgElement('path', {d: pathFor(.025, .285, side), class: 'roadmap-checked-rail'}, ribbon);
+      svgElement('path', {d: pathFor(.025, .40, side), class: 'roadmap-checked-rail'}, ribbon);
     });
 
     for (let index = 0; index <= 52; index += 1) {
