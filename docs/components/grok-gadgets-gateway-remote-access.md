@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/remote-access.md at 1234c1939131d03fd562c5de394c625af76ab240
+Source: grok-gadgets-gateway/docs/remote-access.md at 17f51f5114ec1aefc522bb4c93ff8277b716dbe4
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -11,7 +11,7 @@ This is a pinned documentation snapshot. Relative filesystem paths describe the 
 
 Grok Bot's connector (and `rehearse`) sends `Authorization: Bearer <token>`. The token is the single line in `~/.config/grok-gadgets/mcp-token` (or `$XDG_CONFIG_HOME/grok-gadgets/mcp-token`), mode 0600. `rotate-mcp-token` replaces it and prints `GROK_GADGETS_MCP_TOKEN=...` once on stdout. Update the connector's saved token and reconnect. The server reads the file on each request; no gateway restart is needed.
 
-For an HTTPS name in front of `serve`, follow the [owner-run TLS tunnel guide](tunnel.md). It is untested with Grok Bot.
+For an HTTPS name in front of `serve`, follow the [owner-run TLS tunnel guide](tunnel.md). Grok Bot uses it with [OAuth sign-in](tunnel.md#oauth-sign-in-for-grok-bot).
 
 ## Named tokens
 
@@ -39,7 +39,7 @@ grok-gadgets-gateway mcp-token revoke grok-bot
 
 A rejected call does not count toward the limit. The windows reset when `serve` restarts. HTTP rejections are written to the logs as `http_rejected` lines with the status, the reason and the token name. They never contain the token or the body. `stdio` has no token and no limits.
 
-This package does not terminate public TLS. With `serve --oauth` it is its own OAuth sign-in server, and you approve each sign-in on this computer; see [OAuth sign-in](tunnel.md#oauth-sign-in-for-grok-bot). Native remote MCP access with Grok Bot remains unverified. A cloud Bot cannot open `127.0.0.1` on your computer. If you want a Bot to reach the gateway, you run `serve` on the gadget host and you publish HTTPS yourself.
+This package does not terminate public TLS. With `serve --oauth` it is its own OAuth sign-in server, and you approve each sign-in on this computer; see [OAuth sign-in](tunnel.md#oauth-sign-in-for-grok-bot). On 13 October 2026 the owner's Grok Bot called the six tools this way from the Mac and the iPhone ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/grok-remote-https-2026-10-13.md)). A cloud Bot cannot open `127.0.0.1` on your computer. If you want a Bot to reach the gateway, you run `serve` on the gadget host and you publish HTTPS yourself.
 
 ## What you may publish
 
@@ -83,7 +83,7 @@ Local tests call `serve` over Streamable HTTP on `127.0.0.1`. They check a missi
 
 ## Security checklist
 
-The public tunnel path remains unverified. The owner tested hardware through local commands; that result does not verify a tunnel.
+The owner's tunnel with `--oauth` worked with Grok Bot for one session on 13 October 2026. Leaving it on every day is tracked in [#142](https://github.com/adidshaft/grok-gadgets-gateway/issues/142).
 
 - `serve` binds `127.0.0.1` only. There is no flag for a public address.
 - Publish the MCP port only. Leave device port 8765 on loopback.

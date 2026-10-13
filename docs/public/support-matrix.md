@@ -11,9 +11,9 @@ On 13 October 2026 the owner's Grok Bot called the six tools itself from the Mac
 
 | Component | Release | Package |
 | --- | --- | --- |
-| Hub | `v0.1.12-alpha.1` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.12-alpha.1) |
-| Gateway | `v0.1.0-alpha.11` | [PyPI `0.1.0a11`](https://pypi.org/project/grok-gadgets-gateway/) |
-| ESP32 SDK | `v0.2.0-alpha.12` | [GitHub release](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.12) |
+| Hub | `v0.1.13-alpha.1` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.13-alpha.1) |
+| Gateway | `v0.1.0-alpha.12` | [PyPI `0.1.0a12`](https://pypi.org/project/grok-gadgets-gateway/) |
+| ESP32 SDK | `v0.2.0-alpha.13` | [GitHub release](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.13) |
 | Linux SDK | `v0.1.0-alpha.6` | [PyPI `0.1.0a6`](https://pypi.org/project/grok-gadgets-linux-sdk/) |
 | Home Assistant | `v0.1.0-alpha.5` | [PyPI `0.1.0a5`](https://pypi.org/project/grok-gadgets-home-assistant/) |
 
