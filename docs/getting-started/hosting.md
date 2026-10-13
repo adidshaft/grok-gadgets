@@ -22,7 +22,9 @@ For Wi-Fi, the board can draw power from a USB charger. The gateway must still r
 
 The gateway's `serve` mode provides Streamable HTTP MCP at `http://127.0.0.1:8766/mcp` and listens on loopback only.
 
-**Verified on the owner's setup on 13 October 2026:** with your own HTTPS tunnel and `serve --oauth`, Grok Bot calls the six tools itself, from the desktop and phone apps. You approve the sign-in on the Mac. Follow [Connect your Grok Bot](connect-grok-bot.md). The project runs no public service. A tunnel makes the gateway reachable; the sign-in authenticates it. Never expose the device port at `127.0.0.1:8765`.
+**Verified on the owner's setup on 13 October 2026.**
+
+With your own HTTPS tunnel and `serve --oauth`, Grok Bot calls the six tools itself from the desktop and phone apps. You approve the sign-in on the Mac. Follow [Connect your Grok Bot](connect-grok-bot.md). The project runs no public service. A tunnel makes the gateway reachable; the sign-in authenticates it. Never expose the device port at `127.0.0.1:8765`.
 
 **Wi-Fi devices use a separate listener.** `serve --lan-listen <private address>` carries device traffic over private LAN TLS ([ADR 005](https://github.com/adidshaft/grok-gadgets/blob/dev/docs/decisions/005-wifi-device-route.md)). It is not a Grok Bot MCP endpoint. Never forward its port or put it behind a tunnel.
 
