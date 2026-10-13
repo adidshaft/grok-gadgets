@@ -4,7 +4,7 @@ This test shows whether your existing Grok Bot, on the desktop and on the phone,
 
 Run it yourself, in your own Grok Bot account, with a tunnel that you run. The project runs no URL, relay or account for you. Background: [research note](research/grok-remote-https-2026-10.md), [tunnel guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/dev/docs/tunnel.md), [ADR 004](decisions/004-grok-bot-route.md). The earlier [local test](grok-local-test.md) gave outcome (b) on 12 October 2026.
 
-Run 1, on 13 October 2026, passed the gateway checks but added no server; see the [record](verification/grok-remote-https-2026-10-13.md).
+Runs 1 and 2, on 13 October 2026, passed the gateway checks but added no server; see the [record](verification/grok-remote-https-2026-10-13.md).
 
 Possible outcomes:
 
