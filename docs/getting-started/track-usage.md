@@ -20,7 +20,7 @@ For a live feed, start the gateway with `--usage-hook CMD`. Your program gets on
 - Desktop: **Settings → Usage & Billing → Weekly usage limit**.
 - Phone: **Settings → Usage → Weekly usage**.
 
-The pages show whole percent, and the allowance resets weekly. Grok Bot measures its own work, not tool calls. No personal usage export or API is documented ([research note](../research/grok-remote-https-2026-10.md#5-usage-and-credits)). The gateway never reads your Grok Bot account.
+The pages show whole percent, and the allowance resets weekly. Grok Bot measures its own work, not tool calls. No personal usage export or API is documented ([research note](https://github.com/adidshaft/grok-gadgets/blob/main/docs/research/grok-remote-https-2026-10.md#5-usage-and-credits)). The gateway never reads your Grok Bot account.
 
 ## An estimate per call
 
@@ -34,4 +34,4 @@ grok-gadgets-gateway usage --token grok-bot \
 
 Later summaries add a column labelled **estimate**. It covers everything Grok Bot did in that window, not only the tool calls.
 
-In the owner's 13 October test, 11 messages and 9 tool calls left the page at 1%. That puts the session under 1 percentage point, as an upper bound ([ADR 007](../decisions/007-grok-bot-remote-https.md#usage-per-prompt-and-per-tool-call-estimate)). A longer session gives a better rate.
+In the owner's 13 October test, 11 messages and 9 tool calls left the page at 1%. That puts the session under 1 percentage point, as an upper bound ([ADR 007](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/007-grok-bot-remote-https.md#usage-per-prompt-and-per-tool-call-estimate)). A longer session gives a better rate.

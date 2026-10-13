@@ -1,6 +1,6 @@
 # Connect your Grok Bot
 
-Your existing Grok Bot can call the six gadget tools itself, from the desktop app and from the phone app. It reaches the gateway on your Mac through an HTTPS name that you run. On 13 October 2026 the owner's Grok Bot did this from a Mac and an iPhone and showed text on the OLED kit ([record](../verification/grok-remote-https-2026-10-13.md), [ADR 007](../decisions/007-grok-bot-remote-https.md)).
+Your existing Grok Bot can call the six gadget tools itself, from the desktop app and from the phone app. It reaches the gateway on your Mac through an HTTPS name that you run. On 13 October 2026 the owner's Grok Bot did this from a Mac and an iPhone and showed text on the OLED kit ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/grok-remote-https-2026-10-13.md), [ADR 007](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/007-grok-bot-remote-https.md)).
 
 The tunnel is optional. Without it, Grok Bot can still run approved local commands on the Mac; see [the no-tunnel route](#without-a-tunnel).
 
@@ -91,7 +91,7 @@ Grok Bot can run an approved command on the Mac through **Execution on Local Com
 grok-gadgets-gateway rehearse --device DEVICE --command display.text --args '{"text":"Hello from Grok Bot"}'
 ```
 
-This works only from the desktop app, needs your approval for each command, and runs one fixed command instead of the six tools. See the [local test](../grok-local-test.md) and [ADR 004](../decisions/004-grok-bot-route.md).
+This works only from the desktop app, needs your approval for each command, and runs one fixed command instead of the six tools. See the [local test](https://github.com/adidshaft/grok-gadgets/blob/main/docs/grok-local-test.md) and [ADR 004](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/004-grok-bot-route.md).
 
 ## Safety
 
