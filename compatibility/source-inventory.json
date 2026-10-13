@@ -98,7 +98,7 @@
   },
   {
     "repository": "grok-gadgets-gateway",
-    "commit": "79ad881b6dbc0f78fa4d9a118f98acfbbad32f5a",
+    "commit": "1234c1939131d03fd562c5de394c625af76ab240",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -132,6 +132,7 @@
       "docs/remote-access.md",
       "docs/simulator.md",
       "docs/tunnel.md",
+      "docs/usage.md",
       "docs/verification/always-on-2026-10-13.md",
       "docs/verification/hardening.md",
       "docs/verification/launch-docs.md",
@@ -154,6 +155,7 @@
       "src/grok_gadgets_gateway/domain.py",
       "src/grok_gadgets_gateway/lan.py",
       "src/grok_gadgets_gateway/mcp_server.py",
+      "src/grok_gadgets_gateway/oauth.py",
       "src/grok_gadgets_gateway/operator.py",
       "src/grok_gadgets_gateway/protocol.py",
       "src/grok_gadgets_gateway/rehearse.py",
@@ -163,6 +165,7 @@
       "src/grok_gadgets_gateway/simulator.py",
       "src/grok_gadgets_gateway/simulator_config.py",
       "src/grok_gadgets_gateway/transport.py",
+      "src/grok_gadgets_gateway/usage.py",
       "src/grok_gadgets_gateway/usb_bridge.py",
       "src/grok_gadgets_gateway/wifi_provision.py",
       "tests/conftest.py",
@@ -176,10 +179,13 @@
       "tests/test_limits.py",
       "tests/test_mcp.py",
       "tests/test_mcp_tokens.py",
+      "tests/test_oauth.py",
       "tests/test_rehearse.py",
+      "tests/test_remote.py",
       "tests/test_request_log.py",
       "tests/test_simulator_config.py",
       "tests/test_transports.py",
+      "tests/test_usage.py",
       "uv.lock"
     ]
   },

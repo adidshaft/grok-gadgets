@@ -2,7 +2,7 @@
 
 This test shows whether your existing Grok Bot, on the desktop and on the phone, calls the six `gadgets_*` tools itself through a **Remote HTTPS** MCP server. The server is the always-on gateway on your Mac, behind a TLS tunnel that you run. The gateway request log is the evidence; your view of the OLED is the physical check. The Bot's own description of what it did is not evidence.
 
-Run it yourself, in your own Grok Bot account, with a tunnel that you run. The project runs no URL, relay or account for you. Background: [research note](research/grok-remote-https-2026-10.md), [tunnel guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/dev/docs/tunnel.md), [ADR 004](decisions/004-grok-bot-route.md). The earlier [local test](grok-local-test.md) gave outcome (b) on 12 October 2026.
+Run it yourself, in your own Grok Bot account, with a tunnel that you run. The project runs no URL, relay or account for you. Background: [research note](research/grok-remote-https-2026-10.md), [tunnel guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/tunnel.md), [ADR 004](decisions/004-grok-bot-route.md). The earlier [local test](grok-local-test.md) gave outcome (b) on 12 October 2026.
 
 Runs 1 to 3, on 13 October 2026, passed the gateway checks, but Grok Bot could not add a server with a fixed token; see the [record](verification/grok-remote-https-2026-10-13.md).
 
