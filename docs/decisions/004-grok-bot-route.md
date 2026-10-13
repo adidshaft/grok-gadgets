@@ -1,7 +1,7 @@
 # ADR 004 — Phase 2 route from Grok Bot to the gateway
 
 **Date:** 8 October 2026  
-**Status:** Accepted on 12 October 2026 with outcome **(b)**. Evidence: [local-execution result](../verification/grok-local-execution-2026-10-12.md).  
+**Status:** Accepted on 12 October 2026 with outcome **(b)**. Evidence: [local-execution result](../verification/grok-local-execution-2026-10-12.md). The remote route is decided in [ADR 007](007-grok-bot-remote-https.md).  
 **Owner:** Grok Gadgets hub (`adidshaft/grok-gadgets`)  
 **Issues:** [#31](https://github.com/adidshaft/grok-gadgets/issues/31), [#4](https://github.com/adidshaft/grok-gadgets/issues/4), [#12](https://github.com/adidshaft/grok-gadgets/issues/12), gateway [#65](https://github.com/adidshaft/grok-gadgets-gateway/issues/65)
 

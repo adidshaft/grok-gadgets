@@ -22,7 +22,7 @@ Time: about 40 minutes. In the commands, `my-mac.local` is your Mac's name and `
 
 ## 0. Prepare the gateway (8 minutes)
 
-The tunnel rules and usage summary are on the gateway `dev` branch. They are not released yet.
+The tunnel rules, usage summary and OAuth sign-in are on the gateway `dev` branch. They are not released yet.
 
 1. Update the gateway checkout. The service runs from it.
 
@@ -32,41 +32,33 @@ The tunnel rules and usage summary are on the gateway `dev` branch. They are not
    "$G" --version
    ```
 
-   Expected: `grok-gadgets-gateway 0.1.0a10` or later, and `"$G" remote --help` works.
+   Expected: `grok-gadgets-gateway 0.1.0a11` or later, and `"$G" oauth --help` works.
 
-2. Issue the Grok Bot token into a private file:
+2. No token file is needed. Grok Bot signs in with OAuth, and you approve the sign-in on this Mac.
 
-   ```sh
-   "$G" mcp-token issue grok-bot --token-file ~/.config/grok-gadgets/grok-bot.token
-   ```
-
-   Expected: `Wrote the grok-bot token to …/grok-bot.token (mode 0600).`
-
-3. Reinstall the service with the tunnel name. This restarts the gateway; the board shows **Gateway...** and then **Online**.
+3. Reinstall the service with the tunnel name and sign-in. This restarts the gateway; the board shows **Gateway...** and then **Online**.
 
    ```sh
    "$G" service uninstall
-   "$G" service install --lan-listen my-mac.local --allowed-host gadgets.example.net
+   "$G" service install --lan-listen my-mac.local --allowed-host gadgets.example.net --oauth
    "$G" remote on
    "$G" service status
    ```
 
-   Expected: `service: running`. The request log is `~/Library/Logs/grok-gadgets/requests.jsonl`. Wait for **Online** on the OLED.
+   Expected: `service: running`. If `install` says a port is in use, wait a few seconds and run it again. The request log is `~/Library/Logs/grok-gadgets/requests.jsonl`. Wait for **Online** on the OLED.
 
 4. Check the rules before any tunnel exists. Each request goes to loopback with the tunnel Host, as the tunnel will send it:
 
    ```sh
-   U=http://127.0.0.1:8766/mcp; H="Host: gadgets.example.net"; J="Content-Type: application/json"
-   A="Accept: application/json, text/event-stream"; B="Authorization: Bearer $(cat ~/.config/grok-gadgets/grok-bot.token)"
-   INIT='{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"tunnel-check","version":"1"}}}'
-   c() { curl -s -o /dev/null -w "%{http_code}\n" -X POST "$U" "$@"; }
-   c -H "$H" -H "$J" -d '{}'
-   c -H "$H" -H "$B" -H "$J" -H "$A" -d "$INIT"
-   c -H "Host: wrong.example.org" -H "$B" -H "$J" -H "$A" -d "$INIT"
-   c -H "$H" -H "Authorization: Bearer $(cat ~/.config/grok-gadgets/mcp-token)" -H "$J" -d '{}'
+   U=http://127.0.0.1:8766; H="Host: gadgets.example.net"; J="Content-Type: application/json"
+   c() { curl -s -o /dev/null -w "%{http_code}\n" "$@"; }
+   c -X POST "$U/mcp" -H "$H" -H "$J" -d '{}'
+   c -X POST "$U/mcp" -H "$H" -H "Authorization: Bearer $(cat ~/.config/grok-gadgets/mcp-token)" -H "$J" -d '{}'
+   c "$U/.well-known/oauth-authorization-server" -H "Host: wrong.example.org"
+   c "$U/.well-known/oauth-authorization-server" -H "$H"
    ```
 
-   Expected, in order: `401`, `200`, `421`, `403`. Stop if any differ.
+   Expected, in order: `401`, `403`, `421`, `200`. Stop if any differ.
 
 5. In Terminal tab 2, watch the Grok Bot lines only:
 
@@ -89,7 +81,7 @@ The tunnel rules and usage summary are on the gateway `dev` branch. They are not
 
    ```sh
    "$G" remote off
-   curl -s -o /dev/null -w "%{http_code}\n" -X POST https://gadgets.example.net/mcp -H "$B" -H "$J" -H "$A" -d "$INIT"
+   curl -s -o /dev/null -w "%{http_code}\n" https://gadgets.example.net/.well-known/oauth-authorization-server
    "$G" remote on
    ```
 
@@ -101,26 +93,26 @@ The tunnel rules and usage summary are on the gateway `dev` branch. They are not
 
 On the **desktop**, open Grok Bot **Settings** and find the **Weekly usage limit** row. Write down the exact page name and the value exactly as shown, with the time. If you also see **Settings → Usage & Billing**, write down its on-demand value too. Take the same reading on the **phone** (**Settings → Weekly usage**).
 
-## 3. Add the server on the desktop (3 minutes)
+## 3. Add the server and sign in (5 minutes)
 
-Run 1 found no settings form for a custom server ([record](verification/grok-remote-https-2026-10-13.md)). The [Team Bots page](https://docs.x.ai/grok-bot/team-bots) says to set a Bot up from its info pane "or ask the Bot in chat", and on 4 October 2026 Grok Bot added a Command server when asked in chat. Ask in chat first.
+Runs 1 to 3 showed that Grok Bot cannot add a server with a fixed token ([record](verification/grok-remote-https-2026-10-13.md)). Run 4 used OAuth sign-in, below.
 
 1. Start a new one-to-one chat with your Grok Bot on the desktop. Send:
 
-   > Add a custom MCP server for yourself. Name: grok-gadgets. Type: Remote HTTPS. URL: https://gadgets.example.net/mcp. It needs the header "Authorization: Bearer" followed by a secret token. Ask me for the token through your secure credential prompt. I will not type it in chat.
+   > Please add a custom MCP server for yourself. Name: grok-gadgets. Type: Remote HTTPS. URL: https://gadgets.example.net/mcp. Authentication: OAuth sign-in, no header and no token. When the sign-in step appears, show it to me; I will approve it on my Mac.
 
-2. If Grok Bot shows a credential prompt, a masked field or a sign-in card, copy the token with `pbcopy < ~/.config/grok-gadgets/grok-bot.token` and paste it there. Add `Bearer ` before it only if the field asks for the whole header value.
-3. Never type or paste the token into ordinary chat. If the Bot asks for it there, answer "no", record that and go to section 7.
-4. If chat does not work, look in the Bot's info pane for a card to add a custom MCP server, or in **Connect apps**, with the same settings:
+2. Grok Bot shows a card "Add grok-gadgets as a Remote HTTPS server with OAuth sign-in?". Choose **Yes, add it** if the URL is yours.
+3. On the connect card, choose **Authorize**, then **Continue** in Grok Bot's "Connect to grok-gadgets" dialog. A page opens in your browser. It shows a code such as `K7QX-M2PA` and waits.
+4. In a terminal, check that the same code is waiting, then approve it:
 
-| Setting | Value |
-| --- | --- |
-| Name | `grok-gadgets` |
-| Type | **Remote HTTPS** |
-| URL | `https://gadgets.example.net/mcp` |
-| Authentication | Header `Authorization`, value `Bearer ` followed by the contents of `grok-bot.token` |
+   ```sh
+   "$G" oauth pending
+   "$G" oauth approve K7QX-M2PA --name grok-bot
+   ```
 
-Note the way that worked, and whether Grok Bot offered OAuth instead. Within a few seconds of adding, tab 2 may show nothing: `initialize` is not a tool call.
+   Approve only the code that your own page shows. The page continues by itself, and Grok Bot shows "grok-gadgets, 6 tools".
+
+5. Tab 2 shows nothing yet: registration and sign-in are not tool calls. The log has `oauth_sign_in_approved` and `oauth_token_issued` lines.
 
 If Grok Bot refuses the server or the URL, record its exact message and go to section 7. That is outcome (d).
 
@@ -178,15 +170,18 @@ If R0 and R2 use the same unit, record the rate as an estimate:
 
 Do this even if the test failed, unless you decide to keep the route.
 
-1. Stop remote access and revoke the token:
+1. Stop remote access and end the sign-in:
 
    ```sh
    "$G" remote off
-   "$G" mcp-token revoke grok-bot
+   "$G" oauth revoke grok-bot
+   "$G" oauth list
    ```
 
+   `oauth list` prints nothing.
+
 2. Stop the tunnel client. Check: `curl -s -o /dev/null -w "%{http_code}\n" https://gadgets.example.net/mcp` no longer gives `401` from your gateway.
-3. Remove `grok-gadgets` from Grok Bot on the desktop. Check that the phone no longer lists it.
+3. Remove `grok-gadgets` from Grok Bot on the desktop: **Connect apps** → the connected list → `grok-gadgets` → **Uninstall**.
 4. Put the service back on the released gateway, without the tunnel name:
 
    ```sh
@@ -194,7 +189,6 @@ Do this even if the test failed, unless you decide to keep the route.
    "$G" service uninstall
    cd ~/projects/grok-gadgets-gateway && git switch main && uv sync --locked
    "$G" service install --lan-listen my-mac.local
-   rm ~/.config/grok-gadgets/grok-bot.token
    ```
 
    Wait for **Online** on the OLED. `remote on` only restores the default for a later test; without `--allowed-host` the service accepts no tunnel Host.
@@ -214,12 +208,12 @@ Grok Bot desktop app version, phone app version, macOS and phone OS:
 Gateway version and commit (git -C ~/projects/grok-gadgets-gateway rev-parse --short HEAD before section 7):
 Tunnel: own account (yes/no); Host kept or forwarding header added:
 
-Section 0 checks (401 / 200 / 421 / 403):
+Section 0 checks (401 / 403 / 421 / 200):
 Outside checks through the tunnel (401; 503 with remote off):
 
 Server added on the desktop (yes / no / refused):
-  Screen used:
-  Auth offered (header / OAuth / both / unclear):
+  Sign-in code on the page and in `oauth pending` (same / different):
+  Grok Bot listed grok-gadgets with 6 tools (yes / no):
   Bot message if refused:
 
 Mac prompts 1-6, for each: tool line seen (yes/no), approval card (yes/no, choice), OLED observation:

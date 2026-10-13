@@ -1,8 +1,10 @@
-# Grok Bot Remote HTTPS test, runs 1 to 3 — 13 October 2026
+# Grok Bot Remote HTTPS test, runs 1 to 4 — 13 October 2026
 
 Run of the [owner checklist](../grok-remote-test.md) on the owner's Mac, 13 October 2026, Asia/Kolkata (UTC+05:30). The owner authorized it and delegated the on-screen steps to a computer-use session on the Mac. Screen observations below are that session's narrative unless the gateway log confirms them.
 
-**Result: not completed.** The gateway side passed. No Remote HTTPS server was added to Grok Bot, so Grok Bot made no tool calls and no prompts were sent. This is not a refusal by Grok Bot: the session looked for a settings form and found none, and it did not try the documented chat path.
+**Final result (run 4): Grok Bot called all six tools itself, from the Mac and from the phone, through OAuth sign-in.** Runs 1 to 3 below did not get that far.
+
+Run 1 result: not completed. The gateway side passed. No Remote HTTPS server was added to Grok Bot, so Grok Bot made no tool calls and no prompts were sent. This is not a refusal by Grok Bot: the session looked for a settings form and found none, and it did not try the documented chat path.
 
 | Item | Value |
 | --- | --- |
@@ -113,3 +115,106 @@ Token revoked, token file deleted, no tunnel process, service on `main` with no 
 ## Finding after three runs
 
 On this personal Grok Bot (desktop 0.70.2), a Remote HTTPS server with a fixed bearer header could not be added: no form for it was found, and Grok Bot will not place a fixed token in the setup step. The Team Bots page names the other documented credential: "each person's sign-in if the server uses OAuth". The gateway does not offer OAuth yet ([gateway #71](https://github.com/adidshaft/grok-gadgets-gateway/issues/71)).
+
+# Run 4 — 13 October 2026: native tool calls from the Mac and the phone
+
+The gateway now offers OAuth sign-in (`serve --oauth`, [gateway #71](https://github.com/adidshaft/grok-gadgets-gateway/issues/71)). The owner authorized the run and delegated the on-screen steps to a computer-use session on the Mac. The owner looked at the OLED. **Result: outcome (a).** Grok Bot discovered the six tools, and its own calls reached the gateway from the desktop app and from the iPhone app.
+
+| Item | Value |
+| --- | --- |
+| Grok Bot desktop app | 0.70.2; macOS 27.0 (26A5388g) |
+| Phone | iPhone 15 Pro, Grok Bot app, reached through iPhone Mirroring |
+| Gateway | `dev` `e9f39d0`, package `0.1.0a11`, always-on service with `--lan-listen`, one `--allowed-host` and `--oauth` |
+| Tunnel | An account-free quick tunnel to `127.0.0.1:8766` only, 08:45–09:06 UTC; hostname not recorded |
+| Device | Owner's ESP32-S3 OLED kit on Wi-Fi |
+
+## Gateway checks before the test
+
+Through the service, 08:46 UTC: no token 401; the local `default` token with the tunnel Host 403; a wrong Host on the sign-in metadata 421; protected-resource metadata from outside 200; `/mcp` from outside 401 with `resource_metadata` in the challenge; sign-in metadata from outside with `remote off` 503.
+
+## Sign-in
+
+| Time (UTC) | What happened | Source |
+| --- | --- | --- |
+| 08:47 | Asked in the one-to-one chat to add `grok-gadgets` as a Remote HTTPS server with OAuth sign-in, URL only, no header or token | Chat |
+| 08:48:27 | Two 401s on `/mcp`, then two `oauth_client_registered` | Gateway log |
+| 08:48 | Grok Bot's card "Add grok-gadgets as a Remote HTTPS server with OAuth sign-in?" was confirmed | Screen |
+| 08:50 | The connect card's **Authorize**, then Grok Bot's "Connect to grok-gadgets" dialog, **Continue**; a third registration at 08:50:05 | Screen, gateway log |
+| 08:52:33 | `oauth_sign_in_requested`, code `DN62-8KAC`; the sign-in page opened in Chrome and showed the same code | Gateway log, screen |
+| 08:52:46 | `oauth_sign_in_approved` as `grok-bot`, by `oauth approve` on the Mac | Gateway log |
+| 08:52:47 | `oauth_token_issued` to `grok-bot`; Grok Bot showed "grok-gadgets, 6 tools, Added" | Gateway log, screen |
+
+No password or token was typed into a page or a chat.
+
+## What the gateway log shows
+
+Every `mcp_tool_call` with `"token":"grok-bot"` in the window. The `client` field is the name that Grok Bot's connector backend sends in `initialize`; it is replaced here by `<connector client>` because it names a third-party company. It is not `grok-gadgets-rehearse`.
+
+```json
+{"ts": "2026-10-13T08:53:12.445187+00:00", "client": "<connector client>/1.0.0", "token": "grok-bot", "remote": true, "tool": "gadgets_list_devices", "outcome": "ok", "duration_ms": 0.5, "bytes_in": 2, "bytes_out": 1903}
+{"ts": "2026-10-13T08:53:52.137768+00:00", "client": "<connector client>/1.0.0", "token": "grok-bot", "remote": true, "tool": "gadgets_command", "device_id": "oledkit-84c7bb57148c", "capability": "display.text", "outcome": "ok", "status": "executed", "duration_ms": 167.8, "bytes_in": 125, "bytes_out": 611}
+{"ts": "2026-10-13T08:54:15.193817+00:00", "client": "<connector client>/1.0.0", "token": "grok-bot", "remote": true, "tool": "gadgets_command_status", "outcome": "ok", "status": "executed", "duration_ms": 0.3, "bytes_in": 52, "bytes_out": 593}
+{"ts": "2026-10-13T08:54:35.121024+00:00", "client": "<connector client>/1.0.0", "token": "grok-bot", "remote": true, "tool": "gadgets_get_state", "device_id": "oledkit-84c7bb57148c", "outcome": "ok", "duration_ms": 0.4, "bytes_in": 36, "bytes_out": 1918}
+{"ts": "2026-10-13T08:54:57.831872+00:00", "client": "<connector client>/1.0.0", "token": "grok-bot", "remote": true, "tool": "gadgets_read_events", "outcome": "ok", "duration_ms": 0.1, "bytes_in": 43, "bytes_out": 143}
+{"ts": "2026-10-13T08:57:29.120688+00:00", "client": "<connector client>/1.0.0", "token": "grok-bot", "remote": true, "tool": "gadgets_diagnostics", "outcome": "ok", "duration_ms": 0.5, "bytes_in": 2, "bytes_out": 435}
+{"ts": "2026-10-13T09:02:58.571598+00:00", "client": "<connector client>/1.0.0", "token": "grok-bot", "remote": true, "tool": "gadgets_list_devices", "outcome": "ok", "duration_ms": 0.4, "bytes_in": 2, "bytes_out": 1922}
+{"ts": "2026-10-13T09:03:18.739281+00:00", "client": "<connector client>/1.0.0", "token": "grok-bot", "remote": true, "tool": "gadgets_command", "device_id": "oledkit-84c7bb57148c", "capability": "display.text", "outcome": "ok", "status": "executed", "duration_ms": 107.8, "bytes_in": 125, "bytes_out": 611}
+{"ts": "2026-10-13T09:03:38.657072+00:00", "client": "<connector client>/1.0.0", "token": "grok-bot", "remote": true, "tool": "gadgets_get_state", "device_id": "oledkit-84c7bb57148c", "outcome": "ok", "duration_ms": 0.3, "bytes_in": 36, "bytes_out": 1918}
+```
+
+| Prompt | From | Tool calls |
+| --- | --- | --- |
+| 1 "Using the grok-gadgets tools, list my gadgets." | Mac | `gadgets_list_devices` |
+| 2 "… show "Hello from Grok Bot" on my OLED gadget." | Mac | `gadgets_command` `display.text`, `executed` |
+| 3 "Check the status of that command." | Mac | `gadgets_command_status` |
+| 4 "What is the OLED gadget's state now?" | Mac | `gadgets_get_state` |
+| 5 "Read my gadget events." (no button press) | Mac | `gadgets_read_events`, no events |
+| 6 "Run the gadget diagnostics." | Mac | `gadgets_diagnostics` |
+| 7 "Using the grok-gadgets tools, list my gadgets." | Phone | `gadgets_list_devices` |
+| 8 "… show "Hello from my phone" on my OLED gadget." | Phone | `gadgets_command` `display.text`, `executed` |
+| 9 "What is the OLED gadget's state now?" | Phone | `gadgets_get_state` |
+
+Each prompt gave exactly one tool call: 9 calls, 0 errors, 2 commands. Prompt 5 differs from the checklist: nobody pressed BOOT, so the call returned no events.
+
+## Physical check
+
+The owner looked at the OLED after prompt 2 and saw "Hello from Grok Bot". After prompt 8 the device reported "Hello from my phone"; the owner did not report a second look.
+
+## Usage
+
+| Reading | Page | Value | Time (UTC) |
+| --- | --- | --- | --- |
+| R0 desktop | Settings → Usage & Billing, **Weekly usage limit** | "1% used", "Resets in 4 days"; on-demand "None" | 08:46:57 |
+| R1 desktop | same | "1% used", "Resets in 4 days" | 08:57:51 |
+| R2 phone | Settings → Usage, **Weekly usage** | "1%", "Resets in 4 days" | 09:04 |
+| R2 desktop | same as R0 | "1% used", "Resets in 4 days" | 09:04:22 |
+
+Messages sent to Grok Bot in the window: two setup messages (two questions, then the add request) and nine gadget prompts. `grok-gadgets-gateway usage --token grok-bot --since 2026-10-13T08:46 --until 2026-10-13T09:05`:
+
+```text
+total:  calls=9  errors=0  commands=2  duration_ms=278.1  bytes=10477
+by token:
+  grok-bot  calls=9  errors=0  commands=2  duration_ms=278.1  bytes=10477
+by device:
+  -  calls=5  errors=0  commands=0  duration_ms=1.8  bytes=5097
+  oledkit-84c7bb57148c  calls=4  errors=0  commands=2  duration_ms=276.3  bytes=5380
+by capability:
+  -  calls=7  errors=0  commands=0  duration_ms=2.5  bytes=9005
+  display.text  calls=2  errors=0  commands=2  duration_ms=275.6  bytes=1472
+by day:
+  2026-10-13  calls=9  errors=0  commands=2  duration_ms=278.1  bytes=10477
+Days are UTC. Counts come from this gateway's request log only.
+```
+
+The pages show whole percent only, and all readings stayed at 1%. The rate was not calibrated: a zero change gives no useful rate. The estimate is in [ADR 007](../decisions/007-grok-bot-remote-https.md).
+
+## Turn-off, checked independently
+
+`remote off`, then `oauth revoke grok-bot` at 09:06:41 UTC; `oauth list` shows no sign-in. The tunnel was stopped; its URL then answered 530. `grok-gadgets` was uninstalled from Grok Bot (Connect apps → Manage plugins). The service was put back on `main` (`0.1.0a10`) without `--allowed-host` or `--oauth` at 09:07:44, and the board reconnected at 09:07:46 (`lan_hello`). `remote on` restores the default only.
+
+## Narrative and observations (not evidence)
+
+- Grok Bot's replies matched the log: one OLED kit, state reads, no events, a healthy gateway. It said each time that reported state is not physical proof.
+- On the phone, **Your plugins** did not list `grok-gadgets`, but the phone chat used it. Its tools run where the Bot runs, not on the phone.
+- The diagnostics reply noted that the loopback device listener showed no session; the board uses the Wi-Fi listener.
+- Run 3 left a revoked token as a saved secret named "grok-gadgets bearer token" in Grok Bot. It no longer works anywhere.
