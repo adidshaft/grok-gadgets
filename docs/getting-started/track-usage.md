@@ -11,7 +11,7 @@ grok-gadgets-gateway usage
 grok-gadgets-gateway usage --token grok-bot --since 2026-10-13
 ```
 
-The summary groups calls by token, device, capability and UTC day. Add `--json` for scripts. Full options: [gateway usage guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/dev/docs/usage.md).
+The summary groups calls by token, device, capability and UTC day. Add `--json` for scripts. Full options: [gateway usage guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/usage.md).
 
 For a live feed, start the gateway with `--usage-hook CMD`. Your program gets one JSON line per call on its standard input. The line holds no tokens, arguments or device state. A slow or failed program never delays a call.
 

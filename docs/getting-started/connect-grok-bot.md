@@ -43,7 +43,7 @@ Start your tunnel client so that `https://gadgets.example.net` forwards to `http
 curl -s -o /dev/null -w "%{http_code}\n" https://gadgets.example.net/.well-known/oauth-protected-resource/mcp
 ```
 
-Expected: `200`. The [tunnel guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/dev/docs/tunnel.md) has more checks.
+Expected: `200`. The [tunnel guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/tunnel.md) has more checks.
 
 ## 3. Add the server in Grok Bot
 

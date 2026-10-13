@@ -11,8 +11,8 @@ On 13 October 2026 the owner's Grok Bot called the six tools itself from the Mac
 
 | Component | Release | Package |
 | --- | --- | --- |
-| Hub | `v0.1.11-alpha.2` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.11-alpha.2) |
-| Gateway | `v0.1.0-alpha.10` | [PyPI `0.1.0a10`](https://pypi.org/project/grok-gadgets-gateway/) |
+| Hub | `v0.1.12-alpha.1` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.12-alpha.1) |
+| Gateway | `v0.1.0-alpha.11` | [PyPI `0.1.0a11`](https://pypi.org/project/grok-gadgets-gateway/) |
 | ESP32 SDK | `v0.2.0-alpha.12` | [GitHub release](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.12) |
 | Linux SDK | `v0.1.0-alpha.6` | [PyPI `0.1.0a6`](https://pypi.org/project/grok-gadgets-linux-sdk/) |
 | Home Assistant | `v0.1.0-alpha.5` | [PyPI `0.1.0a5`](https://pypi.org/project/grok-gadgets-home-assistant/) |
@@ -23,7 +23,7 @@ Phases 1–6 covered the local software, one physical USB/Wi-Fi kit and the opti
 
 | Part | What works today | Not verified yet |
 | --- | --- | --- |
-| Gateway and simulated light | Six MCP tools over stdio or authenticated HTTP on `127.0.0.1`; `rehearse` first success; approved Grok Bot local commands; native Grok Bot calls from Mac and iPhone through an owner-run tunnel with OAuth sign-in (gateway `0.1.0a11`, on `dev`); usage summary and hook; simulator kit; private LAN TLS for Wi-Fi devices; optional per-user launchd/systemd service | Another person's native connection; Team Bots; Windows and Intel Mac installs; slow post-login recovery retest |
+| Gateway and simulated light | Six MCP tools over stdio or authenticated HTTP on `127.0.0.1`; `rehearse` first success; approved Grok Bot local commands; native Grok Bot calls from Mac and iPhone through an owner-run tunnel with OAuth sign-in (gateway `0.1.0a11`); usage summary and hook; simulator kit; private LAN TLS for Wi-Fi devices; optional per-user launchd/systemd service | Another person's native connection; Team Bots; Windows and Intel Mac installs; slow post-login recovery retest |
 | Linux SDK | PyPI `0.1.0a6` and `grok-linux-agent dev ./my_gadget.py` with the decorator API | Real peripherals, systemd on a physical Linux host, Raspberry Pi hardware |
 | ESP32 SDK | Host tests, three firmware examples compile, simulated USB link to the gateway. The ESP32-S3 + OLED kit passed physical tests on the owner's board over USB ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-2026-10-12.md)) and over Wi-Fi from a USB charger ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)) | Another person's reproduction; other boards and routers; setup without a USB cable ([#72](https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/72)) |
 | Home Assistant probe | Read-only discovery against fixtures | A real Home Assistant home |
