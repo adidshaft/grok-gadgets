@@ -11,7 +11,7 @@ Sources are official Grok Bot pages only, read on 13 October 2026. No page shows
 | Where do I add a custom Remote HTTPS server? | In the Bot's info pane ("choose a card to add"), or by asking the Bot in chat. Connectors are plugins under **Connect apps**. No page shows the exact fields. | Partly confirmed |
 | Header token or OAuth? | Both: "the Bot's own credential, or each person's sign-in if the server uses OAuth". | Confirmed by docs |
 | Must the server be public HTTPS? | Not stated for Grok Bot. Bot computers reach the internet from shared egress addresses, so a server on the owner's Mac needs a public name. | **Unconfirmed**; inference |
-| Can the phone use a server added on the desktop? | The phone app uses "the same Bots, conversations, routines, connectors". Connectors are account-wide. Custom MCP servers are not named. | Partly confirmed |
+| Can the phone use a server added on the desktop? | The phone app uses "the same Bots, conversations, routines, connectors". Connectors are account-wide. Custom MCP servers are not named. | Partly confirmed by docs; worked in the owner test |
 | Where is plan usage shown? | Desktop: **Weekly usage limit** in Grok Bot Settings. Phone: **Weekly usage**. On-demand: **Settings → Usage & Billing**. | Confirmed by docs |
 | How is usage measured? | "agent steps and tokens", not messages (stated for the trial). Nothing per tool call. | Partly confirmed |
 | Can usage be exported or read by an API? | No personal export or API is documented. Teams can stream usage metrics to their own OpenTelemetry collector. | Confirmed by docs (team only) |
@@ -66,6 +66,16 @@ Inference, not documented: Grok Bot connects from its own computers, so the gate
 3. The gateway request log is the evidence that Grok Bot called a tool; the Bot's narrative is not.
 4. Grok Bot usage is read by the owner from **Weekly usage** before and after each step. Any credit figure per tool call is an estimate from those readings. Never scrape the account.
 5. The team OpenTelemetry export is a possible later source of measured usage; it is tracked as later work, not built now.
+
+## 7. What the owner tests showed (13 October 2026)
+
+Observed on the owner's personal Grok Bot (desktop 0.70.2, iPhone app); details in the [record](../verification/grok-remote-https-2026-10-13.md) and [ADR 007](../decisions/007-grok-bot-remote-https.md):
+
+- No settings screen adds a custom server. Grok Bot adds one when asked in chat, after a confirmation card. Added servers appear under **Connect apps** with source "Added manually".
+- Grok Bot would not put a fixed bearer token into a server's setup, even from its masked secure prompt.
+- With OAuth, Grok Bot needed only the URL. Its connector backend registered itself, a sign-in page opened in the browser, and the tools appeared after the owner approved.
+- A server added on the desktop worked from the iPhone app with no setup there.
+- **Weekly usage** showed whole percent only and did not move during 11 messages and 9 tool calls.
 
 ## Sources
 
