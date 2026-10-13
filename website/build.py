@@ -372,7 +372,7 @@ page(
     + path_row(
         "01",
         "Use your gadget with Grok Bot",
-        "Connect through the gateway on your Mac. This route works on the owner's setup.",
+        "For an operator-configured gadget and gateway. This route works on the owner's setup.",
         "doc-docs-getting-started-connect-grok-bot.html",
         "Connect guide",
     )
@@ -684,7 +684,7 @@ page(
     documentation_layout(
         '<header class="docs-intro"><p class="eyebrow">Open source / Local alpha</p>'
         "<h1>Use it.<br>Build it.</h1>"
-        "<p>Connect Grok Bot through the owner-tested Mac route, or build a gadget from the tested paths.</p>"
+        "<p>Use an operator-configured gadget through the owner-tested Mac route, or build from the tested paths.</p>"
         '<nav class="docs-entry-paths" aria-label="Choose a path"><a href="doc-docs-getting-started-connect-grok-bot.html">Use a gadget ↗</a><a href="doc-docs-getting-started-repeat-the-kit.html">Build a gadget ↗</a></nav>'
         '<p class="docs-note"><a href="doc-docs-public-support-matrix.html">Project status and open gates ↗</a></p></header>'
         + doc_navigation.index()

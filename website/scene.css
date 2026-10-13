@@ -1,7 +1,7 @@
 /* An open canvas: navigation and detail stay outside the illustration. */
 .home-page{min-height:100svh;display:grid;grid-template-rows:72px 1fr auto;}
-.home-page main#main{width:100%;max-width:1600px;margin:auto;padding:0 32px;}
-.home-scene{--scene-ink:#20201e;--scene-muted:#6c6c66;--scene-paper:#fff;position:relative;display:grid;grid-template-columns:1fr;grid-template-rows:1fr auto;align-items:center;min-height:calc(100svh - 130px);color:var(--scene-ink);}
+.home-page main#main{box-sizing:border-box;min-width:0;width:100%;max-width:1600px;margin:auto;padding:0 32px;}
+.home-scene{--scene-ink:#20201e;--scene-muted:#6c6c66;--scene-paper:#fff;position:relative;display:grid;grid-template-columns:1fr;grid-template-rows:1fr auto;align-items:center;min-width:0;min-height:calc(100svh - 130px);color:var(--scene-ink);}
 .scene-intro{grid-area:1 / 1;justify-self:start;align-self:center;z-index:1;max-width:310px;}
 .scene-intro h1{font-size:clamp(24px,2.3vw,34px);line-height:1.14;font-weight:400;letter-spacing:-.035em;margin:0;max-width:310px;text-wrap:balance;}
 .scene-intro p{font-size:13px;line-height:1.5;color:var(--muted);margin:18px 0 0;max-width:31ch;}
@@ -50,7 +50,7 @@
 .home-activity{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;}
 .home-activity h2{grid-column:1;grid-row:1 / 4;}.home-activity p{grid-column:2;margin:0 0 24px;color:var(--muted);max-width:40ch;}.home-activity a{font-size:14px;margin-right:28px;min-height:44px;display:inline-flex;align-items:center;}
 .home-activity>a{grid-column:2;justify-self:start;}
-.home-proof{padding:48px 0;border-top:1px solid var(--line);}.home-proof h2{font-size:clamp(32px,4vw,54px);}.home-proof img{display:block;width:100%;max-width:800px;height:auto;margin:24px 0;}
+.home-proof{padding:48px 0;border-top:1px solid var(--line);}.home-proof h2{font-size:clamp(32px,4vw,54px);}.home-proof img{display:block;width:100%;max-width:800px;height:auto;margin:24px 0;}.proof-output{max-width:100%;overflow-x:auto;}
 .home-kit{padding:48px 0;border-top:1px solid var(--line);}.home-kit h2{font-size:clamp(32px,4vw,54px);margin:8px 0 24px;}.home-kit a{font-size:13px;}
 .kit-photo{margin:28px 0;}.kit-photo img{display:block;width:100%;max-width:980px;height:auto;}.kit-photo figcaption{font:10px/1.6 'Courier New',monospace;color:var(--muted);margin-top:8px;}
 

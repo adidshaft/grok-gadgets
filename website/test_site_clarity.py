@@ -14,7 +14,7 @@ class SiteClarityTests(unittest.TestCase):
         hero = (SITE / "home-scene.html").read_text()
         self.assertIn("Your Grok Bot.", hero)
         self.assertIn("In the real world.", hero)
-        self.assertIn("the owner's Wi-Fi gadget from Mac and iPhone", hero)
+        self.assertIn("On the owner's setup, Grok Bot controls a Wi-Fi gadget", hero)
         self.assertIn("through a gateway on the Mac", hero)
         self.assertEqual(hero.count('<div class="scene-intro">'), 1)
         self.assertNotIn('class="scene-status"', hero)
