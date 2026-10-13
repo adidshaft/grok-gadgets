@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/always-on.md at 1234c1939131d03fd562c5de394c625af76ab240
+Source: grok-gadgets-gateway/docs/always-on.md at 17f51f5114ec1aefc522bb4c93ff8277b716dbe4
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -44,8 +44,11 @@ system files.
 .venv/bin/grok-gadgets-gateway service uninstall
 ```
 
-`status` says whether the service is running. `logs` prints the end of the log; the request log
-is in the same folder. `uninstall` stops the service and removes its file. Your config, CA and
+`status` says whether the service is running. For the Grok Bot route it also shows the allowed
+host, `--oauth` sign-in and `remote` on or off. Then it lists live sign-ins, the last remote call
+and any sign-in flood in the last 24 hours. It never prints a token or a sign-in code. `logs`
+prints the end of the log; the request log is in the same folder. Both logs rotate at 5 MiB and
+keep 5 old files. `uninstall` stops the service and removes its file. Your config, CA and
 device tokens stay.
 
 After a restart, the gateway can take a minute or two to start while the computer finishes
