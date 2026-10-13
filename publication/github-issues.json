@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "owner": "adidshaft",
-  "refreshed_at": "2026-10-05T03:43:46Z",
+  "refreshed_at": "2026-10-13T15:19:48Z",
   "source": "GitHub Issues",
   "issues": [
     {
@@ -63,8 +63,8 @@
       "number": 4,
       "problem": "[HARD-GROK-REMOTE-001] Implement authenticated cloud-to-local HTTPS MCP transport",
       "title": "[HARD-GROK-REMOTE-001] Implement authenticated cloud-to-local HTTPS MCP transport",
-      "state": "open",
-      "stage": "blocked",
+      "state": "closed",
+      "stage": "done",
       "labels": [
         "feature",
         "gateway",
@@ -72,7 +72,7 @@
         "P1"
       ],
       "milestone": "Actual Grok",
-      "blocker": "Remote HTTPS/OAuth transport is unimplemented; separate design and service activation approval required",
+      "blocker": null,
       "github_url": "https://github.com/adidshaft/grok-gadgets/issues/4"
     },
     {
@@ -203,15 +203,16 @@
       "number": 12,
       "problem": "[HUB-GROK-001] Actual existing Grok Bot tool execution",
       "title": "[HUB-GROK-001] Actual existing Grok Bot tool execution",
-      "state": "open",
-      "stage": "blocked",
+      "state": "closed",
+      "stage": "done",
       "labels": [
+        "blocked",
         "feature",
         "gateway",
         "P1"
       ],
       "milestone": "Actual Grok",
-      "blocker": "Exact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors. Installation-only computer evidence recorded for grok-launch-20261005-a.",
+      "blocker": null,
       "github_url": "https://github.com/adidshaft/grok-gadgets/issues/12"
     },
     {
@@ -252,18 +253,18 @@
       "id": "HUB-HW-001",
       "repository": "grok-gadgets",
       "number": 15,
-      "problem": "[HUB-HW-001] Physical LED/button/recovery verification",
-      "title": "[HUB-HW-001] Physical LED/button/recovery verification",
+      "problem": "[HUB-HW-001] Verify Grok Gadgets with one hardware setup of your choice",
+      "title": "[HUB-HW-001] Verify Grok Gadgets with one hardware setup of your choice",
       "state": "open",
-      "stage": "blocked",
+      "stage": "proposed",
       "labels": [
-        "esp32",
-        "feature",
+        "good first issue",
+        "help wanted",
         "needs hardware",
-        "P1"
+        "P2"
       ],
       "milestone": "Physical and independent verification",
-      "blocker": "C124 hardware unavailable",
+      "blocker": null,
       "github_url": "https://github.com/adidshaft/grok-gadgets/issues/15"
     },
     {
@@ -340,8 +341,8 @@
       "number": 20,
       "problem": "[HUB-PUBLISH-001] Activate approved public repositories/releases/site",
       "title": "[HUB-PUBLISH-001] Activate approved public repositories/releases/site",
-      "state": "open",
-      "stage": "blocked",
+      "state": "closed",
+      "stage": "done",
       "labels": [
         "blocked",
         "maintenance",
@@ -349,7 +350,7 @@
         "website"
       ],
       "milestone": "Publication preparation",
-      "blocker": "The source launch is complete. Website deployment, package releases, firmware downloads and the separate GitHub Project remain distinct pending operations.",
+      "blocker": null,
       "github_url": "https://github.com/adidshaft/grok-gadgets/issues/20"
     },
     {
@@ -382,7 +383,7 @@
         "linux",
         "P2"
       ],
-      "milestone": "Linux SDK",
+      "milestone": "Phase 9: Mac-free route",
       "blocker": "Container is not a systemd target host",
       "github_url": "https://github.com/adidshaft/grok-gadgets/issues/22"
     },
@@ -519,7 +520,7 @@
         "maintenance",
         "P1"
       ],
-      "milestone": "Public alpha launch",
+      "milestone": "Firmware redistribution readiness",
       "blocker": "Corresponding-source/relinking redistribution package has not been assembled or cleared; source-only publication package excludes binaries.",
       "github_url": "https://github.com/adidshaft/grok-gadgets/issues/30"
     },
@@ -529,8 +530,8 @@
       "number": 31,
       "problem": "[LAUNCH-GROK-001] Obtain actual Grok simulator invocation evidence",
       "title": "[LAUNCH-GROK-001] Obtain actual Grok simulator invocation evidence",
-      "state": "open",
-      "stage": "blocked",
+      "state": "closed",
+      "stage": "done",
       "labels": [
         "blocked",
         "gateway",
@@ -539,7 +540,7 @@
         "simulator"
       ],
       "milestone": "Public alpha launch preparation",
-      "blocker": "Exact current native tool receipts require a supported scoped connector update/reload. Existing detail has no such control; reported account-wide restart would affect unrelated connectors.",
+      "blocker": null,
       "github_url": "https://github.com/adidshaft/grok-gadgets/issues/31"
     },
     {
@@ -629,6 +630,1302 @@
       "github_url": "https://github.com/adidshaft/grok-gadgets/issues/36"
     },
     {
+      "id": "grok-gadgets#41",
+      "repository": "grok-gadgets",
+      "number": 41,
+      "problem": "AUDIT-HOST-001: Prevent older successful builds from replacing newer production",
+      "title": "AUDIT-HOST-001: Prevent older successful builds from replacing newer production",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "P2",
+        "website"
+      ],
+      "milestone": "Audit corrections and local release readiness",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/41"
+    },
+    {
+      "id": "grok-gadgets#42",
+      "repository": "grok-gadgets",
+      "number": 42,
+      "problem": "AUDIT-WEB-001: Make activity freshness accurate between daily builds",
+      "title": "AUDIT-WEB-001: Make activity freshness accurate between daily builds",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "P2",
+        "website"
+      ],
+      "milestone": "Audit corrections and local release readiness",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/42"
+    },
+    {
+      "id": "grok-gadgets#43",
+      "repository": "grok-gadgets",
+      "number": 43,
+      "problem": "AUDIT-DOC-001: Reconcile live publication status and experimental Grok onboarding copy",
+      "title": "AUDIT-DOC-001: Reconcile live publication status and experimental Grok onboarding copy",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "community",
+        "docs",
+        "P2",
+        "website"
+      ],
+      "milestone": "Audit corrections and local release readiness",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/43"
+    },
+    {
+      "id": "grok-gadgets#44",
+      "repository": "grok-gadgets",
+      "number": 44,
+      "problem": "AUDIT-COM-001: Complete reviewed Reddit flairs, rules and contributor recognition rollout",
+      "title": "AUDIT-COM-001: Complete reviewed Reddit flairs, rules and contributor recognition rollout",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "community",
+        "P2"
+      ],
+      "milestone": "Firmware redistribution readiness",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/44"
+    },
+    {
+      "id": "grok-gadgets#47",
+      "repository": "grok-gadgets",
+      "number": 47,
+      "problem": "WEB-DOCS-NAV-001: Organize documentation into nested task-based navigation",
+      "title": "WEB-DOCS-NAV-001: Organize documentation into nested task-based navigation",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "enhancement",
+        "P2",
+        "website"
+      ],
+      "milestone": "Audit corrections and local release readiness",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/47"
+    },
+    {
+      "id": "grok-gadgets#52",
+      "repository": "grok-gadgets",
+      "number": 52,
+      "problem": "[FUT-KIT-WIN-001] Verify the distributed simulator kit on native Windows",
+      "title": "[FUT-KIT-WIN-001] Verify the distributed simulator kit on native Windows",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "docs",
+        "maintenance",
+        "P2",
+        "simulator"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/52"
+    },
+    {
+      "id": "grok-gadgets#54",
+      "repository": "grok-gadgets",
+      "number": 54,
+      "problem": "HUB-EMAIL-001: Retire the private-email commit check (D1)",
+      "title": "HUB-EMAIL-001: Retire the private-email commit check (D1)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P0"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/54"
+    },
+    {
+      "id": "grok-gadgets#56",
+      "repository": "grok-gadgets",
+      "number": 56,
+      "problem": "HUB-KIT-002: Build the simulator kit from gateway main and pin it by input hash (H6)",
+      "title": "HUB-KIT-002: Build the simulator kit from gateway main and pin it by input hash (H6)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P0",
+        "simulator"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/56"
+    },
+    {
+      "id": "grok-gadgets#58",
+      "repository": "grok-gadgets",
+      "number": 58,
+      "problem": "HUB-INT-MAIN-001: Integrate all five main branches on push and nightly",
+      "title": "HUB-INT-MAIN-001: Integrate all five main branches on push and nightly",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "integration",
+        "maintenance",
+        "P0"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/58"
+    },
+    {
+      "id": "grok-gadgets#60",
+      "repository": "grok-gadgets",
+      "number": 60,
+      "problem": "HUB-READY-001: Link each repository's own contributor queue",
+      "title": "HUB-READY-001: Link each repository's own contributor queue",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "community",
+        "docs",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/60"
+    },
+    {
+      "id": "grok-gadgets#62",
+      "repository": "grok-gadgets",
+      "number": 62,
+      "problem": "HUB-PROOF-001: Show the MCP Inspector first-success recording on the website",
+      "title": "HUB-PROOF-001: Show the MCP Inspector first-success recording on the website",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "P1",
+        "simulator",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/62"
+    },
+    {
+      "id": "grok-gadgets#64",
+      "repository": "grok-gadgets",
+      "number": 64,
+      "problem": "HUB-KIT-003: Advisory kit job fails Hub checks and blocks the deploy",
+      "title": "HUB-KIT-003: Advisory kit job fails Hub checks and blocks the deploy",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "maintenance",
+        "P0"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/64"
+    },
+    {
+      "id": "grok-gadgets#66",
+      "repository": "grok-gadgets",
+      "number": 66,
+      "problem": "HUB-PY-001: One hub Python version; fix run-together component text (L5, M10)",
+      "title": "HUB-PY-001: One hub Python version; fix run-together component text (L5, M10)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/66"
+    },
+    {
+      "id": "grok-gadgets#68",
+      "repository": "grok-gadgets",
+      "number": 68,
+      "problem": "HUB-NAV-001: Move maintainer and process docs out of the public docs nav (M8)",
+      "title": "HUB-NAV-001: Move maintainer and process docs out of the public docs nav (M8)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "P1",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/68"
+    },
+    {
+      "id": "grok-gadgets#70",
+      "repository": "grok-gadgets",
+      "number": 70,
+      "problem": "HUB-STATUS-001: One status page that every page links to; short hub README (M9)",
+      "title": "HUB-STATUS-001: One status page that every page links to; short hub README (M9)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "P1",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/70"
+    },
+    {
+      "id": "grok-gadgets#72",
+      "repository": "grok-gadgets",
+      "number": 72,
+      "problem": "HUB-HERO-001: Homepage says what it does, with a status chip and three paths (M11)",
+      "title": "HUB-HERO-001: Homepage says what it does, with a status chip and three paths (M11)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "P1",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/72"
+    },
+    {
+      "id": "grok-gadgets#74",
+      "repository": "grok-gadgets",
+      "number": 74,
+      "problem": "HUB-DOCS-001: The site's component docs lag component main",
+      "title": "HUB-DOCS-001: The site's component docs lag component main",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "P1",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/74"
+    },
+    {
+      "id": "grok-gadgets#76",
+      "repository": "grok-gadgets",
+      "number": 76,
+      "problem": "HUB-REL-001: Draft v0.1.0-alpha.1 release notes per repository (Q1)",
+      "title": "HUB-REL-001: Draft v0.1.0-alpha.1 release notes per repository (Q1)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/76"
+    },
+    {
+      "id": "grok-gadgets#78",
+      "repository": "grok-gadgets",
+      "number": 78,
+      "problem": "HUB-RED-001: Prepare the r/GrokGadgets launch package (port the record)",
+      "title": "HUB-RED-001: Prepare the r/GrokGadgets launch package (port the record)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "community",
+        "docs",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/78"
+    },
+    {
+      "id": "grok-gadgets#80",
+      "repository": "grok-gadgets",
+      "number": 80,
+      "problem": "HUB-ARCHIVE-001: Archive one-off launch tooling",
+      "title": "HUB-ARCHIVE-001: Archive one-off launch tooling",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "good first issue",
+        "maintenance",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/80"
+    },
+    {
+      "id": "grok-gadgets#81",
+      "repository": "grok-gadgets",
+      "number": 81,
+      "problem": "HUB-README-002: Clearer hub README; affiliation notice and Reddit invitation on the site",
+      "title": "HUB-README-002: Clearer hub README; affiliation notice and Reddit invitation on the site",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "community",
+        "docs",
+        "P2",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/81"
+    },
+    {
+      "id": "grok-gadgets#83",
+      "repository": "grok-gadgets",
+      "number": 83,
+      "problem": "HUB-REL-002: Record the v0.1.0-alpha.1 release plan",
+      "title": "HUB-REL-002: Record the v0.1.0-alpha.1 release plan",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/83"
+    },
+    {
+      "id": "grok-gadgets#91",
+      "repository": "grok-gadgets",
+      "number": 91,
+      "problem": "REL-003: Guard main against non-release PRs; correct the branch docs on main",
+      "title": "REL-003: Guard main against non-release PRs; correct the branch docs on main",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/91"
+    },
+    {
+      "id": "grok-gadgets#94",
+      "repository": "grok-gadgets",
+      "number": 94,
+      "problem": "STE-001: Keep the README and newcomer pages within ASD-STE100 sentence limits",
+      "title": "STE-001: Keep the README and newcomer pages within ASD-STE100 sentence limits",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/94"
+    },
+    {
+      "id": "grok-gadgets#96",
+      "repository": "grok-gadgets",
+      "number": 96,
+      "problem": "HUB-CONTRIB-001: Document the contribution acceptance bar",
+      "title": "HUB-CONTRIB-001: Document the contribution acceptance bar",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/96"
+    },
+    {
+      "id": "grok-gadgets#100",
+      "repository": "grok-gadgets",
+      "number": 100,
+      "problem": "HUB-WEB-005: Keep the desktop Grok Bot mark inside the hero scene",
+      "title": "HUB-WEB-005: Keep the desktop Grok Bot mark inside the hero scene",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "P2",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/100"
+    },
+    {
+      "id": "grok-gadgets#102",
+      "repository": "grok-gadgets",
+      "number": 102,
+      "problem": "[AUDIT-CONTRIB-002] Make fork setup start from upstream/dev in all five repositories",
+      "title": "[AUDIT-CONTRIB-002] Make fork setup start from upstream/dev in all five repositories",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "help wanted",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/102"
+    },
+    {
+      "id": "grok-gadgets#103",
+      "repository": "grok-gadgets",
+      "number": 103,
+      "problem": "[AUDIT-SEC-002] Enable and verify dependency vulnerability alerts across the five repositories",
+      "title": "[AUDIT-SEC-002] Enable and verify dependency vulnerability alerts across the five repositories",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/103"
+    },
+    {
+      "id": "grok-gadgets#104",
+      "repository": "grok-gadgets",
+      "number": 104,
+      "problem": "HUB-WEB-006: Replace the crowded homepage with a clear motion canvas",
+      "title": "HUB-WEB-006: Replace the crowded homepage with a clear motion canvas",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "enhancement",
+        "P1",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/104"
+    },
+    {
+      "id": "grok-gadgets#106",
+      "repository": "grok-gadgets",
+      "number": 106,
+      "problem": "HUB-WEB-007: Interactive motion scenes, roadmap and author credit",
+      "title": "HUB-WEB-007: Interactive motion scenes, roadmap and author credit",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "enhancement",
+        "P1",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/106"
+    },
+    {
+      "id": "grok-gadgets#108",
+      "repository": "grok-gadgets",
+      "number": 108,
+      "problem": "HUB-WEB-008: Make motion diagrams explain Grok Bot and hardware",
+      "title": "HUB-WEB-008: Make motion diagrams explain Grok Bot and hardware",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "enhancement",
+        "P1",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/108"
+    },
+    {
+      "id": "grok-gadgets#110",
+      "repository": "grok-gadgets",
+      "number": 110,
+      "problem": "HUB-WEB-009: Connect grokgadgets.org and publish canonical domain URLs",
+      "title": "HUB-WEB-009: Connect grokgadgets.org and publish canonical domain URLs",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P2",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/110"
+    },
+    {
+      "id": "REL-005",
+      "repository": "grok-gadgets",
+      "number": 113,
+      "problem": "REL-005: Publish coordinated alpha.2 releases",
+      "title": "REL-005: Publish coordinated alpha.2 releases",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/113"
+    },
+    {
+      "id": "HUB-DONATE-001",
+      "repository": "grok-gadgets",
+      "number": 115,
+      "problem": "HUB-DONATE-001: Publish voluntary support addresses",
+      "title": "HUB-DONATE-001: Publish voluntary support addresses",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "P2",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/115"
+    },
+    {
+      "id": "grok-gadgets#116",
+      "repository": "grok-gadgets",
+      "number": 116,
+      "problem": "[HUB-DONATE-001] Add accessible homepage donation dialog",
+      "title": "[HUB-DONATE-001] Add accessible homepage donation dialog",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "accessibility",
+        "enhancement",
+        "P2",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/116"
+    },
+    {
+      "id": "grok-gadgets#151",
+      "repository": "grok-gadgets",
+      "number": 151,
+      "problem": "[REL-CHECKSUM-001] Make Python release checksum paths work after download",
+      "title": "[REL-CHECKSUM-001] Make Python release checksum paths work after download",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "maintenance",
+        "P2"
+      ],
+      "milestone": "Phase 5: Repeatable by a second builder",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/151"
+    },
+    {
+      "id": "grok-gadgets#154",
+      "repository": "grok-gadgets",
+      "number": 154,
+      "problem": "[HUB-GROK-REMOTE-TEST-001] Owner test of Grok Bot Remote HTTPS through an owner-run tunnel",
+      "title": "[HUB-GROK-REMOTE-TEST-001] Owner test of Grok Bot Remote HTTPS through an owner-run tunnel",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "blocked",
+        "gateway",
+        "research"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/154"
+    },
+    {
+      "id": "grok-gadgets#157",
+      "repository": "grok-gadgets",
+      "number": 157,
+      "problem": "[HUB-REL-015] Release hub v0.1.5-alpha.1",
+      "title": "[HUB-REL-015] Release hub v0.1.5-alpha.1",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/157"
+    },
+    {
+      "id": "grok-gadgets#164",
+      "repository": "grok-gadgets",
+      "number": 164,
+      "problem": "[HUB-REL-016] Release hub v0.1.6-alpha.1",
+      "title": "[HUB-REL-016] Release hub v0.1.6-alpha.1",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/164"
+    },
+    {
+      "id": "grok-gadgets#168",
+      "repository": "grok-gadgets",
+      "number": 168,
+      "problem": "HUB-WIFI-ADR-005: Decide the secure Wi-Fi route for ESP32 devices",
+      "title": "HUB-WIFI-ADR-005: Decide the secure Wi-Fi route for ESP32 devices",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "esp32",
+        "gateway",
+        "research"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/168"
+    },
+    {
+      "id": "grok-gadgets#170",
+      "repository": "grok-gadgets",
+      "number": 170,
+      "problem": "HUB-REL-017: Release hub v0.1.7-alpha.1 with the Wi-Fi kit",
+      "title": "HUB-REL-017: Release hub v0.1.7-alpha.1 with the Wi-Fi kit",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "esp32",
+        "gateway",
+        "maintenance"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/170"
+    },
+    {
+      "id": "grok-gadgets#174",
+      "repository": "grok-gadgets",
+      "number": 174,
+      "problem": "[HUB-KIT-002] Reconcile website and docs with the tested OLED kit",
+      "title": "[HUB-KIT-002] Reconcile website and docs with the tested OLED kit",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "P1",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/174"
+    },
+    {
+      "id": "grok-gadgets#175",
+      "repository": "grok-gadgets",
+      "number": 175,
+      "problem": "[DOC-IMPORT-001] Show importer help without changing snapshots",
+      "title": "[DOC-IMPORT-001] Show importer help without changing snapshots",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "documentation",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/175"
+    },
+    {
+      "id": "grok-gadgets#177",
+      "repository": "grok-gadgets",
+      "number": 177,
+      "problem": "AUDIT-DOC-002: Match public docs to the 12 October kit evidence",
+      "title": "AUDIT-DOC-002: Match public docs to the 12 October kit evidence",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/177"
+    },
+    {
+      "id": "grok-gadgets#178",
+      "repository": "grok-gadgets",
+      "number": 178,
+      "problem": "[SIM-ISOLATION-001] Isolate simulator credential discovery",
+      "title": "[SIM-ISOLATION-001] Isolate simulator credential discovery",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "P1",
+        "simulator"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/178"
+    },
+    {
+      "id": "grok-gadgets#183",
+      "repository": "grok-gadgets",
+      "number": 183,
+      "problem": "HUB-KIT-003: Add troubleshooting and a wiring diagram to the repeat-the-kit guide",
+      "title": "HUB-KIT-003: Add troubleshooting and a wiring diagram to the repeat-the-kit guide",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/183"
+    },
+    {
+      "id": "grok-gadgets#185",
+      "repository": "grok-gadgets",
+      "number": 185,
+      "problem": "HUB-TEST-CALL-001: Call for testers \u2014 repeat the ESP32-S3 OLED kit",
+      "title": "HUB-TEST-CALL-001: Call for testers \u2014 repeat the ESP32-S3 OLED kit",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "community",
+        "esp32",
+        "help wanted"
+      ],
+      "milestone": "Phase 5: Repeatable by a second builder",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/185"
+    },
+    {
+      "id": "grok-gadgets#186",
+      "repository": "grok-gadgets",
+      "number": 186,
+      "problem": "[HUB-DONATE-002] Make Donate visible beside Menu",
+      "title": "[HUB-DONATE-002] Make Donate visible beside Menu",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "P2",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/186"
+    },
+    {
+      "id": "grok-gadgets#188",
+      "repository": "grok-gadgets",
+      "number": 188,
+      "problem": "[HUB-KIT-004] Refresh verified simulator kit after gateway release",
+      "title": "[HUB-KIT-004] Refresh verified simulator kit after gateway release",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "P1",
+        "simulator"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/188"
+    },
+    {
+      "id": "grok-gadgets#189",
+      "repository": "grok-gadgets",
+      "number": 189,
+      "problem": "HUB-REL-018: Release hub v0.1.8-alpha.1 with the 12 October component releases",
+      "title": "HUB-REL-018: Release hub v0.1.8-alpha.1 with the 12 October component releases",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/189"
+    },
+    {
+      "id": "grok-gadgets#193",
+      "repository": "grok-gadgets",
+      "number": 193,
+      "problem": "[WEB-DOCS-NAV-002] Map new component release guides in site navigation",
+      "title": "[WEB-DOCS-NAV-002] Map new component release guides in site navigation",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "P1",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/193"
+    },
+    {
+      "id": "grok-gadgets#198",
+      "repository": "grok-gadgets",
+      "number": 198,
+      "problem": "[HUB-DONATE-003] Align header Donate control with site branding",
+      "title": "[HUB-DONATE-003] Align header Donate control with site branding",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "P2",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/198"
+    },
+    {
+      "id": "grok-gadgets#202",
+      "repository": "grok-gadgets",
+      "number": 202,
+      "problem": "HUB-KIT-005: Kit guide misses the clone and tool-setup steps",
+      "title": "HUB-KIT-005: Kit guide misses the clone and tool-setup steps",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/202"
+    },
+    {
+      "id": "grok-gadgets#204",
+      "repository": "grok-gadgets",
+      "number": 204,
+      "problem": "HUB-REL-019: Release hub v0.1.9-alpha.1 with gateway alpha.8 and ESP32 alpha.11",
+      "title": "HUB-REL-019: Release hub v0.1.9-alpha.1 with gateway alpha.8 and ESP32 alpha.11",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/204"
+    },
+    {
+      "id": "grok-gadgets#208",
+      "repository": "grok-gadgets",
+      "number": 208,
+      "problem": "HUB-REL-020: Release hub v0.1.9-alpha.2 with gateway alpha.9",
+      "title": "HUB-REL-020: Release hub v0.1.9-alpha.2 with gateway alpha.9",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/208"
+    },
+    {
+      "id": "grok-gadgets#212",
+      "repository": "grok-gadgets",
+      "number": 212,
+      "problem": "HUB-ADR-006: Decide the always-on gateway and stable device address",
+      "title": "HUB-ADR-006: Decide the always-on gateway and stable device address",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/212"
+    },
+    {
+      "id": "grok-gadgets#214",
+      "repository": "grok-gadgets",
+      "number": 214,
+      "problem": "[HUB-WEB-ROUTES-001] Share Donate modal at a clean URL",
+      "title": "[HUB-WEB-ROUTES-001] Share Donate modal at a clean URL",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "P2",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/214"
+    },
+    {
+      "id": "grok-gadgets#220",
+      "repository": "grok-gadgets",
+      "number": 220,
+      "problem": "HUB-REL-021: Release hub with the Phase 6 always-on gateway",
+      "title": "HUB-REL-021: Release hub with the Phase 6 always-on gateway",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance"
+      ],
+      "milestone": "Phase 6: Always-on gadget",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/220"
+    },
+    {
+      "id": "grok-gadgets#224",
+      "repository": "grok-gadgets",
+      "number": 224,
+      "problem": "HUB-PYPI-001: Status page still lists PyPI uploads as pending",
+      "title": "HUB-PYPI-001: Status page still lists PyPI uploads as pending",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/224"
+    },
+    {
+      "id": "grok-gadgets#226",
+      "repository": "grok-gadgets",
+      "number": 226,
+      "problem": "HUB-REL-022: Release hub v0.1.10-alpha.2 with the PyPI packages",
+      "title": "HUB-REL-022: Release hub v0.1.10-alpha.2 with the PyPI packages",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/226"
+    },
+    {
+      "id": "grok-gadgets#230",
+      "repository": "grok-gadgets",
+      "number": 230,
+      "problem": "HUB-DOC-023: Show the verified kit first and simplify documentation",
+      "title": "HUB-DOC-023: Show the verified kit first and simplify documentation",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/230"
+    },
+    {
+      "id": "grok-gadgets#233",
+      "repository": "grok-gadgets",
+      "number": 233,
+      "problem": "HUB-DOC-024: Remove the last outside-product reference from the implementation plan",
+      "title": "HUB-DOC-024: Remove the last outside-product reference from the implementation plan",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/233"
+    },
+    {
+      "id": "grok-gadgets#237",
+      "repository": "grok-gadgets",
+      "number": 237,
+      "problem": "HUB-UX-025: Simplify the homepage hero on narrow screens",
+      "title": "HUB-UX-025: Simplify the homepage hero on narrow screens",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "website"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/237"
+    },
+    {
+      "id": "grok-gadgets#245",
+      "repository": "grok-gadgets",
+      "number": 245,
+      "problem": "HUB-DOC-025: Connect your Grok Bot (Mac and phone) and Track usage guides; site status",
+      "title": "HUB-DOC-025: Connect your Grok Bot (Mac and phone) and Track usage guides; site status",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/245"
+    },
+    {
+      "id": "grok-gadgets#248",
+      "repository": "grok-gadgets",
+      "number": 248,
+      "problem": "HUB-REL-023: Phase 7 releases (gateway v0.1.0-alpha.11, hub v0.1.12-alpha.1)",
+      "title": "HUB-REL-023: Phase 7 releases (gateway v0.1.0-alpha.11, hub v0.1.12-alpha.1)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/248"
+    },
+    {
+      "id": "grok-gadgets#251",
+      "repository": "grok-gadgets",
+      "number": 251,
+      "problem": "HUB-DAILY-001: Phase 8 daily native route from Grok Bot (Mac and phone)",
+      "title": "HUB-DAILY-001: Phase 8 daily native route from Grok Bot (Mac and phone)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/251"
+    },
+    {
+      "id": "grok-gadgets#255",
+      "repository": "grok-gadgets",
+      "number": 255,
+      "problem": "HUB-REL-024: Phase 8 release v0.1.13-alpha.1",
+      "title": "HUB-REL-024: Phase 8 release v0.1.13-alpha.1",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/255"
+    },
+    {
+      "id": "grok-gadgets#260",
+      "repository": "grok-gadgets",
+      "number": 260,
+      "problem": "HUB-ADR-009: Accept ADR 009: relay route and hosting model",
+      "title": "HUB-ADR-009: Accept ADR 009: relay route and hosting model",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "docs",
+        "esp32",
+        "gateway",
+        "P1",
+        "research"
+      ],
+      "milestone": "Phase 9: Mac-free route",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/260"
+    },
+    {
+      "id": "grok-gadgets#261",
+      "repository": "grok-gadgets",
+      "number": 261,
+      "problem": "HUB-RELAY-001: Phase 9 parent: the owner's kit through a gateway on an always-on Linux host",
+      "title": "HUB-RELAY-001: Phase 9 parent: the owner's kit through a gateway on an always-on Linux host",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "esp32",
+        "feature",
+        "gateway",
+        "integration",
+        "needs hardware",
+        "P1"
+      ],
+      "milestone": "Phase 9: Mac-free route",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/261"
+    },
+    {
+      "id": "grok-gadgets#262",
+      "repository": "grok-gadgets",
+      "number": 262,
+      "problem": "HUB-DOC-026: Guide: run the gateway away from your Mac",
+      "title": "HUB-DOC-026: Guide: run the gateway away from your Mac",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "docs",
+        "P1",
+        "website"
+      ],
+      "milestone": "Phase 9: Mac-free route",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/262"
+    },
+    {
+      "id": "grok-gadgets#263",
+      "repository": "grok-gadgets",
+      "number": 263,
+      "problem": "HUB-WEB-ROADMAP-001: Website shows Today, Next and Later in ten seconds",
+      "title": "HUB-WEB-ROADMAP-001: Website shows Today, Next and Later in ten seconds",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "docs",
+        "P1",
+        "website"
+      ],
+      "milestone": "Phase 9: Mac-free route",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/263"
+    },
+    {
+      "id": "grok-gadgets#264",
+      "repository": "grok-gadgets",
+      "number": 264,
+      "problem": "HUB-REL-025: Release the Phase 9 hub",
+      "title": "HUB-REL-025: Release the Phase 9 hub",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "esp32",
+        "gateway",
+        "maintenance"
+      ],
+      "milestone": "Phase 9: Mac-free route",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/264"
+    },
+    {
+      "id": "grok-gadgets#265",
+      "repository": "grok-gadgets",
+      "number": 265,
+      "problem": "HUB-ADR-010: ADR 010: phone-only Wi-Fi setup",
+      "title": "HUB-ADR-010: ADR 010: phone-only Wi-Fi setup",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "docs",
+        "esp32",
+        "research"
+      ],
+      "milestone": "Phase 10: Setup without a cable",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/265"
+    },
+    {
+      "id": "grok-gadgets#266",
+      "repository": "grok-gadgets",
+      "number": 266,
+      "problem": "HUB-SETUP-001: Phase 10 parent: join the kit to Wi-Fi from an iPhone, no computer",
+      "title": "HUB-SETUP-001: Phase 10 parent: join the kit to Wi-Fi from an iPhone, no computer",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "esp32",
+        "feature",
+        "integration",
+        "needs hardware",
+        "P1"
+      ],
+      "milestone": "Phase 10: Setup without a cable",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/266"
+    },
+    {
+      "id": "grok-gadgets#267",
+      "repository": "grok-gadgets",
+      "number": 267,
+      "problem": "HUB-ADR-011: ADR 011: accounts and claim codes",
+      "title": "HUB-ADR-011: ADR 011: accounts and claim codes",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "docs",
+        "gateway",
+        "research"
+      ],
+      "milestone": "Phase 11: Claim your gadget",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/267"
+    },
+    {
+      "id": "grok-gadgets#268",
+      "repository": "grok-gadgets",
+      "number": 268,
+      "problem": "HUB-CLAIM-001: Phase 11 parent: a second account claims a gadget",
+      "title": "HUB-CLAIM-001: Phase 11 parent: a second account claims a gadget",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "feature",
+        "integration",
+        "needs hardware",
+        "P1"
+      ],
+      "milestone": "Phase 11: Claim your gadget",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/268"
+    },
+    {
+      "id": "grok-gadgets#269",
+      "repository": "grok-gadgets",
+      "number": 269,
+      "problem": "HUB-BUILD-001: Phase 12 parent and \"Build for others\" guide",
+      "title": "HUB-BUILD-001: Phase 12 parent and \"Build for others\" guide",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "community",
+        "docs",
+        "help wanted",
+        "website"
+      ],
+      "milestone": "Phase 12: Builder kit",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/269"
+    },
+    {
+      "id": "grok-gadgets#270",
+      "repository": "grok-gadgets",
+      "number": 270,
+      "problem": "HUB-RELAY-SHARED-001: Decision: should the project run a shared relay?",
+      "title": "HUB-RELAY-SHARED-001: Decision: should the project run a shared relay?",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "blocked",
+        "community",
+        "research"
+      ],
+      "milestone": "Phase 13: Shared relay (decision)",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/270"
+    },
+    {
+      "id": "grok-gadgets#271",
+      "repository": "grok-gadgets",
+      "number": 271,
+      "problem": "HUB-DAILY-002: Record a second day and a usable usage measurement",
+      "title": "HUB-DAILY-002: Record a second day and a usable usage measurement",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "integration"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets/issues/271"
+    },
+    {
       "id": "ESP-001",
       "repository": "grok-gadgets-esp32-sdk",
       "number": 1,
@@ -684,15 +1981,13 @@
       "id": "ESP-004",
       "repository": "grok-gadgets-esp32-sdk",
       "number": 4,
-      "problem": "[ESP-004] Physical C124 acceptance",
-      "title": "[ESP-004] Physical C124 acceptance",
-      "state": "open",
-      "stage": "blocked",
+      "problem": "[ESP-004] Physical ESP32-S3 breadboard OLED acceptance",
+      "title": "[ESP-004] Physical ESP32-S3 breadboard OLED acceptance",
+      "state": "closed",
+      "stage": "done",
       "labels": [
         "esp32",
         "feature",
-        "help wanted",
-        "needs hardware",
         "P1"
       ],
       "milestone": "Physical and independent verification",
@@ -705,8 +2000,8 @@
       "number": 5,
       "problem": "[ESP-005] Secure Wi-Fi transport and provisioning",
       "title": "[ESP-005] Secure Wi-Fi transport and provisioning",
-      "state": "open",
-      "stage": "blocked",
+      "state": "closed",
+      "stage": "done",
       "labels": [
         "esp32",
         "feature",
@@ -806,6 +2101,551 @@
       "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/10"
     },
     {
+      "id": "grok-gadgets-esp32-sdk#13",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 13,
+      "problem": "[FUT-ESP-PREFLIGHT-001] Explain registration failures and validate the authenticated hello budget",
+      "title": "[FUT-ESP-PREFLIGHT-001] Explain registration failures and validate the authenticated hello budget",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "esp32",
+        "feature",
+        "P2",
+        "protocol"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/13"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#14",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 14,
+      "problem": "ESP-CI-MAIN-001: Run the README Quickstart and gateway-main USB integration in CI",
+      "title": "ESP-CI-MAIN-001: Run the README Quickstart and gateway-main USB integration in CI",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "integration",
+        "maintenance",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/14"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#16",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 16,
+      "problem": "ESP-GFI-001: Make the ACK cache size configurable (review L3)",
+      "title": "ESP-GFI-001: Make the ACK cache size configurable (review L3)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "esp32",
+        "good first issue",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/16"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#17",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 17,
+      "problem": "ESP-GFI-002: Document adding a second command to the generic LED/button sketch",
+      "title": "ESP-GFI-002: Document adding a second command to the generic LED/button sketch",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "docs",
+        "good first issue",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/17"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#18",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 18,
+      "problem": "ESP-ACK-001: late_ack resets the firmware session (M3)",
+      "title": "ESP-ACK-001: late_ack resets the firmware session (M3)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "esp32",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/18"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#21",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 21,
+      "problem": "ESP-README-001: README at 150 words or fewer above the fold (M9)",
+      "title": "ESP-README-001: README at 150 words or fewer above the fold (M9)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "esp32",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/21"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#23",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 23,
+      "problem": "ESP-PKG-001: Prepare PlatformIO and Arduino packaging without publishing (M7)",
+      "title": "ESP-PKG-001: Prepare PlatformIO and Arduino packaging without publishing (M7)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "esp32",
+        "maintenance",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/23"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#25",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 25,
+      "problem": "ESP-GFI-003: Arduino IDE layout for the examples",
+      "title": "ESP-GFI-003: Arduino IDE layout for the examples",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "esp32",
+        "good first issue",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/25"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#26",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 26,
+      "problem": "ESP-README-002: Clearer README with community link and affiliation notice",
+      "title": "ESP-README-002: Clearer README with community link and affiliation notice",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "esp32",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/26"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#32",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 32,
+      "problem": "REL-003: Guard main against non-release PRs; correct the branch docs on main",
+      "title": "REL-003: Guard main against non-release PRs; correct the branch docs on main",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/32"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#35",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 35,
+      "problem": "STE-001: Keep the README and newcomer pages within ASD-STE100 sentence limits",
+      "title": "STE-001: Keep the README and newcomer pages within ASD-STE100 sentence limits",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/35"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#49",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 49,
+      "problem": "ESP-DEPS-001: Adopt platformio 6.2, clang-format 23, ruff 0.16 and jsonschema 4.26",
+      "title": "ESP-DEPS-001: Adopt platformio 6.2, clang-format 23, ruff 0.16 and jsonschema 4.26",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/49"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#54",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 54,
+      "problem": "ESP-IGNORE-001: Ignore a stray dist file as well as a dist/ folder",
+      "title": "ESP-IGNORE-001: Ignore a stray dist file as well as a dist/ folder",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/54"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#61",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 61,
+      "problem": "ESP-REL-006: Release ESP32 SDK v0.2.0-alpha.6",
+      "title": "ESP-REL-006: Release ESP32 SDK v0.2.0-alpha.6",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/61"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#67",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 67,
+      "problem": "ESP-REL-007: Release ESP32 SDK v0.2.0-alpha.7",
+      "title": "ESP-REL-007: Release ESP32 SDK v0.2.0-alpha.7",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/67"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#72",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 72,
+      "problem": "ESP-ONBOARD-001: End-user Wi-Fi and gateway setup for shipped gadgets",
+      "title": "ESP-ONBOARD-001: End-user Wi-Fi and gateway setup for shipped gadgets",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "esp32",
+        "feature",
+        "P2"
+      ],
+      "milestone": "Phase 10: Setup without a cable",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/72"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#73",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 73,
+      "problem": "ESP-WIFI-DIAG-001: Report why the Wi-Fi build cannot join a network",
+      "title": "ESP-WIFI-DIAG-001: Report why the Wi-Fi build cannot join a network",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "esp32",
+        "feature",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/73"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#76",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 76,
+      "problem": "ESP-REL-008: Release ESP32 SDK 0.2.0-alpha.8",
+      "title": "ESP-REL-008: Release ESP32 SDK 0.2.0-alpha.8",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "esp32",
+        "maintenance"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/76"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#80",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 80,
+      "problem": "ESP-BOOTWARN-001: Warn before the BOOT-hold factory reset",
+      "title": "ESP-BOOTWARN-001: Warn before the BOOT-hold factory reset",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "esp32",
+        "feature",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/80"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#87",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 87,
+      "problem": "ESP-REL-010: Release ESP32 SDK v0.2.0-alpha.10",
+      "title": "ESP-REL-010: Release ESP32 SDK v0.2.0-alpha.10",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/87"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#91",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 91,
+      "problem": "ESP-OLED-ONLINE-001: Animated Grok Bot face beside Online on the OLED",
+      "title": "ESP-OLED-ONLINE-001: Animated Grok Bot face beside Online on the OLED",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "enhancement"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/91"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#93",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 93,
+      "problem": "ESP-OLED-ONLINE-002: Bigger Grok Bot face with a \"Grok Bot\" label while Online",
+      "title": "ESP-OLED-ONLINE-002: Bigger Grok Bot face with a \"Grok Bot\" label while Online",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "enhancement"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/93"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#95",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 95,
+      "problem": "ESP-REL-011: Release ESP32 SDK v0.2.0-alpha.11",
+      "title": "ESP-REL-011: Release ESP32 SDK v0.2.0-alpha.11",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/95"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#99",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 99,
+      "problem": "ESP-MDNS-001: Reach the gateway by .local name over Wi-Fi",
+      "title": "ESP-MDNS-001: Reach the gateway by .local name over Wi-Fi",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "enhancement"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/99"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#101",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 101,
+      "problem": "ESP-REL-012: Release ESP32 SDK v0.2.0-alpha.12",
+      "title": "ESP-REL-012: Release ESP32 SDK v0.2.0-alpha.12",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/101"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#107",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 107,
+      "problem": "ESP-REL-013: Docs-only release 0.2.0-alpha.13",
+      "title": "ESP-REL-013: Docs-only release 0.2.0-alpha.13",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/107"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#111",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 111,
+      "problem": "ESP-RELAY-001: Accept a DNS host name for the gateway and connect over the internet",
+      "title": "ESP-RELAY-001: Accept a DNS host name for the gateway and connect over the internet",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "esp32",
+        "feature",
+        "P1"
+      ],
+      "milestone": "Phase 9: Mac-free route",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/111"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#112",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 112,
+      "problem": "ESP-RELAY-002: Physical acceptance of the OLED kit through a relay host",
+      "title": "ESP-RELAY-002: Physical acceptance of the OLED kit through a relay host",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "docs",
+        "esp32",
+        "needs hardware",
+        "P1"
+      ],
+      "milestone": "Phase 9: Mac-free route",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/112"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#113",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 113,
+      "problem": "ESP-REL-014: Release the Phase 9 ESP32 SDK",
+      "title": "ESP-REL-014: Release the Phase 9 ESP32 SDK",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "maintenance"
+      ],
+      "milestone": "Phase 9: Mac-free route",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/113"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#114",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 114,
+      "problem": "ESP-SETUP-001: Setup hotspot with a captive page",
+      "title": "ESP-SETUP-001: Setup hotspot with a captive page",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "esp32",
+        "feature",
+        "needs hardware",
+        "P1"
+      ],
+      "milestone": "Phase 10: Setup without a cable",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/114"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#115",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 115,
+      "problem": "ESP-SETUP-002: Factory identity separate from user settings",
+      "title": "ESP-SETUP-002: Factory identity separate from user settings",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "esp32",
+        "feature",
+        "P1"
+      ],
+      "milestone": "Phase 10: Setup without a cable",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/115"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#116",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 116,
+      "problem": "ESP-CLAIM-001: Show the claim code while unclaimed",
+      "title": "ESP-CLAIM-001: Show the claim code while unclaimed",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "esp32",
+        "feature",
+        "P1",
+        "protocol"
+      ],
+      "milestone": "Phase 11: Claim your gadget",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/116"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#117",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 117,
+      "problem": "DOC-PHASE8-001: Refresh current setup and status documentation",
+      "title": "DOC-PHASE8-001: Refresh current setup and status documentation",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "docs"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/117"
+    },
+    {
+      "id": "grok-gadgets-esp32-sdk#118",
+      "repository": "grok-gadgets-esp32-sdk",
+      "number": 118,
+      "problem": "ESP-BUILD-001: \"Ship a gadget\" guide and factory flashing",
+      "title": "ESP-BUILD-001: \"Ship a gadget\" guide and factory flashing",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "docs",
+        "esp32",
+        "P2"
+      ],
+      "milestone": "Phase 12: Builder kit",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/118"
+    },
+    {
       "id": "GW-001",
       "repository": "grok-gadgets-gateway",
       "number": 1,
@@ -860,10 +2700,10 @@
       "id": "GW-004",
       "repository": "grok-gadgets-gateway",
       "number": 4,
-      "problem": "[GW-004] Real Grok Bot and physical C124 acceptance",
-      "title": "[GW-004] Real Grok Bot and physical C124 acceptance",
-      "state": "open",
-      "stage": "blocked",
+      "problem": "[GW-004] Real Grok Bot and physical ESP32-S3/OLED acceptance",
+      "title": "[GW-004] Real Grok Bot and physical ESP32-S3/OLED acceptance",
+      "state": "closed",
+      "stage": "done",
       "labels": [
         "gateway",
         "needs hardware",
@@ -871,7 +2711,7 @@
         "research"
       ],
       "milestone": "Actual Grok",
-      "blocker": "Inspectable native Grok invocation evidence and physical C124 observations remain unavailable for this component.",
+      "blocker": null,
       "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/4"
     },
     {
@@ -961,6 +2801,932 @@
       "milestone": "Gateway and simulator",
       "blocker": null,
       "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/9"
+    },
+    {
+      "id": "grok-gadgets-gateway#12",
+      "repository": "grok-gadgets-gateway",
+      "number": 12,
+      "problem": "[FUT-GW-TOKEN-001] Rotate a device credential without changing its identity",
+      "title": "[FUT-GW-TOKEN-001] Rotate a device credential without changing its identity",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "gateway",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/12"
+    },
+    {
+      "id": "grok-gadgets-gateway#13",
+      "repository": "grok-gadgets-gateway",
+      "number": 13,
+      "problem": "[FUT-GW-USB-001] Reopen USB devices by explicitly selected stable identity",
+      "title": "[FUT-GW-USB-001] Reopen USB devices by explicitly selected stable identity",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "esp32",
+        "feature",
+        "gateway",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/13"
+    },
+    {
+      "id": "grok-gadgets-gateway#14",
+      "repository": "grok-gadgets-gateway",
+      "number": 14,
+      "problem": "[FUT-GW-RETIRE-001] Reclaim retired device slots while preserving retry evidence",
+      "title": "[FUT-GW-RETIRE-001] Reclaim retired device slots while preserving retry evidence",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "feature",
+        "gateway",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/14"
+    },
+    {
+      "id": "grok-gadgets-gateway#15",
+      "repository": "grok-gadgets-gateway",
+      "number": 15,
+      "problem": "GW-FIRST-001: First success with MCP Inspector, checked in CI from a clean checkout",
+      "title": "GW-FIRST-001: First success with MCP Inspector, checked in CI from a clean checkout",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "documentation",
+        "integration",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/15"
+    },
+    {
+      "id": "grok-gadgets-gateway#17",
+      "repository": "grok-gadgets-gateway",
+      "number": 17,
+      "problem": "GW-GFI-001: Add --version to grok-gadgets-gateway",
+      "title": "GW-GFI-001: Add --version to grok-gadgets-gateway",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "gateway",
+        "good first issue",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/17"
+    },
+    {
+      "id": "grok-gadgets-gateway#18",
+      "repository": "grok-gadgets-gateway",
+      "number": 18,
+      "problem": "GW-GFI-002: Add a warm-white lamp example to the simulator guide, checked by a test",
+      "title": "GW-GFI-002: Add a warm-white lamp example to the simulator guide, checked by a test",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "docs",
+        "good first issue",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/18"
+    },
+    {
+      "id": "grok-gadgets-gateway#20",
+      "repository": "grok-gadgets-gateway",
+      "number": 20,
+      "problem": "GW-ACK-WAIT-001: gadgets_command returns before the device acts (M1)",
+      "title": "GW-ACK-WAIT-001: gadgets_command returns before the device acts (M1)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "gateway",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/20"
+    },
+    {
+      "id": "grok-gadgets-gateway#22",
+      "repository": "grok-gadgets-gateway",
+      "number": 22,
+      "problem": "GW-PROTO-DOC-001: Document late_ack and split the protocol README into sections (M3, M9)",
+      "title": "GW-PROTO-DOC-001: Document late_ack and split the protocol README into sections (M3, M9)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "P1",
+        "protocol"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/22"
+    },
+    {
+      "id": "grok-gadgets-gateway#24",
+      "repository": "grok-gadgets-gateway",
+      "number": 24,
+      "problem": "GW-SERVE-001: serve advertises loopback OAuth metadata; SIGTERM skips cleanup (M16, L2)",
+      "title": "GW-SERVE-001: serve advertises loopback OAuth metadata; SIGTERM skips cleanup (M16, L2)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "gateway",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/24"
+    },
+    {
+      "id": "grok-gadgets-gateway#26",
+      "repository": "grok-gadgets-gateway",
+      "number": 26,
+      "problem": "GW-CLI-001: init config does not work when pasted; CLI is surprising (M4, M5)",
+      "title": "GW-CLI-001: init config does not work when pasted; CLI is surprising (M4, M5)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "gateway",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/26"
+    },
+    {
+      "id": "grok-gadgets-gateway#28",
+      "repository": "grok-gadgets-gateway",
+      "number": 28,
+      "problem": "GW-DESC-001: Capability descriptions for Grok and larger TCP hellos (M2)",
+      "title": "GW-DESC-001: Capability descriptions for Grok and larger TCP hellos (M2)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "P1",
+        "protocol"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/28"
+    },
+    {
+      "id": "grok-gadgets-gateway#31",
+      "repository": "grok-gadgets-gateway",
+      "number": 31,
+      "problem": "GW-README-001: README at 150 words or fewer above the fold (M9)",
+      "title": "GW-README-001: README at 150 words or fewer above the fold (M9)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/31"
+    },
+    {
+      "id": "grok-gadgets-gateway#33",
+      "repository": "grok-gadgets-gateway",
+      "number": 33,
+      "problem": "PKG-001: Prepare PyPI packaging without publishing (M7)",
+      "title": "PKG-001: Prepare PyPI packaging without publishing (M7)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/33"
+    },
+    {
+      "id": "grok-gadgets-gateway#35",
+      "repository": "grok-gadgets-gateway",
+      "number": 35,
+      "problem": "GW-README-002: Clearer README with community link and affiliation notice",
+      "title": "GW-README-002: Clearer README with community link and affiliation notice",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/35"
+    },
+    {
+      "id": "grok-gadgets-gateway#41",
+      "repository": "grok-gadgets-gateway",
+      "number": 41,
+      "problem": "REL-003: Guard main against non-release PRs; correct the branch docs on main",
+      "title": "REL-003: Guard main against non-release PRs; correct the branch docs on main",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/41"
+    },
+    {
+      "id": "grok-gadgets-gateway#44",
+      "repository": "grok-gadgets-gateway",
+      "number": 44,
+      "problem": "STE-001: Keep the README and newcomer pages within ASD-STE100 sentence limits",
+      "title": "STE-001: Keep the README and newcomer pages within ASD-STE100 sentence limits",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/44"
+    },
+    {
+      "id": "grok-gadgets-gateway#60",
+      "repository": "grok-gadgets-gateway",
+      "number": 60,
+      "problem": "GW-DEPS-001: Adopt mcp 2.x, ruff 0.16 and the grouped dev-tool updates",
+      "title": "GW-DEPS-001: Adopt mcp 2.x, ruff 0.16 and the grouped dev-tool updates",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/60"
+    },
+    {
+      "id": "grok-gadgets-gateway#65",
+      "repository": "grok-gadgets-gateway",
+      "number": 65,
+      "problem": "GW-REQLOG-001: Opt-in JSONL request log for serve",
+      "title": "GW-REQLOG-001: Opt-in JSONL request log for serve",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "gateway"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/65"
+    },
+    {
+      "id": "grok-gadgets-gateway#68",
+      "repository": "grok-gadgets-gateway",
+      "number": 68,
+      "problem": "GW-TOKENS-001: Named MCP tokens with issue, list and revoke",
+      "title": "GW-TOKENS-001: Named MCP tokens with issue, list and revoke",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "gateway"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/68"
+    },
+    {
+      "id": "grok-gadgets-gateway#69",
+      "repository": "grok-gadgets-gateway",
+      "number": 69,
+      "problem": "GW-RATE-001: Per-token rate limits and session, body and time caps",
+      "title": "GW-RATE-001: Per-token rate limits and session, body and time caps",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "gateway"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/69"
+    },
+    {
+      "id": "grok-gadgets-gateway#70",
+      "repository": "grok-gadgets-gateway",
+      "number": 70,
+      "problem": "GW-TUNNEL-DOC-001: Owner-run TLS tunnel guide in front of 127.0.0.1",
+      "title": "GW-TUNNEL-DOC-001: Owner-run TLS tunnel guide in front of 127.0.0.1",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "gateway"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/70"
+    },
+    {
+      "id": "grok-gadgets-gateway#71",
+      "repository": "grok-gadgets-gateway",
+      "number": 71,
+      "problem": "GW-OAUTH-001: OAuth for Team Bots (later)",
+      "title": "GW-OAUTH-001: OAuth for Team Bots (later)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "gateway"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/71"
+    },
+    {
+      "id": "grok-gadgets-gateway#75",
+      "repository": "grok-gadgets-gateway",
+      "number": 75,
+      "problem": "GW-REL-005: Release gateway 0.1.0-alpha.5",
+      "title": "GW-REL-005: Release gateway 0.1.0-alpha.5",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "gateway",
+        "maintenance"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/75"
+    },
+    {
+      "id": "grok-gadgets-gateway#79",
+      "repository": "grok-gadgets-gateway",
+      "number": 79,
+      "problem": "GW-LAN-001: Opt-in TLS device listener on one LAN address",
+      "title": "GW-LAN-001: Opt-in TLS device listener on one LAN address",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "gateway",
+        "protocol"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/79"
+    },
+    {
+      "id": "grok-gadgets-gateway#82",
+      "repository": "grok-gadgets-gateway",
+      "number": 82,
+      "problem": "GW-REL-006: Release gateway 0.1.0-alpha.6",
+      "title": "GW-REL-006: Release gateway 0.1.0-alpha.6",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "gateway",
+        "maintenance"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/82"
+    },
+    {
+      "id": "grok-gadgets-gateway#88",
+      "repository": "grok-gadgets-gateway",
+      "number": 88,
+      "problem": "GW-TEST-ISO-001: Keep tests away from the operator's real config",
+      "title": "GW-TEST-ISO-001: Keep tests away from the operator's real config",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/88"
+    },
+    {
+      "id": "grok-gadgets-gateway#90",
+      "repository": "grok-gadgets-gateway",
+      "number": 90,
+      "problem": "GW-PYPI-001: Release workflow with trusted PyPI publishing and plain SHA256SUMS",
+      "title": "GW-PYPI-001: Release workflow with trusted PyPI publishing and plain SHA256SUMS",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "enhancement"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/90"
+    },
+    {
+      "id": "grok-gadgets-gateway#92",
+      "repository": "grok-gadgets-gateway",
+      "number": 92,
+      "problem": "GW-REL-007: Release gateway v0.1.0-alpha.7",
+      "title": "GW-REL-007: Release gateway v0.1.0-alpha.7",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/92"
+    },
+    {
+      "id": "grok-gadgets-gateway#96",
+      "repository": "grok-gadgets-gateway",
+      "number": 96,
+      "problem": "GW-SIM-ISO-001: Simulator and demo modes load the operator's device credentials",
+      "title": "GW-SIM-ISO-001: Simulator and demo modes load the operator's device credentials",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/96"
+    },
+    {
+      "id": "grok-gadgets-gateway#98",
+      "repository": "grok-gadgets-gateway",
+      "number": 98,
+      "problem": "GW-PROV-UX-001: wifi-provision asks for the Wi-Fi name before checking the board",
+      "title": "GW-PROV-UX-001: wifi-provision asks for the Wi-Fi name before checking the board",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/98"
+    },
+    {
+      "id": "grok-gadgets-gateway#100",
+      "repository": "grok-gadgets-gateway",
+      "number": 100,
+      "problem": "GW-REL-008: Release gateway v0.1.0-alpha.8",
+      "title": "GW-REL-008: Release gateway v0.1.0-alpha.8",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/100"
+    },
+    {
+      "id": "grok-gadgets-gateway#105",
+      "repository": "grok-gadgets-gateway",
+      "number": 105,
+      "problem": "GW-REL-009: Release gateway v0.1.0-alpha.9",
+      "title": "GW-REL-009: Release gateway v0.1.0-alpha.9",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/105"
+    },
+    {
+      "id": "grok-gadgets-gateway#109",
+      "repository": "grok-gadgets-gateway",
+      "number": 109,
+      "problem": "GW-SVC-001: Run the gateway as a per-user background service",
+      "title": "GW-SVC-001: Run the gateway as a per-user background service",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "enhancement"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/109"
+    },
+    {
+      "id": "grok-gadgets-gateway#110",
+      "repository": "grok-gadgets-gateway",
+      "number": 110,
+      "problem": "GW-LAN-002: Accept a .local name for the LAN listener and provisioning",
+      "title": "GW-LAN-002: Accept a .local name for the LAN listener and provisioning",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "enhancement"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/110"
+    },
+    {
+      "id": "grok-gadgets-gateway#113",
+      "repository": "grok-gadgets-gateway",
+      "number": 113,
+      "problem": "GW-SVC-002: service status reports a running launchd agent as stopped",
+      "title": "GW-SVC-002: service status reports a running launchd agent as stopped",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/113"
+    },
+    {
+      "id": "grok-gadgets-gateway#115",
+      "repository": "grok-gadgets-gateway",
+      "number": 115,
+      "problem": "GW-SVC-003: launchd agent starts slowly after a restart",
+      "title": "GW-SVC-003: launchd agent starts slowly after a restart",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/115"
+    },
+    {
+      "id": "grok-gadgets-gateway#118",
+      "repository": "grok-gadgets-gateway",
+      "number": 118,
+      "problem": "GW-REL-010: Release gateway v0.1.0-alpha.10",
+      "title": "GW-REL-010: Release gateway v0.1.0-alpha.10",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/118"
+    },
+    {
+      "id": "grok-gadgets-gateway#122",
+      "repository": "grok-gadgets-gateway",
+      "number": 122,
+      "problem": "GW-PYPI-002: Release workflow cannot publish an already-released tag to PyPI",
+      "title": "GW-PYPI-002: Release workflow cannot publish an already-released tag to PyPI",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/122"
+    },
+    {
+      "id": "grok-gadgets-gateway#125",
+      "repository": "grok-gadgets-gateway",
+      "number": 125,
+      "problem": "GW-PYPI-003: Install docs still say the package is not on PyPI",
+      "title": "GW-PYPI-003: Install docs still say the package is not on PyPI",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "documentation"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/125"
+    },
+    {
+      "id": "grok-gadgets-gateway#128",
+      "repository": "grok-gadgets-gateway",
+      "number": 128,
+      "problem": "GW-SIM-NAME-001: Plan a generic simulator device ID",
+      "title": "GW-SIM-NAME-001: Plan a generic simulator device ID",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "enhancement"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/128"
+    },
+    {
+      "id": "grok-gadgets-gateway#130",
+      "repository": "grok-gadgets-gateway",
+      "number": 130,
+      "problem": "GW-REMOTE-001: Harden serve for an owner-run internet tunnel",
+      "title": "GW-REMOTE-001: Harden serve for an owner-run internet tunnel",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/130"
+    },
+    {
+      "id": "grok-gadgets-gateway#132",
+      "repository": "grok-gadgets-gateway",
+      "number": 132,
+      "problem": "GW-USAGE-001: Usage records, a usage summary and an opt-in usage hook",
+      "title": "GW-USAGE-001: Usage records, a usage summary and an opt-in usage hook",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/132"
+    },
+    {
+      "id": "grok-gadgets-gateway#134",
+      "repository": "grok-gadgets-gateway",
+      "number": 134,
+      "problem": "GW-USAGE-OTEL-001: Compare gateway usage with a team usage export (later)",
+      "title": "GW-USAGE-OTEL-001: Compare gateway usage with a team usage export (later)",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/134"
+    },
+    {
+      "id": "grok-gadgets-gateway#135",
+      "repository": "grok-gadgets-gateway",
+      "number": 135,
+      "problem": "GW-REL-011: Prepare gateway 0.1.0-alpha.11",
+      "title": "GW-REL-011: Prepare gateway 0.1.0-alpha.11",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/135"
+    },
+    {
+      "id": "grok-gadgets-gateway#142",
+      "repository": "grok-gadgets-gateway",
+      "number": 142,
+      "problem": "GW-DAILY-001: Safe to leave on: log rotation, sign-in flood limits, status and notify hook",
+      "title": "GW-DAILY-001: Safe to leave on: log rotation, sign-in flood limits, status and notify hook",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/142"
+    },
+    {
+      "id": "grok-gadgets-gateway#148",
+      "repository": "grok-gadgets-gateway",
+      "number": 148,
+      "problem": "GW-REL-012: Prepare gateway 0.1.0-alpha.12",
+      "title": "GW-REL-012: Prepare gateway 0.1.0-alpha.12",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/148"
+    },
+    {
+      "id": "grok-gadgets-gateway#154",
+      "repository": "grok-gadgets-gateway",
+      "number": 154,
+      "problem": "GW-RELAY-001: `serve --device-listen HOST:PORT`: public TLS device listener",
+      "title": "GW-RELAY-001: `serve --device-listen HOST:PORT`: public TLS device listener",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "feature",
+        "gateway",
+        "P1"
+      ],
+      "milestone": "Phase 9: Mac-free route",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/154"
+    },
+    {
+      "id": "grok-gadgets-gateway#155",
+      "repository": "grok-gadgets-gateway",
+      "number": 155,
+      "problem": "GW-RELAY-002: DNS names for the device certificate and provisioning",
+      "title": "GW-RELAY-002: DNS names for the device certificate and provisioning",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "feature",
+        "gateway",
+        "P1"
+      ],
+      "milestone": "Phase 9: Mac-free route",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/155"
+    },
+    {
+      "id": "grok-gadgets-gateway#156",
+      "repository": "grok-gadgets-gateway",
+      "number": 156,
+      "problem": "GW-RELAY-003: Relay host example: container, compose and Linux service",
+      "title": "GW-RELAY-003: Relay host example: container, compose and Linux service",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "docs",
+        "gateway",
+        "linux",
+        "maintenance",
+        "P1"
+      ],
+      "milestone": "Phase 9: Mac-free route",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/156"
+    },
+    {
+      "id": "grok-gadgets-gateway#157",
+      "repository": "grok-gadgets-gateway",
+      "number": 157,
+      "problem": "GW-REL-013: Release the Phase 9 gateway",
+      "title": "GW-REL-013: Release the Phase 9 gateway",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "maintenance"
+      ],
+      "milestone": "Phase 9: Mac-free route",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/157"
+    },
+    {
+      "id": "grok-gadgets-gateway#158",
+      "repository": "grok-gadgets-gateway",
+      "number": 158,
+      "problem": "GW-SETUP-001: `factory-provision` command",
+      "title": "GW-SETUP-001: `factory-provision` command",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "feature",
+        "gateway",
+        "P1"
+      ],
+      "milestone": "Phase 10: Setup without a cable",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/158"
+    },
+    {
+      "id": "grok-gadgets-gateway#159",
+      "repository": "grok-gadgets-gateway",
+      "number": 159,
+      "problem": "GW-CLAIM-001: Accounts store and claim-code sign-in page",
+      "title": "GW-CLAIM-001: Accounts store and claim-code sign-in page",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "feature",
+        "gateway",
+        "P1"
+      ],
+      "milestone": "Phase 11: Claim your gadget",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/159"
+    },
+    {
+      "id": "grok-gadgets-gateway#160",
+      "repository": "grok-gadgets-gateway",
+      "number": 160,
+      "problem": "GW-CLAIM-002: Scope every tool by account; `gadgets_claim`, `gadgets_remove`, share code",
+      "title": "GW-CLAIM-002: Scope every tool by account; `gadgets_claim`, `gadgets_remove`, share code",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "feature",
+        "gateway",
+        "P1",
+        "protocol"
+      ],
+      "milestone": "Phase 11: Claim your gadget",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/160"
+    },
+    {
+      "id": "grok-gadgets-gateway#161",
+      "repository": "grok-gadgets-gateway",
+      "number": 161,
+      "problem": "GW-CLAIM-003: Store device tokens as hashes",
+      "title": "GW-CLAIM-003: Store device tokens as hashes",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "feature",
+        "gateway",
+        "P1"
+      ],
+      "milestone": "Phase 11: Claim your gadget",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/161"
+    },
+    {
+      "id": "grok-gadgets-gateway#162",
+      "repository": "grok-gadgets-gateway",
+      "number": 162,
+      "problem": "GW-BUILD-001: `enroll --batch N --labels`",
+      "title": "GW-BUILD-001: `enroll --batch N --labels`",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "feature",
+        "gateway",
+        "P2"
+      ],
+      "milestone": "Phase 12: Builder kit",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/162"
+    },
+    {
+      "id": "grok-gadgets-gateway#163",
+      "repository": "grok-gadgets-gateway",
+      "number": 163,
+      "problem": "DOC-PHASE8-001: Refresh current setup and status documentation",
+      "title": "DOC-PHASE8-001: Refresh current setup and status documentation",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "docs"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/163"
+    },
+    {
+      "id": "grok-gadgets-gateway#164",
+      "repository": "grok-gadgets-gateway",
+      "number": 164,
+      "problem": "GW-BUILD-002: Builder page from the usage log",
+      "title": "GW-BUILD-002: Builder page from the usage log",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "feature",
+        "gateway",
+        "P2"
+      ],
+      "milestone": "Phase 12: Builder kit",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/164"
+    },
+    {
+      "id": "grok-gadgets-gateway#165",
+      "repository": "grok-gadgets-gateway",
+      "number": 165,
+      "problem": "GW-BUILD-003: `relay init` one-command deploy",
+      "title": "GW-BUILD-003: `relay init` one-command deploy",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "docs",
+        "feature",
+        "gateway",
+        "P2"
+      ],
+      "milestone": "Phase 12: Builder kit",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/165"
+    },
+    {
+      "id": "grok-gadgets-gateway#166",
+      "repository": "grok-gadgets-gateway",
+      "number": 166,
+      "problem": "GW-USAGE-002: Reject a zero-change usage calibration",
+      "title": "GW-USAGE-002: Reject a zero-change usage calibration",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "bug"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-gateway/issues/166"
     },
     {
       "id": "HA-001",
@@ -1064,6 +3830,261 @@
       "milestone": "Public alpha launch",
       "blocker": null,
       "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/6"
+    },
+    {
+      "id": "grok-gadgets-home-assistant#9",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 9,
+      "problem": "[FUT-HA-COMPAT-001] Test discovery against pinned upstream Home Assistant versions",
+      "title": "[FUT-HA-COMPAT-001] Test discovery against pinned upstream Home Assistant versions",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "home-assistant",
+        "maintenance",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/9"
+    },
+    {
+      "id": "grok-gadgets-home-assistant#10",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 10,
+      "problem": "HA-CI-README-001: Check the README Quickstart and its documented output in CI",
+      "title": "HA-CI-README-001: Check the README Quickstart and its documented output in CI",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "integration",
+        "maintenance",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/10"
+    },
+    {
+      "id": "grok-gadgets-home-assistant#12",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 12,
+      "problem": "HA-GFI-001: Add --version to ha-probe",
+      "title": "HA-GFI-001: Add --version to ha-probe",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "good first issue",
+        "home-assistant",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/12"
+    },
+    {
+      "id": "grok-gadgets-home-assistant#13",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 13,
+      "problem": "HA-GFI-002: Add a fixture with no prompts, with a probe test",
+      "title": "HA-GFI-002: Add a fixture with no prompts, with a probe test",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "good first issue",
+        "home-assistant",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/13"
+    },
+    {
+      "id": "grok-gadgets-home-assistant#14",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 14,
+      "problem": "HA-README-001: README at 150 words or fewer above the fold (M9)",
+      "title": "HA-README-001: README at 150 words or fewer above the fold (M9)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "home-assistant",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/14"
+    },
+    {
+      "id": "grok-gadgets-home-assistant#16",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 16,
+      "problem": "PKG-001: Prepare PyPI packaging without publishing (M7)",
+      "title": "PKG-001: Prepare PyPI packaging without publishing (M7)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/16"
+    },
+    {
+      "id": "grok-gadgets-home-assistant#18",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 18,
+      "problem": "HA-README-002: Clearer README with community link and affiliation notice",
+      "title": "HA-README-002: Clearer README with community link and affiliation notice",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "home-assistant",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/18"
+    },
+    {
+      "id": "grok-gadgets-home-assistant#24",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 24,
+      "problem": "REL-003: Guard main against non-release PRs; correct the branch docs on main",
+      "title": "REL-003: Guard main against non-release PRs; correct the branch docs on main",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/24"
+    },
+    {
+      "id": "grok-gadgets-home-assistant#27",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 27,
+      "problem": "STE-001: Keep the README and newcomer pages within ASD-STE100 sentence limits",
+      "title": "STE-001: Keep the README and newcomer pages within ASD-STE100 sentence limits",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/27"
+    },
+    {
+      "id": "grok-gadgets-home-assistant#42",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 42,
+      "problem": "HA-DEPS-001: Adopt ruff 0.16 and hatchling 1.32",
+      "title": "HA-DEPS-001: Adopt ruff 0.16 and hatchling 1.32",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/42"
+    },
+    {
+      "id": "grok-gadgets-home-assistant#48",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 48,
+      "problem": "HA-PYPI-001: Release workflow with trusted PyPI publishing and plain SHA256SUMS",
+      "title": "HA-PYPI-001: Release workflow with trusted PyPI publishing and plain SHA256SUMS",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "enhancement"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/48"
+    },
+    {
+      "id": "grok-gadgets-home-assistant#50",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 50,
+      "problem": "HA-REL-005: Release Home Assistant probe v0.1.0-alpha.5",
+      "title": "HA-REL-005: Release Home Assistant probe v0.1.0-alpha.5",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/50"
+    },
+    {
+      "id": "grok-gadgets-home-assistant#54",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 54,
+      "problem": "HA-PYPI-002: Release workflow cannot publish an already-released tag to PyPI",
+      "title": "HA-PYPI-002: Release workflow cannot publish an already-released tag to PyPI",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/54"
+    },
+    {
+      "id": "grok-gadgets-home-assistant#57",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 57,
+      "problem": "HA-PYPI-003: Install docs still say the package is not on PyPI",
+      "title": "HA-PYPI-003: Install docs still say the package is not on PyPI",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "documentation"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/57"
+    },
+    {
+      "id": "grok-gadgets-home-assistant#62",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 62,
+      "problem": "HA-BRIDGE-001: Research: home-bridge mode through the relay",
+      "title": "HA-BRIDGE-001: Research: home-bridge mode through the relay",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "home-assistant",
+        "P2",
+        "research"
+      ],
+      "milestone": "Phase 12: Builder kit",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/62"
+    },
+    {
+      "id": "grok-gadgets-home-assistant#63",
+      "repository": "grok-gadgets-home-assistant",
+      "number": 63,
+      "problem": "DOC-PHASE8-001: Refresh current setup and status documentation",
+      "title": "DOC-PHASE8-001: Refresh current setup and status documentation",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "docs"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-home-assistant/issues/63"
     },
     {
       "id": "HARD-LIN-001",
@@ -1186,6 +4207,330 @@
       "milestone": "Physical and independent verification",
       "blocker": null,
       "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/7"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#8",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 8,
+      "problem": "AUDIT-LIN-001: Preserve command deduplication when an ACK exceeds the frame limit",
+      "title": "AUDIT-LIN-001: Preserve command deduplication when an ACK exceeds the frame limit",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "linux",
+        "P1",
+        "protocol"
+      ],
+      "milestone": "Audit corrections and local release readiness",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/8"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#12",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 12,
+      "problem": "[FUT-LIN-CANCEL-001] Expose cooperative cancellation and cleanup outcomes for blocking handlers",
+      "title": "[FUT-LIN-CANCEL-001] Expose cooperative cancellation and cleanup outcomes for blocking handlers",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "feature",
+        "linux",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/12"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#13",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 13,
+      "problem": "[FUT-LIN-SENSOR-001] Add a background sensor example with complete lifecycle handling",
+      "title": "[FUT-LIN-SENSOR-001] Add a background sensor example with complete lifecycle handling",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "docs",
+        "feature",
+        "good first issue",
+        "help wanted",
+        "linux",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/13"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#14",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 14,
+      "problem": "LIN-CI-MAIN-001: Run gateway integration against gateway main and the README quick start in CI",
+      "title": "LIN-CI-MAIN-001: Run gateway integration against gateway main and the README quick start in CI",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "integration",
+        "maintenance",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/14"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#16",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 16,
+      "problem": "LIN-GFI-001: Add --version to grok-linux-agent",
+      "title": "LIN-GFI-001: Add --version to grok-linux-agent",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "good first issue",
+        "linux",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/16"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#17",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 17,
+      "problem": "LIN-ACK-001: late_ack and slow handlers end the session (M3, L1)",
+      "title": "LIN-ACK-001: late_ack and slow handlers end the session (M3, L1)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug",
+        "linux",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/17"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#19",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 19,
+      "problem": "LIN-DOC-001: README says hosted CI runs are pending (M10)",
+      "title": "LIN-DOC-001: README says hosted CI runs are pending (M10)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "linux",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/19"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#21",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 21,
+      "problem": "LIN-DECOR-001: Decorator API with schemas from type hints and capability descriptions (M2, M8)",
+      "title": "LIN-DECOR-001: Decorator API with schemas from type hints and capability descriptions (M2, M8)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "linux",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/21"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#23",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 23,
+      "problem": "LIN-DEV-001: One install, one command, no copied tokens for a local hello world (M6)",
+      "title": "LIN-DEV-001: One install, one command, no copied tokens for a local hello world (M6)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "feature",
+        "linux",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/23"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#25",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 25,
+      "problem": "PKG-001: Prepare PyPI packaging without publishing (M7)",
+      "title": "PKG-001: Prepare PyPI packaging without publishing (M7)",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/25"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#27",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 27,
+      "problem": "LIN-README-002: Clearer README with community link and affiliation notice",
+      "title": "LIN-README-002: Clearer README with community link and affiliation notice",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/27"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#34",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 34,
+      "problem": "REL-003: Guard main against non-release PRs; correct the branch docs on main",
+      "title": "REL-003: Guard main against non-release PRs; correct the branch docs on main",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance",
+        "P1"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/34"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#37",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 37,
+      "problem": "STE-001: Keep the README and newcomer pages within ASD-STE100 sentence limits",
+      "title": "STE-001: Keep the README and newcomer pages within ASD-STE100 sentence limits",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "docs",
+        "P2"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/37"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#52",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 52,
+      "problem": "LIN-DEPS-001: Adopt ruff 0.16 and hatchling 1.32",
+      "title": "LIN-DEPS-001: Adopt ruff 0.16 and hatchling 1.32",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "maintenance"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/52"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#61",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 61,
+      "problem": "LIN-PYPI-001: Release workflow with trusted PyPI publishing and plain SHA256SUMS",
+      "title": "LIN-PYPI-001: Release workflow with trusted PyPI publishing and plain SHA256SUMS",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "enhancement"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/61"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#63",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 63,
+      "problem": "LIN-REL-005: Release Linux SDK v0.1.0-alpha.5",
+      "title": "LIN-REL-005: Release Linux SDK v0.1.0-alpha.5",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/63"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#67",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 67,
+      "problem": "LIN-PYPI-002: Release workflow cannot publish an already-released tag to PyPI",
+      "title": "LIN-PYPI-002: Release workflow cannot publish an already-released tag to PyPI",
+      "state": "closed",
+      "stage": "done",
+      "labels": [
+        "bug"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/67"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#70",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 70,
+      "problem": "LIN-REL-006: Release Linux SDK v0.1.0-alpha.6 for PyPI",
+      "title": "LIN-REL-006: Release Linux SDK v0.1.0-alpha.6 for PyPI",
+      "state": "closed",
+      "stage": "done",
+      "labels": [],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/70"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#75",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 75,
+      "problem": "DOC-PHASE8-001: Refresh current setup and status documentation",
+      "title": "DOC-PHASE8-001: Refresh current setup and status documentation",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "docs"
+      ],
+      "milestone": "Unscheduled",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/75"
+    },
+    {
+      "id": "grok-gadgets-linux-sdk#76",
+      "repository": "grok-gadgets-linux-sdk",
+      "number": 76,
+      "problem": "LIN-REMOTE-001: Connect a Linux gadget to a relay over TLS",
+      "title": "LIN-REMOTE-001: Connect a Linux gadget to a relay over TLS",
+      "state": "open",
+      "stage": "proposed",
+      "labels": [
+        "feature",
+        "linux",
+        "P1"
+      ],
+      "milestone": "Phase 12: Builder kit",
+      "blocker": null,
+      "github_url": "https://github.com/adidshaft/grok-gadgets-linux-sdk/issues/76"
     }
   ]
 }
