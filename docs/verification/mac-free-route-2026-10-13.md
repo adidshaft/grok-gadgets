@@ -86,8 +86,10 @@ The lines are shortened. The log does not show which app or network sent a call.
 | Linux user service at boot ([#22](https://github.com/adidshaft/grok-gadgets/issues/22)) | The systemd user unit started at boot through linger, with nobody logged in | Log, server |
 | `revoke` | `device_auth_rejected` `revoked` at 20:24:05; the OLED showed **Token rejected** | Log, owner |
 | `enroll --rotate`, then the old token | `device_auth_rejected` `unauthorized` at 20:25:06 and 20:25:32 | Log |
-| Provision with a wrong CA | The OLED showed `WiFi...`, `Relay...`, then **Wrong password** and **Check password**. The relay logged no TLS attempt, so the board never reached it with that CA. The Wi-Fi password was most likely mistyped in that run | Owner, log |
 | Re-provision with the new token and the right CA | `device_hello` at 20:26:39 and 20:27:33 | Log |
+| First try at a wrong CA | The OLED showed `WiFi...`, `Relay...`, then **Wrong password** and **Check password**. The relay logged no TLS attempt, so this try did not test the CA. The Wi-Fi password was most likely mistyped | Owner, log |
+| Provision with a wrong CA, second try | The kit restarted at 20:40:01. From 20:40:20 the relay logged `device_tls_failed` `TLSV1_ALERT_UNKNOWN_CA` every 4–5 seconds: the kit refused the relay's certificate and retried within its backoff. The OLED showed **TLS rejected** | Log, owner |
+| Provision with the right CA again | `device_hello` at 20:43:45 | Log |
 
 ## Results
 
@@ -100,7 +102,7 @@ The lines are shortened. The log does not show which app or network sent a call.
 | Linux user service at boot (#22) | **Pass** on this server |
 | `remote off`, then on | **Pass**, checked with `curl` |
 | Revoke, re-enroll, re-provision | **Pass** |
-| Wrong CA rejected by the kit | **Not tested**: that run failed to join Wi-Fi first. Host tests cover it, and the kit passed it on the LAN on 12 October ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)) |
+| Wrong CA rejected by the kit | **Pass**: `TLSV1_ALERT_UNKNOWN_CA` from 20:40:20; **TLS rejected** on the OLED |
 | Weekly usage before and after | **Not measured**: the account page shows whole percent and did not change |
 
 ## Limits
