@@ -1,4 +1,4 @@
-# Grok Bot Remote HTTPS test, run 1 — 13 October 2026
+# Grok Bot Remote HTTPS test, runs 1 and 2 — 13 October 2026
 
 Run of the [owner checklist](../grok-remote-test.md) on the owner's Mac, 13 October 2026, Asia/Kolkata (UTC+05:30). The owner authorized it and delegated the on-screen steps to a computer-use session on the Mac. Screen observations below are that session's narrative unless the gateway log confirms them.
 
@@ -45,3 +45,40 @@ The log does not record whether a 401 came through the tunnel or from loopback. 
 ## Next step
 
 The [Team Bots page](https://docs.x.ai/grok-bot/team-bots) says a Bot is set up from its info pane "or ask the Bot in chat". On 4 October 2026, Grok Bot added a Command server when asked in chat. Run 2 asks the Bot in chat to add the Remote HTTPS server, and gives the token only through a masked credential prompt. If the Bot then declines the public HTTPS server, that is the recorded outcome.
+
+# Run 2 — 13 October 2026
+
+Same Mac, app versions, gateway build and tunnel type as run 1. Grok Bot was asked in chat to add the server. **Result: stopped at registration by the test operator, not refused by Grok Bot.** No server was added and no token was given to Grok Bot.
+
+## What the gateway log shows
+
+| Time (UTC) | Line | Meaning |
+| --- | --- | --- |
+| 07:39:35 | `serve_started` `0.1.0a11` | Service reinstalled from `dev` with the tunnel name |
+| 07:39:57, 07:40:25 | `http_rejected` 401 `invalid_token` | Requests without a token refused |
+| 07:40:15 | `http_rejected` 403 `named_token_required`, token `default` | Local token refused for a tunnel Host |
+| 07:40:35 | `http_rejected` 503 `remote_disabled` | Kill switch refused a remote request |
+| — | No `mcp_tool_call` with `"token":"grok-bot"` | Grok Bot never called a tool |
+| 07:48:41 | `serve_started` `0.1.0a10` | Service restored to `main` |
+
+## What Grok Bot said (narrative)
+
+Asked in chat to add `grok-gadgets` as a Remote HTTPS server, Grok Bot did not refuse. It explained that its secure prompt stores a hidden value that a Remote server's `Authorization` header cannot refer to. To fill the header, it would read the token back and put it in its setup call, so the token would appear in its tool history. It also noted that anyone with the quick-tunnel URL and the token could reach the gateway while the tunnel is up. In a group chat it said secure prompts do not work there; in the one-to-one chat it showed a card asking whether to ask for the token. The test operator chose **No, don't add it**, because the checklist then required the token to stay out of the Bot's history. Grok Bot confirmed it changed no connectors.
+
+## Usage
+
+| Reading | Page | Value | Time (local) |
+| --- | --- | --- | --- |
+| R0 desktop | Settings → Usage & Billing, **Weekly usage limit** | "1% used", "Resets in 4 days" | 13:12:10 |
+| R0 phone | Settings → **Weekly usage** | "1%", "Resets in 4 days" | 13:12:40 |
+| On-demand | **On-demand monthly limit** | "None" | 13:12:10 |
+
+Row-only screenshots are kept privately on the owner's Mac. They show the same values. R1 and R2 were not taken. Two setup messages and no gadget prompts were sent. The page shows whole percent only, so a short test may show no change.
+
+## Clean-up, checked independently
+
+`grok-bot` revoked at 07:39:21 UTC (a new token for this run), token file deleted, no tunnel process, service on `main` with no `--allowed-host`. The owner saw "online grok bot" on the OLED. `grok-gadgets` is not in the installed plugins on the desktop or the phone (operator report).
+
+## Next step
+
+The only registration path Grok Bot offered puts the token in its tool history. Run 3 needs the owner's decision on that.
