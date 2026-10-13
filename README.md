@@ -28,6 +28,8 @@ Home Assistant users can start with the [read-only probe](https://github.com/adi
 
 ## How the parts connect
 
+New here? Read [How it works](docs/getting-started/how-it-works.md): one page for builders, end users and the curious.
+
 ```mermaid
 flowchart LR
     B["Grok Bot: Mac or iPhone"] -->|"HTTPS and OAuth"| T["Owner-run tunnel"]
@@ -39,7 +41,7 @@ This route passed on the owner's setup. The Mac must stay awake and connected.
 The [record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/daily-route-2026-10-13.md) covers one day. Another person's run remains open in [#185](https://github.com/adidshaft/grok-gadgets/issues/185).
 
 **Next:** a gateway on an always-on Linux host, so the Mac can sleep.
-This is proposed Phase 9, not a current feature. See the [roadmap](ROADMAP.md) and [hosting guide](docs/getting-started/hosting.md).
+Phase 9 is in progress and not yet a released feature. See the [roadmap](ROADMAP.md) and the [Mac-free route guide](docs/getting-started/mac-free-route.md).
 
 ## Community
 
