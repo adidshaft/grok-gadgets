@@ -2,7 +2,9 @@
 
 This test shows whether your existing Grok Bot, on the desktop and on the phone, calls the six `gadgets_*` tools itself through a **Remote HTTPS** MCP server. The server is the always-on gateway on your Mac, behind a TLS tunnel that you run. The gateway request log is the evidence; your view of the OLED is the physical check. The Bot's own description of what it did is not evidence.
 
-Run it yourself, in your own Grok Bot account and your own tunnel account. The project runs no URL, relay or account for you. Background: [research note](research/grok-remote-https-2026-10.md), [tunnel guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/dev/docs/tunnel.md), [ADR 004](decisions/004-grok-bot-route.md). The earlier [local test](grok-local-test.md) gave outcome (b) on 12 October 2026.
+Run it yourself, in your own Grok Bot account, with a tunnel that you run. The project runs no URL, relay or account for you. Background: [research note](research/grok-remote-https-2026-10.md), [tunnel guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/dev/docs/tunnel.md), [ADR 004](decisions/004-grok-bot-route.md). The earlier [local test](grok-local-test.md) gave outcome (b) on 12 October 2026.
+
+Run 1, on 13 October 2026, passed the gateway checks but added no server; see the [record](verification/grok-remote-https-2026-10-13.md).
 
 Possible outcomes:
 
@@ -14,7 +16,7 @@ Time: about 40 minutes. In the commands, `my-mac.local` is your Mac's name and `
 ## What you need
 
 - The OLED kit on Wi-Fi and the always-on service, as on 13 October 2026.
-- A tunnel client and account of your own that ends HTTPS at a hostname you control and forwards to `http://127.0.0.1:8766`. It must keep the original Host header, or add a forwarding header. It must not forward any other port.
+- A tunnel that you run yourself, ending HTTPS at a hostname and forwarding to `http://127.0.0.1:8766`: either your own account with a hostname you control, or an account-free quick tunnel whose random hostname you use for this run only. Start a quick tunnel before section 0, because the service needs its hostname. It must keep the original Host header, or add a forwarding header. It must not forward any other port.
 - The Grok Bot desktop app on this Mac, and the Grok Bot app on your phone, signed in to the same account.
 - No other Grok Bot work during the test, so the usage readings belong to it.
 
@@ -101,7 +103,15 @@ On the **desktop**, open Grok Bot **Settings** and find the **Weekly usage limit
 
 ## 3. Add the server on the desktop (3 minutes)
 
-The docs do not show the exact screen. Look in the Bot's info pane for a card to add a custom MCP server, or in **Connect apps**. Use these settings:
+Run 1 found no settings form for a custom server ([record](verification/grok-remote-https-2026-10-13.md)). The [Team Bots page](https://docs.x.ai/grok-bot/team-bots) says to set a Bot up from its info pane "or ask the Bot in chat", and on 4 October 2026 Grok Bot added a Command server when asked in chat. Ask in chat first.
+
+1. Start a new one-to-one chat with your Grok Bot on the desktop. Send:
+
+   > Add a custom MCP server for yourself. Name: grok-gadgets. Type: Remote HTTPS. URL: https://gadgets.example.net/mcp. It needs the header "Authorization: Bearer" followed by a secret token. Ask me for the token through your secure credential prompt. I will not type it in chat.
+
+2. If Grok Bot shows a credential prompt, a masked field or a sign-in card, copy the token with `pbcopy < ~/.config/grok-gadgets/grok-bot.token` and paste it there. Add `Bearer ` before it only if the field asks for the whole header value.
+3. Never type or paste the token into ordinary chat. If the Bot asks for it there, answer "no", record that and go to section 7.
+4. If chat does not work, look in the Bot's info pane for a card to add a custom MCP server, or in **Connect apps**, with the same settings:
 
 | Setting | Value |
 | --- | --- |
@@ -110,9 +120,9 @@ The docs do not show the exact screen. Look in the Bot's info pane for a card to
 | URL | `https://gadgets.example.net/mcp` |
 | Authentication | Header `Authorization`, value `Bearer ` followed by the contents of `grok-bot.token` |
 
-Copy the token with `pbcopy < ~/.config/grok-gadgets/grok-bot.token` and paste it only into a credential field. If the only way is to type the token into ordinary chat, do not; record that and go to section 7. Note the screen you used, and whether Grok Bot offered OAuth instead.
+Note the way that worked, and whether Grok Bot offered OAuth instead. Within a few seconds of adding, tab 2 may show nothing: `initialize` is not a tool call.
 
-If Grok Bot refuses the server or the URL, record its exact message and go to section 7.
+If Grok Bot refuses the server or the URL, record its exact message and go to section 7. That is outcome (d).
 
 ## 4. Prompts from the Mac (8 minutes)
 
