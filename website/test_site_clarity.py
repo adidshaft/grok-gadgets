@@ -36,6 +36,7 @@ class SiteClarityTests(unittest.TestCase):
         self.assertIn('<script src="donate.js" defer></script>', builder)
         self.assertIn('page("donate.html", "Donate", home_body)', builder)
         self.assertIn('"playground.html",\n    "Playground",', builder)
+        self.assertIn('scene_markup.replace("{{PLAYGROUND_DETAILS}}", "")', builder)
 
     def test_component_inventory_is_rendered_on_docs_page(self):
         builder = (SITE / "build.py").read_text()

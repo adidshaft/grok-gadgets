@@ -348,10 +348,9 @@ home_sections = (
 scene_markup = (
     scene_source.read_text() if scene_source.is_file() else "<h1>Grok Gadgets</h1>"
 )
-home_body = scene_markup.replace(
-    "{{PLAYGROUND_DETAILS}}",
-    workbench.replace('id="playground"', 'id="playground" hidden'),
-).replace("{{HOME_DETAILS}}", home_sections)
+home_body = scene_markup.replace("{{PLAYGROUND_DETAILS}}", "").replace(
+    "{{HOME_DETAILS}}", home_sections
+)
 page("index.html", "Home", home_body)
 page("donate.html", "Donate", home_body)
 page(

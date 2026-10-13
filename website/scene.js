@@ -3,6 +3,10 @@
   'use strict';
   const root = document.querySelector('.home-scene');
   if (!root) return;
+  if (location.hash === '#playground' && !document.body.hasAttribute('data-playground-route')) {
+    location.replace(new URL('playground.html', location.href));
+    return;
+  }
   const stage = root.querySelector('.scene-stage');
   const svg = root.querySelector('.scene-canvas');
   const NS = 'http://www.w3.org/2000/svg';
@@ -240,6 +244,10 @@
     inspectButton.focus();
   });
   function revealTarget() {
+    if (location.hash === '#playground' && !document.body.hasAttribute('data-playground-route')) {
+      location.replace(new URL('playground.html', location.href));
+      return;
+    }
     const target = document.getElementById(location.hash.slice(1));
     if (!target) return;
     const disclosure = target.closest('details');
@@ -275,8 +283,8 @@
     disconnect.setAttribute('aria-pressed', String(!connected));
     disconnect.textContent = connected ? 'Disconnect' : 'Reconnect';
     root.querySelectorAll('[data-led]').forEach(control => control.setAttribute('aria-pressed', String(control.dataset.led === 'off' && !color.on || palette[control.dataset.led] === led)));
-    stateOutput.textContent = JSON.stringify(simulator.snapshot(), null, 2);
-    if (result) report.textContent = JSON.stringify(result, null, 2);
+    if (stateOutput) stateOutput.textContent = JSON.stringify(simulator.snapshot(), null, 2);
+    if (result && report) report.textContent = JSON.stringify(result, null, 2);
     feedback(message); render();
   }
   function readConfig() {
@@ -299,11 +307,11 @@
     if (simulator.busy) { feedback('A command is pending · wait for its execution report'); return; }
     const generation = simulator.generation;
     setView('led');
-    phaseLabel.textContent = simulator.available ? 'Requested → accepted · waiting for the virtual device' : 'Requested → unavailable';
+    if (phaseLabel) phaseLabel.textContent = simulator.available ? 'Requested → accepted · waiting for the virtual device' : 'Requested → unavailable';
     feedback(simulator.available ? 'Command accepted · waiting for simulated execution' : 'Device disconnected · command unconfirmed');
     const result = await simulator.command(arguments_);
     if (generation !== simulator.generation) return;
-    phaseLabel.textContent = result.ok ? 'Requested → accepted → simulated execution reported' : `Requested → ${result.error.code}`;
+    if (phaseLabel) phaseLabel.textContent = result.ok ? 'Requested → accepted → simulated execution reported' : `Requested → ${result.error.code}`;
     sync(result.ok ? null : `Command ${result.error.code} · LED unchanged`, result);
     if (result.ok && label) feedback(`${simulator.config.display_name} · LED ${label} · ${events} button events · connected`);
   }
@@ -318,14 +326,15 @@
   root.querySelector('#scene-press').addEventListener('click', () => {
     setView('button');
     const result = simulator.press(); eventAt = phase;
-    phaseLabel.textContent = result.ok ? 'Simulated button press → release → two events' : 'Device unavailable · no event';
+    if (phaseLabel) phaseLabel.textContent = result.ok ? 'Simulated button press → release → two events' : 'Device unavailable · no event';
     sync(result.ok ? null : 'Device disconnected · no button event', result); syncMotion();
   });
   root.querySelector('#scene-disconnect').addEventListener('click', () => {
     if (simulator.available) simulator.disconnect(); else simulator.reconnect();
-    phaseLabel.textContent = simulator.available ? 'Reconnected · starting state restored' : 'Offline · commands will fail';
+    if (phaseLabel) phaseLabel.textContent = simulator.available ? 'Reconnected · starting state restored' : 'Offline · commands will fail';
     sync();
   });
+  if (form) {
   form.addEventListener('submit', event => {
     event.preventDefault(); configAction(config => {
       document.querySelector('#playground-export-preview').hidden = true; simulator.reset(config); report.textContent = 'No command yet.'; phaseLabel.textContent = 'Restarted · your starting state';
@@ -355,6 +364,7 @@
     simulator.reset(readConfig()); report.textContent = 'No command yet.'; phaseLabel.textContent = 'Ready · browser simulation'; configFeedback.textContent = 'Defaults restored.'; sync();
   });
   simulator.reset(readConfig()); sync();
+  }
   function tick(time) {
     raf = 0;
     if (reduced || document.hidden || !visible || !activeScene) {lastTime = null; return;}
