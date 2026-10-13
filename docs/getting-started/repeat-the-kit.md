@@ -9,27 +9,27 @@ Use the released [ESP32 SDK v0.2.0-alpha.12](https://github.com/adidshaft/grok-g
 and [gateway v0.1.0-alpha.10](https://github.com/adidshaft/grok-gadgets-gateway/releases/tag/v0.1.0-alpha.10).
 Firmware binaries are not published. Build the firmware from source.
 
-## Before you start: get the code
+## Before you start: install the gateway and get the firmware
 
-You need a Mac or Linux computer with Git, Python 3.11 or later and
-[uv](https://docs.astral.sh/uv/getting-started/installation/). Clone both
-repositories at the release tags and install their tools once. Git reports a
-"detached HEAD" for a tag; that is expected.
+You need a Mac or Linux computer with Git and Python 3.11 or later. Install the
+released gateway in a virtual environment. Clone the ESP32 SDK at its release
+tag to build the firmware; binary firmware is not published. Git reports a
+"detached HEAD" for a tag; that is expected. Run the following from a new
+working directory and return to that directory before gateway commands.
 
 ```sh
+python3 -m venv .venv-gateway
+.venv-gateway/bin/python -m pip install grok-gadgets-gateway==0.1.0a10
+.venv-gateway/bin/grok-gadgets-gateway --version
 git clone --branch v0.2.0-alpha.12 https://github.com/adidshaft/grok-gadgets-esp32-sdk.git
 cd grok-gadgets-esp32-sdk
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.lock
 .venv/bin/pio pkg install
 cd ..
-git clone --branch v0.1.0-alpha.10 https://github.com/adidshaft/grok-gadgets-gateway.git
-cd grok-gadgets-gateway
-uv sync --locked
-uv run grok-gadgets-gateway --version
 ```
 
-The last command prints `grok-gadgets-gateway 0.1.0a10`. The first PlatformIO run
+The `--version` command prints `grok-gadgets-gateway 0.1.0a10`. The first PlatformIO run
 downloads the ESP32 toolchain, which takes several minutes.
 
 ## 1. Check the parts
@@ -75,6 +75,8 @@ OLED at startup.
 
 For a USB run, start the gateway and its USB bridge by following the
 [gateway kit guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/v0.1.0-alpha.10/docs/experiment-kit.md).
+That source guide uses `uv run` in a contributor checkout; from this working
+directory use `.venv-gateway/bin/grok-gadgets-gateway` instead.
 Check a short `display.text` command, `display.clear`, the RGB light, a BOOT
 press and recovery after unplugging and reconnecting. Record the command reply
 and what you saw on the board as separate results. A reply does not prove a
@@ -82,31 +84,38 @@ physical effect.
 
 ## 3. Provision and check Wi-Fi
 
-For Wi-Fi, use the ESP32 SDK's `esp32s3-oled-kit-wifi` build. In the gateway
-checkout, follow the [Wi-Fi devices guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/v0.1.0-alpha.10/docs/wifi-devices.md).
+For Wi-Fi, use the ESP32 SDK's `esp32s3-oled-kit-wifi` build. Follow the
+[Wi-Fi devices guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/v0.1.0-alpha.10/docs/wifi-devices.md)
+for the detailed command responses. Use the installed gateway path from this guide.
 Use the Mac's mDNS name, so the setup keeps working when the Mac's address changes. On
 macOS, `scutil --get LocalHostName` prints the name; add `.local`, in lower case. The
 steps below write it as `my-mac.local`. You can use the Mac's IPv4 address instead, but
 then a new address means a new certificate and provisioning the board again.
 
-1. Run `uv run grok-gadgets-gateway init` and `uv run grok-gadgets-gateway lan-cert my-mac.local`.
-2. Run `uv run grok-gadgets-gateway enroll DEVICE` once. Use the same device ID that
+1. Run `.venv-gateway/bin/grok-gadgets-gateway init` and `.venv-gateway/bin/grok-gadgets-gateway lan-cert my-mac.local`.
+2. Run `.venv-gateway/bin/grok-gadgets-gateway enroll DEVICE` once. Use the same device ID that
    the board reports: `oledkit-` and the board's MAC address in lower case without
    colons. The flash log prints the MAC. The serial console also replies to
    `{"type":"status"}` with the device ID.
-3. Stop the USB bridge. Run `uv run grok-gadgets-gateway wifi-provision PORT --device
+3. Stop the USB bridge. Run `.venv-gateway/bin/grok-gadgets-gateway wifi-provision PORT --device
    DEVICE --lan my-mac.local` while the board is on the USB data cable. Type
    the Wi-Fi name and password at the local prompts. Do not paste them into a
    public issue or log.
-4. Start `uv run grok-gadgets-gateway serve --lan-listen my-mac.local`. Move the
+4. Start `.venv-gateway/bin/grok-gadgets-gateway serve --lan-listen my-mac.local`. Move the
    board to a USB charger. Wait for **Online** on the OLED.
 5. Send a short text command and clear it. Press and release BOOT. Turn the
    router off and on, then check that the board returns to **Online**. Restart
    the gateway and check it again.
 6. Keep it running: stop `serve` (Ctrl-C), then run
-   `uv run grok-gadgets-gateway service install --lan-listen my-mac.local`. The gateway
+   `.venv-gateway/bin/grok-gadgets-gateway service install --lan-listen my-mac.local`. The gateway
    now starts at every login, with no terminal. See
    [Keep the gateway running](https://github.com/adidshaft/grok-gadgets-gateway/blob/v0.1.0-alpha.10/docs/always-on.md).
+
+Check `.venv-gateway/bin/grok-gadgets-gateway service status` after login. On the
+owner's Mac the board returned Online after about 90 seconds in one restart
+run; faster startup is still being checked. Use `service logs` for diagnostics
+and `service uninstall` to stop automatic starts. Keep this working directory
+and virtual environment in place while the service is installed.
 
 The board uses a pinned local CA certificate and a device token. It stores the
 Wi-Fi password and token in flash without encryption. If the board is lost,
@@ -118,9 +127,15 @@ counts down after 3 seconds. Release BOOT before zero to keep the settings.
 
 ## 4. Optional: ask Grok Bot
 
-With the gateway running, ask Grok Bot in its desktop app to run
-`uv run grok-gadgets-gateway rehearse` in the gateway checkout on your Mac. This uses
-**Execution on Local Computer**. Approve the command when Grok Bot asks. Set that
+With the gateway running, ask Grok Bot in its desktop app to run an approved
+local command using the absolute path to the installed gateway. Replace `DEVICE`
+with the enrolled board ID:
+
+```sh
+/absolute/path/to/.venv-gateway/bin/grok-gadgets-gateway rehearse --device DEVICE --command display.text --args '{"text":"Hello from Grok Bot"}'
+```
+
+This uses **Execution on Local Computer**. Approve the command when Grok Bot asks. Set that
 permission to ask every time, not always allow; the owner's setting was **Always
 allow**, so no approval card appeared. Check the gateway request log and the OLED.
 Native Grok Bot MCP tool calls are not verified. See the
@@ -128,7 +143,7 @@ Native Grok Bot MCP tool calls are not verified. See the
 
 ## 5. Record the result
 
-Copy this table into a new [GitHub issue](https://github.com/adidshaft/grok-gadgets/issues).
+Copy this table into [tester issue #185](https://github.com/adidshaft/grok-gadgets/issues/185).
 Remove private addresses, Wi-Fi names, tokens, passwords, serial numbers and
 household details before posting.
 
@@ -167,8 +182,8 @@ These come from the owner's USB and Wi-Fi tests on 12 October 2026.
 | **Join timeout** / **Check router** | The network did not answer. Check that the router is on and the board is in range. |
 | `wifi-provision` says "The device did not answer" | Use the Wi-Fi build on the **USB** port and stop `usb-bridge`. With `v0.2.0-alpha.10` or later, a provisioning line no longer restarts the board. |
 | **Gateway name?** | The board cannot find the Mac by name. Check that the Mac is on, awake and on the same network. Some guest or mesh networks block mDNS; then provision with the Mac's IPv4 address. |
-| **Gateway...** for a minute after the Mac restarts | The gateway service is still starting. Wait; the board connects without help. `uv run grok-gadgets-gateway service status` shows whether it runs. |
-| **Gateway...** stays on | Wi-Fi works, but the gateway does not answer. Check that the gateway runs: `uv run grok-gadgets-gateway service status`, or `serve --lan-listen` in a terminal. If you provisioned an IPv4 address and the Mac's address changed, run `lan-cert` for the new address and provision the board again, or switch to the Mac's `.local` name. |
+| **Gateway...** for a minute after the Mac restarts | The gateway service is still starting. Wait; the board connects without help. `.venv-gateway/bin/grok-gadgets-gateway service status` shows whether it runs. |
+| **Gateway...** stays on | Wi-Fi works, but the gateway does not answer. Check `.venv-gateway/bin/grok-gadgets-gateway service status`, or run `serve --lan-listen` in a terminal. If you provisioned an IPv4 address and the Mac's address changed, run `lan-cert` for the new address and provision the board again, or switch to the Mac's `.local` name. |
 | **TLS rejected** | The board does not trust the gateway's certificate. Use the certificate from the same `init`, or provision the board again with the current CA. |
 | **Token rejected** | The device token was revoked or rotated. Run `enroll DEVICE --rotate`, then `wifi-provision` again. |
 | Grok Bot ran a command without asking | Its local execution permission is set to always allow. Change it to ask every time. |

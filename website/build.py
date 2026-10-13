@@ -167,7 +167,7 @@ NAVIGATION = [
 
 
 def page(name, title, body):
-    home = name in ("index.html", "donate.html")
+    home = name in ("index.html", "donate.html", "playground.html")
     documentation = name == "docs.html" or name.startswith("doc-")
     page_title = title + " · Grok Gadgets"
     description = (
@@ -251,14 +251,15 @@ def page(name, title, body):
         )
         + '"'
         + (" data-donate-route" if name == "donate.html" else "")
+        + (" data-playground-route" if name == "playground.html" else "")
         + '><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="identity" href="index.html" aria-label="Grok Gadgets home"><img src="media/grok-gadgets-icon.png" width="36" height="36" alt=""><span>Grok Gadgets</span></a><a class="header-contribute" href="contribute.html">Contribute ↗</a><div class="header-actions"><a id="donate-open" href="donate.html"'
         + (' aria-current="page"' if name == "donate.html" else "")
         + '>Donate</a><button id="menu-open" aria-haspopup="dialog" aria-controls="site-menu">Menu <span>[+]</span></button></div></header>'
         + menu
-        + (R / "website/donate.html").read_text()
         + '<main id="main">'
         + body
         + "</main>"
+        + (R / "website/donate.html").read_text()
         + footer
         + '<noscript><nav class="fallback-navigation" aria-label="Navigation without JavaScript"><a href="start.html">Get started</a> · <a href="docs.html">Docs</a> · <a href="roadmap.html">Roadmap</a> · <a href="community.html">Community</a></nav></noscript>'
         + scripts
@@ -294,92 +295,100 @@ def path_row(number, title, description, url, link_text):
     )
 
 
-first_success = "doc-docs-components-grok-gadgets-gateway-first-success.html"
+first_success = "doc-docs-getting-started-first-success.html"
 proof_section = (
     '<section class="home-proof" id="first-success" aria-labelledby="proof-heading">'
-    '<p class="eyebrow">REHEARSE WHAT GROK BOT WILL DO</p>'
-    '<h2 id="proof-heading">Five minutes. No hardware.</h2>'
-    "<p>Run the gateway with its simulated light, then rehearse the Grok Bot calls: "
-    "the same six tools, in the same order, on your computer. CI runs this path every night.</p>"
-    '<pre class="proof-output"><code>$ grok-gadgets-gateway rehearse\n'
-    "ok  http://127.0.0.1:8766/mcp offers the six tools Grok Bot will use\n"
-    "ok  gadget sim-c124 (simulated); commands: rgb.set\n"
-    "ok  gadgets_command rgb.set {&quot;r&quot;:0,&quot;g&quot;:120,&quot;b&quot;:255,&quot;on&quot;:true} -&gt; executed\n"
-    "Rehearsal passed</code></pre>"
-    '<p class="quiet-note">Software simulator only: no Grok Bot connection and no physical device.</p>'
+    '<p class="eyebrow">NO HARDWARE NEEDED</p>'
+    '<h2 id="proof-heading">Try the tools in five minutes.</h2>'
+    "<p>Install the gateway and run a simulated light on Mac or Linux.</p>"
+    '<pre class="proof-output"><code>python3 -m venv .venv\n'
+    ".venv/bin/python -m pip install grok-gadgets-gateway==0.1.0a10</code></pre>"
     '<p><a href="'
     + first_success
-    + '">Follow the five-minute guide ↗</a></p></section>'
+    + '">Follow the five-minute guide ↗</a> · <a href="doc-docs-public-how-we-verify.html">How we verify ↗</a></p></section>'
 )
 
 hosting_guide = '<p><a href="doc-docs-getting-started-hosting.html">Who runs the gateway? Hosting and remote access FAQ ↗</a></p>'
 scene_source = R / "website/home-scene.html"
-home_body = (
-    scene_source.read_text().replace(
-        "{{HOME_DETAILS}}",
-        '<details class="home-workbench" id="playground"><summary>Customize the virtual light <span aria-hidden="true">+</span></summary>'
-        + (R / "website/playground.html")
-        .read_text()
-        .replace("{{SIMULATOR_BUILD}}", e(simulator_build["gateway_commit"][:8]))
-        .replace("{{SIMULATOR_VERSION}}", e(simulator_build["package_version"]))
-        + "</details>"
-        + proof_section
-        + '<section class="builder-paths" id="builder-paths" aria-labelledby="builder-heading"><p class="eyebrow">CHOOSE YOUR FIRST PATH</p><h2 id="builder-heading">Start building.</h2>'
-        + path_row(
-            "01",
-            "No hardware",
-            "Try a simulated light on your computer.",
-            first_success,
-            "First success",
-        )
-        + path_row(
-            "02",
-            "Raspberry Pi / Linux",
-            "Build a device with the Python SDK.",
-            "linux.html",
-            "Build with Linux",
-        )
-        + path_row(
-            "03",
-            "ESP32",
-            "Start with an Arduino sketch and USB.",
-            "esp32.html",
-            "Build for ESP32",
-        )
-        + '<p class="quiet-note" id="components">Already use Home Assistant? <a href="home-assistant.html">Explore the integration ↗</a> · <a href="components.html">All components ↗</a></p></section>',
+workbench = (
+    '<details class="home-workbench" id="playground"><summary>Customize the virtual light <span aria-hidden="true">+</span></summary>'
+    + (R / "website/playground.html")
+    .read_text()
+    .replace("{{SIMULATOR_BUILD}}", e(simulator_build["gateway_commit"][:8]))
+    .replace("{{SIMULATOR_VERSION}}", e(simulator_build["package_version"]))
+    + "</details>"
+)
+home_sections = (
+    '<section class="home-kit" aria-labelledby="kit-heading"><p class="eyebrow">OWNER-TESTED HARDWARE</p><h2 id="kit-heading">One board. One display.</h2><figure class="kit-photo"><img src="media/diagrams/esp32-s3-oled-display.jpg" width="1600" height="535" alt="Owner-tested ESP32-S3 board and OLED display connected by jumper wires"><figcaption>Owner-tested kit · display lettering enhanced for readability</figcaption></figure><p><a href="doc-docs-getting-started-repeat-the-kit.html">Build the kit ↗</a> · <a href="https://github.com/adidshaft/grok-gadgets/issues/185">Share your result ↗</a></p></section>'
+    + proof_section
+    + '<section class="builder-paths" id="builder-paths" aria-labelledby="builder-heading"><p class="eyebrow">CHOOSE YOUR FIRST PATH</p><h2 id="builder-heading">Start building.</h2>'
+    + path_row(
+        "01",
+        "Tested OLED kit",
+        "Build the ESP32-S3 Wi-Fi board and show text on its display.",
+        "doc-docs-getting-started-repeat-the-kit.html",
+        "Repeat the kit",
     )
-    if scene_source.is_file()
-    else "<h1>Grok, meet the real world.</h1><p>Interactive architecture is being assembled locally.</p>"
+    + path_row(
+        "02",
+        "No hardware",
+        "Try a simulated light on your computer.",
+        first_success,
+        "First success",
+    )
+    + path_row(
+        "03",
+        "Raspberry Pi / Linux",
+        "Build a device with the Python SDK.",
+        "linux.html",
+        "Build with Linux",
+    )
+    + '<p class="quiet-note" id="components">Already use Home Assistant? <a href="home-assistant.html">Explore the integration ↗</a> · <a href="components.html">All components ↗</a></p></section>'
+)
+scene_markup = (
+    scene_source.read_text() if scene_source.is_file() else "<h1>Grok Gadgets</h1>"
+)
+home_body = scene_markup.replace("{{PLAYGROUND_DETAILS}}", "").replace(
+    "{{HOME_DETAILS}}", home_sections
 )
 page("index.html", "Home", home_body)
 page("donate.html", "Donate", home_body)
 page(
+    "playground.html",
+    "Playground",
+    scene_markup.replace("{{PLAYGROUND_DETAILS}}", workbench).replace(
+        "{{HOME_DETAILS}}", home_sections
+    ),
+)
+page(
     "start.html",
     "Get started",
     intro(
-        "Choose a path", "Start small.", "A simulated device is all you need to begin."
+        "Choose a path",
+        "Start small.",
+        "Build the owner-tested kit, or begin with software.",
     )
     + '<div class="path-list">'
     + path_row(
         "01",
-        "First success in five minutes",
-        "Run the gateway's simulated light and rehearse the Grok Bot calls. No hardware or account.",
+        "Build the tested OLED kit",
+        "Parts, wiring, Wi-Fi setup and the optional always-on gateway service.",
+        "doc-docs-getting-started-repeat-the-kit.html",
+        "Kit guide",
+    )
+    + path_row(
+        "02",
+        "First success without hardware",
+        "Install the gateway and rehearse a simulated light in five minutes.",
         first_success,
         "Gateway guide",
     )
     + path_row(
-        "02",
-        "Try the simulator",
-        "Customize in the browser or run the local MCP kit. No public hosting is needed.",
+        "03",
+        "Explore the simulator",
+        "Customize a virtual light in the browser or download the local kit.",
         "simulator.html",
         "Try both",
-    )
-    + path_row(
-        "03",
-        "Build a gadget",
-        "Build the tested ESP32-S3/OLED kit with the reusable SDK.",
-        "esp32.html",
-        "ESP32",
     )
     + path_row(
         "04",
@@ -395,7 +404,7 @@ page(
         "home-assistant.html",
         "Home Assistant",
     )
-    + '</div><p class="quiet-note">Local alpha. Approved Grok Bot commands reached the owner’s gateway and OLED kit. Native MCP calls and public access remain unverified.</p>'
+    + '</div><p class="quiet-note"><a href="doc-docs-public-support-matrix.html">Alpha status and open connection gate ↗</a></p>'
     + hosting_guide,
 )
 page(
@@ -410,7 +419,7 @@ page(
         "01",
         "In your browser",
         "Color, button events and offline recovery. No downloads or Grok calls.",
-        "index.html#playground",
+        "playground.html",
         "Customize & try",
     )
     + path_row(
@@ -423,7 +432,7 @@ page(
     + '<p class="quiet-note">The kit includes readable source, the wheel, locked hashed runtime dependencies, configuration schema and Apache-2.0 notices. Installation downloads the dependencies. No account connection happens automatically.</p>'
     + '<p><a href="doc-docs-getting-started-simulator-kit.html">Step-by-step setup &amp; customization ↗</a></p>'
     + '<p><a href="downloads/simulator-kit-manifest.json">Source commit, contents &amp; SHA256 hashes ↗</a></p>'
-    + '<p class="status">Browser simulated · one physical OLED kit tested separately · native MCP and mobile checks pending</p>'
+    + '<p class="status">Browser simulation only · <a href="doc-docs-public-support-matrix.html">project status ↗</a></p>'
     + proof_section
     + hosting_guide,
 )
@@ -435,13 +444,13 @@ page(
         "One kit.<br>Start building.",
         "An ESP32-S3. A breadboard. A small OLED.",
     )
-    + '<p class="status">ESP32-S3 + OLED kit passed physical tests · 12 October 2026</p>'
+    + '<p class="status">One ESP32-S3 + OLED kit passed USB and Wi-Fi checks · <a href="doc-docs-public-support-matrix.html">status ↗</a></p>'
     + path_row(
         "01",
-        "Build over USB",
-        "Pinned firmware, SDK and recovery instructions.",
-        "doc-docs-components-grok-gadgets-esp32-sdk-build-flash.html",
-        "Build guide",
+        "Repeat the tested kit",
+        "Parts, wiring, Wi-Fi and gateway setup, with observed results.",
+        "doc-docs-getting-started-repeat-the-kit.html",
+        "Kit guide",
     )
     + path_row(
         "02",
@@ -450,7 +459,7 @@ page(
         "doc-docs-components-grok-gadgets-esp32-sdk-sdk.html",
         "SDK reference",
     )
-    + '<p class="quiet-note">Inspected hardware: YD-ESP32-23 v1.3 with an ESP32-S3-N16R8 module, an ApTechDeals 840-point breadboard and jumper-wire set, and an Electrifier 1.3-inch 128×64 I²C OLED marked RG1.30 IIC v2.2. The display pads read VCC, GND, SCK and SDA. The display is an SH1106 at I²C address 0x3c, wired 3V3–VCC, GND–GND, GPIO9–SCK and GPIO8–SDA. On the owner’s kit, the kit firmware showed and cleared text, set the onboard RGB light, reported BOOT presses and recovered from unplug and gateway restart. Grok Bot showed text on it through local shell execution. Another person’s reproduction is still needed. The local gateway and USB bridge run on your computer. <a href="doc-docs-components-grok-gadgets-esp32-sdk-verification.html">Verification record ↗</a></p>'
+    + '<p class="quiet-note">Owner-tested board: YD-ESP32-23 v1.3 with a 1.3-inch SH1106 OLED. The guide has the exact markings and wiring. <a href="https://github.com/adidshaft/grok-gadgets/issues/185">Share your result in tester issue #185 ↗</a></p>'
     + hosting_guide,
 )
 page(
@@ -476,7 +485,7 @@ page(
         "doc-docs-components-grok-gadgets-linux-sdk-development.html",
         "Developer guide",
     )
-    + '<p class="quiet-note">The gadget and gateway run on the same computer. A cloud Grok Bot cannot reach it yet.</p>'
+    + '<p class="quiet-note"><a href="doc-docs-public-support-matrix.html">Linux verification status ↗</a></p>'
     + hosting_guide,
 )
 page(
@@ -558,6 +567,7 @@ page(
         if issue_snapshot
         else ""
     )
+    + '<section class="roadmap-summary"><h2>Now, next, later.</h2><p><strong>Now:</strong> repeat the owner-tested OLED kit and share results in <a href="https://github.com/adidshaft/grok-gadgets/issues/185">tester issue #185</a>.</p><p><strong>Next:</strong> verify native Grok Bot tool calls on Mac and phone through an approved authenticated remote HTTPS route.</p><p><strong>Later:</strong> setup without the first USB cable, then consider an optional hosted relay.</p><p><a href="doc-docs-public-support-matrix.html">Current releases and verification ↗</a></p></section>'
     + '<div class="issue-list">'
     + rows
     + "</div>",
@@ -667,11 +677,11 @@ page(
     documentation_layout(
         '<header class="docs-intro"><p class="eyebrow">Open source / Local alpha</p>'
         "<h1>Start small.<br>Build your gadget.</h1>"
-        "<p>Try the simulator, choose a device platform, or help improve the project.</p>"
-        '<a class="docs-start" href="doc-docs-getting-started-simulator-kit.html">'
-        'Start without hardware <span aria-hidden="true">↗</span></a>'
-        '<nav class="docs-entry-paths" aria-label="Choose a build path"><a href="simulator.html">Simulator ↗</a><a href="esp32.html">ESP32 ↗</a><a href="linux.html">Linux / Raspberry Pi ↗</a><a href="home-assistant.html">Home Assistant ↗</a></nav>'
-        '<p class="docs-note">New here? Start with the simulator. One owner kit passed USB and Wi-Fi tests; native MCP and independent reproduction remain open.</p></header>'
+        "<p>Follow the owner-tested OLED kit or start without hardware.</p>"
+        '<a class="docs-start" href="doc-docs-getting-started-repeat-the-kit.html">'
+        'Build the tested kit <span aria-hidden="true">↗</span></a>'
+        '<nav class="docs-entry-paths" aria-label="Choose a build path"><a href="esp32.html">Tested OLED kit ↗</a><a href="simulator.html">No hardware ↗</a><a href="linux.html">Linux / Raspberry Pi ↗</a><a href="home-assistant.html">More: Home Assistant ↗</a></nav>'
+        '<p class="docs-note"><a href="doc-docs-public-support-matrix.html">Project status and open gates ↗</a></p></header>'
         + doc_navigation.index()
         + '<p class="docs-note"><a href="maintainers.html">Maintainer and process records ↗</a></p>',
         "docs.html",

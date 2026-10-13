@@ -1,6 +1,15 @@
 # Roadmap
 
-The software is an experimental alpha. Public source repositories and the static website are active. [GitHub Issues](https://github.com/adidshaft/grok-gadgets/issues) track public work.
+The software is an experimental alpha. Public source repositories, the static website and three PyPI packages are active. [GitHub Issues](https://github.com/adidshaft/grok-gadgets/issues) track public work. [Project status](docs/public/support-matrix.md) lists current releases and evidence.
+
+## Phases
+
+| Phase | State | Next evidence |
+| --- | --- | --- |
+| 1–6: local tools, physical kit and optional always-on service | Owner-tested work done | Independent kit run in [#185](https://github.com/adidshaft/grok-gadgets/issues/185); post-login recovery retest |
+| 7: native Grok Bot connection | Next | Owner-approved authenticated remote HTTPS endpoint and recorded Mac/phone tool calls |
+| 8: setup without a cable | Later | Hotspot or BLE-assisted initial setup and short-code pairing; daily use stays on Wi-Fi |
+| 9: optional hosted relay | Decision pending | Owner decision on service operation and scope |
 
 **Local `serve` is implemented** with bearer authentication at `127.0.0.1:8766/mcp`. It is loopback-only. Grok Bot ran approved gateway commands on the owner's Mac. Native MCP calls and the remote MCP route remain unverified. A tunnel adds reachability, not authentication.
 
