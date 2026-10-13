@@ -1,15 +1,15 @@
 {
-  "status": "Public source patch prerelease and website live; v0.1.10-alpha.2 release candidate verified",
+  "status": "Public source prerelease and website live; v0.1.12-alpha.1 release candidate verified",
   "protocol": "0.1.0",
   "components": [
     {
       "repository": "grok-gadgets",
       "path": "grok-gadgets",
-      "version": "0.1.10-alpha.2",
-      "commit": "8072f4283f8518fbd0b3cfa2e3d0e60e62d2bbc1",
-      "evidence_level": "Public source patch prerelease; OLED kit verified over USB and Wi-Fi",
-      "checks": "The v0.1.10-alpha.2 hub release candidate records the PyPI packages: gateway 0.1.0a10, Linux SDK 0.1.0a6 and Home Assistant 0.1.0a5, published 13 October 2026 by owner-approved trusted publishing, with files byte-identical to each GitHub release's SHA256SUMS. pip install --pre worked from PyPI for all three, including the Linux SDK gateway extra. It pins Linux SDK v0.1.0-alpha.6 with gateway v0.1.0-alpha.10 and ESP32 SDK v0.2.0-alpha.12. The owner's Mac and OLED kit passed the Phase 6 checks; Linux systemd, native Grok Bot MCP calls and independent reproduction are not claimed.",
-      "grok_verified": false,
+      "version": "0.1.12-alpha.1",
+      "commit": "2f38031e12f17acbeffcb3e057e3f0a9a1674321",
+      "evidence_level": "Public source prerelease; OLED kit verified over USB and Wi-Fi; native Grok Bot calls observed on the owner's setup",
+      "checks": "The v0.1.12-alpha.1 hub release candidate records gateway 0.1.0a11 on PyPI (owner-approved trusted publishing on 13 October 2026; files byte-identical to the GitHub release's SHA256SUMS; pip install --pre checked) with Linux SDK v0.1.0-alpha.6, ESP32 SDK v0.2.0-alpha.12 and Home Assistant v0.1.0-alpha.5. Adds ADR 007, the Remote HTTPS record and the Connect your Grok Bot and Track usage guides. On 13 October 2026 the owner's Grok Bot called the six tools natively from the Mac and the iPhone through an owner-run tunnel with OAuth sign-in; the gateway log recorded nine grok-bot calls and the owner saw the OLED text. One owner setup; independent reproduction is not claimed.",
+      "grok_verified": true,
       "hardware_verified": false,
       "independently_reproduced": false,
       "independently_reviewed_by_agent": false
@@ -17,11 +17,11 @@
     {
       "repository": "grok-gadgets-gateway",
       "path": "grok-gadgets-gateway",
-      "version": "0.1.0-alpha.10",
-      "commit": "e18d84d5199e78f56637f7fff591804a9a397614",
-      "evidence_level": "Simulated; Wi-Fi device listener used by one physical kit; Grok Bot local-command route observed",
-      "checks": "215 tests, Ruff, plain-language checks, the first-success check, package builds and twine check passed; the release workflow's fresh-download SHA256SUMS check passed. Adds the per-user service (launchd/systemd) and .local names with address following. On the owner's Mac the service started at login and followed two address changes (docs/verification/always-on-2026-10-13.md). Linux systemd is not tested on a real host. Native Grok Bot MCP calls are not verified.",
-      "grok_verified": false,
+      "version": "0.1.0-alpha.11",
+      "commit": "1234c1939131d03fd562c5de394c625af76ab240",
+      "evidence_level": "Simulated; Wi-Fi device listener used by one physical kit; native Grok Bot calls through serve --oauth observed on the owner's setup",
+      "checks": "233 tests (Python 3.11 to 3.14), Ruff, plain-language checks, the first-success check and the release workflow's fresh-download SHA256SUMS check passed. Adds tunnel hardening (remote requests need a named token or sign-in, remote off kill switch, request log required, device port refuses HTTP), usage records, summary and hook, and owner-approved OAuth sign-in. On 13 October 2026 the owner's Grok Bot called the six tools natively from the Mac and the iPhone through this code (hub docs/verification/grok-remote-https-2026-10-13.md). Linux systemd is not tested on a real host.",
+      "grok_verified": true,
       "hardware_verified": false,
       "independently_reproduced": false,
       "independently_reviewed_by_agent": false

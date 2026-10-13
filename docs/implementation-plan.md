@@ -810,7 +810,6 @@ Ask for these when the dependent action is ready, with a concrete explanation. D
 
 These are reference links, not evidence that an integration has passed tests. Re-check current documentation before relying on changing product behaviour.
 
-- [Muse gadget SDK source](https://github.com/facebookincubator/muse-gadget-sdk)
 - [M5Stack AtomS3 Lite](https://docs.m5stack.com/en/core/AtomS3-Lite)
 - [Grok Bot overview](https://docs.x.ai/grok-bot/overview)
 - [Grok Bot mobile](https://docs.x.ai/grok-bot/mobile)

@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/always-on.md at 79ad881b6dbc0f78fa4d9a118f98acfbbad32f5a
+Source: grok-gadgets-gateway/docs/always-on.md at 1234c1939131d03fd562c5de394c625af76ab240
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -15,14 +15,14 @@ The design is hub [ADR 006](https://github.com/adidshaft/grok-gadgets/blob/main/
 
 ## Install
 
-Stop any `serve` you started by hand (Ctrl-C in its terminal). Then, in the gateway checkout:
+Stop any `serve` you started by hand (Ctrl-C in its terminal). Use the virtual environment where you installed the gateway:
 
 ```sh
-uv run grok-gadgets-gateway service install --lan-listen 192.168.1.20
-uv run grok-gadgets-gateway service status
+.venv/bin/grok-gadgets-gateway service install --lan-listen my-mac.local
+.venv/bin/grok-gadgets-gateway service status
 ```
 
-Use the same `--lan-listen` address that you gave to `lan-cert` and `wifi-provision`. Leave it
+Replace `my-mac.local` with your computer's local name. Use the same `--lan-listen` name that you gave to `lan-cert` and `wifi-provision`. Leave it
 out if you only use USB or the loopback MCP port.
 
 | Computer | What `install` creates | When it starts |
@@ -39,9 +39,9 @@ system files.
 ## Check and stop
 
 ```sh
-uv run grok-gadgets-gateway service status
-uv run grok-gadgets-gateway service logs
-uv run grok-gadgets-gateway service uninstall
+.venv/bin/grok-gadgets-gateway service status
+.venv/bin/grok-gadgets-gateway service logs
+.venv/bin/grok-gadgets-gateway service uninstall
 ```
 
 `status` says whether the service is running. `logs` prints the end of the log; the request log
@@ -51,5 +51,13 @@ device tokens stay.
 After a restart, the gateway can take a minute or two to start while the computer finishes
 logging in. The board shows **Gateway...** until then, and connects without help.
 
-The service runs the gateway from this checkout. If you move or delete the checkout, run
-`service uninstall` and install again from the new place.
+The service uses the Python environment that runs `service install`. Keep that environment in place.
+If you move or delete it, uninstall the service first. Install the service again from the new environment.
+
+For an editable source install, the service also uses that checkout. A branch change changes
+the service code. Stop the service before you change its source.
+
+The owner observed about 90 seconds after login before the startup fix.
+[Issue #115](https://github.com/adidshaft/grok-gadgets-gateway/issues/115) tracks that fix.
+The restart time after the fix has not been observed on the owner kit.
+Linux service installation is implemented; the owner acceptance record covers macOS only.

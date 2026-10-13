@@ -302,7 +302,7 @@ proof_section = (
     '<h2 id="proof-heading">Try the tools in five minutes.</h2>'
     "<p>Install the gateway and run a simulated light on Mac or Linux.</p>"
     '<pre class="proof-output"><code>python3 -m venv .venv\n'
-    ".venv/bin/python -m pip install grok-gadgets-gateway==0.1.0a10</code></pre>"
+    ".venv/bin/python -m pip install grok-gadgets-gateway==0.1.0a11</code></pre>"
     '<p><a href="'
     + first_success
     + '">Follow the five-minute guide ↗</a> · <a href="doc-docs-public-how-we-verify.html">How we verify ↗</a></p></section>'
@@ -522,7 +522,7 @@ page(
         "An action.<br>An observation.",
         "The assistant, connection point and device have separate jobs.",
     )
-    + '<div class="flow"><a href="https://x.ai/bot"><img src="media/grok-mark.svg" width="40" height="40" alt="Grok"><span>Grok Bot</span><small>Run by SpaceXSI</small></a><b>↕ Approved local command</b><span>Your gateway<small>Run by its operator</small></span><b>↕ USB / private LAN TLS</b><span>Your device<small>Execute and observe</small></span></div><p class="status">Requested → accepted → execution reported → physically observed</p><p><a href="doc-docs-architecture-overview.html">Architecture reference ↗</a></p><p class="quiet-note">The owner’s approved local commands reached the gateway and OLED kit. Native MCP calls and a public remote route remain unverified. A tunnel does not replace authentication. Home Assistant can use its own upstream MCP route.</p>'
+    + '<div class="flow"><a href="https://x.ai/bot"><img src="media/grok-mark.svg" width="40" height="40" alt="Grok"><span>Grok Bot</span><small>Run by SpaceXSI</small></a><b>↕ HTTPS sign-in or approved local command</b><span>Your gateway<small>Run by its operator</small></span><b>↕ USB / private LAN TLS</b><span>Your device<small>Execute and observe</small></span></div><p class="status">Requested → accepted → execution reported → physically observed</p><p><a href="doc-docs-architecture-overview.html">Architecture reference ↗</a></p><p class="quiet-note">The owner’s Grok Bot called the tools natively from Mac and iPhone through an owner-run tunnel with sign-in, and showed text on the OLED kit. Approved local commands work without a tunnel. A tunnel does not replace authentication. Home Assistant can use its own upstream MCP route.</p>'
     + hosting_guide,
 )
 roadmap_issues = [
@@ -567,7 +567,7 @@ page(
         if issue_snapshot
         else ""
     )
-    + '<section class="roadmap-summary"><h2>Now, next, later.</h2><p><strong>Now:</strong> repeat the owner-tested OLED kit and share results in <a href="https://github.com/adidshaft/grok-gadgets/issues/185">tester issue #185</a>.</p><p><strong>Next:</strong> verify native Grok Bot tool calls on Mac and phone through an approved authenticated remote HTTPS route.</p><p><strong>Later:</strong> setup without the first USB cable, then consider an optional hosted relay.</p><p><a href="doc-docs-public-support-matrix.html">Current releases and verification ↗</a></p></section>'
+    + '<section class="roadmap-summary"><h2>Now, next, later.</h2><p><strong>Now:</strong> repeat the owner-tested OLED kit and share results in <a href="https://github.com/adidshaft/grok-gadgets/issues/185">tester issue #185</a>.</p><p><strong>Done:</strong> native Grok Bot tool calls from Mac and phone, with usage tracking. <a href="doc-docs-getting-started-connect-grok-bot.html">Connect your Grok Bot ↗</a></p><p><strong>Later:</strong> setup without the first USB cable, then consider an optional hosted relay.</p><p><a href="doc-docs-public-support-matrix.html">Current releases and verification ↗</a></p></section>'
     + '<div class="issue-list">'
     + rows
     + "</div>",
@@ -606,7 +606,7 @@ page(
         "Released alpha builds",
         "Simulation, separate SDKs, firmware builds and integration recipes.",
     )
-    + '<p class="status">Approved local Grok Bot route and one physical kit checked · native MCP and independent reproduction pending</p>'
+    + '<p class="status">Native Grok Bot calls from Mac and phone and one physical kit checked on the owner’s setup · independent reproduction pending</p>'
     + path_row(
         "01",
         "What passed",

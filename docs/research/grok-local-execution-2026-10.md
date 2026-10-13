@@ -4,6 +4,8 @@ Research for [LAUNCH-GROK-001 (#31)](https://github.com/adidshaft/grok-gadgets/i
 
 Sources are official SpaceXAI Grok Bot pages only, read on 8 October 2026. None of the pages shows a last-updated date. Quotations are short; read the linked page for context. Third-party guides and forum posts were seen during the search but are not used as evidence.
 
+Follow-up, 13 October 2026: Remote HTTPS setup, header or OAuth, phone use and plan usage are in the [Remote HTTPS note](grok-remote-https-2026-10.md).
+
 ## Short answer
 
 | Question | Answer | Status |
