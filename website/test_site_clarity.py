@@ -12,19 +12,16 @@ SITE = ROOT / "website"
 class SiteClarityTests(unittest.TestCase):
     def test_homepage_states_existing_grok_bot_and_open_verification_gate(self):
         hero = (SITE / "home-scene.html").read_text()
-        self.assertIn("your Grok Bot.", hero)
-        self.assertIn("Open-source tools and SDKs", hero)
-        self.assertIn(
-            "One kit passed USB and Wi-Fi tests; native Grok Bot MCP calls remain open.",
-            hero,
-        )
+        self.assertIn("Your Grok Bot.", hero)
+        self.assertIn("In the real world.", hero)
+        self.assertIn("Alpha · one kit verified · native Grok Bot calls next", hero)
         self.assertIn('href="doc-docs-public-support-matrix.html"', hero)
         self.assertIn('id="scene-demo"', hero)
         self.assertIn('href="start.html"', hero)
 
     def test_three_build_paths_and_legacy_component_anchor_are_preserved(self):
         builder = (SITE / "build.py").read_text()
-        for title in ['"No hardware"', '"Raspberry Pi / Linux"', '"ESP32"']:
+        for title in ['"No hardware"', '"Raspberry Pi / Linux"', '"Tested OLED kit"']:
             self.assertIn(title, builder)
         self.assertIn("Already use Home Assistant?", builder)
         for target in ["esp32.html", "linux.html", "home-assistant.html"]:
@@ -38,17 +35,17 @@ class SiteClarityTests(unittest.TestCase):
         self.assertIn('(R / "website/donate.html").read_text()', builder)
         self.assertIn('<script src="donate.js" defer></script>', builder)
         self.assertIn('page("donate.html", "Donate", home_body)', builder)
+        self.assertIn('"playground.html",\n    "Playground",', builder)
+        self.assertIn('scene_markup.replace("{{PLAYGROUND_DETAILS}}", "")', builder)
 
     def test_component_inventory_is_rendered_on_docs_page(self):
         builder = (SITE / "build.py").read_text()
         self.assertIn('"components.html",\n    "Project components"', builder)
-        home_page = builder.split("home_body = (", 1)[1].split('page("index.html",', 1)[
-            0
-        ]
+        home_page = builder.split("home_body =", 1)[1].split('page("index.html",', 1)[0]
         self.assertNotIn("website/components.html", home_page)
         inventory = (SITE / "components.html").read_text()
         self.assertEqual(len(re.findall(r'<details class="component', inventory)), 10)
-        self.assertIn('href="index.html#playground"', inventory)
+        self.assertIn('href="playground.html"', inventory)
 
     def test_concept_stories_and_static_no_script_fallback_exist(self):
         hero = (SITE / "home-scene.html").read_text()

@@ -8,6 +8,7 @@
     "docs/getting-started/physical-test.md",
     "docs/getting-started/experiment-kit.md",
     "docs/getting-started/repeat-the-kit.md",
+    "docs/getting-started/first-success.md",
     "community/README.md",
     "community/guidelines.md",
     "community/moderation-policy.md",
@@ -25,6 +26,7 @@
     "docs/contributing/ready-issues.md",
     "docs/visuals/README.md",
     "docs/public/support-matrix.md",
+    "docs/public/how-we-verify.md",
     "docs/visuals/brand-provenance.md",
     "docs/contributing/writing-guide.md",
     "docs/contributing/review-and-privacy.md"

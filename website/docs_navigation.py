@@ -17,6 +17,16 @@ GROUPS = (
                 None,
                 (
                     ("", "README.md", "Project overview"),
+                    (
+                        "",
+                        "docs/getting-started/repeat-the-kit.md",
+                        "Build the tested OLED kit",
+                    ),
+                    (
+                        "",
+                        "docs/getting-started/first-success.md",
+                        "First success without hardware",
+                    ),
                     ("", "docs/getting-started/simulator-kit.md", "Try the simulator"),
                     (
                         "",
@@ -24,6 +34,7 @@ GROUPS = (
                         "Hosting and remote access",
                     ),
                     ("", "docs/public/support-matrix.md", "Project status"),
+                    ("", "docs/public/how-we-verify.md", "How we verify"),
                     ("", "SUPPORT.md", "Get help"),
                 ),
             ),
@@ -49,11 +60,6 @@ GROUPS = (
                         "",
                         "docs/getting-started/experiment-kit.md",
                         "First experiment: tested kit",
-                    ),
-                    (
-                        "",
-                        "docs/getting-started/repeat-the-kit.md",
-                        "Repeat the tested OLED kit",
                     ),
                     (
                         "esp32-sdk",
@@ -90,12 +96,12 @@ GROUPS = (
                 None,
                 (
                     ("gateway", "README.md", "Gateway overview"),
+                    ("gateway", "docs/local-operation.md", "Run the gateway"),
                     (
                         "gateway",
                         "docs/first-success.md",
-                        "First success in five minutes",
+                        "Source checkout first success",
                     ),
-                    ("gateway", "docs/local-operation.md", "Run the gateway"),
                     (
                         "gateway",
                         "docs/experiment-kit.md",
