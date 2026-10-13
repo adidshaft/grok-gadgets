@@ -97,6 +97,7 @@ def steps(py):
                 "docs/public/support-matrix.md",
                 "docs/getting-started/simulator-kit.md",
                 "docs/getting-started/hosting.md",
+                "docs/getting-started/mac-free-route.md",
                 "docs/getting-started/physical-test.md",
                 "docs/contributing/ready-issues.md",
                 "docs/contributing/writing-guide.md",

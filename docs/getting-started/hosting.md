@@ -38,7 +38,8 @@ See the gateway [remote access guide](https://github.com/adidshaft/grok-gadgets-
 
 [ADR 009](../decisions/009-relay-route.md) proposes a relay: the existing gateway on an always-on Linux host.
 The gadget would connect out to that host over TLS. Grok Bot would keep the HTTPS and OAuth route.
-The owner must choose the host, device hostname and tunnel move before implementation.
+The owner must choose the host, device hostname and tunnel move before the first run.
+The [Mac-free route guide](mac-free-route.md) lists the steps; no kit has run it yet.
 The project runs no relay service. Phone-only setup and claim codes belong to later phases.
 
 ## Advanced local commands
