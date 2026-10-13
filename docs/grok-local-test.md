@@ -13,6 +13,8 @@ The docs confirm (b). They do not document (a). Part A tests (a); Part B tests (
 
 The first run, on 12 October 2026, gave outcome (b). See the [result](verification/grok-local-execution-2026-10-12.md).
 
+The next step, a Remote HTTPS server through your own tunnel from the Mac and the phone, is the [remote test](grok-remote-test.md).
+
 ## 0. Prepare the gateway (2 minutes)
 
 The request log is on the gateway `dev` branch. It is not released yet.
