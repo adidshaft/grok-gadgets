@@ -33,6 +33,12 @@ GROUPS = (
                         "docs/getting-started/hosting.md",
                         "Hosting and remote access",
                     ),
+                    (
+                        "",
+                        "docs/getting-started/connect-grok-bot.md",
+                        "Connect your Grok Bot",
+                    ),
+                    ("", "docs/getting-started/track-usage.md", "Track usage"),
                     ("", "docs/public/support-matrix.md", "Project status"),
                     ("", "docs/public/how-we-verify.md", "How we verify"),
                     ("", "SUPPORT.md", "Get help"),

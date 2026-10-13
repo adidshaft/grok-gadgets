@@ -22,7 +22,7 @@
     esp32: [240, 5, 165], linux: [250, 40, -235], home: [-265, 5, 205],
   };
   const details = {
-    grok: ['Grok Bot', 'Approved local commands reached the owner’s gateway. Native MCP calls remain open.', 'doc-docs-getting-started-hosting.html', 'The connection path'],
+    grok: ['Grok Bot', 'Grok Bot called the owner’s gateway natively from Mac and phone, through an owner-run tunnel with sign-in.', 'doc-docs-getting-started-connect-grok-bot.html', 'Connect your Grok Bot'],
     gateway: ['Gateway', 'Routes commands. Reports device state.', 'architecture.html', 'Explore the architecture'],
     esp32: ['ESP32', 'One ESP32-S3 kit passed USB and Wi-Fi tests with an SH1106 OLED. Independent reproduction is open.', 'esp32.html', 'Meet the first gadget'],
     linux: ['Linux', 'Declare capabilities. Connect your own device application.', 'linux.html', 'Build with the Linux SDK'],

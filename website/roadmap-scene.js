@@ -20,9 +20,9 @@
       href: 'components.html', linkLabel: 'Explore the source repositories', t: .285,
     },
     {
-      name: 'Grok Bot', label: 'Grok Bot', status: 'Local route', evidence: 'open',
-      detail: 'Approved local commands reached the gateway. Native MCP calls remain open.',
-      href: 'doc-docs-getting-started-hosting.html', linkLabel: 'Read about the Grok Bot connection', t: .5,
+      name: 'Grok Bot', label: 'Grok Bot', status: 'Native calls', evidence: 'open',
+      detail: 'Grok Bot called the tools from Mac and phone through an owner-run tunnel with sign-in.',
+      href: 'doc-docs-getting-started-connect-grok-bot.html', linkLabel: 'Connect your Grok Bot', t: .5,
     },
     {
       name: 'ESP32-S3 kit', label: 'Hardware', status: 'Owner tested', evidence: 'open',

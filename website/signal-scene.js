@@ -8,8 +8,8 @@
     {
       id: 'esp32', label: 'ESP32-S3', x: 165, y: 275,
       title: 'ESP32-S3 · breadboard + OLED', href: 'esp32.html',
-      route: 'Gateway + USB · proposed HTTPS',
-      description: 'One ESP32-S3 kit passed USB and Wi-Fi acceptance with a SH1106 OLED. Grok Bot displayed text through an approved local command. The illustrated remote HTTPS route and native MCP calls remain unverified.',
+      route: 'Gateway + Wi-Fi · owner-run HTTPS',
+      description: 'One ESP32-S3 kit passed USB and Wi-Fi acceptance with a SH1106 OLED. Grok Bot displayed text through an approved local command, and natively from Mac and phone through an owner-run HTTPS tunnel with sign-in.',
       port: 'Gateway', portX: 302, portY: 308,
       points: [[430, 275], [350, 275], [255, 275], [165, 275]],
     },
@@ -207,7 +207,7 @@
       detailTitle.textContent = selected.title;
       detailLink.href = selected.href;
       detailRoute.textContent = selected.route;
-      bot.setAttribute('aria-label', `Grok Bot. Replay the conceptual ${selected.label} route. Native MCP connection is pending.`);
+      bot.setAttribute('aria-label', `Grok Bot. Replay the conceptual ${selected.label} route.`);
       status.textContent = selected.description;
       if (replay) {
         sequence = canAnimate() ? 0 : null;
