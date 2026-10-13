@@ -19,6 +19,7 @@ GATEWAY_INPUTS = (
     "LICENSE",
     "NOTICE",
     "README.md",
+    "examples",
     "SECURITY.md",
     "THIRD_PARTY_NOTICES.md",
     "protocol",

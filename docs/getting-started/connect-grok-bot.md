@@ -1,6 +1,8 @@
 # Connect your Grok Bot
 
-Your existing Grok Bot can call the six gadget tools itself, from the desktop app and from the phone app. It reaches the gateway on your Mac through an HTTPS name that you run. On 13 October 2026 the owner's Grok Bot did this from a Mac and an iPhone and showed text on the OLED kit ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/grok-remote-https-2026-10-13.md), [ADR 007](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/007-grok-bot-remote-https.md)).
+Your existing Grok Bot can call the six gadget tools itself, from the desktop app and from the phone app. It reaches the gateway on your Mac through an HTTPS name that you run. On 13 October 2026 the owner's Grok Bot did this from a Mac and an iPhone. It showed text on the OLED kit ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/grok-remote-https-2026-10-13.md), [ADR 007](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/007-grok-bot-remote-https.md)).
+
+On 13 October 2026 the owner also left the route on behind a fixed hostname. The [daily record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/daily-route-2026-10-13.md) covers Mac and phone calls, cellular, a gateway restart, Mac sleep and a Mac restart.
 
 The tunnel is optional. Without it, Grok Bot can still run approved local commands on the Mac; see [the no-tunnel route](#without-a-tunnel).
 
@@ -11,8 +13,8 @@ Grok Bot (Mac or phone) ─HTTPS─▶ gadgets.example.net (your tunnel) ─▶ 
 
 ## What you need
 
-- The gateway `0.1.0a11` or later, with your gadget working locally first ([first success](first-success.md) or [the kit](repeat-the-kit.md)).
-- A tunnel that you run, which ends HTTPS at a hostname and forwards only to `http://127.0.0.1:8766`. A tunnel account with a fixed hostname suits daily use. An account-free quick tunnel works for one session, but it gets a new hostname each time.
+- The gateway `0.1.0a12` or later, with your gadget working locally first ([first success](first-success.md) or [the kit](repeat-the-kit.md)).
+- A tunnel that you run, which ends HTTPS at a hostname and forwards only to `http://127.0.0.1:8766`. For daily use, take a tunnel with a fixed hostname on your own domain, run as a login service ([daily use](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/daily-use.md)). An account-free quick tunnel works for one session, but it gets a new hostname each time.
 - Grok Bot on the desktop and, if you want, on the phone, signed in to the same account.
 
 In the commands, `gadgets.example.net` is your tunnel hostname and `my-mac.local` is your Mac's name.
@@ -74,6 +76,19 @@ The same server works from the Grok Bot phone app with no setup there. Its tools
 
 Check the gateway log. Each call adds an `mcp_tool_call` line with `"token":"grok-bot"` and `"remote":true`. A reported state is the device's own report; look at the device for the physical result.
 
+## Leave it on
+
+With gateway `0.1.0a12` or later, the route can stay on. The gateway limits sign-in floods, rotates its logs and shows the route in `service status`. Follow [daily use](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/daily-use.md) for the tunnel client as a login service, a one-minute daily check, sleep settings and a notification on each remote call.
+
+What the owner's setup showed on 13 October ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/daily-route-2026-10-13.md)):
+
+- **Gateway restart:** the board was back in about 1 second, and the next call needed no new sign-in.
+- **Mac asleep:** Grok Bot got a 502 from the tunnel provider and no gadget result. Nothing was queued. The tunnel and the board came back within seconds of the wake.
+- **Mac restart:** after login the gateway, the tunnel and the board came back by themselves, 66–72 seconds after boot. The sign-in stayed valid.
+- **`remote off`:** Grok Bot reported that remote access was off and did not retry.
+
+If Grok Bot still lists an older `grok-gadgets` server, for example from a quick tunnel, ask it to replace that server with the new URL.
+
 ## Turn it off
 
 ```sh
@@ -98,6 +113,6 @@ This works only from the desktop app, needs your approval for each command, and 
 - Forward only port 8766. Never forward the device port or the Wi-Fi listener.
 - Anyone who can run `oauth approve` on your Mac controls access. A sign-in lasts until `oauth revoke`, or 30 days without use.
 - The limits apply per name: 60 tool calls and 10 commands a minute.
-- Keep the tunnel on only while you use it.
+- Leave the tunnel on only with gateway `0.1.0a12` or later, and run the [daily check](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/daily-use.md#3-daily-check).
 
 Next: [track usage](track-usage.md).
