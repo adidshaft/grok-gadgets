@@ -1,7 +1,7 @@
 # ADR 008 — Daily native route: a public sign-in endpoint that is safe to leave on
 
 **Date:** 13 October 2026  
-**Status:** Proposed. The owner chooses the tunnel, the hostname and whether the tunnel stays on.  
+**Status:** Accepted on 13 October 2026. The owner chose Cloudflare Tunnel with a named tunnel, a hostname on a domain the owner already controls, and a tunnel that stays on. Result: [daily-route record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/daily-route-2026-10-13.md).  
 **Owner:** Grok Gadgets hub (`adidshaft/grok-gadgets`)  
 **Issues:** [#251](https://github.com/adidshaft/grok-gadgets/issues/251) (HUB-DAILY-001), gateway [#142](https://github.com/adidshaft/grok-gadgets-gateway/issues/142) (GW-DAILY-001), gateway [#115](https://github.com/adidshaft/grok-gadgets-gateway/issues/115)
 
@@ -89,3 +89,9 @@ The owner's own domain is required; never `grokgadgets.org`. Prices are from the
 
 - Gateway: the fixes above merged, with tests for a full client list, a full waiting list, a refresh during a registration flood and log rotation.
 - Owner, on two separate days: logged calls from the Mac and the phone, one from the phone on cellular with Wi-Fi off; a BOOT press read from the phone; a call after a gateway restart with no new sign-in; Mac asleep; `remote off` and on; a Mac restart; **Weekly usage** at the start and the end, run through `usage --calibrate`. Records go in `docs/verification/daily-route-2026-10-*.md`.
+
+## Outcome — 13 October 2026
+
+Gateway `0.1.0a12` with the fixes above ran as the always-on service behind the owner's named tunnel. In one day, Grok Bot called the tools from the Mac and from the iPhone on cellular. BOOT events were read from the phone. The route came back after a gateway restart, `remote off` and on, Mac sleep and a Mac restart ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/daily-route-2026-10-13.md)).
+
+Not done: a second separate day, by the owner's choice, and a calibrated usage rate, because **Weekly usage** read 1% before and after. The Mac must stay on and awake; a route without it is outside this ADR.

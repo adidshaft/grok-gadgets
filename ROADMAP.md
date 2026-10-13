@@ -8,7 +8,7 @@ The software is an experimental alpha. Public source repositories, the static we
 | --- | --- | --- |
 | 1–6: local tools, physical kit and optional always-on service | Owner-tested work done | Independent kit run in [#185](https://github.com/adidshaft/grok-gadgets/issues/185); post-login recovery retest |
 | 7: native Grok Bot connection | Done on the owner's setup (13 October 2026) | Another person's native connection |
-| 8: daily native route | Now ([#251](https://github.com/adidshaft/grok-gadgets/issues/251)) | Two days of logged Mac and phone calls through a fixed-hostname tunnel; gateway restart, Mac sleep and reboot results |
+| 8: daily native route | Done on the owner's setup (13 October 2026, [record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/daily-route-2026-10-13.md)) | Not done: a second separate day of use and a calibrated usage rate |
 | 9: setup without a cable | Later | Hotspot or BLE-assisted initial setup and short-code pairing; daily use stays on Wi-Fi |
 | 10: optional hosted relay | Decision pending | Owner decision on service operation and scope |
 
@@ -19,7 +19,7 @@ Grok Bot normally runs on its cloud computer. This does not expose your private 
 - **M5 — Actual Grok: done on the owner's setup.** Approved local commands and native tool calls from the Mac and phone apps both reached the gateway and showed text on the physical kit. Another person's reproduction is still open.
 - **M8 — Physical and independent verification: partly done.** The owner's delivered kit passed USB and Wi-Fi acceptance. Another person must reproduce the setup.
 
-Phase 8 ([HUB-DAILY-001](https://github.com/adidshaft/grok-gadgets/issues/251)) makes the remote route safe to leave on. Until it is done, keep the tunnel on only while you use it.
+Phase 8 ([HUB-DAILY-001](https://github.com/adidshaft/grok-gadgets/issues/251)) left the remote route on behind a fixed hostname with gateway `0.1.0a12`. Calls worked from the Mac and from the phone on cellular. The route came back after a gateway restart, Mac sleep and a Mac restart. The Mac must stay on and awake.
 
 | Milestone | What closes it |
 |---|---|
