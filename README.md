@@ -12,7 +12,7 @@
 
 **Build a small Wi-Fi gadget for your Grok Bot. Open source.**
 
-Status: one ESP32-S3/OLED kit passed USB and Wi-Fi acceptance; native Grok Bot MCP calls remain unverified
+Status: one ESP32-S3/OLED kit passed; the owner's Grok Bot calls its tools natively from Mac and iPhone through an owner-run tunnel
 ([project status](docs/public/support-matrix.md)).
 Independent project, not affiliated with SpaceXSI.
 

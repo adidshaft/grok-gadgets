@@ -19,7 +19,7 @@ On 13 October 2026 the owner's Grok Bot called the six tools itself from the Mac
 
 ## What comes next
 
-Phases 1–6 covered the local software, one physical USB/Wi-Fi kit and the optional per-user always-on gateway service. [Another person's kit run](https://github.com/adidshaft/grok-gadgets/issues/185) remains an open acceptance gate. **Phase 7** is done on the owner's setup: native Grok Bot tool calls from Mac and phone, plus [usage tracking](../getting-started/track-usage.md). They use an owner-run tunnel with OAuth sign-in. **Phase 8** is setup without the initial USB cable. **Phase 9** may add an optional hosted relay, pending an owner service decision. A button event does not wake Grok Bot.
+Phases 1–6 covered the local software, one physical USB/Wi-Fi kit and the optional per-user always-on gateway service. [Another person's kit run](https://github.com/adidshaft/grok-gadgets/issues/185) remains an open acceptance gate. **Phase 7** is done on the owner's setup: native Grok Bot tool calls from Mac and phone, plus [usage tracking](../getting-started/track-usage.md). They use an owner-run tunnel with OAuth sign-in. **Phase 8** ([#251](https://github.com/adidshaft/grok-gadgets/issues/251)) makes that route safe for daily use: a fixed hostname, restarts, sleep and reboot. **Phase 9** is setup without the initial USB cable. **Phase 10** may add an optional hosted relay, pending an owner service decision. A button event does not wake Grok Bot.
 
 | Part | What works today | Not verified yet |
 | --- | --- | --- |
