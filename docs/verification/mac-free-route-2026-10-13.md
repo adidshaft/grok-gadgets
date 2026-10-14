@@ -105,7 +105,7 @@ The lines are shortened. The log does not show which app or network sent a call.
 | `remote off`, then on | **Pass**: with `curl` on 13 October and from Grok Bot on the iPhone, away from home, on 14 October |
 | Revoke, re-enroll, re-provision | **Pass** |
 | Wrong CA rejected by the kit | **Pass**: `TLSV1_ALERT_UNKNOWN_CA` from 20:40:20; **TLS rejected** on the OLED |
-| Weekly usage before and after | **Not measured**: the account page shows whole percent and did not change |
+| Weekly usage before and after | **Not tested**: the account page shows whole percent; the owner saw no change, so no reading could be paired with the log |
 
 ## Limits
 
