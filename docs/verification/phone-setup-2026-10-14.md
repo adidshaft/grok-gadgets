@@ -45,7 +45,7 @@ Evidence levels:
 | Label QR joins the hotspot on the iPhone | Pass | Owner |
 | Captive page opens; setup code accepted; home Wi-Fi picked | Pass | Owner |
 | Online through the relay, no computer | Pass | Log `device_hello` 09:55:03, Owner |
-| Grok Bot on the iPhone shows text | PENDING | Log 10:02:29 |
+| Grok Bot on the iPhone shows text | Pass | Log 10:02:29, Owner: "Phone setup works" on the OLED |
 | Setup window expires after 10 minutes | Pass | Console `setup: closed`, Owner |
 | Wrong setup code refused | PENDING | |
 | Wrong home password shown | PENDING | |
