@@ -1,35 +1,48 @@
 # Roadmap
 
-The software is an experimental alpha. Public source repositories, the static website and three PyPI packages are active. [GitHub Issues](https://github.com/adidshaft/grok-gadgets/issues) track public work. [Project status](docs/public/support-matrix.md) lists current releases and evidence.
+Grok Gadgets is an experimental alpha for Grok Bot. Builders use its SDKs to make gadgets.
+The goal is simple setup for the people who use those gadgets.
 
-## Phases
+## Today, next, later
 
-| Phase | State | Next evidence |
+- **Today:** Grok Bot on Mac and iPhone controls the owner's Wi-Fi kit through a gateway on an always-on Linux server. The Mac can sleep.
+- **Next:** Phase 10, joining a gadget to Wi-Fi from a phone with no cable.
+- **Later:** claim codes and tools for builders who ship gadgets.
+
+The project runs no relay service. There are no promised dates.
+
+## Phase plan
+
+| Phase | State | Evidence or remaining gate |
 | --- | --- | --- |
-| 1–6: local tools, physical kit and optional always-on service | Owner-tested work done | Independent kit run in [#185](https://github.com/adidshaft/grok-gadgets/issues/185); post-login recovery retest |
-| 7: native Grok Bot connection | Done on the owner's setup (13 October 2026) | Another person's native connection |
-| 8: daily native route | Done on the owner's setup (13 October 2026, [record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/daily-route-2026-10-13.md)) | Not done: a second separate day of use and a calibrated usage rate |
-| 9: setup without a cable | Later | Hotspot or BLE-assisted initial setup and short-code pairing; daily use stays on Wi-Fi |
-| 10: optional hosted relay | Decision pending | Owner decision on service operation and scope |
+| 1–6: local tools, kit and service | Owner-tested work complete | [Independent kit report](https://github.com/adidshaft/grok-gadgets/issues/185) remains open |
+| 7: native Grok Bot connection | Complete on the owner's setup | [Mac and iPhone calls](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/grok-remote-https-2026-10-13.md) |
+| 8: daily route checks | Complete on one setup for one day | [Recorded checks](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/daily-route-2026-10-13.md); another day and a calibrated usage rate remain |
+| 9: Mac-free route | Complete on the owner's setup | [Relay record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md): iPhone on cellular controlled the kit while the Mac slept; one kit, one server |
+| 10: setup without a cable | Next | iPhone joins a factory-provisioned kit to Wi-Fi; wrong password and reset checks |
+| 11: claim your gadget | Planned | Two accounts prove device isolation, sharing, removal and transfer |
+| 12: builder kit | Planned | A second builder follows the deployment and shipping guides |
+| 13: shared relay | Owner decision only | Cost, operations, abuse controls, privacy and terms; no service promised |
 
-**Grok Bot calls the tools natively.** On 13 October 2026 the owner's Grok Bot called the six tools from the Mac and the iPhone apps through `serve --oauth` behind an owner-run tunnel; the gateway request log recorded each call ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/grok-remote-https-2026-10-13.md), [ADR 007](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/007-grok-bot-remote-https.md)). `serve` still listens on `127.0.0.1:8766/mcp` only. A tunnel adds reachability; the owner-approved sign-in adds authentication.
+[ADR 009](docs/decisions/009-relay-route.md) plans Phases 9–13. Stage 1 (Phase 9) is accepted and released; the later stages are design only.
 
-Grok Bot normally runs on its cloud computer. This does not expose your private LAN. Its separate **Execution on Local Computer** capability ran two approved `rehearse` commands on the owner's Mac. Gateway logs matched those commands. A physical ESP32-S3/OLED kit also passed USB and Wi-Fi acceptance. The gateway still runs on the Mac for the wireless setup. See the [hosting FAQ](docs/getting-started/hosting.md) and [physical records](docs/getting-started/experiment-kit.md).
+## What the current result means
 
-- **M5 — Actual Grok: done on the owner's setup.** Approved local commands and native tool calls from the Mac and phone apps both reached the gateway and showed text on the physical kit. Another person's reproduction is still open.
-- **M8 — Physical and independent verification: partly done.** The owner's delivered kit passed USB and Wi-Fi acceptance. Another person must reproduce the setup.
+Native calls use Remote HTTPS and OAuth sign-in through an owner-run tunnel.
+The owner approves sign-in on the gateway's host. The gateway and tunnel must remain available.
+With the gateway on the Mac, the route failed while the Mac slept and queued nothing.
+With the gateway on an always-on server, the route worked while the Mac slept.
+After a server reboot, the kit was back Online in 24 seconds.
+After a restart, the gateway listened at 66 seconds and the board returned Online at 72 seconds.
+These times describe one run, not a recovery guarantee.
 
-Phase 8 ([HUB-DAILY-001](https://github.com/adidshaft/grok-gadgets/issues/251)) left the remote route on behind a fixed hostname with gateway `0.1.0a12`. Calls worked from the Mac and from the phone on cellular. The route came back after a gateway restart, Mac sleep and a Mac restart. The Mac must stay on and awake.
+The remaining checks include another day, measured usage and another person's setup.
+Real Linux services, peripherals and Home Assistant homes need separate evidence.
+A device button does not wake Grok Bot.
 
-| Milestone | What closes it |
-|---|---|
-| Honest local alpha | Website, checks, and docs that say what Grok Bot can and cannot do |
-| Local HTTP gateway (`serve`) | Implemented and software-tested on loopback; the approved local Grok Bot commands used `rehearse`, not this HTTP endpoint |
-| Bounded Grok experiment | Owner-approved local command and matching gateway log; native Grok Bot calls through the remote route on 13 October 2026 |
-| First physical ESP32-S3/OLED experiment | Owner observed text, clear, RGB, BOOT, USB recovery and Wi-Fi recovery; independent reproduction remains open |
-| Remote connection and provisioning | Owner-run tunnel with sign-in works; daily use (Phase 8), setup without a cable and any relay remain |
-| Real Linux and Home Assistant | Selected real service/peripheral/home paths verified |
+## Help test or build
 
-[Ready contribution queue](docs/contributing/ready-issues.md) · [contribution process](CONTRIBUTING.md). No invented completion percentage.
-
-The [tested kit guide](docs/getting-started/experiment-kit.md) lists the delivered parts and wiring. Follow the [repeatable setup](docs/getting-started/repeat-the-kit.md) to try the same kit.
+- Use the [documentation index](docs/index.md) to choose a guide.
+- Repeat the [tested kit](docs/getting-started/repeat-the-kit.md) and report results in [#185](https://github.com/adidshaft/grok-gadgets/issues/185).
+- Pick a [ready issue](docs/contributing/ready-issues.md) and follow the [contribution guide](CONTRIBUTING.md).
+- Check [current releases and support](docs/public/support-matrix.md) before you install.

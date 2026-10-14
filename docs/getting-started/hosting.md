@@ -1,76 +1,61 @@
 # Hosting and remote access
 
-There are three separate paths. The website serves documentation and a browser simulator. It does not run your gateway. The owner's Grok Bot reached the gateway through an approved local command and, through an owner-run tunnel with sign-in, called the tools natively ([guide](connect-grok-bot.md)). The Wi-Fi kit can use the gateway's optional per-user service, which starts after Mac login or under a Linux user session.
+The website serves documentation and a simulator. It does not run your gateway.
+The gateway operator runs the connection service. SpaceXSI runs Grok Bot.
 
-## 1. Grok Bot on its cloud computer
+## The verified route
 
-Grok Bot normally works on its cloud computer. Its internet connection does not give it access to your private home network. A path on your Mac is not a path on that cloud computer. The address `127.0.0.1` refers to the computer where the command runs.
-
-## 2. Local execution on a Mac, then SSH to a Pi
-
-Grok Bot has a separate **Execution on Local Computer** capability. If you enable it and approve a command, Grok Bot can run that command on your Mac.
-
-A command on the Mac can connect to your Raspberry Pi through SSH. For this, the Mac must reach the Pi over the home network, and you must set up SSH. Both computers must be available. The SSH user must have permission to do the requested work.
-
-The Mac-to-Pi SSH path is a possible manual experiment. It has not been tested as Grok Gadgets support. USB alone does not create this route.
-
-On 12 October 2026 the owner's Grok Bot ran two approved `grok-gadgets-gateway rehearse` commands on the owner's Mac. The gateway request log recorded the matching calls against a simulated light. Later, the same local-command route showed text on the owner's physical OLED over USB and Wi-Fi. Grok Bot did not add the gateway as an MCP server. The approved command is a working local route, not a native tool connection. See the [local-command issue](https://github.com/adidshaft/grok-gadgets/issues/31) and [Wi-Fi kit record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md).
-
-For Wi-Fi, the board can draw power from a USB charger. The gateway must still run on the Mac. Its optional per-user service can start the private LAN TLS listener at login. Provisioning with the Mac's `.local` name lets the gateway re-resolve and rebind after an address change. The owner's board recovered after two address changes without a new certificate or provisioning. One restart/login run took about 90 seconds to return Online; faster recovery needs a retest. Follow the [kit guide](repeat-the-kit.md) and [always-on guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/always-on.md).
-
-## 3. Grok Gadgets remote MCP
-
-The gateway's `serve` mode provides Streamable HTTP MCP at `http://127.0.0.1:8766/mcp` and listens on loopback only.
-
-**Verified on the owner's setup on 13 October 2026.**
-
-With your own HTTPS tunnel and `serve --oauth`, Grok Bot calls the six tools itself from the desktop and phone apps. You approve the sign-in on the Mac. Follow [Connect your Grok Bot](connect-grok-bot.md). The project runs no public service. A tunnel makes the gateway reachable; the sign-in authenticates it. Never expose the device port at `127.0.0.1:8765`.
-
-**Wi-Fi devices use a separate listener.** `serve --lan-listen <private address>` carries device traffic over private LAN TLS ([ADR 005](https://github.com/adidshaft/grok-gadgets/blob/dev/docs/decisions/005-wifi-device-route.md)). It is not a Grok Bot MCP endpoint. Never forward its port or put it behind a tunnel.
-
-## Connection diagram
+Grok Bot on Mac and iPhone calls the six gadget tools through an owner-run HTTPS tunnel with OAuth sign-in.
+The operator approves sign-in on the Mac. The gateway and tunnel run there; the board connects over private LAN TLS.
 
 ```text
-Default:      Grok Bot → cloud computer → internet
-                                          ✕ private home LAN
-
-Possible:     Grok Bot → enabled local execution + command approval
-                       → Mac → configured SSH over home LAN → Pi
-                       Manual experiment; not product verification
-
-Product goal: Grok Bot → authenticated remote MCP endpoint with TLS
-                       → local gateway → device
-                       Remote endpoint and Bot invocation incomplete
+Grok Bot on Mac or iPhone
+    → HTTPS tunnel → gateway on the Mac → private LAN TLS → Wi-Fi gadget
 ```
 
-## Build stage
+The owner's setup passed [one day of checks](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/daily-route-2026-10-13.md).
+The phone also worked on cellular. This does not remove the gateway's Mac dependency.
+During Mac sleep, the route failed and queued nothing.
+After restart, the gateway listened at 66 seconds; the board returned Online at 72 seconds.
+Another day, measured usage and an independent report remain open.
 
-| Gate | Current stage | Evidence needed |
+Start with [Connect your Grok Bot](connect-grok-bot.md).
+The personal app adds the server from chat with a URL, then uses OAuth sign-in.
+Do not assume that its setup form accepts bearer headers.
+
+## Keep the listeners separate
+
+| Listener | Purpose | Exposure |
 | --- | --- | --- |
-| Local gateway `serve` | Implemented on loopback | Local software evidence does not prove a Grok Bot connection. |
-| M5 — Actual Grok | Done on the owner's setup | Approved local `rehearse` commands work. Native tool calls work through an owner-run tunnel with sign-in ([guide](connect-grok-bot.md)). |
-| M8 — Physical and independent verification | Partly done | The owner's ESP32-S3/OLED kit passed USB and Wi-Fi tests. Independent reproduction and a real Pi setup remain open. |
+| `127.0.0.1:8766/mcp` | Grok Bot tools | Owner-run HTTPS tunnel; allowed host and OAuth required for the verified route |
+| `127.0.0.1:8765` | Local device traffic | Loopback only; never expose it through the tunnel |
+| Private LAN TLS listener | Wi-Fi device traffic | Private network only; never port-forward the current listener |
 
-[Connect your Grok Bot](connect-grok-bot.md) sets up the remote route; [#251](https://github.com/adidshaft/grok-gadgets/issues/251) makes it safe for daily use. See the [roadmap](../../ROADMAP.md) and gateway [remote access guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/remote-access.md).
+A tunnel supplies reachability. OAuth supplies sign-in authorization.
+See the gateway [remote access guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/remote-access.md) for configuration and controls.
 
-## Simple FAQ
+## A gateway away from the Mac
 
-**Can the Mac app reach my Pi?** An approved local command can use SSH if the Mac can reach the Pi and SSH is configured. We have not verified this route as Grok Gadgets support.
+[ADR 009](../decisions/009-relay-route.md) adds a relay: the existing gateway on an always-on Linux host.
+The gadget connects out to that host over TLS. Grok Bot keeps the HTTPS and OAuth route.
+The owner's kit passed this on 13 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md)).
+The [Mac-free route guide](mac-free-route.md) lists the steps.
+The project runs no relay service. Phone-only setup and claim codes belong to later phases.
 
-**Does internet access let the cloud Bot reach my Pi?** No. A private home network is not exposed by the Bot's internet connection.
+## Advanced local commands
 
-**Does USB make the Mac a bridge?** No. A cable does not configure local execution, network access, SSH, or MCP.
+The owner's approved `grok-gadgets-gateway rehearse` commands also reached the simulator and the physical OLED kit.
+This route runs a command on the Mac. It is separate from native tool calls.
+See the [local-command record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/grok-local-execution-2026-10-12.md).
 
-**Does enabling local execution install Grok Gadgets MCP?** No. Local command execution and MCP configuration are separate. In the 12 October test, Grok Bot declined both MCP server types for the gateway on the Mac.
+An approved Mac command could use SSH to reach a configured Raspberry Pi on the same network.
+That extension remains unverified. Both hosts and the SSH permissions must be available.
+A USB cable does not create an SSH or remote MCP connection.
 
-**Who runs the MCP server?** The gateway operator runs it. SpaceXSI runs Grok Bot. A Home Assistant operator runs Home Assistant's own MCP server.
+Grok Bot's cloud computer cannot reach your private network without a configured route.
+`127.0.0.1` always refers to the computer where the connection runs.
+A device button does not wake Grok Bot; its events wait for a tool read.
 
-**What can I use now?** Build the [tested ESP32-S3/OLED kit](repeat-the-kit.md), or use the [browser playground](https://grokgadgets.org/playground) and [simulator kit](simulator-kit.md) without hardware. The owner's Grok Bot used the approved local-command route to show text on that kit. Native MCP support and another person's reproduction remain open.
+## Next step
 
-**Does a button wake Grok Bot?** No. Events wait in the gateway until a client calls `gadgets_read_events`.
-
-**Are Command MCP and local execution the same?** No. A Command MCP process on the cloud computer uses that computer's paths and network. Local execution runs an approved command on your Mac. Neither establishes packaged Grok Gadgets remote MCP support.
-
-## Platform sources
-
-The official [computer and apps guide](https://docs.x.ai/grok-bot/computer-and-apps) separates the cloud computer from approved local command execution. The [approval guide](https://docs.x.ai/grok-bot/approvals-security-and-privacy) describes permissions. These platform capabilities are not evidence of a verified Grok Gadgets connection. The Mac-to-Pi route above is a conditional networking inference, not a recorded product test.
+[Connect Grok Bot](connect-grok-bot.md) · [Fix a connection](troubleshooting.md) · [Current support](../public/support-matrix.md) · [All documentation](../index.md)

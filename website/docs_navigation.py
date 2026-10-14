@@ -11,12 +11,54 @@ from documents import slug
 GROUPS = (
     (
         "Start here",
-        "Choose a path and check what is verified.",
+        "Choose a path and see how the project fits together.",
         (
             (
                 None,
                 (
+                    ("", "docs/index.md", "Choose a documentation path"),
                     ("", "README.md", "Project overview"),
+                ),
+            ),
+        ),
+    ),
+    (
+        "Use a gadget",
+        "Connect Grok Bot through the owner-tested Mac gateway route.",
+        (
+            (
+                None,
+                (
+                    ("", "docs/getting-started/how-it-works.md", "How it works"),
+                    (
+                        "",
+                        "docs/getting-started/hosting.md",
+                        "Hosting and remote access",
+                    ),
+                    (
+                        "",
+                        "docs/getting-started/connect-grok-bot.md",
+                        "Connect your Grok Bot",
+                    ),
+                    ("", "docs/getting-started/troubleshooting.md", "Troubleshooting"),
+                    ("", "docs/getting-started/track-usage.md", "Track usage"),
+                    (
+                        "",
+                        "docs/getting-started/mac-free-route.md",
+                        "Run the gateway away from your Mac",
+                    ),
+                    ("", "SUPPORT.md", "Get help"),
+                ),
+            ),
+        ),
+    ),
+    (
+        "Build a gadget",
+        "Start with a tested kit, a simulator or an SDK.",
+        (
+            (
+                "Start building",
+                (
                     (
                         "",
                         "docs/getting-started/repeat-the-kit.md",
@@ -28,28 +70,8 @@ GROUPS = (
                         "First success without hardware",
                     ),
                     ("", "docs/getting-started/simulator-kit.md", "Try the simulator"),
-                    (
-                        "",
-                        "docs/getting-started/hosting.md",
-                        "Hosting and remote access",
-                    ),
-                    (
-                        "",
-                        "docs/getting-started/connect-grok-bot.md",
-                        "Connect your Grok Bot",
-                    ),
-                    ("", "docs/getting-started/track-usage.md", "Track usage"),
-                    ("", "docs/public/support-matrix.md", "Project status"),
-                    ("", "docs/public/how-we-verify.md", "How we verify"),
-                    ("", "SUPPORT.md", "Get help"),
                 ),
             ),
-        ),
-    ),
-    (
-        "Build a gadget",
-        "Use the SDK for your device.",
-        (
             (
                 "Linux SDK",
                 (
@@ -158,7 +180,6 @@ GROUPS = (
                     ),
                     ("", "SECURITY.md", "Report a security issue"),
                     ("", "GOVERNANCE.md", "Project governance"),
-                    ("", "ROADMAP.md", "Project roadmap"),
                 ),
             ),
         ),
@@ -183,12 +204,30 @@ GROUPS = (
         ),
     ),
     (
+        "Status and roadmap",
+        "Separate current evidence from future plans.",
+        (
+            (
+                None,
+                (
+                    ("", "docs/public/support-matrix.md", "Project status"),
+                    ("", "ROADMAP.md", "Project roadmap"),
+                    ("", "docs/public/how-we-verify.md", "How we verify"),
+                ),
+            ),
+        ),
+    ),
+    (
         "Reference",
         "Inspect how the parts fit together.",
         (
             (
                 None,
-                (("", "docs/architecture/overview.md", "Project architecture"),),
+                (
+                    ("", "docs/architecture/overview.md", "Project architecture"),
+                    ("", "docs/reference/glossary.md", "Glossary"),
+                    ("", "docs/decisions/009-relay-route.md", "Relay design (ADR 009)"),
+                ),
             ),
         ),
     ),

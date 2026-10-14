@@ -12,27 +12,32 @@
     {
       name: 'Local software', label: 'Software', status: 'Checked', evidence: 'checked',
       detail: 'Gateway and SDK software checked. One OLED kit passed USB and Wi-Fi tests.',
-      href: 'doc-docs-public-support-matrix.html', linkLabel: 'Read the software status', t: .07,
+      href: 'doc-docs-public-support-matrix.html', linkLabel: 'Read the software status', t: .06,
     },
     {
       name: 'Public source', label: 'Source', status: 'Published', evidence: 'checked',
       detail: 'Five open-source repositories. A local simulator ready to try.',
-      href: 'components.html', linkLabel: 'Explore the source repositories', t: .285,
+      href: 'components.html', linkLabel: 'Explore the source repositories', t: .23,
     },
     {
-      name: 'Grok Bot', label: 'Grok Bot', status: 'Daily use', evidence: 'open',
-      detail: 'Grok Bot calls the tools from Mac and phone, at home and on cellular, through an owner-run tunnel with sign-in.',
-      href: 'doc-docs-getting-started-connect-grok-bot.html', linkLabel: 'Connect your Grok Bot', t: .5,
+      name: 'Grok Bot', label: 'Grok Bot', status: 'Owner tested', evidence: 'checked',
+      detail: 'On the owner\'s setup, Grok Bot calls tools from Mac and iPhone through a gateway on the Mac.',
+      href: 'doc-docs-getting-started-connect-grok-bot.html', linkLabel: 'Connect your Grok Bot', t: .40,
     },
     {
       name: 'ESP32-S3 kit', label: 'Hardware', status: 'Owner tested', evidence: 'open',
       detail: 'One delivered kit passed USB and Wi-Fi tests. Another person must repeat them.',
-      href: 'doc-docs-getting-started-physical-test.html', linkLabel: 'Read the physical test procedure', t: .715,
+      href: 'doc-docs-getting-started-physical-test.html', linkLabel: 'Read the physical test procedure', t: .57,
+    },
+    {
+      name: 'Mac-free route', label: 'Mac-free', status: 'Owner tested', evidence: 'checked',
+      detail: 'The gateway runs on a small always-on server. Grok Bot reached the kit while the Mac slept.',
+      href: 'doc-docs-getting-started-mac-free-route.html', linkLabel: 'Run the gateway away from your Mac', t: .74,
     },
     {
       name: 'Independent setup', label: 'Reproduce', status: 'Needs testers', evidence: 'open',
-      detail: 'Help another person reproduce the software setup.',
-      href: 'contribute.html', linkLabel: 'Find a way to contribute', t: .93,
+      detail: 'Help another person repeat the owner-tested kit and connection.',
+      href: 'contribute.html', linkLabel: 'Find a way to contribute', t: .91,
     },
   ];
 
@@ -79,7 +84,7 @@
     root.innerHTML = `
       <div class="roadmap-heading" aria-hidden="true">
         <span>From software to real devices</span>
-        <span class="roadmap-position">01 / 05</span>
+        <span class="roadmap-position">01 / 06</span>
       </div>
       <div class="roadmap-visual">
         <svg class="roadmap-wire" viewBox="0 0 1000 470" preserveAspectRatio="none" aria-hidden="true" focusable="false">
@@ -129,7 +134,7 @@
     [-48, 48].forEach(side => {
       svgElement('path', {d: pathFor(0, 1, side, 22), class: 'roadmap-lower-rail'}, ribbon);
       svgElement('path', {d: pathFor(0, 1, side), class: 'roadmap-upper-rail'}, ribbon);
-      svgElement('path', {d: pathFor(.025, .285, side), class: 'roadmap-checked-rail'}, ribbon);
+      svgElement('path', {d: pathFor(.025, .40, side), class: 'roadmap-checked-rail'}, ribbon);
     });
 
     for (let index = 0; index <= 52; index += 1) {
@@ -248,7 +253,7 @@
       status.textContent = milestone.status;
       status.dataset.evidence = milestone.evidence;
       description.textContent = milestone.detail;
-      position.textContent = `${String(selected + 1).padStart(2, '0')} / 05`;
+      position.textContent = `${String(selected + 1).padStart(2, '0')} / ${String(milestones.length).padStart(2, '0')}`;
       root.dataset.selected = String(selected + 1);
       draw(!canAnimate());
       if (moveFocus) buttons[selected].focus({preventScroll: true});

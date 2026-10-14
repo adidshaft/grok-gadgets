@@ -4,7 +4,7 @@ Two counts matter: what your gadgets did, and how much of your Grok Bot plan the
 
 ## Gadget calls: the gateway log
 
-With a request log (always on for the service and for a tunnel), each tool call records the token name, client, device, capability, tool, outcome, duration and bytes. Summarize it:
+The service and tunnel route use a request log. Each tool call records the token name, client, device, capability, tool, outcome, duration and bytes. Summarize it:
 
 ```sh
 grok-gadgets-gateway usage
@@ -24,7 +24,7 @@ The pages show whole percent, and the allowance resets weekly. Grok Bot measures
 
 ## An estimate per call
 
-Read **Weekly usage** before and after a session, and note both times. Then let the gateway work out a rate:
+Read **Weekly usage** before and after a session, and note both times. Only calibrate when the usage change is measurable. Then let the gateway work out a rate:
 
 ```sh
 grok-gadgets-gateway usage --token grok-bot \
@@ -35,3 +35,12 @@ grok-gadgets-gateway usage --token grok-bot \
 Later summaries add a column labelled **estimate**. It covers everything Grok Bot did in that window, not only the tool calls.
 
 In the owner's 13 October test, 11 messages and 9 tool calls left the page at 1%. That puts the session under 1 percentage point, as an upper bound ([ADR 007](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/007-grok-bot-remote-https.md#usage-per-prompt-and-per-tool-call-estimate)). A longer session gives a better rate.
+
+## When the reading does not move
+
+Do not calibrate with zero change. Gateway `0.1.0a13` refuses it; `0.1.0a12` accepts zero and can save a misleading zero-rate estimate.
+The whole-percent display can hide small usage changes. It does not prove that calls use no allowance.
+[Gateway #166](https://github.com/adidshaft/grok-gadgets-gateway/issues/166) tracks the correction.
+[Hub #271](https://github.com/adidshaft/grok-gadgets/issues/271) tracks another day and a useful usage measurement.
+
+[Documentation](../index.md) · [Troubleshooting](troubleshooting.md)

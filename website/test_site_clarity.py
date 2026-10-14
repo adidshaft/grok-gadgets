@@ -10,10 +10,14 @@ SITE = ROOT / "website"
 
 
 class SiteClarityTests(unittest.TestCase):
-    def test_homepage_states_existing_grok_bot_and_open_verification_gate(self):
+    def test_homepage_states_owner_tested_grok_bot_route_without_crowding(self):
         hero = (SITE / "home-scene.html").read_text()
         self.assertIn("Your Grok Bot.", hero)
         self.assertIn("In the real world.", hero)
+        self.assertIn("On the owner's setup, Grok Bot controls a Wi-Fi gadget", hero)
+        self.assertIn("through a gateway on the Mac or on an always-on server", hero)
+        self.assertEqual(hero.count('<div class="scene-intro">'), 1)
+        self.assertNotIn('class="scene-status"', hero)
         self.assertNotIn("Alpha · one kit verified · native Grok Bot calls next", hero)
         self.assertNotIn("Today: approved local commands on Mac.", hero)
         self.assertIn(
@@ -22,6 +26,23 @@ class SiteClarityTests(unittest.TestCase):
         )
         self.assertIn('id="scene-demo"', hero)
         self.assertIn('href="start.html"', hero)
+
+    def test_today_next_later_and_distinct_reader_paths(self):
+        builder = (SITE / "build.py").read_text()
+        roadmap = (SITE / "roadmap-scene.js").read_text()
+        nav = (SITE / "docs_navigation.py").read_text()
+        self.assertIn("<h2>Today, next, later.</h2>", builder)
+        self.assertIn("The owner observed this on one kit (Phase 9).", builder)
+        self.assertIn("This is Phase 10.", builder)
+        self.assertIn("The project hosts no relay.", builder)
+        self.assertNotIn("optional hosted relay", builder)
+        self.assertIn('"Use your gadget with Grok Bot"', builder)
+        self.assertIn('"Build the tested OLED kit"', builder)
+        self.assertIn('"Use a gadget"', nav)
+        self.assertIn('"Status and roadmap"', nav)
+        self.assertIn("name: 'Mac-free route'", roadmap)
+        self.assertIn("status: 'Owner tested'", roadmap)
+        self.assertNotIn("Daily use", roadmap)
 
     def test_three_build_paths_and_legacy_component_anchor_are_preserved(self):
         builder = (SITE / "build.py").read_text()

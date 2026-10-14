@@ -22,6 +22,8 @@
     "docs/getting-started/hosting.md",
     "docs/getting-started/connect-grok-bot.md",
     "docs/getting-started/track-usage.md",
+    "docs/getting-started/mac-free-route.md",
+    "docs/getting-started/how-it-works.md",
     "SUPPORT.md",
     "GOVERNANCE.md",
     "ROADMAP.md",
@@ -31,7 +33,11 @@
     "docs/public/how-we-verify.md",
     "docs/visuals/brand-provenance.md",
     "docs/contributing/writing-guide.md",
-    "docs/contributing/review-and-privacy.md"
+    "docs/contributing/review-and-privacy.md",
+    "docs/index.md",
+    "docs/getting-started/troubleshooting.md",
+    "docs/reference/glossary.md",
+    "docs/decisions/009-relay-route.md"
   ],
   "component_sources": [
     "README.md",

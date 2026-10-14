@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/always-on.md at 17f51f5114ec1aefc522bb4c93ff8277b716dbe4
+Source: grok-gadgets-gateway/docs/always-on.md at 49b19ed331cfc50a7f91139ca12f0ef6391916e9
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -30,7 +30,7 @@ out if you only use USB or the loopback MCP port.
 | macOS | A launchd agent: `~/Library/LaunchAgents/org.grokgadgets.gateway.plist` | Now, and at every login |
 | Linux | A systemd user unit: `~/.config/systemd/user/grok-gadgets-gateway.service` | Now, and at every login |
 
-On Linux, run `loginctl enable-linger` once to start it at boot without a login.
+On Linux, run `loginctl enable-linger` once to start it at boot without a login. To run the gateway on an always-on Linux host instead of your Mac, see [relay host](relay-host.md).
 
 `install` refuses to run when the gateway is not set up, when the LAN certificate is missing, or
 when another gateway already holds a port. It needs no administrator rights and writes no

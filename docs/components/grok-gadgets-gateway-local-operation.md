@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/local-operation.md at 17f51f5114ec1aefc522bb4c93ff8277b716dbe4
+Source: grok-gadgets-gateway/docs/local-operation.md at 49b19ed331cfc50a7f91139ca12f0ef6391916e9
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 

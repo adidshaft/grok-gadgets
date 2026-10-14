@@ -48,7 +48,8 @@ def static_diagram(source):
     if len(lines) > 80 or not lines or lines[0] not in {"flowchart LR", "flowchart TD"}:
         raise ValueError("Unsupported or oversized diagram")
     nodes, edges = {}, []
-    atom = r'([A-Za-z][A-Za-z0-9_]{0,30})(?:\[(?:"([\w .,()/:+&-]{1,100})"|([\w .,()/:+&-]{1,100}))\])?'
+    # Labels allow a typographic apostrophe (’), as in "Owner’s Mac"; never quotes or brackets.
+    atom = r'([A-Za-z][A-Za-z0-9_]{0,30})(?:\[(?:"([\w .,()/:+&’-]{1,100})"|([\w .,()/:+&’-]{1,100}))\])?'
     for line in lines[1:]:
         line = line.replace("<br/>", " ").replace("<br>", " ")
         match = re.fullmatch(

@@ -12,47 +12,36 @@
 
 **Build a small Wi-Fi gadget for your Grok Bot. Open source.**
 
-Status: one ESP32-S3/OLED kit passed; the owner's Grok Bot calls its tools natively from Mac and iPhone through an owner-run tunnel
-([project status](docs/public/support-matrix.md)).
-Independent project, not affiliated with SpaceXSI.
+Alpha · one owner-tested kit · native Grok Bot calls from Mac and iPhone through a gateway on the owner's Mac.
+See [project status](docs/public/support-matrix.md). Independent project, not affiliated with SpaceXSI.
 
-Pick a path:
+## Choose a start
 
-- **Build the tested kit:** wire the ESP32-S3 and OLED, then follow the
-  [repeatable setup](docs/getting-started/repeat-the-kit.md).
-- **No hardware:** run the gateway's simulated light and rehearse the tool calls in
-  [five minutes](docs/getting-started/first-success.md).
-- **Raspberry Pi / Linux:** one install, ten lines of Python, one command with the
-  [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk#quickstart).
-- **ESP32:** an Arduino sketch with the [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk#quickstart).
-
-Already use Home Assistant? Check what it offers with the
-[read-only probe](https://github.com/adidshaft/grok-gadgets-home-assistant).
-
-The owner's [ESP32-S3 and OLED kit](docs/getting-started/experiment-kit.md) passed USB and Wi-Fi acceptance, and an approved Grok Bot local command showed text on it. [Share your attempt in tester issue #185](https://github.com/adidshaft/grok-gadgets/issues/185), including failures. [How we verify](docs/public/how-we-verify.md) explains the evidence.
-
-## Start here
-
-| If you want to… | Open |
+| Your task | Start here |
 | --- | --- |
-| Build the tested OLED kit | [Parts and wiring](docs/getting-started/experiment-kit.md), then [repeat the setup](docs/getting-started/repeat-the-kit.md) |
-| See it work in five minutes, no hardware | [Gateway first success](docs/getting-started/first-success.md) |
-| Play with a virtual light in your browser | [Browser playground](https://grokgadgets.org/playground), then the [simulator kit](docs/getting-started/simulator-kit.md) |
-| Build a Raspberry Pi or Linux gadget | [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk) |
-| Build an ESP32 gadget | [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk) |
-| Run the local MCP gateway | [Gateway](https://github.com/adidshaft/grok-gadgets-gateway) |
-| Check what Home Assistant offers (read-only) | [Home Assistant probe](https://github.com/adidshaft/grok-gadgets-home-assistant) |
-| Compare cloud, Mac-to-Pi and remote MCP paths | [Hosting FAQ](docs/getting-started/hosting.md) |
+| Use a configured gadget | [Connect your Grok Bot](docs/getting-started/connect-grok-bot.md). An operator must first set up the kit, gateway and tunnel. |
+| Build a gadget | [Tested OLED kit](docs/getting-started/repeat-the-kit.md), [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk) or [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk) |
+| Try without hardware | [Five-minute simulator guide](docs/getting-started/first-success.md) or [browser playground](https://grokgadgets.org/playground) |
+
+[All documentation](docs/index.md) separates guides, reference, project status and test records.
+Home Assistant users can start with the [read-only probe](https://github.com/adidshaft/grok-gadgets-home-assistant).
 
 ## How the parts connect
 
-![Browser simulation exports settings for the local MCP simulator. SDK and native Grok paths have separate verification requirements.](docs/visuals/project-overview.svg)
+New here? Read [How it works](docs/getting-started/how-it-works.md): one page for builders, end users and the curious.
 
-Three connection states matter:
+```mermaid
+flowchart LR
+    B["Grok Bot: Mac or iPhone"] -->|"HTTPS and OAuth"| T["Owner-run tunnel"]
+    T --> G["Gateway on the Mac"]
+    G -->|"Private LAN TLS"| D["Wi-Fi OLED kit"]
+```
 
-1. **Works on the owner's kit:** an approved Grok Bot local command on the Mac reached the gateway. It showed text on the OLED over USB and Wi-Fi.
-2. **Works as software:** the gateway serves MCP on the Mac, and the simulator checks commands and state. This alone is not a native Grok Bot connection.
-3. **Next to verify:** native Grok Bot tool calls from Mac and phone through an authenticated remote HTTPS endpoint. See the [hosting FAQ](docs/getting-started/hosting.md) and [project status](docs/public/support-matrix.md).
+This route passed on the owner's setup. The Mac must stay awake and connected.
+The [record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/daily-route-2026-10-13.md) covers one day. Another person's run remains open in [#185](https://github.com/adidshaft/grok-gadgets/issues/185).
+
+**Mac-free route:** the gateway can also run on an always-on Linux server, so the Mac can sleep.
+The owner's kit passed this on 13 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md)). See the [Mac-free route guide](docs/getting-started/mac-free-route.md) and the [roadmap](ROADMAP.md).
 
 ## Community
 
@@ -97,4 +86,4 @@ Apache-2.0; see [LICENSE](LICENSE) and [NOTICE](NOTICE). Grok Gadgets is an inde
 open-source project. It is **not affiliated with, endorsed by or sponsored by SpaceXSI**, nor
 with M5Stack or Home Assistant. The Grok mark shown on the website is not
 covered by this project's license. Public history used reconstructed commit dates; see
-[publication sanitization](docs/verification/publication-sanitization.md).
+[publication sanitization](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/publication-sanitization.md).
