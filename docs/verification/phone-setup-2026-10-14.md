@@ -1,6 +1,6 @@
 # Phone-only setup — 14 October 2026
 
-Phase 10 ([#266](https://github.com/adidshaft/grok-gadgets/issues/266), [ADR 010](../decisions/010-phone-setup.md)). The owner's ESP32-S3 OLED kit was factory-provisioned once on the Mac. The owner then joined it to home Wi-Fi with an iPhone alone: the kit on a USB charger, the Mac closed, no app. The kit reached **Online** through the relay, and Grok Bot on the iPhone showed text on it. Times are UTC. The owner authorized flashing and provisioning.
+Phase 10 ([#266](https://github.com/adidshaft/grok-gadgets/issues/266), [ADR 010](../decisions/010-phone-setup.md)). The owner's ESP32-S3 OLED kit was factory-provisioned once on the Mac. The owner then joined it to home Wi-Fi with an iPhone alone: the kit on a USB charger, the Mac closed, no app. The kit reached **Online** through the relay, and Grok Bot on the iPhone showed text on it. After two BOOT resets an Android phone joined it the same way. Times are UTC. The owner authorized flashing and provisioning.
 
 Evidence levels:
 
@@ -13,7 +13,7 @@ Evidence levels:
 | Relay | The Phase 9 relay, unchanged: gateway `0.1.0a13`, device port 8443, `devices.example.net` DNS-only. No change on the server or DNS |
 | Firmware | ESP32 SDK `dev` commit `7aa72de` (`esp32s3-oled-kit-wifi`): static RAM 108,076 B, flash 932,617 B |
 | Provisioning | Gateway `dev` commit `0808844`: `factory-provision /dev/cu.usbmodem… --device oledkit-… --gateway devices.example.net:8443 --ca … --credentials …`, run from a separate worktree, with the relay CA and registry copied into a private 0700 folder |
-| Phone | iPhone, iOS camera and the captive sheet; mobile data on |
+| Phones | iPhone (camera and captive sheet, mobile data on); an Android phone (camera, browser), model not recorded |
 | Home network | The owner's 2.4 GHz network; its name stays private |
 
 ## Before the phone
@@ -37,10 +37,10 @@ Evidence levels:
 | 09:55:03 | `device_connected`, `device_hello` from the kit on port 8443 | Log |
 | 09:55 | Page: "Done. The gadget is Online. You can close this page." OLED: `Online`, `Grok Bot`, the face | Owner |
 | 10:02:29 | `gadgets_command` `display.text` from Grok Bot on the iPhone, remote, `executed`, `ok`. The OLED showed "Phone setup works" | Log, Owner |
-| 10:47:35 | BOOT held 10 s: the kit left the relay (`device_disconnected`) and reopened its hotspot | Log, Owner |
+| 10:47:35 | Android round. BOOT held 10 s: the kit left the relay (`device_disconnected`) and reopened its hotspot | Log, Owner |
 | 10:48:57 | Re-joined through the hotspot: `device_hello`, Online | Log, Owner |
 | 10:49:58 | BOOT held 10 s again (`device_disconnected`) | Log, Owner |
-| ~10:51 | QR join; a wrong setup code was refused on the page. The right code listed networks | Owner |
+| ~10:51 | Android QR join; a wrong setup code was refused on the page. The right code listed networks | Owner |
 | ~10:51 | A wrong home Wi-Fi password: the page and the OLED both showed the password was wrong | Owner |
 | 10:52:52 | The right password: `device_hello`, Online | Log, Owner |
 
@@ -56,7 +56,12 @@ Evidence levels:
 | Wrong setup code refused | Pass | Owner |
 | Wrong home password shown on the page and the OLED | Pass | Owner, then Log `device_hello` 10:52:52 |
 | BOOT reset, then re-join | Pass (twice) | Log 10:47:35 → 10:48:57 and 10:49:58 → 10:52:52, Owner |
-| Same flow on Android | PENDING | |
+| Same flow on Android | Pass | Log 10:48:57 and 10:52:52, Owner |
+
+## Not tested
+
+- Grok Bot from the Android phone (Grok Bot already passed on the iPhone).
+- The routine trigger-URL check of HUB-DOC-028 (separate from this record).
 
 ## Notes
 

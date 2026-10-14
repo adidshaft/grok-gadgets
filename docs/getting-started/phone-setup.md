@@ -4,7 +4,7 @@ Your gadget came with a printed label. With the label and a phone you can join t
 your home Wi-Fi. You need no computer, no app and no account. After setup the gadget shows
 **Online**, and Grok Bot can use it.
 
-**Status:** Phase 10 ([ADR 010](../decisions/010-phone-setup.md)). The owner test with a phone is in progress.
+**Status:** Phase 10 ([ADR 010](../decisions/010-phone-setup.md)). On 14 October 2026 the owner set up one kit this way with an iPhone and with an Android phone ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md)). Nobody else has repeated it yet.
 
 ## What you need
 

@@ -2,7 +2,7 @@
 
 **Date:** 14 October 2026
 
-**Status:** Proposed. The owner decides; acceptance needs the Phase 10 record.
+**Status:** Accepted on 14 October 2026 with the Phase 10 [record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md): the owner joined one kit to home Wi-Fi from an iPhone and from an Android phone, with the computer closed, and it went Online through the relay.
 
 **Owner:** Grok Gadgets hub (`adidshaft/grok-gadgets`)
 

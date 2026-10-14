@@ -3,7 +3,7 @@
 This guide is for builders. You prepare each gadget once with a computer. The person who gets
 the gadget then sets it up with a phone alone ([Set up your gadget with your phone](phone-setup.md)).
 
-**Status:** Phase 10 ([ADR 010](../decisions/010-phone-setup.md)). The owner test with a phone is in progress.
+**Status:** Phase 10 ([ADR 010](../decisions/010-phone-setup.md)). On 14 October 2026 the owner set up one kit this way with an iPhone and with an Android phone ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md)). Nobody else has repeated it yet.
 
 ## What you need
 
