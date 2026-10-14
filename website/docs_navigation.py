@@ -44,6 +44,11 @@ GROUPS = (
                     ("", "docs/getting-started/track-usage.md", "Track usage"),
                     (
                         "",
+                        "docs/getting-started/tell-me-when.md",
+                        "Tell me when (routines)",
+                    ),
+                    (
+                        "",
                         "docs/getting-started/mac-free-route.md",
                         "Run the gateway away from your Mac",
                     ),
