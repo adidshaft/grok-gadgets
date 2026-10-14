@@ -1,14 +1,14 @@
 {
-  "status": "Public source prerelease and website live; v0.1.15-alpha.2 release candidate verified",
+  "status": "Public source prerelease and website live; v0.1.15-alpha.3 release candidate verified",
   "protocol": "0.1.0",
   "components": [
     {
       "repository": "grok-gadgets",
       "path": "grok-gadgets",
-      "version": "0.1.15-alpha.2",
-      "commit": "5735ab1fa5179f6178f289ffc560518198651620",
+      "version": "0.1.15-alpha.3",
+      "commit": "e569a1feee319e52aa76bb1f8f1321bf8eb100ab",
       "evidence_level": "Public source prerelease; OLED kit verified over USB, Wi-Fi, an always-on relay and phone-only setup; native Grok Bot calls observed on the owner's setup",
-      "checks": "The v0.1.15-alpha.2 hub release candidate (homepage positioning and the routine trigger check on top of v0.1.15-alpha.1) records gateway 0.1.0a14 on PyPI (owner-approved trusted publishing on 14 October 2026; files match the GitHub release's SHA256SUMS) with ESP32 SDK v0.2.0-alpha.15, Linux SDK v0.1.0-alpha.6 and Home Assistant v0.1.0-alpha.5. Adds ADR 010 (accepted), the phone setup and factory-provision guides, the Tell me when guide and the Phase 10 record. On 14 October 2026 the owner joined the factory-provisioned kit to home Wi-Fi from an iPhone and an Android phone with the computer closed; it went Online through the relay and Grok Bot on the iPhone showed text on it (hub docs/verification/phone-setup-2026-10-14.md). One kit; independent reproduction is not claimed.",
+      "checks": "The v0.1.15-alpha.3 candidate updates phone setup and relay guidance, documentation navigation, security contact metadata and the simulator success summary. Component pins remain gateway v0.1.0-alpha.14, ESP32 SDK v0.2.0-alpha.15, Linux SDK v0.1.0-alpha.6 and Home Assistant v0.1.0-alpha.5. These are released component versions; newer component documentation on dev is not included. Software acceptance covers the pinned sources. Existing physical and Grok Bot evidence remains limited to the owner's kit. On 14 October 2026 phone setup passed on iPhone and Android; the subsequent Grok Bot display command passed on iPhone only. See docs/verification/phone-setup-2026-10-14.md. The owner's relay remains gateway 0.1.0a13 on port 8443. Independent reproduction remains open. All 14 local integration groups passed on 14 October 2026, including the hub checks, pinned component suites, installed onboarding and simulated ESP32 USB integration.",
       "grok_verified": true,
       "hardware_verified": false,
       "independently_reproduced": false,
@@ -99,5 +99,5 @@
       }
     }
   },
-  "note": "Component entries pin released commits. Published history is unchanged. The firmware object is an earlier unpublished C124 build, not the tested OLED-kit image. The hub commit is an earlier release evidence snapshot; current hub checks are recorded in planning/issues/REVIEW-DEV-001.md. Owner-observed hardware verification covers one ESP32-S3 OLED kit over USB and Wi-Fi. Grok Bot used an approved local command; native MCP calls are not claimed. Independent reproduction remains open."
+  "note": "Component entries pin released component commits. The hub entry identifies the candidate base commit, before its metadata update. Published history is unchanged. The firmware object is an earlier unpublished C124 build, not the tested OLED-kit image. Owner-observed hardware verification covers one ESP32-S3 OLED kit over USB, Wi-Fi and an always-on relay. Native Grok Bot calls passed on Mac and iPhone; Android phone setup passed, but Android Grok Bot calls remain untested. Independent reproduction remains open."
 }
