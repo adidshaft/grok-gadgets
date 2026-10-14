@@ -319,8 +319,7 @@ workbench = (
     + "</details>"
 )
 home_sections = (
-    '<section class="home-kit" aria-labelledby="kit-heading"><p class="eyebrow">OWNER-TESTED HARDWARE</p><h2 id="kit-heading">One board. One display.</h2><figure class="kit-photo"><img src="media/diagrams/esp32-s3-oled-display.jpg" width="1600" height="535" alt="Owner-tested ESP32-S3 board and OLED display connected by jumper wires"><figcaption>Owner-tested kit · display lettering enhanced for readability</figcaption></figure><p><a href="doc-docs-getting-started-repeat-the-kit.html">Build the kit ↗</a> · <a href="https://github.com/adidshaft/grok-gadgets/issues/185">Share your result ↗</a></p></section>'
-    + proof_section
+    proof_section
     + '<section class="builder-paths" id="builder-paths" aria-labelledby="builder-heading"><p class="eyebrow">CHOOSE YOUR FIRST PATH</p><h2 id="builder-heading">Start building.</h2>'
     + path_row(
         "01",
