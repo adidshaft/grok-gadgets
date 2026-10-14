@@ -8,7 +8,7 @@ In a new working directory:
 
 ```sh
 python3 -m venv .venv
-.venv/bin/python -m pip install grok-gadgets-gateway==0.1.0a13
+.venv/bin/python -m pip install grok-gadgets-gateway==0.1.0a14
 .venv/bin/grok-gadgets-gateway --version
 .venv/bin/grok-gadgets-gateway init
 .venv/bin/grok-gadgets-gateway serve --simulator

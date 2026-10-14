@@ -44,8 +44,23 @@ GROUPS = (
                     ("", "docs/getting-started/track-usage.md", "Track usage"),
                     (
                         "",
+                        "docs/getting-started/tell-me-when.md",
+                        "Tell me when (routines)",
+                    ),
+                    (
+                        "",
                         "docs/getting-started/mac-free-route.md",
                         "Run the gateway away from your Mac",
+                    ),
+                    (
+                        "",
+                        "docs/getting-started/phone-setup.md",
+                        "Set up your gadget with your phone",
+                    ),
+                    (
+                        "",
+                        "docs/getting-started/factory-provision.md",
+                        "Factory-provision and label a gadget",
                     ),
                     ("", "SUPPORT.md", "Get help"),
                 ),
@@ -227,6 +242,11 @@ GROUPS = (
                     ("", "docs/architecture/overview.md", "Project architecture"),
                     ("", "docs/reference/glossary.md", "Glossary"),
                     ("", "docs/decisions/009-relay-route.md", "Relay design (ADR 009)"),
+                    (
+                        "",
+                        "docs/decisions/010-phone-setup.md",
+                        "Phone setup design (ADR 010)",
+                    ),
                 ),
             ),
         ),

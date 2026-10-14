@@ -32,8 +32,10 @@ class SiteClarityTests(unittest.TestCase):
         roadmap = (SITE / "roadmap-scene.js").read_text()
         nav = (SITE / "docs_navigation.py").read_text()
         self.assertIn("<h2>Today, next, later.</h2>", builder)
-        self.assertIn("The owner observed this on one kit (Phase 9).", builder)
-        self.assertIn("This is Phase 10.", builder)
+        self.assertIn(
+            "The owner observed this on one kit with an iPhone (Phase 10).", builder
+        )
+        self.assertIn("This is Phase 11.", builder)
         self.assertIn("The project hosts no relay.", builder)
         self.assertNotIn("optional hosted relay", builder)
         self.assertIn('"Use your gadget with Grok Bot"', builder)
