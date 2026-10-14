@@ -219,7 +219,7 @@ def page(name, title, body):
     if documentation:
         scripts += '<script src="docs.js" defer></script>'
     (OUT / name).write_text(
-        '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="'
+        '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)"><meta name="description" content="'
         + e(description, quote=True)
         + '"><title>'
         + e(page_title)
@@ -374,41 +374,48 @@ page(
     + '<div class="path-list">'
     + path_row(
         "01",
+        "Set up a gadget you received",
+        "Use the printed label and your phone to join your home Wi-Fi.",
+        "doc-docs-getting-started-phone-setup.html",
+        "Phone setup",
+    )
+    + path_row(
+        "02",
         "Use your gadget with Grok Bot",
         "For an operator-configured gadget and gateway. This route works on the owner's setup.",
         "doc-docs-getting-started-connect-grok-bot.html",
         "Connect guide",
     )
     + path_row(
-        "02",
+        "03",
         "Build the tested OLED kit",
         "Parts, wiring, Wi-Fi setup and the optional always-on gateway service.",
         "doc-docs-getting-started-repeat-the-kit.html",
         "Kit guide",
     )
     + path_row(
-        "03",
+        "04",
         "First success without hardware",
         "Install the gateway and rehearse a simulated light in five minutes.",
         first_success,
         "Gateway guide",
     )
     + path_row(
-        "04",
+        "05",
         "Explore the simulator",
         "Customize a virtual light in the browser or download the local kit.",
         "simulator.html",
         "Try both",
     )
     + path_row(
-        "05",
+        "06",
         "Build a Linux application",
         "Start from a reusable Python capability and agent.",
         "linux.html",
         "Linux SDK",
     )
     + path_row(
-        "06",
+        "07",
         "Connect your home",
         "Reuse Home Assistant’s exposed Assist entities.",
         "home-assistant.html",
@@ -454,7 +461,7 @@ page(
         "One kit.<br>Start building.",
         "An ESP32-S3. A breadboard. A small OLED.",
     )
-    + '<p class="status">One ESP32-S3 + OLED kit passed USB and Wi-Fi checks · <a href="doc-docs-public-support-matrix.html">status ↗</a></p>'
+    + '<p class="status">One ESP32-S3 + OLED kit passed USB, Wi-Fi and phone setup checks · <a href="doc-docs-public-support-matrix.html">status ↗</a></p>'
     + path_row(
         "01",
         "Repeat the tested kit",
@@ -532,7 +539,7 @@ page(
         "An action.<br>An observation.",
         "The assistant, connection point and device have separate jobs.",
     )
-    + '<div class="flow"><a href="https://x.ai/bot"><img src="media/grok-mark.svg" width="40" height="40" alt="Grok"><span>Grok Bot</span><small>Run by SpaceXSI</small></a><b>↕ HTTPS sign-in or approved local command</b><span>Your gateway<small>Run by its operator</small></span><b>↕ USB / private LAN TLS</b><span>Your device<small>Execute and observe</small></span></div><p class="status">Requested → accepted → execution reported → physically observed</p><p><a href="doc-docs-architecture-overview.html">Architecture reference ↗</a></p><p class="quiet-note">The owner’s Grok Bot called the tools natively from Mac and iPhone through an owner-run tunnel with sign-in, and showed text on the OLED kit. Approved local commands work without a tunnel. A tunnel does not replace authentication. Next, a gateway on a small host away from the Mac could let the Mac sleep. Home Assistant can use its own upstream MCP route.</p>'
+    + '<div class="flow"><a href="https://x.ai/bot"><img src="media/grok-mark.svg" width="40" height="40" alt="Grok"><span>Grok Bot</span><small>Run by SpaceXSI</small></a><b>↕ HTTPS sign-in or approved local command</b><span>Your gateway<small>Run by its operator</small></span><b>↕ USB / private LAN / outbound relay TLS</b><span>Your device<small>Execute and observe</small></span></div><p class="status">Requested → accepted → execution reported → physically observed</p><p><a href="doc-docs-architecture-overview.html">Architecture reference ↗</a></p><p class="quiet-note">The owner’s Grok Bot called the tools natively from Mac and iPhone through an owner-run tunnel with sign-in, and showed text on the OLED kit. Approved local commands work without a tunnel. A tunnel does not replace authentication. The gateway can run on an always-on server while the Mac sleeps. Phone setup joins the gadget to Wi-Fi without a data cable. Next: claim codes for a second account. Home Assistant can use its own upstream MCP route.</p>'
     + hosting_guide,
 )
 roadmap_issues = [
@@ -650,7 +657,7 @@ def documentation_layout(content, current_page):
 
 for record in documents.records:
     rendered = documents.render(record)
-    rendered = rendered.replace("</h1>", "</h1>" + doc_navigation.toc(record), 1)
+    rendered = doc_navigation.with_toc(rendered, record)
     content = (
         doc_navigation.breadcrumbs(record["page"])
         + rendered
@@ -687,8 +694,8 @@ page(
     documentation_layout(
         '<header class="docs-intro"><p class="eyebrow">Open source / Local alpha</p>'
         "<h1>Use it.<br>Build it.</h1>"
-        "<p>Use an operator-configured gadget through the owner-tested Mac route, or build from the tested paths.</p>"
-        '<nav class="docs-entry-paths" aria-label="Choose a path"><a href="doc-docs-getting-started-connect-grok-bot.html">Use a gadget ↗</a><a href="doc-docs-getting-started-repeat-the-kit.html">Build a gadget ↗</a></nav>'
+        "<p>Set up a gadget with your phone, connect your Grok Bot, or build your own.</p>"
+        '<nav class="docs-entry-paths" aria-label="Choose a path"><a href="doc-docs-getting-started-phone-setup.html">Set up a gadget ↗</a><a href="doc-docs-getting-started-connect-grok-bot.html">Connect Grok Bot ↗</a><a href="doc-docs-getting-started-repeat-the-kit.html">Build a gadget ↗</a></nav>'
         '<p class="docs-note"><a href="doc-docs-public-support-matrix.html">Project status and open gates ↗</a></p></header>'
         + doc_navigation.index()
         + '<p class="docs-note"><a href="maintainers.html">Maintainer and process records ↗</a></p>',
@@ -770,6 +777,7 @@ for f in [
     source = R / "website" / f
     if source.is_file():
         shutil.copy(source, OUT / f)
+shutil.copytree(R / "website/.well-known", OUT / ".well-known", dirs_exist_ok=True)
 shutil.copytree(R / "website/media", OUT / "media", dirs_exist_ok=True)
 shutil.copytree(R / "website/downloads", OUT / "downloads", dirs_exist_ok=True)
 for approved_image in json.loads((R / "website/documents.json").read_text()).get(

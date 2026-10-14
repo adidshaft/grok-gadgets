@@ -1,6 +1,6 @@
 # Static website deployment — Cloudflare Pages
 
-The live destination is the free Cloudflare Pages hostname `https://grok-gadgets.pages.dev/`. No custom domain is selected or purchased. The deployment method is Cloudflare Pages Direct Upload from `.github/workflows/pages.yml`; do not connect the repo with Cloudflare's GitHub App or enable a competing Pages deployment.
+The live website is `https://grokgadgets.org/`, hosted on Cloudflare Pages. The deployment method is Cloudflare Pages Direct Upload from `.github/workflows/pages.yml`; do not connect the repo with Cloudflare's GitHub App or enable a competing Pages deployment.
 
 On a successful `Integrated acceptance` run for `main`, the workflow verifies that `Hub checks` also passed on the identical commit, refreshes the complete public issue/activity snapshots, rebuilds the source-driven site, checks pages, internal/deep links, the tested simulator kit and its checksum, then deploys the exact output. The build checks out gateway `main` and rebuilds the kit from it whenever the gateway files the kit is made from have changed (from 6 October 2026), so the download always matches gateway `main`. A daily scheduled run refreshes cross-repository metadata, including star counts. PRs and arbitrary branches never receive the Cloudflare secret. Only the protected `cloudflare-pages-production` environment deployment job uses the account-scoped Pages token.
 

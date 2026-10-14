@@ -24,11 +24,16 @@ GROUPS = (
     ),
     (
         "Use a gadget",
-        "Connect Grok Bot through the owner-tested Mac gateway route.",
+        "Set up your gadget and connect your Grok Bot.",
         (
             (
                 None,
                 (
+                    (
+                        "",
+                        "docs/getting-started/phone-setup.md",
+                        "Set up your gadget with your phone",
+                    ),
                     ("", "docs/getting-started/how-it-works.md", "How it works"),
                     (
                         "",
@@ -52,16 +57,6 @@ GROUPS = (
                         "docs/getting-started/mac-free-route.md",
                         "Run the gateway away from your Mac",
                     ),
-                    (
-                        "",
-                        "docs/getting-started/phone-setup.md",
-                        "Set up your gadget with your phone",
-                    ),
-                    (
-                        "",
-                        "docs/getting-started/factory-provision.md",
-                        "Factory-provision and label a gadget",
-                    ),
                     ("", "SUPPORT.md", "Get help"),
                 ),
             ),
@@ -72,7 +67,7 @@ GROUPS = (
         "Start with a tested kit, a simulator or an SDK.",
         (
             (
-                "Start building",
+                None,
                 (
                     (
                         "",
@@ -83,6 +78,11 @@ GROUPS = (
                         "",
                         "docs/getting-started/first-success.md",
                         "First success without hardware",
+                    ),
+                    (
+                        "",
+                        "docs/getting-started/factory-provision.md",
+                        "Factory-provision and label a gadget",
                     ),
                     ("", "docs/getting-started/simulator-kit.md", "Try the simulator"),
                 ),
@@ -204,7 +204,7 @@ GROUPS = (
         "Join the community and understand its rules.",
         (
             (
-                "Participation",
+                None,
                 (
                     ("", "community/README.md", "Community overview"),
                     ("", "community/guidelines.md", "Community guidelines"),
@@ -472,7 +472,9 @@ class DocsNavigation:
             parts.append(
                 f'<li><a href="{home}#{escape(subgroup["id"])}">{escape(subgroup["title"])}</a></li>'
             )
-        parts.append(f'<li aria-current="page">{escape(item["title"])}</li></ol></nav>')
+        parts.append(
+            f'<li class="doc-current-title" aria-current="page">{escape(item["title"])}</li></ol></nav>'
+        )
         return "".join(parts)
 
     def related(self, current_page):
@@ -496,6 +498,17 @@ class DocsNavigation:
             if parts
             else ""
         )
+
+    def with_toc(self, rendered, record):
+        toc = self.toc(record)
+        if not toc:
+            return rendered
+        heading = re.search(r"</h1>\s*", rendered)
+        if not heading:
+            return rendered
+        lead = re.match(r"<p(?:\s[^>]*)?>.*?</p>\s*", rendered[heading.end() :], re.S)
+        position = heading.end() + (lead.end() if lead else 0)
+        return rendered[:position] + toc + rendered[position:]
 
     def toc(self, record):
         text = (self.documents.root / record["snapshot"]).read_text()

@@ -1,6 +1,6 @@
 # Publication records
 
-These files support the live website and the hosted checks. The website is live at [grok-gadgets.pages.dev](https://grok-gadgets.pages.dev/).
+These files support the live website and the hosted checks. The website is live at [grokgadgets.org](https://grokgadgets.org/).
 
 | File | Used by |
 | --- | --- |
