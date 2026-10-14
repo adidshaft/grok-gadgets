@@ -10,9 +10,9 @@
 
 **[Website](https://grokgadgets.org/)** · [Documentation](https://grokgadgets.org/docs.html) · [Roadmap](ROADMAP.md) · [Issues](https://github.com/adidshaft/grok-gadgets/issues) · **[Join r/GrokGadgets](https://www.reddit.com/r/GrokGadgets/)**
 
-**Build a small Wi-Fi gadget for your Grok Bot. Open source.**
+**Give your Grok Bot hands in the physical world. Build a gadget, set it up from a phone, then just ask. Open source.**
 
-Alpha · one owner-tested kit · native Grok Bot calls from Mac and iPhone through a gateway on the owner's Mac.
+Alpha · one owner-tested kit · phone setup with no cable · Grok Bot calls through a gateway on an always-on server.
 See [project status](docs/public/support-matrix.md). Independent project, not affiliated with SpaceXSI.
 
 ## Choose a start

@@ -48,9 +48,9 @@ class SiteClarityTests(unittest.TestCase):
 
     def test_three_build_paths_and_legacy_component_anchor_are_preserved(self):
         builder = (SITE / "build.py").read_text()
-        for title in ['"No hardware"', '"Raspberry Pi / Linux"', '"Tested OLED kit"']:
+        for title in ['"No hardware"', '"Raspberry Pi / Linux"', '"OLED starter kit"']:
             self.assertIn(title, builder)
-        self.assertIn("Already use Home Assistant?", builder)
+        self.assertIn("Run Home Assistant?", builder)
         for target in ["esp32.html", "linux.html", "home-assistant.html"]:
             self.assertIn(target, builder)
         self.assertIn('id="components"', builder)
