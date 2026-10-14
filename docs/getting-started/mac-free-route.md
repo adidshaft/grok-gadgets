@@ -1,23 +1,26 @@
 # Run the gateway away from your Mac
 
-Today the gateway runs on your Mac, so Grok Bot reaches your gadget only while the Mac is awake. This guide moves the gateway to a small Linux host that stays on. Your Wi-Fi gadget connects out to that host. Grok Bot reaches it through your tunnel with OAuth sign-in, as before. The Mac can then sleep or stay off.
+The first route needed an awake Mac. This guide moves the gateway to a small Linux host that stays on. Your Wi-Fi gadget connects out to that host. Grok Bot reaches it through your tunnel with OAuth sign-in, as before. The Mac can then sleep or stay off.
 
 **Status:** Phase 9 ([ADR 009](../decisions/009-relay-route.md)). On 13 October 2026 the owner's kit ran this route on a small Linux server. Grok Bot on the iPhone showed text on it while the Mac slept ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md)). One kit and one server; nobody else has repeated it yet.
 
 ```text
 Grok Bot (Mac or iPhone) ─HTTPS + OAuth─▶ gadgets.example.net (tunnel) ─▶ gateway /mcp      ┐
-Wi-Fi gadget at home ─TLS, outbound─▶ devices.example.net:8443 (device listener)          ┘ Linux host
+Wi-Fi gadget at home ─TLS, outbound─▶ devices.example.net:8444 (device listener)          ┘ Linux host
 ```
 
 ## What you need
 
-- A Linux host that stays on. A small VPS is the simplest choice. A home Linux box also works, but devices must reach it on port 8443, which usually means a router port forward.
+- A Linux host that stays on. A small VPS is the simplest choice. A home Linux box also works, but devices must reach it on port 8444, which usually means a router port forward.
 - Two names on a domain you control:
   - `gadgets.example.net` for Grok Bot, through your tunnel.
   - `devices.example.net` for devices, a DNS-only record that points at the host's public address.
 - Your tunnel, moved from the Mac to the host, or a new one.
 - A Wi-Fi gadget on firmware that accepts a DNS name for the gateway, and a computer with a USB data cable to provision it once.
-- Gateway `0.1.0a13` or later and ESP32 SDK `v0.2.0-alpha.14` or later.
+- Gateway `0.1.0a14` or later and ESP32 SDK `v0.2.0-alpha.15` or later.
+
+New relays use port 8444. Existing relays can keep port 8443; use `devices.example.net:8443` when provisioning their gadgets.
+Do not change an existing relay port without updating its device configuration and firewall.
 
 The host costs whatever your provider charges. The project runs no relay service and pays for nothing.
 
@@ -25,7 +28,7 @@ The host costs whatever your provider charges. The project runs no relay service
 
 Follow the gateway's [relay host guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/relay-host.md). It has two ways:
 
-- **Container:** Docker Compose runs the gateway and the tunnel client together. It publishes only port 8443.
+- **Container:** Docker Compose runs the gateway and the tunnel client together. It publishes only port 8444.
 - **Linux user service:** `service install` with `--device-listen` and `loginctl enable-linger`.
 
 Either way, run these once on the host:
@@ -36,7 +39,7 @@ grok-gadgets-gateway device-cert devices.example.net
 grok-gadgets-gateway enroll oledkit-0123456789ab
 ```
 
-The gateway starts with `serve --oauth --allowed-host gadgets.example.net --device-listen 0.0.0.0:8443`. Open TCP port 8443 in the host's firewall. Never publish port 8766.
+The gateway starts with `serve --oauth --allowed-host gadgets.example.net --device-listen 0.0.0.0:8444`. Open TCP port 8444 in the host's firewall. Never publish port 8766.
 
 ## 2. Move the tunnel
 
@@ -94,9 +97,9 @@ Then stop the tunnel and the gateway on the host. To go back to the Mac, provisi
 
 ## Safety
 
-- Port 8443 accepts any address. The device token, TLS with your own CA and per-address limits protect it.
-- Anyone with a shell on the host can approve sign-ins and read device tokens. Keep the host updated and allow only SSH and port 8443 in.
+- Port 8444 accepts any address. The device token, TLS with your own CA and per-address limits protect it.
+- Anyone with a shell on the host can approve sign-ins and read device tokens. Keep the host updated and allow only SSH and port 8444 in.
 - The host sees device IDs, commands, reported state and events. It never receives your Wi-Fi password.
 - A button press does not wake Grok Bot. Events wait until Grok Bot reads them.
 
-Next: [track usage](track-usage.md) · [Hosting and remote access](hosting.md)
+Next: [set up a gadget from your phone](phone-setup.md) · [track usage](track-usage.md) · [Hosting and remote access](hosting.md)
