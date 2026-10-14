@@ -61,3 +61,6 @@ before the routine read them.
   settings. Check after the first quiet run.
 - Grok Bot documents events from its own account integrations as routine triggers. It
   documents no trigger URL or webhook that a gadget could call.
+- On 14 October 2026 the owner's Grok Bot desktop app created a paused test routine from
+  chat. The Bot's profile listed it with a name, a status and an on/off switch only: no
+  trigger URL, webhook or key. The test routine was deleted before it ran.
