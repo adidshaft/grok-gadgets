@@ -141,6 +141,8 @@ jobs:
         with:
           name: cloudflare-site-${{ github.run_id }}
           path: grok-gadgets/website/dist
+          # Only public build output is uploaded, including .well-known/security.txt.
+          include-hidden-files: true
           if-no-files-found: error
           retention-days: 1
   deploy:
@@ -177,6 +179,9 @@ jobs:
         with:
           name: cloudflare-site-${{ github.run_id }}
           path: website/dist
+      - name: Verify the downloaded security contact file
+        if: steps.current.outputs.current == 'true'
+        run: test -s website/dist/.well-known/security.txt
       - name: Recheck current main immediately before upload
         if: steps.current.outputs.current == 'true'
         id: recheck
