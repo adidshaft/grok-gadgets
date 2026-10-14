@@ -3,7 +3,7 @@
 Updated 13 October 2026. This is the one place that says what works. Other pages link here
 instead of repeating caveats.
 
-**Alpha · one owner-tested kit · native Grok Bot calls from Mac and iPhone through a gateway on the owner's Mac.**
+**Alpha · one owner-tested kit · phone setup with no cable · Grok Bot calls through a gateway on an always-on server.**
 
 On 13 October 2026 the owner's Grok Bot called the six tools itself from the Mac and the iPhone. It used an owner-run tunnel with sign-in ([ADR 007](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/007-grok-bot-remote-https.md)). [Connect your Grok Bot](../getting-started/connect-grok-bot.md).
 
@@ -26,9 +26,12 @@ See the [daily record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/
 **Phase 9:** the gateway can run on an always-on Linux server, so the Mac can sleep.
 On 13 October 2026 the owner's iPhone, on cellular, showed text on the kit while the Mac slept ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md)).
 
-**Next:** Phase 10 adds Wi-Fi setup from a phone with no cable.
+**Phase 10:** a factory-provisioned gadget joins home Wi-Fi from a phone alone, through its setup hotspot.
+On 14 October 2026 the owner joined the kit from an iPhone with the Mac closed. It went Online through the relay, and Grok Bot showed text on it ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md), [guide](../getting-started/phone-setup.md)).
 
-**Later:** Phase 11 adds claims; Phase 12 adds builder tools.
+**Next:** Phase 11 adds claim codes, so each person sees only their gadgets.
+
+**Later:** Phase 12 adds builder tools; Phase 12b adds updates over the air.
 Phase 13 is only a decision on a shared relay. The project hosts no service.
 See the [roadmap](../../ROADMAP.md) for acceptance gates.
 
