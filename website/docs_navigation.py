@@ -52,6 +52,16 @@ GROUPS = (
                         "docs/getting-started/mac-free-route.md",
                         "Run the gateway away from your Mac",
                     ),
+                    (
+                        "",
+                        "docs/getting-started/phone-setup.md",
+                        "Set up your gadget with your phone",
+                    ),
+                    (
+                        "",
+                        "docs/getting-started/factory-provision.md",
+                        "Factory-provision and label a gadget",
+                    ),
                     ("", "SUPPORT.md", "Get help"),
                 ),
             ),
