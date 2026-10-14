@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/simulator.md at 17f51f5114ec1aefc522bb4c93ff8277b716dbe4
+Source: grok-gadgets-gateway/docs/simulator.md at 49b19ed331cfc50a7f91139ca12f0ef6391916e9
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -8,7 +8,9 @@ Use this software device to test the MCP tools intended for Grok Bot.
 You do not need hardware, an account, or an API key. Original code is Apache-2.0.
 Results include `simulated: true`. Command results and diagnostics include `physical_verified: false`.
 The owner tested the ESP32-S3 OLED kit and Grok Bot local commands on 12 October 2026.
-Native MCP access and mobile operation remain unverified. Simulation does not prove a physical effect.
+The owner verified native calls from Grok Bot on Mac and iPhone through OAuth and an HTTPS tunnel.
+See the [connection record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/grok-remote-https-2026-10-13.md).
+Simulation does not prove a Grok Bot connection or a physical effect.
 
 ## Install and start
 

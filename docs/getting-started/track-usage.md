@@ -38,7 +38,7 @@ In the owner's 13 October test, 11 messages and 9 tool calls left the page at 1%
 
 ## When the reading does not move
 
-Do not calibrate with zero change. Gateway `0.1.0a12` accepts zero and can save a misleading zero-rate estimate.
+Do not calibrate with zero change. Gateway `0.1.0a13` refuses it; `0.1.0a12` accepts zero and can save a misleading zero-rate estimate.
 The whole-percent display can hide small usage changes. It does not prove that calls use no allowance.
 [Gateway #166](https://github.com/adidshaft/grok-gadgets-gateway/issues/166) tracks the correction.
 [Hub #271](https://github.com/adidshaft/grok-gadgets/issues/271) tracks another day and a useful usage measurement.

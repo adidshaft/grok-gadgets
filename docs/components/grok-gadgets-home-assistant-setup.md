@@ -1,4 +1,4 @@
-Source: grok-gadgets-home-assistant/docs/setup.md at b2c9b551df21167dc08354700456557a1293c3b1
+Source: grok-gadgets-home-assistant/docs/setup.md at 20ac015fff093393dfd67868dd40807292b94749
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 

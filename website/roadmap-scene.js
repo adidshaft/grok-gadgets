@@ -30,9 +30,9 @@
       href: 'doc-docs-getting-started-physical-test.html', linkLabel: 'Read the physical test procedure', t: .57,
     },
     {
-      name: 'Mac-free route', label: 'Mac-free', status: 'Next', evidence: 'open',
-      detail: 'Next: run the gateway on a small always-on host you choose, so the Mac can sleep.',
-      href: 'roadmap.html', linkLabel: 'Read the Mac-free roadmap', t: .74,
+      name: 'Mac-free route', label: 'Mac-free', status: 'Owner tested', evidence: 'checked',
+      detail: 'The gateway runs on a small always-on server. Grok Bot reached the kit while the Mac slept.',
+      href: 'doc-docs-getting-started-mac-free-route.html', linkLabel: 'Run the gateway away from your Mac', t: .74,
     },
     {
       name: 'Independent setup', label: 'Reproduce', status: 'Needs testers', evidence: 'open',

@@ -302,7 +302,7 @@ proof_section = (
     '<h2 id="proof-heading">Try the tools in five minutes.</h2>'
     "<p>Install the gateway and run a simulated light on Mac or Linux.</p>"
     '<pre class="proof-output"><code>python3 -m venv .venv\n'
-    ".venv/bin/python -m pip install grok-gadgets-gateway==0.1.0a12</code></pre>"
+    ".venv/bin/python -m pip install grok-gadgets-gateway==0.1.0a13</code></pre>"
     '<p><a href="'
     + first_success
     + '">Follow the five-minute guide ↗</a> · <a href="doc-docs-public-how-we-verify.html">How we verify ↗</a></p></section>'
@@ -574,7 +574,7 @@ page(
         if issue_snapshot
         else ""
     )
-    + '<section class="roadmap-summary"><h2>Today, next, later.</h2><p><strong>Today:</strong> Grok Bot on Mac and iPhone controls a Wi-Fi gadget through a gateway on the Mac. The owner observed this on one day.</p><p><strong>Next:</strong> move the gateway to a small always-on host you choose, so the Mac can sleep. This is Phase 9.</p><p><strong>Later:</strong> phone-only setup without a cable, a claim code for each gadget, and a kit for builders who give gadgets to others.</p><p><strong>Help:</strong> repeat the owner-tested kit and share results in <a href="https://github.com/adidshaft/grok-gadgets/issues/185">tester issue #185</a>.</p><p>The project hosts no relay. <a href="doc-docs-getting-started-connect-grok-bot.html">Connect your Grok Bot ↗</a> · <a href="doc-docs-public-support-matrix.html">Current releases and verification ↗</a></p></section>'
+    + '<section class="roadmap-summary"><h2>Today, next, later.</h2><p><strong>Today:</strong> Grok Bot on Mac and iPhone controls a Wi-Fi gadget through a gateway on a small always-on server, so the Mac can sleep. The owner observed this on one kit (Phase 9).</p><p><strong>Next:</strong> join a gadget to Wi-Fi from a phone, with no cable. This is Phase 10.</p><p><strong>Later:</strong> a claim code for each gadget, and a kit for builders who give gadgets to others.</p><p><strong>Help:</strong> repeat the owner-tested kit and share results in <a href="https://github.com/adidshaft/grok-gadgets/issues/185">tester issue #185</a>.</p><p>The project hosts no relay. <a href="doc-docs-getting-started-connect-grok-bot.html">Connect your Grok Bot ↗</a> · <a href="doc-docs-getting-started-mac-free-route.html">Run the gateway away from your Mac ↗</a> · <a href="doc-docs-public-support-matrix.html">Current releases and verification ↗</a></p></section>'
     + '<div class="issue-list">'
     + rows
     + "</div>",

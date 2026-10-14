@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/usage.md at 17f51f5114ec1aefc522bb4c93ff8277b716dbe4
+Source: grok-gadgets-gateway/docs/usage.md at 49b19ed331cfc50a7f91139ca12f0ef6391916e9
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -80,7 +80,7 @@ grok-gadgets-gateway usage --token grok-bot \
   --calibrate 1.5 --unit "% weekly usage"
 ```
 
-`--calibrate` divides your measured change (1.5) by the calls in that window and saves the rate to `usage-rate.json` next to your tokens. Later summaries add an `estimate` column and say where the rate came from. Calibrate again whenever you take new readings. The estimate includes everything Grok Bot did in that window, not only tool calls.
+`--calibrate` divides your measured change (1.5) by the calls in that window and saves the rate to `usage-rate.json` next to your tokens. Later summaries add an `estimate` column and say where the rate came from. Calibrate again whenever you take new readings. If the page shows no change, `--calibrate 0` saves nothing: use a longer window. The estimate includes everything Grok Bot did in that window, not only tool calls.
 
 ## Usage hook
 

@@ -1,4 +1,4 @@
-Source: grok-gadgets-home-assistant/README.md at b2c9b551df21167dc08354700456557a1293c3b1
+Source: grok-gadgets-home-assistant/README.md at 20ac015fff093393dfd67868dd40807292b94749
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -42,17 +42,14 @@ Next: [prepare a Home Assistant test user](docs/setup.md#2-prepare-home-assistan
 
 ### Install with pip
 
-The package is on [PyPI](https://pypi.org/project/grok-gadgets-home-assistant/). Install it into a virtual
-environment with Python 3.11+. It is an alpha, so name the version or pass `--pre`:
+The package is not on PyPI yet. Each [GitHub release](https://github.com/adidshaft/grok-gadgets-home-assistant/releases)
+has a wheel and `SHA256SUMS`. Install the wheel into a virtual environment with Python 3.11+:
 
 ```sh
 python3 -m venv .venv
-.venv/bin/python -m pip install --pre grok-gadgets-home-assistant
-.venv/bin/ha-probe --version
+.venv/bin/python -m pip install https://github.com/adidshaft/grok-gadgets-home-assistant/releases/download/v0.1.0-alpha.5/grok_gadgets_home_assistant-0.1.0a5-py3-none-any.whl
+.venv/bin/ha-probe --help
 ```
-
-Each [GitHub release](https://github.com/adidshaft/grok-gadgets-home-assistant/releases) also has the wheel and
-`SHA256SUMS`; the PyPI files are the same build.
 
 On an Intel Mac, `cryptography` has no prebuilt wheel and needs a Rust toolchain to build.
 
@@ -104,7 +101,7 @@ Contribute on the `dev` branch; `main` holds tagged stable releases ([branches](
 
 ## License and affiliation
 
-Apache-2.0; see [LICENSE](LICENSE) and [NOTICE](NOTICE). [uv.lock](uv.lock) pins the dependencies; the package is also on [PyPI](https://pypi.org/project/grok-gadgets-home-assistant/). Grok Gadgets is an independent open-source
+Apache-2.0; see [LICENSE](LICENSE) and [NOTICE](NOTICE). [uv.lock](uv.lock) pins the dependencies; the packages are not on PyPI yet. Grok Gadgets is an independent open-source
 project. It is **not affiliated with, endorsed by or sponsored by SpaceXSI**, which
 make Grok and Grok Bot, nor with Home Assistant. We reconstructed the pre-publication commit dates; see the
 [history record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/publication-sanitization.md).

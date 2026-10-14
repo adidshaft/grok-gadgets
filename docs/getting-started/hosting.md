@@ -34,12 +34,12 @@ Do not assume that its setup form accepts bearer headers.
 A tunnel supplies reachability. OAuth supplies sign-in authorization.
 See the gateway [remote access guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/remote-access.md) for configuration and controls.
 
-## Next: a gateway away from the Mac
+## A gateway away from the Mac
 
-[ADR 009](../decisions/009-relay-route.md) proposes a relay: the existing gateway on an always-on Linux host.
-The gadget would connect out to that host over TLS. Grok Bot would keep the HTTPS and OAuth route.
-The owner must choose the host, device hostname and tunnel move before the first run.
-The [Mac-free route guide](mac-free-route.md) lists the steps; no kit has run it yet.
+[ADR 009](../decisions/009-relay-route.md) adds a relay: the existing gateway on an always-on Linux host.
+The gadget connects out to that host over TLS. Grok Bot keeps the HTTPS and OAuth route.
+The owner's kit passed this on 13 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md)).
+The [Mac-free route guide](mac-free-route.md) lists the steps.
 The project runs no relay service. Phone-only setup and claim codes belong to later phases.
 
 ## Advanced local commands

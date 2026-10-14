@@ -63,7 +63,7 @@ No. Button presses wait on the relay until Grok Bot reads them.
 | Step | State |
 | --- | --- |
 | Grok Bot on Mac and iPhone calls the gadget tools | Works on the owner's kit, gateway on the Mac |
-| Gadget reaches an always-on relay instead of the Mac | Phase 9: the owner's kit connected to a relay on 13 October 2026; the full check is not finished |
+| Gadget reaches an always-on relay instead of the Mac | Works on the owner's kit since 13 October 2026, with the Mac asleep ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md)) |
 | Wi-Fi setup from a phone, no cable | Planned, Phase 10 |
 | Sign in with a code shown on the gadget | Planned, Phase 11 |
 | One-command relay for builders | Planned, Phase 12 |
