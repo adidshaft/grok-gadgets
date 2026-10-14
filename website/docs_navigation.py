@@ -227,6 +227,11 @@ GROUPS = (
                     ("", "docs/architecture/overview.md", "Project architecture"),
                     ("", "docs/reference/glossary.md", "Glossary"),
                     ("", "docs/decisions/009-relay-route.md", "Relay design (ADR 009)"),
+                    (
+                        "",
+                        "docs/decisions/010-phone-setup.md",
+                        "Phone setup design (ADR 010)",
+                    ),
                 ),
             ),
         ),
