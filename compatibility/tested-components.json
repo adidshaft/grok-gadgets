@@ -1,14 +1,14 @@
 {
-  "status": "Public source prerelease and website live; v0.1.15-alpha.1 release candidate verified",
+  "status": "Public source prerelease and website live; v0.1.15-alpha.2 release candidate verified",
   "protocol": "0.1.0",
   "components": [
     {
       "repository": "grok-gadgets",
       "path": "grok-gadgets",
-      "version": "0.1.15-alpha.1",
+      "version": "0.1.15-alpha.2",
       "commit": "5735ab1fa5179f6178f289ffc560518198651620",
       "evidence_level": "Public source prerelease; OLED kit verified over USB, Wi-Fi, an always-on relay and phone-only setup; native Grok Bot calls observed on the owner's setup",
-      "checks": "The v0.1.15-alpha.1 hub release candidate records gateway 0.1.0a14 on PyPI (owner-approved trusted publishing on 14 October 2026; files match the GitHub release's SHA256SUMS) with ESP32 SDK v0.2.0-alpha.15, Linux SDK v0.1.0-alpha.6 and Home Assistant v0.1.0-alpha.5. Adds ADR 010 (accepted), the phone setup and factory-provision guides, the Tell me when guide and the Phase 10 record. On 14 October 2026 the owner joined the factory-provisioned kit to home Wi-Fi from an iPhone and an Android phone with the computer closed; it went Online through the relay and Grok Bot on the iPhone showed text on it (hub docs/verification/phone-setup-2026-10-14.md). One kit; independent reproduction is not claimed.",
+      "checks": "The v0.1.15-alpha.2 hub release candidate (homepage positioning and the routine trigger check on top of v0.1.15-alpha.1) records gateway 0.1.0a14 on PyPI (owner-approved trusted publishing on 14 October 2026; files match the GitHub release's SHA256SUMS) with ESP32 SDK v0.2.0-alpha.15, Linux SDK v0.1.0-alpha.6 and Home Assistant v0.1.0-alpha.5. Adds ADR 010 (accepted), the phone setup and factory-provision guides, the Tell me when guide and the Phase 10 record. On 14 October 2026 the owner joined the factory-provisioned kit to home Wi-Fi from an iPhone and an Android phone with the computer closed; it went Online through the relay and Grok Bot on the iPhone showed text on it (hub docs/verification/phone-setup-2026-10-14.md). One kit; independent reproduction is not claimed.",
       "grok_verified": true,
       "hardware_verified": false,
       "independently_reproduced": false,
