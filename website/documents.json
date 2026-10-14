@@ -37,7 +37,8 @@
     "docs/index.md",
     "docs/getting-started/troubleshooting.md",
     "docs/reference/glossary.md",
-    "docs/decisions/009-relay-route.md"
+    "docs/decisions/009-relay-route.md",
+    "docs/decisions/010-phone-setup.md"
   ],
   "component_sources": [
     "README.md",
