@@ -19,8 +19,9 @@ See [project status](docs/public/support-matrix.md). Independent project, not af
 
 | Your task | Start here |
 | --- | --- |
+| Set up a gadget you received | [Phone setup](docs/getting-started/phone-setup.md) |
 | Use a configured gadget | [Connect your Grok Bot](docs/getting-started/connect-grok-bot.md). An operator must first set up the kit, gateway and tunnel. |
-| Build a gadget | [Tested OLED kit](docs/getting-started/repeat-the-kit.md), [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk) or [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk) |
+| Build a gadget | [Factory provisioning](docs/getting-started/factory-provision.md), [tested OLED kit](docs/getting-started/repeat-the-kit.md), [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk) or [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk) |
 | Try without hardware | [Five-minute simulator guide](docs/getting-started/first-success.md) or [browser playground](https://grokgadgets.org/playground) |
 
 [All documentation](docs/index.md) separates guides, reference, project status and test records.
@@ -32,16 +33,16 @@ New here? Read [How it works](docs/getting-started/how-it-works.md): one page fo
 
 ```mermaid
 flowchart LR
-    B["Grok Bot: Mac or iPhone"] -->|"HTTPS and OAuth"| T["Owner-run tunnel"]
-    T --> G["Gateway on the Mac"]
-    G -->|"Private LAN TLS"| D["Wi-Fi OLED kit"]
+    B["Grok Bot"] -->|"HTTPS and OAuth"| T["Owner-run tunnel"]
+    T --> G["Gateway on an always-on server"]
+    D["Wi-Fi gadget"] -->|"Outbound TLS"| G
 ```
 
-This route passed on the owner's setup. The Mac must stay awake and connected.
-The [record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/daily-route-2026-10-13.md) covers one day. Another person's run remains open in [#185](https://github.com/adidshaft/grok-gadgets/issues/185).
+See the [relay setup guide](docs/getting-started/mac-free-route.md) and the [phone setup guide](docs/getting-started/phone-setup.md).
+The gateway can also run on a Mac that stays awake, using the [local kit route](docs/getting-started/repeat-the-kit.md).
 
-**Mac-free route:** the gateway can also run on an always-on Linux server, so the Mac can sleep.
-The owner's kit passed this on 13 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md)). See the [Mac-free route guide](docs/getting-started/mac-free-route.md) and the [roadmap](ROADMAP.md).
+The owner's relay and phone setup checks passed; see [project status](docs/public/support-matrix.md) for evidence and limits.
+Another person's run remains open in [#185](https://github.com/adidshaft/grok-gadgets/issues/185).
 
 ## Community
 
