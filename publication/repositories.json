@@ -3,7 +3,7 @@
   "activated": true,
   "naming": "Current names retained by owner for first public source publication",
   "private_contact": "adidshaft@kyokasuigetsu.xyz",
-  "pages_url": "https://grok-gadgets.pages.dev/",
+  "pages_url": "https://grokgadgets.org/",
   "repositories": [
     {
       "name": "grok-gadgets",
@@ -33,7 +33,7 @@
         "home-automation",
         "developer-tools"
       ],
-      "homepage": "https://grok-gadgets.pages.dev/",
+      "homepage": "https://grokgadgets.org/",
       "private_vulnerability_reporting": "enabled and verified",
       "github_id": 1405061808,
       "initial_source_commit": "0738438d376c7e5b3546a70388b8ad9aa76d86d7",
@@ -67,7 +67,7 @@
         "simulator",
         "serial"
       ],
-      "homepage": "https://grok-gadgets.pages.dev/",
+      "homepage": "https://grokgadgets.org/",
       "private_vulnerability_reporting": "enabled and verified",
       "github_id": 1405061866,
       "initial_source_commit": "6c66a109084dc8480fdd49636dab2254d7e3d82e",
@@ -101,7 +101,7 @@
         "iot",
         "sdk"
       ],
-      "homepage": "https://grok-gadgets.pages.dev/",
+      "homepage": "https://grokgadgets.org/",
       "private_vulnerability_reporting": "enabled and verified",
       "github_id": 1405061925,
       "initial_source_commit": "b0e5f4bb407f4d4419673d4c1a5d540f68511c23",
@@ -135,7 +135,7 @@
         "m5stack",
         "sdk"
       ],
-      "homepage": "https://grok-gadgets.pages.dev/",
+      "homepage": "https://grokgadgets.org/",
       "private_vulnerability_reporting": "enabled and verified",
       "github_id": 1405062015,
       "initial_source_commit": "ef04fa0405ea4820de6430578684959f6e6dd8d8",
@@ -168,7 +168,7 @@
         "home-automation",
         "python"
       ],
-      "homepage": "https://grok-gadgets.pages.dev/",
+      "homepage": "https://grokgadgets.org/",
       "private_vulnerability_reporting": "enabled and verified",
       "github_id": 1405062066,
       "initial_source_commit": "6afac04e39ca5cf16af9c4bfd3d9a12f6844386a",
@@ -181,7 +181,7 @@
   "pages_deployment_id": "589fab44-972e-47d6-a02b-05cf12a0576c",
   "pages_deployed_at": "2026-10-05T04:48:49.119047Z",
   "pages_verification": {
-    "canonical_url": "https://grok-gadgets.pages.dev/",
+    "canonical_url": "https://grokgadgets.org/",
     "verified_at": "2026-10-05T04:51:14Z",
     "https_routes": [
       "/",
