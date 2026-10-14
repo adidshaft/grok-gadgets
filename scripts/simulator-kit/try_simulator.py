@@ -131,6 +131,11 @@ async def _exercise(path, config_home):
         )
     )
 
+    print(
+        "Simulator works: six tools called, light set blue then off, "
+        "two button events read. No Grok Bot or hardware involved."
+    )
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
