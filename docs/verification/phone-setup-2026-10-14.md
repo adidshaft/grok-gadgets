@@ -36,7 +36,13 @@ Evidence levels:
 | ~09:54 | The owner scanned the label's QR code with the iPhone camera and joined `GrokGadget-XXXX`. The captive sheet opened at `192.168.4.1`, entered the setup code, picked the home network and typed its password | Owner |
 | 09:55:03 | `device_connected`, `device_hello` from the kit on port 8443 | Log |
 | 09:55 | Page: "Done. The gadget is Online. You can close this page." OLED: `Online`, `Grok Bot`, the face | Owner |
-| 10:02:29 | `gadgets_command` `display.text` from Grok Bot on the iPhone, remote, `executed`, `ok` | Log |
+| 10:02:29 | `gadgets_command` `display.text` from Grok Bot on the iPhone, remote, `executed`, `ok`. The OLED showed "Phone setup works" | Log, Owner |
+| 10:47:35 | BOOT held 10 s: the kit left the relay (`device_disconnected`) and reopened its hotspot | Log, Owner |
+| 10:48:57 | Re-joined through the hotspot: `device_hello`, Online | Log, Owner |
+| 10:49:58 | BOOT held 10 s again (`device_disconnected`) | Log, Owner |
+| ~10:51 | QR join; a wrong setup code was refused on the page. The right code listed networks | Owner |
+| ~10:51 | A wrong home Wi-Fi password: the page and the OLED both showed the password was wrong | Owner |
+| 10:52:52 | The right password: `device_hello`, Online | Log, Owner |
 
 ## Results
 
@@ -47,9 +53,9 @@ Evidence levels:
 | Online through the relay, no computer | Pass | Log `device_hello` 09:55:03, Owner |
 | Grok Bot on the iPhone shows text | Pass | Log 10:02:29, Owner: "Phone setup works" on the OLED |
 | Setup window expires after 10 minutes | Pass | Console `setup: closed`, Owner |
-| Wrong setup code refused | PENDING | |
-| Wrong home password shown | PENDING | |
-| BOOT reset, then re-join | PENDING | |
+| Wrong setup code refused | Pass | Owner |
+| Wrong home password shown on the page and the OLED | Pass | Owner, then Log `device_hello` 10:52:52 |
+| BOOT reset, then re-join | Pass (twice) | Log 10:47:35 → 10:48:57 and 10:49:58 → 10:52:52, Owner |
 | Same flow on Android | PENDING | |
 
 ## Notes
