@@ -171,8 +171,12 @@ def page(name, title, body):
     documentation = name == "docs.html" or name.startswith("doc-")
     page_title = title + " · Grok Gadgets"
     description = (
-        "Grok Gadgets is an independent open-source project building tools and SDKs "
-        "for your existing Grok Bot. " + title + "."
+        "Grok Gadgets is an open-source project giving your Grok Bot hands in the "
+        "physical world: build hardware, set it up from a phone, just ask."
+        if name == "index.html"
+        else title
+        + ": Grok Gadgets, an independent open-source project that connects real hardware "
+        "to your existing Grok Bot."
     )
     share_image = PUBLIC_SITE + "media/grok-gadgets-share-v4.png"
     canonical_url = PUBLIC_SITE + (
@@ -298,9 +302,9 @@ def path_row(number, title, description, url, link_text):
 first_success = "doc-docs-getting-started-first-success.html"
 proof_section = (
     '<section class="home-proof" id="first-success" aria-labelledby="proof-heading">'
-    '<p class="eyebrow">NO HARDWARE NEEDED</p>'
-    '<h2 id="proof-heading">Try the tools in five minutes.</h2>'
-    "<p>Install the gateway and run a simulated light on Mac or Linux.</p>"
+    '<p class="eyebrow">START IN MINUTES</p>'
+    '<h2 id="proof-heading">Try the tools before you build.</h2>'
+    '<p>Run a simulated gadget on your computer or open the <a href="playground.html">browser demo</a>. No hardware, no account.</p>'
     '<pre class="proof-output"><code>python3 -m venv .venv\n'
     ".venv/bin/python -m pip install grok-gadgets-gateway==0.1.0a14</code></pre>"
     '<p><a href="'
@@ -320,29 +324,29 @@ workbench = (
 )
 home_sections = (
     proof_section
-    + '<section class="builder-paths" id="builder-paths" aria-labelledby="builder-heading"><p class="eyebrow">CHOOSE YOUR FIRST PATH</p><h2 id="builder-heading">Start building.</h2>'
+    + '<section class="builder-paths" id="builder-paths" aria-labelledby="builder-heading"><p class="eyebrow">BUILD YOUR GADGET</p><h2 id="builder-heading">Make it real.</h2><p class="vision-line">Grok Bot acts on the world around you. Build a gadget once, hand it to anyone, and they just ask.</p>'
     + path_row(
         "01",
-        "Tested OLED kit",
-        "Build the ESP32-S3 Wi-Fi board and show text on its display.",
+        "OLED starter kit",
+        "Build the ESP32-S3 board. Hand it to anyone; they set it up from a phone.",
         "doc-docs-getting-started-repeat-the-kit.html",
         "Repeat the kit",
     )
     + path_row(
         "02",
         "No hardware",
-        "Try a simulated light on your computer.",
+        "Run a simulated gadget and call all six tools from your computer.",
         first_success,
         "First success",
     )
     + path_row(
         "03",
         "Raspberry Pi / Linux",
-        "Build a device with the Python SDK.",
+        "Turn a Pi or Linux box into a gadget with the Python SDK.",
         "linux.html",
         "Build with Linux",
     )
-    + '<p class="quiet-note" id="components">Already use Home Assistant? <a href="home-assistant.html">Explore the integration ↗</a> · <a href="components.html">All components ↗</a></p></section>'
+    + '<p class="quiet-note" id="components">Run Home Assistant? <a href="home-assistant.html">Let Grok Bot look inside ↗</a> · <a href="components.html">All components ↗</a></p></section>'
 )
 scene_markup = (
     scene_source.read_text() if scene_source.is_file() else "<h1>Grok Gadgets</h1>"

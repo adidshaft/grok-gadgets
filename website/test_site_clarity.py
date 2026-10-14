@@ -14,8 +14,8 @@ class SiteClarityTests(unittest.TestCase):
         hero = (SITE / "home-scene.html").read_text()
         self.assertIn("Your Grok Bot.", hero)
         self.assertIn("In the real world.", hero)
-        self.assertIn("On the owner's setup, Grok Bot controls a Wi-Fi gadget", hero)
-        self.assertIn("through a gateway on the Mac or on an always-on server", hero)
+        self.assertIn("Connect the hardware around you to your Grok Bot.", hero)
+        self.assertIn("Set it up from your phone, then just ask.", hero)
         self.assertEqual(hero.count('<div class="scene-intro">'), 1)
         self.assertNotIn('class="scene-status"', hero)
         self.assertNotIn("Alpha · one kit verified · native Grok Bot calls next", hero)
@@ -48,9 +48,9 @@ class SiteClarityTests(unittest.TestCase):
 
     def test_three_build_paths_and_legacy_component_anchor_are_preserved(self):
         builder = (SITE / "build.py").read_text()
-        for title in ['"No hardware"', '"Raspberry Pi / Linux"', '"Tested OLED kit"']:
+        for title in ['"No hardware"', '"Raspberry Pi / Linux"', '"OLED starter kit"']:
             self.assertIn(title, builder)
-        self.assertIn("Already use Home Assistant?", builder)
+        self.assertIn("Run Home Assistant?", builder)
         for target in ["esp32.html", "linux.html", "home-assistant.html"]:
             self.assertIn(target, builder)
         self.assertIn('id="components"', builder)
