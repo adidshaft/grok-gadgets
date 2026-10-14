@@ -5,9 +5,9 @@ The goal is simple setup for the people who use those gadgets.
 
 ## Today, next, later
 
-- **Today:** Grok Bot on Mac and iPhone controls the owner's Wi-Fi kit through a gateway on an always-on Linux server. The Mac can sleep.
-- **Next:** Phase 10, joining a gadget to Wi-Fi from a phone with no cable.
-- **Later:** claim codes and tools for builders who ship gadgets.
+- **Today:** a person joins a factory-provisioned gadget to home Wi-Fi from a phone, with no cable and no app. Grok Bot on Mac and iPhone then controls it through a gateway on an always-on Linux server.
+- **Next:** Phase 11, claim codes so each person sees only their gadgets.
+- **Later:** tools for builders, and updates over the air. A button press does not wake Grok Bot.
 
 The project runs no relay service. There are no promised dates.
 
@@ -19,12 +19,13 @@ The project runs no relay service. There are no promised dates.
 | 7: native Grok Bot connection | Complete on the owner's setup | [Mac and iPhone calls](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/grok-remote-https-2026-10-13.md) |
 | 8: daily route checks | Complete on one setup for one day | [Recorded checks](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/daily-route-2026-10-13.md); another day and a calibrated usage rate remain |
 | 9: Mac-free route | Complete on the owner's setup | [Relay record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md): iPhone on cellular controlled the kit while the Mac slept; one kit, one server |
-| 10: setup without a cable | Next | iPhone joins a factory-provisioned kit to Wi-Fi; wrong password and reset checks |
+| 10: setup without a cable | Complete on the owner's setup | [Phone setup record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md): iPhone and Android joined the factory-provisioned kit to Wi-Fi with the computer closed; wrong code, wrong password, window expiry and reset checks; one kit |
 | 11: claim your gadget | Planned | Two accounts prove device isolation, sharing, removal and transfer |
 | 12: builder kit | Planned | A second builder follows the deployment and shipping guides |
+| 12b: update and ship safely | Planned | Signed updates over the air with rollback, and a "Before you sell" note |
 | 13: shared relay | Owner decision only | Cost, operations, abuse controls, privacy and terms; no service promised |
 
-[ADR 009](docs/decisions/009-relay-route.md) plans Phases 9–13. Stage 1 (Phase 9) is accepted and released; the later stages are design only.
+[ADR 009](docs/decisions/009-relay-route.md) plans Phases 9–13. Stage 1 (Phase 9) is accepted and released. [ADR 010](docs/decisions/010-phone-setup.md) (Phase 10, phone setup) is accepted and released; the later stages are design only.
 
 ## What the current result means
 

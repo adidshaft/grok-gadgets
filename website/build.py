@@ -302,7 +302,7 @@ proof_section = (
     '<h2 id="proof-heading">Try the tools in five minutes.</h2>'
     "<p>Install the gateway and run a simulated light on Mac or Linux.</p>"
     '<pre class="proof-output"><code>python3 -m venv .venv\n'
-    ".venv/bin/python -m pip install grok-gadgets-gateway==0.1.0a13</code></pre>"
+    ".venv/bin/python -m pip install grok-gadgets-gateway==0.1.0a14</code></pre>"
     '<p><a href="'
     + first_success
     + '">Follow the five-minute guide ↗</a> · <a href="doc-docs-public-how-we-verify.html">How we verify ↗</a></p></section>'

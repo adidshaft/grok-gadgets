@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/release.md at 49b19ed331cfc50a7f91139ca12f0ef6391916e9
+Source: grok-gadgets-gateway/docs/release.md at 34476911848c4b0d215ff6f4fdeb06faf6051618
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -62,3 +62,4 @@ GitHub issues track current work. Keep local issue IDs in commits so contributor
 The owner tested one ESP32-S3 OLED kit over USB and Wi-Fi on 12 October 2026.
 Grok Bot ran local shell commands through `rehearse`. On 13 October 2026 it also called the six tools natively from the Mac and the iPhone through `serve --oauth` behind an owner-run tunnel. An independent second installation remains unverified.
 The Wi-Fi kit needs a running gateway. From 0.1.0-alpha.13 that can be an always-on Linux server instead of the Mac; the owner's kit passed this on 13 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/dev/docs/verification/mac-free-route-2026-10-13.md)).
+From 0.1.0-alpha.14, `factory-provision` prepares a gadget so a person joins it to Wi-Fi from a phone alone; the owner's kit passed this on 14 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/dev/docs/verification/phone-setup-2026-10-14.md)).
