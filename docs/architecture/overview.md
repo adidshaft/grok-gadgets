@@ -16,7 +16,9 @@ The gateway operator hosts the MCP server. SpaceXSI hosts Grok Bot. The website 
 flowchart TD
     G["Grok Bot: Mac or iPhone"] --> T["Owner-run HTTPS tunnel with OAuth"]
     T --> W["Gateway on the Mac: 127.0.0.1:8766/mcp"]
-    G -.-> Y["Proposed Phase 9: relay on a Linux host"]
+    T --> Y["Relay: gateway on an always-on Linux server"]
+    Y --> V2["Relay TLS device listener"]
+    V2 --> E
     G -->|"Approved local command on Mac"| C["rehearse: observed local route"]
     C --> W
     W --> S["Software simulator"]
@@ -29,7 +31,7 @@ flowchart TD
     H -.-> D["Existing home devices: verification pending"]
 ```
 
-Solid arrows describe implemented interfaces. The owner observed physical operation on one ESP32-S3/OLED kit over USB and Wi-Fi. The native remote route passed on the owner’s setup. The dotted relay path is proposed Phase 9. The private LAN TLS listener serves Wi-Fi devices; it is not a public Grok Bot endpoint. A tunnel adds reachability, not authentication. The dotted Home Assistant path needs its own client, endpoint and physical checks. Home Assistant does not need our gateway for its own MCP route.
+Solid arrows describe implemented interfaces. The owner observed physical operation on one ESP32-S3/OLED kit over USB and Wi-Fi. The native remote route passed on the owner’s setup. The relay path passed on the owner's kit in Phase 9: the same gateway on an always-on server, with the gadget connecting out to its TLS device listener. The private LAN TLS listener serves Wi-Fi devices; it is not a public Grok Bot endpoint. A tunnel adds reachability, not authentication. The dotted Home Assistant path needs its own client, endpoint and physical checks. Home Assistant does not need our gateway for its own MCP route.
 
 ## Separate manual Mac route
 

@@ -40,8 +40,8 @@ flowchart LR
 This route passed on the owner's setup. The Mac must stay awake and connected.
 The [record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/daily-route-2026-10-13.md) covers one day. Another person's run remains open in [#185](https://github.com/adidshaft/grok-gadgets/issues/185).
 
-**Next:** a gateway on an always-on Linux host, so the Mac can sleep.
-Phase 9 is in progress and not yet a released feature. See the [roadmap](ROADMAP.md) and the [Mac-free route guide](docs/getting-started/mac-free-route.md).
+**Mac-free route:** the gateway can also run on an always-on Linux server, so the Mac can sleep.
+The owner's kit passed this on 13 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md)). See the [Mac-free route guide](docs/getting-started/mac-free-route.md) and the [roadmap](ROADMAP.md).
 
 ## Community
 

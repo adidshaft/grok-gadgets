@@ -2,7 +2,7 @@
 
 Today the gateway runs on your Mac, so Grok Bot reaches your gadget only while the Mac is awake. This guide moves the gateway to a small Linux host that stays on. Your Wi-Fi gadget connects out to that host. Grok Bot reaches it through your tunnel with OAuth sign-in, as before. The Mac can then sleep or stay off.
 
-**Status:** this is Phase 9, proposed in [ADR 009](../decisions/009-relay-route.md). The gateway and firmware support is in development on `dev` and passes their tests. No owner's kit has run this route yet. Use the [Mac route](connect-grok-bot.md) for a tested setup.
+**Status:** Phase 9 ([ADR 009](../decisions/009-relay-route.md)). On 13 October 2026 the owner's kit ran this route on a small Linux server. Grok Bot on the iPhone showed text on it while the Mac slept ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md)). One kit and one server; nobody else has repeated it yet.
 
 ```text
 Grok Bot (Mac or iPhone) ─HTTPS + OAuth─▶ gadgets.example.net (tunnel) ─▶ gateway /mcp      ┐
@@ -17,13 +17,13 @@ Wi-Fi gadget at home ─TLS, outbound─▶ devices.example.net:8443 (device lis
   - `devices.example.net` for devices, a DNS-only record that points at the host's public address.
 - Your tunnel, moved from the Mac to the host, or a new one.
 - A Wi-Fi gadget on firmware that accepts a DNS name for the gateway, and a computer with a USB data cable to provision it once.
-- The gateway and the firmware from the next releases.
+- Gateway `0.1.0a13` or later and ESP32 SDK `v0.2.0-alpha.14` or later.
 
 The host costs whatever your provider charges. The project runs no relay service and pays for nothing.
 
 ## 1. Set up the host
 
-Follow the gateway's [relay host guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/dev/docs/relay-host.md). It has two ways:
+Follow the gateway's [relay host guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/relay-host.md). It has two ways:
 
 - **Container:** Docker Compose runs the gateway and the tunnel client together. It publishes only port 8443.
 - **Linux user service:** `service install` with `--device-listen` and `loginctl enable-linger`.

@@ -226,7 +226,7 @@ GROUPS = (
                 (
                     ("", "docs/architecture/overview.md", "Project architecture"),
                     ("", "docs/reference/glossary.md", "Glossary"),
-                    ("", "docs/decisions/009-relay-route.md", "Proposed relay design"),
+                    ("", "docs/decisions/009-relay-route.md", "Relay design (ADR 009)"),
                 ),
             ),
         ),

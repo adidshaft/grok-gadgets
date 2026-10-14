@@ -1,7 +1,7 @@
 [
   {
     "repository": "grok-gadgets-esp32-sdk",
-    "commit": "c41f50b441a5d4d686e09fbd31e51d8a6baed65c",
+    "commit": "4d2e03210dafe0366c9b684e7d190784cd77f2d4",
     "files": [
       ".clang-format",
       ".github/CODEOWNERS",
@@ -87,6 +87,7 @@
       "tests/wifi_console_tests.cpp",
       "tests/wifi_link_tests.cpp",
       "tests/wifi_mdns_tests.cpp",
+      "tests/wifi_relay_tests.cpp",
       "tools/check.sh",
       "tools/check_contract.py",
       "tools/check_gateway.py",
@@ -98,7 +99,7 @@
   },
   {
     "repository": "grok-gadgets-gateway",
-    "commit": "17f51f5114ec1aefc522bb4c93ff8277b716dbe4",
+    "commit": "49b19ed331cfc50a7f91139ca12f0ef6391916e9",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -129,6 +130,7 @@
       "docs/experiment-kit.md",
       "docs/first-success.md",
       "docs/local-operation.md",
+      "docs/relay-host.md",
       "docs/release.md",
       "docs/remote-access.md",
       "docs/simulator.md",
@@ -139,6 +141,11 @@
       "docs/verification/launch-docs.md",
       "docs/verification/simulator-config.md",
       "docs/wifi-devices.md",
+      "examples/docker/.env.example",
+      "examples/docker/Dockerfile",
+      "examples/docker/Dockerfile.dockerignore",
+      "examples/docker/cloudflared/config.yml.example",
+      "examples/docker/compose.yaml",
       "examples/launchd/xyz.kyokasuigetsu.grok-gadgets-gateway.plist",
       "examples/systemd/grok-gadgets-gateway.service",
       "examples/usage-hooks/macos-notify.py",
@@ -187,6 +194,8 @@
       "tests/test_oauth.py",
       "tests/test_oauth_floods.py",
       "tests/test_rehearse.py",
+      "tests/test_relay.py",
+      "tests/test_relay_example.py",
       "tests/test_remote.py",
       "tests/test_request_log.py",
       "tests/test_simulator_config.py",
@@ -197,7 +206,7 @@
   },
   {
     "repository": "grok-gadgets-home-assistant",
-    "commit": "b2c9b551df21167dc08354700456557a1293c3b1",
+    "commit": "20ac015fff093393dfd67868dd40807292b94749",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",

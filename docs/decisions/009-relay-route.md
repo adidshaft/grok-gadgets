@@ -2,7 +2,7 @@
 
 **Date:** 13 October 2026
 
-**Status:** Proposed. The owner chooses the stage 1 host and hostname, and whether the project ever runs a shared relay.
+**Status:** Accepted for stage 1 on 14 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md)); released in gateway 0.1.0-alpha.13 and ESP32 SDK 0.2.0-alpha.14. Stages 2–5 remain proposed. The owner decides whether the project ever runs a shared relay.
 
 **Owner:** Grok Gadgets hub (`adidshaft/grok-gadgets`)
 
@@ -87,7 +87,7 @@ The relay sees device IDs, capabilities, commands, reported state and events. Pr
 - A claim code proves temporary possession. It must not silently transfer ownership or merge accounts.
 - Define one-time claim codes, expiry, authenticated sharing and server-side revocation. Printed labels must not become permanent account credentials.
 - A local reset cannot alone revoke server access. Define an authenticated transfer and factory-reset reconciliation flow before shipping.
-- The proposed CLI flags, stores and protocol additions below are design targets, not commands available in the current release.
+- Stage 1 commands (`serve --device-listen`, `device-cert`, `wifi-provision --gateway`) are released. The later-stage flags, stores and protocol additions remain design targets.
 - Host, device hostname, tunnel migration, flashing and releases require separate owner decisions.
 
 ## Threat model (relay)

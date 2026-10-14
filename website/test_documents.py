@@ -198,6 +198,12 @@ print("<script>code only</script>")
         self.assertIn('stroke-dasharray="6 5"', html)
         self.assertIn("Loopback ACK", html)
 
+    def test_diagram_label_allows_a_typographic_apostrophe(self):
+        html = static_diagram('flowchart LR\nT["Tunnel"] --> G["Gateway Owner’s Mac"]')
+        self.assertIn("Owner’s Mac", html)
+        with self.assertRaises(ValueError):
+            static_diagram('flowchart LR\nT["Tunnel"] --> G["Owner\'s Mac"]')
+
     def test_failed_build_keeps_previous_site(self):
         preview = ROOT / "website/dist/index.html"
         before = preview.read_bytes()
