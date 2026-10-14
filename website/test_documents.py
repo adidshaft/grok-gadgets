@@ -27,6 +27,26 @@ class DocumentTests(unittest.TestCase):
                 capture_output=True,
             )
 
+    def test_security_contact_and_browser_theme_metadata_are_published(self):
+        output = ROOT / "website/dist"
+        self.assertEqual(
+            (output / ".well-known/security.txt").read_bytes(),
+            (ROOT / "website/.well-known/security.txt").read_bytes(),
+        )
+        contact = (output / ".well-known/security.txt").read_text()
+        self.assertIn("Contact: mailto:adidshaft@kyokasuigetsu.xyz", contact)
+        self.assertIn("Expires: 2027-10-14T00:00:00Z", contact)
+        for name in ["index.html", "docs.html"]:
+            html = (output / name).read_text()
+            self.assertIn(
+                'name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"',
+                html,
+            )
+            self.assertIn(
+                'name="theme-color" content="#111111" media="(prefers-color-scheme: dark)"',
+                html,
+            )
+
     def render_fixture(self, text):
         with tempfile.TemporaryDirectory() as d:
             path = Path(d) / "fixture.md"

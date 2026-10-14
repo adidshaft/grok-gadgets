@@ -1,0 +1,5 @@
+Contact: mailto:adidshaft@kyokasuigetsu.xyz
+Contact: https://github.com/adidshaft/grok-gadgets/security/advisories/new
+Expires: 2027-10-14T00:00:00Z
+Policy: https://github.com/adidshaft/grok-gadgets/blob/main/SECURITY.md
+Preferred-Languages: en

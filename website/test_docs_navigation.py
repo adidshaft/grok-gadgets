@@ -147,6 +147,36 @@ class DocsNavigationTests(unittest.TestCase):
         self.assertTrue(toc_links)
         self.assertTrue(all(link["href"][1:] in rendered_ids for link in toc_links))
 
+    def test_phone_setup_starts_use_path_and_factory_guide_is_for_builders(self):
+        phone = self.documents.lookup[
+            ("grok-gadgets", "docs/getting-started/phone-setup.md")
+        ]
+        factory = self.documents.lookup[
+            ("grok-gadgets", "docs/getting-started/factory-provision.md")
+        ]
+        group, subgroup, _ = self.navigation.by_page[phone]
+        self.assertEqual(group["title"], "Use a gadget")
+        self.assertEqual(subgroup["items"][0]["page"], phone)
+        self.assertEqual(self.navigation.by_page[factory][0]["title"], "Build a gadget")
+        self.assertNotIn("<h3>Start building</h3>", self.navigation.index())
+        self.assertNotIn("<h3>Participation</h3>", self.navigation.index())
+
+    def test_guide_lead_precedes_contents_and_steps(self):
+        record = next(
+            item
+            for item in self.documents.records
+            if item["source"] == "docs/getting-started/phone-setup.md"
+        )
+        rendered = self.navigation.with_toc(self.documents.render(record), record)
+        self.assertLess(
+            rendered.index("Your gadget came with a printed label."),
+            rendered.index('class="doc-toc"'),
+        )
+        self.assertLess(
+            rendered.index('class="doc-toc"'), rendered.index('<h2 id="what-you-need">')
+        )
+        self.assertEqual(rendered.count('class="doc-toc"'), 1)
+
     def test_empty_toc_has_no_empty_navigation(self):
         with tempfile.TemporaryDirectory() as temporary:
             path = Path(temporary) / "empty.md"
