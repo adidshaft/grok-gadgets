@@ -1,8 +1,8 @@
 # Set up your gadget with your phone
 
-Your gadget came with a printed label. With the label and a phone you can join the gadget to
-your home Wi-Fi. You need no computer, no app and no account. After setup the gadget shows
-**Online**, and Grok Bot can use it.
+Your gadget came with a printed label. Its builder has already prepared it for the operator’s gateway.
+With the label and a phone you can join the gadget to your home Wi-Fi.
+Wi-Fi setup needs no computer, separate setup app or setup account. After setup the gadget shows **Online**.
 
 **Status:** Phase 10 ([ADR 010](../decisions/010-phone-setup.md)). On 14 October 2026 the owner set up one kit this way with an iPhone and with an Android phone ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md)). Nobody else has repeated it yet.
 
@@ -26,7 +26,8 @@ your home Wi-Fi. You need no computer, no app and no account. After setup the ga
 6. Wait about 20 seconds. The page and the gadget's screen show the result. When the screen
    shows **Online**, setup is done.
 
-Then ask Grok Bot, for example: "Show hello on my gadget."
+Connect your existing Grok Bot account to the operator’s gateway before using the gadget.
+Follow [Connect your Grok Bot](connect-grok-bot.md) first. Then ask Grok Bot, for example: "Show hello on my gadget."
 
 ## If something goes wrong
 
