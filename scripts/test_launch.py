@@ -181,6 +181,29 @@ class LaunchTests(unittest.TestCase):
             str(pages["jobs"]["deploy"]),
         )
 
+    def test_site_artifact_preserves_security_contact_file(self):
+        pages = yaml.load(
+            (ROOT / ".github/workflows/pages.yml").read_text(), Loader=yaml.BaseLoader
+        )
+        upload = next(
+            step
+            for step in pages["jobs"]["build"]["steps"]
+            if step.get("uses", "").startswith("actions/upload-artifact@")
+        )
+        self.assertEqual(upload["with"]["path"], "grok-gadgets/website/dist")
+        self.assertEqual(upload["with"]["include-hidden-files"], "true")
+        steps = pages["jobs"]["deploy"]["steps"]
+        download_index = next(
+            i
+            for i, step in enumerate(steps)
+            if step.get("uses", "").startswith("actions/download-artifact@")
+        )
+        verification = steps[download_index + 1]
+        self.assertEqual(
+            verification["run"], "test -s website/dist/.well-known/security.txt"
+        )
+        self.assertEqual(verification["if"], "steps.current.outputs.current == 'true'")
+
     def test_production_deploys_are_serialized_and_gated_on_current_main(self):
         pages = yaml.load(
             (ROOT / ".github/workflows/pages.yml").read_text(), Loader=yaml.BaseLoader
