@@ -82,6 +82,8 @@ The lines are shortened. The log does not show which app or network sent a call.
 | --- | --- | --- |
 | `remote off`, then a call from outside | `http_rejected` 503 `remote_disabled` at 19:22:34. Checked with `curl` from the Mac, not from Grok Bot | Log |
 | `remote on` | 401 again at 19:22:36 | Log |
+| `remote off`, then a call from Grok Bot (14 October) | `remote off` at 05:36:03. The owner asked Grok Bot on the iPhone, about 80 km from home, to list the gadgets: `http_rejected` 503 `remote_disabled` at 05:37:07 | Log, owner |
+| `remote on`, then the same request (14 October) | `remote on` at 05:37:17; `mcp_tool_call` `gadgets_list_devices` ok as `grok-bot`, `remote: true`, at 05:37:28 | Log, owner |
 | Server reboot | Reboot command 19:22:44; `serve_stopped` 19:22:45.9; system up 19:22:49; tunnel registered 19:23:02; `serve_started` 19:23:03.8; kit `device_hello` 19:23:08.7. **24 seconds**, with no login | Log, server |
 | Linux user service at boot ([#22](https://github.com/adidshaft/grok-gadgets/issues/22)) | The systemd user unit started at boot through linger, with nobody logged in | Log, server |
 | `revoke` | `device_auth_rejected` `revoked` at 20:24:05; the OLED showed **Token rejected** | Log, owner |
@@ -100,10 +102,10 @@ The lines are shortened. The log does not show which app or network sent a call.
 | BOOT press, then read events | **Pass** |
 | Server reboot to Online | **Pass**: 24 s |
 | Linux user service at boot (#22) | **Pass** on this server |
-| `remote off`, then on | **Pass**, checked with `curl` |
+| `remote off`, then on | **Pass**: with `curl` on 13 October and from Grok Bot on the iPhone, away from home, on 14 October |
 | Revoke, re-enroll, re-provision | **Pass** |
 | Wrong CA rejected by the kit | **Pass**: `TLSV1_ALERT_UNKNOWN_CA` from 20:40:20; **TLS rejected** on the OLED |
-| Weekly usage before and after | **Not measured**: the account page shows whole percent and did not change |
+| Weekly usage before and after | **Not tested**: the account page shows whole percent; the owner saw no change, so no reading could be paired with the log |
 
 ## Limits
 
