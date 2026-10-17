@@ -262,6 +262,11 @@ GROUPS = (
                         "docs/decisions/011-accounts-and-claim-codes.md",
                         "Accounts design (ADR 011)",
                     ),
+                    (
+                        "",
+                        "docs/decisions/012-signed-updates.md",
+                        "Signed updates design (ADR 012)",
+                    ),
                 ),
             ),
         ),
