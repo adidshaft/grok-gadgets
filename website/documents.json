@@ -49,7 +49,8 @@
     "docs/decisions/009-relay-route.md",
     "docs/decisions/010-phone-setup.md",
     "docs/decisions/011-accounts-and-claim-codes.md",
-    "docs/decisions/012-signed-updates.md"
+    "docs/decisions/012-signed-updates.md",
+    "docs/decisions/013-builder-kit.md"
   ],
   "component_sources": [
     "README.md",

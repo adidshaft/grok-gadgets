@@ -289,6 +289,11 @@ GROUPS = (
                         "docs/decisions/012-signed-updates.md",
                         "Signed updates design (ADR 012)",
                     ),
+                    (
+                        "",
+                        "docs/decisions/013-builder-kit.md",
+                        "Builder kit design (ADR 013)",
+                    ),
                 ),
             ),
         ),
