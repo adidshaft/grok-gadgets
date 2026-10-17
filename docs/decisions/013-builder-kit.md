@@ -2,7 +2,7 @@
 
 **Date:** 18 October 2026
 
-**Status:** Accepted on 18 October 2026 after the Phase 12a acceptance ([record](../verification/builder-kit-2026-10-17.md)): a clean-room run and the owner's dry run on a fresh host. The owner took the four decisions below on 18 October 2026. A builder outside the project remains open ([#269](https://github.com/adidshaft/grok-gadgets/issues/269)).
+**Status:** Accepted on 18 October 2026 after the Phase 12a acceptance ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/builder-kit-2026-10-17.md)): a clean-room run and the owner's dry run on a fresh host. The owner took the four decisions below on 18 October 2026. A builder outside the project remains open ([#269](https://github.com/adidshaft/grok-gadgets/issues/269)).
 
 **Owner:** Grok Gadgets hub (`adidshaft/grok-gadgets`)
 
