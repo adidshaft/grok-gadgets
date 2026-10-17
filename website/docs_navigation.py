@@ -247,6 +247,11 @@ GROUPS = (
                         "docs/decisions/010-phone-setup.md",
                         "Phone setup design (ADR 010)",
                     ),
+                    (
+                        "",
+                        "docs/decisions/011-accounts-and-claim-codes.md",
+                        "Accounts design (ADR 011)",
+                    ),
                 ),
             ),
         ),
