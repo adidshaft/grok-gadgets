@@ -36,7 +36,8 @@ class SiteClarityTests(unittest.TestCase):
             "Two people tested this on the owner’s relay and kit with their own iPhones (Phase 11).",
             builder,
         )
-        self.assertIn("This is Phase 12; it has not started.", builder)
+        self.assertIn("Tested from the guide on a fresh host (Phase 12a).", builder)
+        self.assertNotIn("This is Phase 12; it has not started.", builder)
         self.assertIn(
             "a bad image reverts by itself. Tested on the owner’s kit (Phase 12b).",
             builder,

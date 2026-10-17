@@ -5,8 +5,8 @@ The goal is simple setup for the people who use those gadgets.
 
 ## Today, next, later
 
-- **Today:** a person joins a factory-provisioned gadget to home Wi-Fi from a phone, with no cable and no app. They claim it with the code on its screen; their Grok Bot then sees only their gadgets, by the names they give them. Share, remove and hand-over are explicit. The builder's relay sends signed firmware updates with no cable, and a bad image reverts by itself. Builders get a "Before you distribute" note and a licence checklist.
-- **Next:** Phase 12, a kit for builders: one-command relay setup, labels for many gadgets and more examples.
+- **Today:** a person joins a factory-provisioned gadget to home Wi-Fi from a phone, with no cable and no app. They claim it with the code on its screen; their Grok Bot then sees only their gadgets, by the names they give them. Share, remove and hand-over are explicit. The builder's relay sends signed firmware updates with no cable, and a bad image reverts by itself. Builders get a "Before you distribute" note and a licence checklist. A builder sets up a relay with one command, prepares gadgets in batches and checks them in one report ([Ship a gadget](docs/getting-started/ship-a-gadget.md)).
+- **Next:** a builder outside the project follows that guide ([#269](https://github.com/adidshaft/grok-gadgets/issues/269)). The climate sensor, switch and servo examples run on hardware.
 - **Later:** Phase 13, only a decision on a shared relay. A button press does not wake Grok Bot.
 
 The project runs no relay service. There are no promised dates.
@@ -22,10 +22,10 @@ The project runs no relay service. There are no promised dates.
 | 10: setup without a cable | Complete on the owner's setup | [Phone setup record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md): iPhone and Android joined the factory-provisioned kit to Wi-Fi with the computer closed; wrong code, wrong password, window expiry and reset checks; one kit |
 | 11: claim your gadget | Complete on the owner's setup | [Claim record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md): two people with their own Grok Bot proved claim by code, isolation of list, state, commands and events, share and revoke, wrong and expired codes, a flood, and a transfer after a reset; one kit, one relay |
 | 12b: update and ship safely | Complete on the owner's setup | [Update record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md): signed updates over the relay with no cable, wrong key and changed byte refused, automatic revert, power cut recovered; one kit, one relay. [Before you distribute](docs/getting-started/before-you-distribute.md) and the [licence checklist](docs/getting-started/firmware-licences.md) |
-| 12: builder kit | Next | A second builder follows the deployment and shipping guides |
+| 12a: builder kit | Complete on the owner's setup | [Builder kit record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/builder-kit-2026-10-17.md): a clean-room run, and the owner's dry run on a fresh host with a batch of three, phone setup, claim, Grok Bot text and a signed update. A second builder ([#269](https://github.com/adidshaft/grok-gadgets/issues/269)) and the new examples on hardware remain |
 | 13: shared relay | Owner decision only | Cost, operations, abuse controls, privacy and terms; no service promised |
 
-[ADR 009](docs/decisions/009-relay-route.md) plans Phases 9–13. Stage 1 (Phase 9) is accepted and released. [ADR 010](docs/decisions/010-phone-setup.md) (Phase 10, phone setup), [ADR 011](docs/decisions/011-accounts-and-claim-codes.md) (Phase 11, accounts and claim codes) and [ADR 012](docs/decisions/012-signed-updates.md) (Phase 12b, signed updates) are accepted; the later stages are design only.
+[ADR 009](docs/decisions/009-relay-route.md) plans Phases 9–13. Stage 1 (Phase 9) is accepted and released. [ADR 010](docs/decisions/010-phone-setup.md) (Phase 10, phone setup), [ADR 011](docs/decisions/011-accounts-and-claim-codes.md) (Phase 11, accounts and claim codes) [ADR 012](docs/decisions/012-signed-updates.md) (Phase 12b, signed updates) and [ADR 013](docs/decisions/013-builder-kit.md) (Phase 12a, builder kit) are accepted; the later stages are design only.
 
 ## What the current result means
 

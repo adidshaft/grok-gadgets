@@ -44,7 +44,11 @@ The gadget refuses an image signed with another key or changed on the way. An im
 On 17 October 2026 the owner's kit passed each of these checks and recovered from a power cut during a download. Grok Bot then showed text on the updated kit ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md), [guide](../getting-started/sign-and-ship-an-update.md)).
 Builders also get [Before you distribute a gadget](../getting-started/before-you-distribute.md) and a [firmware licence checklist](../getting-started/firmware-licences.md). Both are not legal advice.
 
-**Next:** Phase 12 adds a kit for builders.
+**Phase 12a:** a builder sets up a relay with one command, prepares gadgets in batches and checks them in one report.
+A clean-room run and the owner's dry run on a fresh host followed [Ship a gadget](../getting-started/ship-a-gadget.md) on 17 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/builder-kit-2026-10-17.md)).
+The climate sensor, switch and servo examples compile and pass host tests. Nobody has run them with the parts yet.
+
+**Next:** a builder outside the project follows the guide ([#269](https://github.com/adidshaft/grok-gadgets/issues/269)).
 
 **Later:** Phase 13 is only a decision on a shared relay. The project hosts no service.
 See the [roadmap](../../ROADMAP.md) for acceptance gates.
