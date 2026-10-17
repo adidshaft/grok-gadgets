@@ -114,6 +114,16 @@ GROUPS = (
                         "docs/getting-started/firmware-licences.md",
                         "Firmware licence checklist",
                     ),
+                    (
+                        "",
+                        "docs/getting-started/ship-a-gadget.md",
+                        "Ship a gadget in one afternoon",
+                    ),
+                    (
+                        "",
+                        "docs/getting-started/capability-vocabulary.md",
+                        "Capability vocabulary",
+                    ),
                     ("", "docs/getting-started/simulator-kit.md", "Try the simulator"),
                 ),
             ),

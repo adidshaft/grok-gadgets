@@ -109,6 +109,8 @@ def steps(py):
                 "docs/verification/ota-2026-10-17.md",
                 "docs/decisions/012-signed-updates.md",
                 "docs/decisions/013-builder-kit.md",
+                "docs/getting-started/ship-a-gadget.md",
+                "docs/getting-started/capability-vocabulary.md",
                 "docs/contributing/ready-issues.md",
                 "docs/contributing/writing-guide.md",
             ],
