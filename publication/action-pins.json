@@ -9,9 +9,9 @@
     },
     {
       "repository": "actions/download-artifact",
-      "tag": "v8.0.1",
-      "sha": "3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c",
-      "source": "https://github.com/actions/download-artifact/releases/tag/v8.0.1"
+      "tag": "v8.0.2",
+      "sha": "9000827ccba6bdab643e8b6fd33ac0654aef8333",
+      "source": "https://github.com/actions/download-artifact/releases/tag/v8.0.2"
     },
     {
       "repository": "actions/checkout",
@@ -27,15 +27,15 @@
     },
     {
       "repository": "actions/setup-node",
-      "tag": "v7.0.0",
-      "sha": "820762786026740c76f36085b0efc47a31fe5020",
-      "source": "https://github.com/actions/setup-node/releases/tag/v7.0.0"
+      "tag": "v7.1.0",
+      "sha": "949feb2413d6458794dcd2491c4babbbce0c15c1",
+      "source": "https://github.com/actions/setup-node/releases/tag/v7.1.0"
     },
     {
       "repository": "actions/upload-artifact",
-      "tag": "v7.0.1",
-      "sha": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
-      "source": "https://github.com/actions/upload-artifact/releases/tag/v7.0.1"
+      "tag": "v7.0.2",
+      "sha": "cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+      "source": "https://github.com/actions/upload-artifact/releases/tag/v7.0.2"
     },
     {
       "repository": "actions/upload-pages-artifact",
@@ -57,9 +57,9 @@
     },
     {
       "repository": "astral-sh/setup-uv",
-      "tag": "v10.2.0",
-      "sha": "c18668ad3cf93ea998bef934396af7bb5c839dc7",
-      "source": "https://github.com/astral-sh/setup-uv/releases/tag/v10.2.0"
+      "tag": "v10.3.0",
+      "sha": "1c37ad07a6a961277cf70c0d37d6f313000f5884",
+      "source": "https://github.com/astral-sh/setup-uv/releases/tag/v10.3.0"
     }
   ]
 }
