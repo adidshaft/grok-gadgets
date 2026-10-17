@@ -1,4 +1,4 @@
-Source: grok-gadgets-linux-sdk/docs/development.md at 04a0079fde627d171b4588ab185f0e922646f384
+Source: grok-gadgets-linux-sdk/docs/development.md at 2841191b149b157216164c7e338f75b1c6c26adc
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -183,6 +183,30 @@ The default queue limit is 64 events. A full queue raises `event_queue_full`. Th
 
 Example injection controls produce simulated events. They are not physical evidence.
 Events wait for a client to call `gadgets_read_events`; they do not start a Grok Bot task.
+
+## Run a background producer
+
+A sensor reads on its own schedule. Register an async producer with `device.background`. The
+agent starts it once, keeps it running across reconnects, and sets `stop` when it stops,
+before the shutdown callbacks.
+
+```python
+@device.background
+async def sample(stop):
+    while not stop.is_set():
+        value = read_sensor()  # Your authorized driver.
+        device.publish_state({**device.state, "level": value})
+        try:
+            await asyncio.wait_for(stop.wait(), 2.0)
+        except TimeoutError:
+            pass
+```
+
+`emit` raises `SDKError("event_queue_full")` when the queue is full. Count those drops in
+the state rather than block. The example `grok_gadgets_linux.examples:climate_sensor` shows
+the whole pattern: a reading every 2 seconds, `climate` in the state, a `threshold.crossed`
+event and a `threshold.set` command. Run it with
+`grok-linux-agent --factory grok_gadgets_linux.examples:climate_sensor`.
 
 ## Handle retries
 

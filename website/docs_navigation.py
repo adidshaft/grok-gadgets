@@ -153,6 +153,11 @@ GROUPS = (
                     ("esp32-sdk", "docs/updates.md", "Signed updates on the ESP32"),
                     (
                         "esp32-sdk",
+                        "docs/ship-a-gadget.md",
+                        "Build, flash and prepare a batch",
+                    ),
+                    (
+                        "esp32-sdk",
                         "docs/build-flash.md",
                         "C124 reference: build and flash",
                     ),
