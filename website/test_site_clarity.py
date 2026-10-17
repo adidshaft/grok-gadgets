@@ -47,6 +47,18 @@ class SiteClarityTests(unittest.TestCase):
         self.assertIn("status: 'Owner tested'", roadmap)
         self.assertNotIn("Daily use", roadmap)
 
+    def test_newcomer_entry_points_continue_from_setup_to_claim(self):
+        builder = (SITE / "build.py").read_text()
+        start = builder.split('"start.html",\n    "Get started",', 1)[1].split(
+            '"simulator.html",\n    "Simulator",', 1
+        )[0]
+        self.assertIn('"doc-docs-getting-started-claim-your-gadget.html"', start)
+        self.assertIn('"Claim guide"', start)
+        self.assertNotIn('"Connect guide"', start)
+        entry = builder.split('aria-label="Choose a path"', 1)[1].split("</nav>", 1)[0]
+        self.assertIn('href="doc-docs-getting-started-claim-your-gadget.html"', entry)
+        self.assertIn("Claim in Grok Bot", entry)
+
     def test_three_build_paths_and_legacy_component_anchor_are_preserved(self):
         builder = (SITE / "build.py").read_text()
         for title in ['"No hardware"', '"Raspberry Pi / Linux"', '"OLED starter kit"']:
