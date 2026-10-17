@@ -2,9 +2,10 @@
 
 Your gadget came with a printed label. Its builder has already prepared it for the operator’s gateway.
 With the label and a phone you can join the gadget to your home Wi-Fi.
-Wi-Fi setup needs no computer, separate setup app or setup account. After setup the gadget shows **Online**.
+Wi-Fi setup needs no computer, separate setup app or setup account.
+After joining, the gadget shows **Online** or a code for Grok Bot.
 
-**Status:** Phase 10 ([ADR 010](../decisions/010-phone-setup.md)). On 14 October 2026 the owner set up one kit this way with an iPhone and with an Android phone ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md)). Nobody else has repeated it yet.
+**Status:** Phase 10 ([ADR 010](../decisions/010-phone-setup.md)). On 14 October 2026 the owner set up one kit this way with an iPhone and with an Android phone ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md)). This record covers Wi-Fi setup, not Android Grok Bot calls.
 
 ## What you need
 
@@ -23,11 +24,14 @@ Wi-Fi setup needs no computer, separate setup app or setup account. After setup 
    `192.168.4.1`.
 4. Type the **setup code** from the label and tap **Continue**.
 5. Pick your home Wi-Fi from the list, type its password and tap **Join**.
-6. Wait about 20 seconds. The page and the gadget's screen show the result. When the screen
-   shows **Online**, setup is done.
+6. Wait about 20 seconds. The page confirms the connection. The gadget shows **Online** or
+   `Code XXXX-XXXX`. Wi-Fi setup is complete; claim it next if it shows a code.
 
-Connect your existing Grok Bot account to the operator’s gateway before using the gadget.
-Follow [Connect your Grok Bot](connect-grok-bot.md) first. Then ask Grok Bot, for example: "Show hello on my gadget."
+## Next: claim it in Grok Bot
+
+When the screen shows a code, follow [Claim your gadget](claim-your-gadget.md).
+You will connect Grok Bot to the relay and claim the gadget for your relay account.
+Then ask Grok Bot: "Show hello on my gadget."
 
 ## If something goes wrong
 
@@ -45,7 +49,9 @@ Follow [Connect your Grok Bot](connect-grok-bot.md) first. Then ask Grok Bot, fo
 ## Move to a new network
 
 Hold the gadget's **BOOT** button for 10 seconds. The screen counts down and the gadget forgets
-your Wi-Fi. It keeps everything else. It opens its setup Wi-Fi again: start from step 1.
+your Wi-Fi. It keeps its relay account owner. It opens its setup Wi-Fi again: start from step 1.
+
+To give it away, follow [Hand a gadget to someone](hand-a-gadget-to-someone.md). A BOOT reset alone does not transfer ownership.
 
 ## Privacy
 

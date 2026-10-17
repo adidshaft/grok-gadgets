@@ -32,8 +32,12 @@ On 14 October 2026 the owner joined the kit from an iPhone and an Android phone.
 Android Grok Bot calls remain untested. The owner's relay runs gateway `0.1.0a15` on device port 8443.
 New relays use port 8444 by default.
 
-**Phase 11:** each person claims a gadget with the code on its screen, and their Grok Bot sees only their gadgets.
+**Phase 11:** each relay account claims gadgets with their screen codes.
+Grok Bot sees gadgets the account owns or another account explicitly shares.
 On 17 October 2026 two people tested this on the owner's relay and kit, each with Grok Bot on their own iPhone. Claim, isolation, share and revoke, wrong and expired codes, a flood and a hand-over after a reset all passed ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md), [guide](../getting-started/claim-your-gadget.md)).
+
+A reset keeps account ownership. A transfer stays pending until the owner removes the gadget or the 7-day period ends without refusal.
+The automatic 7-day transfer has software-clock tests only; no physical relay has completed that wait yet.
 
 **Next:** Phase 12 adds a kit for builders.
 
@@ -57,7 +61,7 @@ A button event does not wake Grok Bot.
 - **Software:** tests, builds and local MCP calls. A device acknowledgement is the device's
   report, not proof of a physical effect.
 - **Grok Bot:** its cloud computer cannot reach your private LAN on its own. The owner's setup has two working routes. Approved local commands ran on the Mac (12 October). Native tool calls came from the desktop and phone apps through an owner-run HTTPS tunnel with sign-in (13 October). The gateway log recorded nine calls with the `grok-bot` sign-in, and the owner saw the text on the OLED ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/grok-remote-https-2026-10-13.md)). Mac-to-Pi SSH remains a conditional, untested route. See the [connection paths](../getting-started/hosting.md).
-- **Remote MCP:** `serve` listens on `127.0.0.1:8766/mcp`. With `--allowed-host` and `--oauth`, an owner-run tunnel gives Grok Bot an HTTPS endpoint, and the owner approves each sign-in on the gateway host. The project runs no public endpoint. A tunnel does not add authentication; the sign-in does. Button events do not wake the Bot.
+- **Remote MCP:** `serve` listens on `127.0.0.1:8766/mcp`. With `--allowed-host` and `--oauth`, an operator-run tunnel gives Grok Bot an HTTPS endpoint. Accounts mode accepts a gadget claim code at sign-in. Legacy operator approval happens on the gateway host. The project runs no public endpoint. A tunnel does not add authentication; the sign-in does. Button events do not wake the Bot.
 - **Hardware:** needs a person to observe the board. On 12 October 2026 the owner flashed the ESP32-S3 + OLED kit. They observed text, clear, the RGB light, the BOOT button, replug and gateway restart ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-2026-10-12.md)).
   The same day the kit ran over Wi-Fi from a USB charger. The owner observed boot, text, clear, BOOT, Wi-Fi loss and recovery, gateway restart, revocation, wrong-CA rejection and power cycle ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)).
 
