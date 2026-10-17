@@ -114,6 +114,16 @@ GROUPS = (
                         "docs/getting-started/firmware-licences.md",
                         "Firmware licence checklist",
                     ),
+                    (
+                        "",
+                        "docs/getting-started/ship-a-gadget.md",
+                        "Ship a gadget in one afternoon",
+                    ),
+                    (
+                        "",
+                        "docs/getting-started/capability-vocabulary.md",
+                        "Capability vocabulary",
+                    ),
                     ("", "docs/getting-started/simulator-kit.md", "Try the simulator"),
                 ),
             ),
@@ -141,6 +151,11 @@ GROUPS = (
                     ),
                     ("esp32-sdk", "docs/sdk.md", "Use the firmware library"),
                     ("esp32-sdk", "docs/updates.md", "Signed updates on the ESP32"),
+                    (
+                        "esp32-sdk",
+                        "docs/ship-a-gadget.md",
+                        "Build, flash and prepare a batch",
+                    ),
                     (
                         "esp32-sdk",
                         "docs/build-flash.md",
@@ -288,6 +303,11 @@ GROUPS = (
                         "",
                         "docs/decisions/012-signed-updates.md",
                         "Signed updates design (ADR 012)",
+                    ),
+                    (
+                        "",
+                        "docs/decisions/013-builder-kit.md",
+                        "Builder kit design (ADR 013)",
                     ),
                 ),
             ),

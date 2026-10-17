@@ -5,8 +5,8 @@ YD-ESP32-23 v1.3 board with an ESP32-S3-N16R8 module and one 1.3-inch SH1106
 OLED at I²C address `0x3C`. The owner passed USB and Wi-Fi acceptance with this
 kit. Your results are new evidence; do not assume your board will pass.
 
-Use the released [ESP32 SDK v0.2.0-alpha.17](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.17)
-and [gateway v0.1.0-alpha.16](https://github.com/adidshaft/grok-gadgets-gateway/releases/tag/v0.1.0-alpha.16).
+Use the released [ESP32 SDK v0.2.0-alpha.18](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.18)
+and [gateway v0.1.0-alpha.17](https://github.com/adidshaft/grok-gadgets-gateway/releases/tag/v0.1.0-alpha.17).
 Firmware binaries are not published. Build the firmware from source.
 For signed updates after setup, follow [Sign and ship an update](sign-and-ship-an-update.md).
 That guide adds your public signing key to the first image. Keep the private key off the relay.
@@ -21,9 +21,9 @@ working directory and return to that directory before gateway commands.
 
 ```sh
 python3 -m venv .venv-gateway
-.venv-gateway/bin/python -m pip install grok-gadgets-gateway==0.1.0a16
+.venv-gateway/bin/python -m pip install grok-gadgets-gateway==0.1.0a17
 .venv-gateway/bin/grok-gadgets-gateway --version
-git clone --branch v0.2.0-alpha.17 https://github.com/adidshaft/grok-gadgets-esp32-sdk.git
+git clone --branch v0.2.0-alpha.18 https://github.com/adidshaft/grok-gadgets-esp32-sdk.git
 cd grok-gadgets-esp32-sdk
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.lock
@@ -31,7 +31,7 @@ python3 -m venv .venv
 cd ..
 ```
 
-The `--version` command prints `grok-gadgets-gateway 0.1.0a16`. The first PlatformIO run
+The `--version` command prints `grok-gadgets-gateway 0.1.0a17`. The first PlatformIO run
 downloads the ESP32 toolchain, which takes several minutes.
 
 ## 1. Check the parts
@@ -70,13 +70,13 @@ In the ESP32 SDK checkout, build and flash the Wi-Fi build. Use
 ```
 
 For the first flash, hold BOOT while you connect the cable to **USB**, then release it.
-See the kit's [README](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/v0.2.0-alpha.17/examples/oled-kit/README.md)
+See the kit's [README](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/v0.2.0-alpha.18/examples/oled-kit/README.md)
 for the commands and status messages.
 Restart the board after you change any display wire. The firmware checks for the
 OLED at startup.
 
 For a USB run, start the gateway and its USB bridge by following the
-[gateway kit guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/v0.1.0-alpha.16/docs/experiment-kit.md).
+[gateway kit guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/v0.1.0-alpha.17/docs/experiment-kit.md).
 That source guide uses `uv run` in a contributor checkout; from this working
 directory use `.venv-gateway/bin/grok-gadgets-gateway` instead.
 Check a short `display.text` command, `display.clear`, the RGB light, a BOOT
@@ -87,7 +87,7 @@ physical effect.
 ## 3. Provision and check Wi-Fi
 
 For Wi-Fi, use the ESP32 SDK's `esp32s3-oled-kit-wifi` build. Follow the
-[Wi-Fi devices guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/v0.1.0-alpha.16/docs/wifi-devices.md)
+[Wi-Fi devices guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/v0.1.0-alpha.17/docs/wifi-devices.md)
 for the detailed command responses. Use the installed gateway path from this guide.
 Use the Mac's mDNS name, so the setup keeps working when the Mac's address changes. On
 macOS, `scutil --get LocalHostName` prints the name; add `.local`, in lower case. The
@@ -111,7 +111,7 @@ then a new address means a new certificate and provisioning the board again.
 6. Keep it running: stop `serve` (Ctrl-C), then run
    `.venv-gateway/bin/grok-gadgets-gateway service install --lan-listen my-mac.local`. The gateway
    now starts at every login, with no terminal. See
-   [Keep the gateway running](https://github.com/adidshaft/grok-gadgets-gateway/blob/v0.1.0-alpha.16/docs/always-on.md).
+   [Keep the gateway running](https://github.com/adidshaft/grok-gadgets-gateway/blob/v0.1.0-alpha.17/docs/always-on.md).
 
 Check `.venv-gateway/bin/grok-gadgets-gateway service status` after login. On the
 owner's Mac the board returned Online after about 90 seconds in one restart
