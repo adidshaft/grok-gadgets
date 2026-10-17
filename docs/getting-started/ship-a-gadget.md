@@ -48,8 +48,9 @@ grok-gadgets-gateway relay init --mcp-host gadgets.example.net \
 ```
 
 Follow `my-relay/NEXT-STEPS.md`: create the host with `cloud-init.yaml`, add a DNS-only record
-for the device name, and connect the tunnel for the Grok Bot name. Then run the preflight
-from your computer. Every line must start with `ok`:
+for the device name, and connect the tunnel for the Grok Bot name. Then connect your own
+Grok Bot and approve its sign-in on the host: this is your `operator` account. Run the
+preflight from your computer. Every line must start with `ok`:
 
 ```sh
 grok-gadgets-gateway relay-check devices.example.net --ca relay-ca.pem \
@@ -80,8 +81,24 @@ For ESP32 boards:
 4. For each board: `grok-gadgets-gateway factory-provision PORT --gateway devices.example.net
    --ca relay-ca.pem --batch batch-1`. Stick its printed label on it.
 
-For Linux gadgets: `enroll --count 3 --prefix lamp- --out batch-2 --no-labels`, then run each
-gadget with `--gateway devices.example.net --ca relay-ca.pem --token-file` and its token file.
+For Linux gadgets:
+
+1. On the relay host, run
+   `grok-gadgets-gateway enroll --count 3 --prefix lamp- --out batch-2 --no-labels`.
+   Copy the folder to your computer, privately.
+2. Run each gadget with its own ID and token file. `--device-id` replaces the ID in your
+   factory, so one factory serves the whole batch:
+
+   ```sh
+   grok-linux-agent --factory-file ./my_gadget.py --device-id lamp-01 \
+     --gateway devices.example.net --ca relay-ca.pem \
+     --token-file batch-2/tokens/lamp-01.token --retry-forever
+   ```
+
+3. A Linux gadget has no claim code. Give it to an account on the relay host: find the
+   account with `grok-gadgets-gateway accounts list`, then run
+   `grok-gadgets-gateway accounts assign lamp-01 ACCOUNT`. The account is yours (`operator`)
+   or that of a person who claimed another gadget.
 
 Detail: [Factory-provision and label a gadget](factory-provision.md) and the ESP32 SDK's
 [Ship a gadget](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/ship-a-gadget.md).
@@ -92,7 +109,8 @@ Detail: [Factory-provision and label a gadget](factory-provision.md) and the ESP
    [Set up your gadget with your phone](phone-setup.md).
 2. They add your relay in Grok Bot and claim the gadget with its code. A display shows the
    code; a gadget without one shows it on the setup page. See
-   [Claim your gadget](claim-your-gadget.md).
+   [Claim your gadget](claim-your-gadget.md). A Linux gadget comes to its account from you
+   (step 5).
 3. They ask Grok Bot to use it.
 4. You check every gadget on the relay host: `grok-gadgets-gateway builder report`.
 
