@@ -107,6 +107,7 @@ def steps(py):
                 "docs/getting-started/keep-up-to-date.md",
                 "docs/getting-started/sign-and-ship-an-update.md",
                 "docs/verification/ota-2026-10-17.md",
+                "docs/decisions/012-signed-updates.md",
                 "docs/contributing/ready-issues.md",
                 "docs/contributing/writing-guide.md",
             ],

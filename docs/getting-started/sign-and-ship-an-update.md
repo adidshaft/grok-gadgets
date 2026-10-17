@@ -81,8 +81,8 @@ A gadget never downloads a version it reverted, even if you assign it again.
 
 ## Limits
 
-- Anti-rollback is off. Any signed version other than the running one, and other than a
-  reverted one, is accepted.
+- Anti-rollback is off. The gadget accepts any signed version other than the running one
+  and other than a reverted one.
 - Secure boot and flash encryption are off on the kit. Anyone with the board and a cable can
   flash it. The signature protects the over-the-air path only.
 - A download that stops starts again from the beginning.
