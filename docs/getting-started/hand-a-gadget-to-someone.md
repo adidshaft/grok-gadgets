@@ -1,8 +1,7 @@
 # Hand a gadget to someone
 
-You can give your gadget to another person. A reset on the gadget alone never moves it to
-them: you agree on Grok Bot, or a 7-day wait passes. This stops a stranger who picks up your
-gadget from taking it.
+You can transfer your gadget to another relay account. A reset alone keeps your ownership.
+The new owner must request a transfer. It completes when you remove the gadget or after 7 days without refusal.
 
 **Status:** Phase 11 ([ADR 011](../decisions/011-accounts-and-claim-codes.md)). On 17 October 2026 the owner and a second person handed the kit over this way ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md)). The 7-day wait is tested in software only.
 
