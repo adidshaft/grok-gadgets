@@ -2,155 +2,155 @@
   {
     "repository": "grok-gadgets-esp32-sdk",
     "source": "README.md",
-    "commit": "418f095d786e403065480bfe7a2cbfc9b60745a6",
-    "sha256": "760e0bdeb904080a28bf2e151216012f14f35484555a682b511a4cf17f8d52b0",
+    "commit": "7993119dc2b722a359d7dbe4cab4c5c8467bf88d",
+    "sha256": "6ab3b0a400745a047481dfeabb847f7aef36e496c9569d7f2ffd8d9266248cb7",
     "snapshot": "docs/components/grok-gadgets-esp32-sdk-README.md"
   },
   {
     "repository": "grok-gadgets-esp32-sdk",
     "source": "docs/board-sources.md",
-    "commit": "418f095d786e403065480bfe7a2cbfc9b60745a6",
+    "commit": "7993119dc2b722a359d7dbe4cab4c5c8467bf88d",
     "sha256": "71c7e73f320a2e474a8f4956e04d5da9efd3b3343d7a682c867bc4319d95fc6b",
     "snapshot": "docs/components/grok-gadgets-esp32-sdk-board-sources.md"
   },
   {
     "repository": "grok-gadgets-esp32-sdk",
     "source": "docs/build-flash.md",
-    "commit": "418f095d786e403065480bfe7a2cbfc9b60745a6",
+    "commit": "7993119dc2b722a359d7dbe4cab4c5c8467bf88d",
     "sha256": "6101c09d6dc47c4688f5691420353ea24a6e2585907fdbca97e70dfa0b558ffa",
     "snapshot": "docs/components/grok-gadgets-esp32-sdk-build-flash.md"
   },
   {
     "repository": "grok-gadgets-esp32-sdk",
     "source": "docs/dependencies.md",
-    "commit": "418f095d786e403065480bfe7a2cbfc9b60745a6",
+    "commit": "7993119dc2b722a359d7dbe4cab4c5c8467bf88d",
     "sha256": "1f643eb22c98bd34b181e6b37d6d515ba4352b4119b2947f2d61aad23efa2f9d",
     "snapshot": "docs/components/grok-gadgets-esp32-sdk-dependencies.md"
   },
   {
     "repository": "grok-gadgets-esp32-sdk",
     "source": "docs/first-experiment.md",
-    "commit": "418f095d786e403065480bfe7a2cbfc9b60745a6",
+    "commit": "7993119dc2b722a359d7dbe4cab4c5c8467bf88d",
     "sha256": "37989f0a47c0b75c7c6fcde69d7ca062f043b9f8ccbc408a9a2c04c054a4a5da",
     "snapshot": "docs/components/grok-gadgets-esp32-sdk-first-experiment.md"
   },
   {
     "repository": "grok-gadgets-esp32-sdk",
     "source": "docs/protocol-recovery.md",
-    "commit": "418f095d786e403065480bfe7a2cbfc9b60745a6",
+    "commit": "7993119dc2b722a359d7dbe4cab4c5c8467bf88d",
     "sha256": "a20cd6961e2af44b957159e450af7bbf334c60813920ffdf930d030a9a053c5c",
     "snapshot": "docs/components/grok-gadgets-esp32-sdk-protocol-recovery.md"
   },
   {
     "repository": "grok-gadgets-esp32-sdk",
     "source": "docs/sdk.md",
-    "commit": "418f095d786e403065480bfe7a2cbfc9b60745a6",
-    "sha256": "259f124e913365c9d1d131467a07bd053f7900a231c3eb675e949b0bae3f8d7f",
+    "commit": "7993119dc2b722a359d7dbe4cab4c5c8467bf88d",
+    "sha256": "bc6475fb4640c0634d31f311434bc1c9ed647e5cd9c25ce38a49ecb7b1c4b694",
     "snapshot": "docs/components/grok-gadgets-esp32-sdk-sdk.md"
   },
   {
     "repository": "grok-gadgets-esp32-sdk",
     "source": "docs/verification.md",
-    "commit": "418f095d786e403065480bfe7a2cbfc9b60745a6",
+    "commit": "7993119dc2b722a359d7dbe4cab4c5c8467bf88d",
     "sha256": "c0a2786d4eda6ae0c7941335f415d345cebaa49499fe99fa3f30d48771108e59",
     "snapshot": "docs/components/grok-gadgets-esp32-sdk-verification.md"
   },
   {
     "repository": "grok-gadgets-gateway",
     "source": "README.md",
-    "commit": "34476911848c4b0d215ff6f4fdeb06faf6051618",
-    "sha256": "a4583e6b7b8aa53305e0f15793e429a096f47c48ee4da93da7bc6be4778fd208",
+    "commit": "a725a3039a066c2e770ed094b2a509b825581580",
+    "sha256": "f497b259035e1f098a5d6ad95acca8ab325f10a218c9126d92aafc9b114f310c",
     "snapshot": "docs/components/grok-gadgets-gateway-README.md"
   },
   {
     "repository": "grok-gadgets-gateway",
     "source": "docs/always-on.md",
-    "commit": "34476911848c4b0d215ff6f4fdeb06faf6051618",
+    "commit": "a725a3039a066c2e770ed094b2a509b825581580",
     "sha256": "8fffd76bd34e71909a42cb5bc4778327734fed802a33ebdbf9d6c9cf04587acc",
     "snapshot": "docs/components/grok-gadgets-gateway-always-on.md"
   },
   {
     "repository": "grok-gadgets-gateway",
     "source": "docs/architecture.md",
-    "commit": "34476911848c4b0d215ff6f4fdeb06faf6051618",
+    "commit": "a725a3039a066c2e770ed094b2a509b825581580",
     "sha256": "d3c55eec8fd509f3f6cedd86ac56f971bba3b4023231fda27c1b39975a391a31",
     "snapshot": "docs/components/grok-gadgets-gateway-architecture.md"
   },
   {
     "repository": "grok-gadgets-gateway",
     "source": "docs/daily-use.md",
-    "commit": "34476911848c4b0d215ff6f4fdeb06faf6051618",
+    "commit": "a725a3039a066c2e770ed094b2a509b825581580",
     "sha256": "1dcc77121872e9acb2477d139b02f3eba03884cfb7ab9641eec2c657caaac14d",
     "snapshot": "docs/components/grok-gadgets-gateway-daily-use.md"
   },
   {
     "repository": "grok-gadgets-gateway",
     "source": "docs/experiment-kit.md",
-    "commit": "34476911848c4b0d215ff6f4fdeb06faf6051618",
+    "commit": "a725a3039a066c2e770ed094b2a509b825581580",
     "sha256": "aedc5351a355599b69917cf1c50232d664558ec73f3a045cdf835e4719f0c4c2",
     "snapshot": "docs/components/grok-gadgets-gateway-experiment-kit.md"
   },
   {
     "repository": "grok-gadgets-gateway",
     "source": "docs/first-success.md",
-    "commit": "34476911848c4b0d215ff6f4fdeb06faf6051618",
+    "commit": "a725a3039a066c2e770ed094b2a509b825581580",
     "sha256": "9cd113d72fd05bab6f06e68fa13e342324380d403e892fc22f85f05427f5e94f",
     "snapshot": "docs/components/grok-gadgets-gateway-first-success.md"
   },
   {
     "repository": "grok-gadgets-gateway",
     "source": "docs/local-operation.md",
-    "commit": "34476911848c4b0d215ff6f4fdeb06faf6051618",
+    "commit": "a725a3039a066c2e770ed094b2a509b825581580",
     "sha256": "6ebe61b1d49bfb3789a6490d1ca04dc2caca1a4cfe4775636551dc0e24b935dd",
     "snapshot": "docs/components/grok-gadgets-gateway-local-operation.md"
   },
   {
     "repository": "grok-gadgets-gateway",
     "source": "docs/relay-host.md",
-    "commit": "34476911848c4b0d215ff6f4fdeb06faf6051618",
-    "sha256": "d4f15adf3a8b050581f51a29f4d7897aea499950dd89c33194ebc1ac9d55b691",
+    "commit": "a725a3039a066c2e770ed094b2a509b825581580",
+    "sha256": "0d98ed2ea48c880d7d38ba093a81e03dab20b4467a7cdd440e306fc9cdff5521",
     "snapshot": "docs/components/grok-gadgets-gateway-relay-host.md"
   },
   {
     "repository": "grok-gadgets-gateway",
     "source": "docs/release.md",
-    "commit": "34476911848c4b0d215ff6f4fdeb06faf6051618",
-    "sha256": "253d6e5c06bfbdcc9dd853cf821b999bac665c5022304cde169d80fc1aab8059",
+    "commit": "a725a3039a066c2e770ed094b2a509b825581580",
+    "sha256": "2f4f9264f31a5e6bfd75567e0756d25b1267f2bcc2e063a900b013ecbc05f30d",
     "snapshot": "docs/components/grok-gadgets-gateway-release.md"
   },
   {
     "repository": "grok-gadgets-gateway",
     "source": "docs/remote-access.md",
-    "commit": "34476911848c4b0d215ff6f4fdeb06faf6051618",
+    "commit": "a725a3039a066c2e770ed094b2a509b825581580",
     "sha256": "eef5391cd02d73ac47d450661f721def5359f49b8ecc05296f1691596a51233c",
     "snapshot": "docs/components/grok-gadgets-gateway-remote-access.md"
   },
   {
     "repository": "grok-gadgets-gateway",
     "source": "docs/simulator.md",
-    "commit": "34476911848c4b0d215ff6f4fdeb06faf6051618",
+    "commit": "a725a3039a066c2e770ed094b2a509b825581580",
     "sha256": "bc11d6286496f6399556a8ce94e3d611a3b2903ca155471a1e550f80969e30ab",
     "snapshot": "docs/components/grok-gadgets-gateway-simulator.md"
   },
   {
     "repository": "grok-gadgets-gateway",
     "source": "docs/tunnel.md",
-    "commit": "34476911848c4b0d215ff6f4fdeb06faf6051618",
+    "commit": "a725a3039a066c2e770ed094b2a509b825581580",
     "sha256": "7e61c3cc01b0b6ed4ee6e95c67994a99e773e73815681c08e1cd32e64ac8e19c",
     "snapshot": "docs/components/grok-gadgets-gateway-tunnel.md"
   },
   {
     "repository": "grok-gadgets-gateway",
     "source": "docs/usage.md",
-    "commit": "34476911848c4b0d215ff6f4fdeb06faf6051618",
+    "commit": "a725a3039a066c2e770ed094b2a509b825581580",
     "sha256": "2073c590bb775cdc012df4a21d8058f13bba4819a8ed341048ef4d251fde6507",
     "snapshot": "docs/components/grok-gadgets-gateway-usage.md"
   },
   {
     "repository": "grok-gadgets-gateway",
     "source": "docs/wifi-devices.md",
-    "commit": "34476911848c4b0d215ff6f4fdeb06faf6051618",
-    "sha256": "1e8c5d26a9bac8d346a75ba09a36cfd6da4f11353c140adddf2cb732852db676",
+    "commit": "a725a3039a066c2e770ed094b2a509b825581580",
+    "sha256": "f2a2727caf680264ebcbec44441227ba26bd056affe9cde7088483e8ad7361db",
     "snapshot": "docs/components/grok-gadgets-gateway-wifi-devices.md"
   },
   {
@@ -191,35 +191,35 @@
   {
     "repository": "grok-gadgets-linux-sdk",
     "source": "README.md",
-    "commit": "3d2cf7b24aa42e7cf5705642f2c5220f0b2a0a47",
-    "sha256": "8da7bbc695120a4edf3a6640afa40dcc18befc6f6da19a86ebdc5260b8dd3f44",
+    "commit": "336d89ea403ccbba98c16093ee8d53f53b7ef998",
+    "sha256": "09af3eb005ad28c2a308ea24c3c7ee421bd5bb6fcdb206b06c5df277445370b3",
     "snapshot": "docs/components/grok-gadgets-linux-sdk-README.md"
   },
   {
     "repository": "grok-gadgets-linux-sdk",
     "source": "docs/development.md",
-    "commit": "3d2cf7b24aa42e7cf5705642f2c5220f0b2a0a47",
+    "commit": "336d89ea403ccbba98c16093ee8d53f53b7ef998",
     "sha256": "bb57345756d4d925fe2970aa1e34e024a1ebd66ef1c78f77e88f6cca94f212c6",
     "snapshot": "docs/components/grok-gadgets-linux-sdk-development.md"
   },
   {
     "repository": "grok-gadgets-linux-sdk",
     "source": "docs/operation.md",
-    "commit": "3d2cf7b24aa42e7cf5705642f2c5220f0b2a0a47",
+    "commit": "336d89ea403ccbba98c16093ee8d53f53b7ef998",
     "sha256": "9de1510aed07bc09116b63158ffc8c4e28aba8b1ddf993f31955d611a5607193",
     "snapshot": "docs/components/grok-gadgets-linux-sdk-operation.md"
   },
   {
     "repository": "grok-gadgets-linux-sdk",
     "source": "docs/release.md",
-    "commit": "3d2cf7b24aa42e7cf5705642f2c5220f0b2a0a47",
+    "commit": "336d89ea403ccbba98c16093ee8d53f53b7ef998",
     "sha256": "9232957ddd6c6bb507e2c50819595db5a3d1dd61efbe2bd6ec1b487dca1a072e",
     "snapshot": "docs/components/grok-gadgets-linux-sdk-release.md"
   },
   {
     "repository": "grok-gadgets-linux-sdk",
     "source": "docs/verification.md",
-    "commit": "3d2cf7b24aa42e7cf5705642f2c5220f0b2a0a47",
+    "commit": "336d89ea403ccbba98c16093ee8d53f53b7ef998",
     "sha256": "297a0312388698417787ad2375580c71817710137874aabdf6c5e6c987311e58",
     "snapshot": "docs/components/grok-gadgets-linux-sdk-verification.md"
   }
