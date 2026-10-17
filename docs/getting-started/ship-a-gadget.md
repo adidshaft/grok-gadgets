@@ -3,9 +3,10 @@
 This guide is for builders. In one afternoon you set up your own relay, prepare a few gadgets
 and hand them to people who use Grok Bot. Each step links to the guide with the detail.
 
-**Status:** Phase 12a ([ADR 013](../decisions/013-builder-kit.md)). The clean-room run and the
-owner's dry run on a fresh host are in progress. Nobody outside the project has followed this
-guide yet ([#269](https://github.com/adidshaft/grok-gadgets/issues/269)).
+**Status:** Phase 12a ([ADR 013](../decisions/013-builder-kit.md)). A clean-room run and the
+owner's dry run on a fresh host passed ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/builder-kit-2026-10-17.md)).
+Nobody outside the project has followed this guide yet
+([#269](https://github.com/adidshaft/grok-gadgets/issues/269)).
 
 Read [Before you distribute a gadget](before-you-distribute.md) before you give or sell one.
 
@@ -79,7 +80,9 @@ For ESP32 boards:
    `grok-gadgets-gateway enroll --batch ids.csv --out batch-1`. Copy the folder to your
    computer, privately.
 4. For each board: `grok-gadgets-gateway factory-provision PORT --gateway devices.example.net
-   --ca relay-ca.pem --batch batch-1`. Stick its printed label on it.
+   --ca relay-ca.pem --batch batch-1`. Stick its printed label on it. A board that was
+   provisioned before needs `--replace`, and it keeps its old Wi-Fi: hold BOOT for 10 seconds
+   before you hand it over.
 
 For Linux gadgets:
 
