@@ -25,6 +25,7 @@ See [current support](public/support-matrix.md) for releases and limits.
 
 | Starting point | Guide |
 | --- | --- |
+| Your own relay and a batch of gadgets | [Ship a gadget in one afternoon](getting-started/ship-a-gadget.md) |
 | No hardware | [First success with the simulator](getting-started/first-success.md) |
 | The tested ESP32-S3 and OLED | [Build and repeat the kit](getting-started/repeat-the-kit.md) |
 | A Linux application | [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk#quickstart) |
@@ -38,7 +39,8 @@ Home Assistant operators can use the [read-only probe](https://github.com/adidsh
 ## Run a relay
 
 [Hosting](getting-started/hosting.md) explains who runs the gateway and how gadgets reach it.
-Follow [Run the gateway away from your Mac](getting-started/mac-free-route.md) for the relay route.
+Start with [Ship a gadget in one afternoon](getting-started/ship-a-gadget.md) for a new relay and a gadget batch.
+Use [Run the gateway away from your Mac](getting-started/mac-free-route.md) for the detailed relay procedure.
 Only relay operators send firmware updates, with the CLI. Grok Bot has no update tool.
 
 The [connection guide](getting-started/connect-grok-bot.md) covers the earlier Mac gateway route.
