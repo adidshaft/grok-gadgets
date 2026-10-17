@@ -1,7 +1,7 @@
 # Keep your gadget up to date
 
-Your gadget gets new firmware from the relay it connects to. You do not need a cable or a
-computer, and there is nothing to install.
+Your builder first installs firmware with their public signing key. See [Sign and ship an update](sign-and-ship-an-update.md).
+After that setup, your gadget gets new firmware from its relay. You do not need a cable or a computer.
 
 **Status:** Phase 12b ([ADR 012](../decisions/012-signed-updates.md)). On 17 October 2026 the
 owner's kit took signed updates this way ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md)). Nobody
@@ -35,4 +35,4 @@ your relay.
 ## Who sends updates
 
 Only the person who runs your relay can send an update. Only updates signed with the
-builder's key run on your gadget. You cannot start or refuse an update from Grok Bot yet.
+builder's key run on your gadget. The operator uses the relay CLI. Grok Bot has no update tool.
