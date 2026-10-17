@@ -14,7 +14,7 @@ On 13 October 2026 the owner's Grok Bot called the six tools itself from the Mac
 | Hub | `v0.1.16-alpha.1` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.16-alpha.1) |
 | Gateway | `v0.1.0-alpha.15` | [PyPI `0.1.0a15`](https://pypi.org/project/grok-gadgets-gateway/) |
 | ESP32 SDK | `v0.2.0-alpha.16` | [GitHub release](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.16) |
-| Linux SDK | `v0.1.0-alpha.7` | [GitHub release](https://github.com/adidshaft/grok-gadgets-linux-sdk/releases/tag/v0.1.0-alpha.7); PyPI still `0.1.0a6` |
+| Linux SDK | `v0.1.0-alpha.7` | [PyPI `0.1.0a7`](https://pypi.org/project/grok-gadgets-linux-sdk/) |
 | Home Assistant | `v0.1.0-alpha.5` | [PyPI `0.1.0a5`](https://pypi.org/project/grok-gadgets-home-assistant/) |
 
 ## Today, next, later
@@ -47,7 +47,7 @@ A button event does not wake Grok Bot.
 | Part | What works today | Not verified yet |
 | --- | --- | --- |
 | Gateway and simulated light | Six MCP tools over stdio or authenticated HTTP on `127.0.0.1`; `rehearse` first success; approved Grok Bot local commands; native Grok Bot calls from Mac and iPhone through an owner-run tunnel with OAuth sign-in, tested for one day behind a fixed hostname (gateway `0.1.0a12`); sign-in flood limits, log rotation and route status; usage summary and hook; simulator kit; private LAN TLS for Wi-Fi devices; optional per-user launchd/systemd service; an always-on Linux relay with iPhone calls while the Mac sleeps; accounts with claim codes, shares, names and hand-over, tested by two people (gateway `0.1.0a15`) | Android Grok Bot calls; a second day and a calibrated usage rate; Team Bots; Windows and Intel Mac installs |
-| Linux SDK | `0.1.0a7` (PyPI `0.1.0a6`) and `grok-linux-agent dev ./my_gadget.py` with the decorator API | Real peripherals, systemd on a physical Linux host, Raspberry Pi hardware |
+| Linux SDK | PyPI `0.1.0a7` and `grok-linux-agent dev ./my_gadget.py` with the decorator API | Real peripherals, systemd on a physical Linux host, Raspberry Pi hardware |
 | ESP32 SDK | Host tests, four firmware builds compile, simulated USB link to the gateway. The ESP32-S3 + OLED kit passed physical tests on the owner's board over USB ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-2026-10-12.md)) and over Wi-Fi from a USB charger ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)); phone setup passed on iPhone and Android ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md)); claim codes passed with two accounts ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md)) | Another person's reproduction; other boards and routers; Android Grok Bot calls |
 | Home Assistant probe | Read-only discovery against fixtures | A real Home Assistant home |
 | Browser playground | Local JavaScript model of the light | — (it never calls Grok Bot) |
