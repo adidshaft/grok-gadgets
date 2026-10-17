@@ -38,6 +38,6 @@ Each website build validates kit source/input freshness and acceptance before re
 
 To add a document, register it in `documents.json` and the navigation taxonomy. The build rejects missing or duplicate entries. Keep existing page URLs stable when moving a guide between sections.
 
-Each article has breadcrumbs, a local navigation menu, a heading list and previous/next links within its subgroup. Native disclosure controls work without JavaScript. `docs.js` collapses the outer menu on narrow screens. The active subgroup stays open.
+Each article has breadcrumbs, a local navigation menu, a collapsed heading list and previous/next links within its subgroup. Native disclosure controls work without JavaScript. `docs.js` collapses the outer menu on narrow screens. The active subgroup stays open.
 
 Run `.venv/bin/python -m unittest discover -s website -p 'test_*.py'`, build the site, and inspect desktop, narrow-screen and keyboard navigation before publishing a navigation change.
