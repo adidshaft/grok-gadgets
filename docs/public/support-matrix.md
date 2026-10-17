@@ -11,7 +11,7 @@ On 13 October 2026 the owner's Grok Bot called the six tools itself from the Mac
 
 | Component | Release | Package |
 | --- | --- | --- |
-| Hub | `v0.1.16-alpha.1` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.16-alpha.1) |
+| Hub | `v0.1.16-alpha.2` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.16-alpha.2) |
 | Gateway | `v0.1.0-alpha.15` | [PyPI `0.1.0a15`](https://pypi.org/project/grok-gadgets-gateway/) |
 | ESP32 SDK | `v0.2.0-alpha.16` | [GitHub release](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.16) |
 | Linux SDK | `v0.1.0-alpha.7` | [PyPI `0.1.0a7`](https://pypi.org/project/grok-gadgets-linux-sdk/) |

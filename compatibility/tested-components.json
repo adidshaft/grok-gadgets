@@ -1,14 +1,14 @@
 {
-  "status": "Public source prerelease and website live; v0.1.16-alpha.1 release candidate verified",
+  "status": "Public source prerelease and website live; v0.1.16-alpha.2 release candidate verified",
   "protocol": "0.1.0",
   "components": [
     {
       "repository": "grok-gadgets",
       "path": "grok-gadgets",
-      "version": "0.1.16-alpha.1",
-      "commit": "ccf48d5de3c64f7c5e3a8aeecbd56111bf55dc17",
+      "version": "0.1.16-alpha.2",
+      "commit": "0eb69edb40ed579464d708bbfb88ea247a7f6fc4",
       "evidence_level": "Public source prerelease; OLED kit verified over USB, Wi-Fi, an always-on relay, phone-only setup and two-account claim; native Grok Bot calls observed on the owner's setup",
-      "checks": "The v0.1.16-alpha.1 candidate adds Phase 11: ADR 011 accepted, the two-account claim record (docs/verification/claim-2026-10-17.md), the guides Claim your gadget and Hand a gadget to someone, and the Today, next, later update. Component pins: gateway v0.1.0-alpha.15, ESP32 SDK v0.2.0-alpha.16, Linux SDK v0.1.0-alpha.7 and Home Assistant v0.1.0-alpha.5. On 17 October 2026 two people, each with Grok Bot on their own iPhone, passed every Phase 11 item on the owner's relay (gateway 0.1.0a15 candidates, then the release) and kit. Independent reproduction remains open.",
+      "checks": "The v0.1.16-alpha.2 candidate lists the owner's STOP-gate approvals in the claim record and links Linux SDK 0.1.0a7 on PyPI. v0.1.16-alpha.1 added Phase 11: ADR 011 accepted, the two-account claim record (docs/verification/claim-2026-10-17.md), the guides Claim your gadget and Hand a gadget to someone, and the Today, next, later update. Component pins: gateway v0.1.0-alpha.15, ESP32 SDK v0.2.0-alpha.16, Linux SDK v0.1.0-alpha.7 and Home Assistant v0.1.0-alpha.5. On 17 October 2026 two people, each with Grok Bot on their own iPhone, passed every Phase 11 item on the owner's relay (gateway 0.1.0a15 candidates, then the release) and kit. Independent reproduction remains open.",
       "grok_verified": true,
       "hardware_verified": false,
       "independently_reproduced": false,
