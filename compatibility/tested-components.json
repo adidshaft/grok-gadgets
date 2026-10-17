@@ -1,14 +1,14 @@
 {
-  "status": "Public source prerelease and website live; v0.1.16-alpha.2 release candidate verified",
+  "status": "Public source prerelease and website live; v0.1.17-alpha.1 release candidate verified",
   "protocol": "0.1.0",
   "components": [
     {
       "repository": "grok-gadgets",
       "path": "grok-gadgets",
-      "version": "0.1.16-alpha.2",
-      "commit": "0eb69edb40ed579464d708bbfb88ea247a7f6fc4",
-      "evidence_level": "Public source prerelease; OLED kit verified over USB, Wi-Fi, an always-on relay, phone-only setup and two-account claim; native Grok Bot calls observed on the owner's setup",
-      "checks": "The v0.1.16-alpha.2 candidate lists the owner's STOP-gate approvals in the claim record and links Linux SDK 0.1.0a7 on PyPI. v0.1.16-alpha.1 added Phase 11: ADR 011 accepted, the two-account claim record (docs/verification/claim-2026-10-17.md), the guides Claim your gadget and Hand a gadget to someone, and the Today, next, later update. Component pins: gateway v0.1.0-alpha.15, ESP32 SDK v0.2.0-alpha.16, Linux SDK v0.1.0-alpha.7 and Home Assistant v0.1.0-alpha.5. On 17 October 2026 two people, each with Grok Bot on their own iPhone, passed every Phase 11 item on the owner's relay (gateway 0.1.0a15 candidates, then the release) and kit. Independent reproduction remains open.",
+      "version": "0.1.17-alpha.1",
+      "commit": "be3c098e4ba78ea324bf54c0471c60d0e9ef5558",
+      "evidence_level": "Public source prerelease; OLED kit verified over USB, Wi-Fi, an always-on relay, phone-only setup, two-account claim and signed updates over the relay; native Grok Bot calls observed on the owner's setup",
+      "checks": "The v0.1.17-alpha.1 candidate adds Phase 12b: ADR 012 accepted, the update record (docs/verification/ota-2026-10-17.md), the guides Keep your gadget up to date, Sign and ship an update, Before you distribute a gadget and the firmware licence checklist, and the Today, next, later update. It also carries the phone-setup-to-claim guide (#338). Component pins: gateway v0.1.0-alpha.16, ESP32 SDK v0.2.0-alpha.17, Linux SDK v0.1.0-alpha.8 and Home Assistant v0.1.0-alpha.5. On 17 October 2026 the owner's kit took signed updates from the owner's relay with no cable, refused a wrong key and a changed byte, reverted an image that never came Online, recovered from a power cut and showed text from Grok Bot afterwards. Independent reproduction remains open.",
       "grok_verified": true,
       "hardware_verified": false,
       "independently_reproduced": false,
@@ -17,10 +17,10 @@
     {
       "repository": "grok-gadgets-gateway",
       "path": "grok-gadgets-gateway",
-      "version": "0.1.0-alpha.15",
-      "commit": "a725a3039a066c2e770ed094b2a509b825581580",
-      "evidence_level": "Simulated; relay with accounts used by two people and one physical kit; native Grok Bot calls through serve --oauth observed on the owner's setup",
-      "checks": "376 tests (Python 3.11 to 3.14), Ruff, the first-success path, rehearse --accounts and the release workflow's fresh-download SHA256SUMS check passed; PyPI 0.1.0a15 matches SHA256SUMS. Adds accounts mode with claim codes, hashed device tokens, tools scoped by account with claim, remove, share and names, transfer with a 7-day grace period, and two sign-in fixes from the acceptance. On 17 October 2026 the owner's relay migrated to accounts mode with the owner's sign-in and kit unchanged, and two people passed the claim acceptance (hub docs/verification/claim-2026-10-17.md). The relay now runs 0.1.0a15 on port 8443.",
+      "version": "0.1.0-alpha.16",
+      "commit": "547f91fbf85b0f73dc2fd94668f8e7ecc880e34c",
+      "evidence_level": "Simulated; relay with accounts and signed updates used by one physical kit; native Grok Bot calls through serve --oauth observed on the owner's setup",
+      "checks": "404 tests (Python 3.11 to 3.14), Ruff, the first-success path, rehearse --update and the release workflow's fresh-download SHA256SUMS check passed; PyPI 0.1.0a16 matches SHA256SUMS. Adds signed firmware updates: firmware keygen, sign, add, assign, status, list and remove; opt-in offers, 1,024-byte chunks and status reports over the device connection; update_* log lines. On 17 October 2026 the owner's relay ran the 0.1.0a16 candidate for the Phase 12b acceptance (hub docs/verification/ota-2026-10-17.md) and now runs the release on port 8443.",
       "grok_verified": true,
       "hardware_verified": false,
       "independently_reproduced": false,
@@ -29,10 +29,10 @@
     {
       "repository": "grok-gadgets-linux-sdk",
       "path": "grok-gadgets-linux-sdk",
-      "version": "0.1.0-alpha.7",
-      "commit": "336d89ea403ccbba98c16093ee8d53f53b7ef998",
+      "version": "0.1.0-alpha.8",
+      "commit": "04a0079fde627d171b4588ab185f0e922646f384",
       "evidence_level": "Simulated; macOS gateway integration verified",
-      "checks": "55 tests passed, including the gateway integration tests against gateway dev with the claim fields; Ruff, package builds and the release workflow's SHA256SUMS check passed. Alpha.7 only re-pins protocol 0.1.0 with the optional claim fields; the agent does not send them. The gateway extra still pins gateway v0.1.0-alpha.10. No fresh Linux container, systemd or Raspberry Pi run in this release.",
+      "checks": "55 tests passed, including the gateway integration tests and the protocol pin comparison against gateway 0.1.0-alpha.16; Ruff, package builds and the release workflow's SHA256SUMS check passed. Alpha.8 re-pins protocol 0.1.0 with the optional update frames, which the agent does not use, and pins the gateway extra to 0.1.0a16 from PyPI. No fresh Linux container, systemd or Raspberry Pi run in this release.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
@@ -41,10 +41,10 @@
     {
       "repository": "grok-gadgets-esp32-sdk",
       "path": "grok-gadgets-esp32-sdk",
-      "version": "0.2.0-alpha.16",
-      "commit": "7993119dc2b722a359d7dbe4cab4c5c8467bf88d",
-      "evidence_level": "Host simulated; four firmware builds compiled; OLED kit physically accepted on one board over USB and Wi-Fi",
-      "checks": "Host CTest suites (13/13, including claim), the contract check and four firmware builds passed. Alpha.16 adds opt-in claim codes: the OLED Wi-Fi build shows Code XXXX-XXXX while unclaimed (RAM 108,108 B, flash 933,393 B). On 17 October 2026 the owner's kit on this firmware was claimed by a second person's Grok Bot with its code and showed a transfer code after a BOOT reset and a phone re-join (hub docs/verification/claim-2026-10-17.md).",
+      "version": "0.2.0-alpha.17",
+      "commit": "ad63698862f6ef14af091383a3b8c915f2923c6a",
+      "evidence_level": "Host simulated; five firmware builds compiled; OLED kit physically accepted on one board over USB, Wi-Fi and signed updates over the relay",
+      "checks": "Host CTest suites (14/14, including update tests with real ECDSA and SHA-256 against the gateway fixture), the contract check and five firmware builds passed. Alpha.17 adds signed updates with automatic revert (GrokUpdate.h, GrokUpdateEsp.h); the OLED Wi-Fi build with a key uses static RAM 109,252 B and about 944 KB of flash. On 17 October 2026 the owner's kit on this firmware passed every Phase 12b item (hub docs/verification/ota-2026-10-17.md). No firmware binary is published.",
       "grok_verified": false,
       "hardware_verified": true,
       "independently_reproduced": false,
@@ -78,7 +78,7 @@
     "build_command": ".venv/bin/pio run -e atoms3-lite-usb",
     "toolchain": {
       "platformio_core": "PlatformIO Core, version 6.1.18",
-      "resolved_packages": "Resolving atoms3-lite-usb dependencies...\nPlatform espressif32 @ 6.10.0 (required: espressif32 @ 6.10.0)\n\u251c\u2500\u2500 framework-arduinoespressif32 @ 3.20017.0 (required: platformio/framework-arduinoespressif32 @ 3.20017.0)\n\u251c\u2500\u2500 tool-esptoolpy @ 1.40501.0 (required: platformio/tool-esptoolpy @ 1.40501.0)\n\u251c\u2500\u2500 tool-scons @ 4.40801.0 (required: platformio/tool-scons @ 4.40801.0)\n\u251c\u2500\u2500 toolchain-riscv32-esp @ 8.4.0+2021r2-patch5 (required: espressif/toolchain-riscv32-esp @ 8.4.0+2021r2-patch5)\n\u2514\u2500\u2500 toolchain-xtensa-esp32s3 @ 8.4.0+2021r2-patch5 (required: espressif/toolchain-xtensa-esp32s3 @ 8.4.0+2021r2-patch5)\n\nLibraries\n\u251c\u2500\u2500 Adafruit NeoPixel @ 1.12.3 (required: adafruit/Adafruit NeoPixel @ 1.12.3)\n\u2514\u2500\u2500 ArduinoJson @ 6.21.5 (required: bblanchon/ArduinoJson @ 6.21.5)"
+      "resolved_packages": "Resolving atoms3-lite-usb dependencies...\nPlatform espressif32 @ 6.10.0 (required: espressif32 @ 6.10.0)\n├── framework-arduinoespressif32 @ 3.20017.0 (required: platformio/framework-arduinoespressif32 @ 3.20017.0)\n├── tool-esptoolpy @ 1.40501.0 (required: platformio/tool-esptoolpy @ 1.40501.0)\n├── tool-scons @ 4.40801.0 (required: platformio/tool-scons @ 4.40801.0)\n├── toolchain-riscv32-esp @ 8.4.0+2021r2-patch5 (required: espressif/toolchain-riscv32-esp @ 8.4.0+2021r2-patch5)\n└── toolchain-xtensa-esp32s3 @ 8.4.0+2021r2-patch5 (required: espressif/toolchain-xtensa-esp32s3 @ 8.4.0+2021r2-patch5)\n\nLibraries\n├── Adafruit NeoPixel @ 1.12.3 (required: adafruit/Adafruit NeoPixel @ 1.12.3)\n└── ArduinoJson @ 6.21.5 (required: bblanchon/ArduinoJson @ 6.21.5)"
     },
     "files": {
       "firmware.bin": {

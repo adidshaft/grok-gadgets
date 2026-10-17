@@ -140,6 +140,7 @@ GROUPS = (
                         "Rehearse the OLED experiment",
                     ),
                     ("esp32-sdk", "docs/sdk.md", "Use the firmware library"),
+                    ("esp32-sdk", "docs/updates.md", "Signed updates on the ESP32"),
                     (
                         "esp32-sdk",
                         "docs/build-flash.md",
@@ -181,6 +182,7 @@ GROUPS = (
                         "Repeat the tested OLED kit checks",
                     ),
                     ("gateway", "docs/simulator.md", "Use the gateway simulator"),
+                    ("gateway", "docs/updates.md", "Sign and send firmware updates"),
                     ("gateway", "docs/architecture.md", "Gateway architecture"),
                 ),
             ),
