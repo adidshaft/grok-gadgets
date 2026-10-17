@@ -102,6 +102,8 @@ def steps(py):
                 "docs/getting-started/claim-your-gadget.md",
                 "docs/getting-started/hand-a-gadget-to-someone.md",
                 "docs/getting-started/physical-test.md",
+                "docs/getting-started/before-you-distribute.md",
+                "docs/getting-started/firmware-licences.md",
                 "docs/contributing/ready-issues.md",
                 "docs/contributing/writing-guide.md",
             ],
