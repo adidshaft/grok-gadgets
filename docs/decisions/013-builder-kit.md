@@ -55,7 +55,7 @@ The tunnel credentials stay out of every generated file, because a cloud provide
 
 - `IDS` is a CSV with a `device_id` column. For ESP32 boards, the builder reads each ID from the board. `factory-provision --read-id PORT` prints it. For Linux gadgets, `--count N --prefix lamp-` makes the IDs.
 - For each device: a token, written once to `DIR/tokens/ID.token` (mode 0600). The relay keeps only its hash. Tokens never reach the terminal or a log.
-- For each device: a label with a passphrase and a setup code. The label store keeps it, and `DIR/labels/` gets a text, QR PNG and printable SVG copy. Plus one `labels.pdf` page for printing all labels at once.
+- For each device: a label with a passphrase and a setup code. The label store keeps it, and `DIR/labels/` gets a text, QR PNG and printable SVG copy. Plus one `labels/print.html` page that prints all labels at once.
 - `DIR/batch.csv`: device ID, hotspot name, label files, `provisioned` (yes or no). No secrets.
 - `factory-provision PORT --batch DIR` reads the board's ID, finds its row, sends that token and label, and marks the row after the board confirms. It then deletes the token file.
 - The batch directory holds secrets until `factory-provision` has used every row. The guide says so, and tells the builder to keep it off shared drives and chats.
