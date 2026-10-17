@@ -205,6 +205,8 @@ body.donation-is-open{overflow:hidden;}
 .doc-breadcrumbs a { text-decoration:none; }
 .docs-content .document h1 { font-size:clamp(32px,4vw,48px); margin:22px 0 28px; }
 .docs-content .document p { max-width:68ch; }
+.docs-content .document p:has(>img) { max-width:none; }
+.docs-content .document p>img { display:block; width:100%; height:auto; }
 .doc-toc { border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:14px 0; margin:0 0 30px; font-size:14px; }
 .doc-toc summary { cursor:pointer; font-weight:500; }
 .doc-toc ul { list-style:none; padding:10px 0 0; margin:0; }

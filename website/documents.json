@@ -187,6 +187,18 @@
       "source": "docs/visuals/esp32-s3-oled-display.jpg",
       "output": "media/diagrams/esp32-s3-oled-display.jpg",
       "sha256": "bda905fff8fc1f6787ec7bfb88b752ee393d0978ac98c125a93cb981e9ba9ec2"
+    },
+    {
+      "repository": "grok-gadgets",
+      "source": "docs/visuals/relay-route-concept.png",
+      "output": "media/diagrams/relay-route-concept.png",
+      "sha256": "5fe649f8b9488c022049a4447548413d7324babe470694dfb4198cf5cd4ac66b"
+    },
+    {
+      "repository": "grok-gadgets",
+      "source": "docs/visuals/builder-steps-concept.png",
+      "output": "media/diagrams/builder-steps-concept.png",
+      "sha256": "32c42742dc85aa39467b5c60f389e8ef6b677fa3facb2a7a1c4af821a83b5e24"
     }
   ],
   "hub_references": [

@@ -1,14 +1,24 @@
 # Ship a gadget in one afternoon
 
-This guide is for builders. In one afternoon you set up your own relay, prepare a few gadgets
-and hand them to people who use Grok Bot. Each step links to the guide with the detail.
+Use this guide to set up your relay, prepare gadgets, and hand them to people who use Grok Bot.
+Each step links to the guide with the detail.
 
-**Status:** Phase 12a ([ADR 013](../decisions/013-builder-kit.md)). A clean-room run and the
-owner's dry run on a fresh host passed ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/builder-kit-2026-10-17.md)).
-Nobody outside the project has followed this guide yet
-([#269](https://github.com/adidshaft/grok-gadgets/issues/269)).
+**Tested with the owner's OLED kit and two Linux gadgets.** A builder outside the project has not repeated this guide yet.
+
+| Evidence | What passed |
+| --- | --- |
+| Clean-room software run | Relay setup, Linux batch, scripted sign-in, account checks and update rehearsals. |
+| Owner hardware run | Fresh relay, phone setup, screen-code claim, Grok Bot display command and signed firmware update. |
+| Outside builder | Still open: [report a repeat run in #269](https://github.com/adidshaft/grok-gadgets/issues/269). |
+
+See the [dated results](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/builder-kit-2026-10-17.md) and [builder decision](../decisions/013-builder-kit.md).
 
 Read [Before you distribute a gadget](before-you-distribute.md) before you give or sell one.
+
+![Four conceptual stages: build and test, run your relay, prepare gadgets, then set up by phone.](../visuals/builder-steps-concept.png)
+
+Conceptual sequence, not photographs of tested hardware.
+Build and test your application, run a relay, prepare each gadget, then help its owner set up and claim it.
 
 ## What you need
 
@@ -18,30 +28,32 @@ Read [Before you distribute a gadget](before-you-distribute.md) before you give 
 - ESP32-S3 boards with your parts, a USB data cable, or Linux machines for Linux gadgets.
 - Grok Bot on your phone or desktop.
 
-Install the gateway on your computer: `uv tool install grok-gadgets-gateway`.
+Install the tested gateway on your computer: `uv tool install grok-gadgets-gateway==0.1.0a17`.
+For Linux gadgets, use Linux SDK `0.1.0a9`. For ESP32 boards, use ESP32 SDK `v0.2.0-alpha.18`.
+See [current releases](../public/support-matrix.md#current-releases) before you choose another version.
 
-## 1. Start from the template (15 minutes)
+## 1. Choose a template
 
 - **ESP32:** copy `examples/template` from the
   [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk). The climate sensor, the
-  switch and the servo examples show more patterns.
+  switch and the servo examples show more patterns. These examples compile and pass host tests; hardware checks remain open.
 - **Linux:** start from the decorator example in the Linux SDK's
   [development guide](https://github.com/adidshaft/grok-gadgets-linux-sdk/blob/main/docs/development.md).
 
 Name your commands and events from the [capability vocabulary](capability-vocabulary.md).
 Write one clear sentence for each: Grok Bot reads it.
 
-## 2. Try it with no hardware (15 minutes)
+## 2. Test without hardware
 
 ```sh
 grok-gadgets-gateway serve --simulator      # in one terminal
 grok-gadgets-gateway rehearse               # in another
 ```
 
-`rehearse` calls the tools exactly as Grok Bot will. A Linux gadget runs on your computer
+`rehearse` calls the gateway tools with a local client. This is software evidence; it does not verify Grok Bot. A Linux gadget runs on your computer
 with `grok-linux-agent dev ./my_gadget.py`.
 
-## 3. Set up your relay (about an hour)
+## 3. Set up your relay
 
 ```sh
 grok-gadgets-gateway relay init --mcp-host gadgets.example.net \
@@ -61,7 +73,7 @@ grok-gadgets-gateway relay-check devices.example.net --ca relay-ca.pem \
 Detail: [Run the gateway away from your Mac](mac-free-route.md) and the gateway's
 [relay host guide](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/docs/relay-host.md).
 
-## 4. Make your signing key (5 minutes, once)
+## 4. Create your signing key
 
 ```sh
 grok-gadgets-gateway firmware keygen --out ~/grok-gadgets-keys/builder.key
@@ -70,7 +82,7 @@ grok-gadgets-gateway firmware keygen --out ~/grok-gadgets-keys/builder.key
 Back up the private key offline. Build every ESP32 image with the public key, so you can send
 fixes later without a cable. Detail: [Sign and ship an update](sign-and-ship-an-update.md).
 
-## 5. Prepare a batch (about 10 minutes a gadget)
+## 5. Prepare a batch
 
 For ESP32 boards:
 
@@ -106,7 +118,7 @@ For Linux gadgets:
 Detail: [Factory-provision and label a gadget](factory-provision.md) and the ESP32 SDK's
 [Ship a gadget](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/ship-a-gadget.md).
 
-## 6. Hand over and check (10 minutes a person)
+## 6. Hand over and check
 
 1. The person joins the gadget to home Wi-Fi with a phone and the label:
    [Set up your gadget with your phone](phone-setup.md).
