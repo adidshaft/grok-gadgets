@@ -2,7 +2,7 @@
 
 **Date:** 17 October 2026
 
-**Status:** Proposed. The owner took the three decisions on 17 October 2026 (below). Acceptance follows the Phase 11 record.
+**Status:** Accepted on 17 October 2026 with the Phase 11 [record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md): two people, each with Grok Bot on their own iPhone, passed every acceptance item on the owner's relay and kit. The owner took the three decisions on 17 October 2026 (below). The acceptance changed three details; see [Amendments](#amendments-17-october-2026).
 
 **Owner:** Grok Gadgets hub (`adidshaft/grok-gadgets`)
 
@@ -179,6 +179,15 @@ Gateway tests for every item above, with two accounts in `rehearse`. Then, on th
 - B does a BOOT reset and a phone re-join. A claims it: pending until B unclaims. Then A shows text.
 
 The record goes to `docs/verification/claim-2026-10-DD.md` with gateway log lines and the owners' observations.
+
+## Amendments (17 October 2026)
+
+Found in the acceptance and changed before release:
+
+1. **The sign-in page redirects at once.** A right code answers with the same redirect as the operator's approval. A page that showed the recovery code and a link never finished the sign-in on a phone. The page also sends no `form-action` policy: browsers apply it to that redirect and stopped it (gateway #197, #199).
+2. **The recovery code comes from Grok Bot.** `gadgets_share action=recovery_code` makes a new one and retires the old one; Grok Bot is told to offer it once after the first claim. Decision 3 stands otherwise.
+3. **Names and rooms.** At the owner's request, `gadgets_name` gives a gadget a plain name and a room for one account; every tool accepts the name, and the list adds a one-line summary. Names are private to the account and go when the gadget changes hands (gateway #203).
+4. **A pending transfer answers `transfer_pending`**, with its own message, instead of the share's `not_allowed`.
 
 ## Not in scope
 
