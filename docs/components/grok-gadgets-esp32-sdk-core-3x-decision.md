@@ -1,4 +1,4 @@
-Source: grok-gadgets-esp32-sdk/docs/core-3x-decision.md at ad63698862f6ef14af091383a3b8c915f2923c6a
+Source: grok-gadgets-esp32-sdk/docs/core-3x-decision.md at 253e753f11b3b73a0847aff5708144d5b5f13c2f
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 

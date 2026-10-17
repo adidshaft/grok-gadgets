@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/release.md at 547f91fbf85b0f73dc2fd94668f8e7ecc880e34c
+Source: grok-gadgets-gateway/docs/release.md at 407d165877505689dc438a2af514651fe268777e
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -65,3 +65,4 @@ The Wi-Fi kit needs a running gateway. From 0.1.0-alpha.13 that can be an always
 From 0.1.0-alpha.14, `factory-provision` prepares a gadget so a person joins it to Wi-Fi from a phone alone; the owner's kit passed this on 14 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/dev/docs/verification/phone-setup-2026-10-14.md)).
 From 0.1.0-alpha.15, `serve --oauth --accounts` lets each person claim a gadget with the code on its screen and see only their own gadgets; two people passed this on the owner's relay on 17 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/dev/docs/verification/claim-2026-10-17.md)).
 From 0.1.0-alpha.16, the relay sends signed firmware updates to gadgets that ask for them (`firmware sign`, `add`, `assign`, `status`); the owner's kit passed this on 17 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/dev/docs/verification/ota-2026-10-17.md)).
+From 0.1.0-alpha.17, `relay init`, `relay-check --mcp`, `enroll --batch`/`--count` and `builder report` help a builder set up a relay and ship gadgets; a clean-room run and the owner's dry run on a fresh host passed on 17 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/dev/docs/verification/builder-kit-2026-10-17.md)).
