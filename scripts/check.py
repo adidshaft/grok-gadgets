@@ -99,6 +99,8 @@ def steps(py):
                 "docs/getting-started/hosting.md",
                 "docs/getting-started/mac-free-route.md",
                 "docs/getting-started/how-it-works.md",
+                "docs/getting-started/claim-your-gadget.md",
+                "docs/getting-started/hand-a-gadget-to-someone.md",
                 "docs/getting-started/physical-test.md",
                 "docs/contributing/ready-issues.md",
                 "docs/contributing/writing-guide.md",

@@ -34,6 +34,16 @@ GROUPS = (
                         "docs/getting-started/phone-setup.md",
                         "Set up your gadget with your phone",
                     ),
+                    (
+                        "",
+                        "docs/getting-started/claim-your-gadget.md",
+                        "Claim your gadget",
+                    ),
+                    (
+                        "",
+                        "docs/getting-started/hand-a-gadget-to-someone.md",
+                        "Hand a gadget to someone",
+                    ),
                     ("", "docs/getting-started/how-it-works.md", "How it works"),
                     (
                         "",
