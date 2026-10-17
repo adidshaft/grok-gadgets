@@ -41,7 +41,7 @@ The automatic 7-day transfer has software-clock tests only; no physical relay ha
 
 **Phase 12b:** the relay sends signed firmware updates to a gadget with no cable.
 The gadget refuses an image signed with another key or changed on the way. An image that does not come Online within 5 minutes reverts by itself.
-On 17 October 2026 the owner's kit passed each of these checks, and recovered from a power cut during a download ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md), [guide](../getting-started/sign-and-ship-an-update.md)). Grok Bot showing text after an update is not tested yet.
+On 17 October 2026 the owner's kit passed each of these checks and recovered from a power cut during a download. Grok Bot then showed text on the updated kit ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md), [guide](../getting-started/sign-and-ship-an-update.md)).
 Builders also get [Before you distribute a gadget](../getting-started/before-you-distribute.md) and a [firmware licence checklist](../getting-started/firmware-licences.md). Both are not legal advice.
 
 **Next:** Phase 12 adds a kit for builders.

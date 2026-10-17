@@ -2,7 +2,7 @@
 
 **Date:** 17 October 2026
 
-**Status:** Accepted on 17 October 2026 with the Phase 12b [record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md): the owner's kit took signed updates over the relay with no cable, refused a wrong key and a changed byte, reverted an image that never came Online, and recovered from a power cut during a download. Grok Bot showing text after an update is not tested yet (gateway [#211](https://github.com/adidshaft/grok-gadgets-gateway/issues/211)). The owner took decisions 1–5 on 17 October 2026 (below).
+**Status:** Accepted on 17 October 2026 with the Phase 12b [record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md): the owner's kit took signed updates over the relay with no cable, refused a wrong key and a changed byte, reverted an image that never came Online, and recovered from a power cut during a download., and Grok Bot showed text on the updated kit. The owner took decisions 1–5 on 17 October 2026 (below).
 
 **Owner:** Grok Gadgets hub (`adidshaft/grok-gadgets`)
 
