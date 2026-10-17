@@ -44,6 +44,11 @@ GROUPS = (
                         "docs/getting-started/hand-a-gadget-to-someone.md",
                         "Hand a gadget to someone",
                     ),
+                    (
+                        "",
+                        "docs/getting-started/keep-up-to-date.md",
+                        "Keep your gadget up to date",
+                    ),
                     ("", "docs/getting-started/how-it-works.md", "How it works"),
                     (
                         "",
@@ -93,6 +98,11 @@ GROUPS = (
                         "",
                         "docs/getting-started/factory-provision.md",
                         "Factory-provision and label a gadget",
+                    ),
+                    (
+                        "",
+                        "docs/getting-started/sign-and-ship-an-update.md",
+                        "Sign and ship an update",
                     ),
                     (
                         "",

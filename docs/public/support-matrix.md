@@ -3,7 +3,7 @@
 Updated 17 October 2026. This is the one place that says what works. Other pages link here
 instead of repeating caveats.
 
-**Alpha · one owner-tested kit · phone setup · claim by code · Grok Bot calls through an always-on gateway.**
+**Alpha · one owner-tested kit · phone setup · claim by code · signed updates · Grok Bot through an always-on gateway.**
 
 On 13 October 2026 the owner's Grok Bot called the six tools itself from the Mac and the iPhone. It used an owner-run tunnel with sign-in ([ADR 007](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/007-grok-bot-remote-https.md)). [Connect your Grok Bot](../getting-started/connect-grok-bot.md).
 
@@ -39,10 +39,14 @@ On 17 October 2026 two people tested this on the owner's relay and kit, each wit
 A reset keeps account ownership. A transfer stays pending until the owner removes the gadget or the 7-day period ends without refusal.
 The automatic 7-day transfer has software-clock tests only; no physical relay has completed that wait yet.
 
+**Phase 12b:** the relay sends signed firmware updates to a gadget with no cable.
+The gadget refuses an image signed with another key or changed on the way. An image that does not come Online within 5 minutes reverts by itself.
+On 17 October 2026 the owner's kit passed each of these checks and recovered from a power cut during a download. Grok Bot then showed text on the updated kit ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md), [guide](../getting-started/sign-and-ship-an-update.md)).
+Builders also get [Before you distribute a gadget](../getting-started/before-you-distribute.md) and a [firmware licence checklist](../getting-started/firmware-licences.md). Both are not legal advice.
+
 **Next:** Phase 12 adds a kit for builders.
 
-**Later:** Phase 12b adds updates over the air.
-Phase 13 is only a decision on a shared relay. The project hosts no service.
+**Later:** Phase 13 is only a decision on a shared relay. The project hosts no service.
 See the [roadmap](../../ROADMAP.md) for acceptance gates.
 
 **Help test:** another day, measured usage and [an independent kit report](https://github.com/adidshaft/grok-gadgets/issues/185) remain open.

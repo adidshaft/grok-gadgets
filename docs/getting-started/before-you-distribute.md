@@ -34,8 +34,7 @@ gadgets that leave your hands.
 - **Canada.** Host equipment with a certified module "does not usually require
   certification". It needs a host label as RSS-Gen section 9.4.4.2 describes
   ([RSS-Gen](https://ised-isde.canada.ca/site/spectrum-management-telecommunications/en/devices-and-equipment/radio-equipment-standards/radio-standards-specifications-rss/rss-gen-general-requirements-compliance-radio-apparatus)).
-- **India.** Licence-exempt radios use the ETA by self-declaration. A module's ETA can be
-  reused. Fees and customs steps are not verified here.
+- **India.** Licence-exempt radios use the ETA by self-declaration. You can reuse a module's ETA. Fees and customs steps are not verified here.
 
 ## 2. Security rules for connected products
 
@@ -77,7 +76,7 @@ that is you.
 The relay keeps device IDs, account IDs, gadget names and rooms. Its request log holds
 reported state, events, command arguments (secret fields redacted) and caller IP addresses. The
 log rotates at 5 MiB and keeps 5 old files ([ADR 009 §5](../decisions/009-relay-route.md)).
-Tokens and codes are stored as hashes or not at all.
+The relay stores tokens and codes as hashes or not at all.
 
 A privacy notice template to adapt:
 
@@ -118,7 +117,7 @@ Arduino-ESP32 core. Before you ship a binary, work through the
 - UK: no universal default password, a vulnerability address and an update period.
 - UK: a Statement of Compliance goes in the box.
 - India: you checked the ETA self-declaration.
-- Your privacy notice is published. You set the log retention.
-- Your update period is published. Your signing key has an offline backup.
+- You published your privacy notice and set the log retention.
+- You published your update period. Your signing key has an offline backup.
 - You did the [firmware licence checklist](firmware-licences.md) for every binary.
 - You decided on secure boot, flash encryption and anti-rollback for the product.

@@ -2,7 +2,7 @@
 
 **Date:** 17 October 2026
 
-**Status:** Proposed. The owner approved decisions 1–5 on 17 October 2026 (below); code may start. Accepted only after the Phase 12b acceptance on the owner's kit.
+**Status:** Accepted on 17 October 2026 with the Phase 12b [record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md): the owner's kit took signed updates over the relay with no cable. It refused a wrong key and a changed byte. It reverted an image that never came Online, and it recovered from a power cut during a download. Grok Bot showed text on the updated kit. The owner took decisions 1–5 on 17 October 2026 (below).
 
 **Owner:** Grok Gadgets hub (`adidshaft/grok-gadgets`)
 
@@ -10,13 +10,13 @@
 
 ## Context
 
-[ADR 011](011-accounts-and-claim-codes.md) lets a person claim a gadget that someone else built. Once it leaves the builder's desk, nobody can update it: a new image needs the USB cable and a computer with the toolchain. A gadget that cannot be fixed should not be handed out (research of 14 October 2026, section 5, owner review copy). From December 2027 the EU Cyber Resilience Act expects security updates from whoever sells a connected product, and the UK PSTI regulations already require a published update period.
+[ADR 011](011-accounts-and-claim-codes.md) lets a person claim a gadget that someone else built. Once it leaves the builder's desk, nobody can update it: a new image needs the USB cable and a computer with the toolchain. Nobody should hand out a gadget that they cannot fix (research of 14 October 2026, section 5, owner review copy). From December 2027 the EU Cyber Resilience Act expects security updates from whoever sells a connected product. The UK PSTI regulations already require a published update period.
 
 Facts this design depends on:
 
 - **The kit has two app slots.** `default_16MB.csv` holds `otadata`, `app0` and `app1`, each 6,553,600 bytes. The Wi-Fi image is 933,361 bytes on Arduino-ESP32 2.0.17 ([ESP-CORE-001 record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/dev/docs/core-3x-decision.md)).
-- **App rollback is on in the pinned core.** `CONFIG_BOOTLOADER_APP_ROLLBACK_ENABLE` is set in 2.0.17's prebuilt `sdkconfig.h`. A new image boots as *pending verify*. If it is not marked valid before the next reset, the bootloader boots the previous slot ([ESP-IDF OTA, rollback](https://docs.espressif.com/projects/esp-idf/en/v4.4.7/esp32s3/api-reference/system/ota.html#app-rollback)). Arduino's `initArduino()` marks the image valid at once unless the sketch defines `verifyRollbackLater()` to return true.
-- **Nothing in the pinned core checks a signature.** `CONFIG_SECURE_SIGNED_APPS_NO_SECURE_BOOT` is off in both 2.0.17 and 3.3.12, and the Arduino `Update` class checks an optional MD5 only ([Update.h](https://github.com/espressif/arduino-esp32/blob/2.0.17/libraries/Update/src/Update.h)). ECDSA P-256 is in the core's mbedTLS 2.28.7 (`CONFIG_MBEDTLS_ECDSA_C`, `CONFIG_MBEDTLS_ECP_DP_SECP256R1_ENABLED`).
+- **App rollback is on in the pinned core.** 2.0.17's prebuilt `sdkconfig.h` sets `CONFIG_BOOTLOADER_APP_ROLLBACK_ENABLE`. A new image boots as *pending verify*. If it is not marked valid before the next reset, the bootloader boots the previous slot ([ESP-IDF OTA, rollback](https://docs.espressif.com/projects/esp-idf/en/v4.4.7/esp32s3/api-reference/system/ota.html#app-rollback)). Arduino's `initArduino()` marks the image valid at once unless the sketch defines `verifyRollbackLater()` to return true.
+- **Nothing in the pinned core checks a signature.** `CONFIG_SECURE_SIGNED_APPS_NO_SECURE_BOOT` is off in both 2.0.17 and 3.3.12. The Arduino `Update` class checks an optional MD5 only ([Update.h](https://github.com/espressif/arduino-esp32/blob/2.0.17/libraries/Update/src/Update.h)). ECDSA P-256 is in the core's mbedTLS 2.28.7 (`CONFIG_MBEDTLS_ECDSA_C`, `CONFIG_MBEDTLS_ECP_DP_SECP256R1_ENABLED`).
 - **A gateway reply is at most 2,048 bytes including the LF** ([protocol 0.1.0](https://github.com/adidshaft/grok-gadgets-gateway/blob/main/protocol/0.1.0/README.md)). The gateway never sends unsolicited frames, so the gadget must ask for every piece.
 - **Released firmware resets its session on any unknown reply field** (ADR 011, fact 4). Every new field must follow an opt-in in the gadget's hello.
 - **The core decision.** ESP-CORE-001 compiled the kit on 2.0.17 and 3.3.12. 3.3.12 adds 163 KB to the Wi-Fi image and nothing this design needs. Recommendation: stay on 2.0.17 for Phase 12b and migrate later, over the air, on a spare board first.
@@ -46,16 +46,16 @@ An **update** is three files, made on the builder's computer:
 ### 2. Keys
 
 - The **builder** owns one signing key pair. `firmware keygen` makes it on the builder's computer: the private key in a PEM file with mode 0600, the public key beside it. The private key never goes to the relay, a repository, a log or Grok Bot.
-- The **public key is compiled into the image** at build time, from a file the build points to. A build without a key has updates off and sends no `update` field. The SDK's published reproducible builds have no key, so their checksums stay comparable. A builder's own images contain the builder's key.
-- A gadget trusts up to two keys, so a builder can rotate: ship an image that trusts the old and the new key, then sign with the new one.
+- The build **compiles the public key into the image**, from a file that the build names. A build without a key has updates off and sends no `update` field. The SDK's published reproducible builds have no key, so their checksums stay comparable. A builder's own images contain the builder's key.
+- A gadget trusts up to two keys. To change keys, ship an image that trusts the old and the new key. Then sign with the new one.
 - **Losing the private key ends updates** for every gadget that trusts only that key; they then need the cable. The guide tells the builder to back it up offline.
 
 ### 3. Delivery over the device connection
 
 All additions are opt-in and additive. The protocol version stays **0.1.0**, as with claim codes.
 
-- **Opt-in.** A gadget with a compiled key adds `"update": "ready"` to its hello. Only then may a reply carry update fields. A relay before this change answers the field with `invalid_request`; the gadget sends the hello again without it and does not ask again until the next boot. When a hello with both `claim` and `update` is refused, the gadget drops `update` first, then `claim`.
-- **Offer.** When the operator has assigned an image to the gadget, its `version` differs from the hello's `firmware_version`, and this gadget has not refused or reverted that version, the hello reply carries:
+- **Opt-in.** A gadget with a compiled key adds `"update": "ready"` to its hello. Only then may a reply carry update fields. A relay before this change answers the field with `invalid_request`. The gadget then sends the hello again without it. It does not ask again until the next boot. When a relay refuses a hello with both `claim` and `update`, the gadget drops `update` first, then `claim`.
+- **Offer.** The hello reply carries an offer when three things are true. The operator assigned an image to the gadget. Its `version` differs from the hello's `firmware_version`. This gadget did not refuse or revert that version. The offer:
 
   ```json
   "update": {"version":"0.2.0-alpha.17","size":933361,"chunk":1024,"manifest":"<base64>","signature":"<base64>"}
@@ -63,15 +63,15 @@ All additions are opt-in and additive. The protocol version stays **0.1.0**, as 
 
   A poll reply carries `update` only when the offer changed during the session (a new assignment, or `null` when withdrawn).
 - **Chunks.** The gadget asks `{"type":"update_chunk","version":V,"offset":N}`. The reply is `{"ok":true,"data":"<base64>"}` with `chunk` bytes (the last one shorter). 1,024 bytes are 1,368 base64 characters, so a reply stays under 1,400 bytes. A 933 KB image is 912 chunks.
-- **Order.** One request at a time, as today. During a download the gadget still polls at least once a second and sends ACKs and events first, so commands and the BOOT button keep working. A download pauses while a command runs.
-- **Reports.** `{"type":"update_status","version":V,"status":S,"reason":R}`, where `status` is `started`, `verified`, `rejected`, `failed`, `applied` or `reverted`, and `reason` is one of `signature`, `board`, `version`, `size`, `protocol`, `sha256`, `write`, `link`, `not_online`, `boot` (optional). The relay logs each one.
-- **Gateway limits.** At most 8 gadgets download at once on one relay (more get `busy` and retry with backoff); the existing 30 frames a second per gadget applies; chunks are read from disk per request, never held in memory; an image is at most 8 MiB; `offset` must be a multiple of `chunk` below `size`. A withdrawn or changed assignment answers `update_unavailable`, and the gadget abandons the download.
+- **Order.** One request at a time, as today. During a download the gadget still polls at least once a second. It sends ACKs and events first, so commands and the BOOT button keep working. A download pauses while a command runs.
+- **Reports.** `{"type":"update_status","version":V,"status":S,"reason":R}`. The `status` is `started`, `verified`, `rejected`, `failed`, `applied` or `reverted`. The optional `reason` is `signature`, `board`, `version`, `size`, `protocol`, `sha256`, `write`, `link`, `not_online` or `boot`. The relay logs each report.
+- **Gateway limits.** At most 8 gadgets download at once on one relay. More gadgets get `busy` and retry with backoff. The existing limit of 30 frames a second per gadget applies. The relay reads each chunk from disk and never holds an image in memory. An image is at most 8 MiB. `offset` must be a multiple of `chunk` below `size`. A withdrawn or changed assignment answers `update_unavailable`, and the gadget abandons the download.
 - **Resume.** None in Phase 12b. A download interrupted by a disconnect or a power cut starts again from zero at the next offer. The half-written slot is never marked bootable.
 
 ### 4. What the gadget checks, in order
 
 1. The manifest signature, with each compiled key. No key matches: `rejected`/`signature`, nothing downloaded.
-2. `format`, `board` (equal to the compiled board), `min_protocol` (known), `version` (not the running one and not one this gadget reverted, kept in NVS), `size` (fits the other slot). Any failure: `rejected` with the reason, nothing downloaded. Only a reverted version is refused for good: the relay stops offering the others after one report, and the builder may sign the same version again.
+2. The manifest fields. `format` is known. `board` equals the compiled board. `min_protocol` is known. `version` is not the running one, and not one that this gadget reverted (kept in NVS). `size` fits the other slot. Any failure: `rejected` with the reason, nothing downloaded. The gadget refuses only a reverted version for good. The relay stops offering the others after one report, and the builder may sign the same version again.
 3. Download into the other slot with `Update.begin(size)` and `Update.write`, hashing every byte with SHA-256 as it arrives.
 4. Before `Update.end()`: the byte count equals `size` and the hash equals `sha256`. Otherwise `Update.abort()`, `failed`/`sha256`, and the running image stays.
 5. `Update.end(true)` (which also checks the image header), `verified`, restart.
@@ -84,7 +84,7 @@ The OLED kit shows `Update 42%` on its status row during the download and `Rever
 - It marks itself valid (`esp_ota_mark_app_valid_cancel_rollback()`) only after it is **Online through the relay**: a hello accepted and one poll answered. It then reports `applied`.
 - If it is not Online within **5 minutes** of boot, it calls `esp_ota_mark_app_invalid_rollback_and_reboot()` and the previous image starts.
 - If it crashes, hangs into the watchdog or loses power before it is valid, the bootloader boots the previous image at the next reset.
-- The previous image notices the reverted slot (`esp_ota_get_last_invalid_partition()`), keeps that version in NVS so it never downloads it again, and reports `reverted` once it is Online. The relay stops offering that version to that gadget until the operator assigns it again.
+- The previous image notices the reverted slot (`esp_ota_get_last_invalid_partition()`). It keeps that version in NVS and never downloads it again. It reports `reverted` once it is Online. The relay stops offering that version to that gadget until the operator assigns it again.
 - A relay outage during those 5 minutes also reverts a good image. That is the safe side; the operator assigns it again.
 
 ### 6. Operator CLI (gateway)
@@ -98,7 +98,7 @@ The OLED kit shows `Update 42%` on its status row during the download and `Rever
 | `firmware status [DEVICE]` | Relay host | Assigned version, reported version, last result with time and reason, download progress |
 | `firmware list` / `firmware remove BOARD VERSION` | Relay host | Stored updates; a removed update is withdrawn everywhere |
 
-`serve` re-reads the assignment file when it changes, as it re-reads device credentials. `serve` alone writes the status file. `firmware add --unchecked` stores an update without the signature check; it exists so an owner can prove that a gadget refuses a wrong key, and the guide says so.
+`serve` re-reads the assignment file when it changes, as it re-reads device credentials. `serve` alone writes the status file. `firmware add --unchecked` stores an update without the signature check. It lets an owner prove that a gadget refuses a wrong key; the guide says so.
 
 Log lines, never with key material or image bytes: `update_offered`, `update_started`, `update_progress` (each 25 %), `update_verified`, `update_applied`, `update_rejected`, `update_failed`, `update_reverted`, `update_busy`, `update_withdrawn`, each with the device, the version and the reason.
 
@@ -110,8 +110,8 @@ Log lines, never with key material or image bytes: `update_offered`, `update_sta
 
 ### 8. Anti-rollback and secure boot (documented only)
 
-- **Anti-rollback is off.** A gadget accepts any signed version that is not the running one, so an operator can go back to an older image on purpose. A relay operator, or an attacker who controls the relay, can also push an older signed image with a known flaw. ESP-IDF's eFuse secure version (`CONFIG_BOOTLOADER_APP_ANTI_ROLLBACK`, 16 versions at most on the ESP32-S3) prevents that. It burns eFuses and needs a custom bootloader build. The "Before you distribute" note lists it for sold products.
-- **Secure boot and flash encryption are off on the kit.** Anyone with the board and a USB cable can flash any image and read NVS (ADR 005). The signature check protects the over-the-air path only. Secure boot v2 with signed apps is the documented path for sold products; it is irreversible and changes the published build checksums (ESP-IDENTITY-001).
+- **Anti-rollback is off.** A gadget accepts any signed version other than the running one. An operator can go back to an older image on purpose. A relay operator, or an attacker who controls the relay, can also push an older signed image with a known flaw. ESP-IDF's eFuse secure version (`CONFIG_BOOTLOADER_APP_ANTI_ROLLBACK`, 16 versions at most on the ESP32-S3) prevents that. It burns eFuses and needs a custom bootloader build. The "Before you distribute" note lists it for sold products.
+- **Secure boot and flash encryption are off on the kit.** With the board and a USB cable, anyone can flash an image. They can also read NVS (ADR 005). The signature check protects the over-the-air path only. Secure boot v2 with signed apps is the documented path for sold products; it is irreversible and changes the published build checksums (ESP-IDENTITY-001).
 
 ## Threat model
 
@@ -133,7 +133,7 @@ Log lines, never with key material or image bytes: `update_offered`, `update_sta
 
 ## The order: Phase 12b before Phase 12
 
-1. Phase 11 shipped "Hand a gadget to someone". A handed-over gadget cannot be updated without the cable and the Mac.
+1. Phase 11 shipped "Hand a gadget to someone". Nobody can update a handed-over gadget without the cable and the Mac.
 2. The project says nothing about distributing gadgets before the compliance note and over-the-air updates exist (owner decisions of 14 October 2026). Batch labels first would multiply gadgets nobody can update.
 3. Phase 12b closes on the owner's kit alone. Phase 12 needs an outside builder.
 4. Phase 12b does not depend on the connector work in Phase 12 (gateway #176).
@@ -142,7 +142,7 @@ Phase 12 (relay init, labels, builder page, Linux remote transport, examples) fo
 
 ## Owner decisions
 
-Taken on 17 October 2026: the owner approved decisions 1–5 as recommended. Decision 6 is the owner's task in the acceptance; decision 7 is asked after the licence checklist.
+Taken on 17 October 2026: the owner approved decisions 1–5 as recommended. Decision 6 is the owner's task in the acceptance. The owner answers decision 7 after the licence checklist.
 
 1. **Order:** Phase 12b before Phase 12. Recommendation: yes.
 2. **Who may push:** the relay operator with the CLI only. Recommendation: yes; a Grok Bot tool for owners to see or accept updates is a later phase.
@@ -150,7 +150,7 @@ Taken on 17 October 2026: the owner approved decisions 1–5 as recommended. Dec
 4. **Anti-rollback on the kit:** off, documented only. Recommendation: yes.
 5. **Revert limit:** 5 minutes to reach Online. Recommendation: yes.
 6. **Signing key:** made on the Mac with `firmware keygen`, kept out of every repository, backed up offline by the owner.
-7. **Release asset (#30):** whether the first signed kit binary ships as a release asset is asked separately, after the licence checklist (#294).
+7. **Release asset (#30):** a separate question after the licence checklist (#294): does the first signed kit binary ship as a release asset?
 
 ## Acceptance (Phase 12b)
 
@@ -158,8 +158,8 @@ Gateway tests for every rule above, and `rehearse` with a simulated gadget that 
 
 - One last USB flash with the update-capable image.
 - Relay backed up and upgraded to the candidate gateway.
-- Push version N+1: the OLED shows progress, the kit restarts, goes Online, reports the new version in its hello, and Grok Bot shows text on it.
-- An image signed with another key, and an image with one changed byte, are refused and logged.
+- Push version N+1. The OLED shows progress. The kit restarts, goes Online and reports the new version in its hello. Grok Bot shows text on it.
+- The kit refuses an image signed with another key, and an image with one changed byte. The relay logs both.
 - A signed image that never goes Online reverts by itself.
 - A power cut during a download recovers.
 
@@ -167,4 +167,7 @@ The record goes to `docs/verification/ota-2026-10-DD.md`, each item Pass, Fail o
 
 ## Not in scope
 
-The core migration, secure boot and flash encryption on the kit, delta or compressed images, resumable downloads, update scheduling, a Grok Bot update tool, Client ID Metadata Documents (gateway #176), long-poll (gateway #182), the Phase 12 builder kit, a shared relay, the Linux SDK and Home Assistant.
+- The core migration; secure boot and flash encryption on the kit.
+- Delta or compressed images, resumable downloads, update scheduling and a Grok Bot update tool.
+- Client ID Metadata Documents (gateway #176) and long-poll (gateway #182).
+- The Phase 12 builder kit, a shared relay, the Linux SDK and Home Assistant.
