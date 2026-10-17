@@ -2,26 +2,20 @@
 
 Grok Gadgets lets your Grok Bot use small devices: a display, a light, a button. You talk to Grok Bot as usual, and it uses the device for you.
 
-There are three people in this story:
+These are the roles:
 
 - **The builder** makes a gadget with our SDKs and gives or sells it.
 - **The end user** owns the gadget and talks to their own Grok Bot.
 - **Grok Bot** runs the chat and calls the gadget's tools when you ask.
 
-## The picture
+## From your request to the gadget
 
-```text
- End user                       Builder's relay                 Home
- Grok Bot on phone or Mac       (an always-on server)
- ┌──────────────┐  HTTPS +     ┌──────────────────┐   TLS,      ┌──────────┐
- │ "Show hello  │  sign-in     │ gadget tools     │   outbound  │  gadget  │
- │  on my       │ ───────────▶ │ device listener  │ ◀────────── │  (Wi-Fi) │
- │  display"    │              └──────────────────┘             └──────────┘
- └──────────────┘
-```
+![Conceptual route: Grok Bot signs in to your relay; your Wi-Fi gadget connects outbound to the same relay.](../visuals/relay-route-concept.png)
+
+*Conceptual illustration. The arrows show who starts each connection. Commands and replies then travel in both directions.*
 
 - The gadget connects **out** from the home Wi-Fi to the relay. No router setup and no computer at home.
-- Grok Bot connects to the relay with a one-time sign-in.
+- Grok Bot connects over HTTPS and signs in to the relay.
 - The relay passes Grok Bot's request to the gadget and passes the answer back.
 
 ## What each person does
@@ -36,7 +30,10 @@ There are three people in this story:
 
 1. Plug in the gadget and join it to home Wi-Fi.
 2. Add the builder's address in Grok Bot and sign in once.
-3. Talk. It works from the phone and from the Mac.
+3. Claim the gadget with its code, then ask Grok Bot to use it.
+
+A prepared gadget needs no terminal or USB data cable during setup.
+See [phone setup](phone-setup.md) and [claim your gadget](claim-your-gadget.md).
 
 ## Common questions
 
@@ -58,17 +55,19 @@ Grok Bot tells you it cannot reach the gadget. Nothing is queued. The gadget sho
 **Can a button on the gadget start a Grok Bot chat?**
 No. Button presses wait on the relay until Grok Bot reads them.
 
-## What works today and what is planned
+## What the evidence shows
 
-| Step | State |
-| --- | --- |
-| Grok Bot on Mac and iPhone calls the gadget tools | Works on the owner's kit, gateway on the Mac |
-| Gadget reaches an always-on relay instead of the Mac | Works on the owner's kit since 13 October 2026, with the Mac asleep ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md)) |
-| Wi-Fi setup from a phone, no cable | Works on the owner's kit since 14 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md)) |
-| Claim a gadget with the code on its screen | Works on the owner's relay since 17 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md)) |
-| Signed firmware updates over the relay, with automatic revert | Works on the owner's kit since 17 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md)) |
-| One-command relay for builders | Planned, Phase 12 |
+| Evidence | Result | Still open |
+| --- | --- | --- |
+| Clean-room software run | A fresh relay, Linux gadget batch and scripted sign-in passed the builder guide. | This does not prove physical operation or a real Grok Bot call. |
+| Owner hardware run | On a fresh relay, the owner set up the OLED kit, claimed it and used Grok Bot to show text. A signed update also passed. | The climate sensor, switch and servo examples need their own hardware tests. |
+| Builder outside the project | No report yet. | Someone outside the project must follow the public guide ([#269](https://github.com/adidshaft/grok-gadgets/issues/269)). |
 
-Today a person needs a USB cable, a terminal and an approval step on the server. The later phases remove those steps for end users. See the [roadmap](../../ROADMAP.md) and [ADR 009](../decisions/009-relay-route.md).
+The [builder record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/builder-kit-2026-10-17.md) keeps the software and owner results separate.
+See [project status](../public/support-matrix.md) for current releases and the full verification history.
 
-Next: [Connect your Grok Bot](connect-grok-bot.md) · [Run the gateway away from your Mac](mac-free-route.md)
+## Choose your next step
+
+- Have a prepared gadget? [Set it up with your phone](phone-setup.md), then [claim it in Grok Bot](claim-your-gadget.md).
+- Building for someone else? [Ship a gadget in one afternoon](ship-a-gadget.md).
+- Want the server details? [Run the gateway away from your Mac](mac-free-route.md).

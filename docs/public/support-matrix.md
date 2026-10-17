@@ -1,6 +1,6 @@
 # Project status
 
-Updated 17 October 2026. This is the one place that says what works. Other pages link here
+Updated 18 October 2026. This is the one place that says what works. Other pages link here
 instead of repeating caveats.
 
 **Alpha · one owner-tested kit · phone setup · claim by code · signed updates · Grok Bot through an always-on gateway.**

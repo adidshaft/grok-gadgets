@@ -86,6 +86,11 @@ GROUPS = (
                 (
                     (
                         "",
+                        "docs/getting-started/ship-a-gadget.md",
+                        "Ship a gadget in one afternoon",
+                    ),
+                    (
+                        "",
                         "docs/getting-started/repeat-the-kit.md",
                         "Build the tested OLED kit",
                     ),
@@ -113,11 +118,6 @@ GROUPS = (
                         "",
                         "docs/getting-started/firmware-licences.md",
                         "Firmware licence checklist",
-                    ),
-                    (
-                        "",
-                        "docs/getting-started/ship-a-gadget.md",
-                        "Ship a gadget in one afternoon",
                     ),
                     (
                         "",
@@ -605,7 +605,7 @@ class DocsNavigation:
         if not entries:
             return ""
         return (
-            '<details class="doc-toc" open><summary>On this page</summary><nav aria-label="On this page"><ul>'
+            '<details class="doc-toc"><summary>On this page</summary><nav aria-label="On this page"><ul>'
             + "".join(entries)
             + "</ul></nav></details>"
         )
