@@ -1,12 +1,17 @@
 # Claim your gadget
 
-A gadget belongs to the person who claims it. You claim it with the code on its screen. After
-that, your Grok Bot sees only your gadgets, and other people's Grok Bots cannot see yours.
+Your relay account owns a gadget after you claim it with the code on its screen.
+Your Grok Bot sees your owned gadgets and those shared with your account.
+Other accounts cannot see yours unless you share them.
 
-**Status:** Phase 11 ([ADR 011](../decisions/011-accounts-and-claim-codes.md)). On 17 October 2026 two people did this on the owner's relay, each with Grok Bot on their own iPhone ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md)). It needs a relay that runs gateway 0.1.0-alpha.15 or later with accounts, and gadget firmware from ESP32 SDK 0.2.0-alpha.16 or later. Nobody else has repeated it yet.
+**Tested on 17 October 2026:** two people used their own iPhones, one relay and the owner’s OLED kit.
+See the [record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md) and [accounts design](../decisions/011-accounts-and-claim-codes.md).
+Android Grok Bot and independent relay reproduction remain untested.
 
 ## What you need
 
+- A relay running gateway `0.1.0-alpha.15` or later with accounts enabled.
+- Gadget firmware from ESP32 SDK `0.2.0-alpha.16` or later.
 - The gadget, set up on your home Wi-Fi ([Set up your gadget with your phone](phone-setup.md)).
 - Grok Bot on your phone or computer.
 - The relay address from the person who gave you the gadget, for example
@@ -38,6 +43,8 @@ new gadget's screen.
 - `use` lets them read the gadget and send it commands. `view` lets them only read it.
 - They say "Claim this share code" in their own Grok Bot. Your accounts stay separate.
 - To end it, say: "List the shares on the desk display and revoke them."
+
+Sharing keeps your ownership. To change the owner, follow [Hand a gadget to someone](hand-a-gadget-to-someone.md).
 
 ## If something goes wrong
 

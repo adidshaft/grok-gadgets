@@ -306,7 +306,7 @@ proof_section = (
     '<h2 id="proof-heading">Try the tools before you build.</h2>'
     '<p>Run a simulated gadget on your computer or open the <a href="playground.html">browser demo</a>. No hardware, no account.</p>'
     '<pre class="proof-output"><code>python3 -m venv .venv\n'
-    ".venv/bin/python -m pip install grok-gadgets-gateway==0.1.0a14</code></pre>"
+    ".venv/bin/python -m pip install grok-gadgets-gateway==0.1.0a15</code></pre>"
     '<p><a href="'
     + first_success
     + '">Follow the five-minute guide ↗</a> · <a href="doc-docs-public-how-we-verify.html">How we verify ↗</a></p></section>'
@@ -382,9 +382,9 @@ page(
     + path_row(
         "02",
         "Use your gadget with Grok Bot",
-        "For an operator-configured gadget and gateway. This route works on the owner's setup.",
-        "doc-docs-getting-started-connect-grok-bot.html",
-        "Connect guide",
+        "Enter the code on its screen to claim it. Then give it a name and ask Grok Bot.",
+        "doc-docs-getting-started-claim-your-gadget.html",
+        "Claim guide",
     )
     + path_row(
         "03",
@@ -694,8 +694,8 @@ page(
     documentation_layout(
         '<header class="docs-intro"><p class="eyebrow">Open source / Local alpha</p>'
         "<h1>Use it.<br>Build it.</h1>"
-        "<p>Set up a gadget with your phone, connect your Grok Bot, or build your own.</p>"
-        '<nav class="docs-entry-paths" aria-label="Choose a path"><a href="doc-docs-getting-started-phone-setup.html">Set up a gadget ↗</a><a href="doc-docs-getting-started-connect-grok-bot.html">Connect Grok Bot ↗</a><a href="doc-docs-getting-started-repeat-the-kit.html">Build a gadget ↗</a></nav>'
+        "<p>Set up a gadget, claim it in Grok Bot, or build your own.</p>"
+        '<nav class="docs-entry-paths" aria-label="Choose a path"><a href="doc-docs-getting-started-phone-setup.html">Set up a gadget ↗</a><a href="doc-docs-getting-started-claim-your-gadget.html">Claim in Grok Bot ↗</a><a href="doc-docs-getting-started-repeat-the-kit.html">Build a gadget ↗</a></nav>'
         '<p class="docs-note"><a href="doc-docs-public-support-matrix.html">Project status and open gates ↗</a></p></header>'
         + doc_navigation.index()
         + '<p class="docs-note"><a href="maintainers.html">Maintainer and process records ↗</a></p>',
