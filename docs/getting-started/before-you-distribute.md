@@ -6,8 +6,8 @@ supply it. The rules also change. Check them with the regulator or a qualified a
 you distribute anything.
 
 **Status:** Phase 12b ([ADR 012](../decisions/012-signed-updates.md)). Sources were read on
-14 October 2026. The project owner's review is pending. The project does not sell gadgets and
-does not give compliance support.
+14 October 2026. The project owner reviewed it on 17 October 2026. The project does not sell
+gadgets and does not give compliance support.
 
 ## Who this is for
 
