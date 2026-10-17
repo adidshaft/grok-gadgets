@@ -140,7 +140,7 @@ Each item in the record names its tier.
 
 ## Owner decisions
 
-Taken on 18 October 2026: a fresh droplet for the dry run; the kit plus two Linux agents as the batch of 3; the owner buys the example parts, and hardware Pass needs them; the report is a CLI.
+Taken on 18 October 2026. The dry run uses a fresh droplet. The batch of 3 is the kit plus two Linux agents. The owner buys the example parts, and hardware Pass needs them. The report is a CLI.
 
 1. **Host for the dry run:** a fresh droplet for a few hours, with two DNS names and a second tunnel. We destroy it after (well under US$1 at hourly billing). Or a local VM, which cannot test real DNS or a public port. Recommendation: the droplet.
 2. **Gadget for the dry run:** re-provision the kit to the fresh relay and back (two USB sessions; the claim is redone both times). Or use only a Linux agent in a container. Recommendation: the kit plus two Linux agents, to make the batch of 3. Only the kit shows phone setup, the OLED and a signed update.
