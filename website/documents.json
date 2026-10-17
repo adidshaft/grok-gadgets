@@ -26,7 +26,11 @@
     "docs/getting-started/phone-setup.md",
     "docs/getting-started/claim-your-gadget.md",
     "docs/getting-started/hand-a-gadget-to-someone.md",
+    "docs/getting-started/keep-up-to-date.md",
     "docs/getting-started/factory-provision.md",
+    "docs/getting-started/sign-and-ship-an-update.md",
+    "docs/getting-started/before-you-distribute.md",
+    "docs/getting-started/firmware-licences.md",
     "docs/getting-started/mac-free-route.md",
     "docs/getting-started/how-it-works.md",
     "SUPPORT.md",
@@ -44,7 +48,8 @@
     "docs/reference/glossary.md",
     "docs/decisions/009-relay-route.md",
     "docs/decisions/010-phone-setup.md",
-    "docs/decisions/011-accounts-and-claim-codes.md"
+    "docs/decisions/011-accounts-and-claim-codes.md",
+    "docs/decisions/012-signed-updates.md"
   ],
   "component_sources": [
     "README.md",
@@ -63,7 +68,8 @@
     "docs/simulator.md",
     "docs/first-success.md",
     "docs/experiment-kit.md",
-    "docs/first-experiment.md"
+    "docs/first-experiment.md",
+    "docs/updates.md"
   ],
   "aliases": [
     {

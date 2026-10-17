@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/README.md at a725a3039a066c2e770ed094b2a509b825581580
+Source: grok-gadgets-gateway/README.md at 547f91fbf85b0f73dc2fd94668f8e7ecc880e34c
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -130,6 +130,7 @@ Read [remote access](docs/remote-access.md) and [security](SECURITY.md) first.
 - [First success](docs/first-success.md) and the [simulator guide](docs/simulator.md)
 - [Keep the gateway running](docs/always-on.md) as a background service, and [leave the Grok Bot route on](docs/daily-use.md).
 - [Track usage](docs/usage.md): calls by token, device, capability and day, and an opt-in usage hook.
+- [Signed firmware updates](docs/updates.md): sign an image, store it on the relay and send it to a gadget.
 - [Local operation](docs/local-operation.md), [architecture](docs/architecture.md) and [protocol 0.1.0](protocol/0.1.0/README.md)
 - Demo without HTTP: `uv run python -m grok_gadgets_gateway.demo` (uses test-only controls)
 - Shared docs and the website: [hub repository](https://github.com/adidshaft/grok-gadgets) and <https://grokgadgets.org/>

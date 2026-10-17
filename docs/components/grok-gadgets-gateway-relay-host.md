@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/relay-host.md at a725a3039a066c2e770ed094b2a509b825581580
+Source: grok-gadgets-gateway/docs/relay-host.md at 547f91fbf85b0f73dc2fd94668f8e7ecc880e34c
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -55,7 +55,7 @@ Never publish port 8766, and never send the device port through the tunnel.
    ```sh
    git clone https://github.com/adidshaft/grok-gadgets-gateway.git
    cd grok-gadgets-gateway
-   git checkout v0.1.0-alpha.15        # or a reviewed commit
+   git checkout v0.1.0-alpha.16        # or a reviewed commit
    cd examples/docker
    cp .env.example .env                # set MCP_HOST=gadgets.example.net
    ```
@@ -100,7 +100,7 @@ boot.
 ## Option B: Linux user service (systemd)
 
 ```sh
-uv tool install grok-gadgets-gateway==0.1.0a15
+uv tool install grok-gadgets-gateway==0.1.0a16
 grok-gadgets-gateway init
 grok-gadgets-gateway device-cert devices.example.net
 grok-gadgets-gateway enroll oledkit-0123456789ab --token-file oledkit.token

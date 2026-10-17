@@ -44,6 +44,11 @@ GROUPS = (
                         "docs/getting-started/hand-a-gadget-to-someone.md",
                         "Hand a gadget to someone",
                     ),
+                    (
+                        "",
+                        "docs/getting-started/keep-up-to-date.md",
+                        "Keep your gadget up to date",
+                    ),
                     ("", "docs/getting-started/how-it-works.md", "How it works"),
                     (
                         "",
@@ -94,6 +99,21 @@ GROUPS = (
                         "docs/getting-started/factory-provision.md",
                         "Factory-provision and label a gadget",
                     ),
+                    (
+                        "",
+                        "docs/getting-started/sign-and-ship-an-update.md",
+                        "Sign and ship an update",
+                    ),
+                    (
+                        "",
+                        "docs/getting-started/before-you-distribute.md",
+                        "Before you distribute a gadget",
+                    ),
+                    (
+                        "",
+                        "docs/getting-started/firmware-licences.md",
+                        "Firmware licence checklist",
+                    ),
                     ("", "docs/getting-started/simulator-kit.md", "Try the simulator"),
                 ),
             ),
@@ -120,6 +140,7 @@ GROUPS = (
                         "Rehearse the OLED experiment",
                     ),
                     ("esp32-sdk", "docs/sdk.md", "Use the firmware library"),
+                    ("esp32-sdk", "docs/updates.md", "Signed updates on the ESP32"),
                     (
                         "esp32-sdk",
                         "docs/build-flash.md",
@@ -161,6 +182,7 @@ GROUPS = (
                         "Repeat the tested OLED kit checks",
                     ),
                     ("gateway", "docs/simulator.md", "Use the gateway simulator"),
+                    ("gateway", "docs/updates.md", "Sign and send firmware updates"),
                     ("gateway", "docs/architecture.md", "Gateway architecture"),
                 ),
             ),
@@ -261,6 +283,11 @@ GROUPS = (
                         "",
                         "docs/decisions/011-accounts-and-claim-codes.md",
                         "Accounts design (ADR 011)",
+                    ),
+                    (
+                        "",
+                        "docs/decisions/012-signed-updates.md",
+                        "Signed updates design (ADR 012)",
                     ),
                 ),
             ),

@@ -3,7 +3,7 @@
 Updated 17 October 2026. This is the one place that says what works. Other pages link here
 instead of repeating caveats.
 
-**Alpha · one owner-tested kit · phone setup · claim by code · Grok Bot calls through an always-on gateway.**
+**Alpha · one owner-tested kit · phone setup · claim by code · signed updates · Grok Bot through an always-on gateway.**
 
 On 13 October 2026 the owner's Grok Bot called the six tools itself from the Mac and the iPhone. It used an owner-run tunnel with sign-in ([ADR 007](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/007-grok-bot-remote-https.md)). [Connect your Grok Bot](../getting-started/connect-grok-bot.md).
 
@@ -11,10 +11,10 @@ On 13 October 2026 the owner's Grok Bot called the six tools itself from the Mac
 
 | Component | Release | Package |
 | --- | --- | --- |
-| Hub | `v0.1.16-alpha.2` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.16-alpha.2) |
-| Gateway | `v0.1.0-alpha.15` | [PyPI `0.1.0a15`](https://pypi.org/project/grok-gadgets-gateway/) |
-| ESP32 SDK | `v0.2.0-alpha.16` | [GitHub release](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.16) |
-| Linux SDK | `v0.1.0-alpha.7` | [PyPI `0.1.0a7`](https://pypi.org/project/grok-gadgets-linux-sdk/) |
+| Hub | `v0.1.17-alpha.1` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.17-alpha.1) |
+| Gateway | `v0.1.0-alpha.16` | [PyPI `0.1.0a16`](https://pypi.org/project/grok-gadgets-gateway/) |
+| ESP32 SDK | `v0.2.0-alpha.17` | [GitHub release](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.17) |
+| Linux SDK | `v0.1.0-alpha.8` | [PyPI `0.1.0a8`](https://pypi.org/project/grok-gadgets-linux-sdk/) |
 | Home Assistant | `v0.1.0-alpha.5` | [PyPI `0.1.0a5`](https://pypi.org/project/grok-gadgets-home-assistant/) |
 
 ## Today, next, later
@@ -29,7 +29,7 @@ On 13 October 2026 the owner's iPhone, on cellular, showed text on the kit while
 **Phase 10:** a factory-provisioned gadget joins home Wi-Fi from a phone alone, through its setup hotspot.
 On 14 October 2026 the owner joined the kit from an iPhone and an Android phone. The owner kept the Mac closed during iPhone setup. The kit went Online through the relay, and Grok Bot on the iPhone showed text on it ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md), [guide](../getting-started/phone-setup.md)).
 
-Android Grok Bot calls remain untested. The owner's relay runs gateway `0.1.0a15` on device port 8443.
+Android Grok Bot calls remain untested. The owner's relay runs gateway `0.1.0a16` on device port 8443.
 New relays use port 8444 by default.
 
 **Phase 11:** each relay account claims gadgets with their screen codes.
@@ -39,10 +39,14 @@ On 17 October 2026 two people tested this on the owner's relay and kit, each wit
 A reset keeps account ownership. A transfer stays pending until the owner removes the gadget or the 7-day period ends without refusal.
 The automatic 7-day transfer has software-clock tests only; no physical relay has completed that wait yet.
 
+**Phase 12b:** the relay sends signed firmware updates to a gadget with no cable.
+The gadget refuses an image signed with another key or changed on the way. An image that does not come Online within 5 minutes reverts by itself.
+On 17 October 2026 the owner's kit passed each of these checks and recovered from a power cut during a download. Grok Bot then showed text on the updated kit ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md), [guide](../getting-started/sign-and-ship-an-update.md)).
+Builders also get [Before you distribute a gadget](../getting-started/before-you-distribute.md) and a [firmware licence checklist](../getting-started/firmware-licences.md). Both are not legal advice.
+
 **Next:** Phase 12 adds a kit for builders.
 
-**Later:** Phase 12b adds updates over the air.
-Phase 13 is only a decision on a shared relay. The project hosts no service.
+**Later:** Phase 13 is only a decision on a shared relay. The project hosts no service.
 See the [roadmap](../../ROADMAP.md) for acceptance gates.
 
 **Help test:** another day, measured usage and [an independent kit report](https://github.com/adidshaft/grok-gadgets/issues/185) remain open.
@@ -50,9 +54,9 @@ A button event does not wake Grok Bot.
 
 | Part | What works today | Not verified yet |
 | --- | --- | --- |
-| Gateway and simulated light | Six MCP tools over stdio or authenticated HTTP on `127.0.0.1`; `rehearse` first success; approved Grok Bot local commands; native Grok Bot calls from Mac and iPhone through an owner-run tunnel with OAuth sign-in, tested for one day behind a fixed hostname (gateway `0.1.0a12`); sign-in flood limits, log rotation and route status; usage summary and hook; simulator kit; private LAN TLS for Wi-Fi devices; optional per-user launchd/systemd service; an always-on Linux relay with iPhone calls while the Mac sleeps; accounts with claim codes, shares, names and hand-over, tested by two people (gateway `0.1.0a15`) | Android Grok Bot calls; a second day and a calibrated usage rate; Team Bots; Windows and Intel Mac installs |
+| Gateway and simulated light | Six MCP tools over stdio or authenticated HTTP on `127.0.0.1`; `rehearse` first success; approved Grok Bot local commands; native Grok Bot calls from Mac and iPhone through an owner-run tunnel with OAuth sign-in, tested for one day behind a fixed hostname (gateway `0.1.0a12`); sign-in flood limits, log rotation and route status; usage summary and hook; simulator kit; private LAN TLS for Wi-Fi devices; optional per-user launchd/systemd service; an always-on Linux relay with iPhone calls while the Mac sleeps; accounts with claim codes, shares, names and hand-over, tested by two people (gateway `0.1.0a15`); signed firmware updates to a gadget, tested on the owner's kit (gateway `0.1.0a16`) | Android Grok Bot calls; a second day and a calibrated usage rate; Team Bots; Windows and Intel Mac installs |
 | Linux SDK | PyPI `0.1.0a7` and `grok-linux-agent dev ./my_gadget.py` with the decorator API | Real peripherals, systemd on a physical Linux host, Raspberry Pi hardware |
-| ESP32 SDK | Host tests, four firmware builds compile, simulated USB link to the gateway. The ESP32-S3 + OLED kit passed physical tests on the owner's board over USB ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-2026-10-12.md)) and over Wi-Fi from a USB charger ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)); phone setup passed on iPhone and Android ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md)); claim codes passed with two accounts ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md)) | Another person's reproduction; other boards and routers; Android Grok Bot calls |
+| ESP32 SDK | Host tests, four firmware builds compile, simulated USB link to the gateway. The ESP32-S3 + OLED kit passed physical tests on the owner's board over USB ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-2026-10-12.md)) and over Wi-Fi from a USB charger ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)); phone setup passed on iPhone and Android ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md)); claim codes passed with two accounts ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md)); signed updates with automatic revert passed on the kit ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md)) | Another person's reproduction; other boards and routers; Android Grok Bot calls |
 | Home Assistant probe | Read-only discovery against fixtures | A real Home Assistant home |
 | Browser playground | Local JavaScript model of the light | — (it never calls Grok Bot) |
 

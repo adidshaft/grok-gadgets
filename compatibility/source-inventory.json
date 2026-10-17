@@ -1,7 +1,7 @@
 [
   {
     "repository": "grok-gadgets-esp32-sdk",
-    "commit": "7993119dc2b722a359d7dbe4cab4c5c8467bf88d",
+    "commit": "ad63698862f6ef14af091383a3b8c915f2923c6a",
     "files": [
       ".clang-format",
       ".github/CODEOWNERS",
@@ -29,10 +29,12 @@
       "docs/board-sources.md",
       "docs/build-checksums.json",
       "docs/build-flash.md",
+      "docs/core-3x-decision.md",
       "docs/dependencies.md",
       "docs/first-experiment.md",
       "docs/protocol-recovery.md",
       "docs/sdk.md",
+      "docs/updates.md",
       "docs/verification.md",
       "docs/verification/hardening.md",
       "docs/verification/launch.md",
@@ -56,6 +58,8 @@
       "lib/GrokGadgets/src/GrokGadgets.h",
       "lib/GrokGadgets/src/GrokSession.h",
       "lib/GrokGadgets/src/GrokSetup.h",
+      "lib/GrokGadgets/src/GrokUpdate.h",
+      "lib/GrokGadgets/src/GrokUpdateEsp.h",
       "lib/GrokGadgets/src/GrokWifi.h",
       "planning/issues.json",
       "planning/issues.md",
@@ -64,6 +68,7 @@
       "protocol/0.1.0/device-request.schema.json",
       "protocol/0.1.0/device-response.schema.json",
       "protocol/0.1.0/fixtures/device-transcript.json",
+      "protocol/0.1.0/fixtures/update-transcript.json",
       "protocol/source.json",
       "pyproject.toml",
       "requirements.lock",
@@ -89,6 +94,7 @@
       "tests/stubs/esp_system.h",
       "tests/stubs/host_board.h",
       "tests/transcript.cpp",
+      "tests/update_tests.cpp",
       "tests/wifi_console_tests.cpp",
       "tests/wifi_factory_tests.cpp",
       "tests/wifi_link_tests.cpp",
@@ -101,12 +107,13 @@
       "tools/check_package.py",
       "tools/check_readme.py",
       "tools/check_ste.py",
-      "tools/package_build.py"
+      "tools/package_build.py",
+      "tools/update_build.py"
     ]
   },
   {
     "repository": "grok-gadgets-gateway",
-    "commit": "a725a3039a066c2e770ed094b2a509b825581580",
+    "commit": "547f91fbf85b0f73dc2fd94668f8e7ecc880e34c",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -142,6 +149,7 @@
       "docs/remote-access.md",
       "docs/simulator.md",
       "docs/tunnel.md",
+      "docs/updates.md",
       "docs/usage.md",
       "docs/verification/always-on-2026-10-13.md",
       "docs/verification/hardening.md",
@@ -161,6 +169,7 @@
       "protocol/0.1.0/device-request.schema.json",
       "protocol/0.1.0/device-response.schema.json",
       "protocol/0.1.0/fixtures/device-transcript.json",
+      "protocol/0.1.0/fixtures/update-transcript.json",
       "pyproject.toml",
       "scripts/check_first_success.py",
       "scripts/check_ste.py",
@@ -170,6 +179,7 @@
       "src/grok_gadgets_gateway/cli.py",
       "src/grok_gadgets_gateway/demo.py",
       "src/grok_gadgets_gateway/domain.py",
+      "src/grok_gadgets_gateway/firmware.py",
       "src/grok_gadgets_gateway/label.py",
       "src/grok_gadgets_gateway/lan.py",
       "src/grok_gadgets_gateway/logfiles.py",
@@ -197,6 +207,7 @@
       "tests/test_command_wait.py",
       "tests/test_domain.py",
       "tests/test_factory_provision.py",
+      "tests/test_firmware.py",
       "tests/test_foundation.py",
       "tests/test_hashed_tokens.py",
       "tests/test_http.py",
@@ -268,7 +279,7 @@
   },
   {
     "repository": "grok-gadgets-linux-sdk",
-    "commit": "336d89ea403ccbba98c16093ee8d53f53b7ef998",
+    "commit": "04a0079fde627d171b4588ab185f0e922646f384",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -320,6 +331,7 @@
       "src/grok_gadgets_linux/protocol/0.1.0/device-request.schema.json",
       "src/grok_gadgets_linux/protocol/0.1.0/device-response.schema.json",
       "src/grok_gadgets_linux/protocol/0.1.0/fixtures/device-transcript.json",
+      "src/grok_gadgets_linux/protocol/0.1.0/fixtures/update-transcript.json",
       "src/grok_gadgets_linux/protocol/source.json",
       "tests/fake_gateway.py",
       "tests/test_agent.py",
