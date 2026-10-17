@@ -2,7 +2,7 @@
 
 **Date:** 17 October 2026
 
-**Status:** Proposed. Waits for the owner's review and the three decisions at the end.
+**Status:** Proposed. The owner took the three decisions on 17 October 2026 (below). Acceptance follows the Phase 11 record.
 
 **Owner:** Grok Gadgets hub (`adidshaft/grok-gadgets`)
 
@@ -158,7 +158,9 @@ The owner's sign-in and the kit keep working with no new sign-in and no reflash.
 | C13 | The same `client_id` for many people | The account follows the refresh-token family, never the `client_id` |
 | C14 | Lost account after 30 days without use | Recovery code or the operator; never a gadget code |
 
-## Owner decisions
+## Owner decisions (taken 17 October 2026)
+
+The owner chose: a **7-day grace period**; the operator account sees **only its own gadgets**; a **recovery code** with the operator as the fallback.
 
 1. **Grace period for a pending transfer:** none (only the old owner's unclaim completes it), 7 days, or 30 days. Recommendation: 7 days. A sold or lost gadget then moves even if the old owner never answers, and the old owner can refuse within a week.
 2. **Does the operator account see every gadget?** Recommendation: no. The operator account sees its own gadgets. The operator uses the CLI for the others. A leaked operator sign-in then reaches only the operator's gadgets.
