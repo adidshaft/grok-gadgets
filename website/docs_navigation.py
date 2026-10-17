@@ -94,6 +94,16 @@ GROUPS = (
                         "docs/getting-started/factory-provision.md",
                         "Factory-provision and label a gadget",
                     ),
+                    (
+                        "",
+                        "docs/getting-started/before-you-distribute.md",
+                        "Before you distribute a gadget",
+                    ),
+                    (
+                        "",
+                        "docs/getting-started/firmware-licences.md",
+                        "Firmware licence checklist",
+                    ),
                     ("", "docs/getting-started/simulator-kit.md", "Try the simulator"),
                 ),
             ),

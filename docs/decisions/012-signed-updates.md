@@ -71,7 +71,7 @@ All additions are opt-in and additive. The protocol version stays **0.1.0**, as 
 ### 4. What the gadget checks, in order
 
 1. The manifest signature, with each compiled key. No key matches: `rejected`/`signature`, nothing downloaded.
-2. `format`, `board` (equal to the compiled board), `min_protocol` (known), `version` (not the running one and not one this gadget reverted or refused, kept in NVS), `size` (fits the other slot). Any failure: `rejected` with the reason, nothing downloaded.
+2. `format`, `board` (equal to the compiled board), `min_protocol` (known), `version` (not the running one and not one this gadget reverted, kept in NVS), `size` (fits the other slot). Any failure: `rejected` with the reason, nothing downloaded. Only a reverted version is refused for good: the relay stops offering the others after one report, and the builder may sign the same version again.
 3. Download into the other slot with `Update.begin(size)` and `Update.write`, hashing every byte with SHA-256 as it arrives.
 4. Before `Update.end()`: the byte count equals `size` and the hash equals `sha256`. Otherwise `Update.abort()`, `failed`/`sha256`, and the running image stays.
 5. `Update.end(true)` (which also checks the image header), `verified`, restart.
@@ -123,7 +123,7 @@ Log lines, never with key material or image bytes: `update_offered`, `update_sta
 | U4 | A good signature on a broken image (crash, no Wi-Fi, wrong relay settings) | Pending-verify boot; valid only after Online; 5-minute limit; bootloader revert on reset |
 | U5 | Power cut during download | The other slot is not bootable until `Update.end()`; restart from zero |
 | U6 | Power cut during the trial boot | Bootloader boots the previous image |
-| U7 | The same bad version offered again and again | The gadget keeps refused and reverted versions in NVS; the relay stops offering them |
+| U7 | The same bad version offered again and again | The relay stops offering a version after `rejected`, `failed` or `reverted`; the gadget also keeps a reverted version in NVS |
 | U8 | Downgrade to an older signed image | Not prevented (section 8); documented with the anti-rollback path |
 | U9 | Stolen signing key | Not prevented. Rotation needs an image that trusts a new key, signed with the old one before it leaked, or the cable. The key stays off the relay. |
 | U10 | Many gadgets downloading at once | 8 at a time, chunks read from disk, per-gadget frame limit |
