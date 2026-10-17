@@ -12,7 +12,7 @@
 
 [ADR 009](009-relay-route.md) put the gateway on an always-on relay. [ADR 010](010-phone-setup.md) lets a person join a gadget to home Wi-Fi with a phone alone. The relay still has one tenant: the operator.
 
-- Grok Bot signs in with OAuth. The operator approves each sign-in with `oauth approve CODE --name NAME` on the relay host ([ADR 008](008-daily-native-route.md)).
+- Grok Bot signs in with OAuth. The operator approves each sign-in with `oauth approve CODE --name NAME` on the relay host ([ADR 008](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/008-daily-native-route.md)).
 - The token's subject is that approved name, for example `grok-bot`. Nothing identifies a person.
 - Every live sign-in sees every device. `gadgets_diagnostics`, `gadgets_read_events` and `gadgets_command_status` also return data across all devices.
 - `credentials.json` holds device tokens in plain text. `factory-provision --enroll` and `wifi-provision` read them from there.
