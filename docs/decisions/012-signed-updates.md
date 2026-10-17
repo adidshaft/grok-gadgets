@@ -2,7 +2,7 @@
 
 **Date:** 17 October 2026
 
-**Status:** Proposed. The owner decides the questions in [Owner decisions](#owner-decisions) before code starts.
+**Status:** Proposed. The owner approved decisions 1–5 on 17 October 2026 (below); code may start. Accepted only after the Phase 12b acceptance on the owner's kit.
 
 **Owner:** Grok Gadgets hub (`adidshaft/grok-gadgets`)
 
@@ -142,7 +142,7 @@ Phase 12 (relay init, labels, builder page, Linux remote transport, examples) fo
 
 ## Owner decisions
 
-Recommendations first. The owner answers before code starts.
+Taken on 17 October 2026: the owner approved decisions 1–5 as recommended. Decision 6 is the owner's task in the acceptance; decision 7 is asked after the licence checklist.
 
 1. **Order:** Phase 12b before Phase 12. Recommendation: yes.
 2. **Who may push:** the relay operator with the CLI only. Recommendation: yes; a Grok Bot tool for owners to see or accept updates is a later phase.
