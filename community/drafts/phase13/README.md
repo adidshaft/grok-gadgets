@@ -6,8 +6,8 @@ The owner decided on 18 October 2026 that the calls go to GitHub issues #185 and
 
 | File | Where it goes | Fill in before posting |
 | --- | --- | --- |
-| [tester-call.md](tester-call.md) | A comment on [#185](https://github.com/adidshaft/grok-gadgets/issues/185) | Release versions in the support matrix |
-| [builder-call.md](builder-call.md) | A comment on [#269](https://github.com/adidshaft/grok-gadgets/issues/269) | Measured relay capacity and release versions |
+| [tester-call.md](tester-call.md) | A comment on [#185](https://github.com/adidshaft/grok-gadgets/issues/185) | Nothing (filled 18 Oct 2026) |
+| [builder-call.md](builder-call.md) | A comment on [#269](https://github.com/adidshaft/grok-gadgets/issues/269) | Nothing (filled 18 Oct 2026) |
 | [report-template.md](report-template.md) | Linked from both calls | Nothing |
 | [linux-pr-58-reply.md](linux-pr-58-reply.md) | A comment on Linux SDK PR #58 | Nothing |
 

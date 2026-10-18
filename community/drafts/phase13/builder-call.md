@@ -21,8 +21,11 @@ tell us where it breaks.
 4. Post the [report template](https://github.com/adidshaft/grok-gadgets/blob/main/community/drafts/phase13/report-template.md)
    here: each step that worked, each that did not, and how long it took.
 
-**How big a relay gets:** [TO FILL: the measured sizes from the support matrix, with host
-size, gateway version and poll rate. State only what was measured.] A relay holds 64 gadgets
+**How big a relay gets:** on 18 October 2026 one 512 MB, 1-vCPU host carried 200 simulated
+gadgets polling every 100 ms (about 61 % CPU) and 1,000 with long-poll (about 67 % CPU,
+137 MB). Those are measurements of one host, not guarantees
+([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md)).
+A relay holds 64 gadgets
 by default; `serve --max-devices` raises it.
 
 **What you need:** a small Linux host, a domain you control, Grok Bot, and an ESP32-S3 board
