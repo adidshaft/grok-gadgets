@@ -126,7 +126,7 @@ Record `docs/verification/ready-for-others-2026-10-DD.md`. Each item says Pass, 
 
 ## Results so far (18 October 2026)
 
-Measured on a fresh 512 MB, 1-vCPU host ([record](../verification/ready-for-others-2026-10-18.md)):
+Measured on a fresh 512 MB, 1-vCPU host ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md)):
 
 - 50 and 200 gadgets polling every 100 ms passed. At 200 the relay used about 61 % CPU and 88 MB.
 - 1,000 gadgets polling every 100 ms failed. CPU was saturated from about 400 gadgets, and the kernel killed the relay for memory at about 660.

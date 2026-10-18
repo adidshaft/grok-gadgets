@@ -52,7 +52,7 @@ The climate sensor, switch and servo examples compile and pass host tests. Nobod
 
 **Phase 13 (in progress):** we measure what one small relay carries and add a clearer sign-in page and an Android check ([#363](https://github.com/adidshaft/grok-gadgets/issues/363)). Sign-in also gets ready for the protocol's registration change. We have no measured numbers yet.
 
-**Relay size:** a relay holds 64 gadgets by default; `serve --max-devices` (gateway `dev`, up to 2,000) raises it. Measured on 18 October 2026 on one 512 MB, 1-vCPU host with simulated gadgets ([record](../verification/ready-for-others-2026-10-18.md)):
+**Relay size:** a relay holds 64 gadgets by default; `serve --max-devices` (gateway `dev`, up to 2,000) raises it. Measured on 18 October 2026 on one 512 MB, 1-vCPU host with simulated gadgets ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md)):
 
 | Gadgets | Polling | Relay CPU (mean) | Relay memory (peak) | Command latency p95 |
 | --- | --- | --- | --- | --- |
