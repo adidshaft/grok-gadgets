@@ -2,7 +2,7 @@
 
 **Date:** 18 October 2026
 
-**Status:** Proposed on 18 October 2026. The owner's decisions are open (below). Nothing here is measured yet.
+**Status:** Proposed on 18 October 2026. The owner took the five decisions below on 18 October 2026. Nothing here is measured yet.
 
 **Owner:** Grok Gadgets hub (`adidshaft/grok-gadgets`)
 
@@ -136,7 +136,10 @@ Record `docs/verification/ready-for-others-2026-10-DD.md`. Each item says Pass, 
 | R6 | The new page breaks the phone sign-in sheet | Redirect and page-policy tests stay; a phone-size check before release |
 | R7 | Long-poll holds sockets the relay needs | `wait_ms` capped below the 15 s idle timeout; held polls count in the session limit |
 
-## Owner decisions (open)
+## Owner decisions
+
+Taken on 18 October 2026: a fresh droplet for the load test, destroyed after; long-poll decided from the numbers; a borrowed Android phone, and Windows stated as Not tested; the calls go to GitHub issues #185 and #269 first. On the same day the owner's account held only the live relay droplet, so no earlier test host remained to delete.
+
 
 1. **Load-test host:** a fresh 512 MB droplet for a few hours, destroyed after (well under US$1 at hourly billing; the fleet runs from the Mac). Or the Mac only, which gives no relay-host numbers. Recommendation: the droplet.
 2. **Long-poll:** now, or Later unless the numbers ask for it. Recommendation: Later; decide from the numbers.
