@@ -52,7 +52,14 @@ The climate sensor, switch and servo examples compile and pass host tests. Nobod
 
 **Phase 13 (in progress):** we measure what one small relay carries and add a clearer sign-in page and an Android check ([#363](https://github.com/adidshaft/grok-gadgets/issues/363)). Sign-in also gets ready for the protocol's registration change. We have no measured numbers yet.
 
-**Relay size:** a relay holds 64 gadgets by default. That is a set limit, not a measurement. Gateway `dev` adds `serve --max-devices`; measured sizes come with the Phase 13 load test.
+**Relay size:** a relay holds 64 gadgets by default; `serve --max-devices` (gateway `dev`, up to 2,000) raises it. Measured on 18 October 2026 on one 512 MB, 1-vCPU host with simulated gadgets ([record](https://github.com/adidshaft/grok-gadgets/blob/dev/docs/verification/ready-for-others-2026-10-18.md)):
+
+| Gadgets | Polling | Relay CPU (mean) | Relay memory (peak) | Command latency p95 |
+| --- | --- | --- | --- | --- |
+| 200 | every 100 ms | 61 % | 88 MB | 304 ms |
+| 1,000 | long-poll, 2.5 s wait | 67 % | 137 MB | 406 ms |
+
+1,000 gadgets polling every 100 ms did not fit that host. These are measurements of one host and one network path, not guarantees.
 
 **Platforms:** Grok Bot on Android: Not tested (phone setup from Android passed, a Grok Bot call from Android did not happen yet). Windows: Not tested; run the gateway and a relay on macOS or Linux.
 
