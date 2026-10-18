@@ -39,6 +39,10 @@ class SiteClarityTests(unittest.TestCase):
         self.assertIn("Tested from the guide on a fresh host (Phase 12a).", builder)
         self.assertNotIn("This is Phase 12; it has not started.", builder)
         self.assertIn("only a decision on a shared relay (Phase 14).", builder)
+        self.assertIn("carried 1,000 simulated gadgets with long-poll", builder)
+        self.assertIn(
+            "Grok Bot on iPhone and Android through an always-on relay", builder
+        )
         self.assertNotIn("shared relay (Phase 13)", builder)
         self.assertIn(
             "a bad image reverts by itself. Tested on the owner’s kit (Phase 12b).",
