@@ -3,7 +3,7 @@
 Updated 18 October 2026. This is the one place that says what works. Other pages link here
 instead of repeating caveats.
 
-**Alpha · one owner-tested kit · phone setup · claim by code · signed updates · Grok Bot on iPhone and Android · measured relay size.**
+**Alpha · one owner-tested kit · phone setup · claim by code · signed updates · Grok Bot on iPhone and Android.**
 
 On 13 October 2026 the owner's Grok Bot called the six tools itself from the Mac and the iPhone. It used an owner-run tunnel with sign-in ([ADR 007](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/007-grok-bot-remote-https.md)). [Connect your Grok Bot](../getting-started/connect-grok-bot.md).
 
