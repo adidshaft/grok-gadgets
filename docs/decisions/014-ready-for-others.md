@@ -138,7 +138,7 @@ Record `docs/verification/ready-for-others-2026-10-DD.md`. Each item says Pass, 
 
 ## Owner decisions
 
-Taken on 18 October 2026: a fresh droplet for the load test, destroyed after; long-poll decided from the numbers; a borrowed Android phone, and Windows stated as Not tested; the calls go to GitHub issues #185 and #269 first. On the same day the owner's account held only the live relay droplet, so no earlier test host remained to delete.
+Taken on 18 October 2026. The load test runs on a fresh droplet, destroyed after. Long-poll follows the numbers. The owner borrows an Android phone; the docs state Windows as Not tested. The calls go to GitHub issues #185 and #269 first. On the same day the owner's account held only the live relay droplet, so no earlier test host remained to delete.
 
 
 1. **Load-test host:** a fresh 512 MB droplet for a few hours, destroyed after (well under US$1 at hourly billing; the fleet runs from the Mac). Or the Mac only, which gives no relay-host numbers. Recommendation: the droplet.
