@@ -7,7 +7,7 @@ The goal is simple setup for the people who use those gadgets.
 
 - **Today:** a person joins a factory-provisioned gadget to home Wi-Fi from a phone, with no cable and no app. They claim it with the code on its screen; their Grok Bot then sees only their gadgets, by the names they give them. Share, remove and hand-over are explicit. The builder's relay sends signed firmware updates with no cable, and a bad image reverts by itself. Builders get a "Before you distribute" note and a licence checklist. A builder sets up a relay with one command, prepares gadgets in batches and checks them in one report ([Ship a gadget](docs/getting-started/ship-a-gadget.md)).
 - **Next:** a builder outside the project follows that guide ([#269](https://github.com/adidshaft/grok-gadgets/issues/269)). The climate sensor, switch and servo examples run on hardware.
-- **Phase 13, Ready for others (in progress):** one small relay is measured: 1,000 simulated gadgets with long-poll. Sign-in accepts client metadata documents, and the sign-in page is shorter. Still open: an Android check, three days of sign-in, and calls for testers and builders ([#363](https://github.com/adidshaft/grok-gadgets/issues/363)).
+- **Phase 13, Ready for others (in progress):** one small relay carried 1,000 simulated gadgets with long-poll for 15 minutes. Sign-in accepts client metadata documents, and the sign-in page is shorter. Android claim and text passed on the owner’s kit. Still open: the sign-in watch through 21 October, ADR 014 acceptance and the hub release. Calls await the owner’s post ([#363](https://github.com/adidshaft/grok-gadgets/issues/363)).
 - **Later:** Phase 14, only a decision on a shared relay. A button press does not wake Grok Bot.
 
 The project runs no relay service. There are no promised dates.
@@ -27,7 +27,9 @@ The project runs no relay service. There are no promised dates.
 | 13: ready for others | In progress | Measured relay capacity, sign-in by client metadata document, a new sign-in page, Android, tester and builder calls ([#363](https://github.com/adidshaft/grok-gadgets/issues/363)) |
 | 14: shared relay | Owner decision only | Cost, operations, abuse controls, privacy and terms; no service promised ([#270](https://github.com/adidshaft/grok-gadgets/issues/270)) |
 
-[ADR 009](docs/decisions/009-relay-route.md) plans Phases 9–13. Stage 1 (Phase 9) is accepted and released. [ADR 010](docs/decisions/010-phone-setup.md) (Phase 10, phone setup), [ADR 011](docs/decisions/011-accounts-and-claim-codes.md) (Phase 11, accounts and claim codes) [ADR 012](docs/decisions/012-signed-updates.md) (Phase 12b, signed updates) and [ADR 013](docs/decisions/013-builder-kit.md) (Phase 12a, builder kit) are accepted; the later stages are design only. ADR numbers differ from phase numbers: Phase 13 was renumbered on 18 October 2026, and the shared-relay decision moved to Phase 14.
+[ADR 009](docs/decisions/009-relay-route.md) plans Phases 9–13. Stage 1 (Phase 9) is accepted and released. [ADR 010](docs/decisions/010-phone-setup.md) (Phase 10, phone setup) and [ADR 011](docs/decisions/011-accounts-and-claim-codes.md) (Phase 11, accounts and claim codes) are accepted.
+[ADR 012](docs/decisions/012-signed-updates.md) (Phase 12b, signed updates) and [ADR 013](docs/decisions/013-builder-kit.md) (Phase 12a, builder kit) are accepted.
+ADR 014 remains proposed; Phase 14 awaits the shared-relay decision. ADR numbers differ from phase numbers: Phase 13 was renumbered on 18 October 2026, and the shared-relay decision moved to Phase 14.
 
 ## What the current result means
 

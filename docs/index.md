@@ -5,6 +5,8 @@ The project hosts no relay.
 
 ## Use a gadget
 
+Start with phone setup, then claim the gadget in Grok Bot. Ask the builder for its label and relay address.
+
 | Your task | Start here |
 | --- | --- |
 | Join your home Wi-Fi | [Set up your gadget with your phone](getting-started/phone-setup.md) |
@@ -18,7 +20,7 @@ Your relay account owns the gadget. You can give another account use or view acc
 A reset keeps ownership. A pending transfer needs the owner’s removal or a 7-day wait without refusal.
 
 Two people tested claims, sharing and hand-over with their own iPhones, one relay and one OLED kit.
-Android Grok Bot remains untested. The 7-day timer has software tests only.
+The owner also observed an Android claim and display command on that kit. The 7-day timer has software tests only.
 See [current support](public/support-matrix.md) for releases and limits.
 
 ## Build a gadget
@@ -54,4 +56,11 @@ The [connection guide](getting-started/connect-grok-bot.md) covers the earlier M
 - [How we verify](public/how-we-verify.md): evidence levels.
 - [Contributing](../CONTRIBUTING.md): find an issue and prepare a change.
 
-Report a repeat test in [#185](https://github.com/adidshaft/grok-gadgets/issues/185).
+## Report your first run
+
+| What you repeated | Report here |
+| --- | --- |
+| The owner-tested OLED kit | [Independent tester report #185](https://github.com/adidshaft/grok-gadgets/issues/185) |
+| Your own relay and gadget batch | [Outside builder report #269](https://github.com/adidshaft/grok-gadgets/issues/269) |
+
+Include the guide step, component versions, expected result and what you observed. Remove tokens and household details before sharing logs.
