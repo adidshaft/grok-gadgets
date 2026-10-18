@@ -22,7 +22,8 @@ Tiers:
 | Stranger-style sign-in on the live relay | Not tested yet | Owner |
 | Three days of Grok Bot with no fresh sign-in | Not tested yet | Owner |
 | Grok Bot on Android: claim and text on the kit | Not tested yet | Owner |
-| Kit on a released image by signed update | Not tested yet | Owner |
+| Relay on gateway 0.1.0a18 | Pass | Owner |
+| Kit on a released image by signed update, with long-poll | Pass | Owner |
 
 ## Load test (tier: fresh host, 18 October 2026)
 
@@ -74,3 +75,29 @@ We fixed two faults of the tool before the final runs. An aborted run left fleet
 - 18 October 2026: the owner reviewed phone-size screenshots of the first design. They asked for less text, the website's theme and the text behind a toggle. Gateway [#231](https://github.com/adidshaft/grok-gadgets-gateway/pull/231) made that change.
 - Current screenshots at 375 × 812: [code](sign-in-page-2026-10-18-code.jpg), [wrong code](sign-in-page-2026-10-18-wrong.jpg), [operator waiting](sign-in-page-2026-10-18-waiting.jpg).
 - The page policy, the redirect back to Grok Bot and the frame, cache and referrer headers are unchanged and tested.
+
+## Relay and kit (tier: owner, 18 October 2026)
+
+**Releases:** gateway `v0.1.0-alpha.18` (PyPI `0.1.0a18`), ESP32 SDK `v0.2.0-alpha.19` and Linux SDK `v0.1.0-alpha.10`. The owner approved each publication.
+
+**Relay:** the owner's relay went from gateway `0.1.0a17` to `0.1.0a18` from PyPI, after a private backup of its configuration.
+
+| Time | Log line or check |
+| --- | --- |
+| 13:44:29 | `device_disconnected` for the kit (service restart) |
+| 13:44:32 | `serve_started` |
+| 13:44:34 | `device_hello` for the kit: back after 5 seconds |
+| 13:44 | The relay's metadata says `client_id_metadata_document_supported: true` |
+
+The live Grok Bot sign-ins stayed live through the restart (`service status`).
+
+**Kit:** the kit ran test image `0.2.0-alpha.17.8`. The owner's builder key (`b567ba3923292e09`) signed `0.2.0-alpha.19`, built from the release tag with long-poll on.
+
+| Time | Log line |
+| --- | --- |
+| 13:45:05 | `update_offered`, `update_started` 0.2.0-alpha.19 |
+| 13:45:21–13:45:54 | `update_progress` 25, 50, 75 % |
+| 13:46:11 | `update_verified` |
+| 13:46:14 | `device_hello`, `update_applied` 0.2.0-alpha.19 |
+
+**Long-poll on hardware:** the relay counted 17 request packets from the kit in 30 seconds after the update. Polling every 100 ms would send about 300. The count is of packets only; no content was read.
