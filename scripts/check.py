@@ -110,6 +110,7 @@ def steps(py):
                 "docs/verification/builder-kit-2026-10-17.md",
                 "docs/decisions/012-signed-updates.md",
                 "docs/decisions/013-builder-kit.md",
+                "docs/decisions/014-ready-for-others.md",
                 "docs/getting-started/ship-a-gadget.md",
                 "docs/getting-started/capability-vocabulary.md",
                 "docs/contributing/ready-issues.md",
