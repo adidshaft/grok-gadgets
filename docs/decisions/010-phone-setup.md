@@ -111,4 +111,4 @@ Accepted when the Phase 10 record (`docs/verification/phone-setup-2026-10-DD.md`
 
 ## Not decided here
 
-Claim codes and accounts (ADR 011), over-the-air updates (Phase 12b), the core migration (ESP-CORE-001, research only), and a shared relay (Phase 13).
+Claim codes and accounts (ADR 011), over-the-air updates (Phase 12b), the core migration (ESP-CORE-001, research only), and a shared relay (now Phase 14).

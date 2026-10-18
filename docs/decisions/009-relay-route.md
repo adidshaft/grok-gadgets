@@ -59,7 +59,7 @@ home Wi-Fi ── ESP32 gadget (no port forwarding, no computer at home)
 | --- | --- | --- |
 | Builder-hosted relay | The builder, for the gadgets they ship; one deploy serves their customers | **Primary.** Open source; one command; the builder's domain |
 | Self-hosted by a tinkerer | The person, on a VPS or a home Linux box | Same software, same command |
-| Project-run shared relay | The project, for builders without hosting | **Separate owner decision** (Phase 13): ongoing cost, abuse handling, privacy, terms. Nothing in this design requires it |
+| Project-run shared relay | The project, for builders without hosting | **Separate owner decision** (Phase 14; renumbered from 13 on 18 October 2026): ongoing cost, abuse handling, privacy, terms. Nothing in this design requires it |
 | Serverless rewrite | The project or builder, on a workers platform | **Rejected for now:** needs WebSocket, durable per-device objects and a rewrite of a tested OAuth server, for a few users |
 
 The gateway stays one Python package. The relay is `grok-gadgets-gateway serve` with the flags above, in a container or a user service. The owner's named tunnel can serve `/mcp` from the relay host; the device listener uses the host's own address with a DNS-only record.
@@ -76,7 +76,7 @@ The relay sees device IDs, capabilities, commands, reported state and events. Pr
 | 2 | 10 Setup without a cable | Setup hotspot and captive page on the gadget; factory identity separate from user settings |
 | 3 | 11 Claim your gadget | Accounts, claim codes, scoped tools, hashed device tokens |
 | 4 | 12 Builder kit | One-command deploy, batch identities and labels, builder page, Linux SDK remote transport |
-| 5 | 13 Shared relay | Owner decision only |
+| 5 | 14 Shared relay (was 13; Phase 13 is now "Ready for others") | Owner decision only |
 
 ## Design gates before implementation
 

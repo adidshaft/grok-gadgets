@@ -50,7 +50,9 @@ The climate sensor, switch and servo examples compile and pass host tests. Nobod
 
 **Next:** a builder outside the project follows the guide ([#269](https://github.com/adidshaft/grok-gadgets/issues/269)).
 
-**Later:** Phase 13 is only a decision on a shared relay. The project hosts no service.
+**Phase 13 (in progress):** we measure what one small relay carries and add a clearer sign-in page and an Android check ([#363](https://github.com/adidshaft/grok-gadgets/issues/363)). Sign-in also gets ready for the protocol's registration change. We have no measured numbers yet.
+
+**Later:** Phase 14 is only a decision on a shared relay. The project hosts no service.
 See the [roadmap](../../ROADMAP.md) for acceptance gates.
 
 **Help test:** another day, measured usage and [an independent kit report](https://github.com/adidshaft/grok-gadgets/issues/185) remain open.
