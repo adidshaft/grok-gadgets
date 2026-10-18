@@ -52,6 +52,10 @@ The climate sensor, switch and servo examples compile and pass host tests. Nobod
 
 **Phase 13 (in progress):** we measure what one small relay carries and add a clearer sign-in page and an Android check ([#363](https://github.com/adidshaft/grok-gadgets/issues/363)). Sign-in also gets ready for the protocol's registration change. We have no measured numbers yet.
 
+**Relay size:** a relay holds 64 gadgets by default. That is a set limit, not a measurement. Gateway `dev` adds `serve --max-devices`; measured sizes come with the Phase 13 load test.
+
+**Platforms:** Grok Bot on Android: Not tested (phone setup from Android passed, a Grok Bot call from Android did not happen yet). Windows: Not tested; run the gateway and a relay on macOS or Linux.
+
 **Later:** Phase 14 is only a decision on a shared relay. The project hosts no service.
 See the [roadmap](../../ROADMAP.md) for acceptance gates.
 
