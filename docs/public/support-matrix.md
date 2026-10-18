@@ -3,7 +3,7 @@
 Updated 18 October 2026. This is the one place that says what works. Other pages link here
 instead of repeating caveats.
 
-**Alpha · one owner-tested kit · phone setup · claim by code · signed updates · Grok Bot through an always-on gateway.**
+**Alpha · one owner-tested kit · phone setup · claim by code · signed updates · Grok Bot on iPhone and Android · measured relay size.**
 
 On 13 October 2026 the owner's Grok Bot called the six tools itself from the Mac and the iPhone. It used an owner-run tunnel with sign-in ([ADR 007](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/007-grok-bot-remote-https.md)). [Connect your Grok Bot](../getting-started/connect-grok-bot.md).
 
@@ -29,7 +29,7 @@ On 13 October 2026 the owner's iPhone, on cellular, showed text on the kit while
 **Phase 10:** a factory-provisioned gadget joins home Wi-Fi from a phone alone, through its setup hotspot.
 On 14 October 2026 the owner joined the kit from an iPhone and an Android phone. The owner kept the Mac closed during iPhone setup. The kit went Online through the relay, and Grok Bot on the iPhone showed text on it ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md), [guide](../getting-started/phone-setup.md)).
 
-Android Grok Bot calls remain untested. The owner's relay runs gateway `0.1.0a18` on device port 8443, and the owner's kit runs `0.2.0-alpha.19` with long-poll.
+The owner's relay runs gateway `0.1.0a18` on device port 8443, and the owner's kit runs `0.2.0-alpha.19` with long-poll.
 New relays use port 8444 by default.
 
 **Phase 11:** each relay account claims gadgets with their screen codes.
@@ -61,7 +61,7 @@ The climate sensor, switch and servo examples compile and pass host tests. Nobod
 
 1,000 gadgets polling every 100 ms did not fit that host. These are measurements of one host and one network path, not guarantees.
 
-**Platforms:** Grok Bot on Android: Not tested (phone setup from Android passed, a Grok Bot call from Android did not happen yet). Windows: Not tested; run the gateway and a relay on macOS or Linux.
+**Platforms:** on 18 October 2026 Grok Bot on an Android phone signed in with the kit's code and showed text on it ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md)). Windows: Not tested; run the gateway and a relay on macOS or Linux.
 
 **Later:** Phase 14 is only a decision on a shared relay. The project hosts no service.
 See the [roadmap](../../ROADMAP.md) for acceptance gates.
