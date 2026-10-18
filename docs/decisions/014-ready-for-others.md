@@ -128,7 +128,7 @@ Record `docs/verification/ready-for-others-2026-10-DD.md`. Each item says Pass, 
 
 Measured on a fresh 512 MB, 1-vCPU host ([record](../verification/ready-for-others-2026-10-18.md)):
 
-- 50 and 200 gadgets polling every 100 ms passed: 200 used about 61 % CPU and 88 MB, with p95 command latency 304 ms.
+- 50 and 200 gadgets polling every 100 ms passed. At 200 the relay used about 61 % CPU and 88 MB.
 - 1,000 gadgets polling every 100 ms failed. CPU was saturated from about 400 gadgets, and the kernel killed the relay for memory at about 660.
 - So, by the rule in §1, **long-poll ships** (gateway #182, ESP32 and Linux opt-ins).
 - The memory came from asyncio's 256 KiB TLS read buffer; the relay now uses 32 KiB (gateway #235).
