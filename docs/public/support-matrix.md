@@ -12,9 +12,9 @@ On 13 October 2026 the owner's Grok Bot called the six tools itself from the Mac
 | Component | Release | Package |
 | --- | --- | --- |
 | Hub | `v0.1.18-alpha.1` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.18-alpha.1) |
-| Gateway | `v0.1.0-alpha.17` | [PyPI `0.1.0a17`](https://pypi.org/project/grok-gadgets-gateway/) |
-| ESP32 SDK | `v0.2.0-alpha.18` | [GitHub release](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.18) |
-| Linux SDK | `v0.1.0-alpha.9` | [PyPI `0.1.0a9`](https://pypi.org/project/grok-gadgets-linux-sdk/) |
+| Gateway | `v0.1.0-alpha.18` | [PyPI `0.1.0a18`](https://pypi.org/project/grok-gadgets-gateway/) |
+| ESP32 SDK | `v0.2.0-alpha.19` | [GitHub release](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.19) |
+| Linux SDK | `v0.1.0-alpha.10` | [PyPI `0.1.0a10`](https://pypi.org/project/grok-gadgets-linux-sdk/) |
 | Home Assistant | `v0.1.0-alpha.5` | [PyPI `0.1.0a5`](https://pypi.org/project/grok-gadgets-home-assistant/) |
 
 ## Today, next, later
@@ -29,7 +29,7 @@ On 13 October 2026 the owner's iPhone, on cellular, showed text on the kit while
 **Phase 10:** a factory-provisioned gadget joins home Wi-Fi from a phone alone, through its setup hotspot.
 On 14 October 2026 the owner joined the kit from an iPhone and an Android phone. The owner kept the Mac closed during iPhone setup. The kit went Online through the relay, and Grok Bot on the iPhone showed text on it ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md), [guide](../getting-started/phone-setup.md)).
 
-Android Grok Bot calls remain untested. The owner's relay runs gateway `0.1.0a17` on device port 8443.
+Android Grok Bot calls remain untested. The owner's relay runs gateway `0.1.0a18` on device port 8443, and the owner's kit runs `0.2.0-alpha.19` with long-poll.
 New relays use port 8444 by default.
 
 **Phase 11:** each relay account claims gadgets with their screen codes.
@@ -52,7 +52,7 @@ The climate sensor, switch and servo examples compile and pass host tests. Nobod
 
 **Phase 13 (in progress):** we measure what one small relay carries and add a clearer sign-in page and an Android check ([#363](https://github.com/adidshaft/grok-gadgets/issues/363)). Sign-in also gets ready for the protocol's registration change. We have no measured numbers yet.
 
-**Relay size:** a relay holds 64 gadgets by default; `serve --max-devices` (gateway `dev`, up to 2,000) raises it. Measured on 18 October 2026 on one 512 MB, 1-vCPU host with simulated gadgets ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md)):
+**Relay size:** a relay holds 64 gadgets by default; `serve --max-devices` (gateway `0.1.0a18`, up to 2,000) raises it. Measured on 18 October 2026 on one 512 MB, 1-vCPU host with simulated gadgets ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md)):
 
 | Gadgets | Polling | Relay CPU (mean) | Relay memory (peak) | Command latency p95 |
 | --- | --- | --- | --- | --- |

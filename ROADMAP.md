@@ -7,7 +7,7 @@ The goal is simple setup for the people who use those gadgets.
 
 - **Today:** a person joins a factory-provisioned gadget to home Wi-Fi from a phone, with no cable and no app. They claim it with the code on its screen; their Grok Bot then sees only their gadgets, by the names they give them. Share, remove and hand-over are explicit. The builder's relay sends signed firmware updates with no cable, and a bad image reverts by itself. Builders get a "Before you distribute" note and a licence checklist. A builder sets up a relay with one command, prepares gadgets in batches and checks them in one report ([Ship a gadget](docs/getting-started/ship-a-gadget.md)).
 - **Next:** a builder outside the project follows that guide ([#269](https://github.com/adidshaft/grok-gadgets/issues/269)). The climate sensor, switch and servo examples run on hardware.
-- **Phase 13, Ready for others (in progress):** measure what one small relay carries, prepare sign-in for the protocol's registration change, a clearer sign-in page, a check on Android, and calls for testers and builders ([#363](https://github.com/adidshaft/grok-gadgets/issues/363)).
+- **Phase 13, Ready for others (in progress):** one small relay is measured: 1,000 simulated gadgets with long-poll. Sign-in accepts client metadata documents, and the sign-in page is shorter. Still open: an Android check, three days of sign-in, and calls for testers and builders ([#363](https://github.com/adidshaft/grok-gadgets/issues/363)).
 - **Later:** Phase 14, only a decision on a shared relay. A button press does not wake Grok Bot.
 
 The project runs no relay service. There are no promised dates.
