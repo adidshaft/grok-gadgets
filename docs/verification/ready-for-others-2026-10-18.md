@@ -120,4 +120,4 @@ The owner used a borrowed Android phone with Grok Bot and the second Grok Bot ac
 | 14:54:54 | `device_claimed` (operator gives the kit back to the operator account) |
 
 - Grok Bot on Android registered by dynamic registration, not by a metadata document.
-- After the kit went back, the owner's own Grok Bot got a 401 at 14:56:09, refreshed its sign-in at 14:56:23 and ran `gadgets_command` at 14:56:42 (`executed`). No fresh sign-in was needed.
+- Then the owner's own Grok Bot on the iPhone got a 401 at 14:56:09 and refreshed its sign-in at 14:56:23. It ran `gadgets_command` at 14:56:42 (`executed`), with no fresh sign-in. The owner saw `back home` on the kit.
