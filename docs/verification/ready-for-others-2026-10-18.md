@@ -19,9 +19,9 @@ Tiers:
 | Registration still works beside documents | Pass | Software |
 | Grok Bot via a metadata document | Not tested | — |
 | Sign-in page screenshots reviewed by the owner | Pass, after one change | Owner |
-| Stranger-style sign-in on the live relay | Not tested yet | Owner |
+| Stranger-style sign-in on the live relay | Pass | Owner |
 | Three days of Grok Bot with no fresh sign-in | Not tested yet | Owner |
-| Grok Bot on Android: claim and text on the kit | Not tested yet | Owner |
+| Grok Bot on Android: claim and text on the kit | Pass | Owner |
 | Relay on gateway 0.1.0a18 | Pass | Owner |
 | Kit on a released image by signed update, with long-poll | Pass | Owner |
 
@@ -101,3 +101,23 @@ The live Grok Bot sign-ins stayed live through the restart (`service status`).
 | 13:46:14 | `device_hello`, `update_applied` 0.2.0-alpha.19 |
 
 **Long-poll on hardware:** the relay counted 17 request packets from the kit in 30 seconds after the update. Polling every 100 ms would send about 300. The count is of packets only; no content was read.
+
+## Android and a stranger-style sign-in (tier: owner, 18 October 2026)
+
+The owner used a borrowed Android phone with Grok Bot and the second Grok Bot account from Phase 11. The operator took the kit away from the operator account first, so the kit showed a claim code, as a new owner would see it. Grok Bot on the Android phone added the relay's server and signed in on the new page with that code. The owner then saw `Android ok` on the kit.
+
+| Time | Log line |
+| --- | --- |
+| 14:47:22 | `device_unclaimed` (operator) |
+| 14:51:50 | `http_rejected` 401 `invalid_token` (the first request, before sign-in), `oauth_client_registered` |
+| 14:52:03 | `oauth_client_registered` |
+| 14:52:04 | `oauth_sign_in_requested` (the new page opens) |
+| 14:52:42 | `device_claimed`, `oauth_sign_in_approved` (the code from the kit's screen) |
+| 14:52:44 | `oauth_token_issued` (the page handed back to Grok Bot) |
+| 14:53:22 | `mcp_tool_call` `gadgets_list_devices` ok, remote |
+| 14:53:25 | `mcp_tool_call` `gadgets_name` ok, remote |
+| 14:54:00 | `mcp_tool_call` `gadgets_command` ok, `executed`, remote |
+| 14:54:54 | `device_claimed` (operator gives the kit back to the operator account) |
+
+- Grok Bot on Android registered by dynamic registration, not by a metadata document.
+- After the kit went back, the owner's own Grok Bot got a 401 at 14:56:09, refreshed its sign-in at 14:56:23 and ran `gadgets_command` at 14:56:42 (`executed`). No fresh sign-in was needed.
