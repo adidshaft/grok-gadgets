@@ -20,9 +20,12 @@ See [project status](docs/public/support-matrix.md). Independent project, not af
 | Your task | Start here |
 | --- | --- |
 | Set up a gadget you received | [Phone setup](docs/getting-started/phone-setup.md) |
-| Use a configured gadget | [Connect your Grok Bot](docs/getting-started/connect-grok-bot.md). An operator must first set up the kit, gateway and tunnel. |
+| Claim a prepared gadget | [Claim your gadget in Grok Bot](docs/getting-started/claim-your-gadget.md), after phone setup. |
+| Run a relay and prepare gadgets for others | [Ship a gadget](docs/getting-started/ship-a-gadget.md). Start with your own relay and a tested application. |
 | Build a gadget | [Factory provisioning](docs/getting-started/factory-provision.md), [tested OLED kit](docs/getting-started/repeat-the-kit.md), [ESP32 SDK](https://github.com/adidshaft/grok-gadgets-esp32-sdk) or [Linux SDK](https://github.com/adidshaft/grok-gadgets-linux-sdk) |
 | Try without hardware | [Five-minute simulator guide](docs/getting-started/first-success.md) or [browser playground](https://grokgadgets.org/playground) |
+
+Received gadgets need a printed label and the builder’s running relay. The project hosts no relay.
 
 [All documentation](docs/index.md) separates guides, reference, project status and test records.
 Home Assistant users can start with the [read-only probe](https://github.com/adidshaft/grok-gadgets-home-assistant).
@@ -42,7 +45,8 @@ See the [relay setup guide](docs/getting-started/mac-free-route.md) and the [pho
 The gateway can also run on a Mac that stays awake, using the [local kit route](docs/getting-started/repeat-the-kit.md).
 
 The owner's relay and phone setup checks passed; see [project status](docs/public/support-matrix.md) for evidence and limits.
-Another person's run remains open in [#185](https://github.com/adidshaft/grok-gadgets/issues/185).
+Report an independent kit test in [#185](https://github.com/adidshaft/grok-gadgets/issues/185).
+Outside builders can follow [Ship a gadget](docs/getting-started/ship-a-gadget.md) and report in [#269](https://github.com/adidshaft/grok-gadgets/issues/269).
 
 ## Community
 

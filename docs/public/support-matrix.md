@@ -50,18 +50,21 @@ The climate sensor, switch and servo examples compile and pass host tests. Nobod
 
 **Next:** a builder outside the project follows the guide ([#269](https://github.com/adidshaft/grok-gadgets/issues/269)).
 
-**Phase 13 (in progress):** we measure what one small relay carries and add a clearer sign-in page and an Android check ([#363](https://github.com/adidshaft/grok-gadgets/issues/363)). Sign-in also gets ready for the protocol's registration change. We have no measured numbers yet.
+**Phase 13 (in progress):** the load test, clearer sign-in page and Android kit check passed ([#363](https://github.com/adidshaft/grok-gadgets/issues/363)).
+The three-day sign-in watch ends 21 October 2026. ADR 014 remains proposed; its acceptance and the hub release wait for that result.
+Grok Bot sign-in by a client metadata document remains untested; a scripted client passed.
 
-**Relay size:** a relay holds 64 gadgets by default; `serve --max-devices` (gateway `0.1.0a18`, up to 2,000) raises it. Measured on 18 October 2026 on one 512 MB, 1-vCPU host with simulated gadgets ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md)):
+**Relay size:** a relay holds 64 gadgets by default; `serve --max-devices` (gateway `0.1.0a18`, up to 2,000) raises it. Measured for 15 minutes per size on 18 October 2026, on one 512 MB, 1-vCPU host with simulated gadgets ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md)):
 
 | Gadgets | Polling | Relay CPU (mean) | Relay memory (peak) | Command latency p95 |
 | --- | --- | --- | --- | --- |
 | 200 | every 100 ms | 61 % | 88 MB | 304 ms |
 | 1,000 | long-poll, 2.5 s wait | 67 % | 137 MB | 406 ms |
 
-1,000 gadgets polling every 100 ms did not fit that host. These are measurements of one host and one network path, not guarantees.
+1,000 gadgets polling every 100 ms did not fit that host. These simulated runs do not establish physical gadget capacity or long-term reliability.
+Long-poll lets the relay wait for a command before answering a gadget’s request. It reduces repeated requests while the gadget is idle.
 
-**Platforms:** on 18 October 2026 Grok Bot on an Android phone signed in with the kit's code and showed text on it ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md)). Windows: Not tested; run the gateway and a relay on macOS or Linux.
+**Platforms:** on 18 October 2026 Grok Bot on an Android phone claimed the kit by code and showed text on it ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md)). Windows: Not tested; run the gateway and a relay on macOS or Linux.
 
 **Later:** Phase 14 is only a decision on a shared relay. The project hosts no service.
 See the [roadmap](../../ROADMAP.md) for acceptance gates.
@@ -71,9 +74,9 @@ A button event does not wake Grok Bot.
 
 | Part | What works today | Not verified yet |
 | --- | --- | --- |
-| Gateway and simulated light | Six MCP tools over stdio or authenticated HTTP on `127.0.0.1`; `rehearse` first success; approved Grok Bot local commands; native Grok Bot calls from Mac and iPhone through an owner-run tunnel with OAuth sign-in, tested for one day behind a fixed hostname (gateway `0.1.0a12`); sign-in flood limits, log rotation and route status; usage summary and hook; simulator kit; private LAN TLS for Wi-Fi devices; optional per-user launchd/systemd service; an always-on Linux relay with iPhone calls while the Mac sleeps; accounts with claim codes, shares, names and hand-over, tested by two people (gateway `0.1.0a15`); signed firmware updates to a gadget, tested on the owner's kit (gateway `0.1.0a16`); `relay init`, batches and `builder report`, tested in a builder's dry run on a fresh host (gateway `0.1.0a17`) | Android Grok Bot calls; a second day and a calibrated usage rate; Team Bots; Windows and Intel Mac installs |
+| Gateway and simulated light | Six MCP tools over stdio or authenticated HTTP on `127.0.0.1`; `rehearse` first success; approved Grok Bot local commands; native Grok Bot calls from Mac and iPhone through an owner-run tunnel with OAuth sign-in, tested for one day behind a fixed hostname (gateway `0.1.0a12`); sign-in flood limits, log rotation and route status; usage summary and hook; simulator kit; private LAN TLS for Wi-Fi devices; optional per-user launchd/systemd service; an always-on Linux relay with iPhone calls while the Mac sleeps; accounts with claim codes, shares, names and hand-over, tested by two people (gateway `0.1.0a15`); signed firmware updates to a gadget, tested on the owner's kit (gateway `0.1.0a16`); `relay init`, batches and `builder report`, tested in a builder's dry run on a fresh host (gateway `0.1.0a17`) | Three-day sign-in watch; a calibrated usage rate; Team Bots; Windows and Intel Mac installs |
 | Linux SDK | PyPI `0.1.0a9`, `grok-linux-agent dev ./my_gadget.py` with the decorator API, and a relay over TLS (`--gateway`, `--ca`, `--device-id`): two simulated batch gadgets were Online on a fresh relay | Real peripherals, systemd on a physical Linux host, Raspberry Pi hardware |
-| ESP32 SDK | Host tests, nine firmware builds compile (the climate sensor, switch and servo examples are not tested on hardware), simulated USB link to the gateway. The ESP32-S3 + OLED kit passed physical tests on the owner's board over USB ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-2026-10-12.md)) and over Wi-Fi from a USB charger ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)); phone setup passed on iPhone and Android ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md)); claim codes passed with two accounts ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md)); signed updates with automatic revert passed on the kit ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md)) | Another person's reproduction; other boards and routers; Android Grok Bot calls |
+| ESP32 SDK | Host tests, nine firmware builds compile (the climate sensor, switch and servo examples are not tested on hardware), simulated USB link to the gateway. The ESP32-S3 + OLED kit passed physical tests on the owner's board over USB ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-2026-10-12.md)) and over Wi-Fi from a USB charger ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)); phone setup passed on iPhone and Android ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md)); claim codes passed with two accounts ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md)); signed updates with automatic revert passed on the kit ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md)) | Another person's reproduction; other boards and routers |
 | Home Assistant probe | Read-only discovery against fixtures | A real Home Assistant home |
 | Browser playground | Local JavaScript model of the light | — (it never calls Grok Bot) |
 
