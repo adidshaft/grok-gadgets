@@ -30,7 +30,7 @@ Tiers:
 
 **Relay:** gateway `dev`, `serve --device-listen 0.0.0.0:8444 --max-devices 1000 --commands-per-minute 120` with the example name `devices.example.net`, no tunnel and no OAuth. A fresh relay process for each size.
 
-**Gadgets:** `fleet run` from the owner's Mac over the internet (round trip about 50 ms), from one address, so the ramp stayed at 18 new connections a minute. TLS with the relay CA and name, a hello, a poll every 100 ms (or a waiting poll), state every 3 s. One `gadgets_command` a second through MCP over an SSH forward, timed until `executed`. Each size ran 15 minutes after the ramp. CPU and memory are the relay process's, from `fleet sample` every 5 s in that window.
+**Gadgets:** `fleet run` from the owner's Mac over the internet, with a round trip of about 50 ms. All came from one address, so the ramp stayed at 18 new connections a minute. TLS with the relay CA and name, a hello, a poll every 100 ms (or a waiting poll), state every 3 s. One `gadgets_command` a second through MCP over an SSH forward, timed until `executed`. Each size ran 15 minutes after the ramp. CPU and memory are the relay process's, from `fleet sample` every 5 s in that window.
 
 ### Final code (gateway `70fbd43`)
 
@@ -42,7 +42,7 @@ Tiers:
 
 No session dropped in any size. The relay logged no error and no `device_flood`.
 
-A first run of the 50 size on this code was discarded: the Mac also ran builds and test suites, and the command driver lost its MCP session after 388 commands. The relay log showed no error. The rerun above ran alone.
+We discarded a first run of the 50 size on this code. The Mac also ran builds and test suites, and the command driver lost its MCP session after 388 commands. The relay log showed no error. The rerun above ran alone.
 
 ### Earlier code and what it found
 
@@ -55,7 +55,7 @@ A first run of the 50 size on this code was discarded: the Mac also ran builds a
 
 The memory came from asyncio's 256 KiB TLS read buffer, which became resident on Linux: about 220 KB per gadget. On the same host, 300 idle loopback TLS pairs took 580 KB per pair with that buffer and 133 KB with 32 KiB. Gateway [#235](https://github.com/adidshaft/grok-gadgets-gateway/pull/235) sets 32 KiB; the final code above includes it.
 
-Two run faults were found and fixed before the final runs: an aborted run left fleet workers alive, which replaced the next run's sessions (gateway #232); and a lost MCP endpoint ended a run without a summary (gateway #234). Those runs are not counted.
+We fixed two faults of the tool before the final runs. An aborted run left fleet workers alive, which replaced the next run's sessions (gateway #232). A lost MCP endpoint ended a run without a summary (gateway #234). Those runs are not counted.
 
 ### What this means
 
@@ -71,6 +71,6 @@ Two run faults were found and fixed before the final runs: an aborted run left f
 
 ## Sign-in page (tier: owner)
 
-- 18 October 2026: the owner reviewed phone-size screenshots of the first design and asked for less text, the website's theme and the text behind a toggle. Gateway [#231](https://github.com/adidshaft/grok-gadgets-gateway/pull/231) made that change.
+- 18 October 2026: the owner reviewed phone-size screenshots of the first design. They asked for less text, the website's theme and the text behind a toggle. Gateway [#231](https://github.com/adidshaft/grok-gadgets-gateway/pull/231) made that change.
 - Current screenshots at 375 × 812: [code](sign-in-page-2026-10-18-code.jpg), [wrong code](sign-in-page-2026-10-18-wrong.jpg), [operator waiting](sign-in-page-2026-10-18-waiting.jpg).
 - The page policy, the redirect back to Grok Bot and the frame, cache and referrer headers are unchanged and tested.
