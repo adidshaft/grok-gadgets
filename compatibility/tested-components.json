@@ -1,14 +1,14 @@
 {
-  "status": "Public source prerelease and website live; v0.1.19-alpha.1 release candidate verified",
+  "status": "Public source prerelease and website live; v0.1.19-alpha.2 release candidate verified",
   "protocol": "0.1.0",
   "components": [
     {
       "repository": "grok-gadgets",
       "path": "grok-gadgets",
-      "version": "0.1.19-alpha.1",
-      "commit": "a97710bc4052c7f20b386f4cf7746b01d90f639f",
+      "version": "0.1.19-alpha.2",
+      "commit": "44a84744518ed19e7c11325212449dbdb30d8cf8",
       "evidence_level": "Public source prerelease; OLED kit verified over USB, Wi-Fi, an always-on relay, phone-only setup, two-account claim, signed updates over the relay and a builder's dry run on a fresh relay; native Grok Bot calls observed on the owner's setup",
-      "checks": "The v0.1.19-alpha.1 candidate adds Phase 13: ADR 014 accepted and the ready-for-others record (docs/verification/ready-for-others-2026-10-18.md): a 512 MB relay carried 200 gadgets at 100 ms and 1,000 with long-poll; sign-in by client metadata document (scripted client); the new sign-in page; Android claim and text; 39 hours of sign-in renewal with no fresh sign-in; the kit on ESP32 v0.2.0-alpha.19 by signed update. Component pins: gateway v0.1.0-alpha.18, ESP32 SDK v0.2.0-alpha.19, Linux SDK v0.1.0-alpha.10 and Home Assistant v0.1.0-alpha.5. A builder outside the project (#269) and a tester's report (#185) remain open.",
+      "checks": "The v0.1.19-alpha.2 candidate records the owner's approval of the calmer sign-in page (20 October 2026) and the owner's relay on gateway 0.1.0a19, and moves the guides to gateway 0.1.0a19. v0.1.19-alpha.1 added Phase 13: ADR 014 accepted and the ready-for-others record (docs/verification/ready-for-others-2026-10-18.md): a 512 MB relay carried 200 gadgets at 100 ms and 1,000 with long-poll; sign-in by client metadata document (scripted client); the new sign-in page; Android claim and text; 39 hours of sign-in renewal with no fresh sign-in; the kit on ESP32 v0.2.0-alpha.19 by signed update. Component pins: gateway v0.1.0-alpha.19, ESP32 SDK v0.2.0-alpha.19, Linux SDK v0.1.0-alpha.10 and Home Assistant v0.1.0-alpha.5. A builder outside the project (#269) and a tester's report (#185) remain open.",
       "grok_verified": true,
       "hardware_verified": false,
       "independently_reproduced": false,
@@ -17,10 +17,10 @@
     {
       "repository": "grok-gadgets-gateway",
       "path": "grok-gadgets-gateway",
-      "version": "0.1.0-alpha.18",
-      "commit": "df1e32b7abc10058425bd5d9af06c96f4b9ee873",
+      "version": "0.1.0-alpha.19",
+      "commit": "314400bf482808a7dfcb9e9131c60265c3b92c8f",
       "evidence_level": "Simulated; relay with accounts and signed updates used by one physical kit; a builder's relay set up from relay init on a fresh host; native Grok Bot calls through serve --oauth observed on the owner's setup",
-      "checks": "562 tests (Python 3.11 to 3.14), Ruff, the first-success path and the release workflow's fresh-download SHA256SUMS check passed; PyPI 0.1.0a18 matches SHA256SUMS. Adds long-poll (wait_ms), sign-in by Client ID Metadata Document, a minimal sign-in page, oauth watch, fleet run and fleet sample, serve --max-devices and a 32 KiB TLS read buffer. On 18 October 2026 a fresh 512 MB relay carried 1,000 simulated gadgets with long-poll; the owner's relay runs this release; Grok Bot on Android signed in on the new page (hub docs/verification/ready-for-others-2026-10-18.md).",
+      "checks": "564 tests (Python 3.11 to 3.14), Ruff, the first-success path and the release workflow's fresh-download SHA256SUMS check passed; PyPI 0.1.0a19 matches SHA256SUMS. Alpha.19 makes the sign-in page calmer: one instruction, one field and one button, with the rest under Help; headers, the form and the server behaviour are unchanged. The owner approved it from phone-size screenshots on 20 October 2026, and the owner's relay runs this release. Alpha.18 added long-poll (wait_ms), sign-in by Client ID Metadata Document, oauth watch, fleet run and fleet sample, serve --max-devices and a 32 KiB TLS read buffer; on 18 October 2026 a fresh 512 MB relay carried 1,000 simulated gadgets with long-poll (hub docs/verification/ready-for-others-2026-10-18.md).",
       "grok_verified": true,
       "hardware_verified": false,
       "independently_reproduced": false,
