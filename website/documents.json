@@ -22,6 +22,7 @@
     "docs/getting-started/hosting.md",
     "docs/getting-started/connect-grok-bot.md",
     "docs/getting-started/track-usage.md",
+    "docs/getting-started/credits-on-your-relay.md",
     "docs/getting-started/tell-me-when.md",
     "docs/getting-started/phone-setup.md",
     "docs/getting-started/claim-your-gadget.md",
@@ -53,7 +54,8 @@
     "docs/decisions/011-accounts-and-claim-codes.md",
     "docs/decisions/012-signed-updates.md",
     "docs/decisions/013-builder-kit.md",
-    "docs/decisions/014-ready-for-others.md"
+    "docs/decisions/014-ready-for-others.md",
+    "docs/decisions/015-shared-relay.md"
   ],
   "component_sources": [
     "README.md",

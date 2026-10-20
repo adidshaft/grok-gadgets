@@ -64,6 +64,11 @@ GROUPS = (
                     ("", "docs/getting-started/track-usage.md", "Track usage"),
                     (
                         "",
+                        "docs/getting-started/credits-on-your-relay.md",
+                        "Credits on your relay",
+                    ),
+                    (
+                        "",
                         "docs/getting-started/tell-me-when.md",
                         "Tell me when (routines)",
                     ),
@@ -313,6 +318,11 @@ GROUPS = (
                         "",
                         "docs/decisions/014-ready-for-others.md",
                         "Ready for others design (ADR 014)",
+                    ),
+                    (
+                        "",
+                        "docs/decisions/015-shared-relay.md",
+                        "Shared relay design (ADR 015)",
                     ),
                 ),
             ),

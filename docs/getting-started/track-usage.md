@@ -15,6 +15,10 @@ The summary groups calls by token, device, capability and UTC day. Add `--json` 
 
 For a live feed, start the gateway with `--usage-hook CMD`. Your program gets one JSON line per call on its standard input. The line holds no tokens, arguments or device state. A slow or failed program never delays a call.
 
+## Credits per account: your relay
+
+A relay with accounts can also keep credits for each account (gateway `0.1.0a20` or later). Commands and online gadget-days use them, and the relay refuses a command at zero. `credits report` shows what each account spent and checks it against the request log. Credits are a share of your relay, not money and not Grok Bot plan usage. See [Credits on your relay](credits-on-your-relay.md).
+
 ## Grok Bot plan usage: Grok Bot's own pages
 
 - Desktop: **Settings → Usage & Billing → Weekly usage limit**.

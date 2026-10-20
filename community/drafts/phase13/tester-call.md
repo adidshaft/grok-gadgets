@@ -13,7 +13,7 @@ stopped working.
 
 **What changed since the call above:** gadgets join home Wi-Fi from a phone, you claim yours
 with the code on its screen, the relay sends signed updates, and the sign-in page now shows
-you where to find that code. Current releases: gateway `0.1.0a19`, ESP32 SDK `v0.2.0-alpha.19`, Linux SDK `0.1.0a10`; check the [support matrix](https://github.com/adidshaft/grok-gadgets/blob/main/docs/public/support-matrix.md) before you start.
+you where to find that code. Current releases: gateway `0.1.0a20`, ESP32 SDK `v0.2.0-alpha.19`, Linux SDK `0.1.0a10`; check the [support matrix](https://github.com/adidshaft/grok-gadgets/blob/main/docs/public/support-matrix.md) before you start.
 
 **What you do (about two hours):**
 
