@@ -52,32 +52,43 @@ GROUPS = (
                     ("", "docs/getting-started/how-it-works.md", "How it works"),
                     (
                         "",
-                        "docs/getting-started/hosting.md",
-                        "Hosting and remote access",
-                    ),
-                    (
-                        "",
                         "docs/getting-started/connect-grok-bot.md",
                         "Connect your Grok Bot",
                     ),
                     ("", "docs/getting-started/troubleshooting.md", "Troubleshooting"),
-                    ("", "docs/getting-started/track-usage.md", "Track usage"),
-                    (
-                        "",
-                        "docs/getting-started/credits-on-your-relay.md",
-                        "Credits on your relay",
-                    ),
                     (
                         "",
                         "docs/getting-started/tell-me-when.md",
                         "Tell me when (routines)",
+                    ),
+                    ("", "SUPPORT.md", "Get help"),
+                ),
+            ),
+        ),
+    ),
+    (
+        "Run a relay",
+        "Host the gateway, track use and manage account credits.",
+        (
+            (
+                None,
+                (
+                    (
+                        "",
+                        "docs/getting-started/hosting.md",
+                        "Hosting and remote access",
                     ),
                     (
                         "",
                         "docs/getting-started/mac-free-route.md",
                         "Run the gateway away from your Mac",
                     ),
-                    ("", "SUPPORT.md", "Get help"),
+                    ("", "docs/getting-started/track-usage.md", "Track usage"),
+                    (
+                        "",
+                        "docs/getting-started/credits-on-your-relay.md",
+                        "Credits on your relay",
+                    ),
                 ),
             ),
         ),
