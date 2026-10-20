@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/release.md at df1e32b7abc10058425bd5d9af06c96f4b9ee873
+Source: grok-gadgets-gateway/docs/release.md at 314400bf482808a7dfcb9e9131c60265c3b92c8f
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -67,3 +67,4 @@ From 0.1.0-alpha.15, `serve --oauth --accounts` lets each person claim a gadget 
 From 0.1.0-alpha.16, the relay sends signed firmware updates to gadgets that ask for them (`firmware sign`, `add`, `assign`, `status`); the owner's kit passed this on 17 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/dev/docs/verification/ota-2026-10-17.md)).
 From 0.1.0-alpha.17, `relay init`, `relay-check --mcp`, `enroll --batch`/`--count` and `builder report` help a builder set up a relay and ship gadgets; a clean-room run and the owner's dry run on a fresh host passed on 17 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/dev/docs/verification/builder-kit-2026-10-17.md)).
 From 0.1.0-alpha.18, long-poll (`wait_ms`), sign-in by Client ID Metadata Document, a minimal sign-in page, `oauth watch`, `fleet` and `serve --max-devices`; a fresh 512 MB relay carried 1,000 simulated gadgets with long-poll on 18 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/dev/docs/verification/ready-for-others-2026-10-18.md)).
+From 0.1.0-alpha.19, the sign-in page shows one instruction, one field and one button; the owner approved it from phone-size screenshots on 20 October 2026.

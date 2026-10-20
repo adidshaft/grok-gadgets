@@ -11,8 +11,8 @@ On 13 October 2026 the owner's Grok Bot called the six tools itself from the Mac
 
 | Component | Release | Package |
 | --- | --- | --- |
-| Hub | `v0.1.19-alpha.1` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.19-alpha.1) |
-| Gateway | `v0.1.0-alpha.18` | [PyPI `0.1.0a18`](https://pypi.org/project/grok-gadgets-gateway/) |
+| Hub | `v0.1.19-alpha.2` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.19-alpha.2) |
+| Gateway | `v0.1.0-alpha.19` | [PyPI `0.1.0a19`](https://pypi.org/project/grok-gadgets-gateway/) |
 | ESP32 SDK | `v0.2.0-alpha.19` | [GitHub release](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.19) |
 | Linux SDK | `v0.1.0-alpha.10` | [PyPI `0.1.0a10`](https://pypi.org/project/grok-gadgets-linux-sdk/) |
 | Home Assistant | `v0.1.0-alpha.5` | [PyPI `0.1.0a5`](https://pypi.org/project/grok-gadgets-home-assistant/) |
@@ -29,7 +29,7 @@ On 13 October 2026 the owner's iPhone, on cellular, showed text on the kit while
 **Phase 10:** a factory-provisioned gadget joins home Wi-Fi from a phone alone, through its setup hotspot.
 On 14 October 2026 the owner joined the kit from an iPhone and an Android phone. The owner kept the Mac closed during iPhone setup. The kit went Online through the relay, and Grok Bot on the iPhone showed text on it ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md), [guide](../getting-started/phone-setup.md)).
 
-The owner's relay runs gateway `0.1.0a18` on device port 8443, and the owner's kit runs `0.2.0-alpha.19` with long-poll.
+The owner's relay runs gateway `0.1.0a19` on device port 8443, and the owner's kit runs `0.2.0-alpha.19` with long-poll.
 New relays use port 8444 by default.
 
 **Phase 11:** each relay account claims gadgets with their screen codes.

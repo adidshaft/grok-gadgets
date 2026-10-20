@@ -21,7 +21,7 @@ working directory and return to that directory before gateway commands.
 
 ```sh
 python3 -m venv .venv-gateway
-.venv-gateway/bin/python -m pip install grok-gadgets-gateway==0.1.0a18
+.venv-gateway/bin/python -m pip install grok-gadgets-gateway==0.1.0a19
 .venv-gateway/bin/grok-gadgets-gateway --version
 git clone --branch v0.2.0-alpha.19 https://github.com/adidshaft/grok-gadgets-esp32-sdk.git
 cd grok-gadgets-esp32-sdk
@@ -31,7 +31,7 @@ python3 -m venv .venv
 cd ..
 ```
 
-The `--version` command prints `grok-gadgets-gateway 0.1.0a18`. The first PlatformIO run
+The `--version` command prints `grok-gadgets-gateway 0.1.0a19`. The first PlatformIO run
 downloads the ESP32 toolchain, which takes several minutes.
 
 ## 1. Check the parts
