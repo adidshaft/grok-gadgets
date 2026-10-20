@@ -18,7 +18,7 @@ Tiers:
 | Sign-in by Client ID Metadata Document, scripted client | Pass | Software |
 | Registration still works beside documents | Pass | Software |
 | Grok Bot via a metadata document | Not tested | — |
-| Sign-in page screenshots reviewed by the owner | Pass, after one change | Owner |
+| Sign-in page screenshots reviewed by the owner | Pass, after two changes (approved 20 October 2026) | Owner |
 | Stranger-style sign-in on the live relay | Pass | Owner |
 | Sign-in watch: refreshes, no fresh sign-in, no 401 after an expiry | Pass (39 hours; the owner ended it early) | Owner |
 | Grok Bot on Android: claim and text on the kit | Pass | Owner |
@@ -72,8 +72,9 @@ We fixed two faults of the tool before the final runs. An aborted run left fleet
 
 ## Sign-in page (tier: owner)
 
-- 18 October 2026: the owner reviewed phone-size screenshots of the first design. They asked for less text, the website's theme and the text behind a toggle. Gateway [#231](https://github.com/adidshaft/grok-gadgets-gateway/pull/231) made that change.
-- Current screenshots at 375 × 812: [code](sign-in-page-2026-10-18-code.jpg), [wrong code](sign-in-page-2026-10-18-wrong.jpg), [operator waiting](sign-in-page-2026-10-18-waiting.jpg).
+- 18 October 2026: the owner reviewed phone-size screenshots of the first design. They asked for less text, the website's theme and the text behind a toggle. Gateway [#231](https://github.com/adidshaft/grok-gadgets-gateway/pull/231) made that change, and the owner used it in the Android sign-in.
+- 20 October 2026: the owner reviewed that version and found too much repetition: the example code twice and "Grok Bot" in several places. Gateway [#240](https://github.com/adidshaft/grok-gadgets-gateway/pull/240) has one instruction, one field and one button, with the rest under Help. The owner approved it from these 375 × 812 screenshots: [code](sign-in-page-2026-10-20-code.jpg), [wrong code](sign-in-page-2026-10-20-wrong.jpg), [operator waiting](sign-in-page-2026-10-20-waiting.jpg).
+- Gateway `v0.1.0-alpha.19` (PyPI `0.1.0a19`) shipped it. The owner's relay runs it since 07:08 UTC on 20 October 2026; the kit said hello again 4 seconds after the restart.
 - The page policy, the redirect back to Grok Bot and the frame, cache and referrer headers are unchanged and tested.
 
 ## Relay and kit (tier: owner, 18 October 2026)
