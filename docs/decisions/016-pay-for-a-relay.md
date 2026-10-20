@@ -91,7 +91,7 @@ Taken on 20 October 2026. The ADR stays Proposed until the gates are met.
 3. **Adapter:** none now. If one ever ships, it is a separate optional package, after counsel.
 4. **Names:** plain words only: "credits" and "operator settlement". No new product names now. No name contains "Grok".
 
-The options the owner did not choose were these: keep chains out completely; Base Sepolia, with one receiving address per reference; never an adapter; a product name now.
+Options not chosen: no chains at all, Base Sepolia, never an adapter, and a product name now.
 
 ## Not in scope
 
