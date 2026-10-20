@@ -45,6 +45,11 @@ Start with [Ship a gadget in one afternoon](getting-started/ship-a-gadget.md) fo
 Use [Run the gateway away from your Mac](getting-started/mac-free-route.md) for the detailed relay procedure.
 Only relay operators send firmware updates, with the CLI. Grok Bot has no update tool.
 
+| Operator task | Guide |
+| --- | --- |
+| See requests and account use | [Track usage](getting-started/track-usage.md) |
+| Grant account allowances and check receipts | [Credits on your relay](getting-started/credits-on-your-relay.md) |
+
 The [connection guide](getting-started/connect-grok-bot.md) covers the earlier Mac gateway route.
 
 ## Explore or contribute
