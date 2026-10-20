@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/experiment-kit.md at 314400bf482808a7dfcb9e9131c60265c3b92c8f
+Source: grok-gadgets-gateway/docs/experiment-kit.md at 87fb59af0ca8953adeae959041481db8eb1a2240
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 

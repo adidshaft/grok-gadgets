@@ -125,7 +125,7 @@
   },
   {
     "repository": "grok-gadgets-gateway",
-    "commit": "314400bf482808a7dfcb9e9131c60265c3b92c8f",
+    "commit": "87fb59af0ca8953adeae959041481db8eb1a2240",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -191,6 +191,7 @@
       "src/grok_gadgets_gateway/batch.py",
       "src/grok_gadgets_gateway/cli.py",
       "src/grok_gadgets_gateway/client_documents.py",
+      "src/grok_gadgets_gateway/credits.py",
       "src/grok_gadgets_gateway/demo.py",
       "src/grok_gadgets_gateway/domain.py",
       "src/grok_gadgets_gateway/firmware.py",
@@ -202,6 +203,7 @@
       "src/grok_gadgets_gateway/oauth.py",
       "src/grok_gadgets_gateway/operator.py",
       "src/grok_gadgets_gateway/protocol.py",
+      "src/grok_gadgets_gateway/receipts.py",
       "src/grok_gadgets_gateway/rehearse.py",
       "src/grok_gadgets_gateway/relay_check.py",
       "src/grok_gadgets_gateway/relay_init.py",
@@ -226,6 +228,8 @@
       "tests/test_cli.py",
       "tests/test_client_documents.py",
       "tests/test_command_wait.py",
+      "tests/test_credits.py",
+      "tests/test_credits_receipts.py",
       "tests/test_domain.py",
       "tests/test_factory_provision.py",
       "tests/test_firmware.py",

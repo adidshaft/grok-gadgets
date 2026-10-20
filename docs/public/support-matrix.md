@@ -11,8 +11,8 @@ On 13 October 2026 the owner's Grok Bot called the six tools itself from the Mac
 
 | Component | Release | Package |
 | --- | --- | --- |
-| Hub | `v0.1.19-alpha.2` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.19-alpha.2) |
-| Gateway | `v0.1.0-alpha.19` | [PyPI `0.1.0a19`](https://pypi.org/project/grok-gadgets-gateway/) |
+| Hub | `v0.1.20-alpha.1` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.20-alpha.1) |
+| Gateway | `v0.1.0-alpha.20` | [PyPI `0.1.0a20`](https://pypi.org/project/grok-gadgets-gateway/) |
 | ESP32 SDK | `v0.2.0-alpha.19` | [GitHub release](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.19) |
 | Linux SDK | `v0.1.0-alpha.10` | [PyPI `0.1.0a10`](https://pypi.org/project/grok-gadgets-linux-sdk/) |
 | Home Assistant | `v0.1.0-alpha.5` | [PyPI `0.1.0a5`](https://pypi.org/project/grok-gadgets-home-assistant/) |
@@ -36,7 +36,7 @@ Two simulated Linux batch gadgets went Online on a fresh relay; see the [builder
 The [simulator kit](../getting-started/simulator-kit.md) rehearses gateway tools without hardware.
 The browser playground models a light locally; it does not call Grok Bot.
 
-The owner's relay runs gateway `0.1.0a19` on device port 8443.
+The owner’s relay runs gateway `0.1.0a20` with `--credits` on device port 8443.
 The kit runs `0.2.0-alpha.19` with long-poll. New relays use port 8444 by default.
 A reset keeps account ownership. The automatic 7-day transfer has software-clock tests only.
 See [Hand a gadget to someone](../getting-started/hand-a-gadget-to-someone.md) for the transfer rules.
