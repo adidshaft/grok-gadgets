@@ -1,9 +1,9 @@
 {
   "format_version": 1,
-  "gateway_commit": "314400bf482808a7dfcb9e9131c60265c3b92c8f",
-  "gateway_commit_epoch": 1792477870,
-  "gateway_inputs": "4344c53df92edf1f5af9ab7211ed885df928293d44fe74db10b627509d7292d0",
-  "package_version": "0.1.0a19",
+  "gateway_commit": "87fb59af0ca8953adeae959041481db8eb1a2240",
+  "gateway_commit_epoch": 1792498202,
+  "gateway_inputs": "223432a2e77e638b741e69fe869edb65f900856fbc2c6ad1402642a064baff9f",
+  "package_version": "0.1.0a20",
   "build_inputs": {
     "scripts/build-simulator-kit.py": "ea51c6cb536962d8cc9233389b9bde261a1ca6c2c8076f76042bb13754641cb5",
     "scripts/simulator-kit/README.md": "fbfad9922dd75d50c7c8d5b2b7801a5544ceffa02a30ddff178144205e0efcd5",
@@ -33,14 +33,14 @@
       "sha256": "fbfad9922dd75d50c7c8d5b2b7801a5544ceffa02a30ddff178144205e0efcd5"
     },
     {
-      "file": "grok_gadgets_gateway-0.1.0a19-py3-none-any.whl",
-      "bytes": 162207,
-      "sha256": "93066a2984e2559ebd532782cac98411709ebe71a9360363053e67758865728c"
+      "file": "grok_gadgets_gateway-0.1.0a20-py3-none-any.whl",
+      "bytes": 173904,
+      "sha256": "2a972fc04ddf54ae714f0f4069d3d7ea6b5f4db7cf87eef1029205890973933f"
     },
     {
-      "file": "grok_gadgets_gateway-0.1.0a19.tar.gz",
-      "bytes": 287579,
-      "sha256": "1e35da49a01eab375e19f1fadf3951400307f16279b7ddf3240378434a1d44e4"
+      "file": "grok_gadgets_gateway-0.1.0a20.tar.gz",
+      "bytes": 303806,
+      "sha256": "be2ac5d3d80d8ca103ef04ba5e973d3e0234b0356261b3c86bf7fbd3af68f0e7"
     },
     {
       "file": "install.py",
@@ -64,8 +64,8 @@
     },
     {
       "file": "source.tar",
-      "bytes": 1146880,
-      "sha256": "d3c7887f553bd8833675e5d0bbe31757cf8c798b6e70f69d2d9007e555bae12a"
+      "bytes": 1218560,
+      "sha256": "4636790c825a0437499bb1864eedd26687a7327f0c9872aafea5f2ad497fc394"
     },
     {
       "file": "try_simulator.py",
@@ -74,6 +74,6 @@
     }
   ],
   "archive": "grok-gadgets-simulator-kit.zip",
-  "archive_bytes": 766238,
-  "archive_sha256": "4fb6f54c3a0a145d8445c4209ff680f1f53b24f282e98e5c27060fc86a6c632f"
+  "archive_bytes": 810129,
+  "archive_sha256": "0bfa3fb7ed5c364c8f3ab0fd41ed6ea0e5d3a6924a774d1a0636fab5e1c0ac4c"
 }
