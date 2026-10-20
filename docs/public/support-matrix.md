@@ -1,6 +1,6 @@
 # Project status
 
-Updated 18 October 2026. This is the one place that says what works. Other pages link here
+Updated 20 October 2026. This is the one place that says what works. Other pages link here
 instead of repeating caveats.
 
 **Alpha · one owner-tested kit · phone setup · claim by code · signed updates · Grok Bot on iPhone and Android.**
@@ -17,68 +17,65 @@ On 13 October 2026 the owner's Grok Bot called the six tools itself from the Mac
 | Linux SDK | `v0.1.0-alpha.10` | [PyPI `0.1.0a10`](https://pypi.org/project/grok-gadgets-linux-sdk/) |
 | Home Assistant | `v0.1.0-alpha.5` | [PyPI `0.1.0a5`](https://pypi.org/project/grok-gadgets-home-assistant/) |
 
-## Today, next, later
+## What you can do today
 
-**Today:** the kit connects to a gateway on an always-on Linux server.
-The earlier Mac-hosted route passed Phase 8 for one day. During Mac sleep, that route failed and queued nothing.
-See the [daily record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/daily-route-2026-10-13.md).
+The owner-tested path uses one ESP32-S3/OLED kit and an always-on Linux relay.
+The Mac can sleep. The project hosts no relay.
 
-**Phase 9:** the gateway can run on an always-on Linux server, so the Mac can sleep.
-On 13 October 2026 the owner's iPhone, on cellular, showed text on the kit while the Mac slept ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md)).
+| Task | Guide | Evidence |
+| --- | --- | --- |
+| Join home Wi-Fi from a phone, with no data cable | [Phone setup](../getting-started/phone-setup.md) | Owner's iPhone and Android; [14 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md) |
+| Claim, name and share a gadget | [Claim your gadget](../getting-started/claim-your-gadget.md) | Two people, their own iPhones, one relay and kit; [17 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md) |
+| Show text from Grok Bot while the Mac sleeps | [Mac-free route](../getting-started/mac-free-route.md) | Owner's iPhone on cellular; [13 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md) |
+| Send signed firmware updates with automatic revert | [Sign and ship an update](../getting-started/sign-and-ship-an-update.md) | Owner's kit, including a power cut during download; [17 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md) |
+| Set up a relay and prepare a gadget batch | [Ship a gadget](../getting-started/ship-a-gadget.md) | Clean-room software run and owner's dry run on a fresh host; [17 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/builder-kit-2026-10-17.md) |
 
-**Phase 10:** a factory-provisioned gadget joins home Wi-Fi from a phone alone, through its setup hotspot.
-On 14 October 2026 the owner joined the kit from an iPhone and an Android phone. The owner kept the Mac closed during iPhone setup. The kit went Online through the relay, and Grok Bot on the iPhone showed text on it ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md), [guide](../getting-started/phone-setup.md)).
+The owner's relay runs gateway `0.1.0a19` on device port 8443.
+The kit runs `0.2.0-alpha.19` with long-poll. New relays use port 8444 by default.
+A reset keeps account ownership. The automatic 7-day transfer has software-clock tests only.
+See [Hand a gadget to someone](../getting-started/hand-a-gadget-to-someone.md) for the transfer rules.
 
-The owner's relay runs gateway `0.1.0a19` on device port 8443, and the owner's kit runs `0.2.0-alpha.19` with long-poll.
-New relays use port 8444 by default.
+## Phase 13: accepted on 20 October
 
-**Phase 11:** each relay account claims gadgets with their screen codes.
-Grok Bot sees gadgets the account owns or another account explicitly shares.
-On 17 October 2026 two people tested this on the owner's relay and kit, each with Grok Bot on their own iPhone. Claim, isolation, share and revoke, wrong and expired codes, a flood and a hand-over after a reset all passed ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md), [guide](../getting-started/claim-your-gadget.md)).
+The load test, clearer sign-in page and Android kit check passed.
+[ADR 014](../decisions/014-ready-for-others.md) is accepted; [the record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md) gives the evidence and limits.
 
-A reset keeps account ownership. A transfer stays pending until the owner removes the gadget or the 7-day period ends without refusal.
-The automatic 7-day transfer has software-clock tests only; no physical relay has completed that wait yet.
+- **Sign-in watch:** 18 October 13:44 to 20 October 04:45 UTC, about 39 hours.
+  The owner ended the planned three-day watch early.
+  There were 26 refreshes, no fresh owner sign-in and no 401 after access-token expiry.
+  The Android test added one sign-in for the second account.
+- **Android:** the owner's Grok Bot claimed the kit by code and showed text on 18 October.
+  Grok Bot uses dynamic registration. Its Client ID Metadata Document route remains untested; a scripted client passed.
+- **Relay size:** a relay holds 64 gadgets by default.
+  Gateway `0.1.0a18` added `serve --max-devices`, up to 2,000. This setting is a limit, not a capacity guarantee.
 
-**Phase 12b:** the relay sends signed firmware updates to a gadget with no cable.
-The gadget refuses an image signed with another key or changed on the way. An image that does not come Online within 5 minutes reverts by itself.
-On 17 October 2026 the owner's kit passed each of these checks and recovered from a power cut during a download. Grok Bot then showed text on the updated kit ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md), [guide](../getting-started/sign-and-ship-an-update.md)).
-Builders also get [Before you distribute a gadget](../getting-started/before-you-distribute.md) and a [firmware licence checklist](../getting-started/firmware-licences.md). Both are not legal advice.
-
-**Phase 12a:** a builder sets up a relay with one command, prepares gadgets in batches and checks them in one report.
-A clean-room run and the owner's dry run on a fresh host followed [Ship a gadget](../getting-started/ship-a-gadget.md) on 17 October 2026 ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/builder-kit-2026-10-17.md)).
-The climate sensor, switch and servo examples compile and pass host tests. Nobody has run them with the parts yet.
-
-**Next:** a builder outside the project follows the guide ([#269](https://github.com/adidshaft/grok-gadgets/issues/269)).
-
-**Phase 13:** the load test, the clearer sign-in page and the Android kit check passed ([#363](https://github.com/adidshaft/grok-gadgets/issues/363)).
-Grok Bot's sign-in renewed itself 26 times over 39 hours with no fresh sign-in (ADR 014 accepted on 20 October 2026).
-Grok Bot sign-in by a client metadata document remains untested; a scripted client passed.
-
-**Relay size:** a relay holds 64 gadgets by default; `serve --max-devices` (gateway `0.1.0a18`, up to 2,000) raises it. Measured for 15 minutes per size on 18 October 2026, on one 512 MB, 1-vCPU host with simulated gadgets ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md)):
+Each load test ran for 15 minutes on one 512 MB, 1-vCPU host with simulated gadgets:
 
 | Gadgets | Polling | Relay CPU (mean) | Relay memory (peak) | Command latency p95 |
 | --- | --- | --- | --- | --- |
 | 200 | every 100 ms | 61 % | 88 MB | 304 ms |
 | 1,000 | long-poll, 2.5 s wait | 67 % | 137 MB | 406 ms |
 
-1,000 gadgets polling every 100 ms did not fit that host. These simulated runs do not establish physical gadget capacity or long-term reliability.
-Long-poll lets the relay wait for a command before answering a gadget’s request. It reduces repeated requests while the gadget is idle.
+1,000 gadgets polling every 100 ms did not fit that host.
+These simulated runs do not establish physical gadget capacity or long-term reliability.
+Long-poll lets the relay wait for a command before answering a gadget's request.
+It reduces repeated requests while the gadget is idle.
 
-**Platforms:** on 18 October 2026 Grok Bot on an Android phone claimed the kit by code and showed text on it ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md)). Windows: Not tested; run the gateway and a relay on macOS or Linux.
+## What still needs a report
 
-**Later:** Phase 14 is only a decision on a shared relay. The project hosts no service.
+| Area | Remaining checks |
+| --- | --- |
+| Independent reproduction | Another person's kit report [#185](https://github.com/adidshaft/grok-gadgets/issues/185) and outside builder report [#269](https://github.com/adidshaft/grok-gadgets/issues/269) |
+| Grok Bot and sign-in | Metadata-document route, 30-day refresh lifetime, Team Bots and a calibrated usage rate |
+| Platforms | Windows and Intel Mac installs |
+| Linux SDK | Long-poll on physical Linux hardware, real peripherals, systemd on a physical host and Raspberry Pi hardware |
+| ESP32 SDK | Climate sensor, switch and servo examples compile and pass host tests; hardware checks remain. Other boards and routers also need reports. |
+| Home Assistant | Discovery passed against fixtures; a real home remains untested. |
+
+**Next:** independent kit and builder reports. Use the issue templates to state versions, steps and observed results.
+**Later:** Phase 14 is only a decision on a shared relay.
 See the [roadmap](../../ROADMAP.md) for acceptance gates.
-
-**Help test:** another day, measured usage and [an independent kit report](https://github.com/adidshaft/grok-gadgets/issues/185) remain open.
 A button event does not wake Grok Bot.
-
-| Part | What works today | Not verified yet |
-| --- | --- | --- |
-| Gateway and simulated light | Six MCP tools over stdio or authenticated HTTP on `127.0.0.1`; `rehearse` first success; approved Grok Bot local commands; native Grok Bot calls from Mac and iPhone through an owner-run tunnel with OAuth sign-in, tested for one day behind a fixed hostname (gateway `0.1.0a12`); sign-in flood limits, log rotation and route status; usage summary and hook; simulator kit; private LAN TLS for Wi-Fi devices; optional per-user launchd/systemd service; an always-on Linux relay with iPhone calls while the Mac sleeps; accounts with claim codes, shares, names and hand-over, tested by two people (gateway `0.1.0a15`); signed firmware updates to a gadget, tested on the owner's kit (gateway `0.1.0a16`); `relay init`, batches and `builder report`, tested in a builder's dry run on a fresh host (gateway `0.1.0a17`) | Three-day sign-in watch; a calibrated usage rate; Team Bots; Windows and Intel Mac installs |
-| Linux SDK | PyPI `0.1.0a9`, `grok-linux-agent dev ./my_gadget.py` with the decorator API, and a relay over TLS (`--gateway`, `--ca`, `--device-id`): two simulated batch gadgets were Online on a fresh relay | Real peripherals, systemd on a physical Linux host, Raspberry Pi hardware |
-| ESP32 SDK | Host tests, nine firmware builds compile (the climate sensor, switch and servo examples are not tested on hardware), simulated USB link to the gateway. The ESP32-S3 + OLED kit passed physical tests on the owner's board over USB ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-2026-10-12.md)) and over Wi-Fi from a USB charger ([record](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/main/docs/verification/oled-kit-wifi-2026-10-12.md)); phone setup passed on iPhone and Android ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md)); claim codes passed with two accounts ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md)); signed updates with automatic revert passed on the kit ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md)) | Another person's reproduction; other boards and routers |
-| Home Assistant probe | Read-only discovery against fixtures | A real Home Assistant home |
-| Browser playground | Local JavaScript model of the light | — (it never calls Grok Bot) |
 
 ## What "verified" means here
 
