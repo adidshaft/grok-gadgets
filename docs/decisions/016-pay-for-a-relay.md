@@ -84,12 +84,14 @@ Counsel's questions cover these topics:
 
 ## Owner decisions
 
-To be taken before this ADR leaves Proposed. Recommended options first.
+Taken on 20 October 2026. The ADR stays Proposed until the gates are met.
 
-1. **Amend ADR 015's chain clause** for operator and builder settlement only, on a test network until counsel (recommended). Or keep chains out completely.
-2. **Test network.** Solana Devnet with Circle's test USDC and the Memo program (recommended: a memo fits the one-time reference). Or Base Sepolia, which needs one receiving address per reference.
-3. **Adapter.** None now; if ever, a separate optional package after counsel (recommended). Or never.
-4. **Names.** Credits stay "credits" in text; settlement is "operator settlement"; no new product names now (recommended). No name contains "Grok".
+1. **ADR 015's chain clause** gains one exception: operator and builder settlement, on a test network until counsel signs off.
+2. **Test network:** Solana Devnet, with Circle's test USDC and the Memo program.
+3. **Adapter:** none now. If one ever ships, it is a separate optional package, after counsel.
+4. **Names:** plain words only: "credits" and "operator settlement". No new product names now. No name contains "Grok".
+
+The options the owner did not choose were these: keep chains out completely; Base Sepolia, with one receiving address per reference; never an adapter; a product name now.
 
 ## Not in scope
 
