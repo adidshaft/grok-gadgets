@@ -64,6 +64,11 @@ GROUPS = (
                     ("", "docs/getting-started/track-usage.md", "Track usage"),
                     (
                         "",
+                        "docs/getting-started/credits-on-your-relay.md",
+                        "Credits on your relay",
+                    ),
+                    (
+                        "",
                         "docs/getting-started/tell-me-when.md",
                         "Tell me when (routines)",
                     ),

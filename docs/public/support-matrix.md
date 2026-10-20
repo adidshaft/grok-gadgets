@@ -28,6 +28,7 @@ The Mac can sleep. The project hosts no relay.
 | Claim, name and share a gadget | [Claim your gadget](../getting-started/claim-your-gadget.md) | Two people, their own iPhones, one relay and kit; [17 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md) |
 | Show text from Grok Bot while the Mac sleeps | [Mac-free route](../getting-started/mac-free-route.md) | Owner's iPhone on cellular; [13 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md) |
 | Send signed firmware updates with automatic revert | [Sign and ship an update](../getting-started/sign-and-ship-an-update.md) | Owner's kit, including a power cut during download; [17 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md) |
+| Give each account a fair share with credits (no payments) | [Credits on your relay](../getting-started/credits-on-your-relay.md) | Software tests; owner acceptance on the owner's relay pending ([ADR 015](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/015-shared-relay.md)) |
 | Set up a relay and prepare a gadget batch | [Ship a gadget](../getting-started/ship-a-gadget.md) | Clean-room software run and owner's dry run on a fresh host; [Builder record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/builder-kit-2026-10-17.md) |
 
 The Linux SDK provides a decorator API, a development runner and a relay client over TLS.
