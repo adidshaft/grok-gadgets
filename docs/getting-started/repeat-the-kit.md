@@ -5,7 +5,7 @@ YD-ESP32-23 v1.3 board with an ESP32-S3-N16R8 module and one 1.3-inch SH1106
 OLED at I²C address `0x3C`. The owner passed USB and Wi-Fi acceptance with this
 kit. Your results are new evidence; do not assume your board will pass.
 
-Use the released [ESP32 SDK v0.2.0-alpha.18](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.18)
+Use the released [ESP32 SDK v0.2.0-alpha.19](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.19)
 and [gateway v0.1.0-alpha.17](https://github.com/adidshaft/grok-gadgets-gateway/releases/tag/v0.1.0-alpha.17).
 Firmware binaries are not published. Build the firmware from source.
 For signed updates after setup, follow [Sign and ship an update](sign-and-ship-an-update.md).
@@ -21,9 +21,9 @@ working directory and return to that directory before gateway commands.
 
 ```sh
 python3 -m venv .venv-gateway
-.venv-gateway/bin/python -m pip install grok-gadgets-gateway==0.1.0a17
+.venv-gateway/bin/python -m pip install grok-gadgets-gateway==0.1.0a18
 .venv-gateway/bin/grok-gadgets-gateway --version
-git clone --branch v0.2.0-alpha.18 https://github.com/adidshaft/grok-gadgets-esp32-sdk.git
+git clone --branch v0.2.0-alpha.19 https://github.com/adidshaft/grok-gadgets-esp32-sdk.git
 cd grok-gadgets-esp32-sdk
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.lock
@@ -31,7 +31,7 @@ python3 -m venv .venv
 cd ..
 ```
 
-The `--version` command prints `grok-gadgets-gateway 0.1.0a17`. The first PlatformIO run
+The `--version` command prints `grok-gadgets-gateway 0.1.0a18`. The first PlatformIO run
 downloads the ESP32 toolchain, which takes several minutes.
 
 ## 1. Check the parts
@@ -70,7 +70,7 @@ In the ESP32 SDK checkout, build and flash the Wi-Fi build. Use
 ```
 
 For the first flash, hold BOOT while you connect the cable to **USB**, then release it.
-See the kit's [README](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/v0.2.0-alpha.18/examples/oled-kit/README.md)
+See the kit's [README](https://github.com/adidshaft/grok-gadgets-esp32-sdk/blob/v0.2.0-alpha.19/examples/oled-kit/README.md)
 for the commands and status messages.
 Restart the board after you change any display wire. The firmware checks for the
 OLED at startup.

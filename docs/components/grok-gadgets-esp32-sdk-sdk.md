@@ -1,4 +1,4 @@
-Source: grok-gadgets-esp32-sdk/docs/sdk.md at 253e753f11b3b73a0847aff5708144d5b5f13c2f
+Source: grok-gadgets-esp32-sdk/docs/sdk.md at 179da5fdb17cf4da99ad959204113f8bac438562
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -60,6 +60,21 @@ Hello may list at most 16 names. The gadget always appends `state` and `history_
 The gateway rejects schema references, `pattern` and `patternProperties`. Use explicit properties, `enum`, `minLength` and `maxLength` instead. This prevents a device-supplied regular expression from blocking the gateway.
 
 `begin()` calls `Serial.setRxBufferSize` for two full frames (4096 bytes) before `Serial.begin()`. The Arduino-ESP32 2.0.17 USB CDC queue otherwise stays 256 bytes and can drop a long reply. That call is unverified on hardware.
+
+## Long-poll
+
+An idle gadget polls ten times a second. On a relay with many gadgets that is most of the
+relay's work (hub ADR 014). Opt in before `begin()`:
+
+```cpp
+gadget.longPoll(2500); // milliseconds, 100 up to (not including) 3000
+```
+
+Each poll then asks the relay to wait up to 2.5 s for a command. A command still arrives at
+once. Requests stay one at a time, so state and button events wait for the poll; the limit
+keeps the 3-second state report on time. During a signed-update download the gadget polls
+without waiting. A relay from before long-poll answers `invalid_request` once; the gadget keeps
+its session and polls without the field until the next boot.
 
 ## Claim codes
 
