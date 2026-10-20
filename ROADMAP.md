@@ -9,6 +9,7 @@ The goal is simple setup for the people who use those gadgets.
 - **Next:** a tester repeats the kit ([#185](https://github.com/adidshaft/grok-gadgets/issues/185)) and a builder outside the project follows the guide ([#269](https://github.com/adidshaft/grok-gadgets/issues/269)); the calls are ready for the owner to post. The climate sensor, switch and servo examples run on hardware.
 - **Credits:** a relay can meter credits per account: commands and online gadget-days use them, and the operator grants them. Signed receipts and a report check the use. There are no payments ([Credits on your relay](docs/getting-started/credits-on-your-relay.md)).
 - **Later:** builders run their own relays. A listing of independent operator relays waits for two outside operators ([ADR 015](docs/decisions/015-shared-relay.md)). A button press does not wake Grok Bot.
+- **Paying for a relay:** [ADR 016](docs/decisions/016-pay-for-a-relay.md) is only a proposal. Nothing is sold, and there are no payments. Selling waits for an outside builder and for legal review.
 
 The project runs no relay service. There are no promised dates.
 
@@ -26,10 +27,11 @@ The project runs no relay service. There are no promised dates.
 | 12a: builder kit | Complete on the owner's setup | [Builder kit record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/builder-kit-2026-10-17.md): a clean-room run, and the owner's dry run on a fresh host with a batch of three, phone setup, claim, Grok Bot text and a signed update. A second builder ([#269](https://github.com/adidshaft/grok-gadgets/issues/269)) and the new examples on hardware remain |
 | 13: ready for others | Complete on the owner's setup | [Ready-for-others record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md): a 512 MB relay carried 1,000 simulated gadgets with long-poll; sign-in by client metadata document (scripted client); the new sign-in page; Android claim and text; 39 hours of sign-in with no fresh sign-in; the kit on a released image by signed update. Tester and builder calls are drafted |
 | 14: shared relay decision | Decided; Stage 0 complete on the owner's setup | [ADR 015](docs/decisions/015-shared-relay.md): builder-only relays now, an operator network later, no project-run relay now ([#270](https://github.com/adidshaft/grok-gadgets/issues/270)). [Credits record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/credits-2026-10-20.md): per-account credits, the out-of-credits message in Grok Bot, signed receipts and a reconciled report; one kit, one relay, no payments |
+| 15: Stage 1 preparation | In progress | [ADR 016](docs/decisions/016-pay-for-a-relay.md) proposed: customers would pay a builder by card, never with a wallet; the gateway stays payment-free. A 7-day credits measurement runs on the owner's relay ([#402](https://github.com/adidshaft/grok-gadgets/issues/402)). No payments |
 
 [ADR 009](docs/decisions/009-relay-route.md) plans Phases 9–13. Stage 1 (Phase 9) is accepted and released. [ADR 010](docs/decisions/010-phone-setup.md) (Phase 10, phone setup) and [ADR 011](docs/decisions/011-accounts-and-claim-codes.md) (Phase 11, accounts and claim codes) are accepted.
 [ADR 012](docs/decisions/012-signed-updates.md) (Phase 12b, signed updates) and [ADR 013](docs/decisions/013-builder-kit.md) (Phase 12a, builder kit) are accepted.
-[ADR 014](docs/decisions/014-ready-for-others.md) (Phase 13, ready for others) is accepted. [ADR 015](docs/decisions/015-shared-relay.md) (Phase 14, shared relay) is accepted. ADR numbers differ from phase numbers: Phase 13 was renumbered on 18 October 2026, and the shared-relay decision moved to Phase 14.
+[ADR 014](docs/decisions/014-ready-for-others.md) (Phase 13, ready for others) is accepted. [ADR 015](docs/decisions/015-shared-relay.md) (Phase 14, shared relay) is accepted. [ADR 016](docs/decisions/016-pay-for-a-relay.md) (Phase 15, paying for a relay) is proposed. ADR numbers differ from phase numbers: Phase 13 was renumbered on 18 October 2026, and the shared-relay decision moved to Phase 14.
 
 ## What the current result means
 
