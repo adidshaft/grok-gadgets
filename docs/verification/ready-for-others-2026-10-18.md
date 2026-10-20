@@ -73,7 +73,7 @@ We fixed two faults of the tool before the final runs. An aborted run left fleet
 ## Sign-in page (tier: owner)
 
 - 18 October 2026: the owner reviewed phone-size screenshots of the first design. They asked for less text, the website's theme and the text behind a toggle. Gateway [#231](https://github.com/adidshaft/grok-gadgets-gateway/pull/231) made that change, and the owner used it in the Android sign-in.
-- 20 October 2026: the owner reviewed that version and found too much repetition: the example code twice and "Grok Bot" in several places. Gateway [#240](https://github.com/adidshaft/grok-gadgets-gateway/pull/240) has one instruction, one field and one button, with the rest under Help. The owner approved it from these 375 × 812 screenshots: [code](sign-in-page-2026-10-20-code.jpg), [wrong code](sign-in-page-2026-10-20-wrong.jpg), [operator waiting](sign-in-page-2026-10-20-waiting.jpg).
+- On 20 October 2026 the owner reviewed that version again. It repeated itself: the example code showed twice, and "Grok Bot" showed in several places. Gateway [#240](https://github.com/adidshaft/grok-gadgets-gateway/pull/240) has one instruction, one field and one button, with the rest under Help. The owner approved it from these 375 × 812 screenshots: [code](sign-in-page-2026-10-20-code.jpg), [wrong code](sign-in-page-2026-10-20-wrong.jpg), [operator waiting](sign-in-page-2026-10-20-waiting.jpg).
 - Gateway `v0.1.0-alpha.19` (PyPI `0.1.0a19`) shipped it. The owner's relay runs it since 07:08 UTC on 20 October 2026; the kit said hello again 4 seconds after the restart.
 - The page policy, the redirect back to Grok Bot and the frame, cache and referrer headers are unchanged and tested.
 
