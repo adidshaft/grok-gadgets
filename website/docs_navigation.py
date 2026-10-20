@@ -335,6 +335,11 @@ GROUPS = (
                         "docs/decisions/015-shared-relay.md",
                         "Shared relay design (ADR 015)",
                     ),
+                    (
+                        "",
+                        "docs/decisions/016-pay-for-a-relay.md",
+                        "Paying for a relay (ADR 016, proposed)",
+                    ),
                 ),
             ),
         ),
