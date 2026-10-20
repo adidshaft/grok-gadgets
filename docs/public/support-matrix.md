@@ -24,11 +24,16 @@ The Mac can sleep. The project hosts no relay.
 
 | Task | Guide | Evidence |
 | --- | --- | --- |
-| Join home Wi-Fi from a phone, with no data cable | [Phone setup](../getting-started/phone-setup.md) | Owner's iPhone and Android; [14 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md) |
+| Join home Wi-Fi from a phone with a prepared gadget, with no data cable | [Phone setup](../getting-started/phone-setup.md) | Owner's iPhone and Android; [14 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/phone-setup-2026-10-14.md) |
 | Claim, name and share a gadget | [Claim your gadget](../getting-started/claim-your-gadget.md) | Two people, their own iPhones, one relay and kit; [17 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md) |
 | Show text from Grok Bot while the Mac sleeps | [Mac-free route](../getting-started/mac-free-route.md) | Owner's iPhone on cellular; [13 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md) |
 | Send signed firmware updates with automatic revert | [Sign and ship an update](../getting-started/sign-and-ship-an-update.md) | Owner's kit, including a power cut during download; [17 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md) |
-| Set up a relay and prepare a gadget batch | [Ship a gadget](../getting-started/ship-a-gadget.md) | Clean-room software run and owner's dry run on a fresh host; [17 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/builder-kit-2026-10-17.md) |
+| Set up a relay and prepare a gadget batch | [Ship a gadget](../getting-started/ship-a-gadget.md) | Clean-room software run and owner's dry run on a fresh host; [Builder record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/builder-kit-2026-10-17.md) |
+
+The Linux SDK provides a decorator API, a development runner and a relay client over TLS.
+Two simulated Linux batch gadgets went Online on a fresh relay; see the [builder record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/builder-kit-2026-10-17.md).
+The [simulator kit](../getting-started/simulator-kit.md) rehearses gateway tools without hardware.
+The browser playground models a light locally; it does not call Grok Bot.
 
 The owner's relay runs gateway `0.1.0a19` on device port 8443.
 The kit runs `0.2.0-alpha.19` with long-poll. New relays use port 8444 by default.
@@ -60,6 +65,9 @@ Each load test ran for 15 minutes on one 512 MB, 1-vCPU host with simulated gadg
 These simulated runs do not establish physical gadget capacity or long-term reliability.
 Long-poll lets the relay wait for a command before answering a gadget's request.
 It reduces repeated requests while the gadget is idle.
+
+The 39-hour watch does not explain the two earlier 401 responses on gateway `0.1.0a16`.
+See the [scoped sign-in limits](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md#sign-in-watch-tier-owner-1820-october-2026).
 
 ## What still needs a report
 
