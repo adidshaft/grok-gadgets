@@ -112,6 +112,7 @@ def steps(py):
                 "docs/decisions/012-signed-updates.md",
                 "docs/decisions/013-builder-kit.md",
                 "docs/decisions/014-ready-for-others.md",
+                "docs/decisions/015-shared-relay.md",
                 "docs/getting-started/ship-a-gadget.md",
                 "docs/getting-started/capability-vocabulary.md",
                 "docs/contributing/ready-issues.md",

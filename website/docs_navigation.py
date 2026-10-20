@@ -314,6 +314,11 @@ GROUPS = (
                         "docs/decisions/014-ready-for-others.md",
                         "Ready for others design (ADR 014)",
                     ),
+                    (
+                        "",
+                        "docs/decisions/015-shared-relay.md",
+                        "Shared relay design (ADR 015)",
+                    ),
                 ),
             ),
         ),
