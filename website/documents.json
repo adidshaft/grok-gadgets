@@ -53,7 +53,8 @@
     "docs/decisions/011-accounts-and-claim-codes.md",
     "docs/decisions/012-signed-updates.md",
     "docs/decisions/013-builder-kit.md",
-    "docs/decisions/014-ready-for-others.md"
+    "docs/decisions/014-ready-for-others.md",
+    "docs/decisions/015-shared-relay.md"
   ],
   "component_sources": [
     "README.md",
