@@ -2,7 +2,7 @@
 
 **Date:** 20 October 2026
 
-**Status:** Proposed. The owner decisions below are open. Acceptance follows the Stage 0 acceptance record.
+**Status:** Proposed. The owner took the five decisions below on 20 October 2026. Acceptance follows the Stage 0 acceptance record.
 
 **Owner:** Grok Gadgets hub (`adidshaft/grok-gadgets`)
 
@@ -45,7 +45,7 @@ Facts this decision depends on (gateway `0.1.0a19`):
 
 **Privacy.** The relay stores account IDs, device IDs, gadget names, request logs and sign-in records. Request logs rotate at 5 MiB and keep 5 files. Whoever runs the relay decides why and how long it keeps them, so they act as the GDPR controller. Under option A that is the owner as a private person. They would then need a privacy notice, a lawful basis, retention rules, a way to answer access requests, and a processing agreement with the host.
 
-## Decision (proposed)
+## Decision
 
 **C now, B later, A not now.** Builders run their own relays. The project ships the tools to run one fairly: Stage 0 credits. An operator network and a project-run relay each wait for their gate. No stage adds payments to the project.
 
@@ -109,7 +109,10 @@ Record `docs/verification/credits-2026-10-DD.md`. Each item says Pass, Fail or N
 | Report matches the request log | Software, on the relay's files |
 | Bypass and cross-account tests | Software |
 
-## Owner decisions (open)
+## Owner decisions
+
+Taken on 20 October 2026: C now and B later; one credit per accepted command and one per gadget-day; a default allowance of 0; the business draft stays in the private review folder; the acceptance runs on the owner's relay after a backup.
+
 
 1. **Relay model.** C now, B later, A not now (recommended). Or A, or B now.
 2. **Meter weights.** One credit per accepted command and one per gadget-day (recommended). Or commands only.
