@@ -12,16 +12,16 @@
 
 ## Context
 
-Today every relay belongs to one person. The owner runs one relay for the owner's kit. A builder runs one relay for the gadgets they ship ([ADR 013](013-builder-kit.md)). The project hosts no relay.
+Today every relay belongs to one person. The owner runs one relay for the owner's kit. A builder runs one relay for the gadgets they ship ([ADR 013](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/013-builder-kit.md)). The project hosts no relay.
 
-People outside the project can now arrive. Phase 13 made the builder guide, the sign-in page and the capacity numbers ready for them ([ADR 014](014-ready-for-others.md)). Someone must run each relay and pay for it. Issue #270 asks whether that should be the project.
+People outside the project can now arrive. Phase 13 made the builder guide, the sign-in page and the capacity numbers ready for them ([ADR 014](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/014-ready-for-others.md)). Someone must run each relay and pay for it. Issue #270 asks whether that should be the project.
 
 Facts this decision depends on (gateway `0.1.0a19`):
 
 - **Capacity.** One 512 MB, 1-vCPU host carried 1,000 simulated gadgets with long-poll for 15 minutes. CPU was 67 % and memory 137 MB; p95 command latency was 406 ms. At a 100 ms poll the same host failed near 400 gadgets. No physical fleet was measured.
-- **Host cost.** That host class costs US$4 a month; 1 GiB costs US$6 ([DigitalOcean pricing](https://www.digitalocean.com/pricing/droplets), read 14 October 2026). The tunnel costs nothing on the Cloudflare Zero Trust free plan ([ADR 008](008-daily-native-route.md)). A domain the operator already owns is assumed.
-- **Accounts.** A relay in accounts mode keeps a relay-minted account per person ([ADR 011](011-accounts-and-claim-codes.md)). Each account sees only its own gadgets. The operator account is separate.
-- **Existing limits.** Each sign-in may make 60 tool calls and 10 commands a minute (`RateLimiter`). Sign-in floods have budgets ([ADR 008](008-daily-native-route.md)). Wrong claim codes have limits (ADR 011 §5). `remote off` stops every remote call.
+- **Host cost.** That host class costs US$4 a month; 1 GiB costs US$6 ([DigitalOcean pricing](https://www.digitalocean.com/pricing/droplets), read 14 October 2026). The tunnel costs nothing on the Cloudflare Zero Trust free plan ([ADR 008](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/008-daily-native-route.md)). A domain the operator already owns is assumed.
+- **Accounts.** A relay in accounts mode keeps a relay-minted account per person ([ADR 011](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/011-accounts-and-claim-codes.md)). Each account sees only its own gadgets. The operator account is separate.
+- **Existing limits.** Each sign-in may make 60 tool calls and 10 commands a minute (`RateLimiter`). Sign-in floods have budgets ([ADR 008](https://github.com/adidshaft/grok-gadgets/blob/main/docs/decisions/008-daily-native-route.md)). Wrong claim codes have limits (ADR 011 §5). `remote off` stops every remote call.
 - **The usage hook cannot block a call.** `--usage-hook` puts one line on a bounded queue and drops lines when the queue is full. So a quota cannot live in the hook. It must sit in the call path, in `mcp_server` beside the rate limiter.
 - **Grok Bot payments.** We could not read the SpaceXSI terms on payments inside Grok Bot (HTTP 403 on 18 October 2026). Tool results therefore carry no price and no link.
 - **Crypto.** A review on 18 October 2026 found no use for tokens, wallets, on-chain records or per-call payments. It suggested one builder-side idea: a quota per account, with no payment code in the project.
@@ -111,7 +111,7 @@ Record `docs/verification/credits-2026-10-DD.md`. Each item says Pass, Fail or N
 
 ## Owner decisions
 
-Taken on 20 October 2026: C now and B later; one credit per accepted command and one per gadget-day; a default allowance of 0; the business draft stays in the private review folder; the acceptance runs on the owner's relay after a backup.
+Taken on 20 October 2026. The model is C now and B later. The meter takes one credit per accepted command and one per gadget-day. The default allowance is 0. The business draft stays in the private review folder. The acceptance runs on the owner's relay after a backup.
 
 
 1. **Relay model.** C now, B later, A not now (recommended). Or A, or B now.
