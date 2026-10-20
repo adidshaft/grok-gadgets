@@ -161,6 +161,19 @@ class DocsNavigationTests(unittest.TestCase):
         self.assertNotIn("<h3>Start building</h3>", self.navigation.index())
         self.assertNotIn("<h3>Participation</h3>", self.navigation.index())
 
+    def test_operator_guides_have_a_relay_home(self):
+        for source in (
+            "hosting.md",
+            "mac-free-route.md",
+            "track-usage.md",
+            "credits-on-your-relay.md",
+        ):
+            page = self.documents.lookup[
+                ("grok-gadgets", "docs/getting-started/" + source)
+            ]
+            self.assertEqual(self.navigation.by_page[page][0]["title"], "Run a relay")
+            self.assertIn("docs.html#run-a-relay", self.navigation.breadcrumbs(page))
+
     def test_guide_lead_precedes_contents_and_steps(self):
         record = next(
             item

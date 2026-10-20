@@ -1,6 +1,8 @@
 # Credits on your relay
 
-Credits give each account on your relay a fair share. Each command and each day a gadget is online uses credits. You grant them. The gateway refuses a command when an account has none left, and tells Grok Bot why.
+Credits let relay operators set account allowances. By default, an accepted command costs 1 credit; each online day for an owned gadget costs 1 credit.
+The operator account is exempt. Refused commands, repeated command IDs and commands the gadget never received cost nothing.
+You grant credits. At zero, the gateway refuses commands and tells Grok Bot why. Reads still work.
 
 Credits measure use on your relay. They are not money. The project sells nothing, and the gateway contains no payment code. Credits are off unless you turn them on.
 
