@@ -114,6 +114,7 @@ def steps(py):
                 "docs/decisions/014-ready-for-others.md",
                 "docs/decisions/015-shared-relay.md",
                 "docs/getting-started/ship-a-gadget.md",
+                "docs/getting-started/credits-on-your-relay.md",
                 "docs/getting-started/capability-vocabulary.md",
                 "docs/contributing/ready-issues.md",
                 "docs/contributing/writing-guide.md",
