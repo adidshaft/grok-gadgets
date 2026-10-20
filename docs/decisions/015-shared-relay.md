@@ -2,7 +2,7 @@
 
 **Date:** 20 October 2026
 
-**Status:** Proposed. The owner took the five decisions below on 20 October 2026. Acceptance follows the Stage 0 acceptance record.
+**Status:** Accepted on 20 October 2026 after the Stage 0 acceptance on the owner's relay ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/credits-2026-10-20.md)). The owner took the five decisions below on the same day.
 
 **Owner:** Grok Gadgets hub (`adidshaft/grok-gadgets`)
 
@@ -65,14 +65,14 @@ Tokens, wallets, chains, x402, pre-sales and a marketplace are out of scope at e
 All of this is off unless the operator opts in. A relay without `--credits` behaves exactly as today.
 
 1. **Opt-in.** `serve --oauth --accounts --credits` and `service install ... --credits`. Credits need accounts mode. Local `stdio` and operator mode are never gated.
-2. **Store.** `oauth/credits.json` sits beside `accounts.json`. Each account has a balance, a monthly allowance, its grants and a ledger. One lock guards it; each write is atomic. An account without an entry gets one on first use, at the relay's default allowance.
+2. **Store.** `oauth/credits.json` sits beside `accounts.json` and holds the settings and any per-account allowance. `oauth/credits-ledger.jsonl` is the append-only ledger of grants, debits and refunds. A balance is the sum of its account's entries. One lock guards both. An account without entries has a balance of 0.
 3. **Meter.** One credit for each remote `gadgets_command` that the gateway accepts. One credit for each gadget-day: a UTC day in which a gadget owned by the account was online. Weights are relay settings. Reads cost nothing: list, state, events, command status, diagnostics, claim, share, name and remove.
 4. **Operator exempt.** The operator account is never debited.
 5. **Debit at the gate.** The gate runs in `gadgets_command` after the rate limit and the access check, before the gateway queues the command. It debits first, then runs the command. It refunds in three cases: the gateway refuses the command, the call repeats an earlier command, or the device never received it (`not_delivered`). A gadget-day debit never refuses anything; it may take the balance below zero.
 6. **Out of credits.** When the balance is below the command weight, the command does not run. The tool result is `ok: false` with code `out_of_credits` and the text "Your credits on this relay are used up; ask its operator." It never names a price or a link. Gadgets stay online. Local behaviour, reads and the list keep working.
 7. **Balance in the list.** With credits on, `gadgets_list_devices` adds the caller's own balance. No account ever sees another account's balance.
 8. **Monthly allowance.** On the first metered event of a UTC month, a balance below the allowance is raised to it. A ledger entry records the change. The default allowance is a relay setting.
-9. **Receipts.** At the end of each UTC day, the relay writes one receipt for each account with activity. A receipt holds the account ID, the day, calls, gadget-days, debits, grants, refunds and the closing balance. It also holds a sequence number and the SHA-256 hash of the previous receipt. An Ed25519 receipt key signs it. The key lives in the relay's configuration directory, never in a repository. Each account has its own receipt file.
+9. **Receipts.** After each UTC midnight, and on `credits close`, the relay writes one receipt for each account with activity. A receipt holds the account ID, the day, calls, gadget-days, debits, grants, refunds and the closing balance. It also holds a sequence number and the SHA-256 hash of the previous receipt. An Ed25519 receipt key signs it. The key lives in the relay's configuration directory, never in a repository. Each account has its own receipt file.
 10. **Verify.** `credits verify` checks every signature, the hash chain and the sequence. A changed, removed, reordered or missing receipt fails.
 11. **Reconcile.** Each command debit carries the `request_id` of its `mcp_tool_call` record. `credits report` matches the ledger against those records. Lost usage-hook lines never change a balance, because balances come only from the gate.
 12. **CLI.** `credits grant ACCOUNT N`, `credits list`, `credits ledger ACCOUNT`, `credits receipts ACCOUNT`, `credits verify`, `credits report`. Changes are queued for `serve`, as `accounts assign` is. `report` is the operator's view of credits used per account and period, in credits only.
@@ -108,6 +108,10 @@ Record `docs/verification/credits-2026-10-DD.md`. Each item says Pass, Fail or N
 | Receipts verify; a tampered copy fails | Software, on the relay's files |
 | Report matches the request log | Software, on the relay's files |
 | Bypass and cross-account tests | Software |
+
+## Results (20 October 2026)
+
+The owner's relay ran the candidate gateway `0.1.0a20` with `--credits`. Account B got 5 credits; five commands showed text on the kit, and the sixth did not run. B's Grok Bot showed the out-of-credits text. B's list still worked, and the operator account was not charged. A top-up and a restart kept the balance. Receipts verified, and a changed copy failed. The report matched the request log. Gadget-days ran in software only, because the kit belongs to the exempt operator. See the [record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/credits-2026-10-20.md).
 
 ## Owner decisions
 

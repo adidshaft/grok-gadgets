@@ -109,6 +109,7 @@ def steps(py):
                 "docs/verification/ota-2026-10-17.md",
                 "docs/verification/builder-kit-2026-10-17.md",
                 "docs/verification/ready-for-others-2026-10-18.md",
+                "docs/verification/credits-2026-10-20.md",
                 "docs/decisions/012-signed-updates.md",
                 "docs/decisions/013-builder-kit.md",
                 "docs/decisions/014-ready-for-others.md",
