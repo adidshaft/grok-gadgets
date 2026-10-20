@@ -1,4 +1,4 @@
-Source: grok-gadgets-esp32-sdk/docs/build-flash.md at 253e753f11b3b73a0847aff5708144d5b5f13c2f
+Source: grok-gadgets-esp32-sdk/docs/build-flash.md at 179da5fdb17cf4da99ad959204113f8bac438562
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 

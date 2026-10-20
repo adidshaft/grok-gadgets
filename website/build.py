@@ -306,7 +306,7 @@ proof_section = (
     '<h2 id="proof-heading">Try the tools before you build.</h2>'
     '<p>Run a simulated gadget on your computer or open the <a href="playground.html">browser demo</a>. No hardware, no account.</p>'
     '<pre class="proof-output"><code>python3 -m venv .venv\n'
-    ".venv/bin/python -m pip install grok-gadgets-gateway==0.1.0a17</code></pre>"
+    ".venv/bin/python -m pip install grok-gadgets-gateway==0.1.0a18</code></pre>"
     '<p><a href="'
     + first_success
     + '">Follow the five-minute guide ↗</a> · <a href="doc-docs-public-how-we-verify.html">How we verify ↗</a></p></section>'
@@ -369,13 +369,13 @@ page(
     intro(
         "Choose a path",
         "Start small.",
-        "Use a gadget with Grok Bot, or build one from the tested paths.",
+        "Received a gadget? Set it up, then claim it. Building for others? Start with your own relay.",
     )
     + '<div class="path-list">'
     + path_row(
         "01",
         "Set up a gadget you received",
-        "Use the printed label and your phone to join your home Wi-Fi.",
+        "You need its printed label and the builder’s running relay. Join home Wi-Fi with your phone.",
         "doc-docs-getting-started-phone-setup.html",
         "Phone setup",
     )
@@ -416,12 +416,19 @@ page(
     )
     + path_row(
         "07",
+        "Prepare gadgets for others",
+        "Set up your relay, prepare a batch and check each gadget before hand-over.",
+        "doc-docs-getting-started-ship-a-gadget.html",
+        "Builder guide",
+    )
+    + path_row(
+        "08",
         "Connect your home",
         "Reuse Home Assistant’s exposed Assist entities.",
         "home-assistant.html",
         "Home Assistant",
     )
-    + '</div><p class="quiet-note"><a href="doc-docs-public-support-matrix.html">Alpha status and what comes next ↗</a></p>'
+    + '</div><p class="quiet-note">Report a kit test in <a href="https://github.com/adidshaft/grok-gadgets/issues/185">#185</a> or your own relay and batch in <a href="https://github.com/adidshaft/grok-gadgets/issues/269">#269</a>. <a href="doc-docs-public-support-matrix.html">Current releases and test limits ↗</a></p>'
     + hosting_guide,
 )
 page(
@@ -584,7 +591,7 @@ page(
         if issue_snapshot
         else ""
     )
-    + '<section class="roadmap-summary"><h2>Today, next, later.</h2><p><strong>Today:</strong> join a gadget to home Wi-Fi from a phone, with no cable, no computer and no app. Claim it with the code on its screen; your Grok Bot then sees only your gadgets, by the names you give them. Share, remove and hand over are explicit. Two people tested this on the owner’s relay and kit with their own iPhones (Phase 11).</p><p><strong>Updates:</strong> the relay operator sends signed firmware updates with no cable, and a bad image reverts by itself. Tested on the owner’s kit (Phase 12b). <a href="doc-docs-getting-started-keep-up-to-date.html">What gadget owners see ↗</a> · <a href="doc-docs-getting-started-sign-and-ship-an-update.html">Sign and ship an update ↗</a></p><p><strong>Builders:</strong> set up your own relay with one command, prepare gadgets in batches and check them in one report. Tested from the guide on a fresh host (Phase 12a). <a href="doc-docs-getting-started-ship-a-gadget.html">Ship a gadget ↗</a></p><p><strong>Next:</strong> a builder outside the project follows that guide, and the new examples run on hardware.</p><p><strong>Later:</strong> only a decision on a shared relay (Phase 13). A button press does not wake Grok Bot.</p><p><strong>Help:</strong> repeat the owner-tested kit and share results in <a href="https://github.com/adidshaft/grok-gadgets/issues/185">tester issue #185</a>.</p><p>The project hosts no relay. <a href="doc-docs-getting-started-connect-grok-bot.html">Connect your Grok Bot ↗</a> · <a href="doc-docs-getting-started-mac-free-route.html">Run the gateway away from your Mac ↗</a> · <a href="doc-docs-getting-started-phone-setup.html">Set up your gadget with your phone ↗</a> · <a href="doc-docs-getting-started-claim-your-gadget.html">Claim your gadget ↗</a> · <a href="doc-docs-public-support-matrix.html">Current releases and verification ↗</a></p></section>'
+    + '<section class="roadmap-summary"><h2>Today, next, later.</h2><p><strong>Today:</strong> join a gadget to home Wi-Fi from a phone, with no cable, no computer and no app. Claim it with the code on its screen; your Grok Bot then sees only your gadgets, by the names you give them. Share, remove and hand over are explicit. Two people tested this on the owner’s relay and kit with their own iPhones (Phase 11).</p><p><strong>Updates:</strong> the relay operator sends signed firmware updates with no cable, and a bad image reverts by itself. Tested on the owner’s kit (Phase 12b). <a href="doc-docs-getting-started-keep-up-to-date.html">What gadget owners see ↗</a> · <a href="doc-docs-getting-started-sign-and-ship-an-update.html">Sign and ship an update ↗</a></p><p><strong>Builders:</strong> set up your own relay with one command, prepare gadgets in batches and check them in one report. Tested from the guide on a fresh host (Phase 12a). <a href="doc-docs-getting-started-ship-a-gadget.html">Ship a gadget ↗</a></p><p><strong>Next:</strong> a builder outside the project follows that guide, and the new examples run on hardware.</p><p><strong>Relays:</strong> one small relay host carried 1,000 simulated gadgets with long-poll, measured for 15 minutes on 18 October 2026. This does not establish physical gadget capacity. Phones on iPhone and Android sign in with the code on the gadget’s screen (Phase 13).</p><p><strong>Open gate:</strong> the three-day sign-in watch ends 21 October. ADR 014 acceptance and the hub release follow its result.</p><p><strong>Later:</strong> only a decision on a shared relay (Phase 14). A button press does not wake Grok Bot.</p><p><strong>Help:</strong> repeat the owner-tested kit and share results in <a href="https://github.com/adidshaft/grok-gadgets/issues/185">tester issue #185</a>.</p><p>The project hosts no relay. <a href="doc-docs-getting-started-connect-grok-bot.html">Connect your Grok Bot ↗</a> · <a href="doc-docs-getting-started-mac-free-route.html">Run the gateway away from your Mac ↗</a> · <a href="doc-docs-getting-started-phone-setup.html">Set up your gadget with your phone ↗</a> · <a href="doc-docs-getting-started-claim-your-gadget.html">Claim your gadget ↗</a> · <a href="doc-docs-public-support-matrix.html">Current releases and verification ↗</a></p></section>'
     + '<div class="issue-list">'
     + rows
     + "</div>",
@@ -623,7 +630,7 @@ page(
         "Released alpha builds",
         "Simulation, separate SDKs, firmware builds and integration recipes.",
     )
-    + '<p class="status">Alpha · one owner-tested kit · phone setup with no cable · Grok Bot calls through a gateway on an always-on server</p>'
+    + '<p class="status">Alpha · one owner-tested kit · phone setup with no cable · Grok Bot on iPhone and Android through an always-on relay</p>'
     + path_row(
         "01",
         "What passed",

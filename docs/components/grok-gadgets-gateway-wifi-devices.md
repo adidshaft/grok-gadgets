@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/wifi-devices.md at 407d165877505689dc438a2af514651fe268777e
+Source: grok-gadgets-gateway/docs/wifi-devices.md at df1e32b7abc10058425bd5d9af06c96f4b9ee873
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 

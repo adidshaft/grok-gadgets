@@ -28,8 +28,8 @@ Build and test your application, run a relay, prepare each gadget, then help its
 - ESP32-S3 boards with your parts, a USB data cable, or Linux machines for Linux gadgets.
 - Grok Bot on your phone or desktop.
 
-Install the tested gateway on your computer: `uv tool install grok-gadgets-gateway==0.1.0a17`.
-For Linux gadgets, use Linux SDK `0.1.0a9`. For ESP32 boards, use ESP32 SDK `v0.2.0-alpha.18`.
+Install the tested gateway on your computer: `uv tool install grok-gadgets-gateway==0.1.0a18`.
+For Linux gadgets, use Linux SDK `0.1.0a10`. For ESP32 boards, use ESP32 SDK `v0.2.0-alpha.19`.
 See [current releases](../public/support-matrix.md#current-releases) before you choose another version.
 
 ## 1. Choose a template

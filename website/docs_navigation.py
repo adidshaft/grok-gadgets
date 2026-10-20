@@ -309,6 +309,11 @@ GROUPS = (
                         "docs/decisions/013-builder-kit.md",
                         "Builder kit design (ADR 013)",
                     ),
+                    (
+                        "",
+                        "docs/decisions/014-ready-for-others.md",
+                        "Ready for others design (ADR 014)",
+                    ),
                 ),
             ),
         ),

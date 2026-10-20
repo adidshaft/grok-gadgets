@@ -38,6 +38,12 @@ class SiteClarityTests(unittest.TestCase):
         )
         self.assertIn("Tested from the guide on a fresh host (Phase 12a).", builder)
         self.assertNotIn("This is Phase 12; it has not started.", builder)
+        self.assertIn("only a decision on a shared relay (Phase 14).", builder)
+        self.assertIn("carried 1,000 simulated gadgets with long-poll", builder)
+        self.assertIn(
+            "Grok Bot on iPhone and Android through an always-on relay", builder
+        )
+        self.assertNotIn("shared relay (Phase 13)", builder)
         self.assertIn(
             "a bad image reverts by itself. Tested on the owner’s kit (Phase 12b).",
             builder,
@@ -60,6 +66,10 @@ class SiteClarityTests(unittest.TestCase):
         self.assertIn('"doc-docs-getting-started-claim-your-gadget.html"', start)
         self.assertIn('"Claim guide"', start)
         self.assertNotIn('"Connect guide"', start)
+        self.assertIn("builder’s running relay", start)
+        self.assertIn('"doc-docs-getting-started-ship-a-gadget.html"', start)
+        self.assertIn("issues/185", start)
+        self.assertIn("issues/269", start)
         entry = builder.split('aria-label="Choose a path"', 1)[1].split("</nav>", 1)[0]
         self.assertIn('href="doc-docs-getting-started-claim-your-gadget.html"', entry)
         self.assertIn("Claim in Grok Bot", entry)

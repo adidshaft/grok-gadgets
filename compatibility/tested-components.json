@@ -1,14 +1,14 @@
 {
-  "status": "Public source prerelease and website live; v0.1.18-alpha.1 release candidate verified",
+  "status": "Public source prerelease and website live; v0.1.19-alpha.1 release candidate verified",
   "protocol": "0.1.0",
   "components": [
     {
       "repository": "grok-gadgets",
       "path": "grok-gadgets",
-      "version": "0.1.18-alpha.1",
-      "commit": "20e3c3acf04a8255e7e7be83651165d991a5b294",
+      "version": "0.1.19-alpha.1",
+      "commit": "a97710bc4052c7f20b386f4cf7746b01d90f639f",
       "evidence_level": "Public source prerelease; OLED kit verified over USB, Wi-Fi, an always-on relay, phone-only setup, two-account claim, signed updates over the relay and a builder's dry run on a fresh relay; native Grok Bot calls observed on the owner's setup",
-      "checks": "The v0.1.18-alpha.1 candidate adds Phase 12a: ADR 013 accepted, the builder kit record (docs/verification/builder-kit-2026-10-17.md), the guides Ship a gadget in one afternoon and Capability vocabulary, and the Today, next, later update. Component pins: gateway v0.1.0-alpha.17, ESP32 SDK v0.2.0-alpha.18, Linux SDK v0.1.0-alpha.9 and Home Assistant v0.1.0-alpha.5. On 17 October 2026 a clean-room run and the owner's dry run on a fresh relay followed the guide: relay init, preflight, a batch of three, phone setup, claim, Grok Bot text, a signed update and the builder report. A builder outside the project remains open (#269).",
+      "checks": "The v0.1.19-alpha.1 candidate adds Phase 13: ADR 014 accepted and the ready-for-others record (docs/verification/ready-for-others-2026-10-18.md): a 512 MB relay carried 200 gadgets at 100 ms and 1,000 with long-poll; sign-in by client metadata document (scripted client); the new sign-in page; Android claim and text; 39 hours of sign-in renewal with no fresh sign-in; the kit on ESP32 v0.2.0-alpha.19 by signed update. Component pins: gateway v0.1.0-alpha.18, ESP32 SDK v0.2.0-alpha.19, Linux SDK v0.1.0-alpha.10 and Home Assistant v0.1.0-alpha.5. A builder outside the project (#269) and a tester's report (#185) remain open.",
       "grok_verified": true,
       "hardware_verified": false,
       "independently_reproduced": false,
@@ -17,10 +17,10 @@
     {
       "repository": "grok-gadgets-gateway",
       "path": "grok-gadgets-gateway",
-      "version": "0.1.0-alpha.17",
-      "commit": "407d165877505689dc438a2af514651fe268777e",
+      "version": "0.1.0-alpha.18",
+      "commit": "df1e32b7abc10058425bd5d9af06c96f4b9ee873",
       "evidence_level": "Simulated; relay with accounts and signed updates used by one physical kit; a builder's relay set up from relay init on a fresh host; native Grok Bot calls through serve --oauth observed on the owner's setup",
-      "checks": "422 tests (Python 3.11 to 3.14), Ruff, the first-success path and the release workflow's fresh-download SHA256SUMS check passed; PyPI 0.1.0a17 matches SHA256SUMS. Adds relay init, relay-check --mcp, enroll --batch/--count, factory-provision --batch/--read-id, builder report and OAuth refresh logging. On 17 October 2026 the owner's dry run on a fresh host passed with a candidate of this release (hub docs/verification/builder-kit-2026-10-17.md); the owner's relay now runs the release on port 8443.",
+      "checks": "562 tests (Python 3.11 to 3.14), Ruff, the first-success path and the release workflow's fresh-download SHA256SUMS check passed; PyPI 0.1.0a18 matches SHA256SUMS. Adds long-poll (wait_ms), sign-in by Client ID Metadata Document, a minimal sign-in page, oauth watch, fleet run and fleet sample, serve --max-devices and a 32 KiB TLS read buffer. On 18 October 2026 a fresh 512 MB relay carried 1,000 simulated gadgets with long-poll; the owner's relay runs this release; Grok Bot on Android signed in on the new page (hub docs/verification/ready-for-others-2026-10-18.md).",
       "grok_verified": true,
       "hardware_verified": false,
       "independently_reproduced": false,
@@ -29,10 +29,10 @@
     {
       "repository": "grok-gadgets-linux-sdk",
       "path": "grok-gadgets-linux-sdk",
-      "version": "0.1.0-alpha.9",
-      "commit": "2841191b149b157216164c7e338f75b1c6c26adc",
+      "version": "0.1.0-alpha.10",
+      "commit": "98f01e2ad683a9ab937ce50402953a2cc2b8138e",
       "evidence_level": "Simulated; macOS gateway integration verified",
-      "checks": "Tests passed, including the real gateway relay listener over TLS and the protocol pin comparison against gateway 0.1.0-alpha.17; Ruff, package builds and the release workflow's SHA256SUMS check passed; PyPI 0.1.0a9 matches SHA256SUMS. Adds --gateway/--ca for a relay over TLS, --device-id, background producers and a climate sensor example. On 17 October 2026 two batch gadgets were Online on a fresh relay (hub docs/verification/builder-kit-2026-10-17.md).",
+      "checks": "Tests passed, including the real gateway relay listener, long-poll against the real gateway and the protocol pin comparison against gateway 0.1.0-alpha.18 (70fbd43); Ruff, package builds and the release workflow's SHA256SUMS check passed; PyPI 0.1.0a10 matches SHA256SUMS. Adds --wait-ms / Agent(wait_ms=) for long-poll. Long-poll from a Linux agent on hardware is not tested.",
       "grok_verified": false,
       "hardware_verified": false,
       "independently_reproduced": false,
@@ -41,10 +41,10 @@
     {
       "repository": "grok-gadgets-esp32-sdk",
       "path": "grok-gadgets-esp32-sdk",
-      "version": "0.2.0-alpha.18",
-      "commit": "253e753f11b3b73a0847aff5708144d5b5f13c2f",
+      "version": "0.2.0-alpha.19",
+      "commit": "179da5fdb17cf4da99ad959204113f8bac438562",
       "evidence_level": "Host simulated; nine firmware builds compiled; OLED kit physically accepted on one board over USB, Wi-Fi, signed updates over the relay and a builder's dry run on a fresh relay; climate sensor, switch and servo not tested on hardware",
-      "checks": "Host CTest suites (15/15, including the app tests), the contract check with the new transcripts and the firmware builds passed. Alpha.18 adds grok::WifiApp and the climate sensor, switch and servo examples (host models only) and the Ship a gadget guide. On 17 October 2026 the owner's kit passed batch provisioning, phone setup, claim, Grok Bot text and a signed update on a fresh relay (hub docs/verification/builder-kit-2026-10-17.md).",
+      "checks": "Host tests (16 suites, including long-poll), the contract check against the protocol pinned at gateway 0.1.0-alpha.18 (70fbd43) and all nine CI firmware builds passed. Adds Gadget::longPoll(), on in the OLED kit and grok::WifiApp. On 18 October 2026 the owner's kit took v0.2.0-alpha.19 by signed update and long-polled through the relay (17 requests in 30 s). The climate sensor, switch and servo examples are not tested on hardware. Earlier: Host CTest suites (15/15, including the app tests), the contract check with the new transcripts and the firmware builds passed. Alpha.18 adds grok::WifiApp and the climate sensor, switch and servo examples (host models only) and the Ship a gadget guide. On 17 October 2026 the owner's kit passed batch provisioning, phone setup, claim, Grok Bot text and a signed update on a fresh relay (hub docs/verification/builder-kit-2026-10-17.md).",
       "grok_verified": false,
       "hardware_verified": true,
       "independently_reproduced": false,
@@ -99,5 +99,5 @@
       }
     }
   },
-  "note": "Component entries pin released component commits. The hub entry identifies the candidate base commit, before its metadata update. Published history is unchanged. The firmware object is an earlier unpublished C124 build, not the tested OLED-kit image. Owner-observed hardware verification covers one ESP32-S3 OLED kit over USB, Wi-Fi and an always-on relay. Native Grok Bot calls passed on Mac and iPhone; Android phone setup passed, but Android Grok Bot calls remain untested. Independent reproduction remains open."
+  "note": "Component entries pin released component commits. The hub entry identifies the candidate base commit, before its metadata update. Published history is unchanged. The firmware object is an earlier unpublished C124 build, not the tested OLED-kit image. Owner-observed hardware verification covers one ESP32-S3 OLED kit over USB, Wi-Fi and an always-on relay. Native Grok Bot calls passed on Mac, iPhone and Android (Android on 18 October 2026, with a claim on the new sign-in page). Independent reproduction remains open."
 }
