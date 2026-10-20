@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/relay-host.md at df1e32b7abc10058425bd5d9af06c96f4b9ee873
+Source: grok-gadgets-gateway/docs/relay-host.md at 314400bf482808a7dfcb9e9131c60265c3b92c8f
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -90,7 +90,7 @@ It checks five things:
    ```sh
    git clone https://github.com/adidshaft/grok-gadgets-gateway.git
    cd grok-gadgets-gateway
-   git checkout v0.1.0-alpha.18        # or a reviewed commit
+   git checkout v0.1.0-alpha.19        # or a reviewed commit
    cd examples/docker
    cp .env.example .env                # set MCP_HOST=gadgets.example.net
    ```
@@ -135,7 +135,7 @@ boot.
 ## Option B: Linux user service (systemd)
 
 ```sh
-uv tool install grok-gadgets-gateway==0.1.0a18
+uv tool install grok-gadgets-gateway==0.1.0a19
 grok-gadgets-gateway init
 grok-gadgets-gateway device-cert devices.example.net
 grok-gadgets-gateway enroll oledkit-0123456789ab --token-file oledkit.token
