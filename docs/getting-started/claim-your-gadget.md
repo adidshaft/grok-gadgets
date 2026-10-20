@@ -6,7 +6,9 @@ Other accounts cannot see yours unless you share them.
 
 **Tested on 17 October 2026:** two people used their own iPhones, one relay and the owner’s OLED kit.
 See the [record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md) and [accounts design](../decisions/011-accounts-and-claim-codes.md).
-Android Grok Bot and independent relay reproduction remain untested.
+On 18 October, the owner's Grok Bot on Android also claimed the kit and showed text.
+See the [Android record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md#android-and-a-stranger-style-sign-in-tier-owner-18-october-2026).
+Independent relay reproduction remains open in [#269](https://github.com/adidshaft/grok-gadgets/issues/269).
 
 ## What you need
 
