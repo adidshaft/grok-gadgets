@@ -20,7 +20,7 @@ Tiers:
 | Grok Bot via a metadata document | Not tested | — |
 | Sign-in page screenshots reviewed by the owner | Pass, after one change | Owner |
 | Stranger-style sign-in on the live relay | Pass | Owner |
-| Three days of Grok Bot with no fresh sign-in | Not tested yet | Owner |
+| Sign-in watch: refreshes, no fresh sign-in, no 401 after an expiry | Pass (39 hours; the owner ended it early) | Owner |
 | Grok Bot on Android: claim and text on the kit | Pass | Owner |
 | Relay on gateway 0.1.0a18 | Pass | Owner |
 | Kit on a released image by signed update, with long-poll | Pass | Owner |
@@ -121,3 +121,20 @@ The owner used a borrowed Android phone with Grok Bot and the second Grok Bot ac
 
 - Grok Bot on Android registered by dynamic registration, not by a metadata document.
 - Then the owner's own Grok Bot on the iPhone got a 401 at 14:56:09 and refreshed its sign-in at 14:56:23. It ran `gadgets_command` at 14:56:42 (`executed`), with no fresh sign-in. The owner saw `back home` on the kit.
+
+## Sign-in watch (tier: owner, 18–20 October 2026)
+
+The plan was three ordinary days of Grok Bot with no fresh sign-in (ADR 014 §4). The watch began when the relay went to gateway 0.1.0a18, at 13:44 on 18 October. The owner ended it after 39 hours, on 20 October at 04:45. By then the one-hour access had renewed itself 26 times, including through a night with no use, with no failure.
+
+`oauth watch --since 2026-10-18` on the owner's relay (counts and token names only):
+
+| Day | Fresh sign-ins | Refreshes | Expired | 401 answers | Remote calls |
+| --- | --- | --- | --- | --- | --- |
+| 18 Oct | 1 | 10 | 0 | 12 | 4 |
+| 19 Oct | 0 | 14 | 0 | 4 | 8 |
+| 20 Oct (to 04:45) | 0 | 2 | 0 | 2 | 1 |
+
+- The one fresh sign-in on 18 October is the second account's, in the Android test. The owner's Grok Bot signed in no new time.
+- `no 401 between an expiry and its refresh`: no call failed because the one-hour token ran out. The other 401 answers are first requests without a token, each followed by a refresh.
+- The Mac slept through the watch; the relay runs on the always-on host.
+- Not tested: the 30-day refresh lifetime, and the two unexplained 401s of gateway 0.1.0a16 (#211). The access token keeps its 1-hour lifetime.

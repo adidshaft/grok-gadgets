@@ -50,8 +50,8 @@ The climate sensor, switch and servo examples compile and pass host tests. Nobod
 
 **Next:** a builder outside the project follows the guide ([#269](https://github.com/adidshaft/grok-gadgets/issues/269)).
 
-**Phase 13 (in progress):** the load test, clearer sign-in page and Android kit check passed ([#363](https://github.com/adidshaft/grok-gadgets/issues/363)).
-The three-day sign-in watch ends 21 October 2026. ADR 014 remains proposed; its acceptance and the hub release wait for that result.
+**Phase 13:** the load test, the clearer sign-in page and the Android kit check passed ([#363](https://github.com/adidshaft/grok-gadgets/issues/363)).
+Grok Bot's sign-in renewed itself 26 times over 39 hours with no fresh sign-in (ADR 014 accepted on 20 October 2026).
 Grok Bot sign-in by a client metadata document remains untested; a scripted client passed.
 
 **Relay size:** a relay holds 64 gadgets by default; `serve --max-devices` (gateway `0.1.0a18`, up to 2,000) raises it. Measured for 15 minutes per size on 18 October 2026, on one 512 MB, 1-vCPU host with simulated gadgets ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md)):

@@ -2,7 +2,7 @@
 
 **Date:** 18 October 2026
 
-**Status:** Proposed on 18 October 2026. The owner took the five decisions below on 18 October 2026. Nothing here is measured yet.
+**Status:** Accepted on 20 October 2026 after the Phase 13 acceptance ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md)). The owner took the five decisions below on 18 October 2026, and ended the sign-in watch after 39 hours on 20 October 2026.
 
 **Owner:** Grok Gadgets hub (`adidshaft/grok-gadgets`)
 
