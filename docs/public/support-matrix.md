@@ -1,6 +1,6 @@
 # Project status
 
-Updated 20 October 2026. This is the one place that says what works. Other pages link here
+Updated 21 October 2026. This is the one place that says what works. Other pages link here
 instead of repeating caveats.
 
 **Alpha · one owner-tested kit · phone setup · claim by code · signed updates · Grok Bot on iPhone and Android.**
@@ -11,7 +11,7 @@ On 13 October 2026 the owner's Grok Bot called the six tools itself from the Mac
 
 | Component | Release | Package |
 | --- | --- | --- |
-| Hub | `v0.1.20-alpha.1` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.20-alpha.1) |
+| Hub | `v0.1.21-alpha.1` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.21-alpha.1) |
 | Gateway | `v0.1.0-alpha.20` | [PyPI `0.1.0a20`](https://pypi.org/project/grok-gadgets-gateway/) |
 | ESP32 SDK | `v0.2.0-alpha.19` | [GitHub release](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.19) |
 | Linux SDK | `v0.1.0-alpha.10` | [PyPI `0.1.0a10`](https://pypi.org/project/grok-gadgets-linux-sdk/) |
@@ -82,7 +82,7 @@ See the [scoped sign-in limits](https://github.com/adidshaft/grok-gadgets/blob/m
 | Home Assistant | Discovery passed against fixtures; a real home remains untested. |
 
 **Next:** independent kit and builder reports. Use the issue templates to state versions, steps and observed results.
-**Later:** builders run their own relays; a listing of operator relays waits for two outside operators ([ADR 015](../decisions/015-shared-relay.md)). The project hosts no relay and takes no payments.
+**Later:** builders run their own relays; a listing of operator relays waits for two outside operators ([ADR 015](../decisions/015-shared-relay.md)). The project hosts no relay and takes no payments. [ADR 016](../decisions/016-pay-for-a-relay.md), on how a customer could pay a builder, is only a proposal.
 See the [roadmap](../../ROADMAP.md) for acceptance gates.
 A button event does not wake Grok Bot.
 
