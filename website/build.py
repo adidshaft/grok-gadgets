@@ -634,9 +634,9 @@ page(
     + path_row(
         "01",
         "What passed",
-        "Exact commits, environments and remaining gates.",
-        "doc-docs-verification-local-handoff.html",
-        "Local handoff",
+        "Current releases, evidence and remaining gates.",
+        "doc-docs-public-support-matrix.html",
+        "Project status",
     )
     + path_row(
         "02",
