@@ -78,8 +78,8 @@ Counsel's questions cover these topics:
 
 | Item | Tier | Where |
 | --- | --- | --- |
-| Credits per gadget-day measured live with a non-operator owner | Owner | `docs/verification/credits-pricing-2026-10-DD.md` (#402) |
-| A test-network transfer with a memo raises a balance on a local relay | Owner, on a test network | Private; not in any repository |
+| Credits per gadget-day measured live with a non-operator owner | Owner | [Record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/credits-pricing-2026-10-23.md): 1.0 per gadget-day; commands not tested (#402) |
+| A test-network transfer with a memo raises a balance on a local relay | Owner, on a test network | Not tested: the owner skipped it on 21 October 2026 |
 | Counsel pack prepared | Owner | Private; not in any repository (#403) |
 
 ## Owner decisions
