@@ -1,6 +1,6 @@
 # Project status
 
-Updated 21 October 2026. This is the one place that says what works. Other pages link here
+Updated 23 October 2026. This is the one place that says what works. Other pages link here
 instead of repeating caveats.
 
 **Alpha · one owner-tested kit · phone setup · claim by code · signed updates · Grok Bot on iPhone and Android.**
@@ -11,7 +11,7 @@ On 13 October 2026 the owner's Grok Bot called the six tools itself from the Mac
 
 | Component | Release | Package |
 | --- | --- | --- |
-| Hub | `v0.1.21-alpha.1` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.21-alpha.1) |
+| Hub | `v0.1.21-alpha.2` | [GitHub release](https://github.com/adidshaft/grok-gadgets/releases/tag/v0.1.21-alpha.2) |
 | Gateway | `v0.1.0-alpha.20` | [PyPI `0.1.0a20`](https://pypi.org/project/grok-gadgets-gateway/) |
 | ESP32 SDK | `v0.2.0-alpha.19` | [GitHub release](https://github.com/adidshaft/grok-gadgets-esp32-sdk/releases/tag/v0.2.0-alpha.19) |
 | Linux SDK | `v0.1.0-alpha.10` | [PyPI `0.1.0a10`](https://pypi.org/project/grok-gadgets-linux-sdk/) |
@@ -28,7 +28,7 @@ The Mac can sleep. The project hosts no relay.
 | Claim, name and share a gadget | [Claim your gadget](../getting-started/claim-your-gadget.md) | Two people, their own iPhones, one relay and kit; [17 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md) |
 | Show text from Grok Bot while the Mac sleeps | [Mac-free route](../getting-started/mac-free-route.md) | Owner's iPhone on cellular; [13 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md) |
 | Send signed firmware updates with automatic revert | [Sign and ship an update](../getting-started/sign-and-ship-an-update.md) | Owner's kit, including a power cut during download; [17 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md) |
-| Give each account a fair share with credits (no payments) | [Credits on your relay](../getting-started/credits-on-your-relay.md) | Two people on the owner's relay and kit; [20 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/credits-2026-10-20.md). No payments |
+| Give each account a fair share with credits (no payments) | [Credits on your relay](../getting-started/credits-on-your-relay.md) | Two people on the owner's relay and kit; [20 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/credits-2026-10-20.md); 1 credit per gadget-day, live ([23 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/credits-pricing-2026-10-23.md)). No payments |
 | Set up a relay and prepare a gadget batch | [Ship a gadget](../getting-started/ship-a-gadget.md) | Clean-room software run and owner's dry run on a fresh host; [Builder record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/builder-kit-2026-10-17.md) |
 
 The Linux SDK provides a decorator API, a development runner and a relay client over TLS.
