@@ -70,6 +70,20 @@ It reduces repeated requests while the gadget is idle.
 The 39-hour watch does not explain the two earlier 401 responses on gateway `0.1.0a16`.
 See the [scoped sign-in limits](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md#sign-in-watch-tier-owner-1820-october-2026).
 
+## Phase 15: preparation only
+
+[ADR 016](../decisions/016-pay-for-a-relay.md) stays Proposed. Nothing is sold, and no real money moves.
+
+| Credits measurement | State and limits |
+| --- | --- |
+| [20–23 October run](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/credits-pricing-2026-10-23.md) | Ended early. Four gadget-day charges across four UTC dates, at 1 credit each. No commands; typical daily use and seven days remain untested. |
+| Seven-day rerun ([#402](https://github.com/adidshaft/grok-gadgets/issues/402)) | Started 23 October at 10:14:55 UTC; due to end 30 October. No results yet. |
+
+The rerun needs daily commands from the non-operator account's Grok Bot on Android.
+
+Selling still needs an outside builder's request, counsel, a fresh terms check, a name review and the seven-day record.
+See [ADR 016's gates](../decisions/016-pay-for-a-relay.md#gates-before-anything-is-sold).
+
 ## What still needs a report
 
 | Area | Remaining checks |

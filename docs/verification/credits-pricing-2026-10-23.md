@@ -26,7 +26,7 @@ Accounts on the relay:
 | Credits per gadget-day | **1.0** (gadget-days only) | Owner |
 | Credits used by commands in normal daily use | Not tested: the kit received no commands during the run | — |
 | B shares the kit back to A | Not tested: not needed, because nobody used the kit | — |
-| Seven full days | Not tested: the owner ended the run after three full days and one partial day | — |
+| Seven full days | Not tested: the owner ended the run after four metered UTC dates, including two partial dates | — |
 | Kit returned to A | Pass | Owner |
 
 ## Setup

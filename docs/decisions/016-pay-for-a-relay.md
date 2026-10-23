@@ -78,7 +78,7 @@ Counsel's questions cover these topics:
 
 | Item | Tier | Where |
 | --- | --- | --- |
-| Credits per gadget-day measured live with a non-operator owner | Owner | [Record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/credits-pricing-2026-10-23.md): 1.0 per gadget-day; commands not tested (#402) |
+| Credits per gadget-day measured live with a non-operator owner | Owner | [Record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/credits-pricing-2026-10-23.md): 1.0 per gadget-day across four metered UTC dates; ended early, no commands. [Seven-day rerun in progress](../public/support-matrix.md#phase-15-preparation-only); no results yet (#402) |
 | A test-network transfer with a memo raises a balance on a local relay | Owner, on a test network | Done on 23 October 2026 on Solana Devnet with test tokens; a reused reference was refused. Results are private, not in any repository |
 | Counsel pack prepared | Owner | Private; not in any repository (#403) |
 
