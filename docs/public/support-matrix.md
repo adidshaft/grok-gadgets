@@ -36,7 +36,7 @@ Two simulated Linux batch gadgets went Online on a fresh relay; see the [builder
 The [simulator kit](../getting-started/simulator-kit.md) rehearses gateway tools without hardware.
 The browser playground models a light locally; it does not call Grok Bot.
 
-The owner’s relay runs gateway `0.1.0a20` with `--credits` on device port 8443; `0.1.0a21` adds relay backups.
+The owner’s relay runs gateway `0.1.0a21` with `--credits` on device port 8443. It backs up nightly, and a restore passed ([24 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/relay-backup-2026-10-24.md)).
 The kit runs `0.2.0-alpha.19` with long-poll. New relays use port 8444 by default.
 A reset keeps account ownership. The automatic 7-day transfer has software-clock tests only.
 See [Hand a gadget to someone](../getting-started/hand-a-gadget-to-someone.md) for the transfer rules.
@@ -81,7 +81,7 @@ See the [scoped sign-in limits](https://github.com/adidshaft/grok-gadgets/blob/m
 | ESP32 SDK | Climate sensor, switch and servo examples compile and pass host tests; hardware checks remain. Other boards and routers also need reports. |
 | Home Assistant | Discovery passed against fixtures; a real home remains untested. |
 
-**Next:** independent kit and builder reports. Use the issue templates to state versions, steps and observed results. Relay operators get a backup command with a tested restore.
+**Next:** independent kit and builder reports. Use the issue templates to state versions, steps and observed results.
 **Later:** builders run their own relays; a listing of operator relays waits for two outside operators ([ADR 015](../decisions/015-shared-relay.md)). The project hosts no relay and takes no payments. [ADR 016](../decisions/016-pay-for-a-relay.md), on how a customer could pay a builder, is only a proposal.
 See the [roadmap](../../ROADMAP.md) for acceptance gates.
 A button event does not wake Grok Bot.
