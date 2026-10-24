@@ -125,7 +125,7 @@
   },
   {
     "repository": "grok-gadgets-gateway",
-    "commit": "87fb59af0ca8953adeae959041481db8eb1a2240",
+    "commit": "4546418490e71a9d60583805002389251ea89caf",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -188,6 +188,7 @@
       "src/grok_gadgets_gateway/__init__.py",
       "src/grok_gadgets_gateway/accounts.py",
       "src/grok_gadgets_gateway/background.py",
+      "src/grok_gadgets_gateway/backup.py",
       "src/grok_gadgets_gateway/batch.py",
       "src/grok_gadgets_gateway/cli.py",
       "src/grok_gadgets_gateway/client_documents.py",
@@ -223,6 +224,7 @@
       "tests/test_accounts.py",
       "tests/test_accounts_share.py",
       "tests/test_background.py",
+      "tests/test_backup.py",
       "tests/test_batch.py",
       "tests/test_claim_sign_in.py",
       "tests/test_cli.py",
@@ -268,7 +270,7 @@
   },
   {
     "repository": "grok-gadgets-home-assistant",
-    "commit": "20ac015fff093393dfd67868dd40807292b94749",
+    "commit": "d848f9b5681e0fc9f32a69094d8973f00f95aa30",
     "files": [
       ".github/CODEOWNERS",
       ".github/ISSUE_TEMPLATE/bug.yml",
@@ -285,6 +287,7 @@
       ".gitignore",
       "AGENTS.md",
       "CHANGELOG.md",
+      "CODE_OF_CONDUCT.md",
       "CONTRIBUTING.md",
       "LICENSE",
       "NOTICE",

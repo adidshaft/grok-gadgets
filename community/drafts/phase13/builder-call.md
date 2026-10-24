@@ -11,7 +11,7 @@ Post it only with the owner's yes, as a comment on
 We need one person outside the project to follow the builder guide on their own host and
 tell us where it breaks.
 
-**Current releases:** gateway `0.1.0a20`, ESP32 SDK `v0.2.0-alpha.19`, Linux SDK `0.1.0a10`.
+**Current releases:** gateway `0.1.0a21`, ESP32 SDK `v0.2.0-alpha.19`, Linux SDK `0.1.0a10`.
 Check the [project status](https://github.com/adidshaft/grok-gadgets/blob/main/docs/public/support-matrix.md)
 before you start; it says what was tested and what was not.
 
