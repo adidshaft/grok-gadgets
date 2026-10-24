@@ -1,6 +1,6 @@
 # Project status
 
-Updated 23 October 2026. This is the one place that says what works. Other pages link here
+Updated 24 October 2026. This is the one place that says what works. Other pages link here
 instead of repeating caveats.
 
 **Alpha · one owner-tested kit · phone setup · claim by code · signed updates · Grok Bot on iPhone and Android.**
@@ -28,7 +28,7 @@ The Mac can sleep. The project hosts no relay.
 | Claim, name and share a gadget | [Claim your gadget](../getting-started/claim-your-gadget.md) | Two people, their own iPhones, one relay and kit; [17 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/claim-2026-10-17.md) |
 | Show text from Grok Bot while the Mac sleeps | [Mac-free route](../getting-started/mac-free-route.md) | Owner's iPhone on cellular; [13 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/mac-free-route-2026-10-13.md) |
 | Send signed firmware updates with automatic revert | [Sign and ship an update](../getting-started/sign-and-ship-an-update.md) | Owner's kit, including a power cut during download; [17 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ota-2026-10-17.md) |
-| Give each account a fair share with credits (no payments) | [Credits on your relay](../getting-started/credits-on-your-relay.md) | Two people on the owner's relay and kit; [20 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/credits-2026-10-20.md); 1 credit per gadget-day, live ([23 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/credits-pricing-2026-10-23.md)). No payments |
+| Give each account a fair share with credits (no payments) | [Credits on your relay](../getting-started/credits-on-your-relay.md) | Two people on the owner's relay and kit; [20 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/credits-2026-10-20.md); 1 credit per gadget-day in a first live run with no commands ([23 October record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/credits-pricing-2026-10-23.md)); a second run to 30 October also counts commands ([#402](https://github.com/adidshaft/grok-gadgets/issues/402)). No payments |
 | Set up a relay and prepare a gadget batch | [Ship a gadget](../getting-started/ship-a-gadget.md) | Clean-room software run and owner's dry run on a fresh host; [Builder record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/builder-kit-2026-10-17.md) |
 
 The Linux SDK provides a decorator API, a development runner and a relay client over TLS.
@@ -81,7 +81,7 @@ See the [scoped sign-in limits](https://github.com/adidshaft/grok-gadgets/blob/m
 | ESP32 SDK | Climate sensor, switch and servo examples compile and pass host tests; hardware checks remain. Other boards and routers also need reports. |
 | Home Assistant | Discovery passed against fixtures; a real home remains untested. |
 
-**Next:** independent kit and builder reports. Use the issue templates to state versions, steps and observed results.
+**Next:** independent kit and builder reports. Use the issue templates to state versions, steps and observed results. Relay operators get a backup command with a tested restore.
 **Later:** builders run their own relays; a listing of operator relays waits for two outside operators ([ADR 015](../decisions/015-shared-relay.md)). The project hosts no relay and takes no payments. [ADR 016](../decisions/016-pay-for-a-relay.md), on how a customer could pay a builder, is only a proposal.
 See the [roadmap](../../ROADMAP.md) for acceptance gates.
 A button event does not wake Grok Bot.
