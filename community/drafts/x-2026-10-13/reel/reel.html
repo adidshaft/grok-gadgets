@@ -1,0 +1,148 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Grok Gadgets POV reel</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0b0b0b;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#fff;-webkit-font-smoothing:antialiased}
+#stage{position:absolute;inset:0;transform-origin:50% 50%}
+.scene{position:absolute;inset:0;opacity:0}
+.mono{font-family:"Courier New",monospace;letter-spacing:.06em;text-transform:uppercase}
+.chip{position:absolute;left:60px;top:80px;display:flex;align-items:center;gap:16px;font-size:34px;font-weight:500;letter-spacing:-.5px;z-index:20}
+.chip img{width:56px;height:56px;border-radius:12px}
+.label{position:absolute;right:60px;top:96px;font-size:24px;color:#9a9a95;z-index:20;text-align:right}
+.cap{position:absolute;left:70px;right:70px;bottom:300px;z-index:20;text-align:center}
+.cap span{display:inline;background:#fff;color:#0b0b0b;font-size:62px;font-weight:700;line-height:1.38;letter-spacing:-1.2px;padding:6px 18px;box-decoration-break:clone;-webkit-box-decoration-break:clone;border-radius:10px}
+.sub{position:absolute;left:0;right:0;bottom:200px;text-align:center;font-size:24px;color:#9a9a95;z-index:20}
+/* clip */
+#clipimg{position:absolute;left:0;top:420px;width:1080px;height:1080px;object-fit:cover}
+/* phone */
+.phone{position:absolute;left:50%;top:330px;width:620px;height:1300px;margin-left:-310px;border-radius:70px;background:#000;border:14px solid #1d1d1d;box-shadow:0 0 0 2px #333,0 40px 120px rgba(0,0,0,.6);overflow:hidden}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:top}
+/* terminal */
+.term{position:absolute;left:50px;right:50px;top:330px;height:1180px;background:#111;border:1px solid #2a2a2a;border-radius:24px;overflow:hidden}
+.term .bar{height:64px;background:#1a1a1a;display:flex;align-items:center;gap:12px;padding:0 26px;border-bottom:1px solid #2a2a2a}
+.term .bar i{width:18px;height:18px;border-radius:50%;background:#3a3a3a;display:block}
+.term .bar b{margin-left:18px;font:24px "Courier New",monospace;color:#8b8b86;font-weight:400}
+.term pre{padding:34px 28px;font:31px/1.9 "Courier New",monospace;color:#e9e9e6;white-space:pre}
+.term .k{color:#9cc2a4}.term .d{color:#7d7d78}.term .y{color:#f0c674}
+.cursor{display:inline-block;width:15px;height:30px;background:#e9e9e6;vertical-align:-5px}
+/* photos */
+.ph{position:absolute;overflow:hidden;border-radius:26px;border:1px solid #2a2a2a}
+.ph img{width:100%;height:100%;object-fit:cover}
+/* mac */
+.mac{position:absolute;left:40px;right:40px;top:520px;height:760px;border-radius:22px;overflow:hidden;border:1px solid #2a2a2a;background:#111}
+.mac img{width:100%;height:100%;object-fit:cover;object-position:top}
+/* vision */
+#web{position:absolute;inset:0}
+.node{position:absolute;width:250px;margin-left:-125px;text-align:center}
+.node .box{border:2px solid #fff;border-radius:22px;padding:22px 10px;font-size:34px;font-weight:600;letter-spacing:-.5px;background:#0b0b0b}
+.node.plan .box{border-style:dashed;border-color:#77776f;color:#c9c9c2}
+.node .t{margin-top:10px;font-size:24px}
+.node .t.today{color:#9cc2a4}.node .t.next{color:#8b8b86}
+.hub{position:absolute;left:50%;top:880px;width:220px;height:220px;margin:-110px 0 0 -110px;border-radius:50%;}
+.hub img{width:220px;height:220px;border-radius:40px}
+/* end */
+.end{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.end img.logo{width:240px;height:240px;border-radius:52px}
+.end h1{font-size:110px;font-weight:600;letter-spacing:-4px;margin-top:50px}
+.end p{font-size:40px;color:#b9b9b3;margin-top:20px;letter-spacing:-.5px}
+.end .url{margin-top:70px;font-size:46px;font-weight:600;border:2px solid #fff;border-radius:60px;padding:18px 46px}
+.end .mono{margin-top:40px;font-size:24px;color:#8b8b86;display:flex;gap:12px;align-items:center}
+.end .mono img{width:34px;height:34px;border-radius:8px}
+</style></head><body>
+<div id="stage">
+
+<div class="scene" id="s0">
+  <img id="clipimg" src="assets/clip/f0001.jpg">
+  <div class="cap"><span>pov: my Grok Bot just got hands</span></div>
+  <div class="sub mono">real esp32 s3 · real wifi · my desk</div>
+</div>
+
+<div class="scene" id="s1">
+  <div class="phone"><img src="assets/phone.jpg"></div>
+  <div class="cap" style="bottom:140px"><span>i ask Grok Bot from my phone</span></div>
+</div>
+
+<div class="scene" id="s2">
+  <div class="term"><div class="bar"><i></i><i></i><i></i><b>grok-gadgets-gateway · request log · UTC</b></div><pre id="tlog"></pre></div>
+  <div class="cap" style="bottom:200px"><span>the gateway logs every call Grok Bot makes</span></div>
+</div>
+
+<div class="scene" id="s3">
+  <div class="ph" id="pa" style="left:60px;top:330px;width:960px;height:620px"><img src="assets/breadboard-kit.jpg"></div>
+  <div class="ph" id="pb" style="left:60px;top:980px;width:470px;height:560px"><img src="assets/oled-module.jpg"></div>
+  <div class="ph" id="pc" style="left:550px;top:980px;width:470px;height:560px"><img src="assets/board-in-hand.jpg" style="object-position:30% 50%"></div>
+  <div class="cap" style="bottom:170px"><span>and this little board runs it</span></div>
+</div>
+
+<div class="scene" id="s4">
+  <div class="mac"><img src="assets/mac.jpg"></div>
+  <div class="cap" style="bottom:420px"><span>same tools from the mac app</span></div>
+  <div class="sub mono" style="bottom:330px">9 tool calls · 0 errors · native</div>
+</div>
+
+<div class="scene" id="s5">
+  <svg id="web" viewBox="0 0 1080 1920"></svg>
+  <div class="hub"><img src="assets/bot.svg"></div>
+  <div id="nodes"></div>
+  <div class="cap" style="bottom:170px"><span>next: every gadget around you, one Grok Bot chat</span></div>
+</div>
+
+<div class="scene end" id="s6">
+  <img class="logo" src="assets/logo.png">
+  <h1>Grok Gadgets</h1>
+  <p>let your Grok Bot control what you build</p>
+  <div class="url">grokgadgets.org</div>
+  <div class="mono">open source · built for <img src="assets/bot.svg"> grok bot</div>
+</div>
+
+</div>
+<div class="chip" id="chip"><img src="assets/logo.png">Grok Gadgets</div>
+<div class="label mono" id="label"></div>
+
+<script>
+const S=[[0,4.5],[4.5,8.5],[8.5,13.5],[13.5,16.8],[16.8,19.8],[19.8,25.2],[25.2,28.5]];
+window.DURATION=28.5; window.SPEED=1;
+const LABELS=["handheld · 12 oct","iphone app · 13 oct","gateway log · 13 oct","the kit","mac app · 13 oct","where it's going",""];
+const LOG=[
+ ['$ ','tail -f gateway request log','',true],
+ ['08:53:12','gadgets_list_devices','ok'],
+ ['08:53:52','gadgets_command display.text','executed'],
+ ['08:54:15','gadgets_command_status','executed'],
+ ['08:54:35','gadgets_get_state','ok'],
+ ['08:54:57','gadgets_read_events','ok'],
+ ['08:57:29','gadgets_diagnostics','ok'],
+ ['09:02:58','gadgets_list_devices','ok','p'],
+ ['09:03:18','gadgets_command display.text','executed','p'],
+ ['09:03:38','gadgets_get_state','ok','p'],
+];
+const NODES=[["oled display",540,430,"today"],["desk lamp",210,620,"next"],["fan",870,620,"next"],["door sensor",150,1150,"next"],["plant monitor",930,1150,"next"],["3d printer",300,1330,"next"],["robot arm",780,1330,"next"],["drone fleet",540,1470,"next"]];
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)); const ease=x=>1-Math.pow(1-clamp(x),3);
+const nodesEl=document.getElementById('nodes'); const web=document.getElementById('web');
+NODES.forEach((n,i)=>{const d=document.createElement('div'); d.className='node'+(n[3]==='next'?' plan':''); d.style.left=n[1]+'px'; d.style.top=(n[2]-50)+'px'; d.innerHTML=`<div class="box">${n[0]}</div><div class="t mono ${n[3]}">${n[3]==='today'?'working today':'planned'}</div>`; nodesEl.appendChild(d);
+ const l=document.createElementNS('http://www.w3.org/2000/svg','line'); l.setAttribute('x1',540);l.setAttribute('y1',880);l.setAttribute('x2',n[1]);l.setAttribute('y2',n[2]); l.setAttribute('stroke',n[3]==='today'?'#9cc2a4':'#55554f'); l.setAttribute('stroke-width',n[3]==='today'?5:3); if(n[3]!=='today') l.setAttribute('stroke-dasharray','12 10'); web.appendChild(l);});
+const imgs=[...document.images]; window.ready=Promise.all(imgs.map(i=>i.decode().catch(()=>{})));
+const clip=document.getElementById('clipimg');
+function pad(s,n){return (s+' '.repeat(n)).slice(0,n)}
+window.seek=async function(t){
+  let cur=0; S.forEach((s,i)=>{ if(t>=s[0]) cur=i; });
+  document.querySelectorAll('.scene').forEach((el,i)=>{const [a,b]=S[i]; let o=0; if(t>=a&&t<b){o=Math.min(1,(t-a)/0.25, i===S.length-1?1:(b-t)/0.2)} el.style.opacity=clamp(o);});
+  document.getElementById('label').textContent=LABELS[cur];
+  document.getElementById('chip').style.opacity=cur===6?0:1;
+  // handheld drift on camera scenes
+  const hand=[0,1,3,4].includes(cur)?1:0.35;
+  document.getElementById('stage').style.transform=`translate(${Math.sin(t*1.7)*7*hand+Math.sin(t*4.3)*2*hand}px,${Math.cos(t*1.3)*6*hand+Math.cos(t*5.1)*2*hand}px) rotate(${Math.sin(t*0.9)*0.35*hand}deg) scale(1.025)`;
+  // scene 0 clip
+  if(cur===0){const f=Math.min(135,Math.floor(t*30)+1); const src=`assets/clip/f${String(f).padStart(4,'0')}.jpg`; if(!clip.src.endsWith(src)){clip.src=src; await clip.decode().catch(()=>{});} clip.style.transform=`scale(${1.04+t*0.01})`;}
+  if(cur===1){const k=(t-S[1][0])/4; document.querySelector('.phone img').style.transform=`scale(${1+k*0.06}) translateY(${-k*40}px)`;}
+  if(cur===2){const k=t-S[2][0]; const shown=Math.floor(k/0.42); let out='';
+    LOG.forEach((r,i)=>{ if(i>shown) return; if(r[3]===true) out+=`<span class="d">${r[0]}</span>${r[1]}\n\n`; else if(r[3]==='p') out+=`<span class="y">${r[0]}  ${pad(r[1],28)} ${r[2]}</span>\n`; else out+=`<span class="d">${r[0]}</span>  ${pad(r[1],28)} <span class="k">${r[2]}</span>\n`; });
+    if(shown>=LOG.length) out+=`\n<span class="d">token=grok-bot  remote=true  every line</span>\n<span class="y">yellow</span><span class="d"> = sent from the iphone app</span>\n`;
+    out+= (Math.floor(k*2)%2? '' : '<span class="cursor"></span>');
+    document.getElementById('tlog').innerHTML=out;}
+  if(cur===3){const k=(t-S[3][0])/3.3; document.querySelector('#pa img').style.transform=`scale(${1.08-k*0.06})`; document.querySelector('#pb img').style.transform=`scale(${1+k*0.08})`; document.querySelector('#pc img').style.transform=`scale(${1+k*0.08})`;}
+  if(cur===4){const k=(t-S[4][0])/3; document.querySelector('.mac img').style.transform=`scale(${1.02+k*0.08})`;}
+  if(cur===5){const k=t-S[5][0]; document.querySelectorAll('.node').forEach((n,i)=>{const e=ease((k-0.3-i*0.28)/0.4); n.style.opacity=e; n.style.transform=`translateY(${(1-e)*30}px)`;}); [...web.children].forEach((l,i)=>{l.style.opacity=ease((k-0.2-i*0.28)/0.4)}); document.querySelector('.hub').style.transform=`scale(${0.85+0.15*ease(k/0.5)})`;}
+};
+window.seek(0);
+</script>
+</body></html>

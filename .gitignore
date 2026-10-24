@@ -48,3 +48,18 @@ Thumbs.db
 
 # Local marketing video work: sources, narration and large rendered videos (not committed).
 /community/drafts/explainer-video/
+
+# Draft renders, frames, recordings and audio stay private (grok-gadgets-review); text is committed.
+/community/drafts/**/*.png
+/community/drafts/**/*.jpg
+/community/drafts/**/*.jpeg
+/community/drafts/**/*.gif
+/community/drafts/**/*.mp4
+/community/drafts/**/*.mov
+/community/drafts/**/*.webm
+/community/drafts/**/*.wav
+/community/drafts/**/*.mp3
+/community/drafts/**/*.py
+/community/drafts/**/frames/
+/community/drafts/**/hf/
+/community/drafts/relay-payment-motion/
