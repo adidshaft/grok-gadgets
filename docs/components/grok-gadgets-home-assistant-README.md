@@ -1,4 +1,4 @@
-Source: grok-gadgets-home-assistant/README.md at 20ac015fff093393dfd67868dd40807292b94749
+Source: grok-gadgets-home-assistant/README.md at d848f9b5681e0fc9f32a69094d8973f00f95aa30
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -7,14 +7,38 @@ This is a pinned documentation snapshot. Relative filesystem paths describe the 
 Check what Home Assistant's own MCP server would offer your Grok Bot. `ha-probe` lists its
 tools, resources and prompts without ever calling a tool or reading a resource. Experimental
 alpha: this Home Assistant integration has no verified real-home or Grok Bot result yet. See the
-[project status](https://grok-gadgets.pages.dev/doc-docs-public-support-matrix).
+[project status](https://grokgadgets.org/doc-docs-public-support-matrix).
 Independent project, not affiliated with SpaceXSI or Home Assistant.
 
 > Writing style: ASD-STE100-inspired English. Use short sentences, active verbs and one instruction per step. This is not certified compliance.
 
+## Start here
+
+| Path | Next step |
+| --- | --- |
+| [Try the probe](#quickstart) | Use a fixture without a home server |
+| [Check a home server](docs/setup.md) | Read the authentication limits first |
+| [See project status](https://grokgadgets.org/doc-docs-public-support-matrix) | Separate the kit results from this integration |
+
+## Install from PyPI
+
+The package is on [PyPI](https://pypi.org/project/grok-gadgets-home-assistant/). Install it into a virtual
+environment with Python 3.11+. It is an alpha, so name the version or pass `--pre`:
+
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install --pre grok-gadgets-home-assistant
+.venv/bin/ha-probe --version
+```
+
+Each [GitHub release](https://github.com/adidshaft/grok-gadgets-home-assistant/releases) also has the wheel and
+`SHA256SUMS`; the PyPI files are the same build.
+
+On an Intel Mac, `cryptography` has no prebuilt wheel and needs a Rust toolchain to build.
+
 ## Quickstart
 
-You need Python 3.11+, Git and [`uv`](https://docs.astral.sh/uv/). No home, account or token.
+For contributors: use Python 3.11+, Git and [`uv`](https://docs.astral.sh/uv/). This fixture needs no home, account or token.
 
 ```sh
 git clone https://github.com/adidshaft/grok-gadgets-home-assistant.git
@@ -40,19 +64,6 @@ Expected result (other fixed flags omitted):
 
 Next: [prepare a Home Assistant test user](docs/setup.md#2-prepare-home-assistant-safely).
 
-### Install with pip
-
-The package is not on PyPI yet. Each [GitHub release](https://github.com/adidshaft/grok-gadgets-home-assistant/releases)
-has a wheel and `SHA256SUMS`. Install the wheel into a virtual environment with Python 3.11+:
-
-```sh
-python3 -m venv .venv
-.venv/bin/python -m pip install https://github.com/adidshaft/grok-gadgets-home-assistant/releases/download/v0.1.0-alpha.5/grok_gadgets_home_assistant-0.1.0a5-py3-none-any.whl
-.venv/bin/ha-probe --help
-```
-
-On an Intel Mac, `cryptography` has no prebuilt wheel and needs a Rust toolchain to build.
-
 ## Why a probe
 
 Home Assistant already has its own MCP server, so Grok Gadgets does not wrap your home. The
@@ -71,6 +82,9 @@ The [setup guide](docs/setup.md) walks through a test user with _Control Home As
 and revoke it after testing.
 
 ## Grok Bot today
+
+The owner verified the separate gateway route with OAuth from Mac and iPhone.
+That result does not verify Home Assistant authentication or home control.
 
 Connecting a Grok Bot needs a reachable HTTPS URL with compatible authentication; check the
 [remote-route gate](docs/setup.md#4-remote-route) before you expose a home server. This
@@ -101,7 +115,12 @@ Contribute on the `dev` branch; `main` holds tagged stable releases ([branches](
 
 ## License and affiliation
 
-Apache-2.0; see [LICENSE](LICENSE) and [NOTICE](NOTICE). [uv.lock](uv.lock) pins the dependencies; the packages are not on PyPI yet. Grok Gadgets is an independent open-source
+Apache-2.0; see [LICENSE](LICENSE) and [NOTICE](NOTICE). [uv.lock](uv.lock) pins the dependencies; the package is also on [PyPI](https://pypi.org/project/grok-gadgets-home-assistant/). Grok Gadgets is an independent open-source
 project. It is **not affiliated with, endorsed by or sponsored by SpaceXSI**, which
 make Grok and Grok Bot, nor with Home Assistant. We reconstructed the pre-publication commit dates; see the
 [history record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/publication-sanitization.md).
+
+## Project discussion
+
+Ask questions and share gadget ideas in [hub Discussions](https://github.com/adidshaft/grok-gadgets/discussions).
+Use this repository's issue forms for defects.

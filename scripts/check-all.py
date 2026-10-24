@@ -15,6 +15,11 @@ run_id = (
 )
 out = root / "artifacts/verification" / run_id
 out.mkdir(parents=True, exist_ok=True)
+TIMEOUT = 180
+# The gateway suite passes in 80-115 s on CI but went past 180 s three times
+# (20-23 Oct 2026). Its own faulthandler_timeout (300 s) prints every stack when
+# a test hangs, so its cap sits above that: a slow runner passes, a hang explains itself.
+TIMEOUTS = {"gateway": 420}
 jobs = [
     ("hub", root, [sys.executable, "scripts/check.py"]),
     ("browser-simulator", root, ["node", "--test", "website/test_simulator.cjs"]),
@@ -39,7 +44,11 @@ jobs = [
         root,
         [sys.executable, "-m", "unittest", "discover", "-s", "community/tests"],
     ),
-    ("gateway", root.parent / "grok-gadgets-gateway", ["uv", "run", "pytest"]),
+    (
+        "gateway",
+        root.parent / "grok-gadgets-gateway",
+        ["uv", "run", "pytest", "--durations=15"],
+    ),
     (
         "mcp-demo",
         root.parent / "grok-gadgets-gateway",
@@ -85,15 +94,24 @@ for name, cwd, command in jobs:
         ["git", "-C", str(cwd), "diff", "HEAD", "--binary"]
     )
     start = time.monotonic()
-    r = subprocess.run(
-        command,
-        cwd=cwd,
-        env=env,
-        text=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-        timeout=180,
-    )
+    limit = TIMEOUTS.get(name, TIMEOUT)
+    try:
+        r = subprocess.run(
+            command,
+            cwd=cwd,
+            env=env,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            timeout=limit,
+        )
+    except subprocess.TimeoutExpired as exc:
+        partial = exc.stdout or ""
+        if isinstance(partial, bytes):
+            partial = partial.decode(errors="replace")
+        r = subprocess.CompletedProcess(
+            command, 124, partial + f"\n[check-all] {name} timed out after {limit} s\n"
+        )
     (out / (name + ".log")).write_text(r.stdout)
     commit = subprocess.check_output(
         ["git", "-C", str(cwd), "rev-parse", "HEAD"], text=True
@@ -113,6 +131,7 @@ for name, cwd, command in jobs:
                 ["git", "-C", str(cwd), "status", "--porcelain"], text=True
             ).splitlines(),
             exit_code=r.returncode,
+            timeout_seconds=limit,
             seconds=round(time.monotonic() - start, 2),
             log=str((out / (name + ".log")).relative_to(root)),
         )
