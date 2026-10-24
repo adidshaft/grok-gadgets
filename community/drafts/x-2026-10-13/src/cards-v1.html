@@ -1,0 +1,157 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>X cards</title>
+<style>
+:root{--bg:#f6f4ef;--ink:#141414;--mute:#6b675f;--line:#e2ded5;--card:#fff;--ok:#1f9d55;--bad:#d64545;--acc:#ff6a1a;--blue:#2f6fed}
+*{box-sizing:border-box;margin:0}
+body{background:#ccc;font-family:-apple-system,"SF Pro Display","Helvetica Neue",Arial,sans-serif;color:var(--ink)}
+.c{width:1600px;height:900px;background:var(--bg);position:relative;padding:72px 88px;margin:20px;overflow:hidden}
+.sq{width:1080px;height:1080px}
+.brand{position:absolute;left:88px;bottom:52px;display:flex;align-items:center;gap:12px;font-size:24px;font-weight:600}
+.brand img{width:34px;height:34px;border-radius:8px}
+.url{position:absolute;right:88px;bottom:56px;font-size:24px;color:var(--mute)}
+h1{font-size:58px;letter-spacing:-1.5px;line-height:1.08;font-weight:750}
+.sub{font-size:28px;color:var(--mute);margin-top:14px;line-height:1.35}
+.flow{display:flex;align-items:stretch;gap:0;margin-top:70px}
+.node{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:26px 24px;width:300px;min-height:230px}
+.node .k{font-size:18px;text-transform:uppercase;letter-spacing:1.5px;color:var(--mute);font-weight:600}
+.node .t{font-size:32px;font-weight:700;margin-top:10px;line-height:1.15}
+.node .d{font-size:21px;color:var(--mute);margin-top:12px;line-height:1.35}
+.node img{width:56px;height:56px;border-radius:14px;margin-bottom:6px}
+.arrow{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;font-size:19px;color:var(--mute);text-align:center;padding:0 8px}
+.arrow:before{content:"";display:block;width:100%;height:3px;background:var(--ink);margin-bottom:10px;border-radius:2px}
+.note{margin-top:46px;font-size:24px;line-height:1.4;background:#fff3ea;border-left:6px solid var(--acc);padding:18px 24px;border-radius:8px;max-width:1300px}
+table{border-collapse:collapse;margin-top:36px;width:100%;font-size:25px}
+td{padding:12px 14px;border-bottom:2px solid var(--line)}
+td.n{color:var(--mute);width:60px;font-variant-numeric:tabular-nums}
+td.r{width:150px;font-weight:700;text-align:right}
+.pass{color:var(--ok)}.fail{color:var(--bad)}
+td.w{color:var(--mute);font-size:21px;width:520px}
+.stack{display:flex;gap:80px;margin-top:60px;align-items:flex-end}
+.col{width:330px}
+.col .lab{font-size:24px;font-weight:700;margin-bottom:14px}
+.bar{height:430px;border:3px solid var(--ink);border-radius:14px;display:flex;flex-direction:column-reverse;overflow:hidden;background:#fff}
+.seg{display:flex;align-items:center;justify-content:center;font-size:21px;font-weight:600;border-top:2px dashed #fff;color:#fff;text-align:center;padding:4px}
+.why{flex:1;font-size:27px;line-height:1.45}
+.why b{font-weight:750}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:48px}
+.box{background:#fff;border-radius:22px;border:2px solid var(--line);padding:30px 34px}
+.box h2{font-size:30px;margin-bottom:18px;display:flex;gap:12px;align-items:center}
+.box li{font-size:24px;line-height:1.38;margin:0 0 14px 0;list-style:none;padding-left:34px;position:relative}
+.box li:before{position:absolute;left:0;font-weight:800}
+.y li:before{content:"✓";color:var(--ok)}
+.no li:before{content:"…";color:var(--bad)}
+.end{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.end img.logo{width:200px;height:200px;border-radius:44px}
+.end h1{font-size:84px;margin-top:34px}
+.end .sub{font-size:36px}
+.pill{margin-top:44px;background:var(--acc);color:#fff;font-size:40px;font-weight:700;padding:18px 40px;border-radius:60px}
+.foot{margin-top:28px;font-size:26px;color:var(--mute);display:flex;gap:10px;align-items:center}
+.foot img{width:32px;height:32px;border-radius:7px}
+</style></head><body>
+
+<!-- A: route -->
+<div class="c" id="route">
+  <h1>How "Hi from Grok Bot on Wi-Fi" reached a breadboard</h1>
+  <p class="sub">One kit, one home network, 12 October 2026. Each step matched in the gateway log.</p>
+  <div class="flow">
+    <div class="node"><img src="grok-bot-mark.svg"><div class="k">1 · Chat</div><div class="t">Grok Bot</div><div class="d">Desktop app on my Mac, asked to run one local command</div></div>
+    <div class="arrow">runs<br>locally</div>
+    <div class="node"><div class="k">2 · Local</div><div class="t">grok-gadgets gateway</div><div class="d">Open source MCP gateway on the Mac. Device tokens, request log</div></div>
+    <div class="arrow">Wi-Fi<br>TLS</div>
+    <div class="node"><div class="k">3 · Device</div><div class="t">ESP32-S3 + 1.3" OLED</div><div class="d">Holds a TLS session to the gateway, shows the text</div></div>
+  </div>
+  <p class="note">Grok Bot ran a shell command here. It did not call the gateway's MCP tools natively yet. That part is still open.</p>
+  <div class="brand"><img src="grok-gadgets-icon.png">Grok Gadgets</div><div class="url">grokgadgets.org</div>
+</div>
+
+<!-- B: wifi scorecard -->
+<div class="c" id="wifi">
+  <h1>Wi-Fi acceptance on one ESP32-S3 kit</h1>
+  <p class="sub">USB charger power, home router, gateway on a Mac. 8 checks, 1 failure that got fixed the same day.</p>
+  <table>
+    <tr><td class="n">1</td><td>Connect on boot, show Online</td><td class="w">lan_hello 14 ms after connect</td><td class="r pass">pass</td></tr>
+    <tr><td class="n">2</td><td>Show text, then clear</td><td class="w">simulated: false</td><td class="r pass">pass</td></tr>
+    <tr><td class="n">3</td><td>BOOT button events</td><td class="w">press and release both logged</td><td class="r pass">pass</td></tr>
+    <tr><td class="n">4a</td><td>Router off 3 to 4 min, then on</td><td class="w">board stuck at WiFi... for 5+ min</td><td class="r fail">fail</td></tr>
+    <tr><td class="n">4b</td><td>Same test, firmware rejoins every 15 s</td><td class="w">Online again in under 15 s</td><td class="r pass">pass</td></tr>
+    <tr><td class="n">5</td><td>Gateway restart</td><td class="w">back 5 s after serve_started</td><td class="r pass">pass</td></tr>
+    <tr><td class="n">6</td><td>Revoke token, then re-enroll</td><td class="w">rejected in 0.42 s</td><td class="r pass">pass</td></tr>
+    <tr><td class="n">7</td><td>Gateway cert from the wrong CA</td><td class="w">23 TLS failures, no hello</td><td class="r pass">pass</td></tr>
+    <tr><td class="n">8</td><td>Pull the power, plug it back</td><td class="w">WiFi..., Gateway..., Online</td><td class="r pass">pass</td></tr>
+  </table>
+  <div class="brand"><img src="grok-gadgets-icon.png">Grok Gadgets</div><div class="url">github.com/adidshaft/grok-gadgets-esp32-sdk</div>
+</div>
+
+<!-- C: stack -->
+<div class="c" id="stack">
+  <h1>The bug that only showed up when I added a feature</h1>
+  <div class="stack">
+    <div class="col"><div class="lab">alpha.9 loop stack (8 KB)</div>
+      <div class="bar">
+        <div class="seg" style="height:42%;background:#8a8579">settings copy 3.4 KB</div>
+        <div class="seg" style="height:42%;background:#8a8579">settings copy 3.4 KB</div>
+        <div class="seg" style="height:10%;background:#b9b3a6">everything else</div>
+        <div class="seg" style="height:6%;background:var(--ok)">~500 B left</div>
+      </div></div>
+    <div class="col"><div class="lab">alpha.10 adds Wi-Fi failure reasons</div>
+      <div class="bar">
+        <div class="seg" style="height:42%;background:#8a8579">settings copy 3.4 KB</div>
+        <div class="seg" style="height:42%;background:#8a8579">settings copy 3.4 KB</div>
+        <div class="seg" style="height:16%;background:var(--bad)">overflow → canary trips</div>
+      </div></div>
+    <div class="why">
+      Every <b>provision</b> line crashed the board with <b>Stack canary watchpoint triggered (loopTask)</b>.<br><br>
+      The new feature was small. It just used the last few hundred bytes.<br><br>
+      Fix: one settings buffer outside the stack. Shipped as ESP32 SDK v0.2.0-alpha.10, checked on the kit.
+    </div>
+  </div>
+  <div class="brand"><img src="grok-gadgets-icon.png">Grok Gadgets</div><div class="url">grokgadgets.org</div>
+</div>
+
+<!-- D: verified vs not -->
+<div class="c" id="status">
+  <h1>Where Grok Gadgets actually is</h1>
+  <p class="sub">Experimental alpha. Apache-2.0. Five repos: hub, gateway, Linux SDK, ESP32 SDK, Home Assistant probe.</p>
+  <div class="two">
+    <div class="box y"><h2>Works today</h2><ul>
+      <li>One ESP32-S3 + OLED kit passed USB and Wi-Fi acceptance</li>
+      <li>Grok Bot ran a local command that put text on that OLED</li>
+      <li>Token revoke and wrong-CA certs get rejected</li>
+      <li>No-hardware simulator path in about 5 minutes</li>
+    </ul></div>
+    <div class="box no"><h2>Not proven yet</h2><ul>
+      <li>Grok Bot calling the MCP tools natively</li>
+      <li>Anyone else rebuilding the kit from the guide</li>
+      <li>Remote access from outside the home network</li>
+      <li>Raspberry Pi path on a physical Pi</li>
+    </ul></div>
+  </div>
+  <div class="brand"><img src="grok-gadgets-icon.png">Grok Gadgets</div><div class="url">grokgadgets.org</div>
+</div>
+
+
+<!-- F: simulator terminal -->
+<div class="c" id="sim">
+  <h1>No board yet? Rehearse it with a simulated light</h1>
+  <p class="sub">Git and uv. No hardware, account or API key. About five minutes.</p>
+  <pre style="margin-top:40px;background:#141414;color:#e8e6e1;border-radius:20px;padding:34px 38px;font:24px/1.55 ui-monospace,Menlo,monospace;white-space:pre-wrap"><span style="color:#8a8579">$ uv run grok-gadgets-gateway serve --simulator      # terminal 1
+$ uv run grok-gadgets-gateway rehearse               # terminal 2</span>
+<span style="color:#5fd38d">ok</span>  http://127.0.0.1:8766/mcp offers the six tools Grok Bot will use
+<span style="color:#5fd38d">ok</span>  gadget sim-c124 (simulated); commands: rgb.set
+<span style="color:#5fd38d">ok</span>  gadgets_command rgb.set {"r":0,"g":120,"b":255,"on":true} -> executed
+<span style="color:#5fd38d">ok</span>  gadgets_get_state sim-c124: {"rgb": {"r": 0, "g": 120, "b": 255, "on": true}, ...}
+Rehearsal passed: these are the calls Grok Bot will make. It does not prove
+a Grok Bot connection or any physical effect.</pre>
+  <div class="brand"><img src="grok-gadgets-icon.png">Grok Gadgets</div><div class="url">github.com/adidshaft/grok-gadgets-gateway</div>
+</div>
+
+<!-- E: end card square -->
+<div class="c sq end" id="endcard">
+  <img class="logo" src="grok-gadgets-icon.png">
+  <h1>Grok Gadgets</h1>
+  <p class="sub">Let your Grok Bot control what you build.</p>
+  <div class="pill">grokgadgets.org</div>
+  <div class="foot">Open source · built for <img src="grok-bot-mark.svg"> Grok Bot</div>
+</div>
+
+</body></html>

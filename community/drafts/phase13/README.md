@@ -6,10 +6,13 @@ The owner decided on 18 October 2026 that the calls go to GitHub issues #185 and
 
 | File | Where it goes | Fill in before posting |
 | --- | --- | --- |
-| [tester-call.md](tester-call.md) | A comment on [#185](https://github.com/adidshaft/grok-gadgets/issues/185) | Nothing (filled 18 Oct 2026) |
-| [builder-call.md](builder-call.md) | A comment on [#269](https://github.com/adidshaft/grok-gadgets/issues/269) | Nothing (filled 18 Oct 2026) |
+| [tester-call.md](tester-call.md) | A comment on [#185](https://github.com/adidshaft/grok-gadgets/issues/185) | Nothing (versions checked 24 Oct 2026) |
+| [builder-call.md](builder-call.md) | A comment on [#269](https://github.com/adidshaft/grok-gadgets/issues/269) | Nothing (versions checked 24 Oct 2026) |
 | [report-template.md](report-template.md) | Linked from both calls | Nothing |
 | [linux-pr-58-reply.md](linux-pr-58-reply.md) | A comment on Linux SDK PR #58 | Nothing |
+
+The owner deferred posting on 20 October 2026 (recorded on #269). If a gateway, ESP32 or
+Linux release lands before posting, update the version lines in both calls first.
 
 Before posting: read the [support matrix](../../../docs/public/support-matrix.md). Copy only
 what it states as measured or tested. Leave every `[TO FILL]` mark out of a posted text.

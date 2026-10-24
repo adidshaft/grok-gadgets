@@ -11,6 +11,10 @@ Post it only with the owner's yes, as a comment on
 We need one person outside the project to follow the builder guide on their own host and
 tell us where it breaks.
 
+**Current releases:** gateway `0.1.0a20`, ESP32 SDK `v0.2.0-alpha.19`, Linux SDK `0.1.0a10`.
+Check the [project status](https://github.com/adidshaft/grok-gadgets/blob/main/docs/public/support-matrix.md)
+before you start; it says what was tested and what was not.
+
 **What you do (about one afternoon):**
 
 1. Follow [Ship a gadget in one afternoon](https://grokgadgets.org/doc-docs-getting-started-ship-a-gadget).
@@ -26,7 +30,9 @@ gadgets polling every 100 ms (about 61 % CPU) and 1,000 with long-poll (about 67
 137 MB). Those are measurements of one host, not guarantees
 ([record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/ready-for-others-2026-10-18.md)).
 A relay holds 64 gadgets
-by default; `serve --max-devices` raises it.
+by default; `serve --max-devices` raises it. Credits per account are optional and off by
+default; they measure use and involve no payments
+([Credits on your relay](https://grokgadgets.org/doc-docs-getting-started-credits-on-your-relay)).
 
 **What you need:** a small Linux host, a domain you control, Grok Bot, and an ESP32-S3 board
 with a part or a Linux machine. Hardware and hosting are yours; the project pays for nothing.

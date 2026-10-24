@@ -1,0 +1,303 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>X build-log cards</title>
+<style>
+:root{--paper:#fff;--ink:#111;--muted:#626262;--line:#e6e6e6;--sage:#668d70;--soft:#f6f6f4;--red:#b5483b}
+*{box-sizing:border-box;margin:0}
+body{background:#ddd;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;color:var(--ink)}
+.slide{width:1920px;height:1080px;background:var(--paper);padding:68px 80px 56px;margin:20px;display:flex;flex-direction:column;overflow:hidden}
+.mono{font:15px/1.45 "Courier New",monospace;letter-spacing:.03em;color:var(--muted);text-transform:uppercase}
+header{display:flex;align-items:flex-start;justify-content:space-between;border-bottom:1px solid var(--line);height:82px;flex:none}
+.brand{display:flex;align-items:center;gap:14px;font-size:26px;font-weight:500;letter-spacing:-.8px}
+.brand img{width:38px;height:38px}
+header .mono{text-align:right}
+.top{padding:48px 0 40px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1.3fr .7fr;gap:80px}
+h1{font-size:70px;line-height:.98;letter-spacing:-.06em;font-weight:500;margin-top:10px}
+.aside{align-self:end;border-left:1px solid var(--line);padding-left:32px;font-size:19px;line-height:1.42;color:var(--muted)}
+.aside strong{display:block;font-size:27px;font-weight:500;letter-spacing:-.04em;color:var(--ink);margin:8px 0 6px}
+.body{flex:1;padding-top:56px}
+footer{display:flex;justify-content:space-between;align-items:end;flex:none;border-top:1px solid var(--line);padding-top:22px;font-size:15px;color:var(--muted)}
+footer strong{color:var(--ink);font-weight:500}
+.flow{display:grid;grid-template-columns:1fr 150px 1fr 150px 1fr;align-items:start}
+.step .marker{width:56px;height:56px;display:grid;place-items:center;border:1px solid var(--ink);font:16px "Courier New",monospace;background:#fff}
+.step.cur .marker{background:var(--ink);color:#fff}
+.step h2{font-size:42px;line-height:1.05;letter-spacing:-.045em;font-weight:500;margin:24px 0 12px}
+.step p{font-size:23px;line-height:1.45;color:var(--muted);max-width:400px}
+.link{margin-top:27px;border-top:1px solid #c9c9c4;text-align:center}
+.link span{position:relative;top:12px;font:14px "Courier New",monospace;color:var(--muted);text-transform:uppercase}
+.gate{margin-top:110px;padding-left:20px;border-left:1px dashed #b9b9b3;font-size:24px;line-height:1.45;max-width:1200px}
+.gate b{font-weight:500}
+table{border-collapse:collapse;width:100%}
+td{padding:15px 0;border-bottom:1px solid var(--line);font-size:23px;letter-spacing:-.01em}
+td.n{font:16px "Courier New",monospace;color:var(--muted);width:90px}
+td.w{font:17px "Courier New",monospace;color:var(--muted);width:620px}
+td.r{width:120px;text-align:right;font:16px "Courier New",monospace;text-transform:uppercase}
+.pass{color:var(--sage)}.fail{color:var(--red)}
+.stackgrid{display:grid;grid-template-columns:330px 330px 1fr;gap:70px;align-items:end}
+.col .mono{margin-bottom:14px}
+.bar{height:440px;border:1px solid var(--ink);display:flex;flex-direction:column}
+.seg{display:flex;align-items:center;justify-content:center;font:15px "Courier New",monospace;border-bottom:1px solid var(--ink);text-transform:uppercase;letter-spacing:.03em}
+.seg:last-child{border-bottom:none}
+.seg.s{background:var(--soft);flex:42}
+.seg.o{flex:10;color:var(--muted)}
+.seg.f{flex:6;background:#eef3ef;color:var(--sage)}
+.seg.x{flex:16;background:var(--ink);color:#fff}
+.why p{font-size:24px;line-height:1.45;margin-bottom:26px;max-width:620px}
+.why code{font:21px "Courier New",monospace;background:var(--soft);padding:2px 6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.two h2{font-size:31px;letter-spacing:-.045em;font-weight:500;margin:14px 0 22px}
+.two ul{padding:0}.two li{list-style:none;font-size:25px;line-height:1.4;padding:14px 0;border-bottom:1px solid var(--line)}
+.dot{display:inline-flex;align-items:center;gap:9px;font:14px "Courier New",monospace;text-transform:uppercase}
+.dot i{width:9px;height:9px;border-radius:50%;display:block}
+.dot.g{color:var(--sage)}.dot.g i{background:var(--sage)}
+.dot.o{color:var(--muted)}.dot.o i{border:1px solid var(--muted)}
+pre{background:var(--ink);color:#e9e9e6;padding:36px 40px;font:23px/1.6 "Courier New",monospace;white-space:pre-wrap}
+pre .c{color:#8b8b86}pre .k{color:#9cc2a4}
+.sq{width:1080px;height:1080px;justify-content:center;align-items:center;text-align:center}
+.sq img{width:150px;height:150px}
+.sq h1{font-size:96px;margin-top:40px}
+.sq p{font-size:30px;color:var(--muted);margin-top:18px;letter-spacing:-.02em}
+.sq .mono{margin-top:60px}
+</style></head><body>
+
+<section class="slide" id="route">
+  <header><div class="brand"><img src="grok-gadgets-icon.png">Grok Gadgets</div><div class="mono">Build log / 12 Oct 2026<br>Local route · Wi-Fi</div></header>
+  <div class="top"><div><div class="mono">Route</div><h1>How "Hi from Grok Bot<br>on Wi-Fi" reached a breadboard</h1></div>
+    <div class="aside"><div class="mono">Scope</div><strong>One kit, one home network</strong>Each hop matched in the gateway request log.</div></div>
+  <div class="body">
+    <div class="flow">
+      <div class="step"><div class="marker">01</div><h2 style="display:flex;align-items:center;gap:14px"><img src="grok-bot-mark.svg" style="width:44px;height:44px">Grok Bot</h2><p>Desktop app on the Mac runs one local command.</p></div>
+      <div class="link"><span>runs locally</span></div>
+      <div class="step"><div class="marker">02</div><h2 style="display:flex;align-items:center;gap:14px"><img src="grok-gadgets-icon.png" style="width:44px;height:44px">Gateway</h2><p>Open source MCP gateway on the Mac. Device tokens and a request log.</p></div>
+      <div class="link"><span>Wi-Fi · TLS</span></div>
+      <div class="step cur"><div class="marker">03</div><h2>ESP32-S3 + OLED</h2><p>Keeps a TLS session to the gateway and shows the text.</p></div>
+    </div>
+    <div class="gate"><b>Still open.</b> Grok Bot ran a shell command here. Native MCP tool calls from Grok Bot are not verified yet.</div>
+  </div>
+  <footer><span><strong>Hardware</strong> YD-ESP32-23 v1.3 · ESP32-S3-N16R8 · 1.3" SH1106 OLED</span><span>Experimental alpha</span></footer>
+</section>
+
+<section class="slide" id="wifi">
+  <header><div class="brand"><img src="grok-gadgets-icon.png">Grok Gadgets</div><div class="mono">Build log / 12 Oct 2026<br>Wi-Fi acceptance</div></header>
+  <div class="top"><div><div class="mono">Acceptance</div><h1>8 Wi-Fi checks on<br>one ESP32-S3 kit</h1></div>
+    <div class="aside"><div class="mono">Result</div><strong>7 passed first time</strong>The router-outage failure was fixed and passed the same day.</div></div>
+  <div class="body" style="padding-top:20px">
+    <table>
+      <tr><td class="n">01</td><td>Connect on boot, show Online</td><td class="w">lan_hello 14 ms after connect</td><td class="r pass">Pass</td></tr>
+      <tr><td class="n">02</td><td>Show text, then clear</td><td class="w">simulated: false</td><td class="r pass">Pass</td></tr>
+      <tr><td class="n">03</td><td>BOOT button events</td><td class="w">press and release logged</td><td class="r pass">Pass</td></tr>
+      <tr><td class="n">04a</td><td>Router off 3 to 4 min, then on</td><td class="w">stuck at WiFi... for 5+ min</td><td class="r fail">Fail</td></tr>
+      <tr><td class="n">04b</td><td>Retest, firmware rejoins every 15 s</td><td class="w">Online again in under 15 s</td><td class="r pass">Pass</td></tr>
+      <tr><td class="n">05</td><td>Gateway restart</td><td class="w">back 5 s after serve_started</td><td class="r pass">Pass</td></tr>
+      <tr><td class="n">06</td><td>Revoke token, then re-enroll</td><td class="w">rejected in 0.42 s</td><td class="r pass">Pass</td></tr>
+      <tr><td class="n">07</td><td>Gateway cert from a throwaway CA</td><td class="w">23 TLS failures, no hello</td><td class="r pass">Pass</td></tr>
+      <tr><td class="n">08</td><td>Pull the power, plug it back</td><td class="w">WiFi... Gateway... Online</td><td class="r pass">Pass</td></tr>
+    </table>
+  </div>
+  <footer><span><strong>Power</strong> USB charger for every item · <strong>Network</strong> home router, 2.4 GHz, WPA2</span><span>One kit, one router, one host</span></footer>
+</section>
+
+<section class="slide" id="stack">
+  <header><div class="brand"><img src="grok-gadgets-icon.png">Grok Gadgets</div><div class="mono">Build log / 12 Oct 2026<br>ESP32 firmware</div></header>
+  <div class="top"><div><div class="mono">Bug</div><h1>500 bytes from a crash,<br>and nothing showed it</h1></div>
+    <div class="aside"><div class="mono">Symptom</div><strong>Stack canary watchpoint triggered (loopTask)</strong>On every provision line.</div></div>
+  <div class="body">
+    <div class="stackgrid">
+      <div class="col"><div class="mono">alpha.9 · 8 KB loop stack</div><div class="bar">
+        <div class="seg f">~500 B left</div><div class="seg o">everything else</div>
+        <div class="seg s">settings copy 3.4 KB</div><div class="seg s">settings copy 3.4 KB</div></div></div>
+      <div class="col"><div class="mono">alpha.10 · + failure reasons</div><div class="bar">
+        <div class="seg x">overflow</div>
+        <div class="seg s">settings copy 3.4 KB</div><div class="seg s">settings copy 3.4 KB</div></div></div>
+      <div class="why">
+        <p>alpha.10 added Wi-Fi failure reasons to the OLED: <code>No network</code>, <code>Wrong password</code>, <code>Join timeout</code>.</p>
+        <p>That small change used the last few hundred bytes. Two settings copies had been sitting on the stack the whole time.</p>
+        <p>Fix: one buffer outside the stack. Checked on the kit.</p>
+      </div>
+    </div>
+  </div>
+  <footer><span><strong>Fixed in</strong> ESP32 SDK v0.2.0-alpha.10</span><span>No board was provisioned with alpha.9</span></footer>
+</section>
+
+<section class="slide" id="status">
+  <header><div class="brand"><img src="grok-gadgets-icon.png">Grok Gadgets</div><div class="mono">Build log / 12 Oct 2026<br>Project status</div></header>
+  <div class="top"><div><div class="mono">Status</div><h1>What works, and what<br>is not proven yet</h1></div>
+    <div class="aside"><div class="mono">Stage</div><strong>Experimental alpha</strong>Apache-2.0. Hub, gateway, Linux SDK, ESP32 SDK and a Home Assistant probe.</div></div>
+  <div class="body">
+    <div class="two">
+      <div><span class="dot g"><i></i>Works today</span><h2>Checked</h2><ul>
+        <li>One ESP32-S3 + OLED kit passed USB and Wi-Fi acceptance</li>
+        <li>Grok Bot ran a local command that put text on that OLED</li>
+        <li>Revoked tokens and wrong-CA certificates get rejected</li>
+        <li>No-hardware simulator path in about five minutes</li></ul></div>
+      <div><span class="dot o"><i></i>Next gates</span><h2>Not proven yet</h2><ul>
+        <li>Grok Bot calling the MCP tools natively</li>
+        <li>Someone else rebuilding the kit from the guide</li>
+        <li>Access from outside the home network</li>
+        <li>The Linux path on a physical Raspberry Pi</li></ul></div>
+    </div>
+  </div>
+  <footer><span><strong>Independent project</strong> · not affiliated with SpaceXSI</span><span>Experimental alpha</span></footer>
+</section>
+
+<section class="slide" id="sim">
+  <header><div class="brand"><img src="grok-gadgets-icon.png">Grok Gadgets</div><div class="mono">Build log / 12 Oct 2026<br>No-hardware path</div></header>
+  <div class="top"><div><div class="mono">Simulator</div><h1>No board yet?<br>Rehearse with a fake light</h1></div>
+    <div class="aside"><div class="mono">Needs</div><strong>Git and uv</strong>No hardware, account or API key. About five minutes.</div></div>
+  <div class="body" style="padding-top:44px">
+<pre><span class="c">$ grok-gadgets-gateway serve --simulator     # terminal 1
+$ grok-gadgets-gateway rehearse              # terminal 2</span>
+<span class="k">ok</span>  http://127.0.0.1:8766/mcp offers the six tools Grok Bot will use
+<span class="k">ok</span>  gadget sim-c124 (simulated); commands: rgb.set
+<span class="k">ok</span>  gadgets_command rgb.set {"r":0,"g":120,"b":255,"on":true} -> executed
+<span class="k">ok</span>  gadgets_get_state sim-c124: {"rgb": {"r": 0, "g": 120, "b": 255, "on": true}, ...}
+Rehearsal passed: these are the calls Grok Bot will make. It does not prove
+a Grok Bot connection or any physical effect.</pre>
+  </div>
+  <footer><span><strong>Simulated</strong> · not hardware evidence</span><span>Experimental alpha</span></footer>
+</section>
+
+
+<section class="slide" id="kit">
+  <header><div class="brand"><img src="grok-gadgets-icon.png">Grok Gadgets</div><div class="mono">Build log / 12 Oct 2026<br>Experiment kit</div></header>
+  <div style="flex:1;display:grid;grid-template-columns:1.55fr .45fr;gap:40px;padding:40px 0 34px;min-height:0">
+    <div style="background:url(breadboard-kit.jpg) center/cover;border:1px solid var(--line)"></div>
+    <div style="display:flex;flex-direction:column;gap:30px;min-height:0">
+      <div style="flex:1;background:url(oled-module.jpg) center/cover;border:1px solid var(--line)"></div>
+      <div><div class="mono">Parts</div><div style="font-size:24px;line-height:1.45;margin-top:10px;letter-spacing:-.02em">ESP32-S3-N16R8 board<br>1.3" SH1106 I²C OLED<br>Breadboard, 4 jumpers</div></div>
+    </div>
+  </div>
+  <footer><span><strong>Wiring</strong> VCC to 3V3 · GND · SCK to GPIO9 · SDA to GPIO8</span><span>Experimental alpha</span></footer>
+</section>
+
+
+<section class="slide" id="native">
+  <header><div class="brand"><img src="grok-gadgets-icon.png">Grok Gadgets</div><div class="mono">Build log / 13 Oct 2026<br>Native tool calls</div></header>
+  <div class="top" style="padding:36px 0 30px"><div><div class="mono">Milestone</div><h1 style="display:flex;align-items:center;gap:22px"><img src="grok-bot-mark.svg" style="width:64px;height:64px">Grok Bot called the tools itself</h1></div>
+    <div class="aside"><div class="mono">Gateway request log</div><strong>9 tool calls, 0 errors</strong>Mac app and iPhone app, one real ESP32-S3 OLED.</div></div>
+  <div style="flex:1;display:grid;grid-template-columns:1.55fr .45fr;gap:40px;padding:30px 0 28px;min-height:0">
+    <div style="display:flex;flex-direction:column;min-height:0"><div class="mono" style="margin-bottom:12px">Desktop · 6 prompts, 6 calls</div><div style="flex:1;background:#111 url(native-mac.jpg) center/contain no-repeat;border:1px solid var(--line)"></div></div>
+    <div style="display:flex;flex-direction:column;min-height:0"><div class="mono" style="margin-bottom:12px">iPhone · 3 prompts, 3 calls</div><div style="flex:1;background:#111 url(native-phone.jpg) center/contain no-repeat;border:1px solid var(--line)"></div></div>
+  </div>
+  <footer><span><strong>Sign-in</strong> OAuth, approved with a code in Terminal on the Mac · no token typed in chat</span><span>One owner kit</span></footer>
+</section>
+
+
+<section class="slide" id="alwayson">
+  <header><div class="brand"><img src="grok-gadgets-icon.png">Grok Gadgets</div><div class="mono">Build log / 13 Oct 2026<br>Always-on gateway</div></header>
+  <div class="top"><div><div class="mono">Always on</div><h1>Online without a<br>terminal open</h1></div>
+    <div class="aside"><div class="mono">Found by name</div><strong>The Mac's .local name, not its IP</strong>No new certificate, no re-provisioning.</div></div>
+  <div class="body">
+    <div class="flow">
+      <div class="step"><div class="marker">01</div><h2>Starts at login</h2><p>The gateway runs as a background service on the Mac.</p></div>
+      <div class="link"><span>address changes</span></div>
+      <div class="step"><div class="marker">02</div><h2>Mac changes address</h2><p>Twice, from Wi-Fi band switches. The gateway follows it.</p></div>
+      <div class="link"><span>~3 s</span></div>
+      <div class="step cur"><div class="marker">03</div><h2>Board back Online</h2><p>About 3 s later each time. A Mac restart came back on its own too.</p></div>
+    </div>
+  </div>
+  <footer><span><strong>Released</strong> gateway v0.1.0-alpha.10 · ESP32 SDK v0.2.0-alpha.12</span><span>One owner kit</span></footer>
+</section>
+
+
+<style>
+.lanes{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:0;flex:1;min-height:0;margin-top:34px;position:relative}
+.lane{padding:0 34px;border-left:1px solid var(--line);display:flex;flex-direction:column}
+.lane:first-child{border-left:none;padding-left:0}
+.lane h3{font-size:30px;font-weight:500;letter-spacing:-.04em;margin:10px 0 22px}
+.box{border:1px solid var(--ink);padding:18px 20px;background:#fff;margin-bottom:16px}
+.box b{font-size:23px;font-weight:500;letter-spacing:-.02em;display:block}
+.box p{font-size:17px;color:var(--muted);margin-top:6px;line-height:1.4}
+.box.plan{border-style:dashed;border-color:#9a9a95}
+.gd{border:1px solid var(--ink);padding:12px 16px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;background:#fff}
+.gd b{font-size:21px;font-weight:500}
+.gd.plan{border-style:dashed;border-color:#9a9a95}
+.gd.plan b{color:var(--muted)}
+.arrow{font:15px "Courier New",monospace;color:var(--muted);text-transform:uppercase;margin:6px 0 16px}
+.tag{display:inline-flex;align-items:center;gap:8px;font:13px "Courier New",monospace;text-transform:uppercase;padding:4px 8px;border:1px solid}
+.tag.t{color:var(--sage);border-color:var(--sage)}.tag.p{color:var(--muted);border-color:#b9b9b3;border-style:dashed}
+.legend{display:flex;gap:18px;align-items:center}
+</style>
+<section class="slide" id="howitworks">
+  <header><div class="brand"><img src="grok-gadgets-icon.png">Grok Gadgets</div><div class="mono">How it works<br>Today and planned</div></header>
+  <div class="top" style="padding:34px 0 28px"><div><div class="mono">Architecture</div><h1>Many gadgets, one Grok Bot chat</h1></div>
+    <div class="aside"><div class="legend"><span class="tag t">Today · tested on one kit</span><span class="tag p">Planned / design</span></div><strong style="margin-top:14px">Gadgets connect out. Grok Bot signs in.</strong>The relay never gets into your Grok Bot account.</div></div>
+  <div class="lanes">
+    <div class="lane"><div class="mono">01 · End user</div><h3 style="display:flex;gap:12px;align-items:center"><img src="grok-bot-mark.svg" style="width:40px;height:40px">Grok Bot</h3>
+      <div class="box"><span class="tag t">Today</span><b style="margin-top:10px">iPhone and Mac</b><p>Calls the gadget tools natively. One sign-in per relay, revocable.</p></div>
+      <div class="box plan"><span class="tag p">Design</span><b style="margin-top:10px">One chat, every relay</b><p>"dim the lamp and show the weather on the desk display"</p></div>
+      <div class="arrow">HTTPS + sign-in → each relay</div></div>
+    <div class="lane"><div class="mono">02 · Builder's relay</div><h3>Always-on server</h3>
+      <div class="box"><span class="tag t">Today · in progress</span><b style="margin-top:10px">Gateway on a small Linux server</b><p>Moved off the Mac. Sees only gadget tool calls: device IDs, commands, reported state. No chats, no Wi-Fi passwords.</p></div>
+      <div class="box plan"><span class="tag p">Design</span><b style="margin-top:10px">One relay per builder</b><p>Each at its own builder address, e.g. gadgets.example.net. Open source, so anyone can run their own.</p></div></div>
+    <div class="lane"><div class="mono">03 · Gadgets at home</div><h3>Connect out over TLS</h3>
+      <div class="gd"><b>ESP32-S3 OLED</b><span class="tag t">Today</span></div>
+      <div class="arrow">↑ out to its relay · shows Online</div>
+      <div class="gd plan"><b>Desk lamp</b><span class="tag p">Design</span></div>
+      <div class="gd plan"><b>Desk display</b><span class="tag p">Design</span></div>
+      <div class="gd plan"><b>Sensor</b><span class="tag p">Design</span></div>
+      <div class="arrow">↑ each to its own builder's relay</div></div>
+  </div>
+  <footer><span><strong>Not done yet</strong> phone on cellular with the Mac asleep · only one gadget server tested · end-user setup is planned</span><span>Independent · not affiliated with SpaceXSI</span></footer>
+</section>
+
+
+<section class="slide" id="security">
+  <header><div class="brand"><img src="grok-gadgets-icon.png">Grok Gadgets</div><div class="mono">Build log / 12 Oct 2026<br>Security checks</div></header>
+  <div class="top"><div><div class="mono">Two tests</div><h1>Make it fail on purpose</h1></div>
+    <div class="aside"><div class="mono">Setup</div><strong>ESP32-S3 kit on home wifi</strong>Gateway on the Mac, gateway request log as evidence.</div></div>
+  <div class="body">
+    <div class="two">
+      <div><span class="dot g"><i></i>Pass</span><h2>Revoke the device token</h2>
+        <div style="font-size:120px;letter-spacing:-.06em;font-weight:500;line-height:1">0.42 s</div>
+        <p style="font-size:24px;color:var(--muted);margin-top:16px;line-height:1.4">from revoke to <code style="font:22px 'Courier New',monospace">lan_auth_rejected</code>. The board showed Token rejected until it got a new token.</p></div>
+      <div><span class="dot g"><i></i>Pass</span><h2>Serve a cert from a throwaway CA</h2>
+        <div style="font-size:120px;letter-spacing:-.06em;font-weight:500;line-height:1">23 × 0</div>
+        <p style="font-size:24px;color:var(--muted);margin-top:16px;line-height:1.4">23 TLS failures, about one every 5 s, and zero hellos. Back Online as soon as the real cert returned.</p></div>
+    </div>
+  </div>
+  <footer><span><strong>Record</strong> ESP32 SDK · oled-kit-wifi-2026-10-12</span><span>One owner kit</span></footer>
+</section>
+
+
+<section class="slide" id="claim">
+  <header><div class="brand"><img src="grok-gadgets-icon.png">Grok Gadgets</div><div class="mono">Build log / 17 Oct 2026<br>Claim your gadget</div></header>
+  <div class="top"><div><div class="mono">Tested by two people</div><h1 style="display:flex;align-items:center;gap:22px"><img src="grok-bot-mark.svg" style="width:64px;height:64px">Your gadgets, your Grok Bot</h1></div>
+    <div class="aside"><div class="mono">17 Oct</div><strong>Two iPhones, one relay, one kit</strong>Each Grok Bot saw only its own gadgets.</div></div>
+  <div class="body">
+    <div class="flow">
+      <div class="step"><div class="marker">01</div><h2>Code on screen</h2><p>The gadget shows a claim code. Type it once in Grok Bot and it's yours.</p></div>
+      <div class="link"><span>share on purpose</span></div>
+      <div class="step"><div class="marker">02</div><h2>One-use share</h2><p>10-minute code, view-only or use. Revoke any time.</p></div>
+      <div class="link"><span>hand over</span></div>
+      <div class="step cur"><div class="marker">03</div><h2>Safe transfer</h2><p>A reset alone never moves it. The old owner lets go, or 7 days pass.</p></div>
+    </div>
+  </div>
+  <footer><span><strong>Released</strong> gateway v0.1.0-alpha.15 · ESP32 SDK v0.2.0-alpha.16 · hub v0.1.16-alpha.1</span><span>Alpha · one relay, one kit</span></footer>
+</section>
+
+
+<section class="slide" id="ota">
+  <header><div class="brand"><img src="grok-gadgets-icon.png">Grok Gadgets</div><div class="mono">Build log / 17 Oct 2026<br>Signed wireless updates</div></header>
+  <div class="top"><div><div class="mono">Update and ship safely</div><h1 style="display:flex;align-items:center;gap:22px"><img src="grok-bot-mark.svg" style="width:64px;height:64px">No cable. Bad firmware undoes itself.</h1></div>
+    <div class="aside"><div class="mono">Tested on one kit</div><strong>ESP32-S3 OLED, one relay</strong>Grok Bot showed text on it after the update.</div></div>
+  <div class="body">
+    <div class="flow">
+      <div class="step"><div class="marker">01</div><h2>Signed package</h2><p>The builder signs it. The relay offers it to the gadget.</p></div>
+      <div class="link"><span>over wifi</span></div>
+      <div class="step"><div class="marker">02</div><h2>Update 0%…100%</h2><p>About 70 s on the OLED, then a restart.</p></div>
+      <div class="link"><span>checked</span></div>
+      <div class="step cur"><div class="marker">03</div><h2>Back Online</h2><p>Or "Reverted" by itself if it never comes Online in 5 min.</p></div>
+    </div>
+    <div class="gate" style="margin-top:70px"><b>Refused:</b> wrong signing key · one changed byte. <b>Power pulled mid-download:</b> started over and finished.</div>
+  </div>
+  <footer><span><strong>Released</strong> gateway 0.1.0a16 · ESP32 SDK v0.2.0-alpha.17 · Linux SDK 0.1.0a8 · hub v0.1.17-alpha.1</span><span>Alpha · not yet repeated by others</span></footer>
+</section>
+
+<section class="slide sq" id="endcard">
+  <img src="grok-gadgets-icon.png">
+  <h1>Grok Gadgets</h1>
+  <p>Let your Grok Bot control what you build.</p>
+  <div class="mono" style="display:flex;align-items:center;gap:12px;justify-content:center">Open source · built for <img src="grok-bot-mark.svg" style="width:30px;height:30px"> Grok Bot</div>
+</section>
+
+</body></html>
