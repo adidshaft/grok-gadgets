@@ -1,14 +1,14 @@
 {
-  "status": "Public source prerelease and website live; v0.1.22-alpha.1 release candidate verified",
+  "status": "Public source prerelease and website live; v0.1.22-alpha.2 release candidate verified",
   "protocol": "0.1.0",
   "components": [
     {
       "repository": "grok-gadgets",
       "path": "grok-gadgets",
-      "version": "0.1.22-alpha.1",
-      "commit": "73daf1b55ef08ca11d77c2cb0281fa197b3801d5",
+      "version": "0.1.22-alpha.2",
+      "commit": "f1ba620ad2a446b2b9ce215877dbcfe3e5b3ae53",
       "evidence_level": "Public source prerelease; OLED kit verified over USB, Wi-Fi, an always-on relay, phone-only setup, two-account claim, signed updates over the relay a builder's dry run on a fresh relay and per-account credits on the owner's relay; native Grok Bot calls observed on the owner's setup",
-      "checks": "The v0.1.22-alpha.1 candidate pins gateway v0.1.0-alpha.21 (relay backups: a mode-0600 archive of the config directory with its SHA-256 and a restore guide; the restore was rehearsed on a synthetic relay, not yet on the owner's relay) and Home Assistant v0.1.0-alpha.6 (docs and tooling only). The roadmap, project status and site say Phase 15 is complete on the owner's setup with ADR 016 still Proposed, and tell the first credits run (1.0 per gadget-day, no commands, ended 23 October) apart from the second run to 30 October (#402). Draft text is committed and renders stay private. Nothing is sold and there are no payments. ESP32 SDK v0.2.0-alpha.19 and Linux SDK v0.1.0-alpha.10 are unchanged. A builder outside the project (#269) and a tester's report (#185) remain open.",
+      "checks": "The v0.1.22-alpha.2 candidate is docs only and closes Phase 16. It adds the relay backup record (docs/verification/relay-backup-2026-10-24.md): the owner's relay runs gateway 0.1.0a21 with a nightly backup, and a backup pulled to the owner's Mac restored with credits verify, accounts list and firmware list identical to the relay. It adds the second credits run record (docs/verification/credits-pricing-2026-10-24.md): 1 credit per gadget-day again with no commands; the owner ended it on 24 October and the kit is back with the operator. ADR 016 stays Proposed. Nothing is sold and there are no payments. Component pins are unchanged: gateway v0.1.0-alpha.21, ESP32 SDK v0.2.0-alpha.19, Linux SDK v0.1.0-alpha.10 and Home Assistant v0.1.0-alpha.6. The tester and builder calls were posted on #185 and #269.",
       "grok_verified": true,
       "hardware_verified": false,
       "independently_reproduced": false,
