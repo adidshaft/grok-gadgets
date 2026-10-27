@@ -340,6 +340,11 @@ GROUPS = (
                         "docs/decisions/016-pay-for-a-relay.md",
                         "Paying for a relay (ADR 016, proposed)",
                     ),
+                    (
+                        "",
+                        "docs/decisions/017-verified-examples.md",
+                        "Verified examples (ADR 017, proposed)",
+                    ),
                 ),
             ),
         ),
