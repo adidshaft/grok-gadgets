@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/updates.md at 4546418490e71a9d60583805002389251ea89caf
+Source: grok-gadgets-gateway/docs/updates.md at 656cd59c6aeddb8589474096e070d3588372e72d
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
