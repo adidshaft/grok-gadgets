@@ -8,7 +8,7 @@
 
 <p align="center"><sub>Display lettering enhanced for readability.</sub></p>
 
-**[Website](https://grokgadgets.org/)** · [Documentation](https://grokgadgets.org/docs.html) · [Roadmap](ROADMAP.md) · [Issues](https://github.com/adidshaft/grok-gadgets/issues) · **[Join r/GrokGadgets](https://www.reddit.com/r/GrokGadgets/)**
+**[Website](https://grokgadgets.org/)** · [Documentation](https://grokgadgets.org/docs.html) · [Roadmap](ROADMAP.md) · [Issues](https://github.com/adidshaft/grok-gadgets/issues) · **[Join the X Community](https://x.com/i/communities/2026191471578067281)**
 
 **Give your Grok Bot hands in the physical world. Build a gadget, set it up from a phone, then just ask. Open source.**
 
@@ -52,7 +52,7 @@ Outside builders can follow [Ship a gadget](docs/getting-started/ship-a-gadget.m
 
 ## Community
 
-Join [r/GrokGadgets](https://www.reddit.com/r/GrokGadgets/) to show what you built, ask
+Join [Grok Gadgets on X](https://x.com/i/communities/2026191471578067281) to show what you built, ask
 questions and share ideas. Follow the [community guidelines](community/guidelines.md) and the
 [Code of Conduct](CODE_OF_CONDUCT.md); keep tokens and household details out of posts.
 Bugs and proposals go to [GitHub Issues](https://github.com/adidshaft/grok-gadgets/issues).
