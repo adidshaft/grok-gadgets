@@ -18,7 +18,7 @@ the Linux climate sensor use these names.
 | `switch.set` | command | `{"on": true}` | State `switch.on`; off at boot and after a link loss |
 | `servo.move` | command | `{"angle": 0–180}` | The acknowledgement comes after the move ends |
 | `threshold.set` | command | `{"above_c": -40–85}` | Sets when `threshold.crossed` fires |
-| `climate` | state | `temperature_c`, `humidity_pct`, `above_c` | One decimal |
+| `climate` | state | `temperature_c`, `humidity_pct`, `above_c`, `sensor` | One decimal; `sensor` is `ok` or `missing`, and a missing module has no reading |
 | `threshold.crossed` | event | `{"reading", "value", "above"}` | Once per crossing |
 | `button` | event | `{"pressed": true}` | Canonical; `state.button.pressed` too |
 
