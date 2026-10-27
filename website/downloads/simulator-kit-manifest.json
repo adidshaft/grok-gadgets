@@ -1,8 +1,8 @@
 {
   "format_version": 1,
-  "gateway_commit": "4546418490e71a9d60583805002389251ea89caf",
-  "gateway_commit_epoch": 1792815500,
-  "gateway_inputs": "1f26881092edbb429a5de68c89e45ee04de8290ba6c5eec057abe00b8ca9decd",
+  "gateway_commit": "90df3f76fe3b2c9790d98ba7dec2d4467cfbcc41",
+  "gateway_commit_epoch": 1793104078,
+  "gateway_inputs": "ba4a3877cc2f6e332188ffb3f21c6b8dd477c7b8025ebd62707d1b6b55f53248",
   "package_version": "0.1.0a21",
   "build_inputs": {
     "scripts/build-simulator-kit.py": "ea51c6cb536962d8cc9233389b9bde261a1ca6c2c8076f76042bb13754641cb5",
@@ -34,13 +34,13 @@
     },
     {
       "file": "grok_gadgets_gateway-0.1.0a21-py3-none-any.whl",
-      "bytes": 176294,
-      "sha256": "d9d62d4314d870306504d140453703487cbd310047136ce4ad93bf306dc3cbb6"
+      "bytes": 176315,
+      "sha256": "7c3f8a578d0b23af54d5ab3df8e186d5750fe061d7402323b711369b220ba333"
     },
     {
       "file": "grok_gadgets_gateway-0.1.0a21.tar.gz",
-      "bytes": 306702,
-      "sha256": "d6611fc615f14967a653adba1fb9bb1d0b5d81135c7ae32609a1aa3b650d261e"
+      "bytes": 306733,
+      "sha256": "a464dd00af61b6a9bcdfbf3509fb4c01f0f6e149795bb7f2350a307e328bab6b"
     },
     {
       "file": "install.py",
@@ -65,7 +65,7 @@
     {
       "file": "source.tar",
       "bytes": 1228800,
-      "sha256": "fd04e7c839cfd7b3ed36fe2bfb6d50efd2c300a566f8243678c0732513830f52"
+      "sha256": "1772798ada9c1223adf435f33d20a557c05914b259069a565b45b21551cd4123"
     },
     {
       "file": "try_simulator.py",
@@ -74,6 +74,6 @@
     }
   ],
   "archive": "grok-gadgets-simulator-kit.zip",
-  "archive_bytes": 817940,
-  "archive_sha256": "de07215dd16c9444fdbb660fa9a31dfadbeb7d3ebbc05eea7d4eeb2f094ffd9c"
+  "archive_bytes": 818010,
+  "archive_sha256": "d8ae9863fc930b0be2314d7d619786c7897378aeb4eb66f629a902984cb5cfca"
 }
