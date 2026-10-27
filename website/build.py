@@ -605,7 +605,7 @@ page(
         "Makers welcome.",
         "Share a build. Ask a question. Improve the tools.",
     )
-    + '<p><a class="text-cta" href="https://www.reddit.com/r/GrokGadgets/">r/GrokGadgets ↗</a></p>'
+    + '<p><a class="text-cta" href="https://x.com/i/communities/2026191471578067281">Grok Gadgets on X ↗</a></p>'
     + '<p class="community-help-links"><a href="doc-docs-getting-started-simulator-kit.html">Start here ↗</a> · <a href="doc-SUPPORT.html">Get help ↗</a> · <a href="doc-community-guidelines.html">Community policy ↗</a> · <a href="doc-CODE_OF_CONDUCT.html">Code of conduct ↗</a> · <a href="doc-SECURITY.html">Security ↗</a></p>'
     + path_row(
         "01",
@@ -621,7 +621,7 @@ page(
         "doc-community-contribution-recognition.html",
         "Recognition policy",
     )
-    + '<p class="quiet-note">Policies live in GitHub. Reddit configuration and contributor-flair activation are separate steps.</p>',
+    + '<p class="quiet-note">Policies live in GitHub. Contributor recognition is not automated.</p>',
 )
 page(
     "releases.html",

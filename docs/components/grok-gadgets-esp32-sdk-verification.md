@@ -1,4 +1,4 @@
-Source: grok-gadgets-esp32-sdk/docs/verification.md at 179da5fdb17cf4da99ad959204113f8bac438562
+Source: grok-gadgets-esp32-sdk/docs/verification.md at c2399065ec48fe2e5e6ed2d092dfc008fcf9ea1e
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 

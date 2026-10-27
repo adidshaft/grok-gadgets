@@ -1,4 +1,4 @@
-Source: grok-gadgets-home-assistant/README.md at d848f9b5681e0fc9f32a69094d8973f00f95aa30
+Source: grok-gadgets-home-assistant/README.md at 393ce0d8cf499e32ede60bba3d9ae27714cf758f
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -106,7 +106,7 @@ this repository is part of [Grok Gadgets](https://github.com/adidshaft/grok-gadg
 ## Community
 
 Share what your home exposes, ask questions and suggest ideas on
-[r/GrokGadgets](https://www.reddit.com/r/GrokGadgets/), under the project's
+[Grok Gadgets community on X](https://x.com/i/communities/2026191471578067281), under the project's
 [Code of Conduct](https://github.com/adidshaft/grok-gadgets/blob/main/CODE_OF_CONDUCT.md).
 Report bugs through the [issue chooser](https://github.com/adidshaft/grok-gadgets-home-assistant/issues/new/choose).
 New here? Pick a [good first issue](https://github.com/adidshaft/grok-gadgets-home-assistant/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)

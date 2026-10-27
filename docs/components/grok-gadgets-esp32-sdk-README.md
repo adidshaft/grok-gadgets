@@ -1,4 +1,4 @@
-Source: grok-gadgets-esp32-sdk/README.md at 179da5fdb17cf4da99ad959204113f8bac438562
+Source: grok-gadgets-esp32-sdk/README.md at c2399065ec48fe2e5e6ed2d092dfc008fcf9ea1e
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
@@ -114,7 +114,7 @@ Host tests compile the sketches against a simulated board; they never open a ser
 ## Community
 
 Show your build, ask for help and share ideas on
-[r/GrokGadgets](https://www.reddit.com/r/GrokGadgets/). Report bugs through the
+[Grok Gadgets community on X](https://x.com/i/communities/2026191471578067281). Report bugs through the
 [issue chooser](https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues/new/choose). New
 here? Pick a [good first issue](https://github.com/adidshaft/grok-gadgets-esp32-sdk/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 and read [CONTRIBUTING](CONTRIBUTING.md). Build errors: [SUPPORT](SUPPORT.md).
