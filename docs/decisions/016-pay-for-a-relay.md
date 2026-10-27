@@ -51,7 +51,7 @@ The project never receives, holds or forwards a customer's or an operator's mone
 | Counsel signs off for the jurisdictions involved | A written opinion held privately by the owner; this ADR records only the date and scope |
 | The Grok Bot terms are read and still allow it | Done 20 October 2026; read again within 30 days of any launch |
 | The project name is reviewed against the SpaceXSI Brand Guidelines | Counsel's answer, before any selling text |
-| Stage 0 has a real number | The 7-day record with live gadget-days (#402) |
+| Stage 0 has a real number | Met on 27 October 2026: the owner waived seven days and accepted the four-day [record](https://github.com/adidshaft/grok-gadgets/blob/main/docs/verification/credits-pricing-2026-10-23.md), 1.0 credit per gadget-day (#402). Commands in daily use are still not measured |
 
 Counsel's questions cover these topics:
 
@@ -84,12 +84,13 @@ Counsel's questions cover these topics:
 
 ## Owner decisions
 
-Taken on 20 October 2026. The ADR stays Proposed until the gates are met.
+Taken on 20 October 2026, and the fifth on 27 October 2026. The ADR stays Proposed until the gates are met.
 
 1. **ADR 015's chain clause** gains one exception: operator and builder settlement, on a test network until counsel signs off.
 2. **Test network:** Solana Devnet, with Circle's test USDC and the Memo program.
 3. **Adapter:** none now. If one ever ships, it is a separate optional package, after counsel.
 4. **Names:** plain words only: "credits" and "operator settlement". No new product names now. No name contains "Grok".
+5. **Seven days (27 October 2026):** waived. The four-day record from 20 to 23 October is Stage 0's number.
 
 Options not chosen: no chains at all, Base Sepolia, never an adapter, and a product name now.
 
