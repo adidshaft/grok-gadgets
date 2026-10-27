@@ -56,7 +56,8 @@
     "docs/decisions/013-builder-kit.md",
     "docs/decisions/014-ready-for-others.md",
     "docs/decisions/015-shared-relay.md",
-    "docs/decisions/016-pay-for-a-relay.md"
+    "docs/decisions/016-pay-for-a-relay.md",
+    "docs/decisions/017-verified-examples.md"
   ],
   "component_sources": [
     "README.md",

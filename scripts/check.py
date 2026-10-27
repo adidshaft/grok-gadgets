@@ -116,6 +116,7 @@ def steps(py):
                 "docs/decisions/014-ready-for-others.md",
                 "docs/decisions/015-shared-relay.md",
                 "docs/decisions/016-pay-for-a-relay.md",
+                "docs/decisions/017-verified-examples.md",
                 "docs/getting-started/ship-a-gadget.md",
                 "docs/getting-started/credits-on-your-relay.md",
                 "docs/getting-started/capability-vocabulary.md",
