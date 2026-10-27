@@ -1,14 +1,14 @@
 {
-  "status": "Public source prerelease and website live; v0.1.22-alpha.3 release candidate verified",
+  "status": "Public source prerelease and website live; v0.1.22-alpha.4 release candidate verified",
   "protocol": "0.1.0",
   "components": [
     {
       "repository": "grok-gadgets",
       "path": "grok-gadgets",
-      "version": "0.1.22-alpha.3",
-      "commit": "f530764d77211089a881603b699edaf7c216eac6",
+      "version": "0.1.22-alpha.4",
+      "commit": "220c902b6a4a99cbc0d417aa6d4d1f0cfcc49b67",
       "evidence_level": "Public source prerelease; OLED kit verified over USB, Wi-Fi, an always-on relay, phone-only setup, two-account claim, signed updates over the relay a builder's dry run on a fresh relay and per-account credits on the owner's relay; native Grok Bot calls observed on the owner's setup",
-      "checks": "The v0.1.22-alpha.3 candidate is docs and site only (Phase 17). The README and the website home page link the tester call (#185) and the builder call (#269), both pinned. Drafts for the owner's posts are in community/drafts/phase17; nothing is posted. The previous release added the relay backup record and the second credits run record. Nothing is sold and there are no payments. Component pins are unchanged: gateway v0.1.0-alpha.21, ESP32 SDK v0.2.0-alpha.19, Linux SDK v0.1.0-alpha.10 and Home Assistant v0.1.0-alpha.6.",
+      "checks": "The v0.1.22-alpha.4 candidate is docs only. ADR 016 records the owner's decision of 27 October 2026: the seven-day credits run is waived, and the four-day record (1.0 credit per gadget-day, no commands) is Stage 0's number. ADR 016 stays Proposed. The previous release linked the tester call (#185) and the builder call (#269). Nothing is sold and there are no payments. Component pins are unchanged: gateway v0.1.0-alpha.21, ESP32 SDK v0.2.0-alpha.19, Linux SDK v0.1.0-alpha.10 and Home Assistant v0.1.0-alpha.6.",
       "grok_verified": true,
       "hardware_verified": false,
       "independently_reproduced": false,
