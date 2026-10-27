@@ -2,8 +2,8 @@
   {
     "repository": "grok-gadgets-esp32-sdk",
     "source": "README.md",
-    "commit": "179da5fdb17cf4da99ad959204113f8bac438562",
-    "sha256": "6ab3b0a400745a047481dfeabb847f7aef36e496c9569d7f2ffd8d9266248cb7",
+    "commit": "89a7bf53c18114d47363517945a84789e2f65649",
+    "sha256": "08284d230d7b108006772b2752ab3e3f3f0988e2c2f2dadbf7b2f229284af907",
     "snapshot": "docs/components/grok-gadgets-esp32-sdk-README.md"
   },
   {
@@ -79,8 +79,8 @@
   {
     "repository": "grok-gadgets-gateway",
     "source": "README.md",
-    "commit": "4546418490e71a9d60583805002389251ea89caf",
-    "sha256": "46c4e11cfe378721a6e040b48f2c22a211097611ccad8e84e0b4451b5fe99e5b",
+    "commit": "656cd59c6aeddb8589474096e070d3588372e72d",
+    "sha256": "43082bba0712fae920d749706239931499222435a00a79979328c52794128519",
     "snapshot": "docs/components/grok-gadgets-gateway-README.md"
   },
   {
@@ -184,8 +184,8 @@
   {
     "repository": "grok-gadgets-home-assistant",
     "source": "README.md",
-    "commit": "d848f9b5681e0fc9f32a69094d8973f00f95aa30",
-    "sha256": "68b5635178a8c09d9e837d1af775116fffb5343fe0800129f7b5f60f850ae3e3",
+    "commit": "5de17fad485b285782b107e4513690bbac302d23",
+    "sha256": "017cf3607c7ab2b8730f789dc655e9016a91250a4960c79589f4b6a6e02cef57",
     "snapshot": "docs/components/grok-gadgets-home-assistant-README.md"
   },
   {
@@ -219,8 +219,8 @@
   {
     "repository": "grok-gadgets-linux-sdk",
     "source": "README.md",
-    "commit": "98f01e2ad683a9ab937ce50402953a2cc2b8138e",
-    "sha256": "09af3eb005ad28c2a308ea24c3c7ee421bd5bb6fcdb206b06c5df277445370b3",
+    "commit": "1824d748e3b9bc1e42d0c4064e59ad48e76be00d",
+    "sha256": "d21f4c999c72437007a66cb711d739e2ea296206192735d512c4916b9cc15703",
     "snapshot": "docs/components/grok-gadgets-linux-sdk-README.md"
   },
   {
