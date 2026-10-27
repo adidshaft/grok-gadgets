@@ -346,7 +346,8 @@ home_sections = (
         "linux.html",
         "Build with Linux",
     )
-    + '<p class="quiet-note" id="components">Run Home Assistant? <a href="home-assistant.html">Let Grok Bot look inside ↗</a> · <a href="components.html">All components ↗</a></p></section>'
+    + '<p class="quiet-note" id="components">Run Home Assistant? <a href="home-assistant.html">Let Grok Bot look inside ↗</a> · <a href="components.html">All components ↗</a></p>'
+    + '<p class="quiet-note" id="help-wanted"><strong>Help wanted:</strong> <a href="https://github.com/adidshaft/grok-gadgets/issues/185">repeat the kit and report ↗</a> · <a href="https://github.com/adidshaft/grok-gadgets/issues/269">build for others and report ↗</a>. A failed run helps too.</p></section>'
 )
 scene_markup = (
     scene_source.read_text() if scene_source.is_file() else "<h1>Grok Gadgets</h1>"
