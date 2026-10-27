@@ -1,4 +1,4 @@
-Source: grok-gadgets-esp32-sdk/docs/sdk.md at 89a7bf53c18114d47363517945a84789e2f65649
+Source: grok-gadgets-esp32-sdk/docs/sdk.md at c2399065ec48fe2e5e6ed2d092dfc008fcf9ea1e
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
