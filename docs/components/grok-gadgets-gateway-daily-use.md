@@ -1,4 +1,4 @@
-Source: grok-gadgets-gateway/docs/daily-use.md at 656cd59c6aeddb8589474096e070d3588372e72d
+Source: grok-gadgets-gateway/docs/daily-use.md at cf2c668d2dd4bef54a6b8fadda108a27b4a64bf7
 
 This is a pinned documentation snapshot. Relative filesystem paths describe the component checkout.
 
