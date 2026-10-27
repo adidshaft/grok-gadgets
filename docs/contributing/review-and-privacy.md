@@ -8,7 +8,7 @@ Anyone can propose a contribution. A maintainer reviews it before merge. Open so
 | --- | --- |
 | Bug, feature or documentation change | Issue in the owning repository |
 | Code or documentation contribution | Focused pull request linked to its issue |
-| Questions and community examples | r/GrokGadgets; link actionable work to GitHub |
+| Questions and community examples | [Grok Gadgets on X](https://x.com/i/communities/2026191471578067281); link actionable work to GitHub |
 | Security vulnerability or leaked credential | GitHub private vulnerability reporting or SECURITY.md contact |
 | Private conduct report | adidshaft@kyokasuigetsu.xyz |
 
