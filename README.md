@@ -12,6 +12,8 @@
 
 **Give your Grok Bot hands in the physical world. Build a gadget, set it up from a phone, then just ask. Open source.**
 
+**Help wanted:** repeat the kit and report in [#185](https://github.com/adidshaft/grok-gadgets/issues/185), or ship a gadget from your own relay and report in [#269](https://github.com/adidshaft/grok-gadgets/issues/269). A failed run helps too.
+
 Alpha · one owner-tested kit · phone setup with no cable · Grok Bot calls through a gateway on an always-on server.
 See [project status](docs/public/support-matrix.md). Independent project, not affiliated with SpaceXSI.
 
